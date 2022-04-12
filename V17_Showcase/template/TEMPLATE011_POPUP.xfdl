@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE011_POPUP" inheritanceid="" position="absolute" titletext="Schedule information" style="background:#f2f2efff;" onload="form_onload" left="0" width="382" top="0" height="328">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" taborder="10" text="title" cssclass="sta_POP_bg" left="0" top="0" width="382" height="328"/>
+        <Button id="Button01" taborder="11" cssclass="btn_POP_close" left="351" top="10" width="17" height="17" tooltiptext="Close"/>
+        <Static id="Static05" taborder="12" text="11" visible="false" left="366" top="-5" width="11" height="45" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static06" taborder="13" text="10" visible="false" left="324" top="2" width="46" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="14" text="15" visible="false" left="361" top="42" width="15" height="230" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static08" taborder="15" text="15" visible="false" left="14" top="273" width="328" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static09" taborder="16" text="15" visible="false" left="2" top="306" width="328" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="stTitle" text="domain.title" position="absolute" left="17" width="85" top="56" height="32" cssclass="sta_WFDA_labelB"/>
+        <Static id="stContents" text="domain.contents" position="absolute" left="17" width="85" top="149" height="124" cssclass="sta_WFDA_labelB"/>
+        <Static id="stDate" text="domain.date" position="absolute" left="17" width="85" top="87" height="32" cssclass="sta_WFDA_labelB"/>
+        <Static id="stPlace" text="domain.schdplace" position="absolute" left="17" width="85" top="118" height="32" cssclass="sta_WFDA_labelB"/>
+        <Static id="Static00" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; " text="" left="101" width="260" top="56" height="32"/>
+        <Edit id="edt_Title" taborder="5" position="absolute" left="107" width="248" top="62" height="20"/>
+        <Static id="Static01" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; " text="" left="101" width="260" top="87" height="32"/>
+        <Calendar id="cal_FromDate" taborder="6" dateformat="yyyy-MM-dd" position="absolute" style="align:left middle; " onchanged="cal_FromDate_onchanged" left="107" width="115" top="93" height="20"/>
+        <Static id="stDash" text="~" position="absolute" left="227" width="14" top="93" height="20"/>
+        <Calendar id="cal_ToDate" taborder="7" dateformat="yyyy-MM-dd" position="absolute" style="align:left middle; " onchanged="cal_ToDate_onchanged" left="240" width="115" top="92" height="22"/>
+        <Static id="Static02" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; " text="" left="101" width="260" top="118" height="32"/>
+        <Edit id="edt_Place" taborder="8" position="absolute" left="107" width="248" top="124" height="20"/>
+        <Static id="Static03" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; " text="" left="101" width="260" top="149" height="124"/>
+        <TextArea id="txa_Contents" taborder="9" wordwrap="char" position="absolute" left="107" width="248" top="155" height="112"/>
+        <Button id="btn_Delete" taborder="1" text="domain.delete" position="absolute" onclick="btn_Delete_onclick" left="119" width="46" top="283" height="23"/>
+        <Button id="btn_Save" taborder="2" text="domain.save" position="absolute" onclick="btn_Save_onclick" left="168" width="46" top="283" height="23"/>
+        <Button id="btn_Cancel" taborder="3" text="domain.cancel" position="absolute" onclick="btn_Cancel_onclick" left="217" width="42" top="283" height="23"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Schedule" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SCHD_ID" type="STRING" size="256"/>
+          <Column id="SCHD_STARTDATE" type="DATE" size="256"/>
+          <Column id="SCHD_ENDDATE" type="DATE" size="256"/>
+          <Column id="SCHD_TITLE" type="STRING" size="256"/>
+          <Column id="SCHD_CONTENTS" type="STRING" size="256"/>
+          <Column id="SCHD_PLACE" type="STRING" size="256"/>
+          <Column id="USER_ID" type="STRING" size="16"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SVC_ID" type="STRING" size="100"/>
+          <Column id="QUERY_LIST" type="STRING" size="256"/>
+          <Column id="SERVICE" type="STRING" size="100"/>
+          <Column id="IN_DATASET_LIST" type="STRING" size="256"/>
+          <Column id="OUT_DATASET_LIST" type="STRING" size="256"/>
+          <Column id="CONTROLLER" type="STRING" size="512"/>
+          <Column id="CALLBACK" type="STRING" size="100"/>
+          <Column id="SYNC_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SVC_ID">create</Col>
+            <Col id="QUERY_LIST">querySet1=createXPSchedule</Col>
+            <Col id="OUT_DATASET_LIST"/>
+            <Col id="IN_DATASET_LIST">querySet1=ds_Schedule:U</Col>
+          </Row>
+          <Row>
+            <Col id="SVC_ID">update</Col>
+            <Col id="QUERY_LIST">querySet1=updateXPSchedule</Col>
+            <Col id="IN_DATASET_LIST">querySet1=ds_Schedule:U</Col>
+          </Row>
+          <Row>
+            <Col id="SVC_ID">remove</Col>
+            <Col id="QUERY_LIST">querySet1=removeXPSchedule</Col>
+            <Col id="IN_DATASET_LIST">querySet1=ds_Schedule:U</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_ScheduleValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SCHD_ID" type="STRING" size="256"/>
+          <Column id="SCHD_STARTDATE" type="STRING" size="256"/>
+          <Column id="SCHD_ENDDATE" type="STRING" size="256"/>
+          <Column id="SCHD_TITLE" type="STRING" size="256"/>
+          <Column id="SCHD_CONTENTS" type="STRING" size="256"/>
+          <Column id="SCHD_PLACE" type="STRING" size="256"/>
+          <Column id="USER_ID" type="STRING" size="16"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SCHD_STARTDATE">title:startdate,required:true</Col>
+            <Col id="SCHD_ENDDATE">title:enddate,required:true</Col>
+            <Col id="SCHD_TITLE">title:title,required:true,maxlength:150</Col>
+            <Col id="SCHD_CONTENTS">title:contents,maxlength:300</Col>
+            <Col id="SCHD_PLACE">title:schdplace,maxlength:150</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_Title" propid="value" datasetid="ds_Schedule" columnid="SCHD_TITLE"/>
+      <BindItem id="item1" compid="cal_FromDate" propid="value" datasetid="ds_Schedule" columnid="SCHD_STARTDATE"/>
+      <BindItem id="item2" compid="cal_ToDate" propid="value" datasetid="ds_Schedule" columnid="SCHD_ENDDATE"/>
+      <BindItem id="item3" compid="edt_Place" propid="value" datasetid="ds_Schedule" columnid="SCHD_PLACE"/>
+      <BindItem id="item4" compid="txa_Contents" propid="value" datasetid="ds_Schedule" columnid="SCHD_CONTENTS"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work screen template
+ * 02. Screen name   : TEMPLATE011_POPUP.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Modification history :
+ ***********************************************************************
+ *     Modified date     Modified by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+//include "lib::lib_HTML5_Frame.xjs"
+include "lib::lib_Form.xjs"
+
+this.strDate = "";
+this.strMode = "";
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+// Initializing Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Setting the receive parameter from the parent window
+	this.strMode = this.getOwnerFrame().paramMode;
+
+	this.ds_Schedule.clearData();
+	this.ds_Schedule.addRow();
+
+	// strMode : C - Creating new schedule information
+	// : U - Modifiyig the sheduled information
+	if (this.strMode == "C") 
+	{
+		this.strDate = this.getOwnerFrame().paramDate;
+		this.btn_Delete.set_visible(false);
+
+		this.ds_Schedule.setColumn(this.ds_Schedule.rowposition, "SCHD_ENDDATE", this.strDate);
+		this.ds_Schedule.setColumn(this.ds_Schedule.rowposition, "SCHD_STARTDATE", this.strDate);
+		this.ds_Schedule.setColumn(this.ds_Schedule.rowposition, "SCHD_ENDDATE", this.strDate);
+
+		if (!this.gfn_isNull(application.gv_UserId)) 
+		{
+			this.ds_Schedule.setColumn(this.ds_Schedule.rowposition, "USER_ID", application.gv_UserId);
+		}
+	}
+	else if (this.strMode == "U") 
+	{
+		var dsSource = this.getOwnerFrame().dsArg;
+		this.ds_Schedule.copyRow(this.ds_Schedule.rowposition, dsSource, dsSource.rowposition);
+		this.ds_Schedule.applyChange();
+	}
+}
+
+
+// Event processing on Delete button click
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var rtVal = this.gfn_Confirm("msg.before.delete");
+
+	if (rtVal == "Y") 
+	{
+		this.ds_Schedule.deleteRow(this.ds_Schedule.rowposition);
+		this.fn_Remove();
+	}
+	else 
+	{
+		return;
+	}
+}
+
+// Event processing on Save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	if (this.gfn_DsCheckValid(this.ds_Schedule)) 
+	{
+		var strScheduleId = this.ds_Schedule.getColumn(this.ds_Schedule.rowposition, "SCHD_ID");
+
+		if (this.gfn_isNull(strScheduleId)) 
+		{
+			this.fn_Create();
+		}
+		else 
+		{
+			this.fn_Update();
+		}
+	}
+}
+
+// Event processing on Cancel button click
+this.btn_Cancel_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// After exiting the window transfering data to parent window
+	this.close("N");
+}
+
+// Event processing on date changed
+this.cal_FromDate_onchanged = function (obj:Calendar, e:ChangeEventInfo)
+{
+	this.fn_changeDate(obj, e);
+}
+
+// Event processing on date changed
+this.cal_ToDate_onchanged = function (obj:Calendar, e:ChangeEventInfo)
+{
+	this.fn_changeDate(obj, e);
+}
+
+/***********************************************************************
+ * User defined function specification
+ ***********************************************************************/
+this.fn_Update = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "update";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='update'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='updateXPSchedule'";
+
+	var sInDatasets = "querySet1=ds_Schedule:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_Create = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "create";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='create'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='createXPSchedule'";
+
+	var sInDatasets = "querySet1=ds_Schedule:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_Remove = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "remove";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='remove'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1=removeXPSchedule'";
+
+	var sInDatasets = "querySet1=ds_Schedule:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// Event processing on date change
+this.fn_changeDate = function (obj, e)
+{
+	var startDate = this.cal_FromDate.value;
+	var endDate = this.cal_ToDate.value;
+
+	if (startDate < 20000101 || startDate >= 20310101 || endDate >= 20310101 || endDate < 20000101) 
+	{
+		this.gfn_Alert("msg.gt.maxdate", "error");
+		obj.set_value(e.prevalue);
+		obj.setFocus();
+		return false;
+	}
+
+	// Shows the warning message in case of end date is before than start date
+	if (this.gfn_getDiffDay(startDate, endDate) < 0) 
+	{
+		this.gfn_Alert("msg.startdate.greatthan.enddate", "warning");
+		obj.set_value(e.prevalue);
+		obj.setFocus();
+		return false;
+	}
+
+	return true;
+}
+
+// Processing Callback processing after processing Callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode == -1) 
+	{
+		this.gfn_Alert(strErrorMsg, "error");
+	}
+	else 
+	{
+		if (strServiceId == "create") 
+		{
+			this.gfn_Alert("msg.save.success");
+		}
+		else if (strServiceId == "update") 
+		{
+			this.gfn_Alert("msg.update.success");
+		}
+		else if (strServiceId == "delete") 
+		{
+			this.gfn_Alert("msg.delete.success");
+		}
+		this.close("Y");
+	}
+}
+
+]]></Script>
+  </Form>
+</FDL>

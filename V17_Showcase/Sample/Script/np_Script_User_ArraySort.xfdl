@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_User_ArraySort" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_User_ArraySort" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output0" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="190" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="80" height="40"/>
+        <Edit id="edt_input" taborder="0" value="1, 40, 6, 300, 2, 8, 5" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="80" height="40"/>
+        <Static id="Static01" text="output0" position="absolute" left="30" width="60" top="190" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="130" height="40"/>
+        <Edit id="edt_output1" taborder="3" position="absolute" left="90" width="250" top="240" height="40"/>
+        <Static id="Static02" text="output1" position="absolute" left="30" width="60" top="240" height="40"/>
+        <Static id="Static05" taborder="4" text="Sorting array" cssclass="sta_WF_subtitP" left="30" top="18" width="190" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_User_ArraySort
+ * Description : Sorting array
+ */
+ 
+/*  Button click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var arrNo = [1 ,40 ,6, 300, 2,8,5];
+    
+ 	this.fn_arrayNoSort(arrNo);	
+ 	this.fn_arrayStringSort(arrNo);
+};
+
+/*
+ * Function Name : fn_arrayStringSort
+ * Description   : Sorting string array
+ * Parameter     : array
+ * Return        : Sorted array
+ * Example       : fn_arrayStringSort();
+ */
+this.fn_arrayStringSort = function(arrNo)
+{
+    this.edt_output0.set_value(arrNo.sort());
+	
+	/* descending order
+	*	arrNo.sort();
+	*	arrNo.reverse();
+	*/	
+};
+
+/*
+ * Function Name : fn_arrayNoSort
+ * Description   : Sorting number array           
+ * Parameter     : array
+ * Return        : Sorted array
+ * Example       : fn_arrayNoSort();
+ */
+this.fn_arrayNoSort = function(arrNo)
+{
+    this.edt_output1.set_value(arrNo.sort(this.fn_sortFunction));
+	//or
+	//this.edt_output1.set_value(arrNo.sort(function(a, b){return a-b}));
+	
+	/*  descending order
+	 *	 arrNo.sort(function(a, b){return b-a});
+	 */
+
+};
+
+/*
+ * Function Name : fn_sortFunction
+ * Description   : way of using sort method, using sortFunction 
+ * Parameter     : Compare value1, compare value2
+ * Return        : Values after comparing 0, -1, 1
+ * Example       : fn_sortFunction(n1, n2);
+ */
+this.fn_sortFunction = function(nS, nE)
+{
+    // If first input parameter value is less than the second input parameter
+    if (nS < nE)
+    {
+        return -1;
+    }
+    // If first input parameter value is greater than the second input parameter
+    if (nS > nE) 
+    {
+        return 1;
+    }
+    // return 0, In case of two arguments are same 
+    return 0;
+};]]></Script>
+  </Form>
+</FDL>

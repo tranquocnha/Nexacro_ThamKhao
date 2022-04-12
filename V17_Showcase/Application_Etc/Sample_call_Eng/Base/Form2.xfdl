@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Form2" classname="Form2" left="0" top="0" width="1024" height="768" titletext="Form2" style="background:lightblue;">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="2" text="Access to object of &#13;&#10;Popup Window(modeless)" left="25" top="81" height="47" width="179" onclick="Button00_onclick" style="align:center middle;"/>
+        <Button id="Button01" taborder="3" text="Closing Popup Window" left="207" top="81" height="47" width="179" onclick="Button01_onclick" style="align:center middle;"/>
+        <Edit id="Edit00" taborder="4" value="Form2 TEXT" left="25" top="26" height="30" width="183"/>
+        <Div id="Div00" taborder="5" text="Div00" left="33" top="225" height="83" style="border:1 solid #808080ff ;" width="251">
+          <Layouts>
+            <Layout>
+              <Button id="Button03" taborder="0" text="Finding Form" left="66" top="26" height="32" width="103" onclick="Div00_Button03_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="Button02" taborder="6" text="Finding Form" left="33" top="169" height="32" width="93" onclick="Button02_onclick" style="align:center middle;"/>
+        <Tab id="Tab00" taborder="7" left="32" top="323" height="106" tabindex="0" scrollbars="autoboth" style="border:1 solid #808080ff ;" width="249">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="tabpage1">
+              <Layouts>
+                <Layout>
+                  <Button id="Button03" taborder="0" text="Finding Form" left="65" top="26" height="32" width="104" onclick="Tab00_tabpage1_Button03_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Grid id="Grid00" taborder="8" useinputpanel="false" left="32" top="463" height="50" binddataset="Dataset00" width="338">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="107"/>
+                <Column size="106"/>
+                <Column size="123"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="comp"/>
+                <Cell col="1" text="comp.parent"/>
+                <Cell col="2" text="comp.parent.Edit00"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="expr:comp"/>
+                <Cell col="1" expr="expr:comp.parent"/>
+                <Cell col="2" expr="expr:comp.parent.Edit00.value"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("application.popupframes['modeless'].form.Edit00.value : [" + application.popupframes["modeless"].form.Edit00.value + "]");
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.popupframes["modeless"].form.close();
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("obj.parent : " + obj.parent);
+}
+
+this.Div00_Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("obj.parent.parent : " + obj.parent.parent);
+}
+
+this.Tab00_tabpage1_Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("obj.parent.parent.parent : " + obj.parent.parent.parent);
+}
+]]></Script>
+  </Form>
+</FDL>

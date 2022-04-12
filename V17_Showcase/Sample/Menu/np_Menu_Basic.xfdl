@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Menu_Basic" classname="Edit_Basic" inheritanceid="" position="absolute" titletext="Menu Basic" left="0" width="760" top="0" height="430">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Binding" position="absolute" left="16" width="283" top="13" height="18" cssclass="sta_WF_subtitP" right="" bottom=""/>
+        <Menu id="Menu00" taborder="1" left="16" top="44" width="468" height="25" innerdataset="@ds_data" captioncolumn="CaptionCol" enablecolumn="EnableCol" levelcolumn="LvlCol" idcolumn="IdCol" iconcolumn="ImageCol" hotkeycolumn="HotkeyCol" checkboxcolumn="CheckBoxCol" style="itemborder:0 solid #ffffff00 ;popuptype:none;" onmenuclick="Menu00_onmenuclick"/>
+        <TextArea id="txt_result" taborder="4" left="16" top="76" width="468" height="328"/>
+      </Layout>
+    </Layouts>
+    <Bind/>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="IdCol" type="STRING" size="256"/>
+          <Column id="LvlCol" type="STRING" size="256"/>
+          <Column id="ImageCol" type="STRING" size="256"/>
+          <Column id="CaptionCol" type="STRING" size="256"/>
+          <Column id="EnableCol" type="STRING" size="256"/>
+          <Column id="HotkeyCol" type="STRING" size="256"/>
+          <Column id="CheckBoxCol" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="LvlCol">0</Col>
+            <Col id="ImageCol">[Undefined]</Col>
+            <Col id="CaptionCol">MENU1</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">100</Col>
+            <Col id="HotkeyCol"/>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU1_1</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">101</Col>
+            <Col id="CheckBoxCol">1</Col>
+            <Col id="HotkeyCol">Ctrl + S</Col>
+            <Col id="ImageCol">open</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU1_2</Col>
+            <Col id="EnableCol">false</Col>
+            <Col id="IdCol">102</Col>
+            <Col id="HotkeyCol">F2</Col>
+            <Col id="ImageCol">Image::no.png</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">0</Col>
+            <Col id="ImageCol">[Undefined]</Col>
+            <Col id="CaptionCol">MENU2</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">200</Col>
+            <Col id="HotkeyCol"/>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU2_1</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">201</Col>
+            <Col id="CheckBoxCol"/>
+            <Col id="ImageCol">[Undefined]</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU2_2</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">202</Col>
+            <Col id="CheckBoxCol"/>
+            <Col id="ImageCol">[Undefined]</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">2</Col>
+            <Col id="CaptionCol">MENU2_2_1</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">203</Col>
+            <Col id="CheckBoxCol"/>
+            <Col id="ImageCol">Image::nexacro</Col>
+          </Row>
+          <Row>
+            <Col id="CaptionCol">MENU2_2_2</Col>
+            <Col id="LvlCol">2</Col>
+            <Col id="EnableCol">false</Col>
+            <Col id="IdCol">204</Col>
+            <Col id="CheckBoxCol"/>
+            <Col id="ImageCol">Image::ok.png</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU2_3</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">205</Col>
+            <Col id="CheckBoxCol"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Menu00_onmenuclick = function(obj:Menu, e:nexacro.MenuClickEventInfo)
+{
+//	this.txt_result.set_text(this.txt_result.value + "e.id : " + e.id + "\n");
+}
+]]></Script>
+  </Form>
+</FDL>

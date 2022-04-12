@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Test" classname="Test" left="0" top="0" width="1024" height="169" titletext="New Form" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <EcoGrid id="EcoGrid00" taborder="0" useinputpanel="false" left="38" top="55" width="401" height="282" binddataset="Dataset00" useheadclicksort="true">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </EcoGrid>
+        <Grid id="grd_Category" taborder="5" binddataset="ds_Category" autoenter="select" useinputpanel="false" selecttype="multirow" cellsizingtype="col" autofittype="col" nodatatext="조회된 데이터가 없습니다." onrbuttonup="divGrd_grdCategory_onrbuttonup" onheadclick="divGrd_grdCategory_onheadclick" left="8" top="16" right="22" bottom="10" style="align:center middle;font:dotum,9;" userdata="A:U;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="147"/>
+                <Column size="434"/>
+                <Column size="164"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.name"/>
+                <Cell col="1" text="domain.desc"/>
+                <Cell col="2" text="domain.reg.date"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="text" style="align:left;" text="bind:CATEGORY_NAME"/>
+                <Cell col="1" edittype="text" style="align:left;" text="bind:CATEGORY_DESC"/>
+                <Cell col="2" displaytype="date" edittype="none" style="align:center;" text="bind:REG_DATE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_CategoryValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CATEGORY_ID" type="STRING" size="256"/>
+          <Column id="CATEGORY_DESC" type="STRING" size="256"/>
+          <Column id="CATEGORY_NAME" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CATEGORY_ID"/>
+            <Col id="CATEGORY_DESC">title:desc,minlength:1,maxlength:300</Col>
+            <Col id="CATEGORY_NAME">title:name,required:true,maxlength:150</Col>
+            <Col id="REG_DATE"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Category" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CATEGORY_NAME" type="string" size="150"/>
+          <Column id="CATEGORY_DESC" type="string" size="300"/>
+          <Column id="CATEGORY_ID" type="string" size="256"/>
+          <Column id="REG_ID" type="string" size="256"/>
+          <Column id="REG_DATE" type="DATE" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CATEGORY_NAME">Martin Luther</Col>
+            <Col id="CATEGORY_DESC">Even if I knew that tomorrow the world would go to pieces, I would still plant my apple tree.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Nido Qubein</Col>
+            <Col id="CATEGORY_DESC">Your present circumstances don't determine where you can go; they merely determine where you start.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_DESC">Life isn’t about getting and having, it’s about giving and being.</Col>
+            <Col id="CATEGORY_NAME">Kevin Kruse</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Napoleon Hill</Col>
+            <Col id="CATEGORY_DESC">Whatever the mind of man can conceive and believe, it can achieve.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Michael Jordan</Col>
+            <Col id="CATEGORY_DESC">I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Sholom Aleichem</Col>
+            <Col id="CATEGORY_DESC">Life is a dream for the wise, a game for the fool, a comedy for the rich, a tragedy for the poor.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Bruce Lee</Col>
+            <Col id="CATEGORY_DESC">A wise man can learn more from a foolish question than a fool can learn from a wise answer.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Moliere</Col>
+            <Col id="CATEGORY_DESC">A wise man is superior to any insults which can be put upon him, and the best reply to unseemly behavior is patience and moderation.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Shel Silverstein</Col>
+            <Col id="CATEGORY_DESC">Tell me I'm clever, Tell me I'm kind, Tell me I'm talented, Tell me I'm cute, Tell me I'm sensitive, Graceful and wise, Tell me I'm perfect - But tell me the truth.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">George Bernard Shaw</Col>
+            <Col id="CATEGORY_DESC">We are made wise not by the recollection of our past, but by the responsibility for our future.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Aesop</Col>
+            <Col id="CATEGORY_DESC">Better be wise by the misfortunes of others than by your own.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Plato</Col>
+            <Col id="CATEGORY_DESC">Wise men speak because they have something to say; Fools because they have to say something.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Khalil Gibran</Col>
+            <Col id="CATEGORY_DESC">The teacher who is indeed wise does not bid you to enter the house of his wisdom but rather leads you to the threshold of your mind.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Winston Churchill</Col>
+            <Col id="CATEGORY_DESC">It is always wise to look ahead, but difficult to look further than you can see.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Buddha</Col>
+            <Col id="CATEGORY_DESC">To be idle is a short road to death and to be diligent is a way of life; foolish people are idle, wise people are diligent.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Edward G. Bulwer-Lytton</Col>
+            <Col id="CATEGORY_DESC">A fool flatters himself, a wise man flatters the fool.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Edgar Allan Poe</Col>
+            <Col id="CATEGORY_DESC">I have no faith in human perfectability. I think that human exertion will have no appreciable effect upon humanity. Man is now only more active - not more happy - nor more wise, than he was 6000 years ago.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Benjamin Franklin</Col>
+            <Col id="CATEGORY_DESC">Life's Tragedy is that we get old to soon and wise too late.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Charles Stanley</Col>
+            <Col id="CATEGORY_DESC">In our friendships we have to be wise that we choose godly people to be our friends. Somebody might say, well does that mean that you should never have a lost person as your friend? No, I wouldn't say that. But you can't have the same intimacy with a lost person that you can with a godly person in whom the Holy Spirit is living.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Joan Rivers</Col>
+            <Col id="CATEGORY_DESC">Don't follow any advice, no matter how good, until you feel as deeply in your spirit as you think in your mind that the counsel is wise.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">George Washington Carver</Col>
+            <Col id="CATEGORY_DESC">When you can do the common things in life in an uncommon way, you will command the attention of the world.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Frank Lloyd Wright</Col>
+            <Col id="CATEGORY_DESC">If you foolishly ignore beauty, then you will soon find yourself without it.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">William Congreve</Col>
+            <Col id="CATEGORY_DESC">Music has charms to soothe a savage beast.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Thomas Phaer</Col>
+            <Col id="CATEGORY_DESC">The eyes are the windows of the soul.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Eleanor Roosevelt</Col>
+            <Col id="CATEGORY_DESC">The future belongs to those who believe in the beauty of their dreams.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Mencius</Col>
+            <Col id="CATEGORY_DESC">Friendship is one mind in two bodies.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Aesop</Col>
+            <Col id="CATEGORY_DESC">Misfortune tests the sincerity of friends.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Ben Franklin</Col>
+            <Col id="CATEGORY_DESC">The wise man learns more from his enemies than the fool does from his friends.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">George Carlin</Col>
+            <Col id="CATEGORY_DESC">Trying to be happy by accumulating possessions is like trying to satisfy hunger by taping sandwiches all over your body.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Louise Smith</Col>
+            <Col id="CATEGORY_DESC">You can’t reach for anything new if your hands are still full of yesterday’s junk.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">George Carlin</Col>
+            <Col id="CATEGORY_DESC">"Governments don’t want well informed, well-educated people capable of critical thinking. That is against their interests.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::lib_Form.xjs"
+
+// Form onload시 초기화
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Form Load 시 공통 기능 처리
+	this.gfn_FormOnLoad(obj);
+}
+
+]]></Script>
+  </Form>
+</FDL>

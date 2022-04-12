@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_RowType" classname="Grid_AddCreate" inheritanceid="" position="absolute" titletext="RowType" left="0" width="760" top="0" height="430">
+    <Layouts>
+      <Layout>
+        <Static id="Static02" text="RowType" position="absolute" left="30" width="200" top="18" height="40" cssclass="sta_WF_subtitP" onclick="Static02_onclick" verticalAlign="top"/>
+        <Grid id="Grid00" taborder="1" position="absolute" autofittype="col" autoenter="select" areaselecttype="overband" left="30" width="700" top="78" height="200" binddataset="dsData">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="70"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="RowType"/>
+                <Cell col="1" text="Full Name"/>
+                <Cell col="2" text="Department ID"/>
+                <Cell col="3" text="Hire Date"/>
+                <Cell col="4" text="Gender"/>
+                <Cell col="5" text="Married"/>
+                <Cell col="6" text="Hire Date"/>
+                <Cell col="7" text="Employee Memo"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:right;" expr="expr:dataset.getRowType(currow)"/>
+                <Cell col="1" displaytype="normal" edittype="normal" style="align:left;" text="bind:FULL_NAME"/>
+                <Cell col="2" displaytype="combo" edittype="combo" style="align:left;" text="bind:DEPT_ID" combodataset="ds_dept" combocodecol="code" combodatacol="text"/>
+                <Cell col="3" displaytype="number" edittype="normal" style="align:right;" text="bind:HIRE_DATE"/>
+                <Cell col="4" displaytype="normal" edittype="normal" style="align:left;" text="bind:GENDER" expr="expr:GENDER == 'M' ? 'WOMAN': 'MAN'"/>
+                <Cell col="5" style="align:left;" text="bind:MARRIED" expr="expr:MARRIED =='0'? 'MARRIED':'UNMARRIED'" combodatacol="text" combodisplay="display"/>
+                <Cell col="6" displaytype="number" edittype="normal" style="align:right;" text="bind:HIRE_DATE"/>
+                <Cell col="7" style="align:left;" text="bind:EMPL_MEMO"/>
+              </Band>
+              <Band id="summary">
+                <Cell/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+                <Cell col="6"/>
+                <Cell col="7"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="2" text="insert" left="540" top="288" width="90" height="40" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="3" text="delete" left="640" top="288" width="90" height="40" onclick="Button01_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsData" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep">
+        <ColumnInfo>
+          <Column id="EMPL_ID" type="STRING" size="256"/>
+          <Column id="FULL_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="HIRE_DATE" type="STRING" size="256"/>
+          <Column id="GENDER" type="STRING" size="256"/>
+          <Column id="MARRIED" type="STRING" size="256"/>
+          <Column id="EMPL_MEMO" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="EMPL_ID">AA001</Col>
+            <Col id="FULL_NAME">ShinSoo Choo</Col>
+            <Col id="DEPT_ID">01</Col>
+            <Col id="HIRE_DATE">20011104</Col>
+            <Col id="GENDER">M</Col>
+            <Col id="MARRIED">0</Col>
+            <Col id="EMPL_MEMO">baseball</Col>
+          </Row>
+          <Row>
+            <Col id="EMPL_ID">BB001</Col>
+            <Col id="FULL_NAME">Yuna Kim</Col>
+            <Col id="DEPT_ID">02</Col>
+            <Col id="HIRE_DATE">20050305</Col>
+            <Col id="GENDER">W</Col>
+            <Col id="MARRIED">1</Col>
+            <Col id="EMPL_MEMO">figure skating</Col>
+          </Row>
+          <Row>
+            <Col id="EMPL_ID">CC001</Col>
+            <Col id="FULL_NAME">Sumi Jo</Col>
+            <Col id="DEPT_ID">03</Col>
+            <Col id="HIRE_DATE">20100506</Col>
+            <Col id="GENDER">W</Col>
+            <Col id="MARRIED">1</Col>
+            <Col id="EMPL_MEMO">singer</Col>
+          </Row>
+          <Row>
+            <Col id="EMPL_ID">DD001</Col>
+            <Col id="FULL_NAME">JS Park</Col>
+            <Col id="DEPT_ID">04</Col>
+            <Col id="HIRE_DATE">20101123</Col>
+            <Col id="GENDER">M</Col>
+            <Col id="MARRIED">0</Col>
+            <Col id="EMPL_MEMO">soccer</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_dept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="text" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="text">Sales</Col>
+          </Row>
+          <Row>
+            <Col id="code">02</Col>
+            <Col id="text">IT</Col>
+          </Row>
+          <Row>
+            <Col id="code">03</Col>
+            <Col id="text">Education</Col>
+          </Row>
+          <Row>
+            <Col id="code">04</Col>
+            <Col id="text">Marketing</Col>
+          </Row>
+          <Row>
+            <Col id="code">05</Col>
+            <Col id="text">HR</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsData.addRow();
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsData.deleteRow(this.dsData.rowposition);
+};
+]]></Script>
+  </Form>
+</FDL>

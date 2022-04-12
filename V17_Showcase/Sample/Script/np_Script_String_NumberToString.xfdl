@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_String_NumberToString" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_String_NumberToString" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" text="input0" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input0" taborder="0" autoselect="true" autoskip="true" value="61234" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Button id="btn_execute" taborder="3" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <Static id="Static01" text="output0" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Edit id="edt_output0" taborder="4" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static11" text="output1" position="absolute" left="30" width="60" top="238" height="40"/>
+        <Edit id="edt_output1" taborder="5" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="238" height="40"/>
+        <Static id="Static05" taborder="6" text="Converting Nuber to korean Character" cssclass="sta_WF_subtitP" left="30" top="18" width="510" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_String_NumberToString
+ * Description : Converting Number to Korean Character
+ */
+
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn0 = this.fn_IntToHan(this.edt_input0.value);
+	var sRtn1 = this.fn_IntToHanja(this.edt_input0.value);
+	this.edt_output0.set_value(sRtn0);
+	this.edt_output1.set_value(sRtn1);	
+}
+
+/*
+ * Function Name : fn_IntToHan
+ * Description   : Convert Numbers to Korean character notation.
+ * Parameter     : The Original Number
+ * Return        : String
+ * Example       : fn_IntToHan(61234);
+ */
+this.fn_IntToHan = function(nPrice) 
+{
+    var arrhn = new Array("영","일","이","삼","사","오","육","칠","팔","구");
+    var arrhj = new Array("","만","억","조","경","해");
+    var arrul = new Array("영천","영백","영십","영");
+    var arrtm = new Array();
+    var sRtn  = "";
+    var sTm2  = "";
+    var sSum  = "";
+    if (nPrice.charAt(0) == "-") 
+    {
+        sRtn   = "마이너스 ";
+        nPrice = nPrice.substr(1, nPrice.length-1);
+    }
+
+    var nSize = Math.ceil(nPrice.length/4);
+    sTmpPrice = "";
+
+    for (var i = nPrice.length; i >= 0; i--)
+    {
+        sTmpPrice += nPrice.substring(i, i-1);
+    }
+    nPrice = sTmpPrice;
+
+    for (var i = 0; i < nSize; i++) 
+    {
+        sSum     = arrhj[i] + " ";
+        arrtm[i] = nPrice.substr(i*4, 4);    
+        sTm2     = "";
+
+        for (var j = arrtm[i].length; j >= 0; j--)
+        {
+            sTm2 += arrtm[i].substring(j, j-1);    
+        }
+
+        arrtm[i] = sTm2;
+        sPart 	 = arrtm[i].length;
+
+        for (var j = 0; j < 10; j++) 
+        {
+            arrtm[i] = arrtm[i].replace(j, arrhn[j]);
+        }
+
+        if (sPart == 4) 
+        {
+            arrtm[i] = arrtm[i].charAt(0) + "천" + arrtm[i].charAt(1) + "백" + arrtm[i].charAt(2)+"십"+arrtm[i].charAt(3);
+        }
+        else if (sPart == 3) 
+        {
+            arrtm[i] = arrtm[i].charAt(0) + "백" + arrtm[i].charAt(1) + "십" + arrtm[i].charAt(2);
+        }
+        else if (sPart == 2) 
+        {
+            arrtm[i] = arrtm[i].charAt(0) + "십"+arrtm[i].charAt(1);
+        }
+        else 
+        {
+            arrtm[i] = arrtm[i].charAt(0);
+        }
+
+        for (var j = 0; j < 4; j++) 
+        {
+            if (arrtm[i].match(arrul[j])) 
+            {
+                sPart--; 
+				arrtm[i] = arrtm[i].replace(arrul[j], "");
+            }
+        }
+
+        if (sPart != 0) 
+        {
+            arrtm[i] += sSum;
+        }
+    }
+
+    for (nSize; nSize > -1; nSize--)
+    {
+        sRtn += arrtm[nSize];
+    }
+
+    sRtn = sRtn.replace("undefined","");
+    return sRtn;
+}
+
+/*
+ * Function Name : fn_IntToHanja
+ * Description   : Number converting into Chinese notation
+ * Parameter     : The Original Numbers
+ * Return        : String
+ * Example       : fn_IntToHanja(61234);
+ */
+this.fn_IntToHanja = function(nPrice) 
+{
+	var arrhn = new Array("영","壹","貳","參","四","五","六","七","八","九");
+	var arrhj = new Array("","萬","億","兆");
+	var arrul = new Array("영千","영百","영拾","영");
+	var arrtm = new Array();
+    var sRtn  = "";
+    var sTm2  = "";
+    var sSum  = "";
+    
+	if (nPrice.charAt(0)=="-") 
+	{
+		sRtn   = "마이너스 ";
+		nPrice = nPrice.substr(1, nPrice.length-1);
+	}
+	
+	var nSize = Math.ceil(nPrice.length/4);
+	sTmpPrice = "";
+	
+	for (var i = nPrice.length; i >= 0; i--)
+	{
+		sTmpPrice += nPrice.substring(i, i-1);
+	}	
+	nPrice = sTmpPrice;
+	
+	for (var i = 0; i < nSize; i++) 
+	{
+		sSum     = arrhj[i] + " ";
+		arrtm[i] = nPrice.substr(i*4, 4);		
+		sTm2     = "";
+		
+		for (var j = arrtm[i].length; j >= 0; j--)
+		{
+			sTm2 += arrtm[i].substring(j, j-1);
+		}
+
+		arrtm[i] = sTm2;
+		sPart    = arrtm[i].length;
+		
+        for (var j = 0; j < 10; j++) 
+        {
+            arrtm[i] = arrtm[i].replace(j, arrhn[j]);
+        }
+
+		if (sPart == 4) 
+		{	
+			arrtm[i] = arrtm[i].charAt(0) + "千" + arrtm[i].charAt(1) + "百" + arrtm[i].charAt(2) + "拾"+arrtm[i].charAt(3);
+		}
+		else if (sPart == 3) 
+		{
+			arrtm[i] = arrtm[i].charAt(0) + "百" + arrtm[i].charAt(1) + "拾" + arrtm[i].charAt(2);
+		}
+		else if (sPart == 2) 
+		{
+			arrtm[i] = arrtm[i].charAt(0) + "拾" + arrtm[i].charAt(1);
+		}
+		else 
+		{
+			arrtm[i] = arrtm[i].charAt(0);
+		}
+		
+		for (var j = 0; j < 4; j++) 
+		{
+			if (arrtm[i].match(arrul[j])) 
+			{
+				sPart--; 
+				arrtm[i] = arrtm[i].replace(arrul[j], "");
+			}
+		}
+		if (sPart != 0) 
+		{
+			arrtm[i] += sSum;
+		}
+	}
+
+	for (nSize; nSize > -1; nSize--) 
+	{
+		sRtn += arrtm[nSize];
+	}
+	
+	sRtn = sRtn.replace("undefined","");
+	return sRtn;
+}]]></Script>
+  </Form>
+</FDL>

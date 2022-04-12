@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GlobalVariables>
+  <Dataset id="gv_Ds">
+    <ColumnInfo>
+      <Column id="Col0" type="STRING" size="256"/>
+    </ColumnInfo>
+    <Rows>
+      <Row>
+        <Col id="Col0">gv_test</Col>
+      </Row>
+    </Rows>
+  </Dataset>
+  <Variable id="gv_var1" initval="gv_var1 value"/>
+</GlobalVariables>

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="ListBox_Basic" classname="ListBox_Basic" inheritanceid="" position="absolute" titletext="ListBox Basic" left="0" top="0" width="760" height="690">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Inner Dataset" class="sta_WF_subtitle" position="absolute" left="30" top="18" width="250" height="40" cssclass="sta_WF_subtitP"/>
+        <ListBox id="ListBox00" taborder="2" position="absolute" innerdataset="@ds_code" codecolumn="code" datacolumn="name" left="30" top="73" width="305" height="222" onitemclick="ListBox00_onitemclick" onitemchanged="ListBox00_onitemchanged"/>
+        <Grid id="Grid00" taborder="3" binddataset="ds_data" position="absolute" autofittype="col" left="30" top="420" width="175" height="222">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="code"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:code"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <ListBox id="ListBox02" taborder="5" position="absolute" innerdataset="@ds_code" codecolumn="code" datacolumn="name" style="padding:2 0 2 0;" multiselect="true" left="385" top="420" width="250" height="222" onitemclick="ListBox02_onitemclick"/>
+        <Button id="Button00" taborder="6" text="Select Record Counts " position="absolute" onclick="Button00_onclick" left="644" top="420" width="160" height="40"/>
+        <Button id="Button01" taborder="7" text="Select All Set" position="absolute" onclick="Button01_onclick" left="644" top="470" width="160" height="40"/>
+        <Static id="Static02" text="Binding" class="sta_WF_subtitle" position="absolute" left="30" top="365" width="250" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static00" text="MultiSelect" class="sta_WF_subtitle" position="absolute" left="385" top="365" width="250" height="40" cssclass="sta_WF_subtitP"/>
+        <ListBox id="ListBox01" taborder="8" multiselect="false" innerdataset="@ds_code" codecolumn="code" datacolumn="name" onitemclick="ListBox02_onitemclick" left="210" top="420" width="125" height="222" style="padding:2 0 2 0;"/>
+        <Static id="Static01" taborder="9" text="ListBox Contents" left="385" top="18" width="250" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+        <ListBox id="ListBox03" taborder="10" codecolumn="codecolumn" datacolumn="datacolumn" left="385" top="73" width="300" height="222" style="padding:5 0 5 10;" onitemclick="ListBox03_onitemclick" innerdataset="innerdataset">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">aple</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">pineapple</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">3</Col>
+                <Col id="datacolumn">tangerine</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">4</Col>
+                <Col id="datacolumn">orange</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">5</Col>
+                <Col id="datacolumn">blueberry</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">6</Col>
+                <Col id="datacolumn">pomegranate</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">7</Col>
+                <Col id="datacolumn">pear</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">8</Col>
+                <Col id="datacolumn">grape</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">9</Col>
+                <Col id="datacolumn">pech</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">10</Col>
+                <Col id="datacolumn">watemelon</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </ListBox>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="name">aple</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="name">pineapple</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="name">tangerine</Col>
+          </Row>
+          <Row>
+            <Col id="name">orange</Col>
+            <Col id="code">4</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="name">blueberry</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="name">pomegranate</Col>
+          </Row>
+          <Row>
+            <Col id="name">pear</Col>
+            <Col id="code">7</Col>
+          </Row>
+          <Row>
+            <Col id="name">grape</Col>
+            <Col id="code">8</Col>
+          </Row>
+          <Row>
+            <Col id="name">peach</Col>
+            <Col id="code">9</Col>
+          </Row>
+          <Row>
+            <Col id="code">10</Col>
+            <Col id="name">watermelon</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="ListBox01" propid="value" datasetid="ds_data" columnid="code"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var i;
+	var select_Cnt = 0;
+	var msg = "Selected Record \n";
+
+	select_Cnt = this.ListBox02.getSelectedCount();
+	this.alert("selected count "+select_Cnt);
+	for (i = 0; i < select_Cnt; i++) 
+	{
+	    //this.alert("is row select "+this.ListBox02.getSelect(i));
+		if (this.ListBox02.getSelect(i) == true) 
+		{
+		   // this.alert("inside the value true =============");
+			msg += "Row : " + i + "\n";
+		}
+	}
+	msg += "Selected Record Count : " + select_Cnt;
+
+	this.alert(msg);
+};
+
+this.Button01_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	for(i=0;i<this.ds_code.getRowCount();i++)
+	{
+		this.ListBox02.setSelect(i, true);
+	}
+};
+
+
+
+this.ListBox00_onitemchanged = function(obj:nexacro.ListBox,e:nexacro.ItemChangeEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

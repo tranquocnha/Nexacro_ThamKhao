@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="overlaycolor" classname="testaaaa" left="0" top="0" width="760" height="430" titletext="overlaycolor">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="showModal Execute" left="30" top="128" width="250" height="40" onclick="Button00_onclick"/>
+        <Edit id="edOverlaycolor" taborder="1" left="30" top="78" width="250" height="40" value="#ff000039"/>
+        <Static id="Static02" taborder="3" text="overlaycolor" cssclass="sta_WF_subtitP" left="30" top="18" width="170" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var newChild = null;
+    var objParentFrame = this.getOwnerFrame();   
+    var nRight = 0;
+    var nBottom = 0;
+
+	
+	newChild = new nexacro.ChildFrame;
+    newChild.init("frmop01",  0 , 0, 500 , 500 ,null ,null, "Sample_Form::np_Form_OverlaycolorDiv.xfdl");
+    
+    //overlaycolor setting    
+    newChild.set_overlaycolor(this.edOverlaycolor.text);
+	newChild.set_openalign("center middle");
+	newChild.autosize = true;	
+    newChild.showModal(objParentFrame, "", this, "f_pop_callback");
+}   
+
+this.f_pop_callback = function (sFormId, arg)
+{
+}
+
+   ]]></Script>
+  </Form>
+</FDL>

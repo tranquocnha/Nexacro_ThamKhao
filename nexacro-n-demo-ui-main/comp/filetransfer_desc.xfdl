@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="400" onload="form_onload">
+    <Layouts>
+      <Layout height="400" width="920">
+        <Static id="Static00" taborder="1" text="File Transfer" left="20" top="15" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="comp.filetransfer" fittocontents="height"/>
+        <Static id="Static01" taborder="0" text="넥사크로 플랫폼에서 기본으로 제공되는 컴포넌트와 오브젝트를 이용해서 파일을 서버에 업로드 및 다운로드 할 수 있습니다." left="20" top="Static00:2" height="86" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.filetransfer.desc" right="20"/>
+        <Static id="Static05" taborder="2" text="파일업로드" left="20" top="Static01:10" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="comp.filetransfer.upload" fittocontents="height"/>
+        <Static id="Static06" taborder="3" text="상단 그리드의 추가 버튼을 클릭하면 파일 탐색기가 실행됩니다. 업로드 하고자 하는 파일을 선택하여 ( 컨트롤 키를 이용해 다중 선택 가능 ) 업로드 하고자 하는 파일을 리스트에 올려줍니다. 또는 운영체제에서 기본으로 제공해주는 탐색기에서 파일을 드래그하여 화면에 드랍하는 방식으로도 파일을 선택할 수 있습니다.&#13;&#10;&#13;&#10;잘못 선택된 파일은 리스트에서 파일을 선택하고 삭제 버튼을 클릭해 서버에 올라갈 리스트에서 제외 시킵니다.&#13;&#10;&#13;&#10;파일 선택이 완료 되면 전송 버튼을 눌러 파일을 서버에 업로드 합니다." left="20" top="Static05:2" height="100" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.filetransfer.upload.desc" right="20"/>
+        <Static id="Static07" taborder="4" text="파일 다운로드" left="20" top="Static06:10" width="180" height="30" cssclass="sta_WF_compTitle02" messageid="comp.filetransfer.download" fittocontents="height"/>
+        <Static id="Static08" taborder="5" text="하단 그리드의 조회 버튼을 클릭하면 서버에 업로드된 파일 리스트를 조회할 수 있습니다. 리스트에서 다운받고자 하는 파일을 선택하고 다운로드 버튼을 이용하여 파일을 내려받습니다." left="20" top="Static07:2" height="100" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.filetransfer.download.desc" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

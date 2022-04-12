@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_Cell_MergeHeader" left="0" top="0" width="1024" height="768" titletext="Grid_Cell_MergeHeader">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="grd_output" taborder="0" useinputpanel="false" position="absolute" binddataset="ds_data" cellsizingtype="col" left="30" top="78" width="500" height="200" style="border:2 solid #9f8f71ff,0 none #808080ff,0 none #808080ff,0 none #808080ff;" autofittype="col" cssclass="grid_WF_header">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="52"/>
+                <Column size="52"/>
+                <Column size="55"/>
+                <Column size="60"/>
+                <Column size="75"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="40" band="head"/>
+                <Row size="40" band="head"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="3" style="background:#808080;" text="COL0"/>
+                <Cell col="1" colspan="4" style="background:#808080;" text="COL1"/>
+                <Cell row="1" col="1" colspan="2" style="background:#808080;" text="COL2"/>
+                <Cell row="1" col="3" text="                   COL" style="line:0px solid #808080ff ;background:#808080;" border="1px solid #e0e0e0,0px solid #e0e0e0,0px solid #e0e0e0,1px solid #e0e0e0"/>
+                <Cell row="1" col="4" text="5" textAlign="left"/>
+                <Cell row="2" col="1" style="background:#808080;" text="COL3"/>
+                <Cell row="2" col="2" style="background:#808080;" text="COL4"/>
+                <Cell row="2" col="3" style="background:#808080;" text="bind:COL1" cssclass="cell_line"/>
+                <Cell row="2" col="4" style="background:#808080;" text="COL6"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="1" text="Hangeling merging of columns in '┌' shape on grid header" cssclass="sta_WF_subtitP" left="30" top="18" width="800" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">1</Col>
+            <Col id="COL1">0 none</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">2</Col>
+            <Col id="COL1">0 none, 3 solid red red,</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">3</Col>
+            <Col id="COL1">3 solid red red, 3 solid red red</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">4</Col>
+            <Col id="COL1">3 solid red red, 0 none</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/*
+ * File Name   : Grid_Cell_MergeHeader
+ * Description : Hangeling merging of columns in '┌' shape on Grid Header
+ */ 
+
+]]></Script>
+  </Form>
+</FDL>

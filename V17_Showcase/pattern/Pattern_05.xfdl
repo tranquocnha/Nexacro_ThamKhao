@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Work" classname="Work" inheritanceid="" position="absolute" titletext="Master/Detail (n:n)" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="2" cssclass="sta_WFSA_BG" left="30" top="58" right="30" height="50" text=""/>
+        <Edit id="Edit00" taborder="1" position="absolute" left="103" width="90" top="66" height="34" cssclass="input_point" background="#ffffff"/>
+        <Static id="st_progress" taborder="3" text="location" cssclass="sta_WF_progress" left="30" top="18" width="808" height="30"/>
+        <Grid id="Grid00" taborder="0" binddataset="ds_grid" useinputpanel="false" position="absolute" autofittype="col" left="30" right="30" top="165" height="200">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="165"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="Number of establishment" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="construction" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="sum total" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="establishment date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="fixed date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="payment amount" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="sum total" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" text="demand date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" text="customer" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:Column0" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:Column1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="bind:Column2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="bind:Column3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="bind:Column4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="bind:Column5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="bind:Column6" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="bind:Column7" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" text="bind:Column8" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" text="bind:Column9" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta_WF_TitleLev1" text="Basic contents" position="absolute" left="30" width="300" top="118" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="sta_WF_SearchBox" position="absolute" text="" left="0" right="0" top="0" height="41" cssclass="sta_WF_SearchBox"/>
+        <Static id="sta_WFSA_LabelP" text="Project :" wordwrap="none" position="absolute" left="45" width="60" top="65" height="34"/>
+        <Button id="btn_WFSA_Search02" taborder="18" position="absolute" style="image:URL('theme://images/ico_Search.png');" left="161" width="30" top="68" height="30" cssclass="btn_WFDA_Search"/>
+        <Edit id="Edit01" taborder="20" position="absolute" left="198" width="270" top="66" height="34" background="#ffffff"/>
+        <Static id="sta_WF_TitleLev00" text="Detailed List" position="absolute" left="30" width="300" top="385" height="40" cssclass="sta_WF_subtitP"/>
+        <Button id="btn_WF_crud02" taborder="26" text="Save" cssclass="button_WF_blue" top="121" right="30" width="70" height="34"/>
+        <Button id="btn_WF_crud06" taborder="27" text="Delete" cssclass="button_WF_gray" top="121" right="105" width="70" height="34"/>
+        <Button id="btn_WF_crud07" taborder="28" text="Add" cssclass="button_WF_white" top="121" right="180" width="70" height="34" onclick="btn_WF_crud07_onclick"/>
+        <Button id="btn_WF_crud00" taborder="29" text="Save" cssclass="button_WF_blue" top="388" right="30" width="70" height="34"/>
+        <Button id="btn_WF_crud01" taborder="30" text="Delete" cssclass="button_WF_gray" top="388" right="105" width="70" height="34"/>
+        <Button id="btn_WF_crud03" taborder="31" text="Add" cssclass="button_WF_white" top="388" right="180" width="70" height="34"/>
+        <Button id="btn_WF_search" taborder="32" top="66" width="70" height="34" cssclass="button_WF_white" text="Search" left="488"/>
+        <Grid id="Grid01" taborder="33" binddataset="ds_grid_L2" useinputpanel="false" autofittype="col" left="30" top="448" right="30" bottom="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="165"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="Number of establishment" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="construction" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="sum total" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="establishment date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="fixed date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="payment amount" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="sum total" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" text="demand date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" text="customer" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:Column0" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:Column1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="bind:Column2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="bind:Column3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="bind:Column4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="bind:Column5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="bind:Column6" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="bind:Column7" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" text="bind:Column8" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" text="bind:Column9" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+          <Column id="Column8" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_grid_L2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+          <Column id="Column8" type="STRING" size="256"/>
+          <Column id="Column9" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[]]></Script>
+  </Form>
+</FDL>

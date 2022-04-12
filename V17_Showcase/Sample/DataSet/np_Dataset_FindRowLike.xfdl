@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="C150525" classname="C150525" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="159" height="326" binddataset="Dataset01" autofittype="col" width="350">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="60"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Rowidx"/>
+                <Cell col="1" text="Code"/>
+                <Cell col="2" text="Data"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow"/>
+                <Cell col="1" text="bind:Code"/>
+                <Cell col="2" text="bind:Data"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="Find row" left="30" top="115" height="34" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="100"/>
+        <Edit id="Edit00" taborder="2" left="310" top="115" height="34" readonly="true" style="align:center middle;font:bold 9 Dotum;" width="70"/>
+        <Static id="Static07" taborder="4" text="This sample show finding rows using findRowExpr" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" style="font:bold 9 Dotum;" verticalAlign="top"/>
+        <Static id="Static01" taborder="5" text="Search condition strats with Code=1,Data=ac" cssclass="sta_WF_explain" left="30" top="65" width="600" height="30" style="font:bold 9 Dotum;" verticalAlign="top"/>
+        <Static id="Static00" taborder="6" text="Found row :" left="225" top="115" width="85" height="34"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Code" type="STRING" size="256"/>
+          <Column id="Data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Code">12</Col>
+            <Col id="Data">ad</Col>
+          </Row>
+          <Row>
+            <Col id="Code">21</Col>
+            <Col id="Data">ab</Col>
+          </Row>
+          <Row>
+            <Col id="Code">3</Col>
+            <Col id="Data">ac</Col>
+          </Row>
+          <Row>
+            <Col id="Code">12</Col>
+            <Col id="Data">ab</Col>
+          </Row>
+          <Row>
+            <Col id="Code">12</Col>
+            <Col id="Data">ae</Col>
+          </Row>
+          <Row>
+            <Col id="Code">13</Col>
+            <Col id="Data">acac</Col>
+          </Row>
+          <Row>
+            <Col id="Code">13</Col>
+            <Col id="Data">acac</Col>
+          </Row>
+          <Row>
+            <Col id="Code">13</Col>
+            <Col id="Data">accd</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nRow = this.Dataset01.findRowExpr("Code.toString().indexOf('1') == 0 && Data.toString().indexOf('ac') == 0");
+	this.Edit00.set_value(nRow);
+	this.Dataset01.set_rowposition(nRow);
+};
+]]></Script>
+  </Form>
+</FDL>

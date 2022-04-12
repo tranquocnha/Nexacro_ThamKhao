@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="664" onload="form_onload">
+    <Layouts>
+      <Layout height="664" width="440">
+        <Static id="Static01" taborder="0" text="STT(Speech to text)" left="20" top="20" height="40" cssclass="sta_WF_compTitle02" messageid="grid.cell.display.type" fittocontents="width" right="20"/>
+        <Static id="Static00" taborder="1" text="Press the button and speak." left="20" top="50" width="400" height="40"/>
+        <Button id="Button00" taborder="2" left="170" top="100" width="100" height="100" cssclass="btn_MWF_voiceRecord"/>
+        <TextArea id="TextArea00" taborder="3" left="20" top="220" height="100" right="20"/>
+        <Static id="Static01_00" taborder="4" text="TTS(Text to speech)" left="20" top="344" height="40" cssclass="sta_WF_compTitle02" messageid="grid.cell.display.type" fittocontents="width" right="20"/>
+        <Static id="Static00_00" taborder="5" text="Enter the text and press the button." left="20" top="374" width="400" height="40"/>
+        <Button id="Button00_00" taborder="6" left="170" top="534" width="100" height="100" cssclass="btn_MWF_voiceSpeaker"/>
+        <TextArea id="TextArea00_00" taborder="7" left="20" top="414" right="20" height="100"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.Div00_Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid02.set_formatid(e.postvalue);
+};
+]]></Script>
+  </Form>
+</FDL>

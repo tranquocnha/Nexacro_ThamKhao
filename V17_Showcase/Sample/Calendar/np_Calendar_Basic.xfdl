@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Calendar_Basic" classname="Calendar_Basic" inheritanceid="" position="absolute" titletext="Calendar_Basic" onkeydown="Calendar_Basic_onkeydown" onload="Calendar_Basic_onload" left="0" width="760" top="0" height="720">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Binding" position="absolute" left="30" width="280" top="14" height="40" cssclass="sta_WF_subtitP"/>
+        <Calendar id="cal_today" taborder="2" position="absolute" style="usetrailingday:true;buttonsize:-1;" left="130" width="150" top="552" height="34"/>
+        <Calendar id="cal_before" taborder="5" position="absolute" style="usetrailingday:true;buttonsize:-1;" left="130" width="150" top="596" height="34"/>
+        <Button id="Button01" taborder="6" text="Yesterday" onclick="Button01_onclick" position="absolute" left="30" width="90" top="596" height="34"/>
+        <Button id="Button02" taborder="7" text="Last Date" onclick="Button02_onclick" position="absolute" left="30" width="90" top="640" height="34"/>
+        <Calendar id="cal_last" taborder="8" position="absolute" style="usetrailingday:true;buttonsize:-1;" left="130" width="150" top="640" height="34"/>
+        <Grid id="Grid00" taborder="10" binddataset="ds_list" position="absolute" autofittype="col" left="30" width="180" top="74" height="182">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Calendar id="Calendar07" taborder="14" position="absolute" style="usetrailingday:false;background:white;" cancharchange="Calendar07_cancharchange" left="30" width="180" top="266" height="34"/>
+        <Button id="Button00" taborder="15" text="Today" position="absolute" onclick="Button00_onclick" left="30" width="90" top="552" height="34"/>
+        <Static id="Static02" text="Today's default date" position="absolute" left="30" width="280" top="492" height="40" cssclass="sta_WF_subtitP"/>
+        <GroupBox id="GroupBox00" text=" type = normal " taborder="17" left="496" top="169" width="235" height="130"/>
+        <Calendar id="Calendar00" taborder="18" value="20140101" left="513" top="219" width="200" height="34"/>
+        <GroupBox id="GroupBox01" text=" type = spin" taborder="19" left="496" top="322" width="235" height="130"/>
+        <Calendar id="Calendar02" taborder="20" value="20140101" type="spin" dateformat="yyyy-MM" editformat="yyyy-MM" left="513" top="372" width="200" height="34"/>
+        <GroupBox id="GroupBox02" text=" type = monthonly" taborder="21" left="250" top="169" width="235" height="283"/>
+        <Calendar id="Calendar01" taborder="22" value="20140101" type="monthonly" left="267" top="243" width="200" height="187" onchanged="Calendar01_onchanged"/>
+        <Edit id="Edit00" taborder="23" left="268" top="199" width="200" height="34"/>
+        <Grid id="Grid01" taborder="24" binddataset="ds_data" useinputpanel="false" autofittype="col" left="250" top="74" width="481" height="74">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="type_monthonly"/>
+                <Cell col="1" disptype="normal" text="type_nomal"/>
+                <Cell col="2" disptype="normal" text="type_spin"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:type_monthonly"/>
+                <Cell col="1" disptype="normal" text="bind:type_nomal"/>
+                <Cell col="2" disptype="normal" text="bind:type_spin"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Calendar07" propid="value" datasetid="ds_list" columnid="Column0"/>
+      <BindItem id="item2" compid="Calendar00" propid="value" datasetid="ds_data" columnid="type_nomal"/>
+      <BindItem id="item1" compid="Calendar02" propid="value" datasetid="ds_data" columnid="type_spin"/>
+      <BindItem id="item3" compid="Calendar01" propid="value" datasetid="ds_data" columnid="type_monthonly"/>
+      <BindItem id="item4" compid="Edit00" propid="value" datasetid="ds_data" columnid="type_monthonly"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="type_monthonly" type="STRING" size="256"/>
+          <Column id="type_nomal" type="STRING" size="256"/>
+          <Column id="type_spin" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">20140201</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">20140301</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">20140401</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">20140501</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.Today = function ()
+{
+	var sToday = "";
+    var objDate = new Date();
+    var sToday  = objDate.getFullYear() + "";
+    var sMonth = objDate.getMonth()+1;
+    var sDate = objDate.getDate();
+    
+
+
+    if(sMonth.toString().length == 1){
+		sMonth = "0" + sMonth;
+    }
+	if(sDate.toString().length == 1){
+		sDate = "0" + sDate;
+    }
+    sToday = sToday+sMonth+sDate;
+    
+    return sToday;
+};
+
+this.before = function ()
+{
+	var bDate = "";
+    var objDate = new Date();
+    objDate.addDate(-1);
+    var bDate  = objDate.getFullYear() + "";
+    var sMonth = objDate.getMonth()+1;
+    var sDate = objDate.getDate();
+    if(sMonth.toString().length == 1){
+		sMonth = "0" + sMonth;
+    }
+	if(sDate.toString().length == 1){
+		sDate = "0" + sDate;
+    }
+    bDate = bDate+sMonth+sDate;
+    return bDate;
+   
+} ;  
+
+this.Last = function ()
+{
+	var objDate2 = new Date();
+	objDate2.addMonth(1);
+	objDate2.setDate(1);
+	objDate2.addDate(-1);
+	
+	var last_date  = objDate2.getFullYear() + "";
+    var sMonth = objDate2.getMonth()+1;
+    var sDate = objDate2.getDate();
+    if(sMonth.toString().length == 1){
+		sMonth = "0" + sMonth;
+    }
+	if(sDate.toString().length == 1){
+		sDate = "0" + sDate;
+    }
+    last_date = last_date+sMonth+sDate;
+	return last_date;
+};
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.cal_today.set_value(this.Today());
+};
+
+this.Button01_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.cal_before.set_value(this.before());
+};
+
+this.Button02_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.cal_last.set_value(this.Last());
+};
+
+
+this.Calendar_Basic_onload = function (obj:Form, e:LoadEventInfo)
+{
+
+	this.cal_today.set_expr("expr:comp.parent.Today()");
+	this.cal_before.set_expr("expr:comp.parent.before()");
+	this.cal_last.set_expr("expr:comp.parent.Last()");		
+};
+
+this.Calendar01_onchanged = function(obj:nexacro.Calendar,e:nexacro.ChangeEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

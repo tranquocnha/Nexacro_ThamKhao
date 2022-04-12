@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="fileupload_click" classname="fileupload_click" left="0" top="0" width="760" height="500" titletext="Opening file upload dialog on another component's click event" onload="Form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Invisible Button" onclick="Button00_onclick" visible="true" left="30" top="455" height="40" width="270"/>
+        <Button id="Button01" taborder="1" text="Call Invisible Onclick" onclick="Button01_onclick" top="325" height="40" width="270" left="30"/>
+        <FileUpload id="FileUpload00" taborder="2" retry="0" index="0" left="30" top="65" height="40" visible="true" width="500" background="#eeeeee" buttonsize="70" itemheight="40" buttontext="Find"/>
+        <Button id="Button02" taborder="3" text="Call File Upload" left="30" top="195" height="40" onclick="Button02_onclick" width="270"/>
+        <Static id="Static07" taborder="4" text="This is sample shows combo for selecting multiple values" cssclass="sta_WF_explain" left="30" top="155" width="700" height="30" font="" wordwrap="english"/>
+        <Static id="Static00" taborder="5" text="When click this button, it calls the visible false button's onclick specified function. " cssclass="sta_WF_explain" left="30" top="285" width="700" height="30" font="" wordwrap="english"/>
+        <Static id="Static01" taborder="6" text="Below is invisible button, file upload dialoag is opened on click on this butotn ." wordwrap="english" cssclass="sta_WF_explain" left="30" top="415" width="700" height="30" font=""/>
+        <Static id="Static02" taborder="7" text="File upload dialog" wordwrap="english" cssclass="sta_WF_explain" left="30" top="25" width="700" height="30" font=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("Called invisible button on click!");
+	this.fn_open_file_dialog();
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Button00.click();
+};
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_open_file_dialog();
+};
+
+this.fn_open_file_dialog = function()
+{
+	var findButtons = this.FileUpload00.filefindbuttons;
+	var id = findButtons.get_id(0);
+	var item = findButtons.get_item(id);
+			
+	//Clicking find file button
+	item.click();	
+};
+
+
+this.Form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	var arr = this.FileUpload00._items;
+	for(a in arr){
+		trace(a + " :: " + arr[a]);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

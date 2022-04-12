@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_CalculateDate" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_CalculateDate" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" text="from" position="absolute" left="30" width="60" top="80" height="30"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="222" height="30"/>
+        <Button id="btn_execute" taborder="3" text="execute" onclick="btn_execute_onclick" position="absolute" left="236" width="90" top="166" height="34"/>
+        <MaskEdit id="msk_input0" taborder="0" type="string" autoselect="true" autoskip="true" left="90" width="236" top="78" height="34" maskchar="########"/>
+        <Static id="Static07" text="to" position="absolute" left="30" width="60" top="124" height="30"/>
+        <MaskEdit id="msk_input1" taborder="1" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" position="absolute" left="90" width="236" top="122" height="34"/>
+        <Edit id="edt_output" taborder="4" autoselect="true" autoskip="true" position="absolute" left="90" width="236" top="220" height="34"/>
+        <Radio id="rdo_input" taborder="2" codecolumn="codecolumn" datacolumn="datacolumn" columncount="2" index="0" value="M" position="absolute" left="90" width="140" top="166" height="34" innerdataset="innerdataset">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">M</Col>
+                <Col id="datacolumn">month</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">D</Col>
+                <Col id="datacolumn">day</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static05" taborder="5" text="Calculate the difference between the date" cssclass="sta_WF_subtitP" left="30" top="18" width="542" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_CalculateDate
+ * Description : Calculate the difference between the date
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var nRtn = this.fn_calculateDate(this.msk_input0.value, this.msk_input1.value, this.rdo_input.value);	
+	this.edt_output.set_value(nRtn);
+}
+
+/*
+ * Function Name : fn_calculateDate
+ * Description   : Total months, total number of days difference
+ * Parameter     : yyyyMMdd, yyyyMMdd, M/D
+ * Return        : Months / Days
+ * Example       : fn_calculateDate("20120101", "20130101");
+ */
+this.fn_calculateDate = function(sDateS, sDateE, sGbn) 
+{
+    var nMonth = 0; // Calculated the number of months
+    var nYear  = 0; // Calculated the number of years
+    var nRtn   = 0; // The return value of the month
+        
+    if (sGbn == "M")
+    {
+        if (parseInt(sDateS) <= parseInt(sDateE))
+        {
+            nYear  = parseInt(sDateE.substr(0,4))- parseInt(sDateS.substr(0,4)) ;
+            nMonth = parseInt(sDateE.substr(4,2))- parseInt(sDateS.substr(4,2));
+            nRtn   = (12 * nYear) + nMonth;
+        }
+    }
+    else
+    {    
+        var dFrom = new Date(sDateE.substring(0,4),  sDateE.substring(4,6)-1, sDateE.substring(6,8)
+                            ,sDateE.substring(8,10), sDateE.substring(10,12), sDateE.substring(12,14));
+        var dTo   = new Date(sDateS.substring(0,4),  sDateS.substring(4,6)-1, sDateS.substring(6,8)
+                            ,sDateS.substring(8,10), sDateS.substring(10,12), sDateS.substring(12,14));      
+        nRtn = parseInt((dFrom - dTo)/(1000*60*60*24));
+    }
+    return nRtn;
+}]]></Script>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">20130105</Col>
+            <Col id="Column1">20141205</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="msk_input0" propid="value" datasetid="Dataset00" columnid="Column0"/>
+      <BindItem id="item1" compid="msk_input1" propid="value" datasetid="Dataset00" columnid="Column1"/>
+    </Bind>
+  </Form>
+</FDL>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Work" classname="Work" inheritanceid="" position="absolute" titletext="MultiDetail" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="sta_WF_SearchBox" position="absolute" text="" left="0" right="0" top="-1" height="41" cssclass="sta_WF_SearchBox"/>
+        <Static id="sta_WFSA_LabelP" text="Emploee ID/Name" position="absolute" left="17" width="80" top="9" height="20" cssclass="sta_WFSA_LabelP"/>
+        <Static id="sta_WFSA_PointLabel00" text="Organization :" position="absolute" left="320" width="45" top="9" height="20" cssclass="sta_WFSA_Label"/>
+        <Static id="sta_WFSA_PointLabel01" text="Title :" position="absolute" left="494" width="40" top="9" height="20" cssclass="sta_WFSA_Label"/>
+        <Button id="btn_WFSA_Search" taborder="1" text="Search" position="absolute" right="15" width="50" top="10" height="22" cssclass="btn_WFSA_Search"/>
+        <Grid id="Grid00" taborder="4" useinputpanel="false" position="absolute" binddataset="ds_grid" autofittype="none" left="0" right="0" top="81" bottom="0">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="70"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="140"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="22" band="head"/>
+                <Row size="20"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Progress"/>
+                <Cell col="1" text="Construction specification"/>
+                <Cell col="2" text="Order number"/>
+                <Cell col="3" text="Subcontract name"/>
+                <Cell col="4" text="Construction period"/>
+                <Cell col="5" text="Execution amount"/>
+                <Cell col="6" text="Requester"/>
+                <Cell col="7" text="Date of request"/>
+                <Cell col="8" text="Specification"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0" edittype="normal"/>
+                <Cell col="1" text="bind:Column1" edittype="normal"/>
+                <Cell col="2" text="bind:Column2" edittype="normal"/>
+                <Cell col="3" text="bind:Column3"/>
+                <Cell col="4" text="bind:Column4"/>
+                <Cell col="5" text="bind:Column5"/>
+                <Cell col="6" text="bind:Column6"/>
+                <Cell col="7" text="bind:Column7"/>
+                <Cell col="8" text="bind:Column8"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_WFSA_Search02" taborder="5" position="absolute" style="image:URL('theme://images/ico_Search.png');" left="156" width="20" top="9" height="20" cssclass="btn_WFSA_Search"/>
+        <Static id="sta_WF_TitleLev1" text="Title" position="absolute" left="0" width="134" top="59" height="14" cssclass="sta_WF_TitleLev1"/>
+        <Edit id="Edit00" taborder="6" position="absolute" left="91" width="63" top="9" height="20" cssclass="input_point"/>
+        <Edit id="Edit01" taborder="10" position="absolute" enable="false" left="178" width="103" top="9" height="20"/>
+        <Edit id="Edit02" taborder="11" position="absolute" readonly="true" value="Consulting support group" left="354" width="118" top="9" height="20"/>
+        <Edit id="Edit03" taborder="12" value="Manager" text="컨설팅지원그룹" readonly="true" position="absolute" left="530" width="108" top="9" height="20"/>
+        <Button id="btn_WF_crud" taborder="13" text="Save" position="absolute" right="1" width="50" top="56" height="20" cssclass="btn_WF_crud"/>
+        <Button id="btn_WF_crud00" taborder="14" text="Delete" position="absolute" right="53" width="50" top="56" height="20" cssclass="btn_WF_crud"/>
+        <Button id="btn_WF_crud01" taborder="15" text="Add" position="absolute" right="105" width="50" top="56" height="20" cssclass="btn_WF_crud"/>
+        <Button id="Button00" taborder="15" text="Button00" left="60" top="42" width="114" height="24" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+          <Column id="Column8" type="STRING" size="256"/>
+          <Column id="Column9" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.Grid00.set_readonly(true);
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Expr_Case3" left="0" top="0" width="1024" height="768" titletext="Expr Case3">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="17" top="78" width="600" height="530" binddataset="ds_data" useselcolor="false" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="117"/>
+                <Column size="133"/>
+                <Column size="105"/>
+                <Column size="58"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="group"/>
+                <Cell col="1" text="department"/>
+                <Cell col="2" text="employ"/>
+                <Cell col="3" text="rowlevel"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:group" suppress="1"/>
+                <Cell col="1" style="align:left;" text="bind:department" suppress="2"/>
+                <Cell col="2" style="align:left;" text="bind:employ" expr="expr:dataset.getRowLevel(currow)==1?'department subsum row':dataset.getRowLevel(currow)==2?'group subsum row':employ'"/>
+                <Cell col="3" expr="expr:dataset.getRowLevel(currow)" cssclass="expr:dataset.getRowLevel(currow)==1?'Expr_Case3_Lv1':dataset.getRowLevel(currow)==2?'Expr_Case3_Lv2':''"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="1" useinputpanel="false" left="637" top="78" width="300" height="150" binddataset="ds_data1" useselcolor="false" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="110"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" style="color:red;" text="rowtype" background="" color="red"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="expr:dataset.getRowType(rowidx)==2? 'normal':'none '" text="bind:Column0" cssclass="expr:dataset.getRowType(currow)=='2'?'Expr_Case3_rowtype':''"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" style="background: ;" expr="expr:dataset.getRowType(rowidx)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="2" text="color expr setting using rowlevel of DataSet" left="17" top="25" width="500" height="30" cssclass="sta_WF_explain"/>
+        <Static id="Static01" taborder="3" text="color expr setting using rowtype of DataSet" left="637" top="25" width="350" height="30" cssclass="sta_WF_explain"/>
+        <Button id="Button00" taborder="4" text="addrow" left="847" top="238" width="90" height="40" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var row = this.ds_data1.addRow();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_data1" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">Tom</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Jeny</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Jack</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_data" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" keystring="G:department,group">
+        <ColumnInfo>
+          <Column id="group" type="STRING" size="256"/>
+          <Column type="STRING" size="255" id="department"/>
+          <Column type="STRING" size="256" id="employ"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Tom</Col>
+            <Col id="group">Technical Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Jany</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Piter</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Superman</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Jack</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group1</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Tony</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Sujan</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Mac</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Ann</Col>
+          </Row>
+          <Row>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Bess</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Dana</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Elin</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Bottom" width="1280" height="140" titletext="Form_Bottom" background="#2D345C" scrollbarsize="0">
+    <Layouts>
+      <Layout width="1280" height="140" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" left="40" top="64" height="52" onclick="Static00_onclick" text="서울시 강남구 봉은사로 617  I  대표이사 조강희  I   사업자등록번호 211086-61993  I  대표번호 02-2140-7700&#13;&#10;COPYRIGHT© BY 2020 TOBESOFT.CO.LTD. ALL RIGHTS RESERVED" right="40" cssclass="sta_BF_copyright"/>
+        <Div id="Div00" taborder="1" text="Div00" left="19.92%" top="15" height="55" background="transparent" right="19.92%">
+          <Layouts>
+            <Layout>
+              <Static id="Static01_00" taborder="3" text="Static01" left="284" top="19" width="1" height="16" background="#868BA7"/>
+              <Button id="Button00" taborder="0" text="투비소프트" left="7" top="15" width="120" height="25" cssclass="btn_BF_link"/>
+              <Static id="Static01" taborder="1" text="Static01" left="139" top="19" width="1" height="16" background="#868BA7"/>
+              <Button id="Button00_00" taborder="2" text="TOBETONG" left="152" top="15" width="120" height="25" cssclass="btn_BF_link"/>
+              <Button id="Button00_01" taborder="4" text="고객지원센터" left="296" top="15" width="120" height="25" cssclass="btn_BF_link"/>
+              <Static id="Static01_01" taborder="5" text="Static01" left="428" top="19" width="1" height="16" background="#868BA7"/>
+              <Button id="Button00_00_00" taborder="6" text="교육신청" left="440" top="15" width="120" height="25" cssclass="btn_BF_link"/>
+              <Static id="Static01_00_00" taborder="7" text="Static01" left="572" top="19" width="1" height="16" background="#868BA7"/>
+              <Button id="Button00_00_00_00" taborder="8" text="Technical Documents" top="15" height="25" cssclass="btn_BF_link" width="179" left="584"/>
+            </Layout>
+            <Layout name="Layout0">
+              <Button id="Button00" cssclass="btn_MBF_link" left="0" top="5" height="25" right="Static01_00:10"/>
+              <Button id="Button00_00" cssclass="btn_MBF_link" width="100" left="73" top="25" height="25" visible="false"/>
+              <Button id="Button00_01" cssclass="btn_MBF_link" left="Static01_00:10" top="5" height="25" text="고객지원센터" right="0"/>
+              <Button id="Button00_00_00" cssclass="btn_MBF_link" width="100" left="180" top="25" height="25" text="교육신청" visible="false"/>
+              <Static id="Static01" left="69" top="29" width="1" height="16" visible="false"/>
+              <Static id="Static01_00" left="50.00%" top="9" width="1" height="16"/>
+              <Static id="Static01_01" left="176" top="29" width="1" height="16" visible="false"/>
+              <Static id="Static01_00_00" left="283" top="29" width="1" height="16" visible="false"/>
+              <Button id="Button00_00_00_00" left="287" top="25" width="130" height="25" cssclass="btn_MBF_link" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+      <Layout name="Layout0" width="480" height="140" mobileorientation="landscape">
+        <Div id="Div00" left="0" top="15" height="59" right="0" text="Div00"/>
+        <Static id="Static00" text="서울시 강남구 봉은사로 617  I  02-2140-7700&#13;&#10;COPYRIGHT©TOBESOFT.CO.LTD. ALL RIGHTS RESERVED" left="0" top="64" height="52" right="0"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Static00_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

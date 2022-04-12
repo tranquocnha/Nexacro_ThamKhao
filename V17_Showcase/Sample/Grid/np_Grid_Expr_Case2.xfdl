@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Expr_Case2" left="0" top="0" width="1024" height="768" titletext="Expr Case2">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" width="800" height="294" binddataset="Dataset00" useselcolor="false" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="133"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0" cssclass="expr:Column0=='1'?'Expr_Case2_red':Column0=='2'?'Expr_Case2_pink':Column0=='3'?'Expr_Case2_blue':Column0=='4'?'Expr_Case2_yellow':''"/>
+                <Cell col="1" text="bind:Column1" cssclass="expr:Column0=='1'?'Expr_Case2_red':Column0=='2'?'Expr_Case2_pink':Column0=='3'?'Expr_Case2_blue':Column0=='4'?'Expr_Case2_yellow':''"/>
+                <Cell col="2" text="bind:Column2" cssclass="expr:Column0=='1'?'Expr_Case2_red':Column0=='2'?'Expr_Case2_pink':Column0=='3'?'Expr_Case2_blue':Column0=='4'?'Expr_Case2_yellow':''"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="1" text="Depending on the background condition setting expr" left="30" top="18" width="800" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">red Color</Col>
+            <Col id="Column2">A</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">pink Color</Col>
+            <Col id="Column2">B</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">blue Color</Col>
+            <Col id="Column2">C</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">yellow Color</Col>
+            <Col id="Column2">D</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">red Color</Col>
+            <Col id="Column2">E</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">pink Color</Col>
+            <Col id="Column2">F</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">blue Color</Col>
+            <Col id="Column2">G</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

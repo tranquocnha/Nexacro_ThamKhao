@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_currow" classname="Grid_AddCreate" inheritanceid="" position="absolute" titletext="currow" left="0" width="760" top="0" height="430">
+    <Layouts>
+      <Layout>
+        <Static id="Static02" text="Searial Number Exrpression using currow" position="absolute" left="30" width="560" top="18" height="40" cssclass="sta_WF_subtitP" onclick="Static02_onclick" verticalAlign="top"/>
+        <Grid id="Grid00" taborder="1" binddataset="ds_data" position="absolute" autofittype="col" autoenter="select" areaselecttype="overband" left="30" width="500" top="78" height="258">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="93"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="expr:&quot;currow&quot;"/>
+                <Cell col="1" text="Fruit Type"/>
+                <Cell col="2" text="Fruit Name"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow + 1"/>
+                <Cell col="1" text="bind:Column0"/>
+                <Cell col="2" style="align:left;" text="bind:Column1" tooltiptext="expr:comp.parent.asdf(currow)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="too" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">A</Col>
+            <Col id="Column1">persimmon</Col>
+            <Col id="too">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">B</Col>
+            <Col id="Column1">mandarin </Col>
+            <Col id="too">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">C</Col>
+            <Col id="Column1">apple </Col>
+            <Col id="too">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">D</Col>
+            <Col id="Column1">green grape</Col>
+            <Col id="too">4</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">E</Col>
+            <Col id="Column1">strawberry</Col>
+            <Col id="too">5</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">F</Col>
+            <Col id="Column1">cherry</Col>
+            <Col id="too">6</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[ ]]></Script>
+  </Form>
+</FDL>

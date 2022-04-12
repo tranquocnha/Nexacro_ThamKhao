@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_All" width="1263" height="3410" titletext="New Form">
+    <Layouts>
+      <Layout height="3410" mobileorientation="landscape" width="1263">
+        <Div id="Div00" taborder="0" text="Top" left="0" top="0" height="80" right="0" url="design::publishing/Form_Top.xfdl" background="#ffffff" border="0px none,0px none,1px solid #8D8D8D"/>
+        <Static id="Static02" taborder="1" text="background : #F5F7FC&#13;&#10;-nexa-border : &#13;&#10;0px none,0px none,1px solid #8D8D8D" left="1290" top="0" width="264" height="80" background="#ffffff" border="0px none,0px none,1px solid #8D8D8D" visible="false"/>
+        <Div id="Div01" taborder="2" text="Div01" left="0" top="80" height="600" width="1263">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Grid Component" left="40" top="90" width="410" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height"/>
+              <Static id="Static01" taborder="1" text="The text about Grid Component function for information.&#13;&#10;Description text area is here." left="45" top="173" width="410" height="60" fittocontents="height" cssclass="sta_WF_mainvisualTxt"/>
+              <Button id="Button00" taborder="2" text="Read More" left="45" top="250" width="150" height="50" cssclass="sta_WF_mainBtn01"/>
+              <ImageViewer id="ImageViewer00" taborder="3" top="40" width="620" height="480" right="40" image="url('imagerc::Main/img_WF_mainTest01.gif')" cssclass="img_WF_mainvisualImg"/>
+              <Button id="Button01" taborder="4" left="385" width="120" height="5" bottom="20" border="0px none" cssclass="btn_WF_mainPageS"/>
+              <Button id="Button01_00" taborder="5" left="Button01:3" width="120" height="5" bottom="20" border="0px none" cssclass="btn_WF_mainPage"/>
+              <Button id="Button01_01" taborder="6" left="Button01_00:3" width="120" height="5" bottom="20" border="0px none" cssclass="btn_WF_mainPage"/>
+              <Button id="Button01_02" taborder="7" width="120" height="5" bottom="20" border="0px none" cssclass="btn_WF_mainPage" left="Button01_01:3"/>
+            </Layout>
+            <Layout name="Layout0"/>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="3" left="0" top="680" height="560" width="1263" background="aliceblue">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Key Menu" left="481" top="30" width="300" height="60" cssclass="sta_WF_mainboxTitle"/>
+              <Static id="Static01" taborder="1" left="5" top="126" width="300" height="360" border="1px solid #dddddd" cssclass="sta_WF_mainbox01"/>
+              <Static id="Static01_00" taborder="2" left="322" top="126" width="300" height="360" border="1px solid #dddddd" cssclass="sta_WF_mainbox02"/>
+              <Static id="Static01_01" taborder="3" left="639" top="126" width="300" height="360" border="1px solid #dddddd" cssclass="sta_WF_mainbox03"/>
+              <Static id="Static01_02" taborder="4" top="126" width="300" height="360" border="1px solid #dddddd" cssclass="sta_WF_mainbox04" right="7"/>
+            </Layout>
+            <Layout name="Layout0"/>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="4" left="0" top="1240" width="1263" height="580" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Real OSMU Solution" left="40" top="190" width="490" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height"/>
+              <Static id="Static01" taborder="1" text="현재는 탁월한 고객 경험이 기업 가치를 결정합니다.&#13;&#10;사용자중심의 IT환경 구축을 실현해 줄 유일한 Real OSMU 솔루션!&#13;&#10;웹과 네이티브의 경계를 허물고 하나의 소스로 모든 비즈니스 환경에 완벽하게 대응할 수 있습니다." left="45" top="273" width="525" height="97" cssclass="sta_WF_mainvisualTxt" wordWrap="char" fittocontents="height"/>
+              <ImageViewer id="ImageViewer00" taborder="2" top="60" width="620" height="502" right="40" image="url('imagerc::Main/img_WF_mainPR01.png')" cssclass="img_WF_mainvisualImg"/>
+            </Layout>
+            <Layout name="Layout0"/>
+          </Layouts>
+        </Div>
+        <Div id="Div03_00" taborder="5" left="0" top="1820" width="1263" height="600">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="최고의 개발편의와 생산성" left="673" top="150" width="580" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height"/>
+              <Static id="Static01" taborder="1" text="사용성 모델 기반의 분석과 실제 사용자 테스트를 거쳐 최고의 개발 도구로&#13;&#10;새롭게 태어난 넥사크로 스튜디오는 개발자의 편의성을 높이는 기능을 대폭 강화하고 디자이너, 퍼블리셔 등 역할에 따른 개별 인터페이스를 제공합니다." left="673" top="233" width="550" height="97" fittocontents="height" cssclass="sta_WF_mainvisualTxt" wordWrap="char"/>
+              <ImageViewer id="ImageViewer00" taborder="2" top="20" width="620" height="480" right="625" image="url('imagerc::Main/img_WF_mainPR02.png')" cssclass="img_WF_mainvisualImg"/>
+            </Layout>
+            <Layout name="Layout0"/>
+          </Layouts>
+        </Div>
+        <Div id="Div04" taborder="6" left="0" top="2820" width="1263" height="580" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Major Customers(Partners)" left="200" top="35" height="80" cssclass="sta_WF_mainboxTxt05" fittocontents="height" right="200"/>
+              <Static id="Static01" taborder="1" left="111" top="175" width="180" height="60" cssclass="sta_WF_reference01"/>
+              <Static id="Static01_00" taborder="2" left="326" top="175" width="180" height="60" cssclass="sta_WF_reference02"/>
+              <Static id="Static01_01" taborder="3" left="541" top="175" width="180" height="60" cssclass="sta_WF_reference03"/>
+              <Static id="Static01_02" taborder="4" left="756" top="175" width="180" height="60" cssclass="sta_WF_reference04"/>
+              <Static id="Static01_03" taborder="5" top="175" width="180" height="60" cssclass="sta_WF_reference05" left="971"/>
+              <Static id="Static01_04" taborder="6" left="111" top="255" width="180" height="60" cssclass="sta_WF_reference06"/>
+              <Static id="Static01_00_00" taborder="7" left="326" top="255" width="180" height="60" cssclass="sta_WF_reference07"/>
+              <Static id="Static01_01_00" taborder="8" left="541" top="255" width="180" height="60" cssclass="sta_WF_reference08"/>
+              <Static id="Static01_02_00" taborder="9" left="756" top="255" width="180" height="60" cssclass="sta_WF_reference09"/>
+              <Static id="Static01_03_00" taborder="10" left="971" top="255" height="60" cssclass="sta_WF_reference10" width="180"/>
+              <Static id="Static01_05" taborder="11" left="111" top="335" width="180" height="60" cssclass="sta_WF_reference11"/>
+              <Static id="Static01_00_01" taborder="12" left="326" top="335" width="180" height="60" cssclass="sta_WF_reference12"/>
+              <Static id="Static01_01_01" taborder="13" left="541" top="335" width="180" height="60" cssclass="sta_WF_reference13"/>
+              <Static id="Static01_02_01" taborder="14" left="756" top="335" width="180" height="60" cssclass="sta_WF_reference14"/>
+              <Static id="Static01_03_01" taborder="15" left="971" top="335" height="60" cssclass="sta_WF_reference15" width="180"/>
+              <Static id="Static01_04_00" taborder="16" left="111" top="415" width="180" height="60" cssclass="sta_WF_reference16"/>
+              <Static id="Static01_00_00_00" taborder="17" left="326" top="415" width="180" height="60" cssclass="sta_WF_reference17"/>
+              <Static id="Static01_01_00_00" taborder="18" left="541" top="415" width="180" height="60" cssclass="sta_WF_reference18"/>
+              <Static id="Static01_02_00_00" taborder="19" left="756" top="415" width="180" height="60" cssclass="sta_WF_reference19"/>
+              <Static id="Static01_03_00_00" taborder="20" top="415" width="180" height="60" cssclass="sta_WF_reference20" left="971"/>
+            </Layout>
+            <Layout name="Layout0"/>
+          </Layouts>
+        </Div>
+        <Div id="Div04_00" taborder="7" left="0" top="2420" width="1263" height="400" background="#59618E">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="TOBESOFT By the Numbers" left="250" top="40" height="80" cssclass="sta_WF_mainboxTxt06" fittocontents="height" right="250"/>
+              <Static id="Static01" taborder="1" text="Korea" left="110" top="175" width="250" height="60" cssclass="sta_WF_mainboxTxt03"/>
+              <Static id="Static01_00" taborder="2" text="History" left="374" top="175" width="250" height="60" cssclass="sta_WF_mainboxTxt03"/>
+              <Static id="Static01_01" taborder="3" text="Nexacro&#13;&#10;Reference" left="638" top="175" width="250" height="60" cssclass="sta_WF_mainboxTxt03"/>
+              <Static id="Static02" taborder="4" text="No." left="163" top="253" width="80" height="60" cssclass="sta_WF_mainboxTxt06" textAlign="right"/>
+              <Static id="Static02_00" taborder="5" text="20" left="395" top="248" width="80" height="60" cssclass="sta_WF_mainboxTxt04" textAlign="right"/>
+              <Static id="Static02_01" taborder="6" text="1,400" left="638" top="248" width="250" height="60" cssclass="sta_WF_mainboxTxt04"/>
+              <Static id="Static01_01_00" taborder="7" text="Tobesoft&#13;&#10;Reference" top="175" width="250" height="60" cssclass="sta_WF_mainboxTxt03" left="902"/>
+              <Static id="Static02_01_00" taborder="8" text="4,600" left="902" top="248" width="250" height="60" cssclass="sta_WF_mainboxTxt04"/>
+              <Static id="Static02_02" taborder="9" text="1" left="253" top="248" width="60" height="60" cssclass="sta_WF_mainboxTxt04" textAlign="left"/>
+              <Static id="Static02_00_00" taborder="10" text="years" left="495" top="253" width="100" height="60" cssclass="sta_WF_mainboxTxt06" textAlign="left"/>
+            </Layout>
+            <Layout name="Layout0"/>
+          </Layouts>
+        </Div>
+      </Layout>
+      <Layout name="Layout0" width="480" height="800" mobileorientation="landscape"/>
+    </Layouts>
+  </Form>
+</FDL>

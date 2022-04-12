@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Static_Basic" classname="Static_Basic" inheritanceid="" position="absolute" titletext="Static" onload="Static_Basic_onload" left="0" top="0" width="760" height="750">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="2" text="Static " left="30" top="18" width="260" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+        <Static id="stOrg" taborder="3" left="30" top="73" width="250" height="36" text="apple Strawberries" onclick="Static04_onclick" cssclass="static_WF_text"/>
+        <Button id="Button00" taborder="4" text="&gt;&gt;" left="295" top="73" width="36" height="36" onclick="Button00_onclick"/>
+        <Static id="stNewLine" taborder="5" onclick="Static04_onclick" left="349" top="73" width="250" height="80" style="border:1 solid #808080ff ;padding:0 0 0 10;align:left;" text="" cssclass="static_WF_text"/>
+        <TextArea id="taOrg" taborder="6" left="30" top="278" width="250" height="36" value="apple Strawberries"/>
+        <TextArea id="taNewLine" taborder="7" left="349" top="278" width="250" height="80"/>
+        <Button id="Button01" taborder="8" text="&gt;&gt;" left="295" top="278" width="36" height="36" onclick="Button01_onclick"/>
+        <Static id="Static01" taborder="9" text="TextArea" left="30" top="223" width="260" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+        <Static id="Static02" taborder="10" text="Grid" left="30" top="428" width="260" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid00" taborder="11" useinputpanel="false" left="30" top="483" width="250" height="114" binddataset="ds_data" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="192"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" style="align:left;" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="12" binddataset="ds_data" useinputpanel="false" left="349" top="483" width="250" height="114" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="192"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" style="align:left;" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="13" text="&gt;&gt;" left="295" top="483" width="36" height="36" onclick="Button02_onclick"/>
+      </Layout>
+    </Layouts>
+    <Bind/>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">apple pineapple</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">pear grape</Col>
+            <Col id="Column0">7</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.stNewLine.set_text('apple' +  String.fromCharCode(10) + 'Strawberries');
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.taNewLine.set_value('apple' +  String.fromCharCode(10) + 'Strawberries');
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_data.setColumn(0,"Column0",'apple' +  String.fromCharCode(10) + 'Strawberries');	
+}
+]]></Script>
+  </Form>
+</FDL>

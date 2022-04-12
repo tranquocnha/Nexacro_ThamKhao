@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="guide5" classname="guide5" left="0" top="0" width="1025" height="674" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="3" text="Component Name" left="15" top="15" width="125" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static06" taborder="4" text="Component View" left="139" top="15" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;" right="15"/>
+        <Static id="Static00" taborder="5" text="Alert" left="15" top="44" width="125" height="315" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static12" taborder="7" text="Confirm" onclick="Static10_onclick" left="15" top="355" width="125" height="310" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static08" taborder="13" left="140" top="664" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static01" taborder="14" left="140" top="355" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Button id="BtnAlertDefault" taborder="15" text="Alert(&quot;디폴트내용&quot;, &quot;디폴트타이틀&quot;, &quot;default&quot;)" onclick="BtnAlertDefault_onclick" left="237" top="94" width="336" height="23" tooltiptext="Alert(&quot;디폴트내용&quot;, &quot;디폴트타이틀&quot;, &quot;default&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Static id="Static15" taborder="16" text="default" left="168" top="98" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Static id="Static16" taborder="17" text="error" left="168" top="143" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Static id="Static17" taborder="18" text="question" left="168" top="188" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Button id="BtnAlertQuestion" taborder="19" text="Alert(&quot;Question내용&quot;, &quot;Question&quot;, &quot;question&quot;)" onclick="BtnAlertQuestion_onclick" left="237" top="184" width="336" height="23" tooltiptext="Alert(&quot;Question내용&quot;, &quot;Question&quot;, &quot;question&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Button id="BtnAlertError" taborder="20" text="Alert(&quot;Error내용&quot;, &quot;Error&quot;, &quot;error&quot;)" onclick="BtnAlertError_onclick" left="237" top="139" width="336" height="23" tooltiptext="Alert(&quot;Error내용&quot;, &quot;Error&quot;, &quot;error&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Static id="Static18" taborder="21" text="warning" left="168" top="233" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Static id="Static19" taborder="22" text="information" left="168" top="278" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Button id="BtnAlertInformation" taborder="23" text="Alert(&quot;Information내용&quot;, &quot;Information&quot;, &quot;information&quot;)" onclick="BtnAlertInformation_onclick" left="237" top="274" width="336" height="23" tooltiptext="Alert(&quot;Information내용&quot;, &quot;Information&quot;, &quot;information&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Button id="BtnAlertWarning" taborder="24" text="Alert(&quot;Warning내용&quot;, &quot;Warning&quot;, &quot;warning&quot;)" onclick="BtnAlertWarning_onclick" left="237" top="229" width="336" height="23" tooltiptext="Alert(&quot;Warning내용&quot;, &quot;Warning&quot;, &quot;warning&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Button id="BtnConfirmDefault" taborder="25" text="Confirm(&quot;디폴트내용&quot;, &quot;디폴트타이틀&quot;, &quot;default&quot;)" onclick="BtnConfirmDefault_onclick" left="237" top="406" width="336" height="23" tooltiptext="Confirm(&quot;디폴트내용&quot;, &quot;디폴트타이틀&quot;, &quot;default&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Button id="BtnConfirmError" taborder="26" text="Confirm(&quot;Error내용&quot;, &quot;Error&quot;, &quot;error&quot;)" onclick="BtnConfirmError_onclick" left="237" top="451" width="336" height="23" tooltiptext="Confirm(&quot;Error내용&quot;, &quot;Error&quot;, &quot;error&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Button id="BtnConfirmQuestion" taborder="27" text="Confirm(&quot;Question내용&quot;, &quot;Question&quot;, &quot;question&quot;)" onclick="BtnConfirmQuestion_onclick" left="237" top="496" width="336" height="23" tooltiptext="Confirm(&quot;Question내용&quot;, &quot;Question&quot;, &quot;question&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Button id="BtnConfirmWarning" taborder="28" text="Confirm(&quot;Warning내용&quot;, &quot;Warning&quot;, &quot;warning&quot;)" onclick="BtnConfirmWarning_onclick" left="237" top="541" width="336" height="23" tooltiptext="Confirm(&quot;Warning내용&quot;, &quot;Warning&quot;, &quot;warning&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Button id="BtnConfirmInformation" taborder="29" text="Confirm(&quot;Information내용&quot;, &quot;Information&quot;, &quot;information&quot;)" onclick="BtnConfirmInformation_onclick" left="237" top="586" width="336" height="23" tooltiptext="Confirm(&quot;Information내용&quot;, &quot;Information&quot;, &quot;information&quot;)" style="padding:0 0 0 20; align:left; " cssclass="btn_singdata"/>
+        <Static id="Static04" taborder="30" text="default" left="168" top="410" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Static id="Static02" taborder="31" text="error" left="168" top="455" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Static id="Static03" taborder="32" text="question" left="168" top="500" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Static id="Static07" taborder="33" text="warning" left="168" top="545" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+        <Static id="Static09" taborder="34" text="information" left="168" top="590" width="60" height="15" style="color:#999999ff; align:right; font:Tahoma,8; "/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.BtnAlertDefault_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	alert("디폴트내용", "Default", "default");
+}
+
+this.BtnAlertError_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	alert("Error내용", "Error", "error");
+}
+
+this.BtnAlertQuestion_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	alert("Question내용", "Question", "question");
+}
+
+this.BtnAlertWarning_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	alert("Warning내용", "Warning", "warning");
+}
+
+this.BtnAlertInformation_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	alert("Information내용", "Information", "information");
+}
+
+this.BtnConfirmDefault_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	confirm("디폴트내용", "Default", "default");
+}
+
+this.BtnConfirmError_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	confirm("Error내용", "Error", "error");
+}
+
+this.BtnConfirmQuestion_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	confirm("Question내용", "Question", "question");
+}
+
+this.BtnConfirmWarning_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	confirm("Warning내용", "Warning", "warning");
+}
+
+this.BtnConfirmInformation_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	confirm("Information내용", "Information", "information");
+}
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="300" onload="form_onload">
+    <Layouts>
+      <Layout height="300" width="440">
+        <Static id="Static00" taborder="1" text="Chart" left="20" top="19" width="150" height="30" cssclass="sta_WF_compTitle02" messageid="comp.chart" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="Nexacro Chart is an open source component implemented as a Nexacroplatform.&#13;&#10;&#13;&#10;The Nexacro chart module is not included in the basic installation. You must receive and add a separate module to use the Nexacro Chart component.&#13;&#10;&#13;&#10;You can download the installation files from the Play Nexacro website.&#13;&#10;Please refer to the website for installation precautions.&#13;&#10;&lt;l v='https://www.playnexacro.com/#list:opensource:1'&gt;https://www.playnexacro.com/#list:opensource:1&lt;/l&gt;" left="20" top="Static00:2" height="220" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.chart.desc" usedecorate="true" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};]]></Script>
+  </Form>
+</FDL>

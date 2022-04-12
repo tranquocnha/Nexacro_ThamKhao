@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="work" classname="work" left="0" top="0" width="1025" height="674" titletext="New Form" cssclass="WF_work">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="15" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="46"/>
+        <Static id="Static01" taborder="16" text="Date of inquiry" cssclass="sta_WFSA_label" left="35" top="84" width="93" height="20"/>
+        <Combo id="Comb_year" taborder="17" value="2014" text="2014" innerdataset="year" codecolumn="Column0" datacolumn="Column0" index="0" onitemchanged="Comb_year_onitemchanged" left="134" top="83" width="70" height="20"/>
+        <Combo id="Comb_month" taborder="18" value="01" text="01" innerdataset="@month" codecolumn="Column0" datacolumn="Column0" index="0" onitemchanged="Comb_year_onitemchanged" left="205" top="83" width="50" height="20"/>
+        <Button id="Btn_search" taborder="19" cssclass="btn_WF_search" top="70" right="15" height="46" width="51"/>
+        <Button id="Button00" taborder="20" text="New" top="128" right="195" width="42" height="23"/>
+        <Button id="Button01" taborder="21" text="Modify" top="128" right="150" width="42" height="23"/>
+        <Button id="Button02" taborder="22" text="Delete" top="128" right="105" width="42" height="23"/>
+        <Button id="Button03" taborder="23" text="Reset" top="128" right="60" width="42" height="23"/>
+        <Button id="Button04" taborder="24" text="Save" cssclass="btn_module" top="128" right="15" width="42" height="23"/>
+        <Static id="Static32" taborder="25" text="40" visible="false" left="427" top="116" width="50" height="40" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static02" taborder="26" text="5" visible="false" left="959" top="151" width="50" height="5" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static30" taborder="27" text="20" visible="false" left="15" top="73" width="20" height="41" style="background:blueviolet;opacity:50;"/>
+        <Grid id="Grid00" taborder="28" binddataset="ds_list" scrollbars="autohorz" useinputpanel="false" cellsizebandtype="allband" autofittype="col" onsetfocus="Grid00_onsetfocus" onhscroll="Grid00_onhscroll" onvscroll="Grid00_onvscroll" onselectchanged="Grid00_onselectchanged" left="15" top="156" right="15" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="123" band="left"/>
+                <Column size="140" band="left"/>
+                <Column size="52" band="left"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80" band="right"/>
+                <Column size="84" band="right"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="Customer"/>
+                <Cell col="1" rowspan="2" text="Project name"/>
+                <Cell col="2" rowspan="2" text="Specification"/>
+                <Cell col="3" colspan="2" text="2013-01"/>
+                <Cell col="5" colspan="2" text="2013-02"/>
+                <Cell col="7" colspan="2" text="2013-03"/>
+                <Cell col="9" colspan="2" text="2013-04"/>
+                <Cell col="11" colspan="2" text="TOTAL"/>
+                <Cell row="1" col="3" text="Sales"/>
+                <Cell row="1" col="4" text="Purchase"/>
+                <Cell row="1" col="5" text="Sales"/>
+                <Cell row="1" col="6" text="Purchase"/>
+                <Cell row="1" col="7" text="Sales"/>
+                <Cell row="1" col="8" text="Purchase"/>
+                <Cell row="1" col="9" text="Sales"/>
+                <Cell row="1" col="10" text="Purchase"/>
+                <Cell row="1" col="11" text="Sales"/>
+                <Cell row="1" col="12" text="Purchase"/>
+              </Band>
+              <Band id="body">
+                <Cell celltype="none" displaytype="normal" edittype="readonly" style="align:left;accessibility: ;" text="bind:SITE_NM" suppress="1"/>
+                <Cell col="1" celltype="none" displaytype="normal" edittype="readonly" style="align:left;" text="bind:PROJ_NM" suppress="2"/>
+                <Cell col="2" celltype="none" displaytype="normal" edittype="readonly" text="bind:GUBUN"/>
+                <Cell col="3" displaytype="number" edittype="readonly" style="align:right;" text="bind:SALE_201301"/>
+                <Cell col="4" displaytype="number" edittype="readonly" style="align:right;" text="bind:BUY_201301"/>
+                <Cell col="5" displaytype="number" edittype="readonly" style="align:right;" text="bind:SALE_201302"/>
+                <Cell col="6" displaytype="number" edittype="readonly" style="align:right;" text="bind:BUY_201302"/>
+                <Cell col="7" displaytype="number" edittype="readonly" style="align:right;" text="bind:SALE_201303"/>
+                <Cell col="8" displaytype="number" edittype="readonly" style="align:right;" text="bind:BUY_201303"/>
+                <Cell col="9" displaytype="number" edittype="readonly" style="align:right;" text="bind:SALE_201304"/>
+                <Cell col="10" displaytype="number" edittype="readonly" style="align:right;" text="bind:BUY_201304"/>
+                <Cell col="11" displaytype="number" edittype="readonly" style="align:right;" text="expr:SALE_201301 + SALE_201302 + SALE_201303 + SALE_201304"/>
+                <Cell col="12" displaytype="number" edittype="readonly" style="align:right;" text="expr:BUY_201301 + BUY_201302 + BUY_201303 + BUY_201304"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="St_title" taborder="30" text="Grid Multi Header" cssclass="sta_WF_title" left="15" top="38" width="505" height="20"/>
+        <Static id="Static36" taborder="31" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="32" text="Home &gt; Work screen guide &gt; Grid Multi Header" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static37" taborder="33" text="15" visible="false" left="1" top="0" width="15" height="60" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static39" taborder="35" text="20" visible="false" left="118" top="22" width="100" height="20" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static41" taborder="37" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static42" taborder="38" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="39" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="40" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SITE_NM" type="STRING" size="256"/>
+          <Column id="PROJ_NM" type="STRING" size="256"/>
+          <Column id="GUBUN" type="STRING" size="256"/>
+          <Column id="SALE_201301" type="BIGDECIMAL" size="256"/>
+          <Column id="BUY_201301" type="BIGDECIMAL" size="256"/>
+          <Column id="SALE_201302" type="BIGDECIMAL" size="256"/>
+          <Column id="BUY_201302" type="BIGDECIMAL" size="256"/>
+          <Column id="SALE_201303" type="BIGDECIMAL" size="256"/>
+          <Column id="BUY_201303" type="BIGDECIMAL" size="256"/>
+          <Column id="SALE_201304" type="BIGDECIMAL" size="256"/>
+          <Column id="BUY_201304" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SITE_NM">Samsung Electronics</Col>
+            <Col id="PROJ_NM">Web accessibility project</Col>
+            <Col id="GUBUN">Service</Col>
+            <Col id="SALE_201301">10000000</Col>
+            <Col id="BUY_201301">50000000</Col>
+            <Col id="SALE_201302">10000000</Col>
+            <Col id="BUY_201302">10000000</Col>
+            <Col id="SALE_201303">0</Col>
+            <Col id="BUY_201303">0</Col>
+            <Col id="SALE_201304">0</Col>
+            <Col id="BUY_201304">0</Col>
+          </Row>
+          <Row>
+            <Col id="SITE_NM">Samsung Electronics</Col>
+            <Col id="PROJ_NM">Web accessibility project</Col>
+            <Col id="GUBUN">Product</Col>
+            <Col id="SALE_201301">50000000</Col>
+            <Col id="BUY_201301">0</Col>
+            <Col id="SALE_201302">0</Col>
+            <Col id="BUY_201302">0</Col>
+            <Col id="SALE_201303">0</Col>
+            <Col id="BUY_201303">0</Col>
+            <Col id="SALE_201304">0</Col>
+            <Col id="BUY_201304">0</Col>
+          </Row>
+          <Row>
+            <Col id="SITE_NM">Samsung Electronics</Col>
+            <Col id="PROJ_NM">HR Management System</Col>
+            <Col id="GUBUN">Product</Col>
+            <Col id="SALE_201301">0</Col>
+            <Col id="BUY_201301">0</Col>
+            <Col id="SALE_201302">100000000</Col>
+            <Col id="BUY_201302">0</Col>
+            <Col id="SALE_201303">0</Col>
+            <Col id="BUY_201303">0</Col>
+            <Col id="SALE_201304">0</Col>
+            <Col id="BUY_201304">0</Col>
+          </Row>
+          <Row>
+            <Col id="SITE_NM">Hyundai Motors</Col>
+            <Col id="PROJ_NM">Distribution System</Col>
+            <Col id="GUBUN">Service</Col>
+            <Col id="SALE_201301">18000000</Col>
+            <Col id="BUY_201301">70000000</Col>
+            <Col id="SALE_201302">18000000</Col>
+            <Col id="BUY_201302">7000000</Col>
+            <Col id="SALE_201303">18000000</Col>
+            <Col id="BUY_201303">7000000</Col>
+            <Col id="SALE_201304">0</Col>
+            <Col id="BUY_201304">0</Col>
+          </Row>
+          <Row>
+            <Col id="SITE_NM">Hyundai Motors</Col>
+            <Col id="PROJ_NM">Distribution System</Col>
+            <Col id="GUBUN">Product</Col>
+            <Col id="SALE_201301">0</Col>
+            <Col id="BUY_201301">0</Col>
+            <Col id="SALE_201302">250000000</Col>
+            <Col id="BUY_201302">0</Col>
+            <Col id="SALE_201303">0</Col>
+            <Col id="BUY_201303">0</Col>
+            <Col id="SALE_201304">0</Col>
+            <Col id="BUY_201304">0</Col>
+          </Row>
+          <Row>
+            <Col id="SITE_NM">Korea Teachers Pension Fund</Col>
+            <Col id="PROJ_NM">The next generation</Col>
+            <Col id="GUBUN">Service</Col>
+            <Col id="SALE_201301">18000000</Col>
+            <Col id="BUY_201301">70000000</Col>
+            <Col id="SALE_201302">18000000</Col>
+            <Col id="BUY_201302">70000000</Col>
+            <Col id="SALE_201303">18000000</Col>
+            <Col id="BUY_201303">70000000</Col>
+            <Col id="SALE_201304">18000000</Col>
+            <Col id="BUY_201304">70000000</Col>
+          </Row>
+          <Row>
+            <Col id="SITE_NM">Kia Motors</Col>
+            <Col id="PROJ_NM">Process Improvement Project</Col>
+            <Col id="GUBUN">Service</Col>
+            <Col id="SALE_201301">0</Col>
+            <Col id="BUY_201301">0</Col>
+            <Col id="SALE_201302">10000000</Col>
+            <Col id="BUY_201302">0</Col>
+            <Col id="SALE_201303">10000000</Col>
+            <Col id="BUY_201303">0</Col>
+            <Col id="SALE_201304">10000000</Col>
+            <Col id="BUY_201304">0</Col>
+          </Row>
+          <Row>
+            <Col id="SITE_NM">Kia Motors</Col>
+            <Col id="PROJ_NM">Process Improvement Project</Col>
+            <Col id="GUBUN">Product</Col>
+            <Col id="SALE_201301">0</Col>
+            <Col id="BUY_201301">0</Col>
+            <Col id="SALE_201302">210000000</Col>
+            <Col id="BUY_201302">90000000</Col>
+            <Col id="SALE_201303">0</Col>
+            <Col id="BUY_201303">0</Col>
+            <Col id="SALE_201304">0</Col>
+            <Col id="BUY_201304">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="year" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">2014</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2013</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2012</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2011</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2010</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2009</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2008</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2007</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2006</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2005</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2004</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="month" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">01</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">02</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">03</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">05</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">06</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">07</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">08</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">09</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">12</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

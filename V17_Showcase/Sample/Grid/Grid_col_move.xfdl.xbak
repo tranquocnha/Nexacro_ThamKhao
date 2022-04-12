@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.4">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_Sort_Del" classname="Grid_Sort_Del" inheritanceid="" position="absolute 0 0 761 430" titletext="Grid 정렬마크 지우기">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="1" binddataset="ds_data" selecttype="cell" position="absolute 8 64 481 402" style="border:1 solid #cbcbcbff ; " cellmovingtype="col" onformatchanged="Grid00_onformatchanged" onlbuttondown="Grid00_onlbuttondown">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80" band="left"/>
+                <Column size="80" band="left"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80" band="right"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="A"/>
+                <Cell col="1" text="B"/>
+                <Cell col="2" text="C"/>
+                <Cell col="3" text="D"/>
+                <Cell col="4" text="E"/>
+                <Cell col="5" text="F"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:A"/>
+                <Cell col="1" text="bind:B"/>
+                <Cell col="2" text="bind:C"/>
+                <Cell col="3" text="bind:D"/>
+                <Cell col="4" text="bind:C"/>
+                <Cell col="5" text="bind:D"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" id="ds_data" preload="true" updatecontrol="true" useclientlayout="false" filterstr="S:A">
+        <ColumnInfo>
+          <Column id="A" size="256" type="STRING"/>
+          <Column id="B" size="256" type="STRING"/>
+          <Column id="C" size="256" type="STRING"/>
+          <Column id="D" size="256" type="STRING"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="A">1</Col>
+            <Col id="B">가</Col>
+            <Col id="C">A</Col>
+            <Col id="D">A</Col>
+          </Row>
+          <Row>
+            <Col id="A">6</Col>
+            <Col id="B">나</Col>
+            <Col id="C">B</Col>
+            <Col id="D">B</Col>
+          </Row>
+          <Row>
+            <Col id="A">5</Col>
+            <Col id="B">다</Col>
+            <Col id="C">C</Col>
+            <Col id="D">a</Col>
+          </Row>
+          <Row>
+            <Col id="A">4</Col>
+            <Col id="B">라</Col>
+            <Col id="C">D</Col>
+            <Col id="D">b</Col>
+          </Row>
+          <Row>
+            <Col id="A">3</Col>
+            <Col id="B">마</Col>
+            <Col id="C">E</Col>
+            <Col id="D">가</Col>
+          </Row>
+          <Row>
+            <Col id="A">2</Col>
+            <Col id="B">바</Col>
+            <Col id="C">F</Col>
+            <Col id="D">나</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <InitValue>
+      <Grid id="Grid00" dragscrolltype="none"/>
+    </InitValue>
+    <Script type="xscript4.0"><![CDATA[
+
+function Grid00_onformatchanged(obj:Grid, e:GridFormatChangedEventInfo)
+{
+	
+	if(e.reason == 21)
+	{
+		if((GridFormatTemp.getFormatColProperty(e.newvalue,"band") <> 'body') || (GridFormatTemp.getFormatColProperty(e.oldvalue,"band") <> 'body'))
+		{
+			obj.formats = "<Formats>" + sFormatContents + "</Formats>";
+		}
+	}
+}
+
+
+function Grid00_onlbuttondown(obj:Grid, e:GridMouseEventInfo)
+{
+	addVariable("sFormatContents", "", "share");
+	sFormatContents = Grid00.getCurFormatString();
+
+	if(!isValidObject("GridFormatTemp"))
+	{
+		var objGrid = new Grid();  
+		objGrid.init("GridTemp", 0, 0, 0, 0);
+		objGrid.position = "absolute 37 158 367 352";
+
+		this.addChild("GridFormatTemp", objGrid); 
+
+		//addChild 이후 호출해야 정상동작함.
+		
+		objGrid.createFormat();
+//		objGrid.show(); 
+	}
+	GridFormatTemp.formats = "<Formats>" + sFormatContents + "</Formats>";
+	// Show Object  
+	
+}
+]]></Script>
+  </Form>
+</FDL>

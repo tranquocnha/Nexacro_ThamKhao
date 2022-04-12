@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XCSS version="1.0"><![CDATA[.Button.btn_pagingFirst,.Button.btn_pagingFirst[status=focused],.Button.btn_pagingFirst[userstatus=selected]
+{
+	background : url('imagerc::commPaging/btn_first.png') no-repeat center center #ffffff;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+.Button.btn_pagingFirst[status=mouseover],.Button.btn_pagingFirst[userstatus=pushed]
+{
+	background : url('imagerc::commPaging/btn_first.png') no-repeat center center #f6f6f6;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+.Button.btn_pagingFirst[status=disabled]
+{
+	background : url('imagerc::commPaging/btn_first_D.png') no-repeat center center #e9e9e9;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+
+.Button.btn_pagingLast,.Button.btn_pagingLast[status=focused],.Button.btn_pagingLast[userstatus=selected]
+{
+	background : url('imagerc::commPaging/btn_last.png') no-repeat center center #ffffff;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+.Button.btn_pagingLast[status=mouseover],.Button.btn_pagingLast[userstatus=pushed]
+{
+	background : url('imagerc::commPaging/btn_last.png') no-repeat center center #f6f6f6;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+.Button.btn_pagingLast[status=disabled]
+{
+	background : url('imagerc::commPaging/btn_last_D.png') no-repeat center center #e9e9e9;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+
+.Button.btn_pagingPrev,.Button.btn_pagingPrev[status=focused],.Button.btn_pagingPrev[userstatus=selected]
+{
+	background : url('imagerc::commPaging/btn_prev.png') no-repeat center center #ffffff;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+.Button.btn_pagingPrev[status=mouseover],.Button.btn_pagingPrev[userstatus=pushed]
+{
+	background : url('imagerc::commPaging/btn_prev.png') no-repeat center center #f6f6f6;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+.Button.btn_pagingPrev[status=disabled]
+{
+	background : url('imagerc::commPaging/btn_prev_D.png') no-repeat center center #e9e9e9;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+
+.Button.btn_pagingNext,.Button.btn_pagingNext[status=focused],.Button.btn_pagingNext[userstatus=selected]
+{
+	background : url('imagerc::commPaging/btn_next.png') no-repeat center center #ffffff;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+.Button.btn_pagingNext[status=mouseover],.Button.btn_pagingNext[userstatus=pushed]
+{
+	background : url('imagerc::commPaging/btn_next.png') no-repeat center center #f6f6f6;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+.Button.btn_pagingNext[status=disabled]
+{
+	background : url('imagerc::commPaging/btn_next_D.png') no-repeat center center #e9e9e9;
+	cursor : pointer;
+	-nexa-border : 1px solid #c7c7c7;
+}
+
+.Button.btn_pagingNum,.Button.btn_pagingNum[status=focused],.Button.btn_pagingNum[userstatus=selected]
+{
+	background : transparent;
+	color : #222222;
+	cursor : pointer;
+	font : bold 12px "Arial","Gulim";
+	-nexa-border : 0px none;
+	-nexa-text-align : center;
+}
+.Button.btn_pagingNum[status=mouseover],.Button.btn_pagingNum[userstatus=pushed]
+{
+	background : transparent;
+	color : #3366cc;
+	cursor : pointer;
+	font : bold 12px "Arial","Gulim";
+	-nexa-border : 0px none;
+	-nexa-text-align : center;
+	-nexa-text-decoration : underline;
+}
+.Button.btn_pagingNum[status=disabled]
+{
+	background : transparent;
+	color : #3366cc;
+	cursor : pointer;
+	font : bold 12px "Arial","Gulim";
+	-nexa-border : 0px none;
+	-nexa-text-align : center;
+}]]></XCSS>

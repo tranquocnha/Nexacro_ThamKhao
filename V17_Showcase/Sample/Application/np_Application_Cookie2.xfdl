@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Application_Cookie" classname="Application_Cookie" left="0" top="0" width="760" height="430" titletext="Verifying Cookie value and setting">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Setting Cookie value" onclick="Button00_onclick" left="30" top="78" height="40" enable="true" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="270"/>
+        <Button id="Button01" taborder="1" text="Verifying get value" onclick="Button01_onclick" left="30" top="128" height="40" enable="true" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="270"/>
+        <Button id="Button02" taborder="2" text="Setting Cookie value (Korean)" onclick="Button02_onclick" left="320" top="78" height="40" enable="true" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="270"/>
+        <Button id="Button03" taborder="3" text="Verifying get value (Korean)" onclick="Button03_onclick" left="320" top="128" height="40" enable="true" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="270"/>
+        <Button id="Button04" taborder="4" text="Receiving Get type" left="30" top="178" height="40" onclick="Button04_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="270"/>
+        <Static id="Static07" taborder="5" text="Verifying Cookie value and setting" cssclass="sta_WF_subtitP" left="30" top="18" height="40" width="480"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[
+
+this.setCookie = function(cName, cValue, cDay){
+	var expire = new Date();
+	expire.setDate(expire.getDate() + cDay);
+	cookies = cName + '=' + escape(cValue) + '; path=/ '; // Use escape(cValue)  to prevent Korean breaking.
+	if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+	trace(cookies );
+	window.document.cookie = cookies;
+}
+
+
+this.getCookie = function (cName) {
+	cName = cName + '=';
+	var cookieData = window.document.cookie;
+	var start = cookieData.indexOf(cName);
+	var cValue = '';
+	if(start != -1){
+	   start += cName.length;
+	   var end = cookieData.indexOf(';', start);
+	   if(end == -1)end = cookieData.length;
+	   cValue = cookieData.substring(start, end);
+	}
+	return unescape(cValue);
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.setCookie("CookieVar", "nexacro platform", 1);
+	
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var cook = this.getCookie("CookieVar");
+	alert("Verifying set value : " + cook);
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.setCookie("han", "넥사크로플랫폼", 1);
+}
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var cook = this.getCookie("han");	
+	alert("Verifying set value : " + cook);
+}
+   
+
+
+
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var address = unescape(location.href);
+	var param = "";
+		if(address.indexOf("name", 0) != -1) {  
+			param = address.substring(address.indexOf("name", 0) + 5);
+		} 
+		alert(param);
+}
+]]></Script>
+  </Form>
+</FDL>

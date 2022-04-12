@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_paging" classname="sample_paging" inheritanceid="" titletext="Paging" onload="sample_paging_onload" position="absolute" left="0" top="0" width="1025" height="674">
+    <Layouts>
+      <Layout>
+        <Button taborder="0" id="btn_Select" text="Inqiury" onclick="selectData" position="absolute" top="42" width="42" height="23" cssclass="btn_module" right="15"/>
+        <Grid taborder="1" binddataset="ds_Client" id="grd_Paging" autofittype="col" fillareatype="none" position="absolute" left="15" top="70" height="504" right="15">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="33"/>
+                <Column size="368"/>
+                <Column size="159"/>
+                <Column size="39"/>
+                <Column size="104"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No"/>
+                <Cell col="1" text="Movie"/>
+                <Cell col="2" text="Name"/>
+                <Cell col="3" text="Sex"/>
+                <Cell col="4" text="Date of Birth"/>
+                <Cell col="5" text="Height"/>
+              </Band>
+              <Band id="body">
+                <Cell celltype="head" text="bind:rowno"/>
+                <Cell col="1" style="align:left;" text="bind:movie"/>
+                <Cell col="2" style="align:left;" text="bind:name"/>
+                <Cell col="3" style="align:left;" text="bind:sex"/>
+                <Cell col="4" style="align:left;" text="bind:birth"/>
+                <Cell col="5" style="align:left;" text="bind:height"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static01" position="absolute" text=" This source was made under assumption that data come from server" left="15" top="631" width="430" height="19" cssclass="sta_WF_Dsc"/>
+        <Static id="Static04" text="Paging" class="sta_WF_subtitle" position="absolute" titletext="Grid all select/unselect" left="15" top="39" width="628" height="20" cssclass="sta_WF_title"/>
+        <Div id="div_page" taborder="2" left="150" top="584" height="32" right="150">
+          <Layouts>
+            <Layout>
+              <Button id="stc_Prev" taborder="13" onclick="div_page_stc_Prev_onclick" cssclass="btn_pag_prev" left="129" bottom="0" width="34" height="32" visible="false" enable="true"/>
+              <Button id="stc_Next" taborder="15" onclick="div_page_stc_Next_onclick" cssclass="btn_pag_next" left="492" bottom="0" width="34" height="32" visible="false" enable="true"/>
+              <Button id="stc_No0" taborder="16" text="1" cssclass="btn_paging" left="162" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No1" taborder="17" text="2" cssclass="btn_paging" left="195" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No2" taborder="18" text="3" cssclass="btn_paging" left="228" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No5" taborder="19" text="6" cssclass="btn_paging" left="327" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No4" taborder="20" text="5" cssclass="btn_paging" left="294" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No3" taborder="21" text="4" cssclass="btn_paging" left="261" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No8" taborder="22" text="9" cssclass="btn_paging" left="426" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No7" taborder="23" text="8" cssclass="btn_paging" left="393" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No6" taborder="24" text="7" cssclass="btn_paging" left="360" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+              <Button id="stc_No9" taborder="27" text="10" cssclass="btn_paging" left="459" bottom="0" width="34" height="32" onclick="div_page_stc_No_onclick" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static42" taborder="3" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="4" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="5" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="6" text="10" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="7" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static32" taborder="8" text="50" visible="false" left="424" top="131" width="50" height="50" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static44" taborder="9" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="stc_No0" taborder="15" text="1" onclick="div_page_stc_No_onclick" visible="false" left="264" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No1" taborder="16" text="2" onclick="div_page_stc_No_onclick" visible="false" left="296" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No2" taborder="17" text="3" onclick="div_page_stc_No_onclick" visible="false" left="328" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No3" taborder="18" text="4" onclick="div_page_stc_No_onclick" visible="false" left="360" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No4" taborder="19" text="5" onclick="div_page_stc_No_onclick" visible="false" left="392" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No5" taborder="20" text="6" onclick="div_page_stc_No_onclick" visible="false" left="424" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No6" taborder="21" text="7" onclick="div_page_stc_No_onclick" visible="false" left="456" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No7" taborder="22" text="8" onclick="div_page_stc_No_onclick" visible="false" left="488" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No8" taborder="23" text="9" onclick="div_page_stc_No_onclick" visible="false" left="520" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+        <Static id="stc_No9" taborder="24" text="10" onclick="div_page_stc_No_onclick" visible="false" left="552" top="682" width="34" height="34" style="color:#0000ffff;align:center;cursor:hand;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" id="ds_Server">
+        <ColumnInfo>
+          <Column type="STRING" size="500" id="name"/>
+          <Column type="STRING" size="200" id="sex"/>
+          <Column type="STRING" size="100" id="height"/>
+          <Column id="birth" type="STRING" size="256"/>
+          <Column id="movie" type="STRING" size="256"/>
+          <Column id="rowno" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="name">The Amazing Spider-Man</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">5' 10½" (1.79 m)</Col>
+            <Col id="birth">20 August 1983 , Los Angeles, California, USA</Col>
+            <Col id="movie">The Amazing Spider-Man</Col>
+            <Col id="rowno">1</Col>
+          </Row>
+          <Row>
+            <Col id="name">Adrianne Palicki</Col>
+            <Col id="sex">Female</Col>
+            <Col id="height">5' 11" (1.8 m)</Col>
+            <Col id="movie">Smallville</Col>
+            <Col id="birth">6 May 1983 , Toledo, Ohio, USA</Col>
+            <Col id="rowno">2</Col>
+          </Row>
+          <Row>
+            <Col id="name">Henry Cavill</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">6' 1" (1.85 m)</Col>
+            <Col id="movie">Batman Begins,Superman Returns,  Casino Royale, The Count of Monte Cristo,Stephenie Meyer</Col>
+            <Col id="birth">5 May 1983 , Jersey, Channel Islands, UK</Col>
+            <Col id="rowno">3</Col>
+          </Row>
+          <Row>
+            <Col id="name">Mila Kunis</Col>
+            <Col id="sex">Female</Col>
+            <Col id="height">5' 4" (1.63 m)</Col>
+            <Col id="movie">Make a Wish, Molly , That '70s Show , The Book of Eli , Friends with Benefits , Ted</Col>
+            <Col id="birth">14 August 1983 , Chernovtsy, Ukrainian SSR, USSR [now Chernivtsi, Ukraine]</Col>
+            <Col id="rowno">4</Col>
+          </Row>
+          <Row>
+            <Col id="name">Ari Graynor</Col>
+            <Col id="sex">Female</Col>
+            <Col id="height">5' 5" (1.65 m)</Col>
+            <Col id="movie">Dog Sees God: Confessions of a Teenage Blockhead</Col>
+            <Col id="birth">27 April 1983 , Boston, Massachusetts, USA</Col>
+            <Col id="rowno">5</Col>
+          </Row>
+          <Row>
+            <Col id="name">Kate Mara</Col>
+            <Col id="sex">Female</Col>
+            <Col id="height">5' 2" (1.57 m)</Col>
+            <Col id="movie">127 Hours (2010)</Col>
+            <Col id="birth">27 February 1983 , Bedford, New York, USA</Col>
+            <Col id="rowno">6</Col>
+          </Row>
+          <Row>
+            <Col id="name">Maggie Grace</Col>
+            <Col id="sex">Female</Col>
+            <Col id="height">5' 9" (1.75 m)</Col>
+            <Col id="birth">21 September 1983 , Columbus, Ohio, USA</Col>
+            <Col id="movie">Murder in Greenwich, Shop Club,Smallville</Col>
+            <Col id="rowno">7</Col>
+          </Row>
+          <Row>
+            <Col id="name">Karine Vanasse</Col>
+            <Col id="sex">Female</Col>
+            <Col id="height">5' 6" (1.68 m)</Col>
+            <Col id="birth">24 November 1983 , Drummondville, Québec, Canada</Col>
+            <Col id="movie">Midnight in Paris , Emporte-moi (1999), Polytechnique (2009)</Col>
+            <Col id="rowno">8</Col>
+          </Row>
+          <Row>
+            <Col id="name">Ed Skrein</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">6' 1" (1.85 m)</Col>
+            <Col id="birth">29 March 1983 , Camden, London, England, UK</Col>
+            <Col id="movie">The Sweeney (2012)</Col>
+            <Col id="rowno">9</Col>
+          </Row>
+          <Row>
+            <Col id="name">Joseph Mazzello</Col>
+            <Col id="sex">Male</Col>
+            <Col id="birth">21 September 1983 , Rhinebeck, New York, USA</Col>
+            <Col id="height">5' 9" (1.75 m)</Col>
+            <Col id="movie">Sosyeol neteuwokeu (2010), Jyuragi gongwon (1993) ,The Lost World: Jurassic Park (1997) ,G.I. Joe: Retaliation (2013)"</Col>
+            <Col id="rowno">10</Col>
+          </Row>
+          <Row>
+            <Col id="name">Christopher Meloni</Col>
+            <Col id="sex">Male</Col>
+            <Col id="birth">2 April 1961 , Washington, District of Columbia, USA</Col>
+            <Col id="height">6' (1.83 m)</Col>
+            <Col id="movie">Law &amp; Order: Special Victims Unit (1999)</Col>
+            <Col id="rowno">11</Col>
+          </Row>
+          <Row>
+            <Col id="name">Meryl Streep</Col>
+            <Col id="sex">Female</Col>
+            <Col id="birth">22 June 1949 , Summit, New Jersey, USA</Col>
+            <Col id="height">5' 6" (1.68 m)</Col>
+            <Col id="movie">The Deer Hunter ,Kramer vs. Kramer, The Bridges of Madison County, First Do No Harm, Out of Africa, Marvin's Room</Col>
+            <Col id="rowno">12</Col>
+          </Row>
+          <Row>
+            <Col id="name">Angelina Jolie</Col>
+            <Col id="sex">Female</Col>
+            <Col id="birth">4 June 1975 , Los Angeles, California, USA</Col>
+            <Col id="height">5' 6½" (1.69 m)</Col>
+            <Col id="movie">Changeling (2008), Salt (2010), Mr. &amp; Mrs. Smith (2005), Lara Croft: Tomb Raider (2001)</Col>
+            <Col id="rowno">13</Col>
+          </Row>
+          <Row>
+            <Col id="name">Milla Jovovich</Col>
+            <Col id="sex">Female</Col>
+            <Col id="birth">17 December 1975 , Kiev, Ukrainian SSR, USSR [now Ukraine]</Col>
+            <Col id="height">5' 8½" (1.74 m)</Col>
+            <Col id="movie">Ultraviolet, The Fifth Element , Resident Evil</Col>
+            <Col id="rowno">14</Col>
+          </Row>
+          <Row>
+            <Col id="name">Megan Fox</Col>
+            <Col id="sex">Female</Col>
+            <Col id="birth">16 May 1986 , Rockwood, Tennessee, USA</Col>
+            <Col id="height">5' 4" (1.63 m)</Col>
+            <Col id="movie">Transformers ,Holiday in the Sun, Teuraenseupomeo: Paejaui Yeokseup (2009)</Col>
+            <Col id="rowno">15</Col>
+          </Row>
+          <Row>
+            <Col id="name">Teresa Palmer</Col>
+            <Col id="sex">Female</Col>
+            <Col id="birth">26 February 1986 , Adelaide, South Australia, Australia</Col>
+            <Col id="height">5' 4½" (1.64 m)</Col>
+            <Col id="movie">Warm Bodies (2013), I Am Number Four (2011), The Sorcerer's Apprentice (2010), Bedtime Stories (2008)</Col>
+            <Col id="rowno">16</Col>
+          </Row>
+          <Row>
+            <Col id="name">Erica Durance</Col>
+            <Col id="sex">Female</Col>
+            <Col id="birth">21 June 1978 , Calgary, Alberta, Canada</Col>
+            <Col id="height">5' 7" (1.7 m)</Col>
+            <Col id="movie">Smallville (2001), The Butterfly Effect 2 (2006)</Col>
+            <Col id="rowno">17</Col>
+          </Row>
+          <Row>
+            <Col id="name">Jason Statham</Col>
+            <Col id="sex">Male</Col>
+            <Col id="birth">26 July 1967 , Shirebrook, Derbyshire, England, UK</Col>
+            <Col id="height">5' 10" (1.78 m)</Col>
+            <Col id="movie">Lock, Stock and Two Smoking Barrels ,The Transporter (2002),The Bank Job (2008), Snatch. (2000)</Col>
+            <Col id="rowno">18</Col>
+          </Row>
+          <Row>
+            <Col id="name">Johnny Depp</Col>
+            <Col id="sex">Male</Col>
+            <Col id="birth">9 June 1963 , Owensboro, Kentucky, USA</Col>
+            <Col id="height">5' 10" (1.78 m)</Col>
+            <Col id="movie">Charlie and the Chocolate Factory (2005), Edward Scissorhands (1990), Alice in Wonderland (2010), Pirates of the Caribbean: The Curse of the Black Pearl (2003)</Col>
+            <Col id="rowno">19</Col>
+          </Row>
+          <Row>
+            <Col id="name">Christian Bale</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">6' (1.83 m)</Col>
+            <Col id="birth">30 January 1974 , Haverfordwest, Pembrokeshire, Wales, UK</Col>
+            <Col id="movie">The Dark Knight (2008), The Prestige (2006), American Psycho (2000), Dakeu naiteu raijeu (2012)</Col>
+            <Col id="rowno">20</Col>
+          </Row>
+          <Row>
+            <Col id="name">Tom Hanks</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">6' (1.83 m)</Col>
+            <Col id="birth">9 July 1956 , Concord, California, USA</Col>
+            <Col id="movie">The Da Vinci Code (2006), Forrest Gump (1994),Saving Private Ryan (1998), The Green Mile (1999)</Col>
+            <Col id="rowno">21</Col>
+          </Row>
+          <Row>
+            <Col id="name">Aamir Khan</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">5' 6" (1.68 m)</Col>
+            <Col id="birth">14 March 1965 , Mumbai, India</Col>
+            <Col id="movie">Lagaan: Once Upon a Time in India (2001), Rang De Basanti (2006), Taare Zameen Par (2007)</Col>
+            <Col id="rowno">22</Col>
+          </Row>
+          <Row>
+            <Col id="name">Leonardo DiCaprio</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">6' (1.83 m)</Col>
+            <Col id="birth">11 November 1974 , Hollywood, Los Angeles, California, USA</Col>
+            <Col id="movie">What's Eating Gilbert Grape, Gangs of New York, J. Edgar , Romeo + Juliet, Catch Me If You Can, Body of Lies , The Great Gatsby</Col>
+            <Col id="rowno">23</Col>
+          </Row>
+          <Row>
+            <Col id="name">Aishwarya Rai Bachchan</Col>
+            <Col id="sex">Female</Col>
+            <Col id="height">5' 7" (1.7 m)</Col>
+            <Col id="birth">1 November 1973 , Mangalore, Karnataka, India</Col>
+            <Col id="movie">Jodhaa Akbar (2008),Devdas (2002), Enthiran (2010), Bride &amp; Prejudice (2004)</Col>
+            <Col id="rowno">24</Col>
+          </Row>
+          <Row>
+            <Col id="name">Tom Cruise</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">5' 7" (1.7 m)</Col>
+            <Col id="birth">3 July 1962 , Syracuse, New York, USA</Col>
+            <Col id="movie">The Color of Money,  Born on the Fourth of July,  Mission: Impossible II ,The Vampire Chronicles , War of the Worlds, Jerry Maguire, Endless Love, Top Gun, Rain Man, Minority Report</Col>
+            <Col id="rowno">25</Col>
+          </Row>
+          <Row>
+            <Col id="name">Taylor Lautner</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">5' 8½" (1.74 m)</Col>
+            <Col id="birth">11 February 1992 , Grand Rapids, Michigan, USA</Col>
+            <Col id="movie">Twilight (2008), The Twilight Saga: Breaking Dawn - Part 2 (2012), The Twilight Saga: New Moon (2009)</Col>
+            <Col id="rowno">26</Col>
+          </Row>
+          <Row>
+            <Col id="name">Zac Efron</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">5' 8" (1.73 m)</Col>
+            <Col id="birth">18 October 1987 , San Luis Obispo, California, USA</Col>
+            <Col id="movie">That Awkward Moment (2014), The Lucky One (2012), High School Musical (2006)</Col>
+            <Col id="rowno">27</Col>
+          </Row>
+          <Row>
+            <Col id="name">Brad Pitt</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">5' 11" (1.8 m)</Col>
+            <Col id="birth">18 December 1963 , Shawnee, Oklahoma, USA</Col>
+            <Col id="movie">Fight Club, Ocean's Eleven , Moneyball</Col>
+            <Col id="rowno">28</Col>
+          </Row>
+          <Row>
+            <Col id="name">John Cusack</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">6' 2½" (1.89 m)</Col>
+            <Col id="birth">28 June 1966 , Evanston, Illinois, USA</Col>
+            <Col id="movie">Being John Malkovich (1999), 2012 (2009), High Fidelity (2000)</Col>
+            <Col id="rowno">29</Col>
+          </Row>
+          <Row>
+            <Col id="name">Sean Penn</Col>
+            <Col id="sex">Male</Col>
+            <Col id="height">5' 8" (1.73 m)</Col>
+            <Col id="birth">17 August 1960 , Santa Monica, California, USA</Col>
+            <Col id="movie">Mystic River (2003), 21 Grams (2003), Milk (2008)</Col>
+            <Col id="rowno">30</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" id="ds_Client">
+        <ColumnInfo>
+          <Column type="STRING" size="500" id="name"/>
+          <Column type="STRING" size="200" id="sex"/>
+          <Column type="STRING" size="100" id="height"/>
+          <Column id="birth" type="STRING" size="256"/>
+          <Column id="movie" type="STRING" size="256"/>
+          <Column id="rowno" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[// After receiving Dataset from service refining the required work
+
+this.iStartPageNo = 0; //All page order
+this.iUnitSelRowNo = 100; //Number of rows that are selected from the server at one time
+this.iStartSelRowNo = 1; //Starting row number when calling to server
+this.iMaxPageNum = 10; //The maximum number of page displayed on the page
+this.iServerRowCount = 0; //The number of rows comes from server(It should not be more than 100)
+
+// -------------------------------------------------------------------------------------------------
+// Initializing loading
+// -------------------------------------------------------------------------------------------------
+this.selectData = function (obj:Button, e:ClickEventInfo)
+{
+	obj.set_visible(false);
+	// Transaction() specification for coding
+	this.fn_Callback("tr1", 0, "succ");
+}
+
+// -------------------------------------------------------------------------------------------------
+// Callback
+// -------------------------------------------------------------------------------------------------
+this.fn_Callback = function (trid, ErrorCode, ErrorMsg)
+{
+	if (trid == "tr1") 
+	{
+		if (ErrorCode < 0) 
+		{
+			trace("Error");
+		}
+		else 
+		{
+			var iLastRow = this.iStartPageNo * this.iUnitSelRowNo;
+			this.ds_Server.filter("rowno >= " + (iLastRow + this.iStartSelRowNo) + " && rowno <= " + (iLastRow + this.iUnitSelRowNo));
+
+			if (this.ds_Server.getRowCount() == 0) 
+			{
+				this.alert("No more inquiry data is available.");
+				this.ds_Server.filter("");
+				return;
+			}
+			else 
+			{
+				// For performing Transaction delete below three lines.. 
+				this.ds_Client.clearData();
+				this.ds_Client.copyData(this.ds_Server, true);
+				this.ds_Client.filter("rowno >= " + (iLastRow + this.iStartSelRowNo) + " && rowno <= " + (iLastRow + this.iMaxPageNum));
+
+
+				this.iServerRowCount = this.ds_Server.getRowCount();
+				this.fn_SetStyle();
+				this.fn_SetPageNo();
+				this.div_page.stc_No0.style.set_color("red");
+			}
+		}
+	}
+}
+
+// -------------------------------------------------------------------------------------------------
+// Sort : For refining server communication
+// -------------------------------------------------------------------------------------------------
+this.sample_paging_onload = function (obj:Form, e:TOBE.LoadEventInfo)
+{
+	this.ds_Server.updateSortGroup("S:+rowno");
+}
+
+// -------------------------------------------------------------------------------------------------
+// Clicking index
+// -------------------------------------------------------------------------------------------------
+this.div_page_stc_No_onclick = function (obj:Static, e:TOBE.ClickEventInfo)
+{
+	var iNo = new Number(obj.text);
+	var iFirstNum = (iNo - 1) * this.iMaxPageNum + 1;
+	var iLastNum = iFirstNum + this.iMaxPageNum;
+
+	this.fn_SetStyle();
+	obj.style.set_color("red");
+	this.ds_Client.filter("");
+	this.ds_Client.filter("rowno >= " + iFirstNum + " && rowno < " + iLastNum);
+}
+
+// -------------------------------------------------------------------------------------------------
+// Previous button
+// -------------------------------------------------------------------------------------------------
+this.div_page_stc_Prev_onclick = function (obj:Static, e:TOBE.ClickEventInfo)
+{
+	this.iStartPageNo = this.iStartPageNo - 1;
+	// Transaction() Specification for coding
+	this.fn_Callback("tr1", 0, "succ");
+}
+
+// -------------------------------------------------------------------------------------------------
+// Next button
+// -------------------------------------------------------------------------------------------------
+this.div_page_stc_Next_onclick = function (obj:Static, e:TOBE.ClickEventInfo)
+{
+	this.iStartPageNo = this.iStartPageNo + 1;
+	// Transaction()Specification for coding
+	this.fn_Callback("tr1", 0, "succ");
+}
+
+// -------------------------------------------------------------------------------------------------
+// Page button Setting
+// -------------------------------------------------------------------------------------------------
+this.fn_SetPageNo = function ()
+{
+	var sPage = this.iStartPageNo * this.iMaxPageNum;
+
+	// Previous button processing
+	if (this.iStartPageNo < 1) 
+	{
+		this.div_page.stc_Prev.set_visible(true);
+		this.div_page.stc_Prev.set_enable(false);
+	}
+	else 
+	{
+		this.div_page.stc_Prev.set_visible(true);
+		this.div_page.stc_Prev.set_enable(true);
+	}
+
+	// Last button processing
+	if (this.iServerRowCount < this.iUnitSelRowNo) 
+	{
+		this.div_page.stc_Next.set_visible(true);
+		this.div_page.stc_Next.set_enable(false);
+	}
+	else 
+	{
+		this.div_page.stc_Next.set_visible(true);
+		this.div_page.stc_Next.set_enable(true);
+	}
+
+	// Processing index number
+	for (var i = 0; i < this.iMaxPageNum; i++) 
+	{
+		this.div_page["stc_No" + i].set_visible(true);
+		this.div_page["stc_No" + i].set_text(sPage + i + 1);
+
+		if (this.iServerRowCount < (i * this.iMaxPageNum)) 
+		{
+			this.div_page["stc_No" + i].set_visible(false);
+		}
+		else 
+		{
+			this.div_page["stc_No" + i].set_visible(true);
+		}
+	}
+}
+// -------------------------------------------------------------------------------------------------
+// Style adjustment
+// -------------------------------------------------------------------------------------------------
+this.fn_SetStyle = function ()
+{
+	for (var i = 0; i < this.iMaxPageNum; i++) 
+	{
+		this.div_page.all["stc_No" + i].style.set_color("#47526b");
+	}
+}
+
+
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_FirstDay" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_FirstDay" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="80" width="236" top="176" height="34"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="50" top="80" height="30"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="50" top="178" height="30"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="226" width="90" top="122" height="34"/>
+        <MaskEdit id="msk_input" taborder="0" value="20121231" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="80" width="236" top="78" height="34"/>
+        <Static id="Static05" taborder="3" text="Searching first day of the current month" cssclass="sta_WF_subtitP" left="30" top="18" width="530" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_FirstDay
+ * Description : Searching first day of the current month
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_firstDay(this.msk_input.value);	
+	this.edt_output.set_value(sRtn);
+}
+
+/*
+ * Function Name : fn_firstDay
+ * Description   : making the first day of the current month
+ * Parameter     : Year Month Day
+ * Return        : yyyyMM01
+ * Example       : fn_firstDay("20121231");
+ */
+this.fn_firstDay = function(sDate) 
+{
+    var sRtn = "";
+    sDate = sDate.trim();
+    
+	if (sDate == null || sDate == "" || sDate == "undefined")    
+    {
+        var objDate = new Date();
+        var sToday  = objDate.getFullYear().toString()
+                    + (objDate.getMonth() + 1).toString().padLeft(2, '0');
+	    sRtn = sToday + "01";
+    }
+    else 
+    {
+	    var dDate = new Date(parseInt(sDate.substr(0,4)), parseInt(sDate.substr(4,2))-1, 1);
+	    sRtn =  dDate.getFullYear()
+	         + (dDate.getMonth()+1).toString().padLeft(2, "0")
+	         +  dDate.getDate().toString().padLeft(2, "0");
+
+    }
+	return sRtn;
+}]]></Script>
+  </Form>
+</FDL>

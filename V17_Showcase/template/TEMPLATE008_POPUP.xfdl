@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="SAMPLE008_POPUP" inheritanceid="" position="absolute" titletext="User details" style="background:#f2f2efff;" onload="form_onload" left="0" width="417" top="0" height="510">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="3" text="title" cssclass="sta_POP_bg" left="0" top="0" width="417" height="510"/>
+        <Button id="Button01" taborder="4" cssclass="btn_POP_close" left="386" top="10" width="17" height="17" tooltiptext="Close"/>
+        <Tab id="tbUserInfo" taborder="0" tabindex="0" scrollbars="autoboth" position="absolute" left="17" width="379" top="56" height="399">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="domain.basicinfo">
+              <Layouts>
+                <Layout>
+                  <Static id="Static04" taborder="35" left="104" top="235" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static05" taborder="36" left="104" top="204" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static02" taborder="32" left="104" top="132" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static03" taborder="33" left="104" top="101" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static00" taborder="30" left="104" top="39" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static01" taborder="31" left="104" top="70" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="stUserId" text="domain.userid" position="absolute" left="0" width="105" top="39" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtUserId" taborder="21" readonly="true" enable="false" position="absolute" left="110" width="263" top="45" height="20" cssclass="readonly"/>
+                  <Edit id="edtUserName" taborder="22" position="absolute" left="110" width="263" top="76" height="20"/>
+                  <Static id="stUserName" text="domain.username" position="absolute" left="0" width="105" top="70" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stPassword" text="domain.password" position="absolute" left="0" width="105" top="101" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtPassword" taborder="23" password="true" position="absolute" left="110" width="263" top="107" height="20"/>
+                  <Edit id="edtEnName" taborder="24" position="absolute" style="gradation:radial 0,0 white 100,100 black; :disabled {gradation:linear 0,0 white 100,100 black;}" left="110" width="263" top="138" height="20"/>
+                  <Static id="stEnName" text="domain.enname" position="absolute" left="0" width="105" top="132" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stHomeNumber" text="domain.homenumber" position="absolute" left="0" width="105" top="204" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtHomeNumber" taborder="25" position="absolute" left="110" width="263" top="210" height="20"/>
+                  <Static id="stCellPhone" text="domain.cellphone" position="absolute" left="0" width="105" top="235" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtCellPhone" taborder="26" position="absolute" left="110" width="263" top="241" height="20"/>
+                  <Static id="stZipCode" text="domain.zipcode" position="absolute" left="0" width="105" top="307" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stDetailAddr" text="domain.detailaddr" position="absolute" left="0" width="105" top="338" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="grBxUser" taborder="29" text="domain.user" cssclass="sta_WF_subtit" left="0" top="18" width="134" height="14"/>
+                  <Static id="grBxPhone" taborder="34" text="domain.phone" cssclass="sta_WF_subtit" left="0" top="183" width="134" height="14"/>
+                  <Static id="grBxAddr" taborder="37" text="domain.addr" cssclass="sta_WF_subtit" left="0" top="286" width="134" height="14"/>
+                  <Static id="Static06" taborder="38" left="104" top="307" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static07" taborder="39" left="104" top="338" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <MaskEdit id="mskEdtZipCode" taborder="27" text="___-___" type="string" mask="###-###" position="absolute" style="align:left middle;" left="110" width="263" top="313" height="20"/>
+                  <Edit id="edtDetailAddr" taborder="28" position="absolute" left="110" width="263" top="344" height="20"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="domain.additionalinfo">
+              <Layouts>
+                <Layout>
+                  <Static id="Static04" taborder="15" left="104" top="235" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static05" taborder="16" left="104" top="204" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static06" taborder="17" left="104" top="338" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static07" taborder="18" left="104" top="307" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static00" taborder="9" left="104" top="39" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static01" taborder="10" left="104" top="70" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="stCompany" text="domain.company" position="absolute" left="0" width="105" top="39" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stDepartment" text="domain.department" position="absolute" left="0" width="105" top="70" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stPosition" text="domain.position" position="absolute" left="0" width="105" top="101" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stAssignment" text="domain.assignment" position="absolute" left="0" width="105" top="132" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stFax" text="domain.fax" position="absolute" left="0" width="105" top="204" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtFax" taborder="4" position="absolute" left="137" width="234" top="210" height="20"/>
+                  <Edit id="edtEmail" taborder="5" position="absolute" left="137" width="234" top="241" height="20"/>
+                  <Static id="stEmail" text="domain.email" position="absolute" left="0" width="105" top="235" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stCompZipCode" text="domain.compzipcode" position="absolute" left="0" width="105" top="307" height="32" cssclass="sta_WFDA_labelB"/>
+                  <MaskEdit id="mskEdtCompZipCode" taborder="6" text="___-___" type="string" mask="###-###" position="absolute" style="align:left middle;" left="137" width="234" top="313" height="20"/>
+                  <Edit id="edtOfficeDetailAddr" taborder="7" position="absolute" left="137" width="234" top="344" height="20"/>
+                  <Static id="stOfficeDetailAddr" text="domain.officedetailaddr" position="absolute" left="0" width="105" top="338" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="grBxPlace" taborder="8" text="domain.place" cssclass="sta_WF_subtit" left="0" top="18" width="134" height="14"/>
+                  <Static id="Static02" taborder="11" left="104" top="132" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="Static03" taborder="12" left="104" top="101" width="275" height="32" cssclass="sta_WFDA_B"/>
+                  <Edit id="edtCompany" taborder="0" position="absolute" readonly="true" left="110" width="264" top="44" height="21" cssclass="readonly"/>
+                  <Edit id="edtPosition" taborder="2" position="absolute" left="110" width="264" top="107" height="20"/>
+                  <Edit id="edtAssignment" taborder="3" position="absolute" left="110" width="264" top="138" height="20"/>
+                  <Combo id="cmbDept" taborder="1" codecolumn="DEPT_ID" datacolumn="DEPT_NAME" position="absolute" index="-1" innerdataset="@ds_TreeDeptPopup" enable="true" left="110" width="264" top="76" height="20"/>
+                  <Static id="grBxContactAddr" taborder="13" text="domain.contactaddr" cssclass="sta_WF_subtit" left="0" top="183" width="134" height="14"/>
+                  <Static id="grBxOfficeAddr" taborder="14" text="domain.officeaddr" cssclass="sta_WF_subtit" left="0" top="286" width="134" height="14"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Button id="btSaveTemp" taborder="1" text="domain.savetemp" onclick="btSaveTemp_onclick" position="absolute" left="156" width="46" top="465" height="23"/>
+        <Button id="btCancel" taborder="2" text="domain.cancel" onclick="btCancel_onclick" position="absolute" left="205" width="42" top="465" height="23"/>
+        <Static id="Static03" taborder="5" text="11" visible="false" left="401" top="-5" width="11" height="45" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static04" taborder="6" text="10" visible="false" left="359" top="2" width="46" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_GrdUser" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="USER_ID" type="STRING" size="256"/>
+          <Column id="USER_NAME" type="STRING" size="256"/>
+          <Column id="EN_NAME" type="STRING" size="256"/>
+          <Column id="COMP_PHONE" type="STRING" size="256"/>
+          <Column id="PHONE" type="STRING" size="256"/>
+          <Column id="CELL_PHONE" type="STRING" size="256"/>
+          <Column id="COMPANY" type="STRING" size="256"/>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="JOB_POSITION" type="STRING" size="256"/>
+          <Column id="ASSIGNMENT" type="STRING" size="256"/>
+          <Column id="OFFICER_YN" type="STRING" size="1"/>
+          <Column id="FAX" type="STRING" size="256"/>
+          <Column id="EMAIL" type="STRING" size="256"/>
+          <Column id="ZIP_CODE" type="STRING" size="256"/>
+          <Column id="ADDRESS" type="STRING" size="256"/>
+          <Column id="COMP_ZIP_CODE" type="STRING" size="256"/>
+          <Column id="COMP_ADDRESS" type="STRING" size="256"/>
+          <Column id="PASSWORD" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_TreeDeptPopup" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="DEPT_LEVEL" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_GrdUserValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="USER_ID" type="STRING" size="256"/>
+          <Column id="USER_NAME" type="STRING" size="256"/>
+          <Column id="EN_NAME" type="STRING" size="256"/>
+          <Column id="COMP_PHONE" type="STRING" size="256"/>
+          <Column id="PHONE" type="STRING" size="256"/>
+          <Column id="CELL_PHONE" type="STRING" size="256"/>
+          <Column id="COMPANY" type="STRING" size="256"/>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="JOB_POSITION" type="STRING" size="256"/>
+          <Column id="ASSIGNMENT" type="STRING" size="256"/>
+          <Column id="OFFICER_YN" type="STRING" size="1"/>
+          <Column id="FAX" type="STRING" size="256"/>
+          <Column id="EMAIL" type="STRING" size="256"/>
+          <Column id="ZIP_CODE" type="STRING" size="256"/>
+          <Column id="ADDRESS" type="STRING" size="256"/>
+          <Column id="COMP_ZIP_CODE" type="STRING" size="256"/>
+          <Column id="COMP_ADDRESS" type="STRING" size="256"/>
+          <Column id="PASSWORD" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="USER_NAME">title:username,required:true,maxlength:20</Col>
+            <Col id="COMP_PHONE">title:phone,format:phone,maxlength:20</Col>
+            <Col id="PHONE">title:phone,format:phone,maxlength:20</Col>
+            <Col id="CELL_PHONE">title:cellphone,format:phone,maxlength:20</Col>
+            <Col id="PASSWORD">title:password,required:true,maxlength:16</Col>
+            <Col id="FAX">title:fax,format:phone,maxlength:20</Col>
+            <Col id="EMAIL">title:email,format:mail,maxlength:30</Col>
+            <Col id="ZIP_CODE">title:zipcode,format:zipcode,maxlength:10</Col>
+            <Col id="COMP_ZIP_CODE">title:compzipcode,format:zipcode,maxlength:10</Col>
+            <Col id="EN_NAME">title:enname,maxlength:20</Col>
+            <Col id="COMPANY">title:company,maxlength:60</Col>
+            <Col id="JOB_POSITION">title:position,maxlength:60</Col>
+            <Col id="ASSIGNMENT">title:assignment,maxlength:60</Col>
+            <Col id="ADDRESS">title:detailaddr,maxlength:300</Col>
+            <Col id="COMP_ADDRESS">title:officedetailaddr,maxlength:300</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="tbUserInfo.tabpage1.edtUserId" propid="value" datasetid="ds_GrdUser" columnid="USER_ID"/>
+      <BindItem id="item1" compid="tbUserInfo.tabpage1.edtUserName" propid="value" datasetid="ds_GrdUser" columnid="USER_NAME"/>
+      <BindItem id="item2" compid="tbUserInfo.tabpage1.edtPassword" propid="value" datasetid="ds_GrdUser" columnid="PASSWORD"/>
+      <BindItem id="item3" compid="tbUserInfo.tabpage1.edtEnName" propid="value" datasetid="ds_GrdUser" columnid="EN_NAME"/>
+      <BindItem id="item4" compid="tbUserInfo.tabpage1.edtHomeNumber" propid="value" datasetid="ds_GrdUser" columnid="PHONE"/>
+      <BindItem id="item5" compid="tbUserInfo.tabpage1.edtCellPhone" propid="value" datasetid="ds_GrdUser" columnid="CELL_PHONE"/>
+      <BindItem id="item6" compid="tbUserInfo.tabpage1.mskEdtZipCode" propid="value" datasetid="ds_GrdUser" columnid="ZIP_CODE"/>
+      <BindItem id="item7" compid="tbUserInfo.tabpage1.edtDetailAddr" propid="value" datasetid="ds_GrdUser" columnid="ADDRESS"/>
+      <BindItem id="item8" compid="tbUserInfo.tabpage2.edtOfficeDetailAddr" propid="value" datasetid="ds_GrdUser" columnid="COMP_ADDRESS"/>
+      <BindItem id="item9" compid="tbUserInfo.tabpage2.mskEdtCompZipCode" propid="value" datasetid="ds_GrdUser" columnid="COMP_ZIP_CODE"/>
+      <BindItem id="item10" compid="tbUserInfo.tabpage2.edtEmail" propid="value" datasetid="ds_GrdUser" columnid="EMAIL"/>
+      <BindItem id="item11" compid="tbUserInfo.tabpage2.edtFax" propid="value" datasetid="ds_GrdUser" columnid="FAX"/>
+      <BindItem id="item12" compid="tbUserInfo.tabpage2.edtAssignment" propid="value" datasetid="ds_GrdUser" columnid="ASSIGNMENT"/>
+      <BindItem id="item13" compid="tbUserInfo.tabpage2.edtPosition" propid="value" datasetid="ds_GrdUser" columnid="JOB_POSITION"/>
+      <BindItem id="item14" compid="tbUserInfo.tabpage2.cmbDept" propid="value" datasetid="ds_GrdUser" columnid="DEPT_ID"/>
+      <BindItem id="item15" compid="tbUserInfo.tabpage2.edtCompany" propid="value" datasetid="ds_GrdUser" columnid="COMPANY"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work Screen template
+ * 02. Screen name   : TEMPLATE008_POPUP.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by   content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+//include "lib::lib_Frame.xjs"
+include "lib::lib_Form.xjs"
+
+this.strMode = undefined;
+
+/***********************************************************************
+ * Event process specification
+ ************************************************************************/
+// Initializing on Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	return;
+	this.getOwnerFrame().titlebar.set_style(("background:url('theme://images/CCSP_smb_titlebar_bg.png') repeat-x;"
+		 + "border	: 0 none;"
+		 + "bordertype: round 2 2 lefttop righttop;"
+		 + "align	: left middle;"
+		 + "font		: Dotum,10,bold;"
+		 + "color	: #4D6580;"
+		 + "icon		: url('theme://images/ico_CF_title.png');"
+		 + ":deactivate,:disabled{opacity: 100;}"
+		 + "#minbutton:mouseover"
+		 + "{image		: theme://images/btn_TitlebarForm_Min_O.png;}"
+		 + "#minbutton"
+		 + "{"));
+	+"background	:transparent;"
+		 + "border		: 0 none;"
+		 + "bordertype	: normal ;"
+		 + "margin		: 1 -12 2 0;"
+		 + "image		: url('theme://images/btn_TitlebarForm_Min_N.png');"
+		 + "imagealign	: center middle;"
+		 + "}";
+
+	// Common functionality processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Parameter setting received from parent window
+	this.strMode = this.getOwnerFrame().paramMode;
+	this.ds_GrdUser.clearData();
+	this.ds_GrdUser.addRow();
+	this.ds_TreeDeptPopup.copyData(this.lookup("dsDept"));
+
+	// strMode : C - new data setting
+	// : U - basic data modification
+	if (this.strMode == "C") 
+	{
+		this.ds_GrdUser.setColumn(0, "DEPT_ID", this.lookup("dsDept").getColumn(this.lookup("dsDept").rowposition, "DEPT_ID"));
+		this.ds_GrdUser.setColumn(0, "COMPANY", "Samsung SDS");
+	}
+	else 
+	{
+		this.ds_GrdUser.copyRow(0, this.lookup("dsArg"), this.lookup("dsArg").rowposition);
+	}
+}
+
+// Event processing on Cancel button click
+this.btCancel_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// After closing the popup window return to parent window
+	this.close("N");
+}
+
+// Event processing on temporary save button click
+this.btSaveTemp_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// After validation process , if there not exception than , save the all modified data of Grid
+	if (this.gfn_DsCheckValid(this.ds_GrdUser)) 
+	{
+		var resultDs = new Dataset;
+		resultDs.copyData(this.ds_GrdUser);
+		this.close(resultDs);
+	}
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

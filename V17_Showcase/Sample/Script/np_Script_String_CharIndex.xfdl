@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_String_CharIndex" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_String_CharIndex" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_input1" taborder="1" autoselect="true" autoskip="true" value="2" inputtype="number" position="absolute" left="90" width="250" top="128" height="40"/>
+        <Static id="Static00" text="input0" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input0" taborder="0" text="ＸＰＬＡＴＦＯＲＭ" autoselect="true" autoskip="true" value="nexacro platform" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="288" height="40"/>
+        <Button id="btn_execute" taborder="3" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="228" height="40"/>
+        <Edit id="edt_input2" taborder="2" autoselect="true" autoskip="true" value="4" inputtype="number" position="absolute" left="90" width="250" top="178" height="40"/>
+        <Edit id="edt_output" taborder="4" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="288" height="40"/>
+        <Static id="Static08" text="input1" position="absolute" left="30" width="60" top="128" height="40"/>
+        <Static id="Static09" text="input2" position="absolute" left="30" width="60" top="178" height="40"/>
+        <Static id="Static05" taborder="5" text="Getting sub string from the input string as much we want " cssclass="sta_WF_subtitP" left="30" top="18" width="760" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_String_CharIndex
+ * Discription : Get String within string a string and ending as mumch  as you want 
+ */
+
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_mid(this.edt_input0.value, this.edt_input1.value, this.edt_input2.value);
+	this.edt_output.set_value(sRtn);
+}
+
+/*
+ * Function Name : fn_mid
+ * Discription   : This function returns String from the given position and the position as much as you want
+ * Parameter     : The source string, Index of the first character, Receiving text size
+ * Return        : String
+ * Example       : fn_mid("XPLATFORM", 2, 4);
+ */
+ 
+this.fn_mid = function(sString, nIndex, nSize)
+{
+    var nStart;
+    var nEnd;
+
+    // Starting position validation
+    if (nIndex == null)
+    {
+        nStart = 0;
+    }
+    else
+    {
+        if (nIndex.toString().length <= 0)
+        {
+            nStart = 0;
+        }
+        else
+        {
+            nStart = nIndex - 1;
+        }
+    }
+    
+    // Verifying the String
+    if (nSize == null)
+    {
+        nEnd = sString.toString().length;
+    }
+    else 
+    {
+        if (nSize.toString().length <= 0)
+        {
+            nEnd = sString.toString().length
+        }
+        else
+        {
+            nEnd = nSize
+        }
+    }    
+    
+    var sRtn = sString.substr(nStart, nEnd);
+    return sRtn;
+}
+]]></Script>
+  </Form>
+</FDL>

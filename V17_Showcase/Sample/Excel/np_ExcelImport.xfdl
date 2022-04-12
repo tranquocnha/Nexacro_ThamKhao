@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="ExcelImport" classname="Main" left="0" top="0" width="760" height="430" titletext="Excel Import">
+    <Layouts>
+      <Layout>
+        <Button id="Button02" taborder="6" text="File Open" left="630" top="78" width="100" height="40" onclick="Button02_onclick"/>
+        <TextArea id="TextArea00" taborder="8" value=" " left="30" top="252" width="700" height="160"/>
+        <Static id="Static05" taborder="9" text="Excel Import" cssclass="sta_WF_subtitP" left="30" top="18" width="200" height="40"/>
+        <Grid id="gd_excel" taborder="10" binddataset="ds_excel" useinputpanel="false" left="30" top="128" width="700" height="114" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="68"/>
+                <Column size="184"/>
+                <Column size="80"/>
+                <Column size="97"/>
+                <Column size="101"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="dept_code"/>
+                <Cell col="1" text="dept_name"/>
+                <Cell col="2" text="employee"/>
+                <Cell col="3" text="telno"/>
+                <Cell col="4" text="address"/>
+                <Cell col="5" text="age"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:dept_code"/>
+                <Cell col="1" style="align:left;" text="bind:dept_name"/>
+                <Cell col="2" style="align:left;" text="bind:employee"/>
+                <Cell col="3" style="align:left;" text="bind:telno"/>
+                <Cell col="4" style="align:left;" text="bind:address"/>
+                <Cell col="5" text="bind:age"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_excel" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="dept_code" type="STRING" size="256"/>
+          <Column id="dept_name" type="STRING" size="256"/>
+          <Column id="employee" type="STRING" size="256"/>
+          <Column id="telno" type="STRING" size="256"/>
+          <Column id="address" type="STRING" size="256"/>
+          <Column id="age" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.url = "http://support.tobesoft.co.kr/nexacro-xeni/XImport";
+this.importObj = null;
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.importObj == null){
+		this.importObj = new nexacro.ExcelImportObject("Import00",this);	
+		this.importObj.set_importtype(nexacro.ImportTypes.EXCEL);
+		this.importObj.addEventHandler("onsuccess", this.Import00_onsuccess, this);
+		this.importObj.addEventHandler("onerror", this.Import00_onerror, this);	
+	}
+	this.importObj.set_importurl(this.url);
+	this.TextArea00.set_value(this.TextArea00.value + "\n"+ "importurl set :" + this.url);	
+	
+	this.importObj.importData("","Sheet1!A1:F6","ds_excel");
+	this.TextArea00.set_value(this.TextArea00.value + "\n"+ "importData() Method");	
+};
+
+
+//onsuccess Event
+this.Import00_onsuccess = function(obj:ExcelImportObject,  e:nexacro.ExcelImportEventInfo)
+{
+
+	this.gd_excel.createFormat();
+	this.gfn_cellReSizeAll(this.gd_excel);
+	this.importObj = null;
+	this.TextArea00.set_value(this.TextArea00.value + "\n=========== onsuccess event start=============");
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.eventid: " 				+ e.eventid			);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromobject: " 			+ e.fromobject		);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromreferenceobject: " 	+ e.fromreferenceobject);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.url: " 					+  e.url			);
+}; 
+     
+//onerror Event
+this.Import00_onerror = function(obj:ExcelImportObject,  e:nexacro.ExcelImportErrorEventInfo)
+{   
+	this.TextArea00.set_value(this.TextArea00.value + "\n=========== onerror event start===============");
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.eventid: " 				+ e.eventid			);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromobject: " 			+ e.fromobject		);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromreferenceobject: " 	+ e.fromreferenceobject);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.errorcode: " 			+  e.errorcode		);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.errormsg: " 				+ e.errormsg		);
+};                              
+
+
+
+//===================================================== cellResize start ========================================================
+this.gfn_cellReSizeAll = function(obj)
+{	
+
+	var i;
+	var objDs =  eval("this."+obj.binddataset);
+	var bindId;
+	var strCnt;
+	var objFont;
+	var objTextSize;
+	var nMaxTextSize;
+	var font = obj.currentstyle.font;
+	
+	for(j=0;j<obj.getCellCount("Body");j++)
+	{
+		bindId = obj.getCellProperty("body", j, "text").toString().replace("bind:", "");
+		strCnt = obj.getCellText(-1, j);
+		nMaxTextSize = 0;
+		  
+		for(i=0;i<objDs.rowcount;i++){
+		
+			var objTxt = objDs.getColumn(i, bindId);
+			
+			objTextSize = nexacro.getTextSize(objTxt, font);
+			
+			if(nMaxTextSize<objTextSize[0]){nMaxTextSize = objTextSize[0];}
+		}
+		
+		obj.setRealColSize(j,nMaxTextSize+100);		
+	}
+	   
+	this.gd_excel.setFormatRowProperty(0,"size",35);
+	this.gd_excel.setFormatRowProperty(1,"size",31);
+};
+
+]]></Script>
+  </Form>
+</FDL>

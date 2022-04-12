@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="200" onload="form_onload">
+    <Layouts>
+      <Layout height="200" width="920">
+        <Static id="Static00" taborder="1" text="Binding" left="20" top="15" width="79" height="30" cssclass="sta_WF_compTitle02" messageid="comp.binding" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="하나의 데이타셋을 그리드와 컴포넌트에 바인딩이 되어 있어서 값을 변경하게 되면 양쪽이 동시에 반영이 됩니다." left="20" top="Static00:2" height="80" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.binding.desc" width="880"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

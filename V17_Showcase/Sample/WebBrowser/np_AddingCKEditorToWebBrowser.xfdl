@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Temp_CKEditor" classname="Temp_CKEditor" left="0" top="0" width="760" height="600" titletext="New Form" onload="Temp_CKEditor_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Btn_SaveToDataset" taborder="6" text="Save to Dataset" left="248" top="328" height="34" onclick="Btn_SaveToDataset_onclick" width="148" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase=""/>
+        <Grid id="Grid00" taborder="10" binddataset="dsContents" useinputpanel="false" oncellclick="Grid00_oncellclick" left="30" top="73" height="150" autofittype="col" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase="" right="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="481"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="idx" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="contents" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:idx" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:contents" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <WebBrowser id="web" left="30" top="372" taborder="11" onloadcompleted="web_onloadcompleted" right="30" bottom="10"/>
+        <Static id="Static07" taborder="12" text="Displaying CKEditor in webbrowser" cssclass="sta_WF_subtitP" left="30" top="18" width="500" height="40" font=""/>
+        <Static id="Static00" taborder="13" text="When clicking on the rows of the above Grid, these will be displayed here below" cssclass="sta_WF_explain" left="30" top="293" width="575" height="20" font=""/>
+        <Static id="Static01" taborder="14" text="Dataset row count" left="30" top="328" width="130" height="34" font=""/>
+        <Edit id="Edit00" taborder="15" top="328" height="34" readonly="true" width="68" left="160"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsContents" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="contents" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="idx">1</Col>
+            <Col id="contents">&lt;a href='"http://www.miplatform.co.kr'&gt;Hello, this customer support center.&lt;/a&gt;</Col>
+          </Row>
+          <Row>
+            <Col id="idx">2</Col>
+            <Col id="contents">Welcome to Nexacro</Col>
+          </Row>
+          <Row>
+            <Col id="idx">3</Col>
+            <Col id="contents">Good Morning</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" preload="true" updatecontrol="true" useclientlayout="false" id="dsSkinCombo">
+        <ColumnInfo>
+          <Column id="code" size="256" type="STRING"/>
+          <Column id="data" size="256" type="STRING"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="data">Kama</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="data">Office 2003</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="data">V2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[var docWeb;
+
+this.Temp_CKEditor_onload = function(obj:nexacro.Form, e:nexacro.LoadEventInfo)
+{
+	var objApp = nexacro.getApplication();
+	var ckUrl = objApp.all["gv_SvcUrl"];
+	
+	this.web.set_url(ckUrl+"cktest.jsp");
+	//this.web.set_url("http://172.10.13.60:9090/V16/ShowCaseJSP/" + "cktest.jsp"); // 운영시 위의 것으로 변경
+};
+
+
+this.Btn_SaveToDataset_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	docWeb.getProperty("editorGetBtn").callMethod("click");
+	var editorData = docWeb.getProperty("editorData").getProperty("value");
+	
+	this.dsContents.set_enableevent(false);
+	
+	this.dsContents.setColumn(this.dsContents.rowposition,"contents",editorData);
+	
+	this.dsContents.set_enableevent(true);
+	this.Edit00.set_value(this.dsContents.rowcount);
+};
+
+this.Grid00_oncellclick = function(obj:nexacro.Grid, e:nexacro.GridClickEventInfo)
+{
+	if(docWeb.getProperty("frmCkEditor")==undefined) {
+		docWeb = this.web.getProperty("document").getProperty("all");
+	}
+	if(this.dsContents.getColumn(this.dsContents.rowposition,"contents") != null){		
+		docWeb.getProperty("editorData").setProperty("value",this.dsContents.getColumn(this.dsContents.rowposition,"contents"));
+	}else {
+		docWeb.getProperty("editorData").setProperty("value","");
+	}
+		docWeb.getProperty("editorSetBtn").callMethod("click");
+};
+
+
+this.web_onloadcompleted = function(obj:nexacro.WebBrowser, e:nexacro.WebLoadCompEventInfo)
+{
+	trace(1);
+	docWeb = this.web.getProperty("document");
+	trace(docWeb);
+};
+
+]]></Script>
+  </Form>
+</FDL>

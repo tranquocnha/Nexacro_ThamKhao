@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Temp_Transaction" classname="Temp_Transaction" left="0" top="0" width="760" height="580" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="75" height="305" binddataset="Dataset00" autoenter="select" autofittype="col" width="600">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="IDX" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="ObjectName" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="ObjectID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="TestType" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="TestObject" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="TestValue" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="ResultValue" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:IDX" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" edittype="normal" text="bind:ObjectName" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" edittype="normal" text="bind:ObjectID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="bind:TestType" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="bind:TestObject" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="bind:TestValue" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="bind:ResultValue" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="XML" left="640" top="75" height="34" onclick="Button00_onclick" width="110" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button02" taborder="3" text="SSV" left="640" top="207" height="34" onclick="Button00_onclick" width="110" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button03" taborder="4" text="Binary" left="640" top="119" height="34" onclick="Button00_onclick" width="110" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button05" taborder="6" text="SSVCompress" left="640" top="251" height="34" onclick="Button00_onclick" width="110" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button06" taborder="7" text="BiraryCompress" onclick="Button00_onclick" left="640" top="163" height="34" width="110" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static07" taborder="8" text="This is sample receiving response from server side without using nexacro api" cssclass="sta_WF_explain" left="30" top="13" width="611" height="20" style="font:bold 9 Dotum;"/>
+        <Button id="Btn_Reload" taborder="9" text="Reload" left="640" top="295" height="34" onclick="Btn_Reload_onclick" width="110" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Edit id="Edit00" taborder="10" left="200" top="390" height="34" readonly="true" width="100"/>
+        <Static id="Static00" taborder="11" text="No. of rows in the result" left="30" top="390" height="34" width="170"/>
+        <Static id="Static01" taborder="12" text="Here receives various types of data formats like XML, Binary,SSV and compress without using nexacro api" cssclass="sta_WF_explain" left="30" top="45" width="739" height="20" style="font:bold 9 Dotum;" wordwrap="english"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="IDX" type="string" size="5" prop=""/>
+          <Column id="ObjectName" type="string" size="100" prop=""/>
+          <Column id="ObjectID" type="string" size="200" prop=""/>
+          <Column id="TestType" type="string" size="8" prop=""/>
+          <Column id="TestObject" type="string" size="10" prop=""/>
+          <Column id="TestValue" type="string" size="8" prop=""/>
+          <Column id="ResultValue" type="string" size="10" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strSvcID = "testXML";
+	var strURL = "Svc::nexaXml.jsp";
+	var strInDatasets = "";
+	var strOutDatasets = "Dataset00=output";
+	var strArgument = "";
+	var strCallbackFunc = "fncallback";
+	var bAsync = false;
+	var nDataType = 0; //0 : xml, 1 : binary, 2 : ssv
+	var bCompress = false;
+	
+	this.Dataset00.clear();
+	if(obj.text=="XML"){
+
+		strOutDatasets = "Dataset00=output1 Dataset01=output2";
+		
+		this.transaction(strSvcID,strURL,strInDatasets,strOutDatasets,strArgument,strCallbackFunc);
+	}else if(obj.text=="Binary"){
+		
+		strSvcID = "testBinary";
+		strURL = "Svc::nexaBinary.jsp";
+		nDataType = 1;
+		strOutDatasets = "Dataset00=output1 Dataset01=output2";
+
+		this.transaction(strSvcID,strURL,strInDatasets,strOutDatasets,strArgument,strCallbackFunc,bAsync,nDataType,bCompress);
+	}else if(obj.text=="BiraryCompress"){
+	
+		strSvcID = "testBinaryCompress";
+		strURL = "Svc::nexaBinaryCompress.jsp";
+		nDataType = 1;
+		strOutDatasets = "Dataset00=output1 Dataset01=output2";
+		bCompress = true;
+		
+		this.transaction(strSvcID,strURL,strInDatasets,strOutDatasets,strArgument,strCallbackFunc,bAsync,nDataType,bCompress);
+	}else if(obj.text=="SSV"){
+		
+		strSvcID = "testSSV";
+		strURL = "Svc::nexaSsv.jsp";
+		nDataType = 2;
+		
+		this.transaction(strSvcID,strURL,strInDatasets,strOutDatasets,strArgument,strCallbackFunc,bAsync,nDataType);
+	}else if(obj.text=="SSVCompress"){
+	
+		strSvcID = "testSSVCompress";
+		strURL = "Svc::nexaSsvCompress.jsp";
+		nDataType = 2;
+		bCompress = true;
+		
+		this.transaction(strSvcID,strURL,strInDatasets,strOutDatasets,strArgument,strCallbackFunc,bAsync,nDataType);
+	}
+};
+
+this.fncallback = function (svcID, errorCode, errorMsg) {
+
+	if (errorCode < 0) {
+		alert("Fail : " + errorMsg);
+	}else{
+		this.Edit00.set_value(this.Dataset00.getRowCount());
+		this.Grid00.binddataset = "";
+		this.Grid00.binddataset = "Dataset00";
+		this.Grid00.createFormat();
+	}
+	 
+};
+
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.addRow();
+};
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.transaction( "testService" ,"Svc::nexaXml.jsp","","Dataset00=output1 Dataset01=output2","","fncallback");
+};
+
+
+
+this.Btn_Reload_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+};
+]]></Script>
+  </Form>
+</FDL>

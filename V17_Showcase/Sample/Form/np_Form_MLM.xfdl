@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="np_Form_MLM" left="0" top="0" width="760" height="430" titletext="New Form" onlayoutchanged="Form_onlayoutchanged">
+    <Layouts>
+      <Layout height="430" width="760">
+        <Grid id="Grid00" taborder="0" left="30" top="78" width="700" height="322" binddataset="ds_data" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="group"/>
+                <Cell col="1" text="department"/>
+                <Cell col="2" text="employ"/>
+                <Cell col="3" text="telno"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:group"/>
+                <Cell col="1" text="bind:department"/>
+                <Cell col="2" text="bind:employ"/>
+                <Cell col="3" text="bind:telno"/>
+              </Band>
+            </Format>
+            <Format id="format1">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="department"/>
+                <Cell col="1" text="employ"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:department"/>
+                <Cell col="1" text="bind:employ"/>
+              </Band>
+            </Format>
+            <Format id="format2">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="department"/>
+                <Cell col="1" text="employ"/>
+                <Cell col="2" text="telno"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:department"/>
+                <Cell col="1" text="bind:employ"/>
+                <Cell col="2" text="bind:telno"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static08" taborder="1" text="MLM" cssclass="sta_WF_subtitP" left="30" top="18" width="200" height="40"/>
+      </Layout>
+      <Layout height="430" name="Layout1" width="400">
+        <Grid id="Grid00" left="8" top="4" width="384" height="408" right="" bottom=""/>
+      </Layout>
+      <Layout height="430" name="Layout2" width="540">
+        <Grid id="Grid00" left="8" top="8" width="528" height="408" right="" bottom=""/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="group" type="STRING" size="256"/>
+          <Column type="STRING" size="255" id="department"/>
+          <Column type="STRING" size="256" id="employ"/>
+          <Column id="telno" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Tom</Col>
+            <Col id="group">Technical Group</Col>
+            <Col id="telno">02-1234-0001</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Jany</Col>
+            <Col id="telno">02-1234-0002</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Piter</Col>
+            <Col id="telno">02-1234-0003</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Superman</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0004</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Jack</Col>
+            <Col id="telno">02-1234-0005</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group1</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Tony</Col>
+            <Col id="telno">02-1234-0006</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Sujan</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0007</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Mac</Col>
+            <Col id="telno">02-1234-0008</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Ann</Col>
+            <Col id="telno">02-1234-0009</Col>
+          </Row>
+          <Row>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Bess</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0010</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Dana</Col>
+            <Col id="telno">02-1234-0011</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Elin</Col>
+            <Col id="telno">02-1234-0012</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Form_onlayoutchanged = function(obj:nexacro.Form,e:nexacro.LayoutChangeEventInfo)
+{
+	
+	trace(e.newlayout);
+	if(e.newlayout == 'default')
+	{
+		this.Grid00.set_formatid("default");
+	} else if(e.newlayout == 'Layout1')
+	{
+
+		this.Grid00.set_formatid("format1");
+	} else if(e.newlayout == 'Layout2')
+	{
+		
+		this.Grid00.set_formatid("format2");
+	}	
+};
+]]></Script>
+  </Form>
+</FDL>

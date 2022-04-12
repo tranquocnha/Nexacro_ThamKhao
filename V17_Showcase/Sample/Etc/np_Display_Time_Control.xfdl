@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="time_control" classname="time_control" left="0" top="0" width="760" height="430" titletext="Display remaining timer" ontimer="time_control_ontimer">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Create timer" left="330" top="70" height="40" onclick="Button00_onclick" width="150"/>
+        <Static id="Static00" taborder="1" left="30" top="120" height="30" style="align:left middle;" width="482"/>
+        <Static id="Static07" taborder="2" text="This is sample displays timer, it will display the remaining time as set time" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" font=""/>
+        <Combo id="Combo00" taborder="3" left="120" top="70" height="40" codecolumn="codecolumn" datacolumn="datacolumn" value="1" text="1" width="200">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">1</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">5</Col>
+                <Col id="datacolumn">5</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">10</Col>
+                <Col id="datacolumn">10</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">15</Col>
+                <Col id="datacolumn">15</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">30</Col>
+                <Col id="datacolumn">30</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="Static01" taborder="4" text="Select time" left="30" top="70" width="90" height="40" font=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.session_time= null;
+this.session_Endtime= null;
+this.curTime = null;
+
+
+this.Button00_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	holding_time = this.Combo00.value*60*1000;
+	this.session_time = new Date().valueOf();
+	this.session_Endtime = new Date(this.session_time + holding_time);
+	
+	var millis = this.session_Endtime- this.session_time;
+	
+	var t = this.millisToTime(millis);
+	this.Static00.set_text("It will be logout after " + t[1]+"Minute and "+t[2]+ " Seconds automatically.");
+	
+	this.setTimer(100,1000);
+};
+
+this.time_control_ontimer = function(obj:nexacro.Form, e:nexacro.TimerEventInfo)
+{
+	if(e.timerid == 100)
+	{
+		this.session_time = new Date().valueOf();
+		var millis = this.session_Endtime- this.session_time;
+		var t = this.millisToTime(millis);
+		if(t[2] <= 0 )
+		{
+			this.Static00.set_text("Session is terminated, it is logout automatically. ");
+			return;
+		}
+		//this.Static00.set_text(t[1]+" It will be logout  after  "+t[2]+" seconds automatically.");
+		this.Static00.set_text("It will be logout after " + t[1]+" Minute and "+t[2]+ " Seconds automatically.");
+	}
+};
+
+
+
+this.millisToTime =  function (millis)
+{
+	//Hour
+	var hours = Math.floor(millis/(1000*60*60), 0);
+	 //Minute
+	 var minutes = Math.floor(millis/(1000*60) % 60, 0);
+	 //Seconds
+	 var seconds = Math.floor((millis/1000) % 60, 0);
+	return [hours,minutes,seconds];
+};
+]]></Script>
+  </Form>
+</FDL>

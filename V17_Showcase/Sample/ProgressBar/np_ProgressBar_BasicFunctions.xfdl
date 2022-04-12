@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="progress" inheritanceid="" position="absolute" titletext="ProgressBar" onload="progress_onload" ontimer="progress_ontimer" left="0" width="760" top="0" height="430">
+    <Layouts>
+      <Layout>
+        <ProgressBar id="ProgressBar00" min="0" taborder="0" step="2" max="100" pos="50" onclick="ProgressBar00_onclick" blockgap="0" blocksize="1" style="bartype:normal;barcolor:red;background:pink;color:black;" position="absolute" text="onclick" left="30" width="594" top="130" height="40" background="" boxShadow="" cssclass="test"/>
+        <ProgressBar id="ProgressBar01" min="0" step="1" taborder="0" pos="50" position="absolute" text="smooth=false" max="100" blocksize="10" blockgap="2" left="30" width="594" top="200" height="40"/>
+        <ProgressBar blockgap="2" blocksize="15" id="ProgressBar02" min="0" step="-1" taborder="0" onclick="ProgressBar02_onclick" max="50" pos="20" style="bargradation:linear 0,0 white 100,100 blue;color:black;" position="absolute" text="direction = backward" left="30" width="594" top="270" height="40"/>
+        <Button id="Button00" taborder="1" onclick="Button00_onclick" position="absolute" text="2step" left="434" width="90" top="70" height="40"/>
+        <Button id="Button01" taborder="2" onclick="Button01_onclick" position="absolute" text="4step" left="534" width="90" top="70" height="40"/>
+        <ProgressBar blockgap="2" blocksize="15" id="ProgressBar03" max="100" min="0" pos="50" step="1" taborder="3" position="absolute" text="bartype = image" left="30" width="594" top="340" height="40" cssclass="testImage"/>
+        <Static id="Static05" text="On button click step up" position="absolute" left="30" width="400" top="18" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.ProgressBar00.set_step(2);
+	this.ProgressBar00.stepIt();
+};
+
+this.Button01_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.ProgressBar00.set_step(4);
+	this.ProgressBar00.stepIt();
+};
+
+this.progress_onload = function (obj:Form, e:LoadEventInfo)
+{		
+	
+	this.setTimer(0, 1000);
+	this.setTimer(1, 1000);
+	this.setTimer(2, 1000);
+};
+
+this.progress_ontimer = function (obj:Form, e:TimerEventInfo)
+{
+	if (e.timerid == 0) 
+	{
+		if (this.ProgressBar01.pos == this.ProgressBar01.max) 
+		{
+			return;
+		}
+		this.ProgressBar01.stepIt();
+	}
+	else if (e.timerid == 1) 
+	{
+		if (this.ProgressBar02.pos == this.ProgressBar02.max) 
+		{
+			return;
+		}
+		this.ProgressBar02.stepIt();
+	}
+	else if (e.timerid == 2) 
+	{
+		if (this.ProgressBar03.pos == this.ProgressBar03.max) 
+		{
+			return;
+		}
+		this.ProgressBar03.stepIt();
+	}
+};
+
+this.Button02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var arr = this.ProgressBar00;
+	for(a in arr){
+		trace(a + "::" + arr[a]);
+	}
+};
+
+this.Button03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var arr = this.ProgressBar00._progressbaritems[0];
+	for(a in arr){
+		trace(a + "::" + arr[a]);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

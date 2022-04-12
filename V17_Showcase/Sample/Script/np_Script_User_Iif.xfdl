@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_User_Iif" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_User_Iif" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" binddataset="ds_data" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;DATA1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;DATA2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;DATA3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:DATA1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:DATA2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:DATA3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" position="absolute" left="30" width="500" top="78" height="150" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="DATA"/>
+                <Cell col="1" text="iif"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:DATA"/>
+                <Cell col="1" text="expr:comp.parent.fn_iif(DATA=='Y', 'Yes', 'No')"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="2" text="Implementation of the ternary operator" cssclass="sta_WF_subtitP" left="30" top="18" width="520" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="DATA">Y</Col>
+          </Row>
+          <Row>
+            <Col id="DATA">N</Col>
+          </Row>
+          <Row>
+            <Col id="DATA">Y</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_User_Iif
+ * Discription : Implementation of the ternary operator
+ */
+ 
+
+/*
+ * Function Name : fn_iif
+ * Discription   : After checking the first value true or false, we define the second value based on the previous result
+ * Parameter     : Condition, expression value in case of true, expression in case of false
+ * Return        : Expression values
+ * Example       : fn_iif(DATA=='Y', 'Yes', 'No')
+ */
+this.fn_iif = function()
+{
+    var arrArgument = this.fn_iif.arguments; // or arguments;
+
+    if (arrArgument[0]) 
+    {
+        return arrArgument[1];
+    } 
+    else 
+    {
+        return arrArgument[2];
+    }
+};]]></Script>
+  </Form>
+</FDL>

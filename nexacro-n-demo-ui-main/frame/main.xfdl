@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="main" width="480" height="2520" scrollbartype="none" onload="main_onload" background="#fff" onlayoutchanged="main_onlayoutchanged">
+    <Layouts>
+      <Layout height="2520" width="480">
+        <Div id="div_rolling" taborder="0" left="0" top="0" height="700" right="0" url="frame::main_rolling.xfdl"/>
+        <Div id="div_realosmu" taborder="1" left="0" top="700" height="1420" right="0" url="frame::main_realosmu.xfdl"/>
+        <Div id="div_reference" taborder="2" left="0" top="2120" height="400" right="0" url="frame::main_reference.xfdl"/>
+      </Layout>
+      <Layout height="2830" width="1263" name="large">
+        <Div id="div_rolling" taborder="0" left="0" top="0" height="700" right="0"/>
+        <Div id="div_realosmu" taborder="1" left="0" top="700" height="1150" right="0"/>
+        <Div id="div_reference" taborder="2" left="0" top="1850" height="980" right="0"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.menuInfo = {menuId: 'main', menuName: 'main', menuUrl: 'frame::main.xfdl'};
+
+this.main_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	nexacro._OnceCallbackTimer.callonce(this, function() {
+		var app = nexacro.getApplication(),
+			rootForm = app.mainframe.childframe.form;
+			
+		rootForm["menuPageOnLoad"].call(rootForm, this._layout_list[this._cur_real_layout].height);
+		rootForm.resetScroll();
+		
+		if (this.getCurrentLayoutName() == "large") {
+			this.div_rolling.set_url("frame::main_rolling.xfdl");
+			this.div_realosmu.set_url("frame::main_realosmu.xfdl");
+			this.div_reference.set_url("frame::main_reference.xfdl");
+		}
+	
+		//this.openEventPopup();
+	}, 10);
+};
+
+this.main_onlayoutchanged = function(obj:nexacro.Form,e:nexacro.LayoutChangeEventInfo)
+{
+	var app = nexacro.getApplication(),
+		rootForm = app.mainframe.childframe.form;
+	
+	if (e.newlayout == "large") {
+		this.div_rolling.set_url("frame::main_rolling.xfdl");
+		this.div_realosmu.set_url("frame::main_realosmu.xfdl");
+		this.div_reference.set_url("frame::main_reference.xfdl");
+		
+		rootForm.resetScroll();
+	} else {
+		//this.div_rolling.set_url("");
+		//this.div_keymenu.set_url("");
+		//this.div_realosmu.set_url("");
+		//this.div_reference.set_url("");
+		this.div_rolling.set_url("frame::main_rolling.xfdl");
+		this.div_realosmu.set_url("frame::main_realosmu.xfdl");
+		this.div_reference.set_url("frame::main_reference.xfdl");
+	}
+};
+
+this.getToay = function()
+{
+	var objDate = new nexacro.Date();
+	var year = objDate.getFullYear().toString().padLeft(4, "0");
+	var month = (objDate.getMonth()+1).toString().padLeft(2, "0");
+	var date = objDate.getDate().toString().padLeft(2, "0");
+	
+	return (year + month + date);
+};
+
+this.getEventCookie = function(name)
+{
+	var result = "";
+	var flag = document.cookie.indexOf(name+'=');
+	if (flag != -1) {
+		flag += name.length + 1;
+		end = document.cookie.indexOf(';', flag);
+
+		if (end == -1) end = document.cookie.length;
+		result = unescape(document.cookie.substring(flag, end))
+	}
+	return result?result:"";
+};
+
+//이벤트 ~9.10 (설문이벤트)
+this.openEventPopup = function()
+{
+	// 날짜체크하지 않음
+// 	var today = this.getToay(),
+// 		eventStartDt = "20210817",
+// 		eventEndDt = "20210910";
+
+//	if (today >= eventStartDt && today <= eventEndDt) {
+		var openEventCookie = this.getEventCookie("openEvent");
+
+		if (openEventCookie != "N") {
+			if (this.getCurrentLayoutName() == "large") {
+				var left = 391, top = 10, width = 480, height = 740, right = null, bottom = null;
+
+				var objDiv = new Div("divOpenEvent", left, top, width, height, right, bottom);
+				objDiv.set_url("frame::event_popup.xfdl");
+				objDiv.set_formscrollbartype("none");
+				objDiv.set_boxShadow("0 3px 9px rgba(0,0,0,.5)");
+				this.addChild("divOpenEvent", objDiv);
+
+				objDiv.show();
+			} else {
+				this.openPopup("openEvent", "frame::event_popup.xfdl", {}, "titlebar=false autosize=false width=480 height=740", "", false);
+			}
+		}
+//	}
+};]]></Script>
+  </Form>
+</FDL>

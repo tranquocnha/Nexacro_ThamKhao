@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="arrangement_phone" width="730" height="125" titletext="New Form">
+    <Layouts>
+      <Layout height="125" mobileorientation="landscape" width="730">
+        <Edit id="Edit00_00" taborder="1" left="120" top="16" width="518" height="36"/>
+        <Button id="btn_del" taborder="2" text="Delete" left="641" top="16" width="70" height="36" cssclass="btn_WF_basic02" onclick="Button02_01_onclick" visible="false"/>
+        <Static id="Static02_00" taborder="0" text="Name" left="0" top="18" width="107" height="32" cssclass="sta_WF_labelTxt01"/>
+        <Static id="Static02_00_00" taborder="3" text="Relationship" left="0" top="65" width="107" height="31" cssclass="sta_WF_labelTxt01"/>
+        <Combo id="Combo00" taborder="4" text="Combo00" left="120" top="62" width="243" height="36" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" displaynulltext="Choose Realationship" itemheight="36">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">Mother</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">Father</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">3</Col>
+                <Col id="datacolumn">Daughter</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">4</Col>
+                <Col id="datacolumn">Son</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">5</Col>
+                <Col id="datacolumn">Sister</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">6</Col>
+                <Col id="datacolumn">Brother</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">7</Col>
+                <Col id="datacolumn">Aunt</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">8</Col>
+                <Col id="datacolumn">Uncle</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">9</Col>
+                <Col id="datacolumn">Nidce</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">10</Col>
+                <Col id="datacolumn">Nephew</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">11</Col>
+                <Col id="datacolumn">Cousin (female)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">12</Col>
+                <Col id="datacolumn">Cousin (Male)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">13</Col>
+                <Col id="datacolumn">Grandmother</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">14</Col>
+                <Col id="datacolumn">Grandfather</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">15</Col>
+                <Col id="datacolumn">Granddaughter</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">16</Col>
+                <Col id="datacolumn">Grandson</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="Static00" taborder="5" text="Static00" left="0" top="120" height="1" width="710" border="0px none,0px none,1px dashed #a598ef"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+
+this.Button02_01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var pForm = this.parent.parent.parent.parent;
+	pForm["deleteFamilly"].call(pForm, this.parent.name);
+};
+]]></Script>
+  </Form>
+</FDL>

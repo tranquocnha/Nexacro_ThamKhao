@@ -1,0 +1,17 @@
+﻿/* I */
+ImageViewer.img_GWF_SplitterH, ImageViewer.img_GWF_SplitterH:mouseover, 
+ImageViewer.img_GWF_SplitterH:pushed, ImageViewer.img_GWF_SplitterH:focused
+{
+	background		: transparent URL('Image::div_GWF_SplitterH.png') stretch;
+	border			: 0 none;
+	cursor			: hand;
+}
+
+ImageViewer.img_GWF_SplitterV, ImageViewer.img_GWF_SplitterV:mouseover, 
+ImageViewer.img_GWF_SplitterV:pushed, ImageViewer.img_GWF_SplitterV:focused
+{
+	background		: transparent URL('Image::div_GWF_SplitterV.png') stretch;
+	border			: 0 none;
+	cursor			: hand;
+}
+

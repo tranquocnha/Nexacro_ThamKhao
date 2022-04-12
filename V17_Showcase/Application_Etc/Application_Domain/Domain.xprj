@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project active_adl="Domain" version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <ADL id="Domain" url="Domain.xadl"/>
+  <ComponentInfoGroup>
+    <ComponentInfo name="EcoGrid" defaultwidth="" defaultheight="" image="1"/>
+  </ComponentInfoGroup>
+</Project>

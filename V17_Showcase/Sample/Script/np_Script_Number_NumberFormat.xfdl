@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Number_NumberFormat" inheritanceid="" position="absolute" titletext="Script_Number_NumberFormat" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output0" taborder="2" autoselect="true" autoskip="true" position="absolute" left="340" width="190" top="120" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="80" height="30"/>
+        <Edit id="edt_input0" taborder="0" text="XPLATFORM" autoselect="true" autoskip="true" value="255" position="absolute" left="30" width="190" top="120" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="340" width="60" top="80" height="30"/>
+        <Button id="btn_execute0" taborder="1" text="10 -&gt; 16" onclick="btn_execute0_onclick" position="absolute" left="235" width="90" top="120" height="40"/>
+        <Button id="btn_execute1" taborder="4" text="10 -&gt; 2" onclick="btn_execute1_onclick" position="absolute" left="235" width="90" top="170" height="40"/>
+        <Edit id="edt_output1" taborder="5" autoselect="true" autoskip="true" position="absolute" left="340" width="190" top="170" height="40"/>
+        <Edit id="edt_input1" taborder="6" value="0xff" text="255" autoselect="true" autoskip="true" position="absolute" left="30" width="190" top="230" height="40"/>
+        <Button id="btn_execute2" taborder="7" text="16 -&gt; 10" onclick="btn_execute2_onclick" position="absolute" left="235" width="90" top="230" height="40"/>
+        <Edit id="edt_output2" taborder="8" autoselect="true" autoskip="true" position="absolute" left="340" width="190" top="230" height="40"/>
+        <Button id="btn_execute3" taborder="9" text="16 -&gt; 2" onclick="btn_execute3_onclick" position="absolute" left="235" width="90" top="280" height="40"/>
+        <Edit id="edt_output3" taborder="10" autoselect="true" autoskip="true" position="absolute" left="340" width="190" top="280" height="40"/>
+        <Static id="Static05" taborder="11" text="Conversion to decimal" cssclass="sta_WF_subtitP" left="30" top="18" width="300" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Number_NumberFormat
+ * Description : Converting to Decimal
+ */
+
+/*  Base 10 to base 16 conversion(Decimal to Hexadecmial conversion) */
+this.btn_execute0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.edt_output0.set_value((Number(this.edt_input0.text)).toString(16));	
+}
+
+/* Base 10 to 2 conversion( Decimal to Binary Conversion) */
+this.btn_execute1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.edt_output1.set_value((Number(this.edt_input0.text)).toString(2));
+}
+
+/* Base 16 to base 10 conversion (Hexadecimal to Decimal Conversion) */
+this.btn_execute2_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.edt_output2.set_value((0xff).toString(10));
+}
+
+/* Base 16 to Base 2 conversion(Hexadecimal to Binary conversion) */
+this.btn_execute3_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.edt_output3.set_value((0xff).toString(2));
+}]]></Script>
+  </Form>
+</FDL>

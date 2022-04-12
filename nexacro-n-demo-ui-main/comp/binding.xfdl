@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="TwoWayDataBinding" titletext="양방향 데이타 바인딩" width="980" height="750" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="1" binddataset="Dataset00" autoenter="select" autofittype="col" left="20" top="76" right="20" height="274" autoupdatetype="itemselect">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="267"/>
+              </Columns>
+              <Rows>
+                <Row size="49" band="head"/>
+                <Row size="49"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Name"/>
+                <Cell col="1" text="Gender"/>
+                <Cell col="2" text="Birthday"/>
+                <Cell col="3" text="Marital Status"/>
+                <Cell col="4" text="Remark"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:Column0" editautoselect="true" editdisplay="display" displaytype="editcontrol" verticalAlign="middle"/>
+                <Cell col="1" displaytype="combocontrol" edittype="combo" text="bind:Column1" combodataset="Dataset01" combocodecol="code" combodatacol="data" combodisplay="display"/>
+                <Cell col="2" displaytype="calendarcontrol" edittype="date" text="bind:Column2" calendardisplay="display" calendardateformat="yyyy-MM-dd"/>
+                <Cell col="3" displaytype="checkboxcontrol" edittype="checkbox" text="bind:Column3"/>
+                <Cell col="4" displaytype="editcontrol" edittype="normal" text="bind:Column4" editautoselect="true" editdisplay="display" textAlign="left" verticalAlign="middle" wordWrap="char"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="divContainer" taborder="2" left="20" top="Grid00:20" background="#f5f4f6" text="" right="20" height="360">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit00" taborder="0" left="116" top="64" width="135" height="30" autoselect="true"/>
+              <Radio id="Radio00" taborder="1" columncount="2" innerdataset="@Dataset01" codecolumn="code" datacolumn="data" left="401" top="64" width="180" height="30"/>
+              <Calendar id="Calendar00" taborder="2" dateformat="yyyy-MM-dd" left="116" top="104" width="135" height="30"/>
+              <CheckBox id="CheckBox00" taborder="3" left="401" top="104" width="130" height="30"/>
+              <TextArea id="TextArea00" taborder="4" left="116" top="145" height="166" autoselect="true" wordWrap="char" right="20"/>
+              <Static id="Static07" taborder="5" text="생년월일" cssclass="sta_WF_compTitle03" left="20" top="99" width="116" height="40" messageid="comp.binding.birthday"/>
+              <Static id="Static09" taborder="6" text="결혼여부" cssclass="sta_WF_compTitle03" left="299" top="99" width="116" height="40" messageid="comp.binding.marriage"/>
+              <Static id="Static11" taborder="7" text="비고" cssclass="sta_WF_compTitle03" left="20" top="125" width="116" height="166" messageid="comp.binding.remark"/>
+              <Static id="Static01" taborder="8" text="이름" cssclass="sta_WF_compTitle03" left="20" top="59" width="116" height="40" messageid="name"/>
+              <Static id="Static05" taborder="9" text="성별" cssclass="sta_WF_compTitle03" left="299" top="59" width="116" height="40" messageid="comp.binding.gender"/>
+              <Static id="Static14" taborder="10" text="상세정보" cssclass="sta_WF_compTitle02" left="15" top="10" width="411" height="40" messageid="comp.binding.information"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static60" taborder="0" cssclass="sta_WF_pageTitle" left="20" top="20" right="20" height="40" wordWrap="char" text="Data Binding" messageid="comp.binding"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset01">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">M</Col>
+            <Col id="data">Male</Col>
+          </Row>
+          <Row>
+            <Col id="code">F</Col>
+            <Col id="data">Female</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">Parry</Col>
+            <Col id="Column1">M</Col>
+            <Col id="Column2">19851128</Col>
+            <Col id="Column3">0</Col>
+            <Col id="Column4">I am Parry.</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Jennifer</Col>
+            <Col id="Column1">F</Col>
+            <Col id="Column2">1980331</Col>
+            <Col id="Column3">1</Col>
+            <Col id="Column4">I am Jennifer.</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Aland</Col>
+            <Col id="Column1">M</Col>
+            <Col id="Column2">19770105</Col>
+            <Col id="Column3">0</Col>
+            <Col id="Column4">I am Aland.</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Rose</Col>
+            <Col id="Column1">F</Col>
+            <Col id="Column2">19911005</Col>
+            <Col id="Column3">1</Col>
+            <Col id="Column4">I am Rose.</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Lisa</Col>
+            <Col id="Column1">F</Col>
+            <Col id="Column2">19880420</Col>
+            <Col id="Column3">1</Col>
+            <Col id="Column4">I am Lisa.</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="divContainer.form.Edit00" propid="value" datasetid="Dataset00" columnid="Column0"/>
+      <BindItem id="item1" compid="divContainer.form.Radio00" propid="value" datasetid="Dataset00" columnid="Column1"/>
+      <BindItem id="item2" compid="divContainer.form.Calendar00" propid="value" datasetid="Dataset00" columnid="Column2"/>
+      <BindItem id="item3" compid="divContainer.form.CheckBox00" propid="value" datasetid="Dataset00" columnid="Column3"/>
+      <BindItem id="item4" compid="divContainer.form.TextArea00" propid="value" datasetid="Dataset00" columnid="Column4"/>
+    </Bind>
+  </Form>
+</FDL>

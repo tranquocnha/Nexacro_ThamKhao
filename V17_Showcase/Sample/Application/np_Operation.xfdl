@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Operation" classname="np_Operation" left="0" top="0" width="760" height="430" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" right="3.82%" height="318" binddataset="Dataset00">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="134"/>
+                <Column size="210"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="expr:&quot;Column1 + Column2&quot;"/>
+                <Cell col="4" text="nexacro.toNumber(v,0,0,0)"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="expr:Column1 + Column2"/>
+                <Cell col="4" text="expr:nexacro.toNumber(Column1,0,0,0) + nexacro.toNumber(Column2,0,0,0)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="1" text="NaN(undefined)" cssclass="sta_WF_subtitP" left="30" top="18" width="289" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="INT" size="256"/>
+          <Column id="Column2" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">A</Col>
+            <Col id="Column1">100</Col>
+            <Col id="Column2">10</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">B</Col>
+            <Col id="Column1">200</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

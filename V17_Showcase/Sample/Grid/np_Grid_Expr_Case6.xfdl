@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Expr_Case6" left="0" top="0" width="1024" height="768" titletext="Expr Case6">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Button id="Button01" taborder="9" text="Button01" left="30" top="78" width="250" height="40" expr="expr:100 * 2" onclick="Button01_onclick"/>
+        <Static id="Static01" taborder="10" text="Getting expr execution result using display text" cssclass="sta_WF_subtitP" left="30" top="18" width="650" height="40" onclick="Static01_onclick"/>
+        <Grid id="Grid00" taborder="11" useinputpanel="false" left="30" top="348" width="400" height="114" binddataset="Dataset00" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="135"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column0+Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" expr="expr:Column0 + Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="12" text="Verify the selected row of the Grid" left="450" top="348" width="250" height="40" onclick="Button00_onclick"/>
+        <Edit id="Edit00" taborder="13" left="450" top="398" width="250" height="40"/>
+        <Edit id="Edit01" taborder="14" left="30" top="128" width="250" height="40" value="Showing expr formula of Button."/>
+        <Edit id="Edit02" taborder="15" left="30" top="178" width="250" height="40" value="Showing expr result of Button."/>
+        <Static id="Static00" taborder="16" text="Verifying Grid Cell's expr value" cssclass="sta_WF_subtitP" left="30" top="288" width="650" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="INT" size="256"/>
+          <Column id="Column1" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">20</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">30</Col>
+            <Col id="Column1">40</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Edit01.set_value(this.Button01.expr);
+	this.Edit02.set_value(this.Button01.getDisplayText());
+};
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	dn =  this[this.Grid00.binddataset];	
+	this.Edit00.set_value(this.Grid00.getCellText(dn.rowposition,2));
+};
+]]></Script>
+  </Form>
+</FDL>

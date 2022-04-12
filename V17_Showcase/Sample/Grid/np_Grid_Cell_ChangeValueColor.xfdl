@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Comp_Grid_Cell_ChangeValueColor" left="0" top="0" width="1024" height="768" titletext="Comp_Grid_Cell_ChangeValueColor">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="grd_output" taborder="1" useinputpanel="false" selecttype="currow" useselcolor="false" position="absolute" autoenter="select" binddataset="ds_data" cellclickbound="cell" left="30" top="73" width="700" height="150" cssclass="" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="119"/>
+                <Column size="81"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+                <Cell col="2" text="COL2"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="none" text="bind:COL0" background="" expr="" cssclass="expr:COL2==dataset.getOrgColumn(currow,'COL2') ? '': 'Comp_Grid_Cell_ChangeValueColor'"/>
+                <Cell col="1" text="bind:COL1" cssclass=""/>
+                <Cell col="2" displaytype="checkbox" edittype="checkbox" text="bind:COL2" cssclass=""/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="2" text="Change background color of cell when column value changes" cssclass="sta_WF_subtitP" left="30" top="18" width="820" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" preload="true" updatecontrol="true" useclientlayout="false" id="ds_data" onrowposchanged="Dataset00_onrowposchanged">
+        <ColumnInfo>
+          <Column id="COL0" size="256" type="STRING"/>
+          <Column id="COL1" size="256" type="STRING"/>
+          <Column type="STRING" size="256" id="COL2"/>
+          <Column id="COL3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">A</Col>
+            <Col id="COL1">nexacro platform</Col>
+            <Col id="COL2">0</Col>
+            <Col id="COL3">red</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">B</Col>
+            <Col id="COL1">nexacro platform</Col>
+            <Col id="COL2">0</Col>
+            <Col id="COL3">blue</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">C</Col>
+            <Col id="COL1">nexacro platform</Col>
+            <Col id="COL2">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Grid_Cell_ChangeValueColor
+ * Description : Change background color of cell when column value changes
+ */
+  ]]></Script>
+  </Form>
+</FDL>

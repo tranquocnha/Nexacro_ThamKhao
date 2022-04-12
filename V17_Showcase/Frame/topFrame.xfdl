@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="topFrame" classname="top" left="0" top="0" titletext="V17 Showcase" onload="form_onload" onsetfocus="topFrame_onsetfocus" scrolltype="none" cssclass="frm_top" height="60" width="1280">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="0" style="background:transparent URL('theme://Images\ico_TF_line.png');align:center middle;" right="99" bottom="34" width="5" height="10"/>
+        <Static id="Static00" taborder="2" left="0" top="0" width="100%" height="60" cssclass="static_TF_topBg"/>
+        <Button id="btnLanguage" taborder="1" top="15" width="30" onclick="btnLanguage_onclick" height="30" cssclass="button_TF_settingK" right="16"/>
+        <Button id="btmMenuOpen" taborder="3" left="280" top="15" width="30" height="30" cssclass="btn_LF_menuControl" iconPosition="top" onclick="btmMenuOpen_onclick"/>
+        <Static id="Static02" taborder="4" left="260" top="0" width="1020" height="15" cssclass="static_guideBg" text="15px" visible="false"/>
+        <Static id="Static03" taborder="5" left="260" top="15" width="20" height="30" cssclass="static_guideBg" text="20px" background="aqua" visible="false"/>
+        <Static id="Static04" taborder="6" left="310" top="15" width="20" height="30" cssclass="static_guideBg" text="20px" background="aqua" visible="false"/>
+        <Static id="Static06" taborder="7" left="1264" top="15" width="16" cssclass="static_guideBg" text="16px" background="aqua" visible="false" height="29"/>
+        <Button id="btnGoMain" taborder="8" left="0" top="0" width="260" height="59" cssclass="button_TF_logo" onclick="btnGoMain_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Menu" firefirstcount="0" firenextcount="0" reversesubsum="false" enableevent="true" loadfiltermode="keep" loadkeymode="keep" updatecontrol="true" useclientlayout="false" onload="ds_Menu_onload"/>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/************************************************************************************************
+ * 01. Work scope : Frame common
+ * 02. Screen name   : topFrame.xfdl
+ * 03. Screen explanation : 
+ * 04. Related screen/Service 	: 
+ * 05. Related table        	: 
+ * 06. Created by 			    : sian
+ * 07. Creation date 			: 2014.02.21 
+ * ============================================================================================== 
+ * 08. Revision history 		: Updated by          Content
+ * ==============================================================================================
+ *     2014.02.21             sian          First
+ ************************************************************************************************/
+
+/************************************************************************************************
+ * 1. Common library
+ ************************************************************************************************/
+
+/************************************************************************************************
+ * 2. Veriable declaration
+ ************************************************************************************************/
+this.nLeft = 0;
+this.nPad = 15;
+this.MENU_BTN_PREFIX = "MNU_";
+var objApp = nexacro.getApplication();
+
+/************************************************************************************************
+ * 3. Event processing
+ ************************************************************************************************/
+ //Form onload 이벤트
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	this.btmMenuOpen.isClose = false;
+		
+	//공통 Onload 함수 호출
+	lib_Form.gfn_FormOnLoad(obj);
+	
+	//Form OnLoad 함수 호출
+	this.fn_Load();
+}
+
+//메인화면 호출 버튼 onclick 이벤트
+this.btnGoMain_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if( !gv_workFrame.frames["MainForm"]){
+		lib_Form.gfn_ArrangeWin("closeAll");
+	}	
+
+	return;
+	var strSeparatesize = gv_vFrameSet.separatesize;
+	var arrSeparatesize = strSeparatesize.split(",");
+	if(arrSeparatesize[1]=="*")
+	{
+		strSeparatesize = arrSeparatesize[0]+","+arrSeparatesize[2]+","+arrSeparatesize[1]+","+arrSeparatesize[3];
+		gv_vFrameSet.set_separatesize(strSeparatesize);
+	}	
+};
+
+//대메뉴 버튼 onclick 이벤트
+this.Button_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	//대메뉴 변경 함수 호출
+	gv_leftFrame.form.fn_changeTopMenu(obj.menuid);
+}  
+
+//언어변경 버튼 onclick 이벤트
+this.btnLanguage_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if(objApp.gv_locale=="EN")
+	{
+		objApp.gv_locale = "KO";
+		this.btnLanguage.set_cssclass("button_TF_settingK");
+	}
+	else
+	{
+		objApp.gv_locale = "EN";
+		this.btnLanguage.set_cssclass("button_TF_settingE");
+	}
+	
+	//언어변경 함수 호출
+	gv_leftFrame.form.fn_setLanguage();
+};
+
+//좌측메뉴 보이기/숨기기 버튼 onclick 이벤트
+this.btmMenuOpen_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+
+	if(obj.isClose)
+	{
+		//좌측메뉴 접기/펼치기 함수 호출
+		gv_leftFrame.form.fn_showLeftMenu(obj.isClose);
+		obj.isClose = false;
+	}
+	else
+	{
+		//좌측메뉴 접기/펼치기 함수 호출
+		gv_leftFrame.form.fn_showLeftMenu(obj.isClose);
+		obj.isClose = true;
+	}
+};
+
+/************************************************************************************************
+ * 4. Function processing
+************************************************************************************************/
+//Form OnLoad 함수
+this.fn_Load = function ()
+{
+	//언어설정 버튼 초기화
+	if(objApp.gv_locale=="EN")
+	{
+		this.btnLanguage.langs = "eng";
+		this.btnLanguage.set_cssclass("button_TF_settingE");
+	}
+	else
+	{
+		this.btnLanguage.langs = "kor";
+		this.btnLanguage.set_cssclass("button_TF_settingK");
+	}
+	
+	//상단메뉴 생성 함수 호출
+	this.fn_setTopMenu();
+}
+
+//상단메뉴 생성 함수
+this.fn_setTopMenu = function ()
+{
+	var btnObj;
+	var strID;
+	var strName;
+	var objBtn;
+	
+	var nIdx;
+	var nRowCount;
+	var nButtonLeft;
+	var nButtonTop;
+	var nButtonWidth;
+	var nButtonHeight;
+	
+	//gds_Menu에서 0 Level 메뉴 복사
+	objApp.gds_Menu.filter(objApp.gv_MenuLvlCol + "==0");
+	this.ds_Menu.copyData(objApp.gds_Menu, true);
+	objApp.gds_Menu.filter();
+	
+	nRowCount = this.ds_Menu.getRowCount();
+	
+	//메뉴 버튼 생성
+	for (var i = 0; i < nRowCount; i++) 
+	{
+		strID = this.ds_Menu.getColumn(i, objApp.gv_MenuIdCol);
+		strName = this.ds_Menu.getColumn(i, objApp.gv_MenuNameCol);
+		objBtn = new Button();
+		
+		nIdx = i + 1;
+		nButtonLeft = 220+(nIdx * 110);
+		nButtonTop = 0;
+		nButtonWidth = (nIdx * 110) + 110 - (nIdx * 110);
+		nButtonHeight = 59;
+		
+		objBtn.init(this.MENU_BTN_PREFIX + strID, nButtonLeft, nButtonTop, nButtonWidth, nButtonHeight);
+		this.addChild(objBtn.name, objBtn);
+		objBtn.set_text(strName);
+		objBtn.menuid = strID;
+		objBtn.set_cssclass("TF_menu");
+		objBtn.setEventHandler("onclick", this.Button_onclick, this);
+		objBtn.show();
+	}
+}]]></Script>
+  </Form>
+</FDL>

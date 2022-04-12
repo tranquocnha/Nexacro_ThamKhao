@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Form_StaticTitleBar" classname="np_Form_StaticTitleBar" left="0" top="0" width="760" height="430" titletext="Static as title bar">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Open screen" left="30" top="180" height="40" onclick="Button00_onclick" width="250"/>
+        <Static id="Static01" taborder="1" text="Form's titlebar is set invisible, and static component is used to display as title bar. &#13;&#10;A button over static component is placed to close the screen. &#13;&#10;Static component is moved using script." wordwrap="english" cssclass="sta_WF_explain" left="30" top="65" width="600" height="55" style="align:left middle;font:bold 9 Dotum;"/>
+        <Static id="Static07" taborder="2" text="This sample shows static component used as title bar." cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" style="font:bold 9 Dotum;"/>
+        <Static id="Static00" taborder="3" text="To move titlebar , drag the title bar by mouse, it will be moved." wordwrap="english" cssclass="sta_WF_explain" left="30" top="130" width="600" height="30" style="align:left middle;font:bold 9 Dotum;" onclick="Static00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//showmodal
+	var cf = new ChildFrame();
+    var  nX = application.mainframe.VFrameSet.HFrameSet.leftFrame.width + this.Button00.getOffsetRight() + 2;  // 1px + px is bordr of mainframe and extra 1 pixel is set to make sppace.
+    var  nY = nexacro.toNumber(application.mainframe.VFrameSet.TopFrame.height) + nexacro.toNumber(application.mainframe.VFrameSet.HFrameSet.VFrameSet1.MdiTabFrame.height) + nexacro.toNumber(this.Button00.getOffsetBottom()) + nexacro.toNumber(application.mainframe.style.titlebarheight);
+    // titlebar height is set as 22 pixel frm style.so it should be added.
+    // 2 pixel for boder and 1 pixel for adding
+	cf.init("test",  nX, nY, 300, 300, 0, 0, "Sample_Form::np_Form_StaticAsTitleBarPopup.xfdl" );
+	cf.set_showtitlebar(true);
+    cf.showModal("test",this.getOwnerFrame(),"", this);	
+}
+]]></Script>
+  </Form>
+</FDL>

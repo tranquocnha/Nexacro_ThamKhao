@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="FitToContents" width="920" height="540" titletext="Fit To Contents" onload="FitToContents_onload" onbindingvaluechanged="FitToContents_onbindingvaluechanged">
+    <Layouts>
+      <Layout width="920" height="540">
+        <Static id="Static00_00" taborder="9" text="컴포넌트 사이즈 자동 조정" left="20" top="20" width="251" height="40" cssclass="sta_WF_pageTitle" messageid="comp.fittocontents" fittocontents="width"/>
+        <Grid id="grd_list" taborder="0" left="20" top="141" width="260" binddataset="ds_movie" autofittype="col" bottom="33" scrollbartype="indicator indicator" autosizingtype="row">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="70"/>
+                <Column size="159"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="40"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="POSTER"/>
+                <Cell col="1" text="TITLE, DIRECTOR"/>
+              </Band>
+              <Band id="body">
+                <Cell rowspan="2" text="bind:posters" displaytype="imagecontrol" imagestretch="fixaspectratio" autosizerow="none"/>
+                <Cell col="1" text="bind:title" wordWrap="english" border="1px solid #e2e2e3,0px none,0px solid " font="normal 16px/normal &quot;Noto Sans KR Regular,맑은 고딕&quot;" verticalAlign="middle" autosizerow="limitmin"/>
+                <Cell row="1" col="1" text="bind:directorNm" wordWrap="english" font="normal 12px/normal &quot;Noto Sans KR Regular,맑은 고딕&quot;" verticalAlign="top"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="st_summary" taborder="1" text="" left="445" top="245" width="455" background="" padding="5px" wordWrap="english" fittocontents="height" height="80" minheight="80" maxheight="" border="1px dotted #bdc2c9"/>
+        <ImageViewer id="img_image" taborder="2" left="303" top="140" height="185" stretch="fixaspectratio" width="132" border="0px solid"/>
+        <Static id="st_title" taborder="3" left="445" top="141" width="250" height="30" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase="" cssclass="sta_WF_emptitle" fittocontents="width" border="1px dotted #bdc2c9"/>
+        <Static id="Static01" taborder="4" text="" left="445" top="196" width="250" height="24" background="" padding="" fittocontents="width" border="1px dotted #bdc2c9"/>
+        <Static id="Static02" taborder="5" text="" left="Static01:5" top="196" width="200" height="24" background="" padding="" fittocontents="width" border="1px dotted #bdc2c9"/>
+        <Div id="Div00" taborder="6" text="Div00" left="303" top="st_summary:8" height="174" border="1px dotted #bdc2c9" width="597">
+          <Layouts>
+            <Layout>
+              <Static id="Static08" taborder="0" text="RUNTIME" left="15" top="14" width="100" height="30" background="" padding="" cssclass="sta_WF_tablelabel"/>
+              <Static id="Static00" taborder="1" text="STARRING" left="15" top="43" width="100" height="30" background="" padding="" cssclass="sta_WF_tablelabel"/>
+              <Static id="Static01" taborder="2" text="GENRE" left="15" top="72" width="100" height="30" background="" padding="" cssclass="sta_WF_tablelabel"/>
+              <Static id="Static02" taborder="3" text="DIRECTOR" left="15" top="101" width="100" height="30" background="" padding="" cssclass="sta_WF_tablelabel"/>
+              <Static id="Static03" taborder="4" text="NATION" left="15" top="130" width="100" height="30" background="" padding="" cssclass="sta_WF_tablelabel"/>
+              <Static id="Static04" taborder="5" text="" left="115" top="14" width="440" height="30" background="" padding="5px" cssclass="sta_WF_tablebg"/>
+              <Static id="Static05" taborder="6" text="" left="115" top="43" width="440" height="30" background="" padding="5px" cssclass="sta_WF_tablebg"/>
+              <Static id="Static06" taborder="7" text="" left="115" top="72" width="440" height="30" background="" padding="5px" cssclass="sta_WF_tablebg"/>
+              <Static id="Static07" taborder="8" text="" left="115" top="101" width="440" height="30" background="" padding="5px" cssclass="sta_WF_tablebg"/>
+              <Static id="Static09" taborder="9" text="" left="115" top="130" width="440" height="30" background="" padding="5px" cssclass="sta_WF_tablebg"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static05" taborder="7" left="447" width="290" height="20" text="* Production / Year" top="176" color="darkblue" font="normal bold 10pt &quot;Verdana&quot;"/>
+        <Static id="Static00" taborder="8" left="447" width="290" height="20" text="* Summary" top="225" font="normal bold 10pt &quot;Verdana&quot;" color="darkblue"/>
+        <Static id="Static03" taborder="10" left="20" top="66" width="760" height="40" cssclass="sta_WF_compTitle05" text="텍스트의 사이즈에 맞춰 컴포넌트의 넓이, 높이가 자동 설정되며 상대좌표로 설정된 컴포넌트의 위치가 따라 이동합니다.&#13;&#10;&lt;fc v='#FE5252'&gt;Arrangement&lt;/fc&gt;와 &lt;fc v='#FE5252'&gt;FitToContents&lt;/fc&gt; 속성이 적용되었습니다." messageid="comp.fittocontents.top.desc" usedecorate="true" wordWrap="english" fittocontents="height"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_movie" binddataobject="DataObject00" dataobjectpath="$.Data[0].Result[*]">
+        <ColumnInfo>
+          <Column id="posters" datapath="@.posters" type="STRING" size="256"/>
+          <Column id="title" datapath="@.title" type="STRING" size="256"/>
+          <Column id="titleEng" datapath="@.titleEng" type="STRING" size="256"/>
+          <Column id="directorNm" datapath="@.directors.director[0].directorNm" type="STRING" size="256"/>
+          <Column id="directorEnNm" datapath="@.directors.director[0].directorEnNm" type="STRING" size="256"/>
+          <Column id="runtime" datapath="@.runtime" type="STRING" size="256"/>
+          <Column id="actorNm" datapath="@.actors.actor[0].actorNm" type="STRING" size="256"/>
+          <Column id="actorEnNm" datapath="@.actors.actor[0].actorEnNm" type="STRING" size="256"/>
+          <Column id="genre" datapath="@.genre" type="STRING" size="256"/>
+          <Column id="prodYear" datapath="@.prodYear" type="STRING" size="256"/>
+          <Column id="nation" datapath="@.nation" type="STRING" size="256"/>
+          <Column id="plotText" datapath="@.plots.plot[0].plotText" type="STRING" size="256"/>
+          <Column id="company" datapath="@.company" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <DataObject id="DataObject00" onload="DataObject00_onload"/>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  nexacro 17 demo
+*  @MenuPath    대메뉴 > 소메뉴
+*  @FileName    FitToContents.xfdl
+*  @Creator     presales
+*  @CreateDate  2020/12/15
+*  @Desction    스크립트 표준 및 주석 표준 정의
+************** 소스 수정 이력 ***********************************************
+*  date            Modifier                Description
+*******************************************************************************
+*  2019/10/02          presales                  최초 생성 
+*******************************************************************************
+*/
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+ ************************************************************************************************/
+this.gvLangCd = "ko_KR";
+
+
+/************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose)
+ ************************************************************************************************/
+ 
+/**
+ * @description 화면 load시 초기설정 event
+*/
+this.FitToContents_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	this.fn_getData();
+};
+
+/************************************************************************************************
+ * CALLBACK 콜백 처리부분(Transaction, Popup)
+ ************************************************************************************************/
+
+ 
+ /************************************************************************************************
+ * CRUD 및 TRANSACTION 서비스 호출 처리
+ ************************************************************************************************/
+
+/************************************************************************************************
+ * 사용자 FUNCTION 영역
+ ************************************************************************************************/
+this.fn_getYYMMDD = function(date)
+{ 
+	var year = new String(date.getFullYear()); 
+	var month = new String(date.getMonth()+1); 
+	var day = new String(date.getDate());
+	
+	if(month.length == 1){ month = "0" + month;  }
+	if(day.length == 1){   day = "0" + day; }
+	
+	return (year + month + day);
+}
+ 
+this.fn_getData = function()
+{
+	var fromDt = new nexacro.Date();
+	fromDt.addDate(-7);
+	var s_fromDt = this.fn_getYYMMDD(fromDt);
+	
+	var toDt = new nexacro.Date();
+	var s_toDt = this.fn_getYYMMDD(toDt);	
+
+	//XDomainRequest로 구현시 (단 운영서버에서 https -> http로 호출하게 되면 mixed content https to http 오류가 남)
+	/*
+	var url = "http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=VVWS972HO0TLOMO0244F&releaseDts=" + s_fromDt + "&releaseDte=" + s_toDt;
+		settings = {
+			"method": "", //this.Radio00.value,
+			"param": "", //this.TextArea00.value,
+			"callback": function(code, response) {
+				//this.TextArea01.set_value(response);
+				this.DataObject00.set_data(response);
+				this.DataObject00.load();
+			}
+		};
+	this.sendRequest(url, settings);
+	*/
+	
+	/* jsonp로 구현시 */
+	if(nexacro._Browser == "Runtime"){
+		var restApiURL = "http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=VVWS972HO0TLOMO0244F&releaseDts=" + s_fromDt + "&releaseDte=" + s_toDt;
+		this.DataObject00.set_url(restApiURL);
+		this.DataObject00.load();
+	}else{
+		var svcPath = "https://demo.nexacroplatform.com/nexacro17-demo/service/";
+	
+		var script = document.createElement("script");
+		//script.src = "http://localhost:18080/nexacro17-demo/service/koreafilm_restAPI_jsonp.jsp?callback=document.getJsonUsePureJSCallback&fromDt="+s_fromDt+"&toDt="+s_toDt;
+		script.src = svcPath + "koreafilm_restAPI_jsonp.jsp?callback=document.getJsonUsePureJSCallback&fromDt="+s_fromDt+"&toDt="+s_toDt;
+		document.getElementsByTagName('head')[0].appendChild(script);
+	
+		var objform = this;
+
+		if(typeof document.getJsonUsePureJSCallback != undefined)
+		{	
+			document.getJsonUsePureJSCallback = function(jsonp)
+			{
+				objform.DataObject00.set_data(jsonp);
+			}
+		}
+	}
+	/* */
+}
+
+this.sendRequest = function(url, settings) {
+    var createCORSRequest = function(method, url) {
+		var xhr = new XMLHttpRequest();
+		
+		if (xhr) {
+			xhr.open(method, url, true);
+		} else if (typeof XDomainRequest != "undefined") {
+			xhr = new XDomainRequest();
+			xhr.open(method, url);
+		} else {
+			xhr = null;
+		}
+		return xhr;
+	};
+
+    var pForm = this;
+	var method = settings["method"]?settings["method"]:"GET";
+    var xhr = createCORSRequest(method, url);
+    var sParam = JSON.stringify(settings["param"]);
+    var callback = settings["callback"];
+
+	try {
+        xhr.timeout = nexacro.getEnvironment().httptimeout * 1000; // time in milliseconds
+        xhr.ontimeout = function(e) {
+            if (typeof callback == "function") {
+                callback.call(pForm, -1, "Request Timeout");
+            } else if (typeof callback == "string") {
+                pForm[callback].call(pForm, -1, "Request Timeout");
+            }
+        };
+    } catch (e) {}
+	
+	xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            var response = this.responseText;
+
+            if (typeof callback == "function") {
+                callback.call(pForm, 0, response);
+            } else if (typeof callback == "string") {
+                pForm[callback].call(pForm, 0, response);
+            }
+        }
+	};
+
+	xhr.send(sParam);
+};
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+ ************************************************************************************************/
+this.DataObject00_onload = function(obj:nexacro.DataObject,e:nexacro.DataObjectLoadEventInfo)
+{
+	var jsonData = obj.data;
+	
+	for(var i=0; i<jsonData.Data[0].Result.length; i++)
+	{
+		if(jsonData.Data[0].Result[i].posters.indexOf("|") > 0)
+		{
+			jsonData.Data[0].Result[i].posters = jsonData.Data[0].Result[i].posters.split("|")[0];
+		}
+	}
+};
+
+this.FitToContents_onbindingvaluechanged = function(obj:nexacro.Form,e:nexacro.BindingValueChangedEventInfo)
+{
+	this.resetScroll();
+	
+	this.set_height(this.Div00.getOffsetBottom() + 30);
+	
+	//frame resize
+	var p = this.parent.parent;
+	p["mainPageOnLoad"].call(p, this.getOffsetHeight());
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="st_summary" propid="text" datasetid="ds_movie" columnid="plotText"/>
+      <BindItem id="item1" compid="img_image" propid="image" datasetid="ds_movie" columnid="posters"/>
+      <BindItem id="item2" compid="st_title" propid="text" datasetid="ds_movie" columnid="title"/>
+      <BindItem id="item3" compid="Static01" propid="text" datasetid="ds_movie" columnid="company"/>
+      <BindItem id="item4" compid="Static02" propid="text" datasetid="ds_movie" columnid="prodYear"/>
+      <BindItem id="item5" compid="Div00.form.Static04" propid="text" datasetid="ds_movie" columnid="runtime"/>
+      <BindItem id="item6" compid="Div00.form.Static05" propid="text" datasetid="ds_movie" columnid="actorEnNm"/>
+      <BindItem id="item7" compid="Div00.form.Static06" propid="text" datasetid="ds_movie" columnid="genre"/>
+      <BindItem id="item8" compid="Div00.form.Static07" propid="text" datasetid="ds_movie" columnid="directorNm"/>
+      <BindItem id="item9" compid="Div00.form.Static09" propid="text" datasetid="ds_movie" columnid="nation"/>
+    </Bind>
+  </Form>
+</FDL>

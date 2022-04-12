@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="480" onload="form_onload">
+    <Layouts>
+      <Layout height="480" width="920">
+        <Static id="Static00" taborder="0" text="RESTful" left="20" top="19" width="150" height="30" cssclass="sta_WF_compTitle02" fittocontents="width" messageid="sample.restful"/>
+        <Static id="Static01" taborder="1" text="A REST API (also known as RESTful API) is an application programming interface that conforms to the constraints of REST architecture. REST stands for representational state transfer.&#13;&#10;&#13;&#10;An API, or application programming interface, is a set of definitions and protocols for building and integrating application software. It’s sometimes referred to as a contract between an information provider and an information user—establishing the content required from the consumer (the call) and  the content required by the producer (the response). For example, the API for a weather service could specify that the user supply a zip code and that the producer reply with a 2-part answer, the first being the high temperature, and the second being the low.  &#13;&#10;&#13;&#10;In other words, if you want to interact with a computer or system to retrieve information or perform a function, an API helps you communicate what you want to that system so it can understand and fulfill the request. &#13;&#10;&#13;&#10;You can think of an API as a mediator between the users or clients and the resources they want to get. It’s also a way for an organization to share resources and information while maintaining security and control—determining who gets access to what. &#13;&#10;&#13;&#10;Another advantage of an API is that you don’t have to know the specifics of how your resource is retrieved or where it comes from.&#13;&#10;&#13;&#10;Use this simple page to poke around at the API. Specify HTTP method, URL and parameters, and click on 'Send Request'. Note that this page requires a browser with HTML5 support." left="20" top="51" height="400" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" usedecorate="true" width="880" messageid="sample.restful.desc"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};]]></Script>
+  </Form>
+</FDL>

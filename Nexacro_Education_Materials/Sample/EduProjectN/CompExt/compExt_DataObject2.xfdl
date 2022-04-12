@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="sample_dataobject_01" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="1280">
+        <Grid id="Grid00" taborder="0" left="10" top="70" width="550" height="200" binddataset="ds_list" cellsizingtype="col" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="id"/>
+                <Cell col="1" text="employee_name"/>
+                <Cell col="2" text="employee_salary"/>
+                <Cell col="3" text="employee_age"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:id"/>
+                <Cell col="1" text="bind:employee_name"/>
+                <Cell col="2" text="bind:employee_salary"/>
+                <Cell col="3" text="bind:employee_age"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static06" taborder="1" text="DataObject" left="10" top="10" width="250" height="20" cssclass="sta_WF_Subtitle"/>
+        <Static id="Static03" taborder="2" text=" Basic Usage" left="10" top="40" width="250" height="24" cssclass="sta_WF_TypeTitle"/>
+        <Button id="btn_add" taborder="3" left="570" top="70" width="102" height="24" onclick="btn_getObject_onclick" text="getDataObject"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <DataObject id="data_object" preload="false" onerror="data_object_onerror" onload="data_object_onload" onsuccess="data_object_onsuccess">
+        <Contents><![CDATA[{
+}]]></Contents>
+      </DataObject>
+      <Dataset id="ds_list" binddataobject="data_object" dataobjectpath="$.data[*]">
+        <ColumnInfo>
+          <Column id="id" datapath="@.id" type="STRING" size="256"/>
+          <Column id="employee_name" datapath="@.employee_name" type="STRING" size="256"/>
+          <Column id="employee_salary" datapath="@.employee_salary" type="STRING" size="256"/>
+          <Column id="employee_age" datapath="@.employee_age" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.btn_getObject_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.data_object.set_url("http://demo.nexacro.com/developer_guide/17/FileSample/data_sample_dataobject_01.json");
+	this.data_object.load(); 
+};
+ 
+this.data_object_onerror = function(obj:nexacro.DataObject,e:nexacro.DataObjectErrorEventInfo)
+{
+	trace("onerror");
+};
+
+this.data_object_onload = function(obj:nexacro.DataObject,e:nexacro.DataObjectLoadEventInfo)
+{
+	trace("onload");
+};
+
+this.data_object_onsuccess = function(obj:nexacro.DataObject,e:nexacro.DataObjectEventInfo)
+{
+	trace("onsuccess");
+};
+]]></Script>
+  </Form>
+</FDL>

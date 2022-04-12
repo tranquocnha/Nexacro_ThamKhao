@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="generate_desc" width="920" height="170" onload="form_onload">
+    <Layouts>
+      <Layout height="170" width="920">
+        <Static id="Static00" taborder="1" text="편리한 컴포넌트 정렬" left="20" top="15" width="150" height="30" cssclass="sta_WF_compTitle02" messageid="comp.arrangement.title" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="컴포넌트의 좌표를 Form 기준이 아닌 특정 컴포넌트의 상대좌표로 설정하는 기능입니다.&#13;&#10;기준이 되는 컴포넌트의 위치가 조정될 경우 설정한 사이즈 만큼 상대좌표로 자동으로 이동합니다.&#13;&#10;컴포넌트의 동적 처리가 많은 경우 효과적으로 사용될 수 있습니다. &#13;&#10;더 자세한 설명은 메뉴얼을 참고하세요! &lt;l v='http://docs.tobesoft.com/edu_nexacro17_basic_kr#ab415e80eca7a28b'&gt;http://docs.tobesoft.com&lt;/l&gt;" left="20" top="Static00:2" height="103" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.arrangement.desc" right="20" usedecorate="true"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

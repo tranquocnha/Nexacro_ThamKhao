@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="COMP_GUIDE_06" classname="COMP_GUIDE_01" inheritanceid="" position="absolute" titletext="Alert,Confirm" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" text="Component Name" position="absolute" style="background:#edeee6ff;border:1 solid #c6c6c5ff ;align:center middle;font:Tahoma,9,bold antialias;" left="0" width="130" top="0" height="26"/>
+        <Static id="Static02" text="Component View" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="636" top="0" height="26"/>
+        <Static id="Static10" text="Alert" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="25" height="260"/>
+        <Static id="Static11" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="25" height="260"/>
+        <Button id="BtnAlertDefault" taborder="1" text="Alert(&quot;Default contents&quot;, &quot;Default Title&quot;, &quot;default&quot;)" onclick="BtnAlertDefault_onclick" position="absolute" tooltiptext="Alert(&quot;Default contents&quot;, &quot;Default Title&quot;, &quot;default&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="36" height="25"/>
+        <Static id="Static15" text="default" position="absolute" style="color:#999999ff;align:right;font:Tahoma,8;" left="153" width="60" top="41" height="15"/>
+        <Static id="Static16" text="error" position="absolute" style="color:#999999ff;align:right;font:Tahoma,8;" left="153" width="60" top="93" height="15"/>
+        <Static id="Static17" text="question" position="absolute" style="color:#999999ff;align:right;font:Tahoma,8;" left="153" width="60" top="145" height="15"/>
+        <Button id="BtnAlertQuestion" taborder="2" text="Alert(&quot;Question contents&quot;, &quot;Question&quot;, &quot;question&quot;)" onclick="BtnAlertQuestion_onclick" position="absolute" tooltiptext="Alert(&quot;Question contents&quot;, &quot;Question&quot;, &quot;question&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="140" height="25"/>
+        <Button id="BtnAlertError" taborder="3" text="Alert(&quot;Error contents&quot;, &quot;Error&quot;, &quot;error&quot;)" onclick="BtnAlertError_onclick" position="absolute" tooltiptext="Alert(&quot;Error내용&quot;, &quot;Error&quot;, &quot;error&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="88" height="25"/>
+        <Static id="Static18" text="warning" position="absolute" style="color:#999999ff;align:right;font:Tahoma,8;" left="153" width="60" top="197" height="15"/>
+        <Static id="Static19" text="information" position="absolute" style="color:#999999ff;align:right;font:Tahoma,8;" left="153" width="60" top="249" height="15"/>
+        <Button id="BtnAlertInformation" taborder="4" text="Alert(&quot;Information contents&quot;, &quot;Information&quot;, &quot;information&quot;)" onclick="BtnAlertInformation_onclick" position="absolute" tooltiptext="Alert(&quot;Information contents&quot;, &quot;Information&quot;, &quot;information&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="244" height="25"/>
+        <Button id="BtnAlertWarning" taborder="5" text="Alert(&quot;Warning contents&quot;, &quot;Warning&quot;, &quot;warning&quot;)" onclick="BtnAlertWarning_onclick" position="absolute" tooltiptext="Alert(&quot;Warning contents&quot;, &quot;Warning&quot;, &quot;warning&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="192" height="25"/>
+        <Static id="Static00" text="Confirm" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="284" height="260"/>
+        <Static id="Static03" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="284" height="260"/>
+        <Button id="BtnConfirmDefault" taborder="6" text="Confirm(&quot;Default contents&quot;, &quot;Default Title&quot;, &quot;default&quot;)" onclick="BtnConfirmDefault_onclick" position="absolute" tooltiptext="Confirm(&quot;디폴트내용&quot;, &quot;디폴트타이틀&quot;, &quot;default&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="295" height="25"/>
+        <Button id="BtnConfirmError" taborder="7" text="Confirm(&quot;Error contents&quot;, &quot;Error&quot;, &quot;error&quot;)" onclick="BtnConfirmError_onclick" position="absolute" tooltiptext="Confirm(&quot;Error contents&quot;, &quot;Error&quot;, &quot;error&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="347" height="25"/>
+        <Button id="BtnConfirmQuestion" taborder="8" text="Confirm(&quot;Question contents&quot;, &quot;Question&quot;, &quot;question&quot;)" onclick="BtnConfirmQuestion_onclick" position="absolute" tooltiptext="Confirm(&quot;Question contents&quot;, &quot;Question&quot;, &quot;question&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="399" height="25"/>
+        <Button id="BtnConfirmWarning" taborder="9" text="Confirm(&quot;Warning contents&quot;, &quot;Warning&quot;, &quot;warning&quot;)" onclick="BtnConfirmWarning_onclick" position="absolute" tooltiptext="Confirm(&quot;Warning contents&quot;, &quot;Warning&quot;, &quot;warning&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="451" height="25"/>
+        <Button id="BtnConfirmInformation" taborder="10" text="Confirm(&quot;Information contents&quot;, &quot;Information&quot;, &quot;information&quot;)" onclick="BtnConfirmInformation_onclick" position="absolute" tooltiptext="Confirm(&quot;Information contents&quot;, &quot;Information&quot;, &quot;information&quot;)" style="background:URL('theme://Images\btn_WF_sing_S.png') stretch 5,5;padding:0 0 0 20;align:left;" left="222" width="498" top="503" height="25"/>
+        <Static id="Static04" text="default" position="absolute" style="color:#999999ff; align:right; font:Tahoma,8; " left="153" width="60" top="300" height="15"/>
+        <Static id="Static05" text="error" position="absolute" style="color:#999999ff; align:right; font:Tahoma,8; " left="153" width="60" top="352" height="15"/>
+        <Static id="Static06" text="question" position="absolute" style="color:#999999ff; align:right; font:Tahoma,8; " left="153" width="60" top="404" height="15"/>
+        <Static id="Static07" text="warning" position="absolute" style="color:#999999ff; align:right; font:Tahoma,8; " left="153" width="60" top="456" height="15"/>
+        <Static id="Static08" text="information" position="absolute" style="color:#999999ff; align:right; font:Tahoma,8; " left="153" width="60" top="508" height="15"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="lev" type="STRING" size="256"/>
+          <Column id="UserData" type="STRING" size="256"/>
+          <Column id="Caption" type="STRING" size="256"/>
+          <Column id="enable" type="STRING" size="256"/>
+          <Column id="hotkey" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="UserData">Human resource management</Col>
+            <Col id="Caption">Human resource management</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1000</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">HR master creation</Col>
+            <Col id="Caption">HR master creation</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1001</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal information</Col>
+            <Col id="Caption">Personal information</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey">Alt+K</Col>
+            <Col id="idx">1002</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal photo registration application</Col>
+            <Col id="Caption">Personal photo registration application</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1003</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal photo registation management(approval)</Col>
+            <Col id="Caption">Personal photo registation management(approval)</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1004</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">보훈자 관리</Col>
+            <Col id="Caption">보훈자 관리</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1005</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Discipline management </Col>
+            <Col id="Caption">Discipline management </Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1006</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Award registration application</Col>
+            <Col id="Caption">Award registration application</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">0</Col>
+            <Col id="idx">1007</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Award management(Approval )</Col>
+            <Col id="Caption">Award management(Approval )</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1008</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Identity Assurance Management</Col>
+            <Col id="Caption">Identity Assurance Management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1009</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Certificate Management</Col>
+            <Col id="Caption">Certificate Management</Col>
+            <Col id="lev">2</Col>
+            <Col id="enable">0</Col>
+            <Col id="idx">1010</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal Information(special details)</Col>
+            <Col id="Caption">Personal Information(special details)</Col>
+            <Col id="lev">2</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1011</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Employee status</Col>
+            <Col id="Caption">Employee status</Col>
+            <Col id="lev">2</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1012</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Employee status report</Col>
+            <Col id="Caption">Employee status report</Col>
+            <Col id="lev">2</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1013</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Re-employed person</Col>
+            <Col id="Caption">Re-employed person</Col>
+            <Col id="lev">2</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1014</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal status by age</Col>
+            <Col id="Caption">Personal status by age</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1015</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal record card output</Col>
+            <Col id="Caption">Personal record card output</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1016</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Anniversary inquiry</Col>
+            <Col id="Caption">Anniversary inquiry</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">0</Col>
+            <Col id="idx">1017</Col>
+          </Row>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="UserData">Human resource management(Personal)</Col>
+            <Col id="Caption">Human resource management(Personal)</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1100</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal detail(Personal)</Col>
+            <Col id="Caption">Personal detail(Personal)</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1101</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Certificate print</Col>
+            <Col id="Caption">Certificate print</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1102</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Reemployment application</Col>
+            <Col id="Caption">Reemployment application</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1103</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Organization and employee inquiry</Col>
+            <Col id="Caption">Organization and employee inquiry</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1104</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal photo registration application</Col>
+            <Col id="Caption">Personal photo registration application</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">0</Col>
+            <Col id="idx">1105</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Award registration application</Col>
+            <Col id="Caption">Award registration application</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1106</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Human resource information inquiry</Col>
+            <Col id="Caption">Human resource information inquiry</Col>
+            <Col id="lev">0</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1200</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal inquiry(인사위)</Col>
+            <Col id="Caption">Personal inquiry(인사위)</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1201</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Issue management</Col>
+            <Col id="Caption">Issue management</Col>
+            <Col id="lev">0</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1300</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">발령코드관리</Col>
+            <Col id="Caption">발령코드관리</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1301</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Issued batch management</Col>
+            <Col id="Caption">Issued batch management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1302</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Annual salary issuing management</Col>
+            <Col id="Caption">Annual salary issuing management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1303</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Issue promotion management</Col>
+            <Col id="Caption">Issue promotion management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1304</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">승진자 DM주소 출력</Col>
+            <Col id="Caption">승진자 DM주소 출력</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey">Alt+O</Col>
+            <Col id="idx">1305</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Special salary upgrade management</Col>
+            <Col id="Caption">Special salary upgrade management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1306</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Renewal person management</Col>
+            <Col id="Caption">Renewal person management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1307</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Written recommendation issue</Col>
+            <Col id="Caption">Written recommendation issue</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1308</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Specify reference issue</Col>
+            <Col id="Caption">Specify reference issue</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1309</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Issue recommendation approval</Col>
+            <Col id="Caption">Issue recommendation approval</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1310</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Reemployment recommendation</Col>
+            <Col id="Caption">Reemployment recommendation</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1311</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Individual appointment management</Col>
+            <Col id="Caption">Individual appointment management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1312</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">자매사 발령 관리</Col>
+            <Col id="Caption">자매사 발령 관리</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1313</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Issue inquiry(all employee)</Col>
+            <Col id="Caption">Issue inquiry(all employee)</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1314</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Outside dispatch</Col>
+            <Col id="Caption">Outside dispatch</Col>
+            <Col id="lev">0</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1400</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Outside dispatch human resource management</Col>
+            <Col id="Caption">Outside dispatch human resource management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1401</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Union management</Col>
+            <Col id="Caption">Union management</Col>
+            <Col id="lev">0</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1500</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personal detail(union)</Col>
+            <Col id="Caption">Personal detail(union)</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1501</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Union management</Col>
+            <Col id="Caption">Union management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1502</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Union position management</Col>
+            <Col id="Caption">Union position management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1503</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">노조비공제 현황</Col>
+            <Col id="Caption">노조비공제 현황</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1504</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Union status</Col>
+            <Col id="Caption">Union status</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1505</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Internal competition</Col>
+            <Col id="Caption">Internal competition</Col>
+            <Col id="lev">0</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1600</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Internal competition announcement management</Col>
+            <Col id="Caption">Internal competition announcement management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1601</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Internal competition application</Col>
+            <Col id="Caption">Internal competition application</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1602</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Internal competition management</Col>
+            <Col id="Caption">Internal competition management</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1603</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Internal competition history inquiry</Col>
+            <Col id="Caption">Internal competition history inquiry</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1604</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Statistical information</Col>
+            <Col id="Caption">Statistical information</Col>
+            <Col id="lev">0</Col>
+            <Col id="idx">1700</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.BtnAlertDefault_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.alert("Default content", "Default", "default");
+}
+
+this.BtnAlertError_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.alert("Error contents", "Error", "error");
+}
+
+this.BtnAlertQuestion_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.alert("Question contents", "Question", "question");
+}
+
+this.BtnAlertWarning_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.alert("Warning contents", "Warning", "warning");
+}
+
+this.BtnAlertInformation_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.alert("Information contents", "Information", "information");
+}
+
+this.BtnConfirmDefault_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.confirm("Default content", "Default", "default");
+}
+
+this.BtnConfirmError_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.confirm("Error contents", "Error", "error");
+}
+
+this.BtnConfirmQuestion_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.confirm("Question contents", "Question", "question");
+}
+
+this.BtnConfirmWarning_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.confirm("Warning contents", "Warning", "warning");
+}
+
+this.BtnConfirmInformation_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.confirm("Information contents", "Information", "information");
+}
+]]></Script>
+  </Form>
+</FDL>

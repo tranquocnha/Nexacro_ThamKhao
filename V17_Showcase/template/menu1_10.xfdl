@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="work" classname="work" left="0" top="0" width="1025" height="674" titletext="New Form" cssclass="WF_work">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="7" binddataset="Dataset00" autoenter="select" useinputpanel="false" autofittype="col" left="15" top="422" right="15" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="72"/>
+                <Column size="80"/>
+                <Column size="74"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="72"/>
+                <Column size="74"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="71"/>
+                <Column size="77"/>
+                <Column size="76"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Area"/>
+                <Cell col="1" text="FirstMonth"/>
+                <Cell col="2" text="Second Month"/>
+                <Cell col="3" text="Third Month"/>
+                <Cell col="4" text="Fourth Month"/>
+                <Cell col="5" text="Fifth Month"/>
+                <Cell col="6" text="Sixth Month"/>
+                <Cell col="7" text="Seventh Month"/>
+                <Cell col="8" text="Eighth Month"/>
+                <Cell col="9" text="Ninth Month"/>
+                <Cell col="10" text="Tenth Month"/>
+                <Cell col="11" text="EleventhMonth"/>
+                <Cell col="12" style="accessibility:enable all '12 Month last column' '';" text="Twelfth Month"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:Column0"/>
+                <Cell col="1" edittype="normal" text="bind:Month1"/>
+                <Cell col="2" edittype="normal" text="bind:Month2"/>
+                <Cell col="3" edittype="normal" text="bind:Month3"/>
+                <Cell col="4" edittype="normal" text="bind:Month4"/>
+                <Cell col="5" edittype="normal" text="bind:Month5"/>
+                <Cell col="6" edittype="normal" text="bind:Month6"/>
+                <Cell col="7" edittype="normal" text="bind:Month7"/>
+                <Cell col="8" edittype="normal" text="bind:Month8"/>
+                <Cell col="9" edittype="normal" text="bind:Month9"/>
+                <Cell col="10" edittype="normal" text="bind:Month10"/>
+                <Cell col="11" edittype="normal" text="bind:Month11"/>
+                <Cell col="12" edittype="normal" text="bind:Month12"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="St_title" taborder="9" text="UI Standard(Various processing)" cssclass="sta_WF_title" left="15" top="38" width="505" height="20"/>
+        <Static id="Static05" taborder="10" text="10" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="11" text="Home &gt; Business screen guide &gt; UI Standard(Various processing)" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static07" taborder="13" text="10" visible="false" left="160" top="0" width="100" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static08" taborder="14" text="20" visible="false" left="128" top="22" width="100" height="20" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static09" taborder="15" text="10" visible="false" left="922" top="0" width="50" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static41" taborder="16" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static42" taborder="17" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="18" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="19" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="Dataset00_onrowposchanged">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Month1" type="STRING" size="256"/>
+          <Column id="Month2" type="STRING" size="256"/>
+          <Column id="Month3" type="STRING" size="256"/>
+          <Column id="Month4" type="STRING" size="256"/>
+          <Column id="Month5" type="STRING" size="256"/>
+          <Column id="Month6" type="STRING" size="256"/>
+          <Column id="Month7" type="STRING" size="256"/>
+          <Column id="Month8" type="STRING" size="256"/>
+          <Column id="Month9" type="STRING" size="256"/>
+          <Column id="Month10" type="STRING" size="256"/>
+          <Column id="Month11" type="STRING" size="256"/>
+          <Column id="Month12" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">Gandwon-do</Col>
+            <Col id="Month1">23</Col>
+            <Col id="Month2">3</Col>
+            <Col id="Month3">2</Col>
+            <Col id="Month4">4</Col>
+            <Col id="Month5">74</Col>
+            <Col id="Month6">35</Col>
+            <Col id="Month7">52</Col>
+            <Col id="Month8">75</Col>
+            <Col id="Month9">85</Col>
+            <Col id="Month10">96</Col>
+            <Col id="Month11">52</Col>
+            <Col id="Month12">56</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Gyeonggi-do</Col>
+            <Col id="Month1">11</Col>
+            <Col id="Month2">12</Col>
+            <Col id="Month3">5</Col>
+            <Col id="Month4">8</Col>
+            <Col id="Month5">14</Col>
+            <Col id="Month10">12</Col>
+            <Col id="Month11">23</Col>
+            <Col id="Month12">45</Col>
+            <Col id="Month8">23</Col>
+            <Col id="Month7">11</Col>
+            <Col id="Month9">56</Col>
+            <Col id="Month6">32</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Gyeongsandbok-do</Col>
+            <Col id="Month1">312</Col>
+            <Col id="Month2">9</Col>
+            <Col id="Month3">7</Col>
+            <Col id="Month4">90</Col>
+            <Col id="Month5">85</Col>
+            <Col id="Month6">11</Col>
+            <Col id="Month7">35</Col>
+            <Col id="Month12">23</Col>
+            <Col id="Month8">21</Col>
+            <Col id="Month9">14</Col>
+            <Col id="Month11">15</Col>
+            <Col id="Month10">32</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Gyeongsangnam-do</Col>
+            <Col id="Month1">32</Col>
+            <Col id="Month2">65</Col>
+            <Col id="Month3">0</Col>
+            <Col id="Month4">32</Col>
+            <Col id="Month5">44</Col>
+            <Col id="Month11">22</Col>
+            <Col id="Month12">1</Col>
+            <Col id="Month10">56</Col>
+            <Col id="Month7">12</Col>
+            <Col id="Month8">24</Col>
+            <Col id="Month9">16</Col>
+            <Col id="Month6">11</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Jeonlabug-do</Col>
+            <Col id="Month1">23</Col>
+            <Col id="Month2">3</Col>
+            <Col id="Month3">2</Col>
+            <Col id="Month4">4</Col>
+            <Col id="Month5">74</Col>
+            <Col id="Month6">35</Col>
+            <Col id="Month7">52</Col>
+            <Col id="Month8">75</Col>
+            <Col id="Month9">85</Col>
+            <Col id="Month10">96</Col>
+            <Col id="Month11">52</Col>
+            <Col id="Month12">56</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Jeonlanam-do</Col>
+            <Col id="Month1">11</Col>
+            <Col id="Month2">12</Col>
+            <Col id="Month3">5</Col>
+            <Col id="Month4">8</Col>
+            <Col id="Month5">14</Col>
+            <Col id="Month6">32</Col>
+            <Col id="Month7">11</Col>
+            <Col id="Month8">23</Col>
+            <Col id="Month9">56</Col>
+            <Col id="Month10">12</Col>
+            <Col id="Month11">23</Col>
+            <Col id="Month12">45</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Chungbuk-do</Col>
+            <Col id="Month1">312</Col>
+            <Col id="Month2">9</Col>
+            <Col id="Month3">7</Col>
+            <Col id="Month4">90</Col>
+            <Col id="Month5">85</Col>
+            <Col id="Month6">11</Col>
+            <Col id="Month7">35</Col>
+            <Col id="Month8">21</Col>
+            <Col id="Month9">14</Col>
+            <Col id="Month10">32</Col>
+            <Col id="Month11">15</Col>
+            <Col id="Month12">23</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">chungcheongnam-do</Col>
+            <Col id="Month1">32</Col>
+            <Col id="Month2">65</Col>
+            <Col id="Month3">0</Col>
+            <Col id="Month4">32</Col>
+            <Col id="Month5">44</Col>
+            <Col id="Month6">11</Col>
+            <Col id="Month7">12</Col>
+            <Col id="Month8">24</Col>
+            <Col id="Month9">16</Col>
+            <Col id="Month10">56</Col>
+            <Col id="Month11">22</Col>
+            <Col id="Month12">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Jeju do</Col>
+            <Col id="Month1">32</Col>
+            <Col id="Month2">65</Col>
+            <Col id="Month3">0</Col>
+            <Col id="Month4">32</Col>
+            <Col id="Month5">44</Col>
+            <Col id="Month6">11</Col>
+            <Col id="Month7">12</Col>
+            <Col id="Month8">24</Col>
+            <Col id="Month9">16</Col>
+            <Col id="Month10">56</Col>
+            <Col id="Month11">22</Col>
+            <Col id="Month12">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[
+this.Comb_year_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	
+}
+
+this.btn_next_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Tab00_tabpage1_TAB3_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Static12_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

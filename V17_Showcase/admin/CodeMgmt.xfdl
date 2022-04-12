@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="CodeMgmt" inheritanceid="" position="absolute" titletext="CodeManager" onload="form_onload" onbeforeclose="form_onbeforeclose" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="22" cssclass="sta_WFSA_BG" left="30" top="98" right="30" height="50"/>
+        <Static id="st_BG" position="absolute" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Grid id="grd_Group" taborder="14" binddataset="ds_Group" useinputpanel="false" position="absolute" cellsizingtype="col" autofittype="col" left="30" right="30" top="202" height="186">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="236"/>
+                <Column size="40"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.codegroup" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="domain.codegroup.name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="domain.desc" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="domain.use" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="domain.reg.date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="domain.reg.id" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="domain.update.date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="domain.update.id" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="expr:(dataset.getRowType(currow) == 2) ? 'normal' : 'none'" text="bind:GROUP_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" edittype="text" text="bind:GROUP_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" edittype="text" style="align:left middle;" text="bind:GROUP_DESC" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" displaytype="checkbox" edittype="checkbox" text="bind:USE_FG" combodataset="ds_isvalid" combocodecol="value" combodatacol="code" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" displaytype="date" edittype="none" text="bind:CREATE_DT" maskchar=" " font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="bind:CREATE_USER" maskchar=" " font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" displaytype="date" text="bind:UPDATE_DT" mask="####.##.##" maskchar=" " font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="bind:UPDATE_USER" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_Code" taborder="15" binddataset="ds_Code" useinputpanel="false" position="absolute" cellsizingtype="col" autofittype="col" left="30" right="30" top="452" bottom="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="108"/>
+                <Column size="58"/>
+                <Column size="133"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.code" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="domain.code.name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="domain.division" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="domain.desc" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="domain.order" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="domain.use" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="domain.reg.date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="domain.reg.id" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" text="domain.update.date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" text="domain.update.id" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:CODE_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" edittype="text" text="bind:CODE_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" edittype="normal" text="bind:CODE_GBN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" edittype="normal" style="align:left middle;" text="bind:CODE_DESC" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" displaytype="number" edittype="normal" text="bind:CODE_SEQ" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" displaytype="checkbox" edittype="checkbox" text="bind:USE_FG" combodataset="ds_isvalid" combocodecol="value" combodatacol="code" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" displaytype="date" text="bind:CREATE_DT" mask="####.##.##" maskchar=" " font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="bind:CREATE_USER" maskchar=" " font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" displaytype="date" text="bind:UPDATE_DT" mask="####.##.##" maskchar=" " font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" text="bind:UPDATE_USER" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_Search" taborder="1" defaultbutton="false" onclick="btn_Search_onclick" position="absolute" width="70" top="106" height="34" cssclass="button_WF_white" left="529" text="Search"/>
+        <Static id="st_searchCondition" text="domain.search.condition" position="absolute" left="45" width="160" top="106" height="34"/>
+        <Combo id="cmb_searchCondition" taborder="1" value="0" text="domain.name" codecolumn="codecolumn" datacolumn="datacolumn" index="0" position="absolute" left="214" width="90" top="106" height="34">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">domain.text</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">domain.code</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Edit id="edt_searchKeyword" taborder="1" onkeydown="edt_searchKeyword_onkeydown" position="absolute" left="309" width="200" top="106" height="34" background="#ffffff"/>
+        <Static id="st_Title" text="domain.codegroup.list" wordwrap="english" position="absolute" left="30" width="204" top="58" height="30" cssclass="sta_WF_title"/>
+        <Button id="btn_Insert" taborder="1" text="domain.add" onclick="btn_Insert_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:I;" right="240" width="100" top="158" height="34" cssclass="button_WF_white" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase=""/>
+        <Button id="btn_Delete" taborder="1" text="domain.delete" onclick="btn_Delete_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:D;" right="135" width="100" top="158" height="34" cssclass="button_WF_gray" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase=""/>
+        <Button id="btn_Save" taborder="1" text="domain.save" onclick="btn_Save_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:T;" right="30" width="100" top="158" height="34" cssclass="button_WF_blue"/>
+        <Static id="st_Title00" text="domain.code.list" wordwrap="english" position="absolute" left="30" width="204" top="410" height="30" cssclass="sta_WF_subtit"/>
+        <Button id="btn_insertCode" taborder="1" text="domain.add" position="absolute" style="font:dotum,8, bold;" userdata="A:I;" onclick="btn_insertCode_onclick" right="135" width="100" top="408" height="34" cssclass="button_WF_white"/>
+        <Button id="btn_deleteCode" taborder="1" text="domain.delete" position="absolute" style="font:dotum,8, bold;" userdata="A:D;" onclick="btn_deleteCode_onclick" right="30" width="100" top="408" height="34" cssclass="button_WF_gray"/>
+        <Static id="st_progress" taborder="16" text="location" cssclass="sta_WF_progress" left="30" top="18" width="808" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Group" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="ds_Group_canrowposchange" onrowposchanged="ds_Group_onrowposchanged" cancolumnchange="ds_Group_cancolumnchange">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="GROUP_CD" type="string" size="10"/>
+          <Column id="GROUP_NM" type="string" size="20"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="STRING" size="20"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="STRING" size="20"/>
+          <Column id="GROUP_DESC" type="string" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="GROUP_CD">10000</Col>
+            <Col id="GROUP_NM">Linkage screen</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">Admin</Col>
+            <Col id="CREATE_DT">20120830135434000</Col>
+            <Col id="UPDATE_USER">Admin</Col>
+            <Col id="UPDATE_DT">20120831155247000</Col>
+            <Col id="GROUP_DESC">This determine the way to interlock with screen</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="GROUP_CD">20000</Col>
+            <Col id="GROUP_NM">Screen Type</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">Admin</Col>
+            <Col id="CREATE_DT">20120830140318000</Col>
+            <Col id="UPDATE_USER">Admin</Col>
+            <Col id="UPDATE_DT">20120831151436000</Col>
+            <Col id="GROUP_DESC">This defines the screen type</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="GROUP_CD">30000</Col>
+            <Col id="GROUP_NM">Open the menu</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">Admin</Col>
+            <Col id="CREATE_DT">20120831155247000</Col>
+            <Col id="UPDATE_USER">Admin</Col>
+            <Col id="UPDATE_DT">20120831155247000</Col>
+            <Col id="GROUP_DESC">This determines the way to open the menu</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="GROUP_CD">40000</Col>
+            <Col id="GROUP_NM">Screen Group</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">Admin</Col>
+            <Col id="CREATE_DT">20120831160804000</Col>
+            <Col id="UPDATE_USER">Admin</Col>
+            <Col id="UPDATE_DT">20120831160804000</Col>
+            <Col id="GROUP_DESC">This determines the status of group menu by function of screen</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" cancolumnchange="ds_Code_cancolumnchange">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="CODE_CD" type="string" size="10"/>
+          <Column id="CODE_NM" type="string" size="20"/>
+          <Column id="CODE_SEQ" type="INT" size="38"/>
+          <Column id="GROUP_CD" type="string" size="10"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="STRING" size="256"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="STRING" size="256"/>
+          <Column id="CODE_GBN" type="string" size="12"/>
+          <Column id="CODE_DESC" type="string" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE_CD">FORM</Col>
+            <Col id="CODE_NM">General screen</Col>
+            <Col id="CODE_SEQ">1</Col>
+            <Col id="GROUP_CD">10000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151943000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831152044000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Move to general screen</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_CD">LINK</Col>
+            <Col id="CODE_NM">Web Page</Col>
+            <Col id="CODE_SEQ">2</Col>
+            <Col id="GROUP_CD">10000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151943000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831152044000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Move to Web Page</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_CD">EXEC</Col>
+            <Col id="CODE_NM">External interlock</Col>
+            <Col id="CODE_SEQ">3</Col>
+            <Col id="GROUP_CD">10000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151943000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831155345000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Move to Web Page</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GroupKey" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_CodeValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <UxDatasetClipBoard>
+          <Column id="CODE_CD" type="string" size="20"/>
+          <Column id="CODE_NM" type="string" size="20"/>
+          <Column id="CODE_SEQ" type="bigdecimal" size="38"/>
+          <Column id="GROUP_CD" type="string" size="20"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="DATE" size="0"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="DATE" size="0"/>
+          <Column id="CODE_GBN" type="string" size="12"/>
+          <Column id="CODE_DESC" type="string" size="100"/>
+        </UxDatasetClipBoard>
+        <ColumnInfo>
+          <Column id="CODE_CD" type="string" size="20"/>
+          <Column id="CODE_NM" type="string" size="20"/>
+          <Column id="CODE_SEQ" type="bigdecimal" size="38"/>
+          <Column id="GROUP_CD" type="string" size="20"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="DATE" size="0"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="DATE" size="0"/>
+          <Column id="CODE_GBN" type="string" size="12"/>
+          <Column id="CODE_DESC" type="string" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE_CD">title:code,required:true</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GroupValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="GROUP_CD" type="string" size="20"/>
+          <Column id="GROUP_NM" type="string" size="20"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="undefined" size="0"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="undefined" size="0"/>
+          <Column id="GROUP_DESC" type="string" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="GROUP_CD">title:codegroup,required:true</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item17" compid="cmb_searchCondition" propid="value" datasetid="ds_Search" columnid="SEARCH_CONDITION"/>
+      <BindItem id="item18" compid="edt_searchKeyword" propid="value" datasetid="ds_Search" columnid="SEARCH_KEYWORD"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work screen common code management
+ * 02. Screen name   : CodeMgmt.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Modification history :
+ ***********************************************************************
+ *     Modification date     Modified by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * Display variable declaration section
+ ************************************************************************/
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{ 
+	// Common functionality processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Search processing
+	this.fn_Search();
+};
+
+// Form beforeclose Event processing
+// Before closing the form, here is pop-up creation to ask if there is modified data, pop-up creating
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Group) || this.gfn_DsGetUpdated(this.ds_Code)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+};
+
+// Event processsing on search button click
+this.btn_Search_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Search();
+};
+
+
+// Event processing on Code group add
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+};
+
+// Event processing on event group delete
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	if (this.ds_Code.getRowCount() > 0) 
+	{
+		this.gfn_Alert("msg.err.delete.child");
+		return;
+	}
+	this.fn_Delete();
+};
+
+// Event processing on code add button
+this.btn_insertCode_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_insertCode();
+};
+
+// Event processing on code delete button click
+this.btn_deleteCode_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_deleteCode();
+};
+
+// Event processing on save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	if (!this.gfn_DsGetUpdated(this.ds_Group) && !this.gfn_DsGetUpdated(this.ds_Code)) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+
+	var retValue = this.gfn_Confirm("msg.before.save");
+	if (retValue == false) 
+	{
+		return;
+	}
+
+	this.fn_Save();
+};
+
+// After input value and pressing enter key , this event occurred
+this.edt_searchKeyword_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	if (e.keycode == 13) 
+	{
+		this.fn_Search();
+	}
+};
+
+// Event processing for changing the code group
+this.ds_Group_canrowposchange = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Code)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.moveropos");
+		if (retValue == false) 
+		{
+			return false;
+		}
+	}
+};
+
+// Event processing on changing code group
+this.ds_Group_onrowposchanged = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	this.fn_CodeSearch();
+};
+
+// When input code group, verifying the same code is existing or not
+this.ds_Group_cancolumnchange = function (obj:Dataset, e:DSColChangeEventInfo)
+{
+	if (e.columnid == "GROUP_CD" && !this.lookupFunc("gfn_isNull").call(e.newvalue)) 
+	{
+		var bRet = this.fn_isExistCode(e.newvalue);
+		if (bRet == true) 
+		{
+			this.gfn_Alert("msg.err.cancolumnchange", "error");
+			return false;
+		}
+	}
+};
+
+// When input the common code, verifying the matching code is existing or not
+this.ds_Code_cancolumnchange = function (obj:Dataset, e:DSColChangeEventInfo)
+{
+	if (e.columnid == "CODE_CD" && !this.lookupFunc("gfn_isNull").call(e.newvalue)) 
+	{
+		var nRow = this.ds_Code.findRow("CODE_CD", e.newvalue);
+		if (nRow >= 0) 
+		{
+			this.gfn_Alert("msg.err.cancolumnchange", "error");
+			return false;
+		}
+	}
+};
+/***********************************************************************
+ * User defined function specification
+ ************************************************************************/
+// Group code adding
+this.fn_Insert = function ()
+{
+	var nRow = this.ds_Group.addRow();
+	this.ds_Group.setColumn(nRow, "CREATE_DT", this.lookupFunc("gfn_Today").call());
+	this.ds_Group.setColumn(nRow, "UPDATE_DT", this.lookupFunc("gfn_Today").call());
+};
+
+// Group code delete
+this.fn_Delete = function ()
+{
+	var nRow = this.ds_Group.rowposition;
+
+	if (nRow<0) 
+	{
+		this.gfn_Alert("msg.err.grid.noselect");
+	}
+	else 
+	{
+		var rtVal = this.gfn_Confirm("msg.before.delete");
+		if (rtVal == true) 
+		{
+			this.ds_Group.deleteRow(nRow);
+		}
+	}
+};
+
+// Common code adding
+this.fn_insertCode = function ()
+{
+	var strGrpCd = this.ds_Group.getColumn(this.ds_Group.rowposition, "GROUP_CD");
+	if (this.lookupFunc("gfn_isNull").call(strGrpCd)) 
+	{
+		this.gfn_Alert("msg.err.noselect", "error", "domain.codegroup");
+		return;
+	}
+
+	var nRow = this.ds_Code.addRow();
+	this.ds_Code.setColumn(nRow, "GROUP_CD", strGrpCd);
+	this.ds_Code.setColumn(nRow, "CREATE_DT", this.lookupFunc("gfn_Today").call());
+	this.ds_Code.setColumn(nRow, "UPDATE_DT", this.lookupFunc("gfn_Today").call());
+};
+
+// Common code delete
+this.fn_deleteCode = function ()
+{
+	var nRow = this.ds_Code.rowposition;
+	trace(this.ds_Code.rowposition);
+	trace(nRow);
+	if (nRow<0) 
+	{
+		this.gfn_Alert("msg.err.grid.noselect");
+	}
+	else 
+	{
+		this.ds_Code.deleteRow(nRow);
+	}
+};
+
+// Common code search
+this.fn_Search = function ()
+{
+	return;
+	if (this.gfn_DsGetUpdated(this.ds_Group) || this.gfn_DsGetUpdated(this.ds_Code)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.search");
+		if (retValue == false) 
+		{
+			return;
+		}
+	}
+
+	var sArgument = "";
+	var sSvcID = "getListCodeGroup";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findCodeGroupList'";
+
+	var sInDatasets = "querySet1=ds_Search";
+	var sOutDatasets = "ds_Group=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+};
+
+// Searching the common code in the selected group code
+this.fn_CodeSearch = function ()
+{
+	return;
+	var strGrpCd = this.ds_Group.getColumn(this.ds_Group.rowposition, "GROUP_CD");
+
+	if (this.lookupFunc("gfn_isNull").call(strGrpCd)) 
+	{
+		this.ds_Code.clearData();
+		return;
+	}
+
+	var sArgument = "";
+	var sSvcID = "getListCode";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findCodeList'" + " ";
+	sArgument += "GROUP_CD=" + TOBE.wrapQuote(this.ds_Group.getColumn(this.ds_Group.rowposition, "GROUP_CD"));
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_Code=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+};
+
+// Verifying the existing code in the same group
+this.fn_isExistCode = function (strGroupCD)
+{
+	return;
+	var nRow = this.ds_Group.findRow("GROUP_CD", strGroupCD);
+	if (nRow >= 0) 
+	{
+		return true;
+	}
+
+	var sArgument = "";
+	var sSvcID = "getCheckGroup";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "GROUP_CD=" + TOBE.wrapQuote(strGroupCD) + " ";
+	sArgument += "querySet1='findCodeGroup'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_GroupKey=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, false, false);
+
+	if (this.ds_GroupKey.getRowCount() > 0) 
+	{
+		return true;
+	}
+	return false;
+};
+
+// Save processing
+this.fn_Save = function ()
+{
+	return;
+	// After validation process , if there not exception than , save the all modified data of Grid
+	if (this.gfn_DsCheckValid(this.ds_Group) == false) 
+	{
+		return;
+	}
+	if (this.gfn_DsCheckValid(this.ds_Code) == false) 
+	{
+		return;
+	}
+
+	var sArgument = "";
+	var sSvcID = "saveAllUser";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='2'";
+	sArgument += " " + "USER_ID=" + TOBE.wrapQuote(nexacro.gv_UserId);
+	sArgument += " " + "querySet1='createCodeGroup,updatCodeGroup,removeCodeGroup'";
+	sArgument += " " + "querySet2='createCode,updatCode,removeCode'";
+
+	var sInDatasets = "querySet1=ds_Group:U querySet2=ds_Code:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+};
+
+// Processing callback after processing gfnService 
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAllUser":
+			this.gfn_Alert("msg.save.success");
+			this.fn_Search();
+			break;
+		case "getListCodeGroup":
+			this.fn_CodeSearch();
+			break;
+		case "getListCode":
+			break;
+		default:
+			break;
+	}
+};
+
+]]></Script>
+  </Form>
+</FDL>

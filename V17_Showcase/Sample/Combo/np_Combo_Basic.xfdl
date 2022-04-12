@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Combo_Basic" classname="Combo_Basic" inheritanceid="" position="absolute" titletext="Combo Basic" left="0" top="0" width="760" height="680">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Inner Dataset + First" class="sta_WF_subtitle" position="absolute" left="30" top="15" width="300" height="40" taborder="0" cssclass="sta_WF_subtitP"/>
+        <Combo id="Combo00" taborder="1" text="Man" position="absolute" innerdataset="@Dataset00" codecolumn="Column0" datacolumn="Column1" index="0" left="30" top="70" width="120" height="40" value="M"/>
+        <Static id="Static02" taborder="2" text="Type" left="30" top="455" width="300" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+        <Static id="Static01" taborder="3" text="Binding" left="30" top="180" width="300" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+        <Combo id="Combo01" taborder="4" value="M" text="남자" innerdataset="@Dataset00" codecolumn="Column0" datacolumn="Column1" index="0" left="160" top="235" width="120" height="40"/>
+        <Grid id="Grid01" taborder="5" binddataset="Dataset01" useinputpanel="false" autofittype="col" left="30" top="235" width="120" height="150">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Combo id="Combo02" taborder="6" value="1" text="1" innerdataset="@Dataset02" codecolumn="code" datacolumn="value" index="0" left="30" top="510" width="120" height="40" style="buttonsize:-1;padding:0 -1 0 5;"/>
+        <Combo id="Combo03" taborder="7" value="1" text="1" innerdataset="@Dataset02" codecolumn="code" datacolumn="value" index="0" type="search" left="160" top="510" width="120" height="40" style="padding:0 -1 0 5; "/>
+        <Static id="Static00" taborder="8" text="dropdown" left="30" top="554" width="90" height="17" style="color:black;align:center top;"/>
+        <Static id="Static06" taborder="9" text="search" left="160" top="554" width="90" height="17" style="color:black; align:center top; "/>
+        <Static id="Static07" taborder="10" text="filter" left="290" top="554" width="90" height="17" style="color:black; align:center top; "/>
+        <Combo id="Combo04" taborder="11" value="1" text="1" innerdataset="@Dataset02" codecolumn="code" datacolumn="value" index="0" type="filter" left="290" top="510" width="120" height="40" style="padding:0 -1 0 5; "/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Combo01" propid="value" datasetid="Dataset01" columnid="Column0"/>
+    </Bind>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">M</Col>
+            <Col id="Column1">Man</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">W</Col>
+            <Col id="Column1">Woman</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">G</Col>
+            <Col id="Column1">Other</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">M</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">W</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">W</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">M</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">M</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset02" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="code"/>
+          <Column type="STRING" size="255" id="value"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">1</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">2</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">3</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">a</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="value">ab</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="value">abc</Col>
+          </Row>
+          <Row>
+            <Col id="code">7</Col>
+            <Col id="value">b</Col>
+          </Row>
+          <Row>
+            <Col id="code">8</Col>
+            <Col id="value">c</Col>
+          </Row>
+          <Row>
+            <Col id="code">9</Col>
+            <Col id="value">가</Col>
+          </Row>
+          <Row>
+            <Col id="code">10</Col>
+            <Col id="value">나</Col>
+          </Row>
+          <Row>
+            <Col id="code">11</Col>
+            <Col id="value">가가</Col>
+          </Row>
+          <Row>
+            <Col id="code">12</Col>
+            <Col id="value">가가나</Col>
+          </Row>
+          <Row>
+            <Col id="code">13</Col>
+            <Col id="value">나다라</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

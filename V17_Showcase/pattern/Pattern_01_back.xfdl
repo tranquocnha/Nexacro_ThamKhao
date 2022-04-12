@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Work" classname="Work" inheritanceid="" position="absolute" titletext="Detail" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Button id="btn_WF_crud" taborder="2" text="Save" position="absolute" right="0" width="50" top="56" height="20" cssclass="btn_WF_crud"/>
+        <Static id="sta_WF_TitleLev1" text="Basic information" position="absolute" left="0" width="134" top="64" height="14" cssclass="sta_WF_TitleLev1"/>
+        <Static id="sta_WFDA_Label17" text="Progress" position="absolute" left="0" width="105" top="81" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label18" position="absolute" text="" left="104" width="140" top="81" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label19" text="Reason of return" position="absolute" left="243" width="105" top="81" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label20" position="absolute" text="" left="347" right="0" top="81" height="26" cssclass="sta_WFDA_Data"/>
+        <Button id="btn_WF_crud00" taborder="38" text="Delete" position="absolute" right="52" width="50" top="56" height="20" cssclass="btn_WF_crud"/>
+        <Button id="btn_WF_crud01" taborder="41" text="Add" position="absolute" right="104" width="50" top="56" height="20" cssclass="btn_WF_crud"/>
+        <Static id="sta_WF_SearchBox" position="absolute" text="" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Static id="sta_WFSA_LabelP" text="Project/Name" position="absolute" wordwrap="none" left="17" width="130" top="10" height="20" cssclass="sta_WFSA_LabelP"/>
+        <Button id="btn_WFSA_Search" taborder="42" text="Search" position="absolute" right="15" width="50" top="10" height="22" cssclass="btn_WFSA_Search"/>
+        <Button id="btn_WFSA_Search02" taborder="43" position="absolute" style="image:URL('theme://images/ico_Search.png');" left="195" width="20" top="10" height="20" cssclass="btn_WFSA_Search"/>
+        <Edit id="Edit00" taborder="44" position="absolute" left="130" width="63" top="10" height="20" cssclass="input_point"/>
+        <Edit id="Edit01" taborder="45" position="absolute" left="217" width="263" top="10" height="20"/>
+        <Static id="sta_WFDA_Label29" text="Project" position="absolute" left="0" width="105" top="106" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label30" position="absolute" text="" left="104" width="140" top="106" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label31" text="Order number" position="absolute" left="243" width="105" top="106" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label32" position="absolute" text="" left="347" width="140" top="106" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label33" text="Construction Information" wordwrap="none" position="absolute" left="486" width="105" top="106" height="26" cssclass="sta_WFDA_LabelP"/>
+        <Static id="sta_WFDA_Label34" position="absolute" text="" left="590" right="0" top="106" height="26" cssclass="sta_WFDA_Data"/>
+        <Edit id="Edit03" taborder="49" position="absolute" value="Writing" readonly="true" left="108" width="120" top="84" height="20"/>
+        <Edit id="Edit04" taborder="50" position="absolute" readonly="true" value="It is under detail review." left="351" width="395" top="84" height="20"/>
+        <Static id="sta_WFDA_Label00" text="Subcontracting people" position="absolute" left="0" width="105" top="131" height="26" cssclass="sta_WFDA_LabelP"/>
+        <Static id="sta_WFDA_Label01" position="absolute" text="" left="104" width="140" top="131" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label02" text="Contract amount" position="absolute" left="243" width="105" top="131" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label03" position="absolute" text="" left="347" width="140" top="131" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label04" text="Contractors ownership" wordwrap="none" position="absolute" left="486" width="105" top="131" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label05" position="absolute" text="" left="590" right="0" top="131" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label06" text="Execute amount" position="absolute" left="0" width="105" top="156" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label07" position="absolute" text="" left="104" width="140" top="156" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label08" text="Order interest rate" position="absolute" left="243" width="105" top="156" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label09" position="absolute" text="" left="347" width="140" top="156" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label10" text="Order specification" wordwrap="none" position="absolute" left="486" width="105" top="156" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label11" position="absolute" text="" left="590" right="0" top="156" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WF_TitleLev00" text="More information" position="absolute" left="0" width="134" top="204" height="14" cssclass="sta_WF_TitleLev1"/>
+        <Static id="sta_WFDA_Label12" text="Subcontract period" position="absolute" left="0" width="105" top="221" height="26" cssclass="sta_WFDA_LabelP"/>
+        <Static id="sta_WFDA_Label13" position="absolute" text="" left="104" width="280" top="221" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label14" text="Taxable/Non-taxable" position="absolute" left="383" width="105" top="221" height="26" cssclass="sta_WFDA_LabelP"/>
+        <Static id="sta_WFDA_Label15" position="absolute" text="" left="487" right="0" top="221" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label16" text="Heonseol implementation" position="absolute" left="0" width="105" top="246" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label21" position="absolute" text="" left="104" width="280" top="246" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label22" text="Heonseol date" position="absolute" left="383" width="105" top="246" height="26" cssclass="sta_WFDA_LabelP"/>
+        <Static id="sta_WFDA_Label23" position="absolute" text="" left="487" right="0" top="246" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label24" text="Heonseol method" position="absolute" left="0" width="105" top="271" height="26" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label25" position="absolute" text="" left="104" width="280" top="271" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label26" text="Heonseol represantative" position="absolute" left="383" width="105" top="271" height="26" cssclass="sta_WFDA_LabelP"/>
+        <Static id="sta_WFDA_Label27" position="absolute" text="" left="487" right="0" top="271" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label28" text="Heonseol  place" position="absolute" left="0" width="105" top="296" height="26" cssclass="sta_WFDA_LabelP"/>
+        <Static id="sta_WFDA_Label35" position="absolute" text="" left="104" width="280" top="296" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label36" text="Bid representative" position="absolute" left="383" width="105" top="296" height="26" cssclass="sta_WFDA_LabelP"/>
+        <Static id="sta_WFDA_Label37" position="absolute" text="" left="487" right="0" top="296" height="26" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label38" text="Construction summary" position="absolute" left="0" width="105" top="321" bottom="0" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label39" position="absolute" text="" left="104" width="280" top="321" bottom="0" cssclass="sta_WFDA_Data"/>
+        <Static id="sta_WFDA_Label40" text="Remark" position="absolute" left="383" width="105" top="321" bottom="0" cssclass="sta_WFDA_Label"/>
+        <Static id="sta_WFDA_Label41" position="absolute" text="" left="487" right="0" top="321" bottom="0" cssclass="sta_WFDA_Data"/>
+        <Calendar id="Calendar00" taborder="51" position="absolute" dateformat="yyyy-MM-dd" value="20110615" left="108" width="90" top="224" height="20" cssclass="input_point"/>
+        <Calendar id="Calendar01" taborder="52" value="20110615" text="2011-06-15" dateformat="yyyy-MM-dd" position="absolute" left="216" width="90" top="224" height="20" cssclass="input_point"/>
+        <Radio id="Radio00" taborder="53" position="absolute" innerdataset="@ds_radio_00" codecolumn="Column0" datacolumn="Column1" columncount="2" left="108" width="140" top="249" height="20"/>
+        <Radio id="Radio01" taborder="54" columncount="2" innerdataset="@ds_radio_01" codecolumn="Column0" datacolumn="Column1" position="absolute" index="1" value="1" left="108" width="140" top="277" height="20" onitemclick="Radio01_onitemclick"/>
+        <Edit id="Edit02" taborder="55" position="absolute" left="108" width="260" top="299" height="20" cssclass="input_point"/>
+        <Edit id="Edit05" taborder="56" position="absolute" left="490" width="70" top="224" height="20" cssclass="input_point"/>
+        <Calendar id="Calendar02" taborder="57" value="20110615" text="2011-06-15" dateformat="yyyy-MM-dd" position="absolute" left="490" width="90" top="249" height="20" cssclass="input_point"/>
+        <Combo id="Combo00" taborder="58" text="24" position="absolute" left="584" width="40" top="249" height="20"/>
+        <Combo id="Combo01" taborder="59" position="absolute" text="59" left="647" width="40" top="249" height="20"/>
+        <Edit id="Edit06" taborder="60" position="absolute" left="490" width="90" top="274" height="20" cssclass="input_point"/>
+        <Edit id="Edit07" taborder="61" position="absolute" left="490" width="90" top="299" height="20" cssclass="input_point"/>
+        <Button id="btn_WFSA_Search00" taborder="62" position="absolute" style="image:URL('theme://images/ico_Search.png'); " left="582" width="20" top="274" height="20" cssclass="btn_WFSA_Search"/>
+        <Button id="btn_WFSA_Search01" taborder="63" position="absolute" style="image:URL('theme://images/ico_Search.png'); " left="582" width="20" top="299" height="20" cssclass="btn_WFSA_Search"/>
+        <TextArea id="TextArea00" taborder="64" position="absolute" left="108" width="260" top="324" bottom="3"/>
+        <TextArea id="TextArea01" taborder="65" position="absolute" left="490" right="15" top="324" bottom="3"/>
+        <Edit id="Edit08" taborder="66" position="absolute" readonly="true" value="Theme project" left="108" width="120" top="109" height="20"/>
+        <Edit id="Edit09" taborder="67" position="absolute" left="108" width="120" top="134" height="20" cssclass="input_point"/>
+        <MaskEdit id="MaskEdit01" taborder="70" position="absolute" readonly="true" value="1234567890" mask="," left="351" width="90" top="134" height="20"/>
+        <MaskEdit id="MaskEdit02" taborder="71" position="absolute" readonly="true" value="59.8" left="351" width="50" top="159" height="20"/>
+        <Edit id="Edit11" taborder="72" position="absolute" left="593" width="130" top="109" height="20" cssclass="input_point"/>
+        <MaskEdit id="MaskEdit03" taborder="75" value="1234567890" text="1,234,567,890" readonly="true" mask="," position="absolute" left="108" width="90" top="159" height="20"/>
+        <Static id="Static00" text="원" position="absolute" left="442" width="15" top="134" height="20"/>
+        <Static id="Static01" text="%" position="absolute" left="397" width="15" top="159" height="20"/>
+        <Static id="Static02" text="원" position="absolute" left="196" width="15" top="159" height="20"/>
+        <MaskEdit id="MaskEdit04" taborder="76" value="59.8" text="59.8" readonly="true" position="absolute" left="593" width="50" top="134" height="20"/>
+        <Static id="Static03" text="%" position="absolute" left="639" width="15" top="134" height="20"/>
+        <Edit id="Edit10" taborder="77" value="2011-05-01-25" text="테마프로젝트" readonly="true" position="absolute" left="351" width="120" top="109" height="20"/>
+        <Combo id="Combo02" taborder="78" position="absolute" readonly="true" value="" index="-1" displaynulltext="head-office" left="593" width="75" top="159" height="20"/>
+        <Static id="Static04" text="시" position="absolute" left="626" width="15" top="249" height="20"/>
+        <Static id="Static05" text="분" position="absolute" left="690" width="15" top="249" height="20"/>
+        <Static id="Static06" text="~" position="absolute" left="202" width="15" top="224" height="20"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+          <Column id="Column8" type="STRING" size="256"/>
+          <Column id="Column9" type="STRING" size="256"/>
+          <Column id="Column10" type="STRING" size="256"/>
+          <Column id="Column11" type="STRING" size="256"/>
+          <Column id="Column12" type="STRING" size="256"/>
+          <Column id="Column13" type="STRING" size="256"/>
+          <Column id="Column14" type="STRING" size="256"/>
+          <Column id="Column15" type="STRING" size="256"/>
+          <Column id="Column16" type="STRING" size="256"/>
+          <Column id="Column17" type="STRING" size="256"/>
+          <Column id="Column18" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column18">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column0">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라</Col>
+            <Col id="Column1">가나다라</Col>
+            <Col id="Column2">가나다라</Col>
+            <Col id="Column3">가나다라</Col>
+            <Col id="Column4">가나다라</Col>
+            <Col id="Column5">가나다라</Col>
+            <Col id="Column6">가나다라</Col>
+            <Col id="Column7">가나다라</Col>
+            <Col id="Column8">가나다라</Col>
+            <Col id="Column9">가나다라</Col>
+            <Col id="Column10">가나다라</Col>
+            <Col id="Column11">가나다라</Col>
+            <Col id="Column12">가나다라</Col>
+            <Col id="Column13">가나다라</Col>
+            <Col id="Column14">가나다라</Col>
+            <Col id="Column15">가나다라</Col>
+            <Col id="Column16">가나다라</Col>
+            <Col id="Column17">가나다라</Col>
+            <Col id="Column18">가나다라</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_radio_01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">Online</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">Offline</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_radio_00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">Yes</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">No</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>

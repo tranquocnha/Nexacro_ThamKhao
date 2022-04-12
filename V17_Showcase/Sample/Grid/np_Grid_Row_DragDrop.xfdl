@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_Row_DragDrop" classname="moveRow" left="0" top="0" width="760" height="430" titletext="Grid Row DragDrop" ontimer="moveRow_ontimer">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" width="700" height="322" binddataset="Dataset00" useselcolor="true" onmousemove="Grid00_onmousemove" selecttype="multirow" onlbuttonup="Grid00_onlbuttonup" ondrag="Grid00_ondrag" ondragmove="Grid00_ondragmove" ondrop="Grid00_ondrop" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="36"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="109"/>
+                <Column size="145"/>
+                <Column size="110"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사번"/>
+                <Cell col="1" text="이름"/>
+                <Cell col="2" text="입사일"/>
+                <Cell col="3" text="부서"/>
+                <Cell col="4" text="주소"/>
+                <Cell col="5" text="전화번호"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column3"/>
+                <Cell col="2" text="bind:Column4" mask="####/##/##"/>
+                <Cell col="3" text="bind:Column5"/>
+                <Cell col="4" text="bind:Column6"/>
+                <Cell col="5" text="bind:Column7"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="Div00" taborder="3" left="780" top="12" width="320" height="27" style="background:transparent;" text="122222222" visible="false">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="ImageViewer00" taborder="0" left="3" top="2" width="26" height="23" stretch="none"/>
+              <Static id="Static00" taborder="1" text="  홍길동" visible="true" left="29" top="2" width="50" height="23" style="background:aquamarine;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static05" taborder="4" text="Drag &amp; Drop를 이용한 Row이동" cssclass="sta_WF_subtitP" left="30" top="18" width="500" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column3">홍길동</Col>
+            <Col id="Column4">20110101</Col>
+            <Col id="Column5">인사팀</Col>
+            <Col id="Column6">서울시 강남구</Col>
+            <Col id="Column7">010-1234-5252</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column3">전지현</Col>
+            <Col id="Column4">20120226</Col>
+            <Col id="Column5">총무팀</Col>
+            <Col id="Column6">서울시 강남구</Col>
+            <Col id="Column7">010-1111-2222</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column3">김수현</Col>
+            <Col id="Column4">19960101</Col>
+            <Col id="Column5">회계팀</Col>
+            <Col id="Column6">서울시 관악구</Col>
+            <Col id="Column7">010-4545-7877</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column3">장동건</Col>
+            <Col id="Column4">20110208</Col>
+            <Col id="Column5">기술지원팀</Col>
+            <Col id="Column6">경기도 성남</Col>
+            <Col id="Column7">010-9874-4789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1"/>
+            <Col id="Column3">원빈</Col>
+            <Col id="Column4">20140101</Col>
+            <Col id="Column5">서비스팀</Col>
+            <Col id="Column6">경기도 안양</Col>
+            <Col id="Column7">010-4525-5858</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column3">이나영</Col>
+            <Col id="Column4">20130505</Col>
+            <Col id="Column5">서비스팀</Col>
+            <Col id="Column6">경기도 파주</Col>
+            <Col id="Column7">010-9856-6555</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column3">송혜교</Col>
+            <Col id="Column4">20140208</Col>
+            <Col id="Column5">기획팀</Col>
+            <Col id="Column6">서울시 송파구</Col>
+            <Col id="Column7">011-355-3535</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column3">김현수</Col>
+            <Col id="Column4">20141111</Col>
+            <Col id="Column5">장비팀</Col>
+            <Col id="Column6">서울시 종로구</Col>
+            <Col id="Column7">010-9502-1245</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">9</Col>
+            <Col id="Column3">정은지</Col>
+            <Col id="Column4">20140925</Col>
+            <Col id="Column5">전산팀</Col>
+            <Col id="Column6">경기도 광명</Col>
+            <Col id="Column7">010-9856-3232</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column3">김태희</Col>
+            <Col id="Column4">20131225</Col>
+            <Col id="Column5">CS팀</Col>
+            <Col id="Column6">깅기도 부천</Col>
+            <Col id="Column7">011-237-8457</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+            <Col id="Column3">이영애</Col>
+            <Col id="Column4">19970707</Col>
+            <Col id="Column5">기술지원팀</Col>
+            <Col id="Column6">서울시 동작구</Col>
+            <Col id="Column7">010-9595-8686</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">12</Col>
+            <Col id="Column3">정우성</Col>
+            <Col id="Column4">19900502</Col>
+            <Col id="Column5">영업팀</Col>
+            <Col id="Column6">서울시 강서구</Col>
+            <Col id="Column7">010-2456-7845</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Temp00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.sRow;
+this.eRow;
+this.arr; 
+this.cnt = 0;
+this.name="";
+this.nameCnt;
+
+this.Grid00_ondrag = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+	this.sRow=e.row;	
+	this.arr= this.Grid00.getSelectedRows();
+	for(var i=0; i<this.Dataset00.getRowCount(); i++){
+		if(this.arr[i] !=null){
+			this.Dataset00.setColumn(this.arr[i],"Column2",1);
+			if(i != 0)	this.name=this.name+"|";
+			this.name=this.name + this.Dataset00.getColumn(this.arr[i],"Column3");
+		}
+		
+	}
+	this.nameCnt = this.Dataset00.getCaseCount("Column2 == '1'");
+	
+	this.Div00.Static00.set_width(50*this.nameCnt);
+	return true;
+}
+
+this.Grid00_ondrop = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+
+	if(e.row ==-1){ //헤더에 drop시
+		this.Temp00.clearData();
+		this.cnt=0;
+		this.arr="";
+		this.Grid00.setCellProperty("body",0,"line","");
+		this.Grid00.style.set_cursor("");
+		this.Div00.set_visible(false);
+		this.Grid00.selectRow(-1,true);
+		this.name="";
+		return;
+	}
+	
+	//cell의 높이를 반으로 나누어 drop 하는 지점이 cell의 상단이면 위로insert, cell의 하단이면 아래로 insert하기위함
+	var cY = parseInt((e.canvasY-24)%32);
+	if(cY>=0 && cY<16 ){
+		this.eRow = e.row;
+	}else{
+		this.eRow = e.row+1;
+	}
+	if(e.row<0){  //그리드 row외의 빈영역 선택시
+		this.eRow = this.Dataset00.getRowCount();
+	}
+
+	//선택한 row를 Temp로 옮김
+	for(var i=0; i<this.Dataset00.getRowCount(); i++){
+		if(this.arr[i] != this.i){
+			this.cnt =this.cnt+1;
+			var row = this.Temp00.addRow();
+			this.Temp00.setColumn(row,"Column0",this.Dataset00.getColumn(this.arr[i],"Column0"));
+			this.Temp00.setColumn(row,"Column1",this.Dataset00.getColumn(this.arr[i],"Column1"));	
+			this.Temp00.setColumn(row,"Column3",this.Dataset00.getColumn(this.arr[i],"Column3"));
+			this.Temp00.setColumn(row,"Column4",this.Dataset00.getColumn(this.arr[i],"Column4"));
+			this.Temp00.setColumn(row,"Column5",this.Dataset00.getColumn(this.arr[i],"Column5"));
+			this.Temp00.setColumn(row,"Column6",this.Dataset00.getColumn(this.arr[i],"Column6"));
+			this.Temp00.setColumn(row,"Column7",this.Dataset00.getColumn(this.arr[i],"Column7"));
+		}
+	}
+
+	
+	//temp의 값을 변경된 위치 원본에 다시 복사
+	for(var i = this.eRow; i<parseInt(this.eRow+this.cnt); i++){
+		var row = this.Dataset00.insertRow(i);
+		this.Dataset00.copyRow(row,this.Temp00,i-this.eRow);
+	}
+
+	
+	//temp로 이동 된 row 삭제
+	for(var i=this.Dataset00.getRowCount(); i>=0;i--){
+
+		if(this.Dataset00.getColumn(i,"Column2")==1){
+			this.Dataset00.deleteRow(i);
+		}
+	}
+	
+	
+	//초기화
+	this.Temp00.clearData();
+	this.cnt=0;
+	this.arr="";
+	this.Grid00.setCellProperty("body",0,"line","");
+	this.Grid00.style.set_cursor("");
+	this.Div00.set_visible(false);
+	this.Grid00.selectRow(-1,true);
+	this.name="";
+
+}
+
+this.Grid00_ondragmove = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+	var startRow;
+	var endRow;
+	var cY = parseInt((e.canvasY-24)%32);
+
+	
+	//선택한 row중 마지막row+1 찾기 
+	for(var i = this.Dataset00.getRowCount(); i>=0; i--){
+		if(this.Dataset00.getColumn(i,"Column2") == 1){
+		endRow = i+1;
+		break;
+		}
+	}
+	//선택한 row중 첫번째row-1 찾기
+	startRow = this.Dataset00.findRow( "Column2", "1" )-1;
+	
+	
+	this.Div00.set_left(e.clientX+70);
+	this.Div00.set_top(e.clientY+60);
+	
+	
+	
+	// 선택한 row의 바로 위,바로 아래로는 이동이 안되도록 컨트롤
+    // multi로 선택시에는 startrow,endrow 사이에는 Div 안뜨도록.
+	
+	for(var i =0;i<this.Dataset00.getRowCount(); i++){
+		if(this.Dataset00.getColumn(e.row,"Column2") !=1 && (e.row<startRow+1 || e.row>endRow-1)){
+			this.Div00.set_visible(true);
+			if( ((startRow == e.row) &&(cY>=16 && cY<32 )) || ((endRow == e.row) && (cY>=0 && cY<16 )) ){
+				this.Div00.Static00.set_text(this.name);
+				this.Div00.Static00.style.set_background("yellow");
+				this.Div00.ImageViewer00.set_image("URL('Image::no.png')");
+				this.Grid00.style.set_cursor('hand');
+			}else{
+				this.Div00.Static00.set_text(this.name);
+				this.Div00.Static00.style.set_background("aquamarine");
+				this.Div00.ImageViewer00.set_image("URL('Image::ok.png')");
+				this.Grid00.style.set_cursor('hand');
+			}
+		}else{
+			this.Div00.set_visible(false);
+			this.Grid00.style.set_cursor("");
+		}  
+	}  
+	
+	
+	//마우스 move할때 현재 마우스 위치하고 있는 cell의  그리드 line 색상입히기 (버그라동작은안됨)
+	for(var i=0;i<e.row; i++){
+		this.Dataset00.setColumn(i,"Column1","N");
+	}
+		this.Dataset00.setColumn(e.row,"Column1","Y");
+	for(var i=e.row+1; i<this.Dataset00.getRowCount(); i++){
+		this.Dataset00.setColumn(i,"Column1","N");
+	}
+		
+
+	if(cY>=0 && cY<16 ){
+		this.Grid00.setCellProperty("body",0,"line","EXPR(getColumn(currow+1,'Column1')=='Y'?'1px solid #b1b5b9ff, 1px solid white , 2px solid red, 1px solid #b1b5b9ff':'')");
+	}else{
+		this.Grid00.setCellProperty("body",0,"line","EXPR(getColumn(currow,'Column1')=='Y'?'1px solid #b1b5b9ff , 1px solid white , 2px solid red, 1px solid #b1b5b9ff ':'')");
+	}	
+	
+	
+}
+
+
+
+this.gdDragDrop_ondrag = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+	
+}
+
+this.gdDragDrop_ondragmove = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+	
+}
+
+this.gdDragDrop_ondrop = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

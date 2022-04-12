@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Form_go_0" classname="Form_go_0" inheritanceid="" position="absolute" titletext="Form go" left="0" width="760" top="0" height="430">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="go to changed form." onclick="Button00_onclick" position="absolute" left="30" width="270" top="78" height="40"/>
+        <Static id="Static05" text="Page Switching" position="absolute" left="30" width="283" top="18" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[ 
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.go("Sample_Form::np_Form_go.xfdl");
+};
+]]></Script>
+  </Form>
+</FDL>

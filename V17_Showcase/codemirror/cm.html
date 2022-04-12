@@ -1,0 +1,161 @@
+﻿<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<html>
+<title>cm</title>
+<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <TITLE>test</TITLE> 
+	<link rel="stylesheet" href="./lib/codemirror.css">
+	<link rel="stylesheet" href="./addon/hint/show-hint.css" />
+	<link rel="stylesheet" href="./addon/display/fullscreen.css">	
+	<script src="./lib/codemirror.js" type="text/javascript"></script>
+	<script src="./mode/sql/sql_nexa.js" type="text/javascript"></script>
+	
+	<script src="./addon/hint/show-hint.js"></script>
+	<script src="./addon/hint/sql-hint.js"></script>
+	<script src="./addon/display/fullscreen.js"></script>	
+</head>
+<body onload="fn_load();">
+<form>
+<textarea id="editor" name="editor"></textarea>
+</form>
+    <script type="text/javascript">
+		var bFlagDrag = false;
+		var loopCnt = 0;
+		document.addEventListener("mousemove", function(ev){
+			nexaNotify("MOVE" , ev.pageX +":"+ ev.pageY);
+		});		
+
+		if (!window.TOBEHTML) {
+			window.TOBEHTML = {};
+		}
+		window.TOBEHTML.FireUserNotify = function(userdata) {
+			var parent = null;
+			if(window.parent && window.parent.nexacro && window.parent.nexacro._Browser == "Runtime") {
+				window.document.title = userdata;
+				return;
+			}
+			var interval = setInterval(fn = function() {
+				parent = window.NEXACROWEBBROWSER;
+				if (loopCnt > 200 || parent) {
+					if (parent && parent.on_fire_onusernotify) {
+						parent.on_fire_onusernotify(parent, userdata);
+					} else {
+						window.document.title = userdata;
+					}
+					clearInterval(interval);
+				}
+				loopCnt++;
+			}, 20);			
+		}
+
+		function nexaNotify(type,data) {
+			if(type == "MOVE" && bFlagDrag == false) return;
+			
+			var oJson = { "type" : type , "data" : data };
+			var sJson = JSON.stringify(oJson);
+			window.TOBEHTMLDATA = sJson;
+			TOBEHTML.FireUserNotify(sJson);
+		}
+		
+    	var cssList = [];
+    	cssList[0] = "default";
+		var cmeditor;
+		var isBodyLoad = false;
+		cmeditor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+			lineNumbers: true,
+			mode: "text/x-mariadb",
+			indentWithTabs: true,
+			smartIndent: true,
+			lineNumbers: true,
+			lineWrapping: true,
+			matchBrackets : true,
+			autofocus: true,
+			fullScreen : true,
+			//theme: "night",
+			extraKeys: 
+					{
+						"Shift-Tab": "indentLess" ,
+						"Ctrl-Space": "autocomplete",
+						"Ctrl-S"	: function() { nexaNotify("HOTKEY","SAVE"); } ,
+						"Shift-Ctrl-S"	: function() { nexaNotify("HOTKEY","SAVEALL"); } ,
+						"Ctrl-J"	: function() { nexaNotify("HOTKEY","TOGGLESCREEN"); } ,
+						"F9"		: function() { nexaNotify("HOTKEY","F9"); } ,
+						"F10"		: function() { nexaNotify("HOTKEY","F10"); } 
+					}
+			/*
+			,
+			hintOptions: {tables: {
+			  users: ["name", "score", "birthDate"],
+			  countries: ["name", "population", "size"]
+			}}
+			*/
+		});
+		  
+		cmeditor.on('change',function(cMirror){
+			var v = cMirror.getValue();
+			document.getElementById("editor").value = v;
+			nexaNotify("CHANGE" , v);
+		});
+
+		function cm_setvalue(v,d) {
+			// show-hint.js
+			if(!d) {
+				sprdNm = d;
+			}
+			cmeditor.getDoc().setValue(v);
+		}	
+		function cm_settheme(v) {
+			cm_addcss(v);
+			cmeditor.setOption("theme", v);
+		}	
+		function cm_dragonoff(v) {
+			bFlagDrag = v;
+		}	
+		function cm_getsqltext(v,isRuntime) {
+			var rtn = replace_nexupText(v);
+			if(isRuntime) {
+				nexaNotify("RETURNDATA",rtn);
+			} else {
+				return rtn;
+			}
+		}
+		function cm_inserttext(v) {
+			//var txt = replace_nexupText(v);
+	        var selection = cmeditor.getSelection();
+	        if(selection.length>0){
+	        	cmeditor.replaceSelection(v);
+	        }else{
+	            var doc = cmeditor.getDoc();
+	            var cursor = doc.getCursor();
+
+	            var pos = {
+	               line: cursor.line,
+	               ch: cursor.ch
+	            }
+	            doc.replaceRange(v, pos);
+	        }
+		}	
+		function cm_addcss(v) {
+			for(var i=0;i<cssList.length;i++) {
+				if(cssList[i] == v) {
+					return true;
+				}
+			}
+			var path = "./theme/";
+			path += v + ".css";
+			var headID = document.getElementsByTagName("head")[0];
+			var cssNode = document.createElement('link');
+			cssNode.type = 'text/css';
+			cssNode.rel = 'stylesheet';
+			cssNode.href = path;
+			headID.appendChild(cssNode);			
+			return false;
+		}
+		function fn_load() {
+			//nexaNotify("LOAD","");
+		}
+		nexaNotify("LOAD","");
+		
+    </script>
+</body>
+</html>

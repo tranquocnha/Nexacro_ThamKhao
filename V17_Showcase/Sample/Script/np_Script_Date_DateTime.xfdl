@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_DateTime" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_DateTime" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="0" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="350" width="90" top="78" height="40" textAlign="center" verticalAlign="middle" font=""/>
+        <Static id="Static05" taborder="2" text="Today's date and current time searching" cssclass="sta_WF_subtitP" left="30" top="18" width="530" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_DateTime
+ * Description : Today's date and current time searching.
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_dateTime();	
+	this.edt_output.set_value(sRtn);
+};
+
+/*
+ * Function Name : fn_dateTime
+ * Description   : Today's date and current time searching
+ * Parameter     : 
+ * Return        : yyyyMMdd
+ * Example       : fn_firstDay();
+ */
+this.fn_dateTime = function() 
+{
+    var dDate = new Date();	    
+	var sRtn =  dDate.getFullYear()
+	         + (dDate.getMonth()+1).toString().padLeft(2, "0")
+	         +  dDate.getDate().toString().padLeft(2, "0")
+	         +  dDate.getHours().toString().padLeft(2, "0")
+	         +  dDate.getMinutes().toString().padLeft(2, "0")
+	         +  dDate.getSeconds().toString().padLeft(2, "0");
+   	return sRtn;
+};]]></Script>
+  </Form>
+</FDL>

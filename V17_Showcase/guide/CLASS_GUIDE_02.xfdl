@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="CLASS_GUIDE_02" classname="CLASS_GUIDE_01" inheritanceid="" position="absolute" titletext="Information" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="Static19" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="446" width="319" top="25" height="513"/>
+        <Static id="Static01" text="Component Name" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="0" height="26"/>
+        <Static id="Static02" text="Component View" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="636" top="0" height="26"/>
+        <Static id="Static10" text="Information&#13;&#10;- Orange" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="25" height="129"/>
+        <Static id="Static11" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="318" top="25" height="129"/>
+        <Static id="sta_WF_Info_Orange_Box" position="absolute" text="" left="150" width="265" top="59" height="66" cssclass="sta_WF_Info_Orange_Box"/>
+        <Static id="sta_WF_Info_Orange" text="sta_WF_Info_Orange" position="absolute" left="235" width="170" top="95" height="20" cssclass="sta_WF_Info_Orange"/>
+        <Static id="sta_WF_Info_Orange_Title" text="sta_WF_Info_Orange_Title" position="absolute" left="235" width="170" top="70" height="20" cssclass="sta_WF_Info_Orange_Title"/>
+        <Static id="Static07" text="sta_WF_Info_Orange_Box" position="absolute" style="color:#999999ff; font:Tahoma,8; " left="155" width="229" top="41" height="13"/>
+        <Static id="Static03" text="Title :" position="absolute" style="align:right;" left="160" width="67" top="70" height="20"/>
+        <Static id="Static00" text="Contents :" position="absolute" style="align:right;" left="160" width="67" top="95" height="20"/>
+        <Static id="sta_WF_Info_Orange_Box00" position="absolute" text="" left="468" width="275" top="57" height="76" cssclass="sta_WF_Info_Orange_Box"/>
+        <Static id="Static04" text="Information&#13;&#10; - Green" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="153" height="129"/>
+        <Static id="Static05" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="318" top="153" height="129"/>
+        <Static id="Static06" text="Information&#13;&#10; - Blue" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="281" height="129"/>
+        <Static id="Static08" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="318" top="281" height="129"/>
+        <Static id="sta_WF_Info_Green_Box" position="absolute" text="" left="150" width="265" top="187" height="66" cssclass="sta_WF_Info_Green_Box"/>
+        <Static id="sta_WF_Info_Green" text="sta_WF_Info_Green" position="absolute" left="235" width="170" top="223" height="20" cssclass="sta_WF_Info_Green"/>
+        <Static id="sta_WF_Info_Green_Title" text="sta_WF_Info_Green_Title" position="absolute" left="235" width="170" top="198" height="20" cssclass="sta_WF_Info_Green_Title"/>
+        <Static id="Static09" text="sta_WF_Info_Green_Box" position="absolute" style="color:#999999ff; font:Tahoma,8; " left="155" width="229" top="169" height="13"/>
+        <Static id="Static12" text="Title :" position="absolute" style="align:right; " left="160" width="67" top="198" height="20"/>
+        <Static id="Static13" text="Contents :" position="absolute" style="align:right; " left="160" width="67" top="223" height="20"/>
+        <Static id="Static14" text="Information&#13;&#10; - Gray" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="409" height="129"/>
+        <Static id="Static15" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="318" top="409" height="129"/>
+        <Static id="sta_WF_Info_Blue_Box" position="absolute" text="" left="150" width="265" top="315" height="66" cssclass="sta_WF_Info_Blue_Box"/>
+        <Static id="sta_WF_Info_Blue" text="sta_WF_Info_Blue" position="absolute" left="235" width="170" top="351" height="20" cssclass="sta_WF_Info_Blue"/>
+        <Static id="sta_WF_Info_Blue_Title" text="sta_WF_Info_Blue_Title" position="absolute" left="235" width="170" top="326" height="20" cssclass="sta_WF_Info_Blue_Title"/>
+        <Static id="Static16" text="sta_WF_Info_Blue_Box" position="absolute" style="color:#999999ff; font:Tahoma,8; " left="155" width="229" top="297" height="13"/>
+        <Static id="Static17" text="Title :" position="absolute" style="align:right; " left="160" width="67" top="326" height="20"/>
+        <Static id="Static18" text="Contents :" position="absolute" style="align:right; " left="160" width="67" top="351" height="20"/>
+        <Static id="sta_Info_Gray" text="sta_Info_Gray" position="absolute" left="235" width="170" top="469" height="20" cssclass="sta_Info_Gray"/>
+        <Static id="sta_Info_Gray_Title" text="sta_Info_Gray_Title" position="absolute" left="235" width="170" top="444" height="20" cssclass="sta_Info_Gray_Title"/>
+        <Static id="Static20" text="Title :" position="absolute" style="align:right; " left="160" width="67" top="444" height="20"/>
+        <Static id="Static21" text="Contents :" position="absolute" style="align:right; " left="160" width="67" top="469" height="20"/>
+        <Static id="sta_WF_Info_Orange_Title00" text="Required Information" position="absolute" left="493" width="150" top="70" height="20" cssclass="sta_WF_Info_Orange_Title"/>
+        <Static id="sta_WF_Info_Orange00" text="We can search price and additional information about registered goods by customer" position="absolute" left="493" width="226" top="95" height="47" cssclass="sta_WF_Info_Orange"/>
+        <Static id="sta_WF_Info_Orange01" text="※ Only Textbox(TextArea) can be adjusted line spacing .If this needed, make new Class in TextArea" position="absolute" left="478" width="271" top="178" height="49" cssclass="sta_WF_Info_Orange"/>
+        <TextArea id="TextArea00" taborder="1" position="absolute" style="background:transparent;border:0 none #808080ff ;color:#e37a0cff;" value="※ Information area made from TextArea" linespace="5" wordwrap="word" left="478" width="255" top="284" height="48"/>
+        <Static id="Static22" text="TextArea" position="absolute" style="color:#999999ff; font:Tahoma,8; " left="478" width="229" top="271" height="13"/>
+        <Static id="Static23" text="TextArea" position="absolute" style="color:#999999ff; font:Tahoma,8; " left="478" width="229" top="159" height="13"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[ ]]></Script>
+  </Form>
+</FDL>

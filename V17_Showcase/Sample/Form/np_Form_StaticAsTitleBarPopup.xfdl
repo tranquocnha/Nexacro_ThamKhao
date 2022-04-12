@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Test" classname="Test" left="0" top="0" width="600" height="250" ondeactivate="Test_ondeactivate" onload="Test_onload" titletext="Static component as title bar" style="border:1 solid #808080ff ;">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="Static component as title bar" left="0" top="0" right="0" height="34" onlbuttondown="Static00_onlbuttondown" onlbuttonup="Static00_onlbuttonup" onmousemove="Static00_onmousemove" background="#eeeeee" padding="4px 10px"/>
+        <Button id="Button00" taborder="1" onclick="Button00_onclick" top="6" right="10" height="21" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="22" text="X"/>
+        <Static id="Static07" taborder="2" text="This sample shows static component used as title bar." cssclass="sta_WF_explain" left="17" top="53" width="530" height="30" style="font:bold 9 Dotum;" verticalAlign="top"/>
+        <Static id="Static01" taborder="3" text="Form's titlebar is set invisible, and static component is used to display as title bar. &#13;&#10;A button over static component is placed to close the screen. &#13;&#10;Static component is moved using script." cssclass="sta_WF_explain" left="17" top="93" width="530" height="55" style="linespace:2;align:left middle;font:bold 9 Dotum;" wordwrap="english" verticalAlign="top"/>
+        <Button id="Button01" taborder="4" text="Close" left="490" top="190" height="40" onclick="Button01_onclick" width="90"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.down_x;
+this.down_y;
+this.static_lbuttondown = 0;
+this.form_left = 0;
+
+this.Static00_onlbuttondown = function(obj:Static, e:nexacro.MouseEventInfo)
+{
+	this.down_x = e.clientX;	
+	this.down_y = e.clientY;
+	this.static_lbuttondown = 1;
+};
+
+this.Static00_onlbuttonup = function(obj:Static, e:nexacro.MouseEventInfo)
+{
+	this.static_lbuttondown = 0;
+};
+
+this.Static00_onmousemove = function(obj:Static, e:nexacro.MouseEventInfo)
+{
+	return;
+};
+
+this.Test_ondeactivate = function(obj:Form, e:nexacro.ActivateEventInfo)
+{
+	if(this.static_lbuttondown)
+	{
+		this.static_lbuttondown = 0; //Rest the value to 0 again.
+	}
+};
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+
+this.Test_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//this.parent.set_showtitlebar(false);
+	
+	//this.parent.set_dragmovetype("none");
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+
+]]></Script>
+  </Form>
+</FDL>

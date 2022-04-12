@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="generate_desc" width="920" height="140" onload="form_onload">
+    <Layouts>
+      <Layout height="140" width="920">
+        <Static id="Static00" taborder="1" text="컴포넌트 사이즈 자동 조정" left="20" top="15" width="180" height="30" cssclass="sta_WF_compTitle02" messageid="comp.fittocontents" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="컴포넌트의 fittocontents 속성을 조정하면 텍스트 길이에 맞춰 자동으로 컴포넌트의 사이즈가 반영됩니다." left="20" top="Static00:2" height="43" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.fittocontents.desc" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

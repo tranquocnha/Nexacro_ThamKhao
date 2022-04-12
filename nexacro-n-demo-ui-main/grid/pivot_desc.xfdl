@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="480" onload="form_onload">
+    <Layouts>
+      <Layout height="480" width="920">
+        <Static id="Static00" taborder="1" text="Pivot" left="20" top="15" width="42" height="30" cssclass="sta_WF_compTitle02" messageid="grid.pivot" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="Excel utilizes pivot function to analyze data. Users can easily drag and drop rows/columns and view results. The Nexacroplatform provides pivot function through an open source component called nexacro pivot.&#13;&#10;Dedicated editors make it easy for both developers and users to apply pivot functionality." left="20" top="Static00:2" height="60" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.pivot.desc" right="20"/>
+        <Static id="Static02" taborder="2" text="Large data pivot" left="20" top="Static01:10" width="123" height="30" cssclass="sta_WF_compTitle02" messageid="grid.pivot.largedata" fittocontents="width"/>
+        <Static id="Static03" taborder="3" text="Under Search Criteria, select the number of data (30,000/100,000/200,000/400,000) and click the Inquiry button. At the end of the query, the data is converted to be rendered in the pivot grid and displayed on the screen, separating the lookup time and pivot rendering time.&#13;&#10;&#13;&#10;Drag and drop rows/columns in the panel area to change the condition, click the 'Run' button, or press the 'AutoRun' button, and change the condition, depending on the changed option, a new pivot will be launched." left="20" top="Static02:2" height="120" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.pivot.largedata.desc" right="20"/>
+        <Static id="Static04" taborder="4" text="The formats expressed are sum, mean, count, maximum, and minimum, and if necessary, you can register and apply user functions." left="20" top="Static03:20" height="40" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.pivot.value.desc" right="20"/>
+        <Static id="Static05" taborder="5" text="Export to Excel" left="20" top="Static04:10" width="113" height="30" cssclass="sta_WF_compTitle02" messageid="grid.pivot.export" fittocontents="width"/>
+        <Static id="Static06" taborder="6" text="Nexacro pivot is a component created by combining the basic components of the Nexacroplatform. You can export a grid object using the ExcelExportObject object by returning it using the getPivotGrid function of the pivot component.&#13;&#10;&#13;&#10;Press the Excel download button on the screen." left="20" top="Static05:2" height="80" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.pivot.export.desc" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

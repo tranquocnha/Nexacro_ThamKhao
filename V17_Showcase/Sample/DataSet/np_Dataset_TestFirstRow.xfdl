@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="test" classname="test" left="0" top="0" width="760" height="787" titletext="firstrow implementation" style="background:antiquewhite;">
+    <Layouts>
+      <Layout>
+        <Button id="btn_Separated" taborder="0" text="Separated" top="65" height="34" onclick="btn_Separated_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="150" right="350"/>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="30" top="177" height="300" binddataset="Dataset00" right="30" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="col_0" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="col_1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="col_2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="col_3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="col_4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="col_5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="col_6" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:col_0" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="bind:col_1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="bind:col_2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="bind:col_3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="bind:col_4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="bind:col_5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="bind:col_6" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_NonSeparated" taborder="2" text="NonSeparated" top="65" height="34" onclick="btn_NonSeparated_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="150" right="190"/>
+        <Grid id="Grid01" taborder="15" useinputpanel="false" left="30" top="487" right="30" binddataset="ds_log" autofittype="col" bottom="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="127"/>
+                <Column size="341"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="TIME" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="MES" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:TIME" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:MES" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_cls" taborder="16" text="Clear" top="65" height="34" onclick="btn_cls_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="150" right="30"/>
+        <Static id="st_first" taborder="18" text="First :" height="34" style="border:1 solid black ;" width="50" top="133" right="611"/>
+        <Edit id="edt_first" taborder="19" height="34" value="20" width="100" inputtype="number" top="133" right="522"/>
+        <Static id="st_total" taborder="20" text="Total :" style="border:1 solid black ;" width="50" height="34" top="133" right="290"/>
+        <Edit id="edt_total" taborder="21" value="1000" height="34" inputtype="number" width="100" top="133" right="197"/>
+        <Static id="st_next" taborder="22" text="Next :" height="34" style="border:1 solid black ;" width="50" top="133" right="452"/>
+        <Edit id="edt_next" taborder="23" value="100" inputtype="number" height="34" width="100" top="133" right="360"/>
+        <Static id="st_sleep" taborder="24" text="Sleep :" style="border:1 solid black ;" width="50" height="34" top="133" right="127"/>
+        <Edit id="edt_sleep" taborder="25" value="10" inputtype="number" top="133" height="34" right="30" width="100"/>
+        <Static id="Static07" taborder="26" text="This sample shows implementation of firstrow property of dataset" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" style="font:bold 9 Dotum;" verticalAlign="top"/>
+        <Static id="Stt_Process" taborder="27" left="60.79%" top="5" right="1.05%" height="22" style="color:#415079ff;font:bold 9 Dotum;" wordwrap="english"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" preload="true" firenextcount="1000" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" onload="Dataset00_onload">
+        <ColumnInfo>
+          <Column id="col_0" type="STRING" size="256"/>
+          <Column id="col_1" type="INT" size="256"/>
+          <Column id="col_2" type="FLOAT" size="256"/>
+          <Column id="col_3" type="DATE" size="256"/>
+          <Column id="col_4" type="TIME" size="256"/>
+          <Column id="col_5" type="DATETIME" size="256"/>
+          <Column id="col_6" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_log" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TIME" type="STRING" size="256"/>
+          <Column id="MES" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.fn_logout = function(mes){
+	var	idx = this.ds_log.addRow();
+	this.ds_log.setColumn(idx,"MES",mes);
+	var	objDate = new Date
+
+	var strVal = new String(objDate.getHours());
+	var strTime = strVal.padLeft(2,'0') ;
+	strTime += ':';
+
+	strVal = new String(objDate.getMinutes());
+	strTime += strVal.padLeft(2,'0') ;
+	strTime += ':';
+
+	strVal = new String(objDate.getSeconds());
+	strTime += strVal.padLeft(2,'0') ;
+	strTime += '.';
+
+	strVal = new String(objDate.getMilliseconds());
+	strTime += strVal.padLeft(3,'0') ;
+
+	this.ds_log.setColumn(idx,"TIME",strTime);
+};
+
+
+this.btn_Separated_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var	first = this.edt_first.value ;
+	var	next = this.edt_next.value ;
+	var	total = this.edt_total.value ;
+	var	sleep = this.edt_sleep.value ;
+	//this.alert("first === " + first);
+	this.Stt_Process.set_text("Will process " + first + " rows first time. Remaining rows will be processed later.");
+	this.Dataset00.set_firefirstcount(first);
+	this.Dataset00.set_firenextcount(next);
+	var strUrl = "Svc::Firstrow.jsp?First="+first+"&Next="+next+"&Count="+total+"&Sleep="+sleep;
+	var inDs = "";
+	var outDs = "Dataset00=ds_output";
+	this.fn_logout("Separated FirstRow is start.");
+	this.transaction("Separated", strUrl, inDs, outDs, "", "fn_callback", true, 0);
+};
+
+this.btn_NonSeparated_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var	first = this.edt_first.value ;
+	var	total = this.edt_total.value ;
+	var	next = this.edt_next.value ;
+	var	sleep = this.edt_sleep.value ;
+	this.Dataset00.set_firefirstcount(first);
+	this.Dataset00.set_firenextcount(next);
+	var strUrl2 = "Svc::Normal.jsp?Count="+total+"&Sleep="+sleep;
+	var inDs2 = "";
+	var outDs2 = "Dataset00=ds_output";
+	this.fn_logout("Non Separated FirstRow is start.");
+	this.transaction("NonSeparated", strUrl2, inDs2, outDs2, "", "fn_callback", true, 0);	
+};
+
+this.fn_callback = function(strSvcID, nErrorCode, strErrorMag)
+{
+//	application.set_usewaitcursor(true);
+	if(strSvcID == "Separated")
+	{
+		this.Stt_Process.set_text("");
+	}
+	this.fn_logout("ID:"+strSvcID+",Ecode:"+nErrorCode+",Mes:"+strErrorMag);
+	this.fn_logout("total count: " + this.Dataset00.rowcount);
+};
+
+
+this.Dataset00_onload = function(obj:Dataset, e:nexacro.DSLoadEventInfo)
+{
+	this.fn_logout("Obj:"+obj.name+",Event:"+e.eventid+",Reason:"+e.reason);
+};
+
+
+this.btn_cls_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_log.clearData();
+	this.Dataset00.clearData();
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

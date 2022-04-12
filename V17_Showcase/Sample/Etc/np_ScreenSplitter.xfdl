@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="test" classname="test" left="0" top="0" width="760" height="500" onload="test_onload" ondragmove="test_ondragmove" ondrop="test_ondrop" titletext="Screen Splitter">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="2" text="Div00" left="0" top="0" width="401" height="300" style="background:beige;border:1 solid #808080ff ;">
+          <Layouts>
+            <Layout>
+              <Button id="Button00" taborder="0" text="Button00" left="7.27%" top="29" right="70.68%" height="40"/>
+              <Grid id="Grid00" taborder="1" binddataset="Dataset00" useinputpanel="false" left="41.85%" top="29" right="18.01%" height="186" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="40" band="head"/>
+                      <Row size="36"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell disptype="normal" text="Column0" font="14px &quot;맑은 고딕&quot;"/>
+                      <Cell col="1" disptype="normal" text="Column1" font="14px &quot;맑은 고딕&quot;"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell disptype="normal" text="bind:Column0" font="14px &quot;맑은 고딕&quot;"/>
+                      <Cell col="1" disptype="normal" text="bind:Column1" font="14px &quot;맑은 고딕&quot;"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="3" text="Div00" left="0" top="300" bottom="-80" width="401" style="background:aquamarine;border:1 solid #808080ff ;">
+          <Layouts>
+            <Layout>
+              <Button id="Button00" taborder="4" text="Button00" left="7.27%" top="72" right="71.18%" height="40"/>
+              <Grid id="Grid00" taborder="5" binddataset="Dataset00" useinputpanel="false" left="41.85%" top="72" right="18.01%" height="186" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="40" band="head"/>
+                      <Row size="36"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell disptype="normal" text="Column0"/>
+                      <Cell col="1" disptype="normal" text="Column1"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell disptype="normal" text="bind:Column0"/>
+                      <Cell col="1" disptype="normal" text="bind:Column1"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="4" text="Div02" left="401" top="0" right="1" bottom="-80" style="background:gainsboro;border:1 solid #808080ff ;">
+          <Layouts>
+            <Layout width="358" height="393">
+              <Button id="Button00" taborder="4" text="Button00" left="6.18%" top="29" right="57.87%" height="40"/>
+              <Grid id="Grid00" taborder="5" binddataset="Dataset00" useinputpanel="false" left="6.18%" top="109" right="5.06%" height="186" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="40" band="head"/>
+                      <Row size="36"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell disptype="normal" text="Column0"/>
+                      <Cell col="1" disptype="normal" text="Column1"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell disptype="normal" text="bind:Column0"/>
+                      <Cell col="1" disptype="normal" text="bind:Column1"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <ImageViewer id="div_verticalBar_move" taborder="0" image="URL('Image::img_GWF_SplitterV.png')" cssclass="img_GWF_SplitterV" left="390" top="2" width="23" height="115.60%" ondrag="div_verticalBar_move_ondrag" border="0px solid" text=""/>
+        <ImageViewer id="div_horizontalBar_move" taborder="1" image="URL('Image::img_GWF_SplitterH.png')" cssclass="img_GWF_SplitterH" left="0" top="291" width="390" height="21" ondrag="div_horizontalBar_move_ondrag" border="0px solid"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column1">test_1</Col>
+            <Col id="Column0">test_1.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">test_2.xfdl</Col>
+            <Col id="Column1">test_2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">test_3.xfdl</Col>
+            <Col id="Column1">test_3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">test_4.xfdl</Col>
+            <Col id="Column1">test_4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.1"><![CDATA[
+this.f_drag = false; 
+this.currArrange = "vertical";
+this.nMoveX = 0;					// Move the X coordinate
+this.nMoveY = 0;					// Move the Y coordinate
+
+this.test_ondragmove = function(obj:Form, e:nexacro.DragEventInfo)
+{
+	
+	//trace(this.currArrange + " ------ " + e.button);
+	
+	if ( this.f_drag == false ) 	return;
+
+	var nPosX, nPosY;
+
+	if ( e.button == "lbutton" )
+	{	
+		if 		( this.currArrange == "horizontal" )		{	nPosY = nexacro.toNumber(e.clienty);		}	
+		else if ( this.currArrange == "vertical"   )		{ 	nPosX = nexacro.toNumber(e.clientx);		}
+		
+		try 
+		{		
+
+			if 		( this.currArrange == "horizontal" )	{	trace(">>>>>>>>"); this.div_horizontalBar_move.setOffsetTop(nPosY);}
+			else if ( this.currArrange == "vertical"   )	{	this.div_verticalBar_move.setOffsetLeft(nPosX);	}
+		}
+		catch( ex ) {
+		}
+	}
+};
+
+this.test_ondrop = function(obj:Form, e:nexacro.DragEventInfo)
+{
+	
+	if ( this.f_drag == false ) return;
+	
+	this.f_drag = false;
+
+	var nMoveValue;
+	
+	if ( this.currArrange == "horizontal" )		
+	{
+		this.div_horizontalBar_move.setOffsetTop(e.clienty);
+		nMoveValue = nexacro.toNumber(nexacro.toNumber(this.div_horizontalBar_move.top) - this.nMoveY);
+		
+		this.Div00.set_height(nexacro.toNumber(this.Div00.height) + nexacro.toNumber(nMoveValue));	
+		this.Div01.set_top(nexacro.toNumber(this.Div01.top) + nexacro.toNumber(nMoveValue));
+	}
+	else if ( this.currArrange == "vertical" )
+	{
+		
+		this.div_verticalBar_move.setOffsetLeft(e.clientx);
+		nMoveValue = nexacro.toNumber(nexacro.toNumber(this.div_verticalBar_move.left) - this.nMoveX);
+
+		this.Div00.set_width(nexacro.toNumber(this.Div00.width) + nMoveValue);	
+		this.Div01.set_width(nexacro.toNumber(this.Div01.width) + nMoveValue);
+		this.Div02.set_left(nexacro.toNumber(this.Div02.left) + nMoveValue);
+		this.div_horizontalBar_move.set_width(nexacro.toNumber(this.div_horizontalBar_move.width) + nMoveValue);
+	}
+	
+	this.resetScroll();	
+};
+
+this.div_horizontalBar_move_ondrag = function(obj:ImageViewer, e:nexacro.DragEventInfo)
+{
+
+	this.currArrange = "horizontal";
+	
+	this.nMoveX = nexacro.toNumber(obj.left);
+	this.nMoveY = nexacro.toNumber(obj.top);
+
+	this.f_drag = true;
+	
+	return true;
+};
+
+
+this.div_verticalBar_move_ondrag = function(obj:ImageViewer, e:nexacro.DragEventInfo)
+{
+
+	this.currArrange = "vertical";
+	
+	this.nMoveX = nexacro.toNumber(obj.left);
+	this.nMoveY = nexacro.toNumber(obj.top);
+
+	this.f_drag = true;
+	
+	return true;
+};
+]]></Script>
+  </Form>
+</FDL>

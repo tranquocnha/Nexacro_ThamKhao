@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Sample_tot_grid" left="0" top="0" width="1024" height="768" titletext="Display sub total on the Grid">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" height="450" binddataset="Dataset00" width="800" useselcolor="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="120"/>
+                <Column size="80"/>
+                <Column size="59"/>
+                <Column size="63"/>
+                <Column size="93"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Group"/>
+                <Cell col="1" text="Type"/>
+                <Cell col="2" text="No"/>
+                <Cell col="3" text="Name(count)"/>
+                <Cell col="4" text="amount"/>
+                <Cell col="5" text="Min"/>
+                <Cell col="6" text="Max"/>
+                <Cell col="7" text="count(amt&gt;2)"/>
+                <Cell col="8" text="price"/>
+                <Cell col="9" text="rowlevel"/>
+                <Cell col="10" text="currow"/>
+              </Band>
+              <Band id="body">
+                <Cell style="background:EXPR(dataset.getRowLevel(currow)==2?&quot;pink&quot;:&quot;default&quot;);background2:EXPR(dataset.getRowLevel(currow)==2?&quot;pink&quot;:&quot;default&quot;);" text="bind:gbn1" expr="expr:dataset.getRowLevel(currow) == 2 ? &quot;Group total&quot;: gbn1" suppress="1" cssclass="expr:dataset.getRowLevel(currow)==2?&quot;subtotalGrid_1&quot;:&quot;&quot;;"/>
+                <Cell col="1" text="bind:gbn2" expr="expr:dataset.getRowLevel(currow) == 2 ? gbn1 : dataset.getRowLevel(currow) == 1 ? &quot;subtotal&quot; : gbn2" suppress="2" cssclass="expr:dataset.getRowLevel(currow)==2?&quot;subtotalGrid_1&quot;:dataset.getRowLevel(currow)==1?&quot;subtotalGrid_2&quot;:&quot;&quot;;"/>
+                <Cell col="2" text="bind:no" expr="expr:dataset.getRowLevel(currow)==2 ? &quot;&quot; : dataset.getRowLevel(currow)==1 ? gbn2 : no" subsumtext="expr:getRowLevel(currow)==1?getColumn(currow-1,&quot;gbn2&quot;):getRowLevel(currow)==2?getColumn(currow-2,&quot;gbn1&quot;):&quot;&quot;" cssclass="expr:dataset.getRowLevel(currow)==2?&quot;subtotalGrid_1&quot;:dataset.getRowLevel(currow)==1?&quot;subtotalGrid_2&quot;:&quot;&quot;;"/>
+                <Cell col="3" text="bind:nm" expr="expr:dataset.getRowLevel(currow)==1?dataset.getCaseCount(&quot;gbn2 == '&quot;+dataset.getColumn(currow-1,&quot;gbn2&quot;)+&quot;'&amp;&amp; gbn1=='&quot;+dataset.getColumn(currow-1,&quot;gbn1&quot;)+&quot;'&quot;):dataset.getRowLevel(currow)==2?dataset.getCaseCount(&quot;gbn1=='&quot;+dataset.getColumn(currow-2,&quot;gbn1&quot;)+&quot;'&quot;):nm" subsumtext="expr:getRowLevel(currow)==1?getCaseCount(&quot;gbn2 == '&quot;+getColumn(currow-1,&quot;gbn2&quot;)+&quot;'&amp;&amp; gbn1=='&quot;+getColumn(currow-1,&quot;gbn1&quot;)+&quot;'&quot;):getRowLevel(currow)==2?getCaseCount(&quot;gbn1=='&quot;+getColumn(currow-2,&quot;gbn1&quot;)+&quot;'&quot;):&quot;&quot;" cssclass="expr:dataset.getRowLevel(currow)==2?&quot;subtotalGrid_1&quot;:dataset.getRowLevel(currow)==1?&quot;subtotalGrid_2&quot;:&quot;&quot;;"/>
+                <Cell col="4" text="bind:amt"/>
+                <Cell col="5" text="expr:dataset.getMin(&quot;amt&quot;, dataset.getGroupRangeStart(currow),dataset.getGroupRangeStart(currow)+dataset.getGroupRangeCount(currow))"/>
+                <Cell col="6" text="expr:dataset.getMax(&quot;amt&quot;, dataset.getGroupRangeStart(currow),dataset.getGroupRangeStart(currow)+dataset.getGroupRangeCount(currow))"/>
+                <Cell col="7" text="expr:dataset.getRowLevel(currow)==1?dataset.getCaseSum(&quot;amt &gt;2&quot;, &quot;amt&quot;, dataset.getGroupRangeStart(currow),dataset.getGroupRangeStart(currow)+dataset.getGroupRangeCount(currow)):dataset.getRowLevel(currow)==2?dataset.getCaseSum(&quot;amt &gt;2&quot;, &quot;amt&quot;, dataset.getGroupRangeStart(currow),dataset.getGroupRangeStart(currow)+dataset.getGroupRangeCount(currow)) :&quot;&quot;"/>
+                <Cell col="8" editfilter="number" style="align:right middle;" text="expr:dataset.getRowLevel(currow)==&quot;0&quot;  ? amt2 : &quot;&quot;"/>
+                <Cell col="9" text="expr:dataset.getRowLevel(currow)"/>
+                <Cell col="10" text="expr:currow"/>
+              </Band>
+              <Band id="summary">
+                <Cell text="Total"/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3" text="expr:dataset.getCountNF()"/>
+                <Cell col="4" text="expr:dataset.getSum(&quot;amt&quot;)"/>
+                <Cell col="5" text="expr:dataset.getMin(&quot;amt&quot;)"/>
+                <Cell col="6" text="expr:dataset.getMax(&quot;amt&quot;)"/>
+                <Cell col="7" text="expr:dataset.getCaseSum(&quot;amt &gt;2&quot;, &quot;amt&quot;)"/>
+                <Cell col="8" text="expr:dataset.getSum(&quot;amt2&quot;)"/>
+                <Cell col="9"/>
+                <Cell col="10"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="1" text="This is sample shows combo for selecting multiple values" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" keystring="G:gbn1,gbn2">
+        <ColumnInfo>
+          <Column id="gbn1" type="STRING" size="256"/>
+          <Column id="gbn2" type="STRING" size="256"/>
+          <Column id="no" type="STRING" size="256"/>
+          <Column id="nm" type="STRING" size="256"/>
+          <Column id="amt" type="INT" size="256"/>
+          <Column id="amt2" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">fruit</Col>
+            <Col id="no">221</Col>
+            <Col id="amt">6</Col>
+            <Col id="nm">Avocado</Col>
+            <Col id="amt2">30</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">fruit</Col>
+            <Col id="no">100</Col>
+            <Col id="amt">2</Col>
+            <Col id="nm">Banana</Col>
+            <Col id="amt2">10</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">vegetable</Col>
+            <Col id="no">111</Col>
+            <Col id="amt">4</Col>
+            <Col id="nm">Beetroot</Col>
+            <Col id="amt2">20</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">vegetable</Col>
+            <Col id="no">768</Col>
+            <Col id="amt">5</Col>
+            <Col id="nm">Broccoli</Col>
+            <Col id="amt2">25</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Drink</Col>
+            <Col id="gbn2">water</Col>
+            <Col id="no">498</Col>
+            <Col id="amt">20</Col>
+            <Col id="nm">mineral water</Col>
+            <Col id="amt2">30</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Drink</Col>
+            <Col id="gbn2">juice</Col>
+            <Col id="no">312</Col>
+            <Col id="amt">4</Col>
+            <Col id="nm">orange juice</Col>
+            <Col id="amt2">40</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Drink</Col>
+            <Col id="gbn2">juice</Col>
+            <Col id="no">300</Col>
+            <Col id="nm">grape juice</Col>
+            <Col id="amt">3</Col>
+            <Col id="amt2">50</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" keystring="G:gbn1,gbn2">
+        <ColumnInfo>
+          <Column id="gbn1" type="STRING" size="256"/>
+          <Column id="gbn2" type="STRING" size="256"/>
+          <Column id="no" type="STRING" size="256"/>
+          <Column id="nm" type="STRING" size="256"/>
+          <Column id="amt" type="INT" size="256"/>
+          <Column id="amt2" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">fruit</Col>
+            <Col id="no">123</Col>
+            <Col id="amt">8</Col>
+            <Col id="nm">Apple</Col>
+            <Col id="amt2">40</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">fruit</Col>
+            <Col id="no">234</Col>
+            <Col id="amt">7</Col>
+            <Col id="nm">Apricot</Col>
+            <Col id="amt2">50</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">fruit</Col>
+            <Col id="no">221</Col>
+            <Col id="amt">6</Col>
+            <Col id="nm">Avocado</Col>
+            <Col id="amt2">30</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">fruit</Col>
+            <Col id="no">100</Col>
+            <Col id="amt">2</Col>
+            <Col id="nm">Banana</Col>
+            <Col id="amt2">10</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">vegetable</Col>
+            <Col id="no">102</Col>
+            <Col id="amt">2</Col>
+            <Col id="nm">Asparagus</Col>
+            <Col id="amt2">30</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">vegetable</Col>
+            <Col id="no">132</Col>
+            <Col id="amt">3</Col>
+            <Col id="nm">Aubergine</Col>
+            <Col id="amt2">40</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">vegetable</Col>
+            <Col id="no">111</Col>
+            <Col id="amt">4</Col>
+            <Col id="nm">Beetroot</Col>
+            <Col id="amt2">20</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">vegetable</Col>
+            <Col id="no">768</Col>
+            <Col id="amt">5</Col>
+            <Col id="nm">Broccoli</Col>
+            <Col id="amt2">25</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">fish</Col>
+            <Col id="no">954</Col>
+            <Col id="amt">3</Col>
+            <Col id="nm">salmon</Col>
+            <Col id="amt2">100</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Food</Col>
+            <Col id="gbn2">fish</Col>
+            <Col id="no">357</Col>
+            <Col id="amt">1</Col>
+            <Col id="nm">Tuna</Col>
+            <Col id="amt2">120</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Drink</Col>
+            <Col id="gbn2">water</Col>
+            <Col id="no">498</Col>
+            <Col id="amt">20</Col>
+            <Col id="nm">mineral water</Col>
+            <Col id="amt2">30</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Drink</Col>
+            <Col id="gbn2">juice</Col>
+            <Col id="no">312</Col>
+            <Col id="amt">4</Col>
+            <Col id="nm">orange juice</Col>
+            <Col id="amt2">40</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Drink</Col>
+            <Col id="gbn2">juice</Col>
+            <Col id="no">300</Col>
+            <Col id="nm">grape juice</Col>
+            <Col id="amt">3</Col>
+            <Col id="amt2">50</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Clothing</Col>
+            <Col id="gbn2">ladies</Col>
+            <Col id="no">200</Col>
+            <Col id="nm">cotton socks</Col>
+            <Col id="amt">5</Col>
+            <Col id="amt2">60</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Clothing</Col>
+            <Col id="gbn2">ladies</Col>
+            <Col id="no">100</Col>
+            <Col id="nm">one-piece</Col>
+            <Col id="amt">2</Col>
+            <Col id="amt2">250</Col>
+          </Row>
+          <Row>
+            <Col id="gbn1">Clothing</Col>
+            <Col id="gbn2">ladies</Col>
+            <Col id="no">110</Col>
+            <Col id="nm">T-shirt</Col>
+            <Col id="amt">3</Col>
+            <Col id="amt2">220</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[//subtotalGrid_1]]></Script>
+  </Form>
+</FDL>

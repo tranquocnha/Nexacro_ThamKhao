@@ -1,0 +1,23 @@
+﻿{
+	"name": "CMWebEditor",
+	"version": "0",
+	"description": "",
+	"license": "",
+	"objInfo": [	
+    "CMWebEditor/metainfo/CMWebEditor.info"
+	],
+	"scripts": [
+    "CMWebEditor/CMWebEditor.js"
+	],
+	"designscripts": [
+    "CMWebEditor/Design/DesignCMWebEditor.js"
+	],
+	"help": "",
+	"resources": "",
+	"xcss": "",
+	"images": "",	
+	"contentseditor": [
+
+	]
+}
+//# sourceURL=CMWebEditor.json

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="common_child" inheritanceid="" titletext="Filter" position="absolute" left="0" top="0" width="760" height="460">
+    <Layouts>
+      <Layout>
+        <Grid autosizingtype="none" id="Grid00" ondraw="[object Cy_FunctionObject]" selecttype="row" taborder="0" binddataset="ds_data" position="absolute" left="30" top="132" width="700" height="300" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="205"/>
+                <Column size="178"/>
+                <Column size="150"/>
+                <Column size="151"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="group"/>
+                <Cell col="1" text="department"/>
+                <Cell col="2" text="employee"/>
+                <Cell col="3" text="telno"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:group" suppress="1"/>
+                <Cell col="1" style="align:left;" text="bind:department" suppress="1"/>
+                <Cell col="2" style="align:left;" text="bind:employee"/>
+                <Cell col="3" text="bind:telno"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button ondraw="[object Cy_FunctionObject]" taborder="1" text="= " id="btn_search" onclick="btn_search_onclick" position="absolute" left="500" top="78" width="110" height="40"/>
+        <Static id="Static00" ondraw="[object Cy_FunctionObject]" text="employee" position="absolute" left="30" top="78" width="70" height="40"/>
+        <Edit ondraw="[object Cy_FunctionObject]" taborder="2" id="ed_name" position="absolute" left="101" top="78" width="150" height="40"/>
+        <Button id="Button00" taborder="3" onclick="Button00_onclick" text="Like%" position="absolute" left="381" top="78" width="110" height="40"/>
+        <Button id="btn_search00" taborder="4" position="absolute" onclick="btn_search00_onclick" text="Initialization" left="620" top="78" width="110" height="40"/>
+        <Static id="Static05" text="dataset Filter by name" class="sta_WF_subtitle" position="absolute" left="30" top="18" width="450" height="40" cssclass="sta_WF_subtitP" verticalAlign="top"/>
+        <Button id="Button02" taborder="1" text="%Like%" position="absolute" onclick="Button02_onclick" left="262" top="78" width="110" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="group" type="STRING" size="256"/>
+          <Column type="STRING" size="255" id="department"/>
+          <Column type="STRING" size="256" id="employee"/>
+          <Column id="telno" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Tom</Col>
+            <Col id="group">Technical Group</Col>
+            <Col id="telno">02-1234-0001</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Jany</Col>
+            <Col id="telno">02-1234-0002</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Piter</Col>
+            <Col id="telno">02-1234-0003</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Superman</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0004</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Jack</Col>
+            <Col id="telno">02-1234-0005</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group1</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Tony</Col>
+            <Col id="telno">02-1234-0006</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Sujan</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0007</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Mac</Col>
+            <Col id="telno">02-1234-0008</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Ann</Col>
+            <Col id="telno">02-1234-0009</Col>
+          </Row>
+          <Row>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Bess</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0010</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Dana</Col>
+            <Col id="telno">02-1234-0011</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Elin</Col>
+            <Col id="telno">02-1234-0012</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.btn_search_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.ds_data.filter("employee=='" + this.ed_name.value.replace("'","\\'") + "'");
+};
+     
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+
+	this.ds_data.filter("String(employee).substr(0," + this.ed_name.value.length + ").indexOf('" + this.ed_name.value.replace("'","\\'") + "') >= 0");
+};
+
+   
+this.btn_search00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.ds_data.set_filterstr("");
+} ;  
+
+
+this.Button02_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.ds_data.filter("String(employee).indexOf('" + this.ed_name.value.replace("'","\\'") + "') >= 0");
+}  ;   
+
+]]></Script>
+  </Form>
+</FDL>

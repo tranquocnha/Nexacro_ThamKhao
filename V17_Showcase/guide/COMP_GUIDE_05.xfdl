@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="COMP_GUIDE_05" classname="COMP_GUIDE_01" inheritanceid="" position="absolute" titletext="PopupMenu,Menu,GroupBox,Splitter" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" text="Component Name" position="absolute" style="background:#edeee6ff;border:1 solid #c6c6c5ff ;align:center middle;font:Tahoma,9,bold antialias;" left="0" width="130" top="0" height="26"/>
+        <Static id="Static02" text="Component View" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="636" top="0" height="26"/>
+        <Static id="Static10" text="PopupMenu &#13;&#10;( contextmenu )" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="25" height="155"/>
+        <Static id="Static11" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="25" height="155"/>
+        <Static id="Static13" text="enabled" position="absolute" style="color:#999999ff; font:Tahoma,8; " left="138" width="120" top="30" height="13"/>
+        <Button id="Button00" taborder="1" text="PopupMenu Show" position="absolute" onclick="Button00_onclick" left="137" width="130" top="48" height="20"/>
+        <PopupMenu id="pMenu" position="absolute" innerdataset="@ds_menu" captioncolumn="Caption" enablecolumn="enable" hotkeycolumn="hotkey" idcolumn="idx" levelcolumn="lev" userdatacolumn="UserData" left="137" width="130" top="69" height="104"/>
+        <Static id="Static00" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="179" height="75"/>
+        <Static id="Static03" text="Menu" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="179" height="75"/>
+        <Menu id="Menu00" taborder="2" position="absolute" innerdataset="@ds_menu" captioncolumn="Caption" enablecolumn="enable" hotkeycolumn="hotkey" idcolumn="idx" levelcolumn="lev" userdatacolumn="UserData" left="164" width="534" top="197" height="35"/>
+        <Static id="Static04" text="GroupBox" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="253" height="274"/>
+        <Static id="Static05" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="253" height="274"/>
+        <GroupBox id="GroupBox00" text="GroupBox" position="absolute" style="titlepadding:0 3 0 0;" left="137" width="210" top="289" height="229"/>
+        <GroupBox id="GroupBox01" text="GroupBox" position="absolute" style="titlepadding:0 3 0 0; " enable="false" left="392" width="210" top="289" height="229"/>
+        <Static id="Static12" text="disabled" position="absolute" style="color:#999999ff; font:Tahoma,8; " left="392" width="120" top="263" height="13"/>
+        <Static id="Static06" text="enabled" position="absolute" style="color:#999999ff; font:Tahoma,8; " left="138" width="120" top="263" height="13"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="lev" type="STRING" size="256"/>
+          <Column id="UserData" type="STRING" size="256"/>
+          <Column id="Caption" type="STRING" size="256"/>
+          <Column id="enable" type="STRING" size="256"/>
+          <Column id="hotkey" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="UserData">Menu1</Col>
+            <Col id="Caption">Menu1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1000</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Menu1 (submenu1)</Col>
+            <Col id="Caption">Menu1 (submenu1)</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1001</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1001001</Col>
+            <Col id="lev">2</Col>
+            <Col id="UserData">Menu1 (submenu1) menu1</Col>
+            <Col id="Caption">Menu1 (submenu1) menu1</Col>
+            <Col id="enable">1</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Menu1 (submenu2)</Col>
+            <Col id="Caption">Menu1 (submenu2)</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey">Alt+K</Col>
+            <Col id="idx">1002</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Menu1 (submenu3)</Col>
+            <Col id="Caption">Menu1 (submenu3)</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1003</Col>
+          </Row>
+          <Row>
+            <Col id="idx">2000</Col>
+            <Col id="lev">0</Col>
+            <Col id="UserData">Menu2</Col>
+            <Col id="Caption">Menu2</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey"/>
+          </Row>
+          <Row>
+            <Col id="idx">2001</Col>
+            <Col id="lev">1</Col>
+            <Col id="UserData">Menu2 submenu1)</Col>
+            <Col id="Caption">Menu2 submenu1)</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey"/>
+          </Row>
+          <Row>
+            <Col id="idx">2002</Col>
+            <Col id="lev">1</Col>
+            <Col id="UserData">Menu2 (submenu2)</Col>
+            <Col id="Caption">Menu2 (submenu2)</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey">Alt+K</Col>
+          </Row>
+          <Row>
+            <Col id="idx">2003</Col>
+            <Col id="lev">1</Col>
+            <Col id="UserData">Menu2 (submenu3)</Col>
+            <Col id="Caption">Menu2 (submenu3)</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var nX = system.clientToScreenX(obj, 0);
+	var nY = system.clientToScreenY(obj, obj.getOffsetHeight());
+	this.pMenu.trackPopup(nX, nY);
+}
+  ]]></Script>
+  </Form>
+</FDL>

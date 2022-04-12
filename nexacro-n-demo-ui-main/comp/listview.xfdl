@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="1470" onload="form_onload">
+    <Layouts>
+      <Layout height="1470" width="440">
+        <Static id="Static01" taborder="1" text="ListView" left="20" top="20" width="121" height="40" messageid="comp.listview" fittocontents="width" cssclass="sta_WF_pageTitle"/>
+        <ListView id="ListView00" taborder="1" left="20" top="80" binddataset="dsList" right="20" useselcolor="false" bandexpandtype="accordion" bandinitstatus="collapse" formatid="default" onbandstatuschanged="ListView00_onbandstatuschanged" scrollbartype="fixed" bottom="20" scrollbarsize="0" cssclass="lstv_WF_compListview">
+          <Formats>
+            <Format id="default">
+              <Band id="body" width="100%" height="450" expandbartype="true" expandbarsize="50 20">
+                <Cell id="Cell00" left="10" top="10" height="30" text="bind:title_long" right="10" font="normal 16px/normal &quot;Noto Sans KR Bold&quot;"/>
+                <Cell id="Cell01" left="10" top="44" height="400" right="10" displaytype="imagecontrol" text="bind:large_cover_image" imagestretch="fixaspectratio"/>
+              </Band>
+              <Band id="detail" width="100%" height="500">
+                <Cell id="Cell00" left="20" top="17" width="100" height="30" text="Year" font="14px/normal &quot;Noto Sans KR Bold&quot;"/>
+                <Cell id="Cell01" left="140" top="17" width="100" height="30" text="bind:year"/>
+                <Cell id="Cell02" left="20" top="51" width="100" height="30" text="Rating" font="14px/normal &quot;Noto Sans KR Bold&quot;"/>
+                <Cell id="Cell03" left="140" top="51" width="100" height="30" text="bind:rating"/>
+                <Cell id="Cell04" left="20" top="85" width="100" height="30" text="Running Time" font="14px/normal &quot;Noto Sans KR Bold&quot;"/>
+                <Cell id="Cell05" left="140" top="85" width="100" height="30" text="bind:runtime"/>
+                <Cell id="Cell06" left="20" top="150" height="215" text="bind:summary" right="0" wordWrap="english"/>
+                <Cell id="Cell07" left="20" top="119" width="100" height="30" text="Summary" font="14px/normal &quot;Noto Sans KR Bold&quot;"/>
+              </Band>
+            </Format>
+            <Format id="large">
+              <Band id="body" width="100%" height="200" expandbartype="true" expandbarsize="50 20">
+                <Cell id="Cell00" left="165" top="20" height="30" text="bind:title" font="normal 16px/normal &quot;Noto Sans KR Bold&quot;" right="10"/>
+                <Cell id="Cell01" left="20" top="14" height="170" displaytype="imagecontrol" text="bind:medium_cover_image" imagestretch="fixaspectratio" width="120"/>
+                <Cell id="Cell02" left="165" top="59" width="100" height="30" text="Year" font="14px/normal &quot;Noto Sans KR Bold&quot;"/>
+                <Cell id="Cell03" left="286" top="59" width="100" height="30" text="bind:year"/>
+                <Cell id="Cell04" left="165" top="93" width="100" height="30" text="Rating" font="14px/normal &quot;Noto Sans KR Bold&quot;"/>
+                <Cell id="Cell05" left="286" top="93" width="100" height="30" text="bind:rating"/>
+                <Cell id="Cell06" left="165" top="127" width="100" height="30" text="Running Time" font="14px/normal &quot;Noto Sans KR Bold&quot;"/>
+                <Cell id="Cell07" left="286" top="127" width="100" height="30" text="bind:runtime"/>
+              </Band>
+              <Band id="detail" width="100%" height="150">
+                <Cell id="Cell06" left="25" top="45" text="bind:summary" right="25" wordWrap="english" bottom="20"/>
+                <Cell id="Cell07" left="25" top="20" width="100" height="30" text="Summary" font="14px/normal &quot;Noto Sans KR Bold&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </ListView>
+      </Layout>
+      <Layout name="large" width="920" height="720">
+        <ListView id="ListView00" formatid="large" cssclass="lstv_WF_compListview"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsList">
+        <ColumnInfo>
+          <Column id="title" type="STRING" size="256"/>
+          <Column id="title_long" type="STRING" size="256"/>
+          <Column id="year" type="STRING" size="256"/>
+          <Column id="rating" type="STRING" size="256"/>
+          <Column id="runtime" type="STRING" size="256"/>
+          <Column id="summary" type="STRING" size="256"/>
+          <Column id="small_cover_image" type="STRING" size="256"/>
+          <Column id="medium_cover_image" type="STRING" size="256"/>
+          <Column id="large_cover_image" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="title">Avengers: Infinity War</Col>
+            <Col id="title_long">Avengers: Infinity War (2018)</Col>
+            <Col id="year">2018</Col>
+            <Col id="rating">8.4</Col>
+            <Col id="runtime">149</Col>
+            <Col id="summary">As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment, the fate of Earth and existence has never been more uncertain.</Col>
+            <Col id="medium_cover_image">imagerc::movies/avengers_infinity_war_2018/medium-cover.jpg</Col>
+            <Col id="large_cover_image">imagerc::movies/avengers_infinity_war_2018/large-cover.jpg</Col>
+            <Col id="small_cover_image">imagerc::movies/avengers_infinity_war_2018/small-cover.jpg</Col>
+          </Row>
+          <Row>
+            <Col id="title">Black Panther</Col>
+            <Col id="title_long">Black Panther (2018)</Col>
+            <Col id="year">2018</Col>
+            <Col id="rating">7.3</Col>
+            <Col id="runtime">134</Col>
+            <Col id="summary">After the events of Captain America: Civil War, Prince T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new king. However, T'Challa soon finds that he is challenged for the throne from factions within his own country. When two foes conspire to destroy Wakanda, the hero known as Black Panther must team up with C.I.A. agent Everett K. Ross and members of the Dora Milaje, Wakandan special forces, to prevent Wakanda from being dragged into a world war.</Col>
+            <Col id="medium_cover_image">imagerc::movies/black_panther_2018/medium-cover.jpg</Col>
+            <Col id="large_cover_image">imagerc::movies/black_panther_2018/large-cover.jpg</Col>
+            <Col id="small_cover_image">imagerc::movies/black_panther_2018/small-cover.jpg</Col>
+          </Row>
+          <Row>
+            <Col id="title">Deadpool 2</Col>
+            <Col id="title_long">Deadpool 2 (2018)</Col>
+            <Col id="year">2018</Col>
+            <Col id="rating">7.7</Col>
+            <Col id="runtime">119</Col>
+            <Col id="summary">After losing Vanessa (Morena Baccarin), the love of his life, 4th-wall breaking mercenary Wade Wilson aka Deadpool (Ryan Reynolds) must assemble a team and protect a young, full-figured mutant Russell Collins aka Firefist (Julian Dennison) from Cable (Josh Brolin), a no-nonsense, dangerous cyborg from the future, and must also learn the most important lesson of all: to be part of a family again.</Col>
+            <Col id="medium_cover_image">imagerc::movies/deadpool_2_2018/medium-cover.jpg</Col>
+            <Col id="large_cover_image">imagerc::movies/deadpool_2_2018/large-cover.jpg</Col>
+            <Col id="small_cover_image">imagerc::movies/deadpool_2_2018/small-cover.jpg</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.ListView00_onbandstatuschanged = function(obj:nexacro.ListView,e:nexacro.ListViewBandStatusEventInfo)
+{
+	var top = obj.getOffsetTop(),
+		height = 0,
+		body_height = Number(obj.getBandProperty("body", "height")),
+		detail_height = Number(obj.getBandProperty("detail", "height"));
+	
+	for (var row = 0, len = obj.getBindDataset().rowcount; row < len; row++) {
+		height += body_height + (obj.getBandExpandStatus(row)?detail_height:0);
+	}
+	
+	this.set_height(top+height+20);
+	
+	if (e.bandstatus == "expand") {
+		obj.showDetailBand(e.row);
+	} else {
+		obj.hideDetailBand(e.row);
+	}
+	
+	this.resetScroll();
+	
+	this.parent.parent["mainPageOnLoad"].call(this.parent.parent, this.height);
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="mainPotal" classname="mainPotal" inheritanceid="" left="0" top="0" width="1280" height="1090" titletext="Main" ontimer="mainPotal_ontimer" style="background:white;" onload="mainPotal_onload" onbeforeclose="mainPotal_onbeforeclose">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="8" text="English : http://docs.tobesoft.com/nexacro_technical_note_en &#13;&#10;&#13;&#10;Korean  : http://docs.tobesoft.com/nexacro_technical_note_ko" left="65" top="500" width="660" height="115" wordwrap="false" cssclass="sta_WF_subContentsP"/>
+        <Static id="Static07" taborder="0" cssclass="static_WF_subtitle" left="65" top="36" width="660" height="40" text="Manual Contents"/>
+        <Static id="Static00" taborder="1" cssclass="static_WF_subtitle" left="65" top="240" width="660" height="40" style="font:bold 9 Dotum;"/>
+        <Static id="Static01" taborder="2" cssclass="static_WF_subtitle" left="65" top="445" width="660" height="40" style="font:bold 9 Dotum;"/>
+        <Static id="Static02" taborder="3" cssclass="static_WF_subtitle" left="65" top="665" width="660" height="40" style="font:bold 9 Dotum;"/>
+        <Static id="Static03" taborder="4" cssclass="static_WF_subtitle" left="65" top="830" width="660" height="40" style="font:bold 9 Dotum;"/>
+        <Button id="btnEnglish" taborder="5" text="Execute" left="470" top="494" width="94" height="30" onclick="btnEnglish_onclick" style="background:URL('theme://Images\btn_WF_sing_D.png') stretch 5,5;" cssclass="button_WF_execute"/>
+        <Button id="BtnKorea" taborder="6" text="Execute" left="470" top="530" width="94" height="30" onclick="BtnKorea_onclick" style="background:URL('theme://Images\btn_WF_sing_D.png') stretch 5,5;" cssclass="button_WF_execute"/>
+        <Static id="Static06" taborder="9" left="65" top="720" width="480" height="60" wordwrap="false" cssclass="sta_WF_subContentsP" fittocontents="width"/>
+        <Static id="Static08" taborder="10" left="65" top="885" width="480" height="60" wordwrap="false" cssclass="sta_WF_subContentsP" fittocontents="width"/>
+        <Static id="Static04" taborder="11" left="65" top="90" width="660" height="100" cssclass="sta_WF_subContentsP"/>
+        <Static id="Static09" taborder="12" wordwrap="false" left="65" top="295" width="660" height="100" style="color:#222222ff;" cssclass="sta_WF_subContentsP"/>
+        <Button id="BtnDownload" taborder="13" text="Execute" left="Static06:10" top="712" width="94" height="30" onclick="BtnDownload_onclick" style="background:URL('theme://Images\btn_WF_sing_D.png') stretch 5,5;" cssclass="button_WF_execute"/>
+        <Static id="Static10" taborder="14" wordwrap="false" left="65" top="994" width="660" height="20"/>
+        <Button id="BtnRun" taborder="7" text="Execute" left="Static08:10" top="879" width="94" height="30" onclick="BtnRun_onclick" style="background:URL('theme://Images\btn_WF_sing_D.png') stretch 5,5;" cssclass="button_WF_execute"/>
+        <Static id="Static13" taborder="15" text="50px" left="0" top="189" width="1280" height="50" background="aqua" visible="false"/>
+        <Static id="Static14" taborder="16" text="15px" left="0" top="75" width="1280" height="15" background="aqua" visible="false"/>
+        <Static id="stBottomGap" taborder="17" left="0" top="Static10:0" height="19" right="0"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item0" compid="Static07" propid="text" datasetid="gds_Nations" columnid="Manual_Contents"/>
+      <BindItem id="item1" compid="Static04" propid="text" datasetid="gds_Nations" columnid="Manual_Contents_Dtl"/>
+      <BindItem id="item2" compid="Static00" propid="text" datasetid="gds_Nations" columnid="Reference"/>
+      <BindItem id="item3" compid="Static09" propid="text" datasetid="gds_Nations" columnid="Reference_Dtl"/>
+      <BindItem id="item4" compid="Static01" propid="text" datasetid="gds_Nations" columnid="URL_Address"/>
+      <BindItem id="item5" compid="Static02" propid="text" datasetid="gds_Nations" columnid="Source_Location"/>
+      <BindItem id="item6" compid="Static06" propid="text" datasetid="gds_Nations" columnid="Source_Location_Dtl"/>
+      <BindItem id="item7" compid="Static03" propid="text" datasetid="gds_Nations" columnid="Running_Directly"/>
+      <BindItem id="item8" compid="Static08" propid="text" datasetid="gds_Nations" columnid="Running_Directly_Dtl"/>
+      <BindItem id="item9" compid="Static10" propid="text" datasetid="gds_Nations" columnid="Etc"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[var objApp = nexacro.getApplication() ;
+
+this.mainPotal_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+  
+}
+
+this.btnEnglish_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://docs.tobesoft.com/nexacro_technical_note_en");
+}
+ 
+this.BtnKorea_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://docs.tobesoft.com/nexacro_technical_note_ko");
+}
+
+this.BtnRun_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{   
+	system.execBrowser(objApp.gv_Domain + "/Next_JSP/V17/Showcase/index.jsp");
+}
+
+this.BtnDownload_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser(objApp.gv_Domain + "/Next_JSP/V17/Showcase_source/V17_Showcase.zip");
+}
+     
+this.mainPotal_onbeforeclose = function(obj:Form, e:nexacro.CloseEventInfo)
+{
+	//	return false;
+}]]></Script>
+  </Form>
+</FDL>

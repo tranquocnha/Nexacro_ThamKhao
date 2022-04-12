@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_LunarToSolar" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_LunarToSolar" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="3" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="2" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <MaskEdit id="msk_input" taborder="0" value="20121231" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static07" text="input" position="absolute" left="30" width="60" top="128" height="40"/>
+        <CheckBox id="chk_input" taborder="1" text="leap month" position="absolute" left="90" width="140" top="128" height="40"/>
+        <Static id="Static05" taborder="4" text="Converting Lunar to Solar " cssclass="sta_WF_subtitP" left="30" top="18" width="340" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_LunarToSolar
+ * Description : Converting Lunar to Solar Calander
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_lunarToSolar(this.msk_input.value, this.chk_input.value);	
+	this.edt_output.set_value(sRtn);
+};
+
+/*
+ * Function Name : fn_lunarToSolar
+ * Description   : Convert Lunar to Solar
+ * Parameter     : Date, Intercalation
+ * Return        : Date, Failure null
+ * Example       : fn_lunarToSolar("20121231", true);
+ */
+this.fn_lunarToSolar = function(sDate, bLeap) 
+{
+	var sMd         = "31,0,31,30,31,30,31,31,30,31,30,31";
+	var arrMd       = new Array();	
+	var arrBaseInfo = new Array();
+	var nTd         = 0;
+	var nSy, nSm, nSd;	//Calculating Lunar year, month, variables to store
+	var nY1, nM1, nY2, nY3, nTemp;	// Temporary Variable
+	var nLeap;     
+        
+	var nLy = parseInt(sDate.substr(0,4), 10);
+	var nLm = parseInt(sDate.substr(4,2), 10);
+	var nLd = parseInt(sDate.substr(6,2), 10);	
+
+	if (nLy < 1841 || nLy > 2043)	
+	{
+        return null;
+    }	
+
+	arrBaseInfo = this.fn_solarBase();
+	arrMd       = sMd.split(",");
+    arrMd[1]    = 28;
+    
+    //Check Leap year
+    if ((nLy % 4) == 0) 
+    {
+        if ((nLy % 100) != 0 || (nLy % 400) == 0)
+        { 
+            arrMd[1] = 29;
+        }
+    } 
+		
+	nY1   = nLy - 1841;
+	nM1   = nLm - 1;
+	nLeap = 0;
+	
+	if (parseInt(arrBaseInfo[nY1 * 12 + nM1]) > 2)
+	{
+		//Check Leap year
+        if ((nLy % 4) == 0) 
+        {
+            if ((nLy % 100) != 0 || (nLy % 400) == 0)
+            { 
+                nLeap = 1;
+            }
+        } 
+	}
+	
+	if (nLeap == 1)
+	{
+		switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+		{
+			case 3 : nTemp = 29;
+					 break;
+			case 4 : nTemp = 30;
+					 break;			
+			case 5 : nTemp = 29;
+					 break;			
+			case 6 : nTemp = 30;
+					 break;
+		}
+	}
+	else
+	{
+		switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+		{
+			case 1 : nTemp = 29;
+					 break;			
+			case 2 : nTemp = 30;
+					 break;			
+			case 3 : nTemp = 29;
+					 break;			
+			case 4 : nTemp = 29;
+					 break;			
+			case 5 : nTemp = 30;
+					 break;			
+			case 6 : nTemp = 30;
+					 break;			
+		}
+	}
+	
+	for (var i = 0; i <= nY1 - 1; i++)
+	{
+		for (var j = 0; j <= 11; j++)
+		{
+			switch (parseInt(arrBaseInfo[i * 12 + j]))
+			{
+				case 1 : nTd = nTd + 29;
+						 break;
+				case 2 : nTd = nTd + 30;
+						 break;				
+				case 3 : nTd = nTd + 58;
+						 break;				
+				case 4 : nTd = nTd + 59;
+						 break;				
+				case 5 : nTd = nTd + 59;
+						 break;				
+				case 6 : nTd = nTd + 60;
+						 break;				
+			}
+		}
+	}
+
+	for (var j = 0; j <= nM1 - 1; j++)
+	{
+		switch (parseInt(arrBaseInfo[nY1 * 12 + j]))
+		{
+			case 1 : nTd = nTd + 29;
+					 break;			
+			case 2 : nTd = nTd + 30;
+					 break;						
+			case 3 : nTd = nTd + 58;
+					 break;						
+			case 4 : nTd = nTd + 59;
+					 break;						
+			case 5 : nTd = nTd + 59;
+					 break;						
+			case 6 : nTd = nTd + 60;
+					 break;						
+		}
+	}
+
+	if (nLeap == 1)
+	{
+		switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+		{
+			case 3 : nTemp = 29;
+					 break;						
+			case 4 : nTemp = 29;
+					 break;						
+			case 5 : nTemp = 30;
+					 break;						
+			case 6 : nTemp = 30;
+					 break;						
+		}
+	}
+	
+	nTd = nTd + nLd + 22;
+	
+	if (bLeap)
+	{
+		switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+		{
+			case 3 : nTd = nTd + 29;
+					 break;						
+			case 4 : nTd = nTd + 30;
+					 break;						
+			case 5 : nTd = nTd + 29;
+					 break;						
+			case 6 : nTd = nTd + 30;
+					 break;						
+		}
+	}
+	
+	nY1 = 1840;
+	do
+	{
+		nY1 = nY1 + 1;
+        
+        nLeap = 0;
+        
+		//Check Leap year
+        if ((nY1 % 4) == 0) 
+        {
+            if ((nY1 % 100) != 0 || (nY1 % 400) == 0)
+            { 
+                nLeap = 1;
+            }
+        } 
+
+		if (nLeap == 1)
+		{
+			nY2 = 366;
+		}
+		else
+		{
+			nY2 = 365;
+		}
+
+		if( nTd <= nY2 )
+		{
+			break;
+		}
+			
+		nTd = nTd - nY2;
+	}
+	while(1);
+
+	nSy      = nY1;
+	arrMd[1] = nY2 - 337;
+	nM1      = 0;
+	
+	do
+	{
+		nM1 = nM1 + 1;
+		if (nTd <= parseInt(arrMd[nM1-1]))
+		{
+			break;
+		}
+		nTd = nTd - parseInt(arrMd[nM1-1]);
+	}
+	while(1);
+	
+	nSm = nM1;
+	nSd = nTd;
+	nY3 = nSy;
+	nTd = nY3 * 365 + parseInt(nY3/4) - parseInt(nY3/100) + parseInt(nY3/400);
+	
+	for (var i = 0; i <= nSm - 1; i++)
+	{
+		nTd = nTd + parseInt(arrMd[i]);
+	}
+
+	nTd = nTd + nSd;
+
+    var sRtn = nY3; 
+    sRtn = sRtn + nSm.toString().padLeft(2, "0"); 
+    sRtn = sRtn + nSd.toString().padLeft(2, "0");    
+
+	return sRtn;	
+};
+
+/*
+ * Function Name : fn_solarBase
+ * Description   : Each month Lunar calender based information processing function(Processing Period  1841 - 2043 Year)
+ * Parameter     : 
+ * Return        : Lunar Calender Based Information
+ * Example       : fn_solarBase();
+ */
+this.fn_solarBase = function()
+{
+	var sBase;
+	
+	//1841
+	sBase = "1,2,4,1,1,2,1,2,1,2,2,1,";
+	sBase += "2,2,1,2,1,1,2,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,4,1,2,1,2,1,";
+	sBase += "2,2,1,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,2,1,5,2,1,2,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,3,2,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+	//1851
+	sBase += "2,2,1,2,1,1,2,1,2,1,5,2,";
+	sBase += "2,1,2,2,1,1,2,1,2,1,1,2,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,5,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,2,1,2,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,5,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+	sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+	sBase += "2,1,6,1,1,2,1,1,2,1,2,2,";
+	//1861
+	sBase += "1,2,2,1,2,1,2,1,2,1,1,2,";
+	sBase += "2,1,2,1,2,2,1,2,2,3,1,2,";
+	sBase += "1,2,2,1,2,1,2,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,4,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,1,1,2,2,1,2,2,2,";
+	sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+	sBase += "1,2,2,3,2,1,1,2,1,2,2,1,";
+	sBase += "2,2,2,1,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,2,1,1,5,2,1,";
+	//1871
+	sBase += "2,2,1,2,2,1,2,1,2,1,1,2,";
+	sBase += "1,2,1,2,2,1,2,1,2,2,1,2,";
+	sBase += "1,1,2,1,2,4,2,1,2,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+	sBase += "2,2,1,1,5,1,2,1,2,2,1,2,";
+	sBase += "2,2,1,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,4,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,1,2,2,1,2,2,1,2,1,1,2,";
+	//1881
+	sBase += "1,2,1,2,1,2,5,2,2,1,2,1,";
+	sBase += "1,2,1,2,1,2,1,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+	sBase += "2,1,1,2,3,2,1,2,2,1,2,2,";
+	sBase += "2,1,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,5,2,1,1,2,1,2,1,2,";
+	sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,5,2,1,2,2,1,2,1,2,1,2,";
+	//1891
+	sBase += "1,2,1,2,1,2,1,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,5,2,2,1,2,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,5,1,2,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,5,2,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,2,1,2,1,2,2,1,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,5,2,2,1,2,";
+	//1901
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,3,2,1,1,2,2,1,2,";
+	sBase += "2,2,1,2,1,1,2,1,1,2,2,1,";
+	sBase += "2,2,1,2,2,1,1,2,1,2,1,2,";
+	sBase += "1,2,2,4,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,1,1,2,2,1,2,1,2,2,1,2,";
+	sBase += "1,5,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	//1911
+	sBase += "2,1,2,1,1,5,1,2,2,1,2,2,";
+	sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+	sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+	sBase += "2,2,1,2,5,1,2,1,2,1,1,2,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,3,2,1,2,2,1,2,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,5,2,2,1,2,2,";
+	sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+	//1921
+	sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+	sBase += "2,1,2,2,3,2,1,1,2,1,2,2,";
+	sBase += "1,2,2,1,2,1,2,1,2,1,1,2,";
+	sBase += "2,1,2,1,2,2,1,2,1,2,1,1,";
+	sBase += "2,1,2,5,2,1,2,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+	sBase += "1,5,1,2,1,1,2,2,1,2,2,2,";
+	sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+	sBase += "1,2,2,1,1,5,1,2,1,2,2,1,";
+	//1931
+	sBase += "2,2,2,1,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,2,1,1,2,1,2,";
+	sBase += "1,2,2,1,6,1,2,1,2,1,1,2,";
+	sBase += "1,2,1,2,2,1,2,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,4,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+	sBase += "2,2,1,1,2,1,4,1,2,2,1,2,";
+	sBase += "2,2,1,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+	//1941
+	sBase += "2,2,1,2,2,4,1,1,2,1,2,1,";
+	sBase += "2,1,2,2,1,2,2,1,2,1,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,2,1,2,";
+	sBase += "1,1,2,4,1,2,1,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,1,2,";
+	sBase += "2,5,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,3,2,1,2,1,2,";
+	sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+	//1951
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,4,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,1,2,2,1,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,1,2,2,";
+	sBase += "2,1,4,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,5,2,1,2,2,";
+	sBase += "1,2,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,2,1,2,5,2,1,2,1,2,1,";
+	//1961
+	sBase += "2,1,2,1,2,1,2,2,1,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,2,3,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,1,2,2,1,";
+	sBase += "2,2,5,2,1,1,2,1,1,2,2,1,";
+	sBase += "2,2,1,2,2,1,1,2,1,2,1,2,";
+	sBase += "1,2,2,1,2,1,5,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,1,1,2,2,1,2,1,2,2,1,2,";
+	//1971
+	sBase += "1,2,1,1,5,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,1,2,2,2,1,";
+	sBase += "2,2,1,5,1,2,1,1,2,2,1,2,";
+	sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,5,2,1,1,2,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,1,";
+	sBase += "2,2,1,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,1,1,2,1,6,1,2,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+	//1981
+	sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+	sBase += "2,1,2,3,2,1,1,2,2,1,2,2,";
+	sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+	sBase += "2,1,2,2,1,1,2,1,1,5,2,2,";
+	sBase += "1,2,2,1,2,1,2,1,1,2,1,2,";
+	sBase += "1,2,2,1,2,2,1,2,1,2,1,1,";
+	sBase += "2,1,2,2,1,5,2,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+	sBase += "1,2,1,1,5,1,2,1,2,2,2,2,";
+	//1991
+	sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+	sBase += "1,2,2,1,1,2,1,1,2,1,2,2,";
+	sBase += "1,2,5,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,2,1,1,2,1,2,";
+	sBase += "1,2,2,1,2,2,1,5,2,1,1,2,";
+	sBase += "1,2,1,2,2,1,2,1,2,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,3,2,2,1,2,2,2,1,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+	sBase += "2,2,1,1,2,1,1,2,1,2,2,1,";
+	//2001
+	sBase += "2,2,2,3,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,1,2,2,1,2,1,1,2,1,2,";
+	sBase += "1,5,2,2,1,2,1,2,2,1,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,2,1,2,";
+	sBase += "1,1,2,1,2,1,5,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,1,2,";
+	sBase += "2,2,1,1,5,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+	//2011
+	sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,1,6,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,1,2,5,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,1,2,2,";
+	sBase += "2,1,1,2,3,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,1,2,5,2,1,1,2,1,2,1,2,";
+	//2021
+	sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,2,1,2,2,1,2,1,2,1,2,";
+	sBase += "1,5,2,1,2,1,2,2,1,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,2,1,1,5,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,1,2,2,2,";
+	sBase += "1,2,2,1,5,1,2,1,1,2,2,1,";
+	sBase += "2,2,1,2,2,1,1,2,1,1,2,2,";
+	sBase += "1,2,1,2,2,1,2,1,2,1,2,1,";
+	//2031
+	sBase += "2,1,5,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,2,1,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,5,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+	sBase += "2,2,1,2,1,4,1,1,2,1,2,2,";
+	sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,2,1,1,2,1,";
+	sBase += "2,2,1,2,5,2,1,2,1,2,1,1,";
+	sBase += "2,1,2,2,1,2,2,1,2,1,2,1,";
+	//2041
+	sBase += "2,1,1,2,1,2,2,1,2,2,1,2,";
+	sBase += "1,5,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,1,2,2,1,2,2";
+	
+	var arrBase = new Array();
+	arrBase = sBase.split(",");
+	
+	return arrBase;
+};]]></Script>
+  </Form>
+</FDL>

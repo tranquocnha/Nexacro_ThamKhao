@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_DomParser" classname="np_DomParser" left="0" top="0" width="760" height="510" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Display Node list" left="401" top="65" height="34" onclick="Button00_onclick" width="170" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <TextArea id="TextArea00" taborder="1" left="30" top="65" height="375" value="&lt;Dataset id=&quot;ds&quot;&gt;&#13;&#10;  &lt;ColumnInfo&gt;&#13;&#10;    &lt;Column id=&quot;col1&quot; size=&quot;255&quot; type=&quot;STRING&quot;/&gt;&#13;&#10;    &lt;Column id=&quot;col2&quot; size=&quot;255&quot; type=&quot;STRING&quot;/&gt;&#13;&#10;  &lt;/ColumnInfo&gt;&#13;&#10;  &lt;Rows&gt;&#13;&#10;    &lt;Row&gt;&#13;&#10;      &lt;Col id=&quot;col1&quot;&gt;a&lt;/Col&gt;&#13;&#10;      &lt;Col id=&quot;col2&quot;&gt;b&lt;/Col&gt;&#13;&#10;    &lt;/Row&gt;&#13;&#10;    &lt;Row&gt;&#13;&#10;      &lt;Col id=&quot;col1&quot;&gt;c&lt;/Col&gt;&#13;&#10;      &lt;Col id=&quot;col2&quot;&gt;d&lt;/Col&gt;&#13;&#10;    &lt;/Row&gt;&#13;&#10;  &lt;/Rows&gt;&#13;&#10;&lt;/Dataset&gt;" width="361"/>
+        <TextArea id="TextArea01" taborder="2" left="401" top="109" height="331" readonly="true" width="350"/>
+        <Static id="Static05" taborder="3" text="This sample shows DomParser, we can find node lists and their values" cssclass="sta_WF_explain" left="30" top="25" height="30" width="500"/>
+        <Button id="Button01" taborder="4" text="Get Node values" left="581" top="65" height="34" onclick="Button01_onclick" width="170"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var domDoc;
+	var domPar = new DomParser;
+	
+	trace("domPar >> "  +domPar);
+	
+	domDoc = domPar.parseFromString(this.TextArea00.value);
+
+
+	var domElement1, domElement2;  
+	var i, j;
+	var msg="";
+	for( i = 0 ; i < domDoc.childNodes.length ; i++ )
+	{
+		domElement1 = domDoc.childNodes[i];
+		msg += "Node1["+i+"] = " + domElement1.nodeName + "\n";
+		for( j = 0 ; j < domElement1.childNodes.length ; j++ )
+		{
+			domElement2 = domElement1.childNodes[j];
+			msg += "    Node2["+j+"] = " + domElement2.nodeName + "\n";			
+		}
+	}  
+	this.TextArea01.set_value(msg);
+
+
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// Parsing
+	var domDoc;
+	var domPar = new DomParser;
+	domDoc = domPar.parseFromString(this.TextArea00.value);
+
+	// Find Node value
+	var domElement;  
+	var msg="";
+	
+	domElement = domDoc.getElementsByTagName("Dataset");
+	msg += "Dataset TAG's id value = " + domElement[0].getAttribute("id") + "\n";
+	
+	domElement = domDoc.getElementsByTagName("Column");
+	msg += "First column Column TAG's id value = " + domElement[0].getAttribute("id") + "\n";
+	msg += "Second Column TAG's id value = " + domElement[1].getAttribute("id");
+			  
+	this.TextArea01.set_value(msg);
+};
+]]></Script>
+  </Form>
+</FDL>

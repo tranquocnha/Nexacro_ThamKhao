@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE001" inheritanceid="" position="absolute" titletext="SHUTTLE" onbeforeclose="form_onbeforeclose" onload="form_onload" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Button id="btn_Save" taborder="3" text="domain.save" position="absolute" style="font:dotum,8, bold;" onclick="btn_Save_onclick" userdata="A:T;" top="42" height="23" cssclass="btn_module" right="15" width="42"/>
+        <Grid id="grd_Board" taborder="1" binddataset="ds_GrdLeft" autoenter="select" useinputpanel="false" selecttype="multirow" cellsizingtype="col" autofittype="col" nodatatext="There is no inquiry data." onrbuttonup="divGrd_grdCategory_onrbuttonup" style="align:center middle;font:dotum,9;" fillareatype="none" userdata="R:0,0,50,100;" position="absolute" left="15" width="474" top="70" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="424"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.community.name"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="none" style="align:left;" text="bind:COMMUNITY_NAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_Board00" taborder="1" binddataset="ds_GrdRight" autoenter="select" useinputpanel="false" selecttype="multirow" cellsizingtype="col" autofittype="col" nodatatext="There is no inquiry data." onrbuttonup="divGrd_grdCategory_onrbuttonup" style="align:center middle;font:dotum,9;" userdata="R:50,0,50,100;" position="absolute" left="537" top="70" bottom="10" right="15">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="424"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.community.name"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="none" style="align:left;" text="bind:COMMUNITY_NAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_ToRight" taborder="1" userdata="A:U;R:50,50,0,0;" onclick="btn_ToRight_onclick" position="absolute" left="497" width="32" top="286" height="30" cssclass="btn_WFDA_shuttleR"/>
+        <Button id="btn_ToLeft" taborder="1" userdata="A:U;R:50,50,0,0;" onclick="btn_ToLeft_onclick" position="absolute" left="497" width="32" top="326" height="30" cssclass="btn_WFDA_shuttleL"/>
+        <Static id="Static42" taborder="4" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="5" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="6" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="7" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="8" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="10" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="st_Title" text="domain.board.list" position="absolute" left="15" width="204" top="38" height="22" cssclass="sta_WF_title"/>
+        <Static id="Static05" taborder="11" text="8" visible="false" left="529" top="334" width="8" height="50" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static04" taborder="12" text="8" visible="false" left="489" top="286" width="8" height="50" style="background:blueviolet;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdLeft" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COMMUNITY_ID" type="string" size="16"/>
+          <Column id="COMMUNITY_NAME" type="string" size="150"/>
+          <Column id="COMMUNITY_DESC" type="string" size="300"/>
+          <Column id="CATEGORY_ID" type="string" size="16"/>
+          <Column id="REG_ID" type="string" size="20"/>
+          <Column id="REG_DATE" type="date" size="0"/>
+          <Column id="UPDATE_YN" type="string" size="0"/>
+          <Column id="USERID" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COMMUNITY_ID">COMMUNITY-0012</Col>
+            <Col id="COMMUNITY_NAME">Create a computer</Col>
+            <Col id="COMMUNITY_DESC"/>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="REG_ID">hong80</Col>
+            <Col id="REG_DATE">20090805</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID">COMMUNITY-0005</Col>
+            <Col id="COMMUNITY_NAME">Spring Framework User Groups</Col>
+            <Col id="COMMUNITY_DESC">Spring Framework users gathering.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="REG_ID">howrock</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdRight" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COMMUNITY_ID" type="string" size="16"/>
+          <Column id="COMMUNITY_NAME" type="string" size="150"/>
+          <Column id="COMMUNITY_DESC" type="string" size="300"/>
+          <Column id="CATEGORY_ID" type="string" size="16"/>
+          <Column id="REG_ID" type="string" size="20"/>
+          <Column id="REG_DATE" type="date" size="0"/>
+          <Column id="UPDATE_YN" type="string" size="0"/>
+          <Column id="USERID" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COMMUNITY_ID">COMMUNITY-0011</Col>
+            <Col id="COMMUNITY_NAME">Naver</Col>
+            <Col id="COMMUNITY_DESC">This is community for car pool.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">eugene</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID">COMMUNITY-0010</Col>
+            <Col id="COMMUNITY_NAME">Daum</Col>
+            <Col id="COMMUNITY_DESC">We can share national petrol station oil price information.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">babopack</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work screen template
+ * 02. Screen name   : TEMPLATE006.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created buy   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modified date     Modified by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+// include "lib::lib_Resize.xjs";
+/***********************************************************************
+ * Display variable declaration section
+ ************************************************************************/
+this.argLeft = "CATEGORY-0001";
+this.argRight = "CATEGORY-0002";
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+// Initializing Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality processing Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Left Right Grid Data Search
+	this.ds_Result.clearData();
+	this.fn_SearchLeft();
+	this.fn_SearchRight();
+}
+
+// Form beforeclose Event Processing
+// Before closing the form, here is popup creation to ask if there is modified data, creating popup
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Result)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+}
+
+// Event processing on Save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	return;
+	if (this.gfn_DsGetUpdated(this.ds_Result) == false) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+	this.fn_Save();
+}
+
+this.btn_ToRight_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// After deleting the selected row, copy the content to the Right Grid DataSet 
+	if (this.gfn_isNull(this.ds_GrdLeft.getColumn(this.ds_GrdLeft.rowposition, "COMMUNITY_ID"))) 
+	{
+		this.gfn_Alert("err.grid.noselect", "warning");
+	}
+	else 
+	{
+		var nRow = this.ds_Result.findRow("COMMUNITY_ID", this.ds_GrdLeft.getColumn(this.ds_GrdLeft.rowposition, "COMMUNITY_ID"));
+		var nLastRow = this.ds_GrdRight.addRow();
+
+		this.ds_GrdRight.copyRow(nLastRow, this.ds_GrdLeft, this.ds_GrdLeft.rowposition);
+		this.ds_GrdRight.setColumn(nLastRow, "CATEGORY_ID", this.argRight);
+
+		this.ds_GrdLeft.deleteRow(this.ds_GrdLeft.rowposition);
+
+		this.ds_Result.setColumn(nRow, "CATEGORY_ID", this.argRight);
+	}
+}
+
+this.btn_ToLeft_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// After deleting the selected row, copy the content to the Left Grid DataSet 
+	if (this.gfn_isNull(this.ds_GrdRight.getColumn(this.ds_GrdRight.rowposition, "COMMUNITY_ID"))) 
+	{
+		this.gfn_Alert("err.grid.noselect", "warning");
+	}
+	else 
+	{
+		var nRow = this.ds_Result.findRow("COMMUNITY_ID", this.ds_GrdRight.getColumn(this.ds_GrdRight.rowposition, "COMMUNITY_ID"));
+		var nLastRow = this.ds_GrdLeft.addRow();
+		this.ds_GrdLeft.copyRow(nLastRow, this.ds_GrdRight, this.ds_GrdRight.rowposition);
+		this.ds_GrdLeft.setColumn(nLastRow, "CATEGORY_ID", this.argLeft);
+		this.ds_GrdLeft.setColumn(nLastRow, "UPDATE_YN", "update");
+
+		this.ds_GrdRight.deleteRow(this.ds_GrdRight.rowposition);
+
+		this.ds_Result.setColumn(nRow, "CATEGORY_ID", this.argLeft);
+	}
+}
+
+/***********************************************************************
+ * User defined function
+ ************************************************************************/
+// Inquiry processing
+this.fn_SearchRight = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListCommunityRight";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "CATEGORY_ID=" + this.argRight + " ";
+	sArgument += "querySet1='findXPCommunityListByCategory'";
+
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_GrdRight=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// Inquiry processing
+this.fn_SearchLeft = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListCommunityLeft";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "CATEGORY_ID=" + this.argLeft + " ";
+	sArgument += "querySet1='findXPCommunityListByCategory'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_GrdLeft=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+
+// Save processing
+this.fn_Save = function ()
+{
+	var sArgument = "";
+	var sSvcID = "updateCommunity";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='update'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='updateXPCommunity'";
+
+	var sInDatasets = "querySet1=ds_Result:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// After processing gfnService process callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "updateCommunity":
+			this.gfn_Alert("msg.save.success");
+			this.ds_Result.clearData();
+			this.fn_SearchLeft();
+			this.fn_SearchRight();
+			break;
+		case "getListCommunityLeft":
+			this.ds_Result.appendData(this.ds_GrdLeft, false);
+			break;
+		case "getListCommunityRight":
+			this.ds_Result.appendData(this.ds_GrdRight, false);
+			break;
+		default:
+			break;
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

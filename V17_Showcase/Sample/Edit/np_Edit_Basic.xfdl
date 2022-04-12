@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Edit_Basic" classname="Edit_Basic" inheritanceid="" position="absolute" titletext="Edit Basic" onload="Edit_Basic_onload" left="0" width="760" top="0" height="1230">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Binding" position="absolute" left="30" width="200" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid00" taborder="1" binddataset="Dataset00" autofittype="col" position="absolute" left="30" width="200" top="73" height="150">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+                <Cell col="1" disptype="normal" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+                <Cell col="1" disptype="normal" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Edit id="Edit00" taborder="4" position="absolute" left="240" width="90" top="73" height="40" lengthunit="utf16"/>
+        <Edit id="Edit01" taborder="5" position="absolute" left="240" width="90" top="123" height="40"/>
+        <Edit id="Edit02" taborder="7" position="absolute" password="true" value="1234" left="30" width="200" top="348" height="40"/>
+        <Edit id="Edit06" taborder="11" text="****" position="absolute" maxlength="4" displaynulltext="maxlength = 4" left="440" width="200" top="238" height="40"/>
+        <Edit id="Edit07" taborder="12" position="absolute" lengthunit="ascii" maxlength="4" displaynulltext="ascii" left="440" width="60" top="403" height="40"/>
+        <Edit id="Edit08" taborder="13" text="1234" position="absolute" style="margin:0 0 0 0;padding:0 0 0 0;" autoskip="true" maxlength="4" displaynulltext="maxlength = 4" left="440" width="200" top="568" height="40"/>
+        <Edit id="Edit10" taborder="15" lengthunit="utf8" position="absolute" maxlength="4" displaynulltext="utf8" left="510" width="60" top="403" height="40"/>
+        <Edit id="Edit11" taborder="16" position="absolute" maxlength="4" displaynulltext="utf16" left="580" width="60" top="403" height="40"/>
+        <Edit id="Edit12" taborder="18" maxlength="2" position="absolute" autoskip="true" left="440" width="60" top="73" height="40"/>
+        <Edit id="Edit13" taborder="19" maxlength="3" position="absolute" autoskip="true" left="510" width="60" top="73" height="40"/>
+        <Edit id="Edit14" taborder="20" maxlength="4" position="absolute" autoskip="true" left="580" width="60" top="73" height="40" autoselect="false"/>
+        <Static id="Static03" text="Password Style" position="absolute" left="30" width="200" top="293" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static01" text="Left Margin ==&gt; Padding" position="absolute" left="30" width="350" top="623" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static02" text="auto select" position="absolute" left="30" width="200" top="458" height="40" cssclass="sta_WF_subtitP"/>
+        <Edit id="Edit05" taborder="21" value="1234" text="1234" autoselect="true" position="absolute" style="margin:0 0 0 0; padding:0 0 0 0; " left="30" width="200" top="513" height="40"/>
+        <Edit id="Edit04" taborder="22" value="1234" text="1234" position="absolute" style="margin:0 0 0 0;padding:0 0 0 10;" left="30" width="200" top="678" height="40"/>
+        <Static id="Static04" text="MaxLength" position="absolute" left="440" width="200" top="183" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static06" text="LengthUnit" position="absolute" left="440" width="200" top="348" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static11" text="AutoSkip" position="absolute" left="440" width="200" top="513" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static12" text="MaxLength+AutoSkip" position="absolute" left="440" width="300" top="18" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Edit00" propid="value" datasetid="Dataset00" columnid="Column0"/>
+      <BindItem id="item1" compid="Edit01" propid="value" datasetid="Dataset00" columnid="Column1"/>
+    </Bind>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">AA</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">BB</Col>
+            <Col id="Column1">22</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">CC</Col>
+            <Col id="Column1">333</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Edit_Basic_onload = function (obj:Form, e:LoadEventInfo)
+{
+		this.Static00.set_visible(false);
+		this.Edit03.set_visible(false);
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

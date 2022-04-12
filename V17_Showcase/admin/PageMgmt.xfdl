@@ -1,0 +1,1160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="pageMgmt" inheritanceid="" position="absolute" titletext="Screen registration management " onload="form_onload" onbeforeclose="form_onbeforeclose" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="Static10" taborder="23" cssclass="sta_WFSA_BG" left="30" top="98" right="30" height="50"/>
+        <Static id="Static00" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="202" height="40" cssclass="sta_WFDA_B"/>
+        <Static id="Static01" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="241" height="40" cssclass="sta_WFDA_B"/>
+        <Static id="Static02" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="280" height="40" cssclass="sta_WFDA_B"/>
+        <Static id="Static03" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="319" height="40" cssclass="sta_WFDA_B"/>
+        <Static id="Static04" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="358" height="40" cssclass="sta_WFDA_B"/>
+        <Static id="Static05" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="397" height="146" cssclass="sta_WFDA_B"/>
+        <Static id="Static06" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="542" height="40" cssclass="sta_WFDA_B"/>
+        <Static id="Static07" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="581" height="40" cssclass="sta_WFDA_B"/>
+        <Static id="Static08" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;" right="30" width="280" top="620" height="40" cssclass="sta_WFDA_B"/>
+        <Static id="st_BG" position="absolute" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Static id="st_searchCondition" position="absolute" left="45" width="160" top="106" height="34" text="domain.search.condition"/>
+        <Combo id="cmb_searchCondition" taborder="0" value="0" text="domain.text" codecolumn="codecolumn" datacolumn="datacolumn" index="0" position="absolute" onitemchanged="cmb_searchCondition_onitemchanged" left="205" width="114" top="106" height="34">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">domain.text</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">domain.code</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Edit id="edt_searchKeyword" taborder="1" onkeydown="edt_searchKeyword_onkeydown" position="absolute" left="324" width="134" top="106" height="34" background="#ffffff"/>
+        <Button id="btn_Search00" taborder="2" onclick="btn_Search_onclick" position="absolute" width="70" top="106" height="34" cssclass="button_WF_white" text="Search" left="478"/>
+        <Static id="st_Title" text="domain.page.list" wordwrap="english" position="absolute" left="30" width="204" top="58" height="30" cssclass="sta_WF_title"/>
+        <Grid id="grd_page" taborder="3" binddataset="ds_Page" scrollpixel="default" useinputpanel="false" selecttype="row" autofittype="col" treeuseline="false" treeusecheckbox="false" treeinitstatus="collapse,all" oncelldblclick="grd_TreeCommunity_oncelldblclick" cantreestatuschange="grd_TreeCommunity_cantreestatuschange" position="absolute" cellsizingtype="col" left="30" right="475" top="202" bottom="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="102"/>
+                <Column size="133"/>
+                <Column size="64"/>
+                <Column size="76"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.page.id" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="domain.page.name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="domain.page.type" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="domain.page.extp" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:PAGE_ID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" style="align:left middle;" text="bind:PAGE_NAME" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" displaytype="combo" text="bind:PAGE_TYPE" combodataset="ds_Type" combocodecol="CODE_CD" combodatacol="CODE_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" displaytype="combo" text="bind:PAGE_EXTP" combodataset="ds_ExType" combocodecol="CODE_CD" combodatacol="CODE_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_Insert00" taborder="4" text="domain.add" onclick="btn_Insert_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:I;" right="240" width="100" top="158" height="34" cssclass="button_WF_white"/>
+        <Button id="btn_Delete00" taborder="5" text="domain.delete" onclick="btn_Delete_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:D;" right="135" width="100" top="158" height="34" cssclass="button_WF_gray"/>
+        <Button id="btn_Save" taborder="6" text="domain.save" onclick="btn_Save_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:T;" right="30" width="100" top="158" height="34" cssclass="button_WF_blue"/>
+        <Static id="st_toppage00" text="domain.page.id" position="absolute" right="309" width="156" top="202" height="40" cssclass="sta_WFDA_labelB"/>
+        <Edit id="edt_ID" taborder="8" position="absolute" readonly="false" right="36" width="267" top="208" height="28" cssclass="input_point"/>
+        <Edit id="edt_Name" taborder="9" position="absolute" right="36" width="267" top="247" height="28" cssclass="input_point"/>
+        <Static id="st_toppage02" text="domain.page.url" position="absolute" right="309" width="156" top="280" height="40" cssclass="sta_WFDA_labelB"/>
+        <Edit id="edt_URL" taborder="10" position="absolute" right="36" width="267" top="286" height="28" cssclass="input_point"/>
+        <Static id="st_toppage04" text="domain.page.type" position="absolute" right="309" width="156" top="319" height="40" cssclass="sta_WFDA_labelB"/>
+        <Combo id="cmb_type" taborder="12" innerdataset="@ds_Type" position="absolute" codecolumn="CODE_CD" datacolumn="CODE_NM" right="36" width="267" top="325" height="28"/>
+        <Static id="st_toppage05" text="domain.page.extp" position="absolute" right="309" width="156" top="358" height="40" cssclass="sta_WFDA_labelB"/>
+        <Combo id="cmb_Extp" taborder="13" innerdataset="ds_ExType" codecolumn="CODE_CD" datacolumn="CODE_NM" position="absolute" right="36" width="267" top="364" height="28"/>
+        <Static id="st_toppage06" text="domain.page.desc" position="absolute" right="309" width="156" top="397" height="146" cssclass="sta_WFDA_labelB"/>
+        <TextArea id="txt_desc" taborder="14" position="absolute" right="36" width="267" top="403" height="134"/>
+        <Static id="st_toppage07" text="domain.reg.id" position="absolute" right="309" width="156" top="581" height="40" cssclass="sta_WFDA_labelB"/>
+        <Edit id="edt_regID" taborder="15" position="absolute" readonly="true" right="36" width="267" top="587" height="28" cssclass="readonly"/>
+        <Static id="st_toppage08" text="domain.reg.date" position="absolute" right="309" width="156" top="620" height="40" cssclass="sta_WFDA_labelB"/>
+        <Calendar id="cal_regDt" taborder="16" position="absolute" enable="true" readonly="true" right="36" width="267" top="626" height="28" cssclass="readonly"/>
+        <Static id="st_toppage01" text="domain.page.name" position="absolute" right="309" width="156" top="241" height="40" cssclass="sta_WFDA_labelB"/>
+        <Static id="st_use" text="domain.use" position="absolute" right="309" width="156" top="542" height="40" cssclass="sta_WFDA_labelB"/>
+        <CheckBox id="chk_useYN" taborder="1" position="absolute" right="285" width="18" top="548" height="28" cssclass="sta_WFDA_labelB"/>
+        <Static id="st_progress" taborder="17" text="location" cssclass="sta_WF_progress" left="30" top="18" width="808" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Page" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_Page_onrowposchanged" cancolumnchange="ds_Page_cancolumnchange">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="PAGE_ID" type="string" size="20"/>
+          <Column id="PAGE_NAME" type="string" size="100"/>
+          <Column id="PAGE_URL" type="string" size="200"/>
+          <Column id="PAGE_TYPE" type="string" size="10"/>
+          <Column id="PAGE_EXTP" type="string" size="10"/>
+          <Column id="PAGE_DESC" type="string" size="100"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="undefined" size="0"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="undefined" size="0"/>
+          <Column id="USE_FG" type="string" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP001</Col>
+            <Col id="PAGE_NAME">User Management</Col>
+            <Col id="PAGE_URL">admin::Authority.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173453000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171524000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP002</Col>
+            <Col id="PAGE_NAME">User Group Management</Col>
+            <Col id="PAGE_URL">admin::UserGroupMgmt.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173453000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906112106000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP003</Col>
+            <Col id="PAGE_NAME">Menu Management by Group</Col>
+            <Col id="PAGE_URL">admin::GroupMenuMgmt.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173453000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906144224000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP004</Col>
+            <Col id="PAGE_NAME">Common code Management</Col>
+            <Col id="PAGE_URL">admin::CodeMgmt.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173453000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP005</Col>
+            <Col id="PAGE_NAME">Menu Registration</Col>
+            <Col id="PAGE_URL">admin::MenuMgmt.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173453000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP006</Col>
+            <Col id="PAGE_NAME">Group Registration</Col>
+            <Col id="PAGE_URL">admin::GroupMgmt.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173453000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP007</Col>
+            <Col id="PAGE_NAME">Bulletin Board</Col>
+            <Col id="PAGE_URL">board::Boardview.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP008</Col>
+            <Col id="PAGE_NAME">Screen Registration</Col>
+            <Col id="PAGE_URL">admin::PageMgmt.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">ADMSAMP009</Col>
+            <Col id="PAGE_NAME">User Management by Group</Col>
+            <Col id="PAGE_URL">admin::GroupUserMgmt.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906134321000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">CLASSGUIDE01</Col>
+            <Col id="PAGE_NAME">EDIT Class</Col>
+            <Col id="PAGE_URL">guide::CLASS_GUIDE_01.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114243000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">CLASSGUIDE02</Col>
+            <Col id="PAGE_NAME">STATIC Class</Col>
+            <Col id="PAGE_URL">guide::CLASS_GUIDE_02.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114243000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE01</Col>
+            <Col id="PAGE_NAME">STATIC Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_01.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114007000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE02</Col>
+            <Col id="PAGE_NAME">BUTTON Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_02.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE03</Col>
+            <Col id="PAGE_NAME">CALENDAR Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_03.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114007000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE04</Col>
+            <Col id="PAGE_NAME">SHAPE Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_04.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114007000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE05</Col>
+            <Col id="PAGE_NAME">POPUP Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_05.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114007000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE06</Col>
+            <Col id="PAGE_NAME">ALERT Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_06.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114007000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE07</Col>
+            <Col id="PAGE_NAME">GRID1 Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_07.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE08</Col>
+            <Col id="PAGE_NAME">GRID2 Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_08.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114007000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE09</Col>
+            <Col id="PAGE_NAME">TAB1 Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_09.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">COMPGUIDE10</Col>
+            <Col id="PAGE_NAME">TAB2 Component</Col>
+            <Col id="PAGE_URL">guide::COMP_GUIDE_10.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905114007000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905114007000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">PATTERN001</Col>
+            <Col id="PAGE_NAME">Detail</Col>
+            <Col id="PAGE_URL">pattern::Pattern_01.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110509000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110509000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">PATTERN002</Col>
+            <Col id="PAGE_NAME">MultiDetail</Col>
+            <Col id="PAGE_URL">pattern::Pattern_02.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110509000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110509000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">PATTERN003</Col>
+            <Col id="PAGE_NAME">List/Detail</Col>
+            <Col id="PAGE_URL">pattern::Pattern_03.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110509000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">PATTERN004</Col>
+            <Col id="PAGE_NAME">Master/Detail(1:n)</Col>
+            <Col id="PAGE_URL">pattern::Pattern_04.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110509000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110509000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">PATTERN005</Col>
+            <Col id="PAGE_NAME">Master/Detail(n:n)</Col>
+            <Col id="PAGE_URL">pattern::Pattern_05.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110509000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">PATTERN006</Col>
+            <Col id="PAGE_NAME">TAB</Col>
+            <Col id="PAGE_URL">pattern::Pattern_06.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110509000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171524000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">PATTERN007</Col>
+            <Col id="PAGE_NAME">Shuttle</Col>
+            <Col id="PAGE_URL">pattern::Pattern_07.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110509000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110509000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE001</Col>
+            <Col id="PAGE_NAME">GRID BASIC</Col>
+            <Col id="PAGE_URL">template::TEMPLATE001.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE002</Col>
+            <Col id="PAGE_NAME">GRID FORM</Col>
+            <Col id="PAGE_URL">template::TEMPLATE002.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE003</Col>
+            <Col id="PAGE_NAME">GRID POPUP</Col>
+            <Col id="PAGE_URL">template::TEMPLATE003.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE004</Col>
+            <Col id="PAGE_NAME">GRID TAB</Col>
+            <Col id="PAGE_URL">template::TEMPLATE004.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE006</Col>
+            <Col id="PAGE_NAME">SHUTTLE</Col>
+            <Col id="PAGE_URL">template::TEMPLATE006.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE007</Col>
+            <Col id="PAGE_NAME">GRID SUBGRID</Col>
+            <Col id="PAGE_URL">template::TEMPLATE007.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE008</Col>
+            <Col id="PAGE_NAME">TREE SUBGRID</Col>
+            <Col id="PAGE_URL">template::TEMPLATE008.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE009</Col>
+            <Col id="PAGE_NAME">TREE FORM</Col>
+            <Col id="PAGE_URL">template::TEMPLATE009.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE010</Col>
+            <Col id="PAGE_NAME">GRID FILTERING</Col>
+            <Col id="PAGE_URL">template::TEMPLATE010.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE011</Col>
+            <Col id="PAGE_NAME">GRID MONTHLY CALENDAR</Col>
+            <Col id="PAGE_URL">template::TEMPLATE011.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE012</Col>
+            <Col id="PAGE_NAME">GRID WEEKLY CALENDAR</Col>
+            <Col id="PAGE_URL">template::TEMPLATE012.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120903141810000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE013</Col>
+            <Col id="PAGE_NAME">FILE ATTACHMENT</Col>
+            <Col id="PAGE_URL">template::TEMPLATE013.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE014</Col>
+            <Col id="PAGE_NAME">GRID SUMMARY</Col>
+            <Col id="PAGE_URL">template::TEMPLATE014.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="PAGE_ID">TEMPLATE101</Col>
+            <Col id="PAGE_NAME">PAGING</Col>
+            <Col id="PAGE_URL">template::TEMPLATE101.xfdl</Col>
+            <Col id="PAGE_TYPE">MAIN</Col>
+            <Col id="PAGE_EXTP">FORM</Col>
+            <Col id="PAGE_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831173454000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120910171504000</Col>
+            <Col id="USE_FG">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_ExType" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="CODE_CD" type="string" size="10"/>
+          <Column id="CODE_NM" type="string" size="20"/>
+          <Column id="CODE_SEQ" type="bigdecimal" size="38"/>
+          <Column id="GROUP_CD" type="string" size="10"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="undefined" size="0"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="undefined" size="0"/>
+          <Column id="CODE_GBN" type="string" size="12"/>
+          <Column id="CODE_DESC" type="string" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE_CD">FORM</Col>
+            <Col id="CODE_NM">Normal screen</Col>
+            <Col id="CODE_SEQ">1</Col>
+            <Col id="GROUP_CD">10000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151943000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831152044000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Linking to normal screen</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_CD">LINK</Col>
+            <Col id="CODE_NM">Web page</Col>
+            <Col id="CODE_SEQ">2</Col>
+            <Col id="GROUP_CD">10000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151943000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831152044000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Linking to webpage</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_CD">EXEC</Col>
+            <Col id="CODE_NM">External link</Col>
+            <Col id="CODE_SEQ">3</Col>
+            <Col id="GROUP_CD">10000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151943000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831155345000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Linking web module to runtime</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Type" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="CODE_CD" type="string" size="10"/>
+          <Column id="CODE_NM" type="string" size="20"/>
+          <Column id="CODE_SEQ" type="bigdecimal" size="38"/>
+          <Column id="GROUP_CD" type="string" size="10"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="undefined" size="0"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="undefined" size="0"/>
+          <Column id="CODE_GBN" type="string" size="12"/>
+          <Column id="CODE_DESC" type="string" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE_CD">MAIN</Col>
+            <Col id="CODE_NM">Main Screen </Col>
+            <Col id="CODE_SEQ">1</Col>
+            <Col id="GROUP_CD">20000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151436000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831152055000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Main screen</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_CD">SUB</Col>
+            <Col id="CODE_NM">Sub Screen</Col>
+            <Col id="CODE_SEQ">2</Col>
+            <Col id="GROUP_CD">20000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151436000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831192242000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Sub screen of main screen</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_CD">POP</Col>
+            <Col id="CODE_NM">Popup Screen</Col>
+            <Col id="CODE_SEQ">3</Col>
+            <Col id="GROUP_CD">20000</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831151436000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831152055000</Col>
+            <Col id="CODE_GBN"/>
+            <Col id="CODE_DESC">Popup screen</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_PageKey" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_PageValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PAGE_ID" type="string" size="20"/>
+          <Column id="PAGE_NAME" type="string" size="100"/>
+          <Column id="PAGE_URL" type="string" size="200"/>
+          <Column id="PAGE_TYPE" type="string" size="10"/>
+          <Column id="PAGE_EXTP" type="string" size="10"/>
+          <Column id="PAGE_DESC" type="string" size="100"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="undefined" size="0"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="PAGE_ID">title:page.id,required:true</Col>
+            <Col id="PAGE_NAME">title:page.name,required:true</Col>
+            <Col id="PAGE_URL">title:page.url,required:true</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item17" compid="cmb_searchCondition" propid="value" datasetid="ds_Search" columnid="SEARCH_CONDITION"/>
+      <BindItem id="item18" compid="edt_searchKeyword" propid="value" datasetid="ds_Search" columnid="SEARCH_KEYWORD"/>
+      <BindItem id="item0" compid="edt_ID" propid="value" datasetid="ds_Page" columnid="PAGE_ID"/>
+      <BindItem id="item1" compid="edt_Name" propid="value" datasetid="ds_Page" columnid="PAGE_NAME"/>
+      <BindItem id="item2" compid="edt_URL" propid="value" datasetid="ds_Page" columnid="PAGE_URL"/>
+      <BindItem id="item3" compid="cmb_type" propid="value" datasetid="ds_Page" columnid="PAGE_TYPE"/>
+      <BindItem id="item4" compid="cmb_Extp" propid="value" datasetid="ds_Page" columnid="PAGE_EXTP"/>
+      <BindItem id="item5" compid="txt_desc" propid="value" datasetid="ds_Page" columnid="PAGE_DESC"/>
+      <BindItem id="item6" compid="edt_regID" propid="value" datasetid="ds_Page" columnid="CREATE_USER"/>
+      <BindItem id="item7" compid="cal_regDt" propid="value" datasetid="ds_Page" columnid="CREATE_DT"/>
+      <BindItem id="item8" compid="chk_useYN" propid="value" datasetid="ds_Page" columnid="USE_FG"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Business screen Screen Registration management
+ * 02. Screen name   : PageMgmt.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Modification history :
+ ***********************************************************************
+ *     Modification date     Modified by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * Display variable declaration section
+ ************************************************************************/
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Event processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+
+
+	// Grid, Combo Box Data receive
+	this.fn_getComboData();
+
+	// Search processing
+	// fn_Search();
+};
+
+// Form beforeclose Event processing
+// Before closing the form, here is pop-up creation to ask if there is modified data, pop-up creating
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Page)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+};
+
+// Event processing on Search button click
+this.btn_Search_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Search();
+};
+
+
+// Event processing on Add button click
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+};
+
+// Event processing on Delete button click
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Delete();
+};
+
+// Event processing on Save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	return;
+	if (!this.gfn_DsGetUpdated(this.ds_Page)) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+
+	var retValue = this.gfn_Confirm("msg.before.save");
+	if (retValue == false) 
+	{
+		return;
+	}
+
+	this.fn_Save();
+};
+
+// After input value and pressing enter key , this event occurred
+this.edt_searchKeyword_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	if (e.keycode == 13) 
+	{
+		this.fn_Search();
+	}
+};
+
+// Processing for make sure if the entering code is already exists
+this.ds_Page_cancolumnchange = function (obj:Dataset, e:DSColChangeEventInfo)
+{
+	if (e.columnid == "PAGE_ID" && !this.gfn_isNull(e.newvalue)) 
+	{
+		var bRet = this.fn_isExistCode(e.newvalue);
+		if (bRet == true) 
+		{
+			this.gfn_Alert("msg.err.cancolumnchange", "error");
+			return false;
+		}
+	}
+};
+
+// When input code group, verifying the same code is existing or not
+this.ds_Code_cancolumnchange = function (obj:Dataset, e:DSColChangeEventInfo)
+{
+	if (e.columnid == "CODE_CD" && !this.gfn_isNull(e.newvalue)) 
+	{
+		var nRow = this.lookup("ds_Code").findRow("CODE_CD", e.newvalue);
+		if (nRow >= 0) 
+		{
+			this.gfn_Alert("msg.err.cancolumnchange", "error");
+			return false;
+		}
+	}
+};
+/***********************************************************************
+ * User defined function declaration 
+ ************************************************************************/
+this.fn_getComboData = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getCommCodeList";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getCodeList'" + " ";
+	sArgument += "querySetCount='2'" + " ";
+	sArgument += "querySet1_Code='20000'" + " ";
+	sArgument += "querySet2_Code='10000'" + " ";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_Type=querySet1 ds_ExType=querySet2";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+};
+
+// Add
+this.fn_Insert = function ()
+{
+	var nRow = this.ds_Page.addRow();
+	this.ds_Page.setColumn(nRow, "CREATE_DT", this.gfn_Today());
+	this.ds_Page.setColumn(nRow, "UPDATE_DT", this.gfn_Today());
+	this.ds_Page.setColumn(nRow, "USE_FG", "1");
+};
+
+// Delete screen
+this.fn_Delete = function ()
+{
+	var nRow = this.ds_Page.rowposition;
+	
+	if (!this.grd_page.getSelectedRows(nRow)) 
+	{
+		this.gfn_Alert("msg.err.grid.noselect");
+	}
+	else 
+	{
+		var rtVal = this.gfn_Confirm("msg.before.delete");
+		if (rtVal == true) 
+		{
+			//this.ds_Page.deleteMultiRows(this.grd_page.getSelectedDatasetRows());
+			this.ds_Page.deleteRow(nRow);
+		}
+	}
+};
+
+// Search screen
+this.fn_Search = function ()
+{
+	return;
+	if (this.gfn_DsGetUpdated(this.ds_Page)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.search");
+		if (retValue == false) 
+		{
+			return;
+		}
+	}
+
+	this.gfn_updateToDataset();
+
+	var sArgument = "";
+	var sSvcID = "getListPage";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findPageList'";
+
+	var sInDatasets = "querySet1=ds_Search";
+	var sOutDatasets = "ds_Page=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+};
+
+// Verifying for existing id
+this.fn_isExistCode = function (strPageID)
+{
+	return;
+	var nRow = this.ds_Page.findRow("PAGE_ID", strPageID);
+	if (nRow >= 0) 
+	{
+		return true;
+	}
+
+	var sArgument = "";
+	var sSvcID = "getCheckPage";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "PAGE_ID=" + TOBE.wrapQuote(strPageID) + " ";
+	sArgument += "querySet1='findPage'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_PageKey=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, false, false);
+
+	if (this.ds_PageKey.getRowCount() > 0) 
+	{
+		return true;
+	}
+	return false;
+};
+
+// Save processing
+this.fn_Save = function ()
+{
+	return;
+	// After validation if there is something abonormal, than saving all the content of Grid
+	if (this.gfn_DsCheckValid(this.ds_Page) == false) 
+	{
+		return;
+	}
+
+	var sArgument = "";
+	var sSvcID = "saveAll";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='createPage,updatePage,removePage'";
+
+	var sInDatasets = "querySet1=ds_Page:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+};
+
+// Processing callback after processing gfnService
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAll":
+			this.gfn_Alert("msg.save.success");
+			this.fn_Search();
+			break;
+		case "getListPage":
+			break;
+		case "getCommCodeList":
+			this.fn_Search();
+			break;
+		default:
+			break;
+	}
+};
+
+this.ds_Page_onrowposchanged = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	this.edt_ID.set_readonly(!(obj.getRowType(e.newrow) == Dataset.ROWTYPE_INSERT));
+};
+]]></Script>
+  </Form>
+</FDL>

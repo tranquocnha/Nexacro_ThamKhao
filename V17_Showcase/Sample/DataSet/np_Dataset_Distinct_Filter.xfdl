@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Dataset_Distinct" inheritanceid="" titletext="Distinct" position="absolute" left="0" top="0" width="760" height="460">
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="idx">1</Col>
+            <Col id="code">1</Col>
+            <Col id="name">a</Col>
+          </Row>
+          <Row>
+            <Col id="idx">2</Col>
+            <Col id="code">1</Col>
+            <Col id="name">b</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1</Col>
+            <Col id="code">1</Col>
+            <Col id="name">a</Col>
+          </Row>
+          <Row>
+            <Col id="idx">4</Col>
+            <Col id="code">2</Col>
+            <Col id="name">d</Col>
+          </Row>
+          <Row>
+            <Col id="idx">5</Col>
+            <Col id="code">2</Col>
+            <Col id="name">e</Col>
+          </Row>
+          <Row>
+            <Col id="idx">6</Col>
+            <Col id="code">3</Col>
+            <Col id="name">f</Col>
+          </Row>
+          <Row>
+            <Col id="idx">7</Col>
+            <Col id="code">3</Col>
+            <Col id="name">g</Col>
+          </Row>
+          <Row>
+            <Col id="idx">8</Col>
+            <Col id="code">4</Col>
+            <Col id="name">h</Col>
+          </Row>
+          <Row>
+            <Col id="idx">9</Col>
+            <Col id="code">5</Col>
+            <Col id="name">i</Col>
+          </Row>
+          <Row>
+            <Col id="idx">10</Col>
+            <Col id="code">6</Col>
+            <Col id="name">j</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" width="500" height="350" binddataset="Dataset00" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="123"/>
+                <Column size="120"/>
+                <Column size="112"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="idx"/>
+                <Cell col="1" text="code"/>
+                <Cell col="2" text="name"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:idx"/>
+                <Cell col="1" text="bind:code"/>
+                <Cell col="2" text="bind:name"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="3" text="execute(one column)" left="540" top="78" width="200" height="40" onclick="Button02_onclick"/>
+        <Button id="Button00" taborder="4" text="execute(two column)" left="540" top="128" width="200" height="40" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="5" text="reset" left="540" top="178" width="200" height="40" onclick="Button01_onclick"/>
+        <Static id="Static05" taborder="6" text="Distinct" cssclass="sta_WF_subtitP" left="30" top="18" width="200" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gf_distincDsFilter(this.Dataset00, "code,name");	
+};
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sExpr	= "rowidx==dataset.findRowExpr(\"code=='\" + code + \"'\")";	
+	this.Dataset00.filter(sExpr);   	
+};
+
+/*****************************************************************************************
+ * 함  수  명	:   gf_distincDsFilter 
+ * 입      력	:   1. objDs	Dataset Object
+                    2. sColID	Column List (여러 항목일 경우 ',' 로 구분)
+ * 반      환	: 	없음
+ * 기      능	: 	Dataset의 특정 컬럼의 중복을 제거하여 Filter 한다.
+ *****************************************************************************************/
+this.gf_distincDsFilter = function(objDs, sColID)
+{
+	var arrArgs	= this.gf_Trim(sColID).split(",");
+	var sFilterExpr		= "";
+	var sFindRowExpr	= "";
+
+	for (var i=0; i<arrArgs.length; i++)
+	{
+		if (objDs.getColumnInfo(arrArgs[i]) == null) continue;
+		
+		sFindRowExpr	+= (this.gf_IsNull(sFindRowExpr) == false) ? " && " : "";
+		sFindRowExpr	+= "" + arrArgs[i] + "=='\" + " + arrArgs[i] + " + \"'";
+	}
+	
+	if (this.gf_IsNull(sFindRowExpr) == false) {
+		sFilterExpr	= "rowidx==dataset.findRowExpr(\"" + sFindRowExpr + "\")";
+	}
+
+	objDs.filter(sFilterExpr);
+};
+
+
+this.gf_Trim = function(sValue)
+{
+    if (sValue == null) return "";
+    if (new String(sValue).valueOf() == "undefined") return "";
+    if (new String(sValue) == null) return "";
+
+    var retVal = (new String(sValue)).replace(/^\s+|\s+$/g, '');
+
+    return retVal;
+}; 
+
+this.gf_IsNull = function(sValue)
+{
+    if (new String(sValue).valueOf() == "undefined") return true;
+    if (sValue == null) return true;
+    
+    var v_ChkStr = new String(sValue);
+
+    if (v_ChkStr == null) return true;
+    if (v_ChkStr.toString().length == 0 ) return true;
+    return false;
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.filter("");
+};
+]]></Script>
+  </Form>
+</FDL>

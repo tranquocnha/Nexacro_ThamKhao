@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="DataSet_getSum" classname="Data" inheritanceid="" position="absolute" titletext="getSum" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" binddataset="Dataset00" position="absolute" left="30" top="78" width="500" height="200" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="209"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" text="INT Type"/>
+                <Cell col="1" displaytype="normal" text="STRING Type"/>
+                <Cell col="2" text="Float Type"/>
+                <Cell col="3" text="STRING Type Conversion Float Type"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:COL_INT"/>
+                <Cell col="1" displaytype="normal" text="bind:COL_STR"/>
+                <Cell col="2" text="bind:Column0"/>
+                <Cell col="3" text="bind:Column1"/>
+              </Band>
+              <Band id="summary">
+                <Cell text="expr:dataset.getSum(&quot;COL_INT&quot;)"/>
+                <Cell col="1" text="expr:dataset.getSum(&quot;parseFloat(COL_STR)&quot;)"/>
+                <Cell col="2" displaytype="normal" text="expr:dataset.getSum(&quot;Column0&quot;)"/>
+                <Cell col="3" text="expr:dataset.getSum(&quot;parseFloat(Column1)&quot;)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" text="Summary" class="sta_WF_subtitle" position="absolute" left="30" top="18" width="150" height="40" cssclass="sta_WF_subtitP" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" id="Dataset00" preload="true" updatecontrol="true">
+        <ColumnInfo>
+          <Column id="COL_INT" size="256" type="INT"/>
+          <Column id="COL_STR" size="256" type="STRING"/>
+          <Column id="Column0" type="FLOAT" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL_INT">10</Col>
+            <Col id="COL_STR">100</Col>
+            <Col id="Column0">100.1</Col>
+            <Col id="Column1">100.1</Col>
+          </Row>
+          <Row>
+            <Col id="COL_INT">20</Col>
+            <Col id="COL_STR">200</Col>
+            <Col id="Column0">100.1</Col>
+            <Col id="Column1">100.1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

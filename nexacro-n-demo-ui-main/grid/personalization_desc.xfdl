@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="490" onload="form_onload">
+    <Layouts>
+      <Layout height="490" width="920">
+        <Static id="Static00" taborder="1" text="Personalization" left="20" top="15" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.personalization" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="Recently, there has been a lot of demand for personalization features from system users. After changing the order or size of the column defined by the developer, I want the format to be maintained the next time I connect to the system.&#13;&#10;Personalization functions can be used using API provided by grid of Nexacroplatform and Local Storage provided by HTML5." left="20" top="Static00:2" height="60" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.personalization.desc" right="20"/>
+        <Static id="Static05" taborder="2" text="Cell moving" left="20" top="Static01:10" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.personalization.cellmoving" fittocontents="width"/>
+        <Static id="Static06" taborder="3" text="Setting the cellmovingtype property of the grid allows the user to change the position of the column using mouse drag and drop." left="20" top="Static05:2" height="40" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.personalization.cellmoving.desc" right="20"/>
+        <Static id="Static07" taborder="4" text="Cell sizing" left="20" top="Static06:10" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.personalization.cellsizing" fittocontents="width"/>
+        <Static id="Static08" taborder="5" text="In some cases, if a cell in a grid contains a large amount of data, you may not be able to see the entire content. If you have the ability to freely adjust column and low size, as in Excel, you can use the grid more comfortably.&#13;&#10;The cellsizingtype property changes the pointer when the user moves the mouse over the cell or the border of the head, and in that state, press and move the mouse button to change the size of the cell." left="20" top="Static07:2" height="80" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.personalization.cellsizing.desc" right="20"/>
+        <Static id="Static09" taborder="6" text="Column hiding" left="20" top="Static08:10" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.personalization.columnhiding" fittocontents="width"/>
+        <Static id="Static10" taborder="7" text="Right-clicking a column that you want to hide will display a context menu, and clicking the Hide Column menu will make the column invisible. When displaying hidden columns again, they are displayed again by right-clicking any column in the Head Area and selecting 'Show all columns' or a specific column in the context menu." left="20" top="Static09:2" height="60" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.personalization.columnhiding.desc" right="20"/>
+        <Static id="Static12" taborder="8" text="If you press the 'Save' button to save this changed format information and access this screen again, the saved format will be automatically applied. Pressing the 'Initialization' button applies the default format defined by the developer." left="20" top="Static10:10" height="40" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.personalization.default.desc" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

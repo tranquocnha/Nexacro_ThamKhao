@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Number_AsciiToHex" inheritanceid="" position="absolute" titletext="Script_Number_AsciiToHex" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_input0" taborder="1" value="A" autoselect="true" autoskip="true" position="absolute" left="30" width="200" top="120" height="40"/>
+        <Button id="btn_execute0" taborder="1" text="execute" onclick="btn_execute0_onclick" position="absolute" left="245" width="90" top="120" height="40"/>
+        <Edit id="edt_output0" taborder="1" autoselect="true" autoskip="true" position="absolute" left="355" width="200" top="120" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="355" width="60" top="80" height="30"/>
+        <Edit id="edt_output1" taborder="1" autoselect="true" autoskip="true" position="absolute" left="355" width="200" top="174" height="40"/>
+        <Button id="btn_execute1" taborder="1" text="execute" onclick="btn_execute1_onclick" position="absolute" left="245" width="90" top="174" height="40"/>
+        <Edit id="edt_input1" taborder="1" autoselect="true" autoskip="true" value="41" position="absolute" left="30" width="200" top="174" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="80" height="30"/>
+        <Static id="Static05" taborder="2" text="Converting ASCII code to HEX value" cssclass="sta_WF_subtitP" left="30" top="18" width="470" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Number_AsciiToHex
+ * Description : Convet ASCII code to Hex value
+ */
+ 
+/*  Button Click  */
+this.btn_execute0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_doAsciiHex(this.edt_input0.value, "A2H");	
+	this.edt_output0.set_value(sRtn);
+}
+
+/*  Button Click  */
+this.btn_execute1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_doAsciiHex(this.edt_input1.value, "H2A");	
+	this.edt_output1.set_value(sRtn);
+}
+/*
+ * Function Name : fn_doAsciiHex
+ * Description   : Ascii >> Hex, Hex >> Ascii Changing
+ * Parameter     : Ascii Hex Value, Separator(A2H, H2A)
+ * Return        : Ascii Hex Value
+ * Example       : fn_doAsciiHex("A", "A2H");
+ */
+this.fn_doAsciiHex = function(sValue, sType)
+{
+    var sHex   = "0123456789ABCDEF";
+    var sAscii = ' !"#$%&'+"'"+'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ['+'\\'+']^_`abcdefghijklmnopqrstuvwxyz{|}';
+    var sRtn   = "";
+
+    if (sType == "A2H")
+    {
+        var sLet, nPos, h16, h1;
+        for (var i = 0; i < sValue.length; i++)
+        {
+            sLet  = sValue.charAt(i);
+            nPos  = sAscii.indexOf(sLet) + 32;
+            h16   = Math.floor(nPos / 16);
+            h1    = nPos % 16;
+            
+            sRtn += sHex.charAt(h16) + sHex.charAt(h1);
+        }
+    }
+    if (sType == "H2A")
+    {
+        for (var i = 0; i < sValue.length; i++)
+        {
+            var sLet1 = sValue.charAt(2 * i);
+            var sLet2 = sValue.charAt(2 * i + 1);
+            var sVal  = sHex.indexOf(sLet1) * 16 + sHex.indexOf(sLet2);
+            
+            sRtn += sAscii.charAt(sVal - 32);
+        }
+    }
+    return sRtn;
+}
+
+]]></Script>
+  </Form>
+</FDL>

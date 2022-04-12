@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="550" onload="form_onload">
+    <Layouts>
+      <Layout height="550" width="920">
+        <Static id="Static00_00" taborder="0" text="The Nexacroplatform provides nexacro-xeni for Excel export and import processing. nexacro-xeni is a server application that processes Excel's exports/imports on the server and then returns the results.&#13;&#10;The hassle of handling Excel export/import functions through server applications is that processing Excel files requires resources from the local system. This can cause serious security problems and is being prevented by the browser. Therefore, Nexacroplatform provides a method using nexacro-xeni.&#13;&#10;&#13;&#10;nexacro-xeni is based on Apache POI. Therefore, Apache POI may be used but is not responsible for the problems that arise. For more information, see https://poi.apache.org/.&#13;&#10;&#13;&#10;ExcelExportObject is an object used to export the contents of the Grid to an Excel file. This object allows developers to perform the necessary settings for the export and requests to the server.&#13;&#10;Expotable formats include Excel97(xls), Excel2007(xlsx), Hancell2010, Hancell2014, and CSV.&#13;&#10;Select the type of export in the demo and click the Export button to download the file and check it out." left="20" top="47" height="260" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.export.desc" usedecorate="true" right="20"/>
+        <Static id="Static04" taborder="1" text="Export" left="20" top="15" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.export" fittocontents="width"/>
+        <Static id="Static04_00" taborder="2" text="Import" left="20" top="Static00_00:20" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.import" fittocontents="width"/>
+        <Static id="Static00_00_00" taborder="3" text="ExcelImportObject is an object that you use to import the contents of an Excel file to Grid. Responsible for the setup required for the import and for requests to the server. Developers can use it in scripts to import Excel.&#13;&#10;Importable formats include Excel97(xls), Excel2007(xlsx), Hancell2014, and CSV.&#13;&#10;After selecting the type of import in the demo, click the Import button to upload the file and view the data for each sheet on the screen. When using the &quot;Include column names as header&quot; option, use the text in the first row as a column in the dataset. If the password is set in the excel file, enter a value in the password field on the screen and import it to retrieve the data after decryption.&#13;&#10;If you do not have a suitable test file, download the sample file and import it." left="20" top="Static04_00:2" height="160" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.import.desc" usedecorate="true" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

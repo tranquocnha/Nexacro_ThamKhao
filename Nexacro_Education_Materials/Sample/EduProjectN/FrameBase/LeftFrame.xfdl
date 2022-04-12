@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="LeftFrame" width="230" height="663" titletext="New Form" onload="LeftFrame_onload">
+    <Layouts>
+      <Layout height="663" mobileorientation="landscape" width="230">
+        <Div id="Div00" taborder="1" left="0" top="0" bottom="0" right="0" cssclass="div_WF_Area">
+          <Layouts>
+            <Layout>
+              <Grid id="Grid00" taborder="0" left="0" top="35" cssclass="grd_LF_MnuTree" binddataset="gds_menu" autofittype="col" treeusecheckbox="false" treeinitstatus="expand,null" treeuseimage="false" treeuseline="false" bottom="0" oncelldblclick="Div00_Grid00_oncelldblclick" right="0" scrollbardecbuttonsize="0" scrollbarincbuttonsize="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="137"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="32"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell text="bind:MENU_NAME" displaytype="treeitemcontrol" edittype="tree" treelevel="bind:MENU_LEVEL" treestate="bind:TREE_FLAG"/>
+                    </Band>
+                  </Format>
+                  <Format id="mymenu">
+                    <Columns>
+                      <Column size="48"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="32"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell text="bind:MENU_NAME" padding="0px 0px 0px 10px"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_menu" taborder="1" text="Menu" left="0" top="0" width="50%" height="35" cssclass="btn_LF_Mnu" onclick="Div00_btn_menu_onclick"/>
+              <Button id="btn_mymenu" taborder="1" text="Bookmark" left="115" top="0" height="35" cssclass="btn_LF_Mnu" width="50%" onclick="Div00_btn_mymenu_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_maximize" taborder="0" top="11" width="19" height="19" cssclass="btn_MDI_Max" right="-49" onclick="fn_arrange" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grd">
+        <ColumnInfo>
+          <Column id="data" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="formurl" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="data">Environment</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="data">ScreenDefinition</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">Variables</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">Cookies</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">Script</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">TypeDefinition</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="data">Objects</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">Protocols</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">Update</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">App Information</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="data">AppVariables</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">Temp</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="data">Template01</Col>
+            <Col id="level">1</Col>
+            <Col id="formurl">Temp::Template01.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="data">Template02</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">CompGuide</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="data">CompGuide01</Col>
+            <Col id="level">1</Col>
+            <Col id="formurl">CompGuide::CompGuide01.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="data">CompGuide02</Col>
+            <Col id="level">1</Col>
+            <Col id="formurl">CompGuide::CompGuide02.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="data">CompGuide03</Col>
+            <Col id="level">1</Col>
+            <Col id="formurl">CompGuide::CompGuide03.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="data">CompGuide04</Col>
+            <Col id="level">1</Col>
+            <Col id="formurl">CompGuide::CompGuide04.xfdl</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_mymenu">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="STRING" size="256"/>
+          <Column id="MENU_NAME" type="STRING" size="256"/>
+          <Column id="MENU_LEVEL" type="STRING" size="256"/>
+          <Column id="FORM_URL" type="STRING" size="256"/>
+          <Column id="MENU_ICON" type="STRING" size="256"/>
+          <Column id="MENU_ENABLE" type="STRING" size="256"/>
+          <Column id="MENU_KEY" type="STRING" size="256"/>
+          <Column id="MENU_FLAG" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_ID">2020</Col>
+            <Col id="MENU_NAME">Employees</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="FORM_URL">Form::Form_Emp.xfdl</Col>
+            <Col id="MENU_KEY">Ctrl+E</Col>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3010</Col>
+            <Col id="MENU_NAME">List</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="FORM_URL">Comp::Comp_Base.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON"/>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3020010</Col>
+            <Col id="MENU_NAME">Button</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="FORM_URL">Comp::Comp_Button.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON">imagerc::img_comp_button.png</Col>
+            <Col id="MENU_KEY">Ctrl+C</Col>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3020020</Col>
+            <Col id="MENU_NAME">Calendar</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="FORM_URL">Comp::Comp_Calendar.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON">imagerc::img_comp_cal.png</Col>
+            <Col id="MENU_KEY">Ctrl+B</Col>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3020030</Col>
+            <Col id="MENU_NAME">CheckBox</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="FORM_URL">Comp::Comp_CheckBox.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON">imagerc::img_comp_check.png</Col>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3020040</Col>
+            <Col id="MENU_NAME">Combo</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="FORM_URL">Comp::Comp_Combo.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON">imagerc::img_comp_combo.png</Col>
+            <Col id="MENU_KEY">Ctrl+G</Col>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3020050</Col>
+            <Col id="MENU_NAME">Div</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="FORM_URL">Comp::Comp_div.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON"/>
+            <Col id="MENU_KEY">Alt+E</Col>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3020060</Col>
+            <Col id="MENU_NAME">Edit</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="FORM_URL">Comp::Comp_Edit.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON">imagerc::img_comp_edit.png</Col>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3020070</Col>
+            <Col id="MENU_NAME">Grid</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="FORM_URL">Comp::Comp_Grid.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON">imagerc::img_comp_grid.png</Col>
+            <Col id="MENU_KEY">Alt+G</Col>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">3020080</Col>
+            <Col id="MENU_NAME">Grid Cell</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="FORM_URL">Comp::Comp_Grid_Cell.xfdl</Col>
+            <Col id="MENU_ENABLE">1</Col>
+            <Col id="MENU_ICON"/>
+            <Col id="MENU_FLAG">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.LeftFrame_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.Div00.form.btn_menu.setSelectStatus(true);
+};
+
+this.Div00_Grid00_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	var objDs = obj.getBindDataset();
+	
+	var sID   = objDs.getColumn(e.row, "MENU_ID");		//메뉴ID Key
+	var sName = objDs.getColumn(e.row, "MENU_NAME");	//메뉴 명
+	var sURL  = objDs.getColumn(e.row, "FORM_URL");	    //화면 URL	
+	
+	this.fn_openForm(sID, sName, sURL);
+};
+
+this.fn_openForm = function(sID, sName, sURL)
+{
+	if(sURL.length <= 0) return;
+
+	var objApp = nexacro.getApplication();
+	var nCnt = objApp.gds_openForm.getRowCount();
+	if(nCnt >= 10){
+		this.alert("The Form can be opened up to 10.");
+		return;
+	}
+	
+	//업무영역 Size, application.av_WorkFrame --> WorkFrame Path
+	var nWidth  = objApp.av_WorkFrame.getOffsetWidth();
+	var nHeight = objApp.av_WorkFrame.getOffsetHeight();
+
+	//화면 ID 생성("FORM_" + 메뉴ID + random)
+	var sFormID = "FORM_" + sID + "_" + parseInt(Math.random() * 1000);
+
+	var objChildFrame = new ChildFrame();	
+	objChildFrame.init(sFormID, 0, 0, nWidth, nHeight);
+
+	objChildFrame.addEventHandler("onsize", this.fn_onsize, this);
+	objApp.av_WorkFrame.addChild(sFormID, objChildFrame);
+	
+
+	objChildFrame.set_resizable(true);
+ 	objChildFrame.set_openstatus("maximize");
+ 	objChildFrame.set_showtitlebar(false);
+//	objChildFrame.set_border("1px solid #B4B4B4");
+
+	var oParam = { FORM_ID : sFormID, 
+                   MENU_ID : sID, 
+                   MENU_NM : sName, 
+                   FORM_URL : sURL,
+                   FORM_TYPE : "ADD" };	
+	
+	//Work Frame에 필요한 정보 Set
+	objChildFrame.param = oParam;
+ 	objChildFrame.set_formurl("FrameBase::WorkFrame.xfdl");	
+	objChildFrame.show();
+
+	//열린 화면 Tab 생성
+	nexacro.getApplication().mainframe.VFrameSet0.HFrameSet0.VFrameSet1.MDIFrame.form.fn_addTab(oParam);
+
+}
+
+this.fn_onsize = function(obj:nexacro.ChildFrame,e:nexacro.SizeEventInfo)
+{
+	//trace(obj.getOwnerFrame() + " === " + obj.getOwnerFrame().openstatus + " === " +  obj.openstatus);
+	if(obj.openstatus == "maximize")
+	{
+		var arrObj = nexacro.getApplication().av_WorkFrame.all;
+		for(var i=0; i<arrObj.length; i++) 
+		{
+			nexacro.getApplication().av_WorkFrame.frames[i].set_showtitlebar(false);						
+		}
+
+	}
+};
+
+this.Div00_btn_menu_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+ 	this.Div00.form.btn_mymenu.setSelectStatus(false);
+	obj.setSelectStatus(true);
+	this.Div00.form.Grid00.set_binddataset("gds_menu");
+	this.Div00.form.Grid00.set_formatid("default");
+};
+
+this.Div00_btn_mymenu_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+ 	this.Div00.form.btn_menu.setSelectStatus(false);
+	obj.setSelectStatus(true);
+	this.Div00.form.Grid00.set_binddataset("ds_mymenu");
+	this.Div00.form.Grid00.set_formatid("mymenu");
+};
+]]></Script>
+  </Form>
+</FDL>

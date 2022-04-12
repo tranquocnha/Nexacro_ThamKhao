@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="ir_1010203_p02" classname="comm_code_pop" left="0" top="0" width="760" height="620" titletext="Insert Text Content to Dataset">
+    <Layouts>
+      <Layout>
+        <Static id="stc_04" taborder="14" text="File Name" left="30" top="78" width="78" height="34"/>
+        <Edit id="edt_jeonhyeong_nm" taborder="15" readonly="true" left="108" top="78" width="303" height="34" style="align:left middle;" required="MIN_LENGTH:1" msgkey="필수입력" validate=""/>
+        <Button id="btn_file_find" taborder="16" text="Find file" left="421" top="78" width="90" height="34" onclick="btn_file_find_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Grid id="Grid00" taborder="18" useinputpanel="false" left="30" top="124" height="150" binddataset="Dataset00" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="YEAR" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" disptype="normal" text="WEB_SUHEOM_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" disptype="normal" text="H_NAME" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" disptype="normal" text="JUMIN_NO1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" disptype="normal" text="JUMIN_NO2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" disptype="normal" text="SEX_GB" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" disptype="normal" text="NEIS_GOGYO_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" disptype="normal" text="CHULSIN_HAKGWA" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" disptype="normal" text="JOLEOP_ILJA" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" disptype="normal" text="GITA1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="10" disptype="normal" text="LAST_HAKRYEOK_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="11" disptype="normal" text="JEONHYEONG_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="12" disptype="normal" text="SEBU_JEONHYEONG_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="13" disptype="normal" text="JAKYEOKJEUNG_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="14" disptype="normal" text="DAEHAK_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="15" disptype="normal" text="DAEHAK_HAKGWA_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="16" disptype="normal" text="MOJIPDANWI_CD1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="17" disptype="normal" text="MOJIPDANWI_CD2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="18" disptype="normal" text="SUNEUNG_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="19" disptype="normal" text="SUNEUNG_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="20" disptype="normal" text="GITA2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="21" disptype="normal" text="SUNEUNGAGREE_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="22" disptype="normal" text="GITA3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="23" disptype="normal" text="GITA4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="24" disptype="normal" text="GITA5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="25" disptype="normal" text="GITA6" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="26" disptype="normal" text="GITA7" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="27" disptype="normal" text="CHUKJAE_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="28" disptype="normal" text="HAKSAENGBU_AGREE_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="29" disptype="normal" text="GITA8" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="30" disptype="normal" text="GISUKSA_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="31" disptype="normal" text="GITA9" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="32" disptype="normal" text="GITA10" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="33" disptype="normal" text="GITA11" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="34" disptype="normal" text="GITA12" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="35" disptype="normal" text="POST_NO1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="36" disptype="normal" text="POST_NO2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="37" disptype="normal" text="GITA13" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="38" disptype="normal" text="JUSO1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="39" disptype="normal" text="JUSO2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="40" disptype="normal" text="TEL_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="41" disptype="normal" text="HP_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="42" disptype="normal" text="URGENT_TEL_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="43" disptype="normal" text="GITA14" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="44" disptype="normal" text="JEOPSU_JIYEOK_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="45" disptype="normal" text="GITA15" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="46" disptype="normal" text="GITA16" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="47" disptype="normal" text="JEOPSUGB_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="48" disptype="normal" text="GITA17" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="49" disptype="normal" text="GITA18" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="50" disptype="normal" text="GITA19" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="51" disptype="normal" text="JEOPSU_ILJA" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="52" disptype="normal" text="GITA20" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="53" disptype="normal" text="GITA21" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="54" disptype="normal" text="GITA22" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="55" disptype="normal" text="GITA23" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="56" disptype="normal" text="GITA24" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="57" disptype="normal" text="GITA25" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="58" disptype="normal" text="SILJEOM_AVG" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="59" disptype="normal" text="PYEONGJEOM_AVG" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="60" disptype="normal" text="PYEONGJEOM_MANJEOM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="61" disptype="normal" text="CHWIDEUK_HAKJEOM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="62" disptype="normal" text="GITA26" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="63" disptype="normal" text="GITA27" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="64" disptype="normal" text="GITA28" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="65" disptype="normal" text="GITA29" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="66" disptype="normal" text="GITA30" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="67" disptype="normal" text="GITA31" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="68" disptype="normal" text="GITA32" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="69" disptype="normal" text="E_MAIL" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="70" disptype="normal" text="MOJIP_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="71" disptype="normal" text="GITA33" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="72" disptype="normal" text="GITA34" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="73" disptype="normal" text="GITA35" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="74" disptype="normal" text="GITA36" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="75" disptype="normal" text="GITA37" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="76" disptype="normal" text="GITA38" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="77" disptype="normal" text="GITA39" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="78" disptype="normal" text="GITA40" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="79" disptype="normal" text="GITA41" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="80" disptype="normal" text="BOHOJA_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="81" disptype="normal" text="BOHOJA_GWANGYE_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="82" disptype="normal" text="BOHOJA_POST_CD1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="83" disptype="normal" text="BOHOJA_POST_CD2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="84" disptype="normal" text="BOHOJA_JUSO1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="85" disptype="normal" text="BOHOJA_JUSO2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="86" disptype="normal" text="BOHOJA_TEL_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="87" disptype="normal" text="BOHOJA_HP_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="88" disptype="normal" text="GITA42" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="89" disptype="normal" text="AGREE1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="90" disptype="normal" text="AGREE2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="91" disptype="normal" text="AGREE3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="92" disptype="normal" text="AGREE4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="93" disptype="normal" text="AGREE5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="94" disptype="normal" text="AGREE6" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="95" disptype="normal" text="AGREE7" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="96" disptype="normal" text="AGREE8" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="97" disptype="normal" text="AGREE9" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:YEAR" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" disptype="normal" text="bind:WEB_SUHEOM_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" disptype="normal" text="bind:H_NAME" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" disptype="normal" text="bind:JUMIN_NO1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" disptype="normal" text="bind:JUMIN_NO2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" disptype="normal" text="bind:SEX_GB" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" disptype="normal" text="bind:NEIS_GOGYO_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" disptype="normal" text="bind:CHULSIN_HAKGWA" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" disptype="normal" text="bind:JOLEOP_ILJA" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" disptype="normal" text="bind:GITA1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="10" disptype="normal" text="bind:LAST_HAKRYEOK_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="11" disptype="normal" text="bind:JEONHYEONG_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="12" disptype="normal" text="bind:SEBU_JEONHYEONG_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="13" disptype="normal" text="bind:JAKYEOKJEUNG_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="14" disptype="normal" text="bind:DAEHAK_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="15" disptype="normal" text="bind:DAEHAK_HAKGWA_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="16" disptype="normal" text="bind:MOJIPDANWI_CD1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="17" disptype="normal" text="bind:MOJIPDANWI_CD2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="18" disptype="normal" text="bind:SUNEUNG_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="19" disptype="normal" text="bind:SUNEUNG_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="20" disptype="normal" text="bind:GITA2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="21" disptype="normal" text="bind:SUNEUNGAGREE_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="22" disptype="normal" text="bind:GITA3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="23" disptype="normal" text="bind:GITA4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="24" disptype="normal" text="bind:GITA5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="25" disptype="normal" text="bind:GITA6" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="26" disptype="normal" text="bind:GITA7" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="27" disptype="normal" text="bind:CHUKJAE_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="28" disptype="normal" text="bind:HAKSAENGBU_AGREE_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="29" disptype="normal" text="bind:GITA8" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="30" disptype="normal" text="bind:GISUKSA_YN" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="31" disptype="normal" text="bind:GITA9" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="32" disptype="normal" text="bind:GITA10" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="33" disptype="normal" text="bind:GITA11" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="34" disptype="normal" text="bind:GITA12" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="35" disptype="normal" text="bind:POST_NO1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="36" disptype="normal" text="bind:POST_NO2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="37" disptype="normal" text="bind:GITA13" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="38" disptype="normal" text="bind:JUSO1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="39" disptype="normal" text="bind:JUSO2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="40" disptype="normal" text="bind:TEL_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="41" disptype="normal" text="bind:HP_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="42" disptype="normal" text="bind:URGENT_TEL_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="43" disptype="normal" text="bind:GITA14" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="44" disptype="normal" text="bind:JEOPSU_JIYEOK_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="45" disptype="normal" text="bind:GITA15" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="46" disptype="normal" text="bind:GITA16" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="47" disptype="normal" text="bind:JEOPSUGB_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="48" disptype="normal" text="bind:GITA17" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="49" disptype="normal" text="bind:GITA18" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="50" disptype="normal" text="bind:GITA19" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="51" disptype="normal" text="bind:JEOPSU_ILJA" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="52" disptype="normal" text="bind:GITA20" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="53" disptype="normal" text="bind:GITA21" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="54" disptype="normal" text="bind:GITA22" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="55" disptype="normal" text="bind:GITA23" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="56" disptype="normal" text="bind:GITA24" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="57" disptype="normal" text="bind:GITA25" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="58" disptype="normal" text="bind:SILJEOM_AVG" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="59" disptype="normal" text="bind:PYEONGJEOM_AVG" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="60" disptype="normal" text="bind:PYEONGJEOM_MANJEOM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="61" disptype="normal" text="bind:CHWIDEUK_HAKJEOM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="62" disptype="normal" text="bind:GITA26" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="63" disptype="normal" text="bind:GITA27" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="64" disptype="normal" text="bind:GITA28" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="65" disptype="normal" text="bind:GITA29" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="66" disptype="normal" text="bind:GITA30" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="67" disptype="normal" text="bind:GITA31" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="68" disptype="normal" text="bind:GITA32" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="69" disptype="normal" text="bind:E_MAIL" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="70" disptype="normal" text="bind:MOJIP_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="71" disptype="normal" text="bind:GITA33" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="72" disptype="normal" text="bind:GITA34" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="73" disptype="normal" text="bind:GITA35" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="74" disptype="normal" text="bind:GITA36" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="75" disptype="normal" text="bind:GITA37" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="76" disptype="normal" text="bind:GITA38" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="77" disptype="normal" text="bind:GITA39" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="78" disptype="normal" text="bind:GITA40" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="79" disptype="normal" text="bind:GITA41" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="80" disptype="normal" text="bind:BOHOJA_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="81" disptype="normal" text="bind:BOHOJA_GWANGYE_CD" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="82" disptype="normal" text="bind:BOHOJA_POST_CD1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="83" disptype="normal" text="bind:BOHOJA_POST_CD2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="84" disptype="normal" text="bind:BOHOJA_JUSO1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="85" disptype="normal" text="bind:BOHOJA_JUSO2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="86" disptype="normal" text="bind:BOHOJA_TEL_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="87" disptype="normal" text="bind:BOHOJA_HP_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="88" disptype="normal" text="bind:GITA42" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="89" disptype="normal" text="bind:AGREE1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="90" disptype="normal" text="bind:AGREE2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="91" disptype="normal" text="bind:AGREE3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="92" disptype="normal" text="bind:AGREE4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="93" disptype="normal" text="bind:AGREE5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="94" disptype="normal" text="bind:AGREE6" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="95" disptype="normal" text="bind:AGREE7" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="96" disptype="normal" text="bind:AGREE8" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="97" disptype="normal" text="bind:AGREE9" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="19" text="This is sample is used to save text file content into dataset&#13;&#10;This text file has dataset format data.This text content file should be placed on my document location path." cssclass="sta_WF_explain" left="30" top="18" width="730" height="50" style="font:bold 9 Dotum;" wordwrap="english"/>
+        <Static id="stt_log_status" taborder="20" left="30" top="524" height="30" style="color:red;align:center middle;font:9 Dotum;" wordwrap="english" width="700"/>
+        <TextArea id="TextArea00" taborder="21" left="30" top="384" height="130" readonly="true" width="700"/>
+        <Static id="stc_00" taborder="22" text="saveXML of Dataset" cssclass="sta_WF_explain" left="30" top="344" width="164" height="30" style="align:left middle;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <FileDialog id="FileDialog00" filter="All(*.*)|*.*|Text File(*.txt)|*.txt|" filterindex="1" defaultextension="false" onclose="FileDialog00_onclose"/>
+      <VirtualFile id="VirtualFile00" onsuccess="VirtualFile00_onsuccess" onerror="VirtualFile00_onerror"/>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="YEAR" type="STRING" size="256"/>
+          <Column id="WEB_SUHEOM_NO" type="STRING" size="256"/>
+          <Column id="H_NAME" type="STRING" size="256"/>
+          <Column id="JUMIN_NO1" type="STRING" size="256"/>
+          <Column id="JUMIN_NO2" type="STRING" size="256"/>
+          <Column id="SEX_GB" type="STRING" size="256"/>
+          <Column id="NEIS_GOGYO_CD" type="STRING" size="256"/>
+          <Column id="CHULSIN_HAKGWA" type="STRING" size="256"/>
+          <Column id="JOLEOP_ILJA" type="STRING" size="256"/>
+          <Column id="GITA1" type="STRING" size="256"/>
+          <Column id="LAST_HAKRYEOK_CD" type="STRING" size="256"/>
+          <Column id="JEONHYEONG_CD" type="STRING" size="256"/>
+          <Column id="SEBU_JEONHYEONG_CD" type="STRING" size="256"/>
+          <Column id="JAKYEOKJEUNG_NM" type="STRING" size="256"/>
+          <Column id="DAEHAK_CD" type="STRING" size="256"/>
+          <Column id="DAEHAK_HAKGWA_NM" type="STRING" size="256"/>
+          <Column id="MOJIPDANWI_CD1" type="STRING" size="256"/>
+          <Column id="MOJIPDANWI_CD2" type="STRING" size="256"/>
+          <Column id="SUNEUNG_YN" type="STRING" size="256"/>
+          <Column id="SUNEUNG_NO" type="STRING" size="256"/>
+          <Column id="GITA2" type="STRING" size="256"/>
+          <Column id="SUNEUNGAGREE_YN" type="STRING" size="256"/>
+          <Column id="GITA3" type="STRING" size="256"/>
+          <Column id="GITA4" type="STRING" size="256"/>
+          <Column id="GITA5" type="STRING" size="256"/>
+          <Column id="GITA6" type="STRING" size="256"/>
+          <Column id="GITA7" type="STRING" size="256"/>
+          <Column id="CHUKJAE_YN" type="STRING" size="256"/>
+          <Column id="HAKSAENGBU_AGREE_YN" type="STRING" size="256"/>
+          <Column id="GITA8" type="STRING" size="256"/>
+          <Column id="GISUKSA_YN" type="STRING" size="256"/>
+          <Column id="GITA9" type="STRING" size="256"/>
+          <Column id="GITA10" type="STRING" size="256"/>
+          <Column id="GITA11" type="STRING" size="256"/>
+          <Column id="GITA12" type="STRING" size="256"/>
+          <Column id="POST_NO1" type="STRING" size="256"/>
+          <Column id="POST_NO2" type="STRING" size="256"/>
+          <Column id="GITA13" type="STRING" size="256"/>
+          <Column id="JUSO1" type="STRING" size="256"/>
+          <Column id="JUSO2" type="STRING" size="256"/>
+          <Column id="TEL_NO" type="STRING" size="256"/>
+          <Column id="HP_NO" type="STRING" size="256"/>
+          <Column id="URGENT_TEL_NO" type="STRING" size="256"/>
+          <Column id="GITA14" type="STRING" size="256"/>
+          <Column id="JEOPSU_JIYEOK_CD" type="STRING" size="256"/>
+          <Column id="GITA15" type="STRING" size="256"/>
+          <Column id="GITA16" type="STRING" size="256"/>
+          <Column id="JEOPSUGB_CD" type="STRING" size="256"/>
+          <Column id="GITA17" type="STRING" size="256"/>
+          <Column id="GITA18" type="STRING" size="256"/>
+          <Column id="GITA19" type="STRING" size="256"/>
+          <Column id="JEOPSU_ILJA" type="STRING" size="256"/>
+          <Column id="GITA20" type="STRING" size="256"/>
+          <Column id="GITA21" type="STRING" size="256"/>
+          <Column id="GITA22" type="STRING" size="256"/>
+          <Column id="GITA23" type="STRING" size="256"/>
+          <Column id="GITA24" type="STRING" size="256"/>
+          <Column id="GITA25" type="STRING" size="256"/>
+          <Column id="SILJEOM_AVG" type="STRING" size="256"/>
+          <Column id="PYEONGJEOM_AVG" type="STRING" size="256"/>
+          <Column id="PYEONGJEOM_MANJEOM" type="STRING" size="256"/>
+          <Column id="CHWIDEUK_HAKJEOM" type="STRING" size="256"/>
+          <Column id="GITA26" type="STRING" size="256"/>
+          <Column id="GITA27" type="STRING" size="256"/>
+          <Column id="GITA28" type="STRING" size="256"/>
+          <Column id="GITA29" type="STRING" size="256"/>
+          <Column id="GITA30" type="STRING" size="256"/>
+          <Column id="GITA31" type="STRING" size="256"/>
+          <Column id="GITA32" type="STRING" size="256"/>
+          <Column id="E_MAIL" type="STRING" size="256"/>
+          <Column id="MOJIP_CD" type="STRING" size="256"/>
+          <Column id="GITA33" type="STRING" size="256"/>
+          <Column id="GITA34" type="STRING" size="256"/>
+          <Column id="GITA35" type="STRING" size="256"/>
+          <Column id="GITA36" type="STRING" size="256"/>
+          <Column id="GITA37" type="STRING" size="256"/>
+          <Column id="GITA38" type="STRING" size="256"/>
+          <Column id="GITA39" type="STRING" size="256"/>
+          <Column id="GITA40" type="STRING" size="256"/>
+          <Column id="GITA41" type="STRING" size="256"/>
+          <Column id="BOHOJA_NM" type="STRING" size="256"/>
+          <Column id="BOHOJA_GWANGYE_CD" type="STRING" size="256"/>
+          <Column id="BOHOJA_POST_CD1" type="STRING" size="256"/>
+          <Column id="BOHOJA_POST_CD2" type="STRING" size="256"/>
+          <Column id="BOHOJA_JUSO1" type="STRING" size="256"/>
+          <Column id="BOHOJA_JUSO2" type="STRING" size="256"/>
+          <Column id="BOHOJA_TEL_NO" type="STRING" size="256"/>
+          <Column id="BOHOJA_HP_NO" type="STRING" size="256"/>
+          <Column id="GITA42" type="STRING" size="256"/>
+          <Column id="AGREE1" type="STRING" size="256"/>
+          <Column id="AGREE2" type="STRING" size="256"/>
+          <Column id="AGREE3" type="STRING" size="256"/>
+          <Column id="AGREE4" type="STRING" size="256"/>
+          <Column id="AGREE5" type="STRING" size="256"/>
+          <Column id="AGREE6" type="STRING" size="256"/>
+          <Column id="AGREE7" type="STRING" size="256"/>
+          <Column id="AGREE8" type="STRING" size="256"/>
+          <Column id="AGREE9" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[
+// Searching file
+this.btn_file_find_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{ 
+	if( system.navigatorname != "nexacro" ){
+		alert("지원되지 않습니다.");
+		return;
+	}
+	//var virtualfile = this.FileDialog00.open("Reading file", FileDialog.LOAD, "%DOCUMENT%");
+	var virtualfile = this.FileDialog00.open("Reading file", nexacro.FileDialog.LOAD);// Currently this sample reads files from My Documents
+	//location, if if we want to read files from other locations we should set filesecurelevel of ADL to "all"
+};
+
+//Called when selecting file
+this.FileDialog00_onclose = function(obj:FileDialog, e:nexacro.FileDialogEventInfo)
+{
+	//Save
+ 	if(e.reason == 2)
+ 	{
+ 	}
+	//Read
+	else if(e.reason == 1)
+	{
+		var rtn = this.VirtualFile00.open(e.virtualfiles[0].fullpath, nexacro.VirtualFile.openRead||nexacro.VirtualFile.openText);
+		this.edt_jeonhyeong_nm.set_value(this.VirtualFile00.filename);
+		this.VirtualFile00.read(1000, "euc-kr");
+	}
+};
+
+this.VirtualFile00_onsuccess = function(obj:VirtualFile, e:nexacro.VirtualFileEventInfo)
+{
+	switch (e.reason)
+	{
+		case 1:		// open
+			break;
+		case 2:		// close
+			break;							
+		case 3:		// read						
+			this.Dataset00.clearData();
+			var aRtn = String(e.textdata).split("\n");
+			var aStr, nRow;
+			for(var i = 0; i < aRtn.length; i++)
+			{
+					nRow = this.Dataset00.addRow();
+					aStr = aRtn[i].split("	");
+					for(var j = 0; j < aStr.length; j++)
+					{
+						this.Dataset00.setColumn(nRow, j, aStr[j]);
+					}
+			}
+			
+			this.TextArea00.set_value(this.Dataset00.saveXML());
+			this.stt_log_status.set_text("");
+			this.VirtualFile00.close();	
+			break;
+		case 4:		// readLine
+			break;
+			
+		case 5:		// seek
+			break;
+			
+		case 6:		// write
+			alert("Writing file completed ! ");
+			this.VirtualFile00.close(); 
+			break;
+			
+		case 7:		// remove
+			break;
+			
+		case 8:		// getFileList
+			break;
+		case 9:		// getFileSize
+			break;
+			
+		case 10:	// isExist
+			if (e.fileisexist)	
+				alert("File is exists. : " + e.fileisexist);
+			else
+				alert("This file does not exists. : " +  e.fileisexist);
+			break;			
+	}  
+};
+
+this.VirtualFile00_onerror = function(obj:VirtualFile, e:nexacro.VirtualFileErrorEventInfo)
+{
+	this.stt_log_status.set_text(e.errormsg + "\n This file should be placed on my doucment location.");
+};
+
+]]></Script>
+  </Form>
+</FDL>

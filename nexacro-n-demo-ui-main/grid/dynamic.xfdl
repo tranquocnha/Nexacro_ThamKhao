@@ -1,0 +1,1411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="800" onload="work002_onload" ondragmove="work002_ondragmove" onkeydown="frm_sheetDesign_onkeydown">
+    <Layouts>
+      <Layout height="800" width="920">
+        <Static id="Static01" taborder="0" text="Dynamic Grid" left="20" top="20" width="740" height="40" cssclass="sta_WF_pageTitle" messageid="grid.dynamic" fittocontents="width"/>
+        <Grid id="grdTree" taborder="1" left="14" top="108" width="130" binddataset="dsList" treeinitstatus="expand,all" bottom="20" autofittype="col" treeusebutton="use" treeusecheckbox="false" oncelldblclick="grdTree_oncelldblclick" ondrag="grdTree_ondrag" onlbuttonup="grdTree_onlbuttonup" onlbuttondown="grdTree_onlbuttondown" cssclass="grd_WF_part">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="127"/>
+              </Columns>
+              <Rows>
+                <Row size="46" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column Type"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" edittype="none" text="expr:dataset.getRowLevel(currow)==0?aname:grouptype" treelevel="expr:1-dataset.getRowLevel(currow)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="divReport" taborder="2" text="타입을 선택해주세요." left="157" top="107" right="20" bottom="20" ondragmove="divReport_ondragmove" border="0px none">
+          <Layouts>
+            <Layout>
+              <Grid id="Grid00" taborder="0" left="0" top="0" autofittype="none" cellsizingtype="both" selecttype="area" oncolresized="Grid00_oncolresized" onrowresized="Grid00_onrowresized" ondragmove="divReport_Grid00_ondragmove" binddataset="ds_form" oninput="divReport_Grid00_oninput" oncloseup="divReport_Grid00_oncloseup" autoupdatetype="itemselect" autoenter="select" oncellclick="divReport_Grid00_oncellclick" bottom="0" right="0" cssclass="grd_WF_dynamic">
+                <Formats>
+                  <Format id="default"/>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btnSave" taborder="3" text="양식저장" width="100" height="30" cssclass="btn_WF_basic01" right="20" onclick="btnSave_onclick" top="66" messageid="grid.dynamic.save"/>
+        <Button id="Button00" taborder="4" text="초기화" top="66" width="82" height="30" cssclass="btn_WF_basic02" onclick="Button00_onclick" messageid="grid.dynamic.clear" right="123"/>
+        <Static id="stDragImage" taborder="5" left="947" top="30" width="153" height="32" cssclass="sta_grd_move" visible="false"/>
+        <Static id="Static03" taborder="6" left="20" top="66" width="680" height="30" cssclass="sta_WF_compTitle05" text="Drag the cell type to the left grid and drop it on the right grid to complete the form." messageid="grid.dynamic.desc"/>
+        <Grid id="Grid00" taborder="7" left="947" top="108" width="383" height="168" cssclass="grd_WF_dynamic" binddataset="ds_sample" autofittype="col" visible="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="60"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="label"/>
+                <Cell col="1" text="contents1"/>
+                <Cell col="2" text="contents2"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:label" cssclass="grd_dynamicLabel"/>
+                <Cell col="1" text="bind:contents1" displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="2" text="bind:contents2" displaytype="combocontrol"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="8" text="ㅇ 그리드 클래스 : grd_WF_dynamic&#13;&#10;ㅇ 라벨(항목)부분 cell class :  grd_dynamicLabel&#13;&#10;ㅇ cell combo에서 드롭 시 나오는 리스트 높이 조정&#13;&#10;- comboitemheight : 44px" left="942" top="295" width="376" height="110" background="lightcyan" verticalAlign="top" padding="10px" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsList" keystring="G:grouptype" reversesubsum="true">
+        <ColumnInfo>
+          <Column id="CHK_TYPE" type="STRING" size="32"/>
+          <Column id="aid" type="STRING" size="32"/>
+          <Column id="aname" type="STRING" size="32"/>
+          <Column id="groupname" type="STRING" size="32"/>
+          <Column id="objgbn" type="STRING" size="32"/>
+          <Column id="objlength" type="INT" size="4"/>
+          <Column id="objtype" type="STRING" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="aid">A15</Col>
+            <Col id="aname">ComboBox</Col>
+            <Col id="groupname">A타입</Col>
+            <Col id="objgbn">ComboBox</Col>
+            <Col id="objlength">0</Col>
+            <Col id="objtype">combocontrol</Col>
+          </Row>
+          <Row>
+            <Col id="aid">A13</Col>
+            <Col id="aname">Calendar</Col>
+            <Col id="groupname">A타입</Col>
+            <Col id="objgbn">Calendar</Col>
+            <Col id="objlength">0</Col>
+            <Col id="objtype">calendarcontrol</Col>
+          </Row>
+          <Row>
+            <Col id="aid">A14</Col>
+            <Col id="aname">Edit</Col>
+            <Col id="groupname">A타입</Col>
+            <Col id="objgbn">Edit</Col>
+            <Col id="objlength">0</Col>
+            <Col id="objtype">editcontrol</Col>
+          </Row>
+          <Row>
+            <Col id="CHK_TYPE">A</Col>
+            <Col id="aid">A_12_01</Col>
+            <Col id="aname">MaskEdit</Col>
+            <Col id="groupname">A타입</Col>
+            <Col id="objgbn">MaskEdit</Col>
+            <Col id="objlength">25</Col>
+            <Col id="objtype">maskeditcontrol</Col>
+          </Row>
+          <Row>
+            <Col id="CHK_TYPE">A</Col>
+            <Col id="aid">A_09_04</Col>
+            <Col id="aname">Number</Col>
+            <Col id="groupname">A타입</Col>
+            <Col id="objgbn">Number</Col>
+            <Col id="objlength">25</Col>
+            <Col id="objtype">number</Col>
+          </Row>
+          <Row>
+            <Col id="aid">A111</Col>
+            <Col id="aname">CheckBox</Col>
+            <Col id="groupname">A타입</Col>
+            <Col id="objgbn">CheckBox</Col>
+            <Col id="objlength">0</Col>
+            <Col id="objtype">checkboxcontrol</Col>
+          </Row>
+          <Row>
+            <Col id="CHK_TYPE">A</Col>
+            <Col id="aid">A_09_03</Col>
+            <Col id="aname">Button</Col>
+            <Col id="groupname">A타입</Col>
+            <Col id="objgbn">Button</Col>
+            <Col id="objlength">25</Col>
+            <Col id="objtype">buttoncontrol</Col>
+          </Row>
+          <Row>
+            <Col id="CHK_TYPE">A</Col>
+            <Col id="aid">A_09_03</Col>
+            <Col id="aname">TextArea</Col>
+            <Col id="groupname">A타입</Col>
+            <Col id="objgbn">TextArea</Col>
+            <Col id="objlength">25</Col>
+            <Col id="objtype">textareacontrol</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsDetail">
+        <ColumnInfo>
+          <Column id="aid" type="STRING" size="256"/>
+          <Column id="qid" type="STRING" size="256"/>
+          <Column id="qname" type="STRING" size="256"/>
+          <Column id="sort" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="aid">data1</Col>
+            <Col id="qname">data1</Col>
+            <Col id="qid">data1</Col>
+          </Row>
+          <Row>
+            <Col id="qname">data2</Col>
+            <Col id="qid">data2</Col>
+            <Col id="aid">data2</Col>
+          </Row>
+          <Row>
+            <Col id="qname">data3</Col>
+            <Col id="qid">data3</Col>
+            <Col id="aid">data3</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsLayout"/>
+      <Dataset id="dsTypeCombo">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">NONE</Col>
+            <Col id="data">타입 선택</Col>
+          </Row>
+          <Row>
+            <Col id="code">A</Col>
+            <Col id="data">A타입</Col>
+          </Row>
+          <Row>
+            <Col id="code">B</Col>
+            <Col id="data">B타입</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_form" updatecontrol="false" oncolumnchanged="ds_form_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="c_0_0" type="STRING" size="256"/>
+          <Column id="c_0_1" type="STRING" size="256"/>
+          <Column id="c_1_0" type="STRING" size="256"/>
+          <Column id="c_1_1" type="STRING" size="256"/>
+          <Column id="c_2_0" type="STRING" size="256"/>
+          <Column id="c_2_1" type="STRING" size="256"/>
+          <Column id="c_3_0" type="string" size="256"/>
+          <Column id="c_3_1" type="string" size="256"/>
+          <Column id="c_4_0" type="string" size="256"/>
+          <Column id="c_4_1" type="string" size="256"/>
+          <Column id="c_5_0" type="string" size="256"/>
+          <Column id="c_5_1" type="string" size="256"/>
+          <Column id="c_6_0" type="string" size="256"/>
+          <Column id="c_6_1" type="string" size="256"/>
+          <Column id="c_7_0" type="string" size="256"/>
+          <Column id="c_7_1" type="string" size="256"/>
+          <Column id="c_0_2" type="STRING" size="256"/>
+          <Column id="c_1_2" type="STRING" size="256"/>
+          <Column id="c_2_2" type="STRING" size="256"/>
+          <Column id="c_3_2" type="STRING" size="256"/>
+          <Column id="c_4_2" type="STRING" size="256"/>
+          <Column id="c_5_2" type="STRING" size="256"/>
+          <Column id="c_6_2" type="STRING" size="256"/>
+          <Column id="c_7_2" type="STRING" size="256"/>
+          <Column id="c_0_3" type="STRING" size="256"/>
+          <Column id="c_1_3" type="STRING" size="256"/>
+          <Column id="c_2_3" type="STRING" size="256"/>
+          <Column id="c_3_3" type="STRING" size="256"/>
+          <Column id="c_4_3" type="STRING" size="256"/>
+          <Column id="c_5_3" type="STRING" size="256"/>
+          <Column id="c_6_3" type="STRING" size="256"/>
+          <Column id="c_7_3" type="STRING" size="256"/>
+          <Column id="c_0_4" type="STRING" size="256"/>
+          <Column id="c_1_4" type="STRING" size="256"/>
+          <Column id="c_2_4" type="STRING" size="256"/>
+          <Column id="c_3_4" type="STRING" size="256"/>
+          <Column id="c_4_4" type="STRING" size="256"/>
+          <Column id="c_5_4" type="STRING" size="256"/>
+          <Column id="c_6_4" type="STRING" size="256"/>
+          <Column id="c_7_4" type="STRING" size="256"/>
+          <Column id="c_0_5" type="STRING" size="256"/>
+          <Column id="c_1_5" type="STRING" size="256"/>
+          <Column id="c_2_5" type="STRING" size="256"/>
+          <Column id="c_3_5" type="STRING" size="256"/>
+          <Column id="c_4_5" type="STRING" size="256"/>
+          <Column id="c_5_5" type="STRING" size="256"/>
+          <Column id="c_6_5" type="STRING" size="256"/>
+          <Column id="c_7_5" type="STRING" size="256"/>
+          <Column id="c_0_6" type="STRING" size="256"/>
+          <Column id="c_1_6" type="STRING" size="256"/>
+          <Column id="c_2_6" type="STRING" size="256"/>
+          <Column id="c_3_6" type="STRING" size="256"/>
+          <Column id="c_4_6" type="STRING" size="256"/>
+          <Column id="c_5_6" type="STRING" size="256"/>
+          <Column id="c_6_6" type="STRING" size="256"/>
+          <Column id="c_7_6" type="STRING" size="256"/>
+          <Column id="c_8_0" type="string" size="256"/>
+          <Column id="c_8_1" type="string" size="256"/>
+          <Column id="c_8_2" type="string" size="256"/>
+          <Column id="c_8_3" type="string" size="256"/>
+          <Column id="c_8_4" type="string" size="256"/>
+          <Column id="c_8_5" type="string" size="256"/>
+          <Column id="c_8_6" type="string" size="256"/>
+          <Column id="c_9_0" type="string" size="256"/>
+          <Column id="c_9_1" type="string" size="256"/>
+          <Column id="c_9_2" type="string" size="256"/>
+          <Column id="c_9_3" type="string" size="256"/>
+          <Column id="c_9_4" type="string" size="256"/>
+          <Column id="c_9_5" type="string" size="256"/>
+          <Column id="c_9_6" type="string" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="c_0_0">Subject</Col>
+            <Col id="c_0_1"/>
+            <Col id="c_1_0">Standard
+Classification</Col>
+            <Col id="c_1_1">Division</Col>
+            <Col id="c_2_0">Representiative
+Product</Col>
+            <Col id="c_2_1">Division</Col>
+            <Col id="c_3_0">Address</Col>
+            <Col id="c_3_1">English</Col>
+            <Col id="c_4_1">Korean</Col>
+            <Col id="c_5_0">Etc.</Col>
+            <Col id="c_6_0">Contract</Col>
+            <Col id="c_6_1">Resident Number</Col>
+            <Col id="c_1_3">Main</Col>
+            <Col id="c_2_3">Main</Col>
+            <Col id="c_6_4">Career</Col>
+            <Col id="c_1_5">Sub</Col>
+            <Col id="c_2_5">Sub</Col>
+            <Col id="c_6_5">Union</Col>
+            <Col id="c_6_6">Hobby</Col>
+            <Col id="c_8_0">Privacy</Col>
+            <Col id="c_8_1">Department</Col>
+            <Col id="c_8_3">Position</Col>
+            <Col id="c_8_5">Major</Col>
+            <Col id="c_9_1">Phone</Col>
+            <Col id="c_9_3">Cell Phone</Col>
+            <Col id="c_9_5">E-mail</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_gridformat">
+        <ColumnInfo>
+          <Column id="format" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="format">&lt;Formats&gt;
+  &lt;Format id="default"&gt;
+    &lt;Columns&gt;
+      &lt;Column size="110"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+    &lt;/Columns&gt;
+    &lt;Rows&gt;
+      &lt;Row size="36" band="head"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+    &lt;/Rows&gt;
+    &lt;Band id="head"&gt;
+      &lt;Cell text="0"/&gt;
+      &lt;Cell col="1" text="1"/&gt;
+      &lt;Cell col="2" text="2"/&gt;
+      &lt;Cell col="3" text="3"/&gt;
+      &lt;Cell col="4" text="4"/&gt;
+      &lt;Cell col="5" text="5"/&gt;
+      &lt;Cell col="6" text="6"/&gt;
+    &lt;/Band&gt;
+    &lt;Band id="body"&gt;
+      &lt;Cell cssclass="grd_dynamicLabel" edittype="text" text="bind:c_0_0"/&gt;
+      &lt;Cell col="1" colspan="6" edittype="text" text="bind:c_0_1"/&gt;
+      &lt;Cell row="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_1_0"/&gt;
+      &lt;Cell row="1" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_1_1"/&gt;
+      &lt;Cell row="1" col="2" edittype="text" text="bind:c_1_2" wordWrap="char"/&gt;
+      &lt;Cell row="1" col="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_1_3" wordWrap="char"/&gt;
+      &lt;Cell row="1" col="4" edittype="text" text="bind:c_1_4" wordWrap="char"/&gt;
+      &lt;Cell row="1" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_1_5" wordWrap="char"/&gt;
+      &lt;Cell row="1" col="6" edittype="text" text="bind:c_1_6" wordWrap="char"/&gt;
+      &lt;Cell row="2" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_2_0"/&gt;
+      &lt;Cell row="2" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_2_1"/&gt;
+      &lt;Cell row="2" col="2" edittype="text" text="bind:c_2_2" wordWrap="char"/&gt;
+      &lt;Cell row="2" col="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_2_3" wordWrap="char"/&gt;
+      &lt;Cell row="2" col="4" edittype="text" text="bind:c_2_4" wordWrap="char"/&gt;
+      &lt;Cell row="2" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_2_5" wordWrap="char"/&gt;
+      &lt;Cell row="2" col="6" edittype="text" text="bind:c_2_6" wordWrap="char"/&gt;
+      &lt;Cell row="3" rowspan="2" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_3_0" wordWrap="char"/&gt;
+      &lt;Cell row="3" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_3_1" wordWrap="char"/&gt;
+      &lt;Cell row="3" col="2" colspan="5" edittype="text" text="bind:c_3_2" wordWrap="char"/&gt;
+      &lt;Cell row="4" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_4_1" wordWrap="char"/&gt;
+      &lt;Cell row="4" col="2" colspan="5" edittype="text" text="bind:c_4_2" wordWrap="char"/&gt;
+      &lt;Cell row="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_5_0" wordWrap="char"/&gt;
+      &lt;Cell row="5" col="1" colspan="6" edittype="text" text="bind:c_5_1" wordWrap="char"/&gt;
+      &lt;Cell row="6" rowspan="2" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_0" wordWrap="char"/&gt;
+      &lt;Cell row="6" col="1" colspan="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_1" wordWrap="char"/&gt;
+      &lt;Cell row="6" col="4" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_4" wordWrap="char"/&gt;
+      &lt;Cell row="6" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_5" wordWrap="char"/&gt;
+      &lt;Cell row="6" col="6" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_6" wordWrap="char"/&gt;
+      &lt;Cell row="7" col="1" colspan="3" edittype="text" text="bind:c_7_1" wordWrap="char"/&gt;
+      &lt;Cell row="7" col="4" edittype="text" text="bind:c_7_4" wordWrap="char"/&gt;
+      &lt;Cell row="7" col="5" edittype="text" text="bind:c_7_5" wordWrap="char"/&gt;
+      &lt;Cell row="7" col="6" edittype="text" text="bind:c_7_6" wordWrap="char"/&gt;
+      &lt;Cell row="8" rowspan="2" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_8_0" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_8_1" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="2" edittype="text" text="bind:c_8_2" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_8_3" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="4" edittype="text" text="bind:c_8_4" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_8_5" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="6" edittype="text" text="bind:c_8_6" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_9_1" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="2" edittype="text" text="bind:c_9_2" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_9_3" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="4" edittype="text" text="bind:c_9_4" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_9_5" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="6" edittype="text" text="bind:c_9_6" wordWrap="char"/&gt;
+    &lt;/Band&gt;
+  &lt;/Format&gt;
+&lt;/Formats&gt;</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_popupMenu">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="caption" type="STRING" size="256"/>
+          <Column id="icon" type="STRING" size="256"/>
+          <Column id="enable" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">0</Col>
+            <Col id="id">row</Col>
+            <Col id="caption">행관리</Col>
+            <Col id="enable">true</Col>
+          </Row>
+          <Row>
+            <Col id="id">rowadd</Col>
+            <Col id="level">1</Col>
+            <Col id="caption">행추가</Col>
+            <Col id="enable">true</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">rowdel</Col>
+            <Col id="level">1</Col>
+            <Col id="caption">행삭제</Col>
+            <Col id="enable">true</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">col</Col>
+            <Col id="level">0</Col>
+            <Col id="caption">열관리</Col>
+            <Col id="enable">true</Col>
+          </Row>
+          <Row>
+            <Col id="id">coladd</Col>
+            <Col id="level">1</Col>
+            <Col id="caption">열추가</Col>
+            <Col id="enable">true</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">coldel</Col>
+            <Col id="level">1</Col>
+            <Col id="caption">열삭제</Col>
+            <Col id="enable">true</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="caption">셀관리</Col>
+            <Col id="level">0</Col>
+            <Col id="id">cell</Col>
+            <Col id="enable">true</Col>
+          </Row>
+          <Row>
+            <Col id="id">merge</Col>
+            <Col id="level">1</Col>
+            <Col id="caption">셀병합 (Ctrl+m)</Col>
+            <Col id="enable">true</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">split</Col>
+            <Col id="level">1</Col>
+            <Col id="caption">병합취소</Col>
+            <Col id="icon"/>
+            <Col id="enable">true</Col>
+          </Row>
+          <Row>
+            <Col id="id">cellcolor</Col>
+            <Col id="level">0</Col>
+            <Col id="caption">색상입력</Col>
+            <Col id="enable">true</Col>
+          </Row>
+          <Row>
+            <Col id="id">color</Col>
+            <Col id="level">1</Col>
+            <Col id="caption">헤더색상입력</Col>
+            <Col id="enable">true</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">cancelcolor</Col>
+            <Col id="level">1</Col>
+            <Col id="caption">색상취소</Col>
+            <Col id="icon"/>
+            <Col id="enable">true</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_gridformatOrg">
+        <ColumnInfo>
+          <Column id="format" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="format">&lt;Formats&gt;
+  &lt;Format id="default"&gt;
+    &lt;Columns&gt;
+      &lt;Column size="110"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+      &lt;Column size="90"/&gt;
+    &lt;/Columns&gt;
+    &lt;Rows&gt;
+      &lt;Row size="36" band="head"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+      &lt;Row size="50"/&gt;
+    &lt;/Rows&gt;
+    &lt;Band id="head"&gt;
+      &lt;Cell text="0"/&gt;
+      &lt;Cell col="1" text="1"/&gt;
+      &lt;Cell col="2" text="2"/&gt;
+      &lt;Cell col="3" text="3"/&gt;
+      &lt;Cell col="4" text="4"/&gt;
+      &lt;Cell col="5" text="5"/&gt;
+      &lt;Cell col="6" text="6"/&gt;
+    &lt;/Band&gt;
+    &lt;Band id="body"&gt;
+      &lt;Cell cssclass="grd_dynamicLabel" edittype="text" text="bind:c_0_0"/&gt;
+      &lt;Cell col="1" colspan="6" edittype="text" text="bind:c_0_1"/&gt;
+      &lt;Cell row="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_1_0"/&gt;
+      &lt;Cell row="1" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_1_1"/&gt;
+      &lt;Cell row="1" col="2" edittype="text" text="bind:c_1_2" wordWrap="char"/&gt;
+      &lt;Cell row="1" col="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_1_3" wordWrap="char"/&gt;
+      &lt;Cell row="1" col="4" edittype="text" text="bind:c_1_4" wordWrap="char"/&gt;
+      &lt;Cell row="1" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_1_5" wordWrap="char"/&gt;
+      &lt;Cell row="1" col="6" edittype="text" text="bind:c_1_6" wordWrap="char"/&gt;
+      &lt;Cell row="2" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_2_0"/&gt;
+      &lt;Cell row="2" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_2_1"/&gt;
+      &lt;Cell row="2" col="2" edittype="text" text="bind:c_2_2" wordWrap="char"/&gt;
+      &lt;Cell row="2" col="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_2_3" wordWrap="char"/&gt;
+      &lt;Cell row="2" col="4" edittype="text" text="bind:c_2_4" wordWrap="char"/&gt;
+      &lt;Cell row="2" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_2_5" wordWrap="char"/&gt;
+      &lt;Cell row="2" col="6" edittype="text" text="bind:c_2_6" wordWrap="char"/&gt;
+      &lt;Cell row="3" rowspan="2" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_3_0" wordWrap="char"/&gt;
+      &lt;Cell row="3" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_3_1" wordWrap="char"/&gt;
+      &lt;Cell row="3" col="2" colspan="5" edittype="text" text="bind:c_3_2" wordWrap="char"/&gt;
+      &lt;Cell row="4" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_4_1" wordWrap="char"/&gt;
+      &lt;Cell row="4" col="2" colspan="5" edittype="text" text="bind:c_4_2" wordWrap="char"/&gt;
+      &lt;Cell row="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_5_0" wordWrap="char"/&gt;
+      &lt;Cell row="5" col="1" colspan="6" edittype="text" text="bind:c_5_1" wordWrap="char"/&gt;
+      &lt;Cell row="6" rowspan="2" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_0" wordWrap="char"/&gt;
+      &lt;Cell row="6" col="1" colspan="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_1" wordWrap="char"/&gt;
+      &lt;Cell row="6" col="4" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_4" wordWrap="char"/&gt;
+      &lt;Cell row="6" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_5" wordWrap="char"/&gt;
+      &lt;Cell row="6" col="6" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_6_6" wordWrap="char"/&gt;
+      &lt;Cell row="7" col="1" colspan="3" edittype="text" text="bind:c_7_1" wordWrap="char"/&gt;
+      &lt;Cell row="7" col="4" edittype="text" text="bind:c_7_4" wordWrap="char"/&gt;
+      &lt;Cell row="7" col="5" edittype="text" text="bind:c_7_5" wordWrap="char"/&gt;
+      &lt;Cell row="7" col="6" edittype="text" text="bind:c_7_6" wordWrap="char"/&gt;
+      &lt;Cell row="8" rowspan="2" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_8_0" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_8_1" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="2" edittype="text" text="bind:c_8_2" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_8_3" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="4" edittype="text" text="bind:c_8_4" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_8_5" wordWrap="char"/&gt;
+      &lt;Cell row="8" col="6" edittype="text" text="bind:c_8_6" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="1" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_9_1" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="2" edittype="text" text="bind:c_9_2" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="3" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_9_3" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="4" edittype="text" text="bind:c_9_4" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="5" cssclass="grd_dynamicLabel" edittype="text" text="bind:c_9_5" wordWrap="char"/&gt;
+      &lt;Cell row="9" col="6" edittype="text" text="bind:c_9_6" wordWrap="char"/&gt;
+    &lt;/Band&gt;
+  &lt;/Format&gt;
+&lt;/Formats&gt;</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_formOrg" updatecontrol="false" oncolumnchanged="ds_form_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="c_0_0" type="STRING" size="256"/>
+          <Column id="c_0_1" type="STRING" size="256"/>
+          <Column id="c_1_0" type="STRING" size="256"/>
+          <Column id="c_1_1" type="STRING" size="256"/>
+          <Column id="c_2_0" type="STRING" size="256"/>
+          <Column id="c_2_1" type="STRING" size="256"/>
+          <Column id="c_3_0" type="string" size="256"/>
+          <Column id="c_3_1" type="string" size="256"/>
+          <Column id="c_4_0" type="string" size="256"/>
+          <Column id="c_4_1" type="string" size="256"/>
+          <Column id="c_5_0" type="string" size="256"/>
+          <Column id="c_5_1" type="string" size="256"/>
+          <Column id="c_6_0" type="string" size="256"/>
+          <Column id="c_6_1" type="string" size="256"/>
+          <Column id="c_7_0" type="string" size="256"/>
+          <Column id="c_7_1" type="string" size="256"/>
+          <Column id="c_0_2" type="STRING" size="256"/>
+          <Column id="c_1_2" type="STRING" size="256"/>
+          <Column id="c_2_2" type="STRING" size="256"/>
+          <Column id="c_3_2" type="STRING" size="256"/>
+          <Column id="c_4_2" type="STRING" size="256"/>
+          <Column id="c_5_2" type="STRING" size="256"/>
+          <Column id="c_6_2" type="STRING" size="256"/>
+          <Column id="c_7_2" type="STRING" size="256"/>
+          <Column id="c_0_3" type="STRING" size="256"/>
+          <Column id="c_1_3" type="STRING" size="256"/>
+          <Column id="c_2_3" type="STRING" size="256"/>
+          <Column id="c_3_3" type="STRING" size="256"/>
+          <Column id="c_4_3" type="STRING" size="256"/>
+          <Column id="c_5_3" type="STRING" size="256"/>
+          <Column id="c_6_3" type="STRING" size="256"/>
+          <Column id="c_7_3" type="STRING" size="256"/>
+          <Column id="c_0_4" type="STRING" size="256"/>
+          <Column id="c_1_4" type="STRING" size="256"/>
+          <Column id="c_2_4" type="STRING" size="256"/>
+          <Column id="c_3_4" type="STRING" size="256"/>
+          <Column id="c_4_4" type="STRING" size="256"/>
+          <Column id="c_5_4" type="STRING" size="256"/>
+          <Column id="c_6_4" type="STRING" size="256"/>
+          <Column id="c_7_4" type="STRING" size="256"/>
+          <Column id="c_0_5" type="STRING" size="256"/>
+          <Column id="c_1_5" type="STRING" size="256"/>
+          <Column id="c_2_5" type="STRING" size="256"/>
+          <Column id="c_3_5" type="STRING" size="256"/>
+          <Column id="c_4_5" type="STRING" size="256"/>
+          <Column id="c_5_5" type="STRING" size="256"/>
+          <Column id="c_6_5" type="STRING" size="256"/>
+          <Column id="c_7_5" type="STRING" size="256"/>
+          <Column id="c_0_6" type="STRING" size="256"/>
+          <Column id="c_1_6" type="STRING" size="256"/>
+          <Column id="c_2_6" type="STRING" size="256"/>
+          <Column id="c_3_6" type="STRING" size="256"/>
+          <Column id="c_4_6" type="STRING" size="256"/>
+          <Column id="c_5_6" type="STRING" size="256"/>
+          <Column id="c_6_6" type="STRING" size="256"/>
+          <Column id="c_7_6" type="STRING" size="256"/>
+          <Column id="c_8_0" type="string" size="256"/>
+          <Column id="c_8_1" type="string" size="256"/>
+          <Column id="c_8_2" type="string" size="256"/>
+          <Column id="c_8_3" type="string" size="256"/>
+          <Column id="c_8_4" type="string" size="256"/>
+          <Column id="c_8_5" type="string" size="256"/>
+          <Column id="c_8_6" type="string" size="256"/>
+          <Column id="c_9_0" type="string" size="256"/>
+          <Column id="c_9_1" type="string" size="256"/>
+          <Column id="c_9_2" type="string" size="256"/>
+          <Column id="c_9_3" type="string" size="256"/>
+          <Column id="c_9_4" type="string" size="256"/>
+          <Column id="c_9_5" type="string" size="256"/>
+          <Column id="c_9_6" type="string" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="c_0_0">Subject</Col>
+            <Col id="c_0_1"/>
+            <Col id="c_1_0">Standard
+Classification</Col>
+            <Col id="c_1_1">Division</Col>
+            <Col id="c_2_0">Representiative
+Product</Col>
+            <Col id="c_2_1">Division</Col>
+            <Col id="c_3_0">Address</Col>
+            <Col id="c_3_1">English</Col>
+            <Col id="c_4_1">Korean</Col>
+            <Col id="c_5_0">Etc.</Col>
+            <Col id="c_6_0">Contract</Col>
+            <Col id="c_6_1">Resident Number</Col>
+            <Col id="c_1_3">Main</Col>
+            <Col id="c_2_3">Main</Col>
+            <Col id="c_6_4">Career</Col>
+            <Col id="c_1_5">Sub</Col>
+            <Col id="c_2_5">Sub</Col>
+            <Col id="c_6_5">Union</Col>
+            <Col id="c_6_6">Hobby</Col>
+            <Col id="c_8_0">Privacy</Col>
+            <Col id="c_8_1">Department</Col>
+            <Col id="c_8_3">Position</Col>
+            <Col id="c_8_5">Major</Col>
+            <Col id="c_9_1">Phone</Col>
+            <Col id="c_9_3">Cell Phone</Col>
+            <Col id="c_9_5">E-mail</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sample">
+        <ColumnInfo>
+          <Column id="label" type="STRING" size="256"/>
+          <Column id="contents1" type="STRING" size="256"/>
+          <Column id="contents2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="contents1"/>
+            <Col id="contents2">test</Col>
+            <Col id="label">label</Col>
+          </Row>
+          <Row>
+            <Col id="contents2">test</Col>
+            <Col id="contents1"/>
+            <Col id="label">label</Col>
+          </Row>
+          <Row>
+            <Col id="contents2">test</Col>
+            <Col id="contents1"/>
+            <Col id="label">label</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.fv_dragFlag = false;
+this.fv_dragType = "";
+this.compArr = new Array();
+this.targetGridCell=0;
+this.targetGridCol=0;
+
+this.work002_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	
+	var objApp = nexacro.getApplication();
+//	this.dsTypeCombo.copyData(objApp.gdsTypeCombo);
+//	this.Combo00.set_index(0);
+	
+	pmnu = new PopupMenu();		
+	pmnu.init("pmnu", 0, 0, 200, 200);
+	this.addChild(pmnu.name, pmnu);	
+	pmnu.set_innerdataset("ds_popupMenu");
+	pmnu.set_idcolumn("id");
+	pmnu.set_levelcolumn("level");
+	pmnu.set_captioncolumn("caption");
+	pmnu.set_iconcolumn("icon");
+	pmnu.set_enablecolumn("enable");
+	pmnu.addEventHandler("onmenuclick", this.sortPopupMenuOnMenuClickHandler, this);
+	pmnu.show();
+	pmnu.grid = this.divReport.form.Grid00;
+	
+	// 그리드 이벤트에서 팝업메뉴를 참조하기 위해 추가
+	this.divReport.form.Grid00.rClickPopupMenu = pmnu;
+	
+	// add onrbuttondown handler 
+	this.divReport.form.Grid00.addEventHandler("onrbuttondown", this.sortGridOnRButtonDownHandler, this);	
+	
+	/*양식 저장 했을 때 불러오기*/
+	if(!nexacro.isEmpty(nexacro.getPrivateProfile( "dynamic_grid_format")) && !nexacro.isEmpty(nexacro.getPrivateProfile( "dynamic_grid_data")) )
+	{
+		this.divReport.form.Grid00.set_formats(nexacro.getPrivateProfile( "dynamic_grid_format"));
+		this.ds_gridformat.loadXML(nexacro.getPrivateProfile( "dynamic_grid_data"));
+	}
+	else
+	{
+		this.divReport.form.Grid00.set_formats(this.ds_gridformat.getColumn(0,0));
+		//this.divReport.form.Grid00.set_formats("<Formats>" + this.ds_gridformat.getColumn(0,0) + "</Formats>");
+	}
+};
+
+this.btnSave_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	nexacro.setPrivateProfile( "dynamic_grid_format", this.divReport.form.Grid00.getCurFormatString() );
+	nexacro.setPrivateProfile( "dynamic_grid_data", this.ds_gridformat.saveXML() );
+	/* DB에 양식저장
+	this.dsLayout.setColumn(0 ,"CHK_TYPE", this.Combo00.value);
+	this.dsLayout.setColumn(0 ,"DS_NAME", "ds_form");
+	this.dsLayout.setColumn(0 ,"XML_DATA", this.ds_form.saveXML());
+
+	//nRow = this.dsLayout.addRow();
+	this.dsLayout.setColumn(1 ,"CHK_TYPE", this.Combo00.value);
+	this.dsLayout.setColumn(1 ,"DS_NAME", "ds_gridformat");
+	var grdFormat = this.divReport.form.Grid00.getCurFormatString();
+	this.ds_gridformat.setColumn(0,0,grdFormat);
+	this.dsLayout.setColumn(1 ,"XML_DATA", this.ds_gridformat.saveXML());
+	this.dsLayout.setColumn(1, "GRID_H", this.divReport.form.Grid00.getOffsetHeight());
+	this.dsLayout.setColumn(1, "GRID_W", this.divReport.form.Grid00.getOffsetWidth());
+
+
+	//console.log(this.dsLayout.saveXML());
+	
+	this.transaction(
+			"ColumnInfo_Save", 
+			//nexacro.getApplication().url+"save", 
+			"http://14.63.224.112/KISTEP_TEST/save",
+			"InputDs=dsLayout:A", 
+			"", 
+			"",
+			"fn_CallBack");
+	*/
+	
+	alert(nexacro.getApplication().messages["grid.dynamic.save.desc"]);
+};
+
+this.fn_component_ondrag = function(obj:nexacro.Button,e:nexacro.DragEventInfo)
+{
+	this.fv_dragType = "COMP";
+	this.fv_dragFlag = true;
+	e.userdata = obj;
+	return true;
+}
+
+this.fn_makeDataset = function(sDsName)
+{
+	if(this.isValidObject(sDsName)==false)
+	{
+		var objDs = new Dataset;
+		this.addChild(sDsName , objDs);
+		
+		objDs.set_id(sDsName);
+		objDs.set_name(sDsName);
+	}
+	
+	return this.objects[sDsName];
+}
+
+this.grdTree_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	var objTemp;
+	var sCompId;
+	var sObjGbn;
+	var sObjType;
+	var x, y, w, h;
+	
+	if(this.dsList.getRowLevel(e.row)==0)
+	{
+		sCompId = this.dsList.getColumn(e.row, "aid");
+		// aId 불일치로 sCompName 값으로 저장
+		sCompName = this.dsList.getColumn(e.row, "aname");
+		sObjGbn = this.dsList.getColumn(e.row, "objgbn");
+		sObjType = this.dsList.getColumn(e.row, "objtype");
+		
+		if(this.dsComp.findRow("compId", sCompId)>-1)
+		{
+			objTemp = this.divReport.form.components["comp"+sCompId];
+			return;
+		}
+	}
+};
+
+
+this.grdTree_ondrag = function(obj:nexacro.Grid,e:nexacro.GridDragEventInfo)
+{
+	if(e.row>-1)
+	{
+		this.fv_dragFlag = true;
+		this.fv_dragType = "GRID";
+		this.stDragImage.set_visible(true);
+		this.stDragImage.targetRow = e.row;
+		return true;
+	}else
+	{
+		return false;
+	}
+};
+
+this.work002_ondragmove = function(obj:nexacro.Form,e:nexacro.DragEventInfo)
+{
+	var nX;
+	var nY;
+	
+	if(this.fv_dragType=="GRID"&&this.fv_dragFlag == true)
+	{
+		nX = e.screenx + 5 - system.clientToScreenX(this, 0);
+		nY = e.screeny + 5 - system.clientToScreenY(this, 0);
+		
+		this.stDragImage.move(nX, nY);
+	}
+};
+
+this.grdTree_onlbuttonup = function(obj:nexacro.Grid,e:nexacro.GridMouseEventInfo)
+{
+	if(this.fv_dragType=="GRID"&&this.fv_dragFlag == true)
+	{
+	
+		this.fv_dragType = "";
+		this.stDragImage.set_visible(false);
+		
+		var x = this.stDragImage.getOffsetLeft()-this.divReport.getOffsetLeft();
+		var y = this.stDragImage.getOffsetTop()-this.divReport.getOffsetTop()+this.divReport.form.vscrollbar.pos;
+		
+		if(x<0||y<0)return;
+		//trace(this.compArr[0] + ", " + this.compArr[1] + ", " + this.compArr[2]);
+		switch(this.compArr[1])
+		{
+			case "ComboBox":
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "combocontrol");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "combo");
+
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "combocodecol", "qid");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "combodatacol", "qname");
+				this.divReport.form.Grid00.setCellProperty( "body", this.targetGridCell, "combodataset", "dsDetail");
+				this.divReport.form.Grid00.setCellProperty( "body", this.targetGridCell, "comboitemheight", "44px");
+				//this.divReport.form.Grid00.setCellProperty( "body", this.targetGridCell, "subsumtext", this.compArr[0]);
+				
+				break;
+			
+			case "Calendar":
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "calendarcontrol");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "date");
+				break;
+				
+			case "Edit":
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "editcontrol");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "text");
+				break;
+				
+			case "MaskEdit":
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "maskeditcontrol");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "mask");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "maskeditformat", "######-#{######}");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "maskedittype", "string");
+				break;
+				
+			case "Number":
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "maskeditcontrol");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "mask");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "maskeditformat", "#,###");
+				break;
+				
+			case "CheckBox":
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "checkboxcontrol");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "checkbox");
+				break;
+				
+			case "Button":
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "buttoncontrol");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "button");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "text", "button");
+				
+				break;
+				
+			case "TextArea":
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "textareacontrol");
+				this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "textarea");
+				
+				break;
+		}
+		/*
+		if((this.compArr[1] === "text" && this.compArr[2] === "ENG") || (this.compArr[1] === "text" && this.compArr[2] === "KOR")){
+			this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "text");
+			this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "text");
+		}else if(this.compArr[1] === "combo" && this.compArr[2] === "VARCHAR2"){
+			this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "combocontrol");
+			this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "combo");
+			var sDsName = "dsGbn"+this.compArr[0];
+	
+			objDs = this.fn_makeDataset(sDsName);
+			var cId = objDs.id;
+			this.dsDetail.filter("aid=='"+this.compArr[0]+"'");
+			objDs.copyData(this.dsDetail, true);
+
+			this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "combocodecol", "qid");
+			this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "combodatacol", "qname");
+			this.divReport.form.Grid00.setCellProperty( "body", this.targetGridCell, "combodataset", cId);
+			this.divReport.form.Grid00.setCellProperty( "body", this.targetGridCell, "subsumtext", this.compArr[0]);
+			
+			this.dsDetail.filter("");
+			
+		}else if(this.compArr[2] === "date"){
+			this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "displaytype", "calendarcontrol");
+			this.divReport.form.Grid00.setCellProperty("body", this.targetGridCell, "edittype", "date");
+		}
+		*/
+
+	}
+
+	this.compArr.length = 0;
+};
+
+this.fn_makeDataset = function(sDsName)
+{
+	if(this.isValidObject(sDsName)==false)
+	{
+		var objDs = new Dataset;
+		this.addChild(sDsName , objDs);
+		
+		objDs.set_id(sDsName);
+		objDs.set_name(sDsName);
+	}
+	
+	return this.objects[sDsName];
+}
+
+this.fn_CallBack = function(tId, errCd, errMsg){
+	
+	if(tId == "ColumnInfo_Search"){
+		for(var i=0; i<this.dsLayout.rowcount;i++)
+		{
+			this.objects[this.dsLayout.getColumn(i,"DS_NAME")].loadXML("<xml>"+this.dsLayout.getColumn(i,"XML_DATA")+"</xml>");
+		}
+		this.divReport.form.Grid00.set_formats("<Formats>" + this.ds_gridformat.getColumn(0,"format") + "</Formats>");
+		this.divReport.form.Grid00.setOffsetWidth(this.dsLayout.getColumn(0,"GRID_W"));
+		this.divReport.form.Grid00.setOffsetHeight(this.dsLayout.getColumn(0,"GRID_H"));		
+		
+		this.transaction("subItemSearch", 
+		//nexacro.getApplication().url+"searchSubItem", 
+		"http://14.63.224.112/KISTEP_TEST/data/searchSubItem",
+		"", 
+		"dsDetail=OutputDs",
+		"compId=all compGbn=combo", 
+		"fn_CallBack");
+	}else if(tId == "ColumnInfo_Save"){
+		//this.dsComp.applyChange();
+		this.dsDetail.applyChange();
+		//this.dsTable.applyChange();
+	
+		alert("양식을 정상적으로 저장하였습니다.");
+	}else if(tId == "subItemSearch"){
+		trace(this.dsList.saveXML());
+	}
+}
+
+
+this.Combo00_onitemchanged = function(obj:nexacro.Combo,e:nexacro.ItemChangeEventInfo)
+{
+	//리스트와 양식을 불러온다.
+	this.transaction(
+		"ColumnInfo_Search",
+		//nexacro.getApplication().url+"search", 
+		"http://14.63.224.112/KISTEP_TEST/data/search",
+		"", 
+		"dsList=OutputDs dsLayout=OutputDs2", 
+		"chkTypeVal="+this.Combo00.text+" chkTypeLayoutVal="+this.Combo00.value, 
+		"fn_CallBack");
+};
+
+
+this.Grid00_oncolresized = function(obj:nexacro.Grid,e:nexacro.GridSizeChangedEventInfo)
+{
+	obj.setOffsetWidth( obj.getOffsetWidth() + (e.newvalue - e.oldvalue));
+};
+
+this.Grid00_onrowresized = function(obj:nexacro.Grid,e:nexacro.GridSizeChangedEventInfo)
+{
+	obj.setOffsetHeight( obj.getOffsetHeight() + (e.newvalue - e.oldvalue));
+};
+
+
+/************************************************************************************************
+* 우 클릭 메뉴 Popup 관련 function 및 Event
+************************************************************************************************/
+/************************************************************************************************
+ * Even   : sortPopupMenuOnMenuClickHandler (onmenuclick Event Handler)
+ * Desc   : Grid 우 클릭 메뉴 Click
+ * Param : {obj} Event가 발생한 PopupMenu Component
+                {e} MenuClickEventInfo
+ ************************************************************************************************/
+this.sortPopupMenuOnMenuClickHandler = function(obj, e)
+{	
+	var selectId = e.id;
+	var cell  = obj.headCellIndex;
+	var grid = obj.grid;
+	//obj.colIdx //셀 index
+
+	if(e.id == "color")
+	{
+		var gObj = this.pmnu.grid;
+
+		var sr = gObj.selectstartsubrow;
+		var sc = gObj.selectstartcol;
+		
+		var er = gObj.selectendsubrow;
+		var ec = gObj.selectendcol;
+		
+		for(var i=0; i< this.divReport.form.Grid00.getCellCount( "body" ); i++)
+		{
+			if(this.divReport.form.Grid00.getCellProperty("body",i,"row") >= sr && this.divReport.form.Grid00.getCellProperty("body",i,"row") <= er)
+			{
+				if(this.divReport.form.Grid00.getCellProperty("body",i,"col") >= sc && this.divReport.form.Grid00.getCellProperty("body",i,"col") <= ec)
+				{
+					this.divReport.form.Grid00.setCellProperty("body",i,"cssclass","grd_dynamicLabel");
+				} 
+			}
+		}
+	}else if(e.id == "cancelcolor")
+	{
+		var gObj = this.pmnu.grid;
+
+		var sr = gObj.selectstartsubrow;
+		var sc = gObj.selectstartcol;
+		
+		var er = gObj.selectendsubrow;
+		var ec = gObj.selectendcol;
+		
+		for(var i=0; i< this.divReport.form.Grid00.getCellCount( "body" ); i++)
+		{
+			if(this.divReport.form.Grid00.getCellProperty("body",i,"row") >= sr && this.divReport.form.Grid00.getCellProperty("body",i,"row") <= er)
+			{
+				if(this.divReport.form.Grid00.getCellProperty("body",i,"col") >= sc && this.divReport.form.Grid00.getCellProperty("body",i,"col") <= ec)
+				{
+					this.divReport.form.Grid00.setCellProperty("body",i,"cssclass","");
+				} 
+			}
+		}
+	}else if(e.id == "merge"){ //행추가
+		var gObj = this.pmnu.grid;
+
+		var sr = gObj.selectstartsubrow;
+		var sc = gObj.selectstartcol;
+		
+		var er = gObj.selectendsubrow;
+		var ec = gObj.selectendcol;
+		
+		//수정
+		var nFirstCell;
+		
+		for(var i=0; i< this.divReport.form.Grid00.getCellCount( "body" ); i++)
+		{
+			if(this.divReport.form.Grid00.getCellProperty("body",i,"row") >= sr && this.divReport.form.Grid00.getCellProperty("body",i,"row") <= er)
+			{
+				if(this.divReport.form.Grid00.getCellProperty("body",i,"col") >= sc && this.divReport.form.Grid00.getCellProperty("body",i,"col") <= ec)
+				{
+					nFirstCell = i;
+					break;
+				} 
+			}
+		}
+		
+		if(sr != er || sc != ec) //multi-row
+		{
+			gObj.mergeContentsCell("body",sr,sc,er,ec,nFirstCell,false);
+		}else{
+			alert("한개이상의 셀을 선택하세요.");
+			return;
+		}
+	}else if(e.id == "split"){
+		var gObj = this.pmnu.grid;
+
+		var sr = gObj.selectstartsubrow;
+		var sc = gObj.selectstartcol;
+		
+		var er = gObj.selectendsubrow;
+		var ec = gObj.selectendcol;
+			
+		if(sr != er || sc != ec) //multi-row
+		{
+			//this.objects[gDs.name+"_color"].setColumn(i, j,textcolor+"|"+bkcolor);
+			gObj.splitContentsCell("body",sr,sc,er,ec,true);
+		}
+		
+		for(var i=0; i< this.divReport.form.Grid00.getCellCount( "body" ); i++)
+		{
+			if(this.divReport.form.Grid00.getCellProperty("body",i,"row") >= sr && this.divReport.form.Grid00.getCellProperty("body",i,"row") <= er)
+			{
+				if(this.divReport.form.Grid00.getCellProperty("body",i,"col") >= sc && this.divReport.form.Grid00.getCellProperty("body",i,"col") <= ec)
+				{
+					this.divReport.form.Grid00.setCellProperty("body",i,"text","bind:c_" + this.divReport.form.Grid00.getCellProperty("body",i,"row") + "_" + this.divReport.form.Grid00.getCellProperty("body",i,"col"));
+					this.divReport.form.Grid00.setCellProperty("body",i,"displaytype","normal");
+					this.divReport.form.Grid00.setCellProperty("body",i,"edittype","text"); 
+					this.divReport.form.Grid00.setCellProperty("body",i,"wordWrap","text"); 
+				} 
+			}
+		}
+	}else if(e.id == "rowadd"){ //행추가
+		//this.divReport.form.Grid00.setOffsetHeight( this.divReport.form.Grid00.getOffsetHeight() + 50);
+		var cellCnt = this.divReport.form.Grid00.getCellCount("body");
+		var nRow = this.divReport.form.Grid00.appendContentsRow("body");
+		this.divReport.form.Grid00.setFormatRowProperty(nRow,"size",50);
+		
+		var columnNm = "c_nRow_nCol";
+		for(var c=0; c<this.divReport.form.Grid00.getFormatColCount(); c++)
+		{
+			columnNm ="c_" + (this.divReport.form.Grid00.getFormatRowCount()-2) + "_" + c;
+			this.ds_form.addColumn(columnNm,"string");
+			var nCel = cellCnt + c;
+			
+			this.divReport.form.Grid00.setCellProperty("body",nCel,"displaytype","normal");
+			this.divReport.form.Grid00.setCellProperty("body",nCel,"edittype","text"); 
+			this.divReport.form.Grid00.setCellProperty("body",nCel,"text","bind:"+columnNm);
+			this.divReport.form.Grid00.setCellProperty("body",nCel,"wordWrap","text"); 
+		}
+		this.divReport.form.resetScroll();
+	}else if(e.id == "rowdel"){ //행삭제
+
+		
+		for(var c=this.divReport.form.Grid00.getFormatColCount()-1; c>=0; c--)
+		{
+			this.ds_form.deleteColumn("c_" + (this.divReport.form.Grid00.getFormatRowCount()-2) + "_" + c);
+		}
+		this.divReport.form.Grid00.deleteContentsRow("body",this.divReport.form.Grid00.getFormatRowCount()-2);
+
+		
+	}else if(e.id == "coladd"){ //열추가
+		//this.divReport.form.Grid00.setOffsetWidth( this.divReport.form.Grid00.getOffsetWidth() + 100);
+		var nCol = this.divReport.form.Grid00.appendContentsCol("body");
+		this.divReport.form.Grid00.setFormatColProperty(nCol,"size",100);
+		this.divReport.form.Grid00.setCellProperty("head",nCol,"text",nCol);
+
+		//수정
+		//데이터셋 추가
+		for(var r=0; r<this.divReport.form.Grid00.getFormatRowCount()-1; r++)
+		{
+			this.ds_form.addColumn("c_" + r + "_"+ nCol);
+		}
+		//수정
+		//바인딩
+		for(var i=0; i< this.divReport.form.Grid00.getCellCount( "body" ); i++)
+			{
+				if(this.divReport.form.Grid00.getCellProperty("body",i,"row") >= 0 && this.divReport.form.Grid00.getCellProperty("body",i,"row") <= this.divReport.form.Grid00.getFormatRowCount()-1)
+				{
+					if(this.divReport.form.Grid00.getCellProperty("body",i,"col") >= nCol && this.divReport.form.Grid00.getCellProperty("body",i,"col") <= nCol)
+					{
+						this.divReport.form.Grid00.setCellProperty("body",i,"text","bind:c_" + this.divReport.form.Grid00.getCellProperty("body",i,"row") + "_" + this.divReport.form.Grid00.getCellProperty("body",i,"col"));
+						this.divReport.form.Grid00.setCellProperty("body",i,"displaytype","normal");
+						this.divReport.form.Grid00.setCellProperty("body",i,"edittype","text"); 
+						this.divReport.form.Grid00.setCellProperty("body",i,"wordWrap","text"); 
+					} 
+				}
+			}
+		
+		
+	}else if(e.id == "coldel"){ //열삭제
+		var nCol = this.divReport.form.Grid00.getFormatColCount()-1;
+		var nColSize = this.divReport.form.Grid00.getRealColSize(nCol);
+		this.divReport.form.Grid00.deleteContentsCol("body",nCol);
+		this.divReport.form.Grid00.setOffsetWidth( this.divReport.form.Grid00.getOffsetWidth() - nColSize);
+
+		//데이터셋 추가
+		for(var r=this.divReport.form.Grid00.getFormatRowCount()-1; r>=0; r--)
+		{
+			this.ds_form.deleteColumn("c_" + r + "_"+ nCol);
+		}
+	}
+}
+
+/************************************************************************************************
+ * Even   : sortGridOnRButtonDownHandler (onrbuttondown Event Handler)
+ * Desc   : Grid 우 클릭 메뉴 Click
+ * Param : {obj} Event가 발생한 Grid Component
+                {e} MouseEventInfo
+ ************************************************************************************************/
+this.sortGridOnRButtonDownHandler = function(obj, e:nexacro.GridMouseEventInfo) 
+{
+	var row = e.row;
+	var cell = e.cell;
+	
+	
+	this.rowIdx = e.row;
+	
+	var pmnu = obj.rClickPopupMenu;
+	var ds = this.ds_menu;
+	pmnu.colIdx = e.cell;
+	
+//수정
+	pmnu.trackPopupByComponent(obj, e.canvasx, e.canvasy);
+}
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_form.copyData(this.ds_formOrg);
+	this.ds_gridformat.copyData(this.ds_gridformatOrg);
+	
+	this.divReport.form.Grid00.set_formats(this.ds_gridformat.getColumn(0,0));
+	
+	alert(nexacro.getApplication().messages["grid.dynamic.init.desc"]);
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//trace(this.ds_gridformat.saveXML());
+};
+
+this.divReport_Grid00_ondragmove = function(obj:nexacro.Grid,e:nexacro.GridDragEventInfo)
+{
+
+	this.targetGridCell=e.cell;
+	this.targetGridCol=e.col;
+};
+
+this.grdTree_onlbuttondown = function(obj:nexacro.Grid,e:nexacro.GridMouseEventInfo)
+{
+	//this.compArr.length = 0;
+	
+	this.fv_dragType = "";
+	this.stDragImage.set_visible(false);
+	
+	var objTemp;
+	var sCompId;
+	var sObjGbn;
+	var sObjType;
+	var nRow = e.row;
+
+	sCompId = this.dsList.getColumn(nRow, "aid");
+	sObjGbn = this.dsList.getColumn(nRow, "objgbn");
+	sObjType = this.dsList.getColumn(nRow, "objtype");
+	this.compArr.push(sCompId);
+	this.compArr.push(sObjGbn);
+	this.compArr.push(sObjType);
+
+};
+
+this.divReport_Grid00_oncloseup = function(obj:nexacro.Grid,e:nexacro.GridEditEventInfo)
+{
+	if(obj.getCellPropertyValue(e.row, e.cell, "displaytype") === "calendarcontrol"){
+		var chkToday = this.fn_CheckToday(e.value);
+		if(chkToday){
+			var colId = obj.getCellProperty("body", e.cell, "text").split(":")[1];
+			this.ds_form.setColumn(0,colId,"");
+		}
+		
+	}
+};
+
+this.fn_CheckToday = function(selectionVal){
+
+	var tDateObj = new Date();
+	var tYear = tDateObj.getFullYear();
+	var tMonth = tDateObj.getMonth()+1;
+	if(tMonth < 10){ tMonth = "0" + tMonth;};	
+	var tDay = tDateObj.getDate();
+	var toDay = tYear + tMonth + tDay;
+
+	if(toDay > selectionVal){
+		alert("당일보다 이전의 날짜는 선택할 수 없습니다");
+		return true;
+	}
+};
+this.frm_sheetDesign_onkeydown = function(obj:nexacro.Form,e:nexacro.KeyEventInfo)
+{
+	if(e.ctrlkey && e.keycode ==77)
+	{
+		var sr = this.divReport.form.Grid00.selectstartsubrow;
+		var sc = this.divReport.form.Grid00.selectstartcol;
+		
+		var er = this.divReport.form.Grid00.selectendsubrow;
+		var ec = this.divReport.form.Grid00.selectendcol;
+		
+		//수정
+		var nFirstCell;
+		
+		for(var i=0; i< this.divReport.form.Grid00.getCellCount( "body" ); i++)
+		{
+			if(this.divReport.form.Grid00.getCellProperty("body",i,"row") >= sr && this.divReport.form.Grid00.getCellProperty("body",i,"row") <= er)
+			{
+				if(this.divReport.form.Grid00.getCellProperty("body",i,"col") >= sc && this.divReport.form.Grid00.getCellProperty("body",i,"col") <= ec)
+				{
+					nFirstCell = i;
+					break;
+				} 
+			}
+		}
+		
+		// 수정
+		if(sr != er || sc != ec) //multi-row
+		{
+			this.divReport.form.Grid00.mergeContentsCell("body",sr,sc,er,ec,nFirstCell,false);
+		}else{
+			alert("한개이상의 셀을 선택하세요.");
+			return;
+		}
+	}
+};
+
+this.ds_form_oncolumnchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSColChangeEventInfo)
+{
+	/*
+	var eng = /^[a-zA-Z\b]*$/; 
+	var grdGetColumn = this.divReport.form.Grid00.getCellProperty("body", this.targetGridCell, "text");
+	var grdSplit = grdGetColumn.split(":")[1];
+	var objTooltipStatic = this.divReport.form["objTooltipStatic"];
+	var cellInfo = this.divReport.form.Grid00.getCellRect(this.divReport.form.Grid00.getSelectedRows()[0],this.divReport.form.Grid00.getCellPos());
+	var regVal = this.ds_form.getColumn(0, grdSplit);
+	var grdTreeVal = this.dsList.getColumn(this.dsList.rowposition, "aid");
+	var regChk = eng.test(regVal);
+	
+	// 연구개발과제(국문)ID
+	if(grdTreeVal =="A_09_03"){
+		if(regChk){
+			this.fn_showTooltip(cellInfo, objTooltipStatic, regVal);
+		}else{
+			if(objTooltipStatic) objTooltipStatic.set_visible(false);
+		}
+	// 연구개발과제(영문)ID	
+	}else if(grdTreeVal =="A_09_04"){
+		if(!regChk){
+			trace("regChk:" + regChk);
+			this.fn_showTooltip(cellInfo, objTooltipStatic, regVal);
+		}else{
+			if(objTooltipStatic) objTooltipStatic.set_visible(false);
+		}
+	}
+	*/
+};
+
+this.fn_showTooltip = function(cellInfo, objTooltipStatic, regVal){
+	var sLeft =  Number(this.divReport.form.Grid00.left) + Number(cellInfo.left);
+	var sTop = Number(this.divReport.form.Grid00.getOffsetTop()) + Number(cellInfo.top);
+	if(!objTooltipStatic){
+		objTooltipStatic = new Static("objTooltipStatic", sLeft+18, sTop+40, 200, 30);
+		objTooltipStatic.set_text("잘못된 입력값입니다. 확인하세요.");
+		objTooltipStatic.set_textAlign("center");
+		objTooltipStatic.set_cssclass("sta_tooltip");
+		this.divReport.form.addChild("objTooltipStatic",objTooltipStatic);
+		objTooltipStatic.set_visible(true);
+		objTooltipStatic.show();
+	}else{
+		objTooltipStatic.move(sLeft+18, sTop+40);
+		objTooltipStatic.set_visible(true);
+	}
+	if( typeof regVal == "undefined"){
+	objTooltipStatic.set_visible(false);
+	};
+		
+}
+this.divReport_Grid00_oninput = function(obj:nexacro.Grid,e:nexacro.InputEventInfo)
+{
+	obj.updateToDataset();
+};
+
+this.divReport_Grid00_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	//콤보 클릭했을 때 클릭하자마자 바로 드랍다운되도록
+	obj.dropdownCombo();
+};
+]]></Script>
+  </Form>
+</FDL>

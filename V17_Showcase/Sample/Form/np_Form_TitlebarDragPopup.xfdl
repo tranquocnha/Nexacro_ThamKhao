@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="form_Dragtest" classname="form_Dragtest" left="0" top="0" width="550" height="300" titletext="Invisible title bar and set stop dragging the titlebar" style="border:1 solid #808080ff ;">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="invisible titlebar" left="17" top="113" height="40" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="150"/>
+        <Button id="Button01" taborder="1" text="Stop drag" left="187" top="113" height="40" onclick="Button01_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="150"/>
+        <Static id="Static07" taborder="2" text="This sample shows removing title bar and stop drag functionality on the form" cssclass="sta_WF_explain" left="17" top="13" width="500" height="20" style="font:bold 9 Dotum;" wordwrap="english" verticalAlign="top"/>
+        <Static id="Static00" taborder="3" text="Invisible title bar" cssclass="sta_WF_explain" left="17" top="43" width="500" height="19" style="font:bold 9 Dotum;" verticalAlign="top"/>
+        <Static id="Static01" taborder="4" text="Invisible title bar and set stop dragging on the screen" cssclass="sta_WF_explain" left="17" top="72" width="500" height="21" style="font:bold 9 Dotum;" wordwrap="english" verticalAlign="top"/>
+        <Button id="Button02" taborder="5" text="Close" left="440" top="240" height="40" onclick="Button02_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="90"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.parent.set_showtitlebar(false);  // will remove the title bar
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.parent.set_showtitlebar(false);  // will remove the title bar
+	this.parent.set_dragmovetype("none"); // will prevent the drag functionality of the screen
+};
+
+this.Button02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();  // will close the form
+};
+]]></Script>
+  </Form>
+</FDL>

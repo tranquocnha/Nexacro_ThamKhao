@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_WeekOfYear" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_WeekOfYear" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_input1" taborder="1" autoselect="true" autoskip="false" value="52" inputtype="number" maxlength="2" position="absolute" left="90" width="250" top="128" height="40"/>
+        <Static id="Static00" text="input0" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input0" taborder="0" autoselect="true" autoskip="true" value="2012" maxlength="4" inputtype="number" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="238" height="40"/>
+        <Button id="btn_execute" taborder="2" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="178" height="40"/>
+        <Edit id="edt_output" taborder="3" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="238" height="40"/>
+        <Static id="Static08" text="input1" position="absolute" left="30" width="60" top="128" height="40"/>
+        <Static id="Static05" taborder="4" text="Finding the date interval corresponding to input week" cssclass="sta_WF_subtitP" left="30" top="18" width="705" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_WeekOfYear
+ * Description : Finding the date interval corresponding to input week
+ */
+
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_weekOfYear(this.edt_input0.value, this.edt_input1.value);
+	this.edt_output.set_value(sRtn);
+};
+
+/*
+ * Function Name : fn_weekOfYear
+ * Description   : Finding the date interval corresponding to input week
+ * Parameter     : Year, Week
+ * Return        : Applying(from ~ to)
+ * Example       : fn_weekOfYear(2012, 52);
+ */
+this.fn_weekOfYear = function(sYYYY, sWeek)
+{
+    var dDate = new Date(parseInt(sYYYY), 0, 1);
+    var nDay  = dDate.getDay();     //0 = Sunday ~ 6 = Saturday    
+    
+	if (nDay != 0)
+	{
+		dDate = new Date(dDate.addDate(-nDay));
+	} 
+
+	var nWeekS = dDate.addDate(7 * (sWeek-1));
+    var nWeekE = dDate.addDate(6);	
+    
+    var sRtn  =  (new Date(nWeekS)).getFullYear()
+              + ((new Date(nWeekS)).getMonth()+1).toString().padLeft(2, "0")
+              + ((new Date(nWeekS)).getDate()).toString().padLeft(2, "0")  
+              + " ~ "   	
+              +  (new Date(nWeekE)).getFullYear()
+              + ((new Date(nWeekE)).getMonth()+1).toString().padLeft(2, "0")
+              + ((new Date(nWeekE)).getDate()).toString().padLeft(2, "0");
+
+	return sRtn;
+};
+]]></Script>
+  </Form>
+</FDL>

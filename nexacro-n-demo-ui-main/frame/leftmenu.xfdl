@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="leftmenu" width="273" height="720" background="#ffffff">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="273">
+        <Static id="stcMainMenu" taborder="0" left="30" top="0" height="60" right="0"/>
+        <Div id="divSubMenu" taborder="1" left="0" top="60" width="273" bottom="22">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.selectedMenuButtonId = "";
+
+this.showSubMenu = function(menuId, menuNm)
+{
+	var cssclass = "sta_LF_menuTitle" + menuId.substr(0, 2);
+	
+	this.stcMainMenu.set_cssclass(cssclass);
+	this.stcMainMenu.set_text(menuNm);
+	this.deleteSubMenu();
+	this.createSubMenuButton(menuId);
+};
+
+this.deleteSubMenu = function()
+{
+	var container = this.divSubMenu.form,
+		comps = container.components;
+	
+	for (var i = comps.length-1; i >= 0; i--) {
+		var comp = container.removeChild(comps[i].name);
+		comp.destroy();
+		comp = null;
+	}
+	
+	this.selectedMenuButtonId = "";
+};
+
+this.createSubMenuButton = function(upperMenuId)
+{
+	var left=0, top=10, width=273, height=50,
+		app=nexacro.getApplication();
+	
+	app.gdsMenu.filter("level==1&&upid=='" + upperMenuId + "'");
+	
+	for (var i=0, len=app.gdsMenu.rowcount; i<len; i++) {
+		var menuId = app.gdsMenu.getColumn(i, "id"),
+			id = "btnMenu_"+menuId,
+			button = new Button(id, left, top, width, height, null, null);
+		
+		button.set_cssclass("btn_LF_Lmenu");
+		button.set_text(app.gdsMenu.getColumn(i, "caption"));
+		button.menuId = menuId;
+		button.menuUrl = app.gdsMenu.getColumn(i, "url");
+		button.addEventHandler("onclick", this.btnMenu_onclick, this);
+		this.divSubMenu.addChild(id, button); 
+		button.show();
+		
+		top += height;
+	}
+};
+
+this.btnMenu_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var p = this.parent.parent,
+		menuId = obj.menuId,
+		menuUrl = obj.menuUrl;
+	p["showMenuPage"].call(p, menuId, menuUrl);
+	
+	this.selectedMenuButtonId && this.divSubMenu.form.components[this.selectedMenuButtonId].set_cssclass("btn_LF_Lmenu");
+	obj.set_cssclass("btn_LF_LmenuS");
+	
+	this.selectedMenuButtonId = obj.name;
+};]]></Script>
+  </Form>
+</FDL>

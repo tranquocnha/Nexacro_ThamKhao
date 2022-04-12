@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="650" onload="form_onload">
+    <Layouts>
+      <Layout height="650" width="440">
+        <Static id="Static00" taborder="3" text="Pagination" left="20" top="19" width="150" height="30" cssclass="sta_WF_compTitle02" messageid="grid.pagination" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="The grid on the Nexacroplatform can represent a lot of data at a time. However, there are many ways to express data when it is split into pages based on customer needs.&#13;&#10;You can apply the desired method, such as unlimited scrolling to look up the next data when scrolling or using commonly used page navigation, and adding the next data when clicking the button, and this paging processing can be registered as a common module using the components provided by the Nexacroplatform." left="20" top="Static00:2" height="180" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.pagination.desc" right="20"/>
+        <Static id="Static02" taborder="1" text="Button style" left="20" top="Static01:10" width="129" height="30" cssclass="sta_WF_compTitle02" messageid="grid.pagination.buttonstyle" fittocontents="width"/>
+        <Static id="Static03" taborder="2" text="The most commonly used paging processing method is expressed with paging buttons. Click the button on the page number to view and express the data again.&#13;&#10;You can choose the default number of cases (for example, 10 to 50) that can be expressed per page, and you can also apply shortcuts so that you can go straight to the page you want." left="20" top="Static02:2" height="140" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.pagination.buttonstyle.desc" right="20"/>
+        <Static id="Static04" taborder="4" text="Infinite scrolling" left="20" top="Static03:10" width="129" height="30" cssclass="sta_WF_compTitle02" messageid="grid.pagination.infinitescrolling" fittocontents="width"/>
+        <Static id="Static05" taborder="5" text="In the data area of the grid, when you use the mouse wheel to lower the bottom or the end of the scroll trackbar, the next data is automatically added by looking up.&#13;&#10;This can cause performance degradation if too much data is loaded, as it continues to add data when scrolling.&#13;&#10;You can also apply the method of adding data when you click a button, such as 'Show more results' without scrolling." left="20" top="Static04:2" height="180" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.pagination.infinitescrolling.desc" right="20"/>
+      </Layout>
+      <Layout name="large" width="920" height="430"/>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};]]></Script>
+  </Form>
+</FDL>

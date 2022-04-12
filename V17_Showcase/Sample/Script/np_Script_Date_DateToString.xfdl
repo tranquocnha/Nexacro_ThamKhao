@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_DateToString" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_DateToString" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="300" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="300" width="90" top="128" height="40"/>
+        <Edit id="edt_input" taborder="0" value="Mon Dec 31 2012 00:00:00 GMT+0900" autoselect="true" autoskip="true" position="absolute" left="90" width="300" top="78" height="40"/>
+        <Static id="Static05" taborder="3" text="Converting Date to String" cssclass="sta_WF_subtitP" left="30" top="18" width="340" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_DateToString
+ * Description : Converting Date to Characters.
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_dateToString(this.edt_input.value);	
+	this.edt_output.set_value(sRtn);
+};
+
+/*
+ * Function Name : fn_dateToString
+ * Description   : Convert date to characters
+ * Parameter     : Date type value
+ * Return        : yyyyMMdd
+ * Example       : fn_dateToString("Mon Dec 31 2012 00:00:00 GMT+0900");
+ */
+this.fn_dateToString = function(dDate) 
+{
+    var sRtn =  (new Date(dDate)).getFullYear()
+             + ((new Date(dDate)).getMonth()+1).toString().padLeft(2, "0")
+             + ((new Date(dDate)).getDate()).toString().padLeft(2, "0");  
+              
+	return sRtn;
+};
+]]></Script>
+  </Form>
+</FDL>

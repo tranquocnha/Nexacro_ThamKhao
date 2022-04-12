@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Tree_Image" classname="tree2" left="0" top="0" width="760" height="776" titletext="Tree Image">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" binddataset="ds_data" useinputpanel="false" useselcolor="false" treeusecheckbox="false" treeinitstatus="expand,all" left="30" top="118" width="225" height="357" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="290"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+              </Band>
+              <Band id="body" style="cellbackground2:#ffffffff;">
+                <Cell displaytype="treeitemcontrol" edittype="tree" text="bind:label" treelevel="bind:level" treeitemimage="URL('theme://Images\btn_Move_right.png')" cssclass="" textAlign="left"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="1" binddataset="ds_data" useinputpanel="false" useselcolor="false" treeusecheckbox="false" treeinitstatus="expand,all" left="275" top="118" width="225" height="357" treeuseimage="true" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="290"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+              </Band>
+              <Band id="body" style="cellbackground2:#ffffffff;">
+                <Cell displaytype="treeitemcontrol" edittype="tree" text="bind:label" treelevel="bind:level" treecollapseimage="URL('theme://Images\btn_Move_right.png')" cssclass="tree_img" id="tritemimg" textAlign="left"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid02" taborder="2" binddataset="ds_data" useinputpanel="false" useselcolor="false" treeusecheckbox="false" treeinitstatus="expand,all" left="520" top="118" width="225" height="356" treeuseimage="true" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="290"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+              </Band>
+              <Band id="body" style="cellbackground2:#ffffffff;">
+                <Cell displaytype="treeitemcontrol" edittype="tree" text="bind:label" treelevel="bind:level" treeexpandimage="URL('theme://Images\btn_Move_right.png')" cssclass="no_tree_img" textAlign="left"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="3" text="treeitemimage property" left="30" top="78" width="225" height="30" cssclass="sta_WF_explain"/>
+        <Static id="Static01" taborder="4" text="treecollapseimage property" left="275" top="78" width="225" height="30" cssclass="sta_WF_explain"/>
+        <Static id="Static02" taborder="5" text="treeexpandimage property" left="520" top="78" width="225" height="30" cssclass="sta_WF_explain"/>
+        <Static id="Static05" taborder="6" text="Image property using on Tree" cssclass="sta_WF_subtitP" left="30" top="18" width="500" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="label" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="label">Technical Group</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="label">cs team</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">Tom</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">june</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">sam</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">technical team</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">betty</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">anna</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">consulting</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="label">consulting 1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">leo</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">odry</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">consulting 2</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">kim</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">judy</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">consulting 3</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">judy</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">education</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="label">kor_edu</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">cloy</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">sujan</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">eng_edu</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">piter</Col>
+            <Col id="level">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[   ]]></Script>
+  </Form>
+</FDL>

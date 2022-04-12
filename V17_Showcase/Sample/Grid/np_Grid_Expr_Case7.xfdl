@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Expr_Case7" left="0" top="0" width="1024" height="768" titletext="Expr Case7">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" width="800" height="258" binddataset="Dataset00" useselcolor="true" selecttype="cell" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="144"/>
+                <Column size="148"/>
+                <Column size="131"/>
+                <Column size="61"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="this.col"/>
+                <Cell col="1" text="this.col"/>
+                <Cell col="2" text="dataset.rowcount"/>
+                <Cell col="3" text="dataset.rowposition"/>
+                <Cell col="4" text="comp.currentcell"/>
+                <Cell col="5" text="currow"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="expr:this.col"/>
+                <Cell col="1" expr="expr:this.col"/>
+                <Cell col="2" expr="expr:dataset.rowcount"/>
+                <Cell col="3" expr="expr:dataset.rowposition"/>
+                <Cell col="4" expr="expr:comp.currentcell"/>
+                <Cell col="5" expr="expr:currow"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static01" taborder="1" text="Representing expression on Grid cell by expr(Scope specifying method)" cssclass="sta_WF_subtitP" left="30" top="18" width="960" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column4">10</Col>
+          </Row>
+          <Row>
+            <Col id="Column4">20</Col>
+          </Row>
+          <Row>
+            <Col id="Column4">30</Col>
+          </Row>
+          <Row>
+            <Col id="Column4">40</Col>
+          </Row>
+          <Row>
+            <Col id="Column4">50</Col>
+          </Row>
+          <Row>
+            <Col id="Column4">60</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

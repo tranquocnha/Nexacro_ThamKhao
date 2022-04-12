@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_TreeEdit" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Grid TreeEdit" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_output" taborder="1" binddataset="ds_data" useinputpanel="false" treeusecheckbox="false" treeuseimage="false" treeinitstatus="expand,all" position="absolute" autofittype="col" oncelldblclick="grd_output_oncelldblclick" onselectchanged="grd_output_onselectchanged" left="30" top="78" width="200" height="326">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="135"/>
+              </Columns>
+              <Rows>
+                <Row size="36"/>
+              </Rows>
+              <Band id="body">
+                <Cell displaytype="treeitemcontrol" edittype="tree" style="align:left;" text="bind:COL0" editautoselect="true" treelevel="bind:COL1" textAlign="left"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static02" taborder="4" text="Editing Tree text column" onclick="Static02_onclick" cssclass="sta_WF_subtitP" left="30" top="18" width="400" height="40"/>
+        <Edit id="edt_input" taborder="3" autoselect="true" left="240" top="78" width="140" height="40" background="white" border="1 solid  , 1 solid  , 1 solid  , 1 solid" color="black"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" id="ds_data" preload="true" updatecontrol="true" useclientlayout="true" oncolumnchanged="ds_DataSet_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="7"/>
+          <Column id="COL1" type="FLOAT" size="0"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">11111</Col>
+            <Col id="COL1">0</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">22222</Col>
+            <Col id="COL1">1</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">33333</Col>
+            <Col id="COL1">2</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">44444</Col>
+            <Col id="COL1">2</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">55555</Col>
+            <Col id="COL1">2</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">0</Col>
+            <Col id="COL0">66666</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">1</Col>
+            <Col id="COL0">77777</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">2</Col>
+            <Col id="COL0">88888</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">2</Col>
+            <Col id="COL0">99999</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_input" propid="value" datasetid="ds_data" columnid="COL0"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : np_Grid_Column_TreeEdit
+ * Description : Grid로 트리 작성시 편집하기
+ */
+
+/*  버튼클릭  */
+this.grd_output_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
+{
+	this.grd_output.setCellProperty( "Body", 0, "edittype", "tree");
+};
+
+this.grd_output_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.col == 0)
+	{
+		this.grd_output.setCellProperty( "Body", 0, "edittype", "normal");
+	}	
+};
+  ]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="edt_input" propid="value" datasetid="ds_data" columnid="COL0"/>
+      <BindItem id="item0" compid="Edit00" propid="value" datasetid="ds_data" columnid="COL0"/>
+    </Bind>
+  </Form>
+</FDL>

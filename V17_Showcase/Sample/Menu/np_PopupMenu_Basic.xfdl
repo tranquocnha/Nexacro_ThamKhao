@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PopupMenu" classname="23711_Buttoncssimage_01" inheritanceid="" position="absolute" titletext="PopupMenu" left="0" top="0" width="760" height="430">
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="IdCol" type="STRING" size="256"/>
+          <Column id="LvlCol" type="STRING" size="256"/>
+          <Column id="ImageCol" type="STRING" size="256"/>
+          <Column id="CaptionCol" type="STRING" size="256"/>
+          <Column id="EnableCol" type="STRING" size="256"/>
+          <Column id="HotkeyCol" type="STRING" size="256"/>
+          <Column id="CheckBoxCol" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="LvlCol">0</Col>
+            <Col id="ImageCol">[Undefined]</Col>
+            <Col id="CaptionCol">MENU1</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">100</Col>
+            <Col id="HotkeyCol"/>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU1_1</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">101</Col>
+            <Col id="CheckBoxCol">1</Col>
+            <Col id="HotkeyCol">Ctrl + S</Col>
+            <Col id="ImageCol">open</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU1_2</Col>
+            <Col id="EnableCol">false</Col>
+            <Col id="IdCol">102</Col>
+            <Col id="HotkeyCol">F2</Col>
+            <Col id="ImageCol">Image::no.png</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">0</Col>
+            <Col id="ImageCol">[Undefined]</Col>
+            <Col id="CaptionCol">MENU2</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">200</Col>
+            <Col id="HotkeyCol"/>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU2_1</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">201</Col>
+            <Col id="CheckBoxCol"/>
+            <Col id="ImageCol">[Undefined]</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU2_2</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">202</Col>
+            <Col id="CheckBoxCol"/>
+            <Col id="ImageCol">[Undefined]</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">2</Col>
+            <Col id="CaptionCol">MENU2_2_1</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">203</Col>
+            <Col id="CheckBoxCol"/>
+            <Col id="ImageCol">Image::nexacro</Col>
+          </Row>
+          <Row>
+            <Col id="CaptionCol">MENU2_2_2</Col>
+            <Col id="LvlCol">2</Col>
+            <Col id="EnableCol">false</Col>
+            <Col id="IdCol">204</Col>
+            <Col id="CheckBoxCol"/>
+            <Col id="ImageCol">Image::ok.png</Col>
+          </Row>
+          <Row>
+            <Col id="LvlCol">1</Col>
+            <Col id="CaptionCol">MENU2_3</Col>
+            <Col id="EnableCol">true</Col>
+            <Col id="IdCol">205</Col>
+            <Col id="CheckBoxCol"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Layouts>
+      <Layout width="760" height="430">
+        <Button id="btn_clear" taborder="29" text="clear" onclick="btn_clear_onclick" position="absolute" left="501" top="223" width="86" height="33"/>
+        <Button id="btn_init" taborder="1" text="init" onclick="btn_init_onclick" position="absolute" left="501" top="143" width="86" height="33"/>
+        <Button id="btn_trackPopup" taborder="1" text="trackPopup" onclick="btn_trackPopup_onclick" position="absolute" left="501" top="183" width="86" height="33"/>
+        <TextArea id="txt_result" taborder="30" left="16" top="144" width="468" height="260"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.objPopupMenu;
+
+this.btn_clear_onclick = function(obj:Button,  e:ClickEventInfo)
+{
+	this.txt_result.set_value("");
+}
+  
+//PopupMenu를 dynamic create
+this.btn_init_onclick = function(obj:Button,  e:ClickEventInfo)
+{
+	this.rRet = this.isValidObject("PopupMenuID");
+    if(this.rRet != true)  
+	{	     
+		// Create Object  
+		this.objPopupMenu = new PopupMenu();  
+		this.objPopupMenu.set_innerdataset(this.ds_data);
+		this.objPopupMenu.set_captioncolumn("CaptionCol");
+		this.objPopupMenu.set_idcolumn("IdCol");
+		this.objPopupMenu.set_levelcolumn("LvlCol");
+		this.objPopupMenu.set_checkboxcolumn("CheckBoxCol");
+		this.objPopupMenu.init("PopupMenu_Component", "absolute", 15, 40,250, 50, null, null);
+		
+		// Add Object to Parent Form  
+		this.addChild("PopupMenuID", this.objPopupMenu); 
+	} 
+	// Show Object      
+	this.objPopupMenu.show(); 
+
+	
+	this.txt_result.set_value(this.txt_result.value + "\n" + "init Success");
+}
+
+this.btn_trackPopup_onclick = function(obj:Button,  e:ClickEventInfo)
+{
+	this.objPopupMenu.trackPopup(40,40);		
+}]]></Script>
+  </Form>
+</FDL>

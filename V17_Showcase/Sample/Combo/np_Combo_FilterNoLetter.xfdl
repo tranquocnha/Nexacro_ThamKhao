@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Combo_FilterNoLetter" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Combo_FilterNoLetter" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Combo id="cmb_output" taborder="1" innerdataset="@ds_data" codecolumn="COL0" datacolumn="COL1" displayrowcount="5" position="absolute" left="90" top="138" width="200" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input" taborder="1" value="AAA" position="absolute" left="90" width="200" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="138" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="300" width="90" top="78" height="40"/>
+        <Static id="Static05" taborder="2" text="Case Insensitive filtering for Combo" onclick="Static05_onclick" left="30" top="18" width="500" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" id="ds_data" preload="true" updatecontrol="true" useclientlayout="false">
+        <ColumnInfo>
+          <Column id="COL0" size="256" type="STRING"/>
+          <Column id="COL1" size="256" type="STRING"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">1</Col>
+            <Col id="COL1">aaaa</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">2</Col>
+            <Col id="COL1">Aaaa</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">3</Col>
+            <Col id="COL1">aabb</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">4</Col>
+            <Col id="COL1">aaBB</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">5</Col>
+            <Col id="COL1">AaAa</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">6</Col>
+            <Col id="COL1">AABB</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">AAAb</Col>
+            <Col id="COL0">7</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*//
+ * File Name   : Combo_FilterNoLetter
+ * Description : Case Insensitive filtering for Combo
+ */
+
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nRow = this.ds_data.rowcount;
+	var sData;
+    
+    this.ds_data.addColumn("COL2", "STRING", 255);
+	for (var i = 0; i < nRow; i++)
+	{
+        sData = this.ds_data.getColumn(i, "COL1").toString().toUpperCase();
+        this.ds_data.setColumn(i, "COL2", sData);
+    }
+
+    var sFilter = "COL2.toString().indexOf('" + this.edt_input.value.toUpperCase() + "') >= 0";
+
+    this.ds_data.filter(sFilter);	
+};
+ ]]></Script>
+  </Form>
+</FDL>

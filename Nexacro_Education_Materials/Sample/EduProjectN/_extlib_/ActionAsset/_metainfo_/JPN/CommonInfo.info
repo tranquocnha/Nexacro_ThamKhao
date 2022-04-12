@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MetaInfo version="2.0">
+  <EnumInfo id="messagetype">
+    <Enum name="alert"/>
+    <Enum name="confirm"/>
+  </EnumInfo>
+  <EnumInfo id="userenum00">
+    <Enum name="modal"/>
+    <Enum name="modeless"/>
+  </EnumInfo>
+  <EnumInfo id="popupstyle">
+    <Enum name="modal"/>
+    <Enum name="modeless"/>
+  </EnumInfo>
+</MetaInfo>

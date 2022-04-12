@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Z3_Calendar_Test" classname="Z3_Calendar_Test" left="0" top="0" width="760" height="430" titletext="Custom Calendar">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" text="Div00" left="30" top="95" height="34" url="Sample_Calendar::np_Calendar_CustomBase1.xfdl" userBindDataset="Dataset00" userBindColumn="Column0" width="260" border="0px none"/>
+        <Static id="Static07" taborder="2" text="This sample shows implementation of custom calenar&#13;&#10;Select the date form the poup and this will be updated in the Grid." cssclass="sta_WF_explain" left="30" top="25" width="727" height="50" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">20150101</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">20140901</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">20130601</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>

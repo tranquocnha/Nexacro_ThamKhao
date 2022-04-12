@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="COMP_GUIDE_09" classname="COMP_GUIDE_09" inheritanceid="" position="absolute" titletext="Tab #1" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="Static02" text="Component View" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="636" top="0" height="26"/>
+        <Static id="Static01" text="Component Name" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="0" height="26"/>
+        <Static id="Static10" text="Tab" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="25" height="505"/>
+        <Static id="Static11" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="25" height="505"/>
+        <Tab id="Tab00" taborder="1" tabindex="0" scrollbars="autoboth" position="absolute" left="152" width="590" top="52" height="125">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="TabPage01"/>
+            <Tabpage id="tabpage2" text="TabPage02"/>
+            <Tabpage id="tabpage3" text="TabPage03"/>
+            <Tabpage id="tabpage4" text="TabPage04"/>
+            <Tabpage id="tabpage5" text="TabPage05"/>
+            <Tabpage id="tabpage6" text="TabPage06"/>
+            <Tabpage id="tabpage7" text="TabPage07"/>
+            <Tabpage id="tabpage8" text="TabPage08"/>
+          </Tabpages>
+        </Tab>
+        <Tab id="Tab01" taborder="2" tabindex="0" scrollbars="autoboth" position="absolute" tabjustify="true" left="152" width="590" top="222" height="100">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="TabPage01"/>
+            <Tabpage id="tabpage2" text="TabPage02"/>
+            <Tabpage id="tabpage3" text="TabPage03"/>
+            <Tabpage id="tabpage4" text="TabPage04"/>
+          </Tabpages>
+        </Tab>
+        <Static id="Static15" text="tabjustify = true" position="absolute" style="font:Tahoma,8;" usedecorate="true" left="152" width="179" top="204" height="15" cssclass="sta_WF_Info_Orange"/>
+        <Tab id="Tab02" taborder="3" tabindex="0" scrollbars="autoboth" position="absolute" multiline="true" left="152" width="225" top="370" height="125">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="TabPage01"/>
+            <Tabpage id="tabpage2" text="TabPage02"/>
+            <Tabpage id="tabpage3" text="TabPage03"/>
+            <Tabpage id="tabpage4" text="TabPage04"/>
+            <Tabpage id="tabpage5" text="TabPage05"/>
+            <Tabpage id="tabpage6" text="TabPage06"/>
+            <Tabpage id="tabpage7" text="TabPage07"/>
+            <Tabpage id="tabpage8" text="TabPage08"/>
+          </Tabpages>
+        </Tab>
+        <Static id="Static00" text="multiline =true" usedecorate="true" position="absolute" style="font:Tahoma,8; " left="152" width="179" top="352" height="15" cssclass="sta_WF_Info_Orange"/>
+        <Tab id="Tab03" taborder="4" tabindex="0" scrollbars="autoboth" position="absolute" left="392" width="355" top="370" height="124">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="TabPage01"/>
+            <Tabpage id="tabpage2" text="TabPage02"/>
+            <Tabpage id="tabpage3" text="TabPage03"/>
+            <Tabpage id="tabpage4" text="TabPage04"/>
+          </Tabpages>
+        </Tab>
+        <Static id="Static03" text="showextrabutton = true" usedecorate="true" position="absolute" style="font:Tahoma,8; " left="392" width="179" top="352" height="15" cssclass="sta_WF_Info_Orange"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

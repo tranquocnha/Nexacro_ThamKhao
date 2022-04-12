@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_CheckBox" left="0" top="0" width="1024" height="768" titletext="Grid_CheckBox">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="grd_output" taborder="1" useinputpanel="false" position="absolute" binddataset="ds_data" cellsizingtype="col" left="30" top="73" width="500" height="186" style="border:2 solid #9f8f71ff,0 none #808080ff,0 none #808080ff,0 none #808080ff;" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="70"/>
+                <Column size="107"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Checkbox"/>
+                <Cell col="1" text="Original Data"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:CHK" expr="expr:CHK=='Y'?'1':'0'" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:CHK"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="1" text="CheckBox" cssclass="sta_WF_subtitP" left="30" top="18" width="200" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_data_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CHK">Y</Col>
+          </Row>
+          <Row>
+            <Col id="CHK">N</Col>
+          </Row>
+          <Row>
+            <Col id="CHK">N</Col>
+          </Row>
+          <Row>
+            <Col id="CHK">Y</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/*
+ * File Name   : A way to handle when column value of CheckBox in grid is not 1 or 0
+ * Description : Data value of CheckBox in grid column should be 1 or 0.
+	             But Sometimes we need to know a way to set other values.             
+ */ 
+this.ds_data_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if(e.columnid == "CHK")
+	{
+		obj.enableevent = false;  //false can stop event temporarily  
+		if(e.newvalue == '1')
+		{
+			obj.setColumn(e.row,"CHK",'Y');
+		} else if(e.newvalue == '0')
+		{
+
+		obj.setColumn(e.row,"CHK",'N');  
+		}
+		obj.enableevent = true;
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

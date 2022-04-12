@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="200" onload="form_onload">
+    <Layouts>
+      <Layout height="200" width="920">
+        <Static id="Static00" taborder="1" text="Graphics" left="20" top="15" width="79" height="30" cssclass="sta_WF_compTitle02" messageid="comp.graphics" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="Graphics components provide the ability to draw lines or shapes. Graphics components allow developers to use HTML5 Canvas elements as if they were other components. Use the properties, methods, and events of the component to easily create the desired image on the script.&#13;&#10;&#13;&#10;Graphics components are not set by default when installing the Nexacro studio. You must register Graphics.json in the Project TypeDefinition and set the Graphics component as an object." left="20" top="Static00:2" height="120" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.graphics.desc" width="880"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

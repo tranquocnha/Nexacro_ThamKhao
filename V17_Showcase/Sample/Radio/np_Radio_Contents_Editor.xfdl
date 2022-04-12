@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Radio_Basic" classname="Radio_Basic" inheritanceid="" position="absolute" titletext="Radio Contents" left="0" width="760" top="0" height="430">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Inner Dataset Binding" position="absolute" left="30" width="300" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Radio id="Radio00" taborder="1" innerdataset="@Dataset00" codecolumn="codecolumn" datacolumn="datacolumn" position="absolute" value="M" left="30" width="129" top="73" height="53"/>
+        <Radio id="Radio01" taborder="2" value="M" left="30" top="251" width="137" height="53" codecolumn="codecolumn" datacolumn="datacolumn" innerdataset="innerdataset">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">100</Col>
+                <Col id="datacolumn">Desktop PC</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">200</Col>
+                <Col id="datacolumn">NoteBook</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static00" taborder="3" text="Radio Contents" cssclass="sta_WF_subtitP" left="30" top="196" width="300" height="40"/>
+      </Layout>
+    </Layouts>
+    <Bind/>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codecolumn" type="STRING" size="256"/>
+          <Column id="datacolumn" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="codecolumn">100</Col>
+            <Col id="datacolumn">Desktop PC</Col>
+          </Row>
+          <Row>
+            <Col id="codecolumn">200</Col>
+            <Col id="datacolumn">NoteBook</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">100</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">100</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">200</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>

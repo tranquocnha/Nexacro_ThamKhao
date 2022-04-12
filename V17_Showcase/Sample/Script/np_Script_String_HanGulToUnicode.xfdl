@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_String_HanGulToUnicode" classname="Hangul_Unicode" inheritanceid="" position="absolute" titletext="Script_String_HanGulToUnicode" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output0" taborder="2" autoselect="true" autoskip="true" position="absolute" left="355" width="200" top="114" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="80" height="30"/>
+        <Edit id="edt_input0" taborder="0" text="XPLATFORM" autoselect="true" autoskip="true" value="한글" position="absolute" left="30" width="200" top="114" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="355" width="60" top="80" height="30"/>
+        <Button id="btn_execute0" taborder="1" text="execute" onclick="btn_execute0_onclick" position="absolute" left="245" width="90" top="114" height="40"/>
+        <Edit id="edt_input1" taborder="3" autoselect="true" autoskip="true" value="%uD55C%uAE00" position="absolute" left="30" width="200" top="169" height="40"/>
+        <Button id="btn_execute1" taborder="4" text="execute" onclick="btn_execute1_onclick" position="absolute" left="245" width="90" top="169" height="40"/>
+        <Edit id="edt_output1" taborder="5" autoselect="true" autoskip="true" position="absolute" left="355" width="200" top="169" height="40"/>
+        <Static id="Static05" taborder="6" text="Korean Character&lt;-&gt;Unicode Conversion" cssclass="sta_WF_subtitP" left="30" top="18" width="540" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_String_HanGulToUnicode
+ * Discription : Korean Characters ↔ Unicode Changing */
+
+/*  Korean Characters → Unicode Button Click  */
+this.btn_execute0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_hanUni(this.edt_input0.text);
+	this.edt_output0.set_value(sRtn);	
+}
+
+/*
+ * Function Name : fn_hanUni
+ * Discription   : Korean Characters → Unicode changing
+ * Parameter     : Korean Characters String
+ * Return        : Unicode
+ * Example       : fn_hanUni("한글");
+ */
+this.fn_hanUni = function(sHan)
+{
+    var sUni = escape(sHan);
+	return sUni;
+}
+
+/* Unicode → Korean Characters Button Click  */
+this.btn_execute1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var sRtn = this.fn_uniHan(this.edt_input1.text);
+	this.edt_output1.set_value(sRtn);
+}
+
+/*
+ * Function Name : fn_uniHan
+ * Discription   : Unicode → Korean Characters	
+ * Parameter     : Unicode String
+ * Return        : Korean Characters
+ * Example       : fn_uniHan("\uD55C\uAE00");
+ */
+this.fn_uniHan = function(sUni)
+{
+    var sHan = unescape(sUni);
+	return sHan;
+}
+]]></Script>
+  </Form>
+</FDL>

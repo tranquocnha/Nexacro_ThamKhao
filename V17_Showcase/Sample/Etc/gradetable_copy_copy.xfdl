@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="new학생부" classname="new학생부" left="0" top="0" width="618" height="664" titletext="학생부 성적산출" style="font:bold 10 arial;">
+    <Layouts>
+      <Layout>
+        <Static id="title" taborder="0" text="학생부 성적 산출" left="152" top="3" height="43" style="align:center;font:24 arial;" onclick="title_onclick" width="300"/>
+        <Grid id="Grid01" taborder="2" useinputpanel="false" left="25" top="48" height="267" binddataset="ds_table" selecttype="cell" autoupdatetype="comboselect" autoenter="select" ondropdown="grid_ondropdown" oncloseup="Grid01_oncloseup" style="font:10 arial;" oncellclick="Grid01_oncellclick" onkeydown="Grid01_onkeydown" onkeyup="Grid01_onkeyup" width="537" autosizingtype="none" ontextchange="Grid01_ontextchange">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="58"/>
+                <Column size="69"/>
+                <Column size="57"/>
+                <Column size="90"/>
+                <Column size="63"/>
+                <Column size="65"/>
+                <Column size="92"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="연번"/>
+                <Cell col="1" text="학년"/>
+                <Cell col="2" text="학기"/>
+                <Cell col="3" text="교과"/>
+                <Cell col="4" text="교과목"/>
+                <Cell col="5" text="등급"/>
+                <Cell col="6" text="이수단위"/>
+                <Cell col="7" text="등급 * 단위"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1" combotype="dropdown"/>
+                <Cell col="1" displaytype="combo" edittype="combo" text="bind:year" combodataset="ds_code" combocodecol="code" combodatacol="cdfnm" combotype="dropdown"/>
+                <Cell col="2" displaytype="combo" edittype="combo" text="bind:hakki" combodataset="ds_code" combocodecol="code" combodatacol="cdfnm" combodisplay="edit" combotype="dropdown"/>
+                <Cell col="3" displaytype="combo" edittype="combo" text="bind:gyogwa" combodataset="ds_code" combocodecol="code" combodatacol="cdfnm" combodisplay="edit" combotype="dropdown"/>
+                <Cell col="4" displaytype="combo" edittype="combo" text="bind:gyogwamok" combodataset="ds_code" combocodecol="code" combodatacol="cdfnm" combodisplayrowcount="-1" combodisplay="edit" combotype="dropdown"/>
+                <Cell col="5" displaytype="number" edittype="normal" text="bind:level" mask="#" combodataset="ds_level" combocodecol="code" combodatacol="level" combotype="search"/>
+                <Cell col="6" displaytype="number" edittype="normal" text="bind:time" mask="#" combodataset="ds_time" combocodecol="code" combodatacol="time" combotype="search"/>
+                <Cell col="7" expr="expr:comp.getCellText(currow, 5)*comp.getCellText(currow, 6)"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="5" text="합계"/>
+                <Cell col="5" text="expr:comp.parent.fn_total(5)"/>
+                <Cell col="6" text="expr:comp.parent.fn_total(6)"/>
+                <Cell col="7" displaytype="number" expr="expr:(170+(9-comp.parent.fn_total(7)/(comp.parent.fn_total(6)))*10)" mask="###.#" combodisplaynulltext="최종점수"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="3" text="입력줄 추가" left="25" top="326" height="56" onclick="Button00_onclick" style="font:10 arial;" width="200"/>
+        <Static id="Static00" taborder="6" left="25" top="390" height="190" onclick="Static00_onclick" style="background:transparent URL('img::notice.PNG') stretch;color:black;" width="537"/>
+        <Button id="Button01" taborder="7" text="자료 초기화" left="232" top="326" height="56" onclick="Button01_onclick" style="font:10 arial;" width="100"/>
+        <Button id="Button02" taborder="8" text="최종점수 출력" left="340" top="324" height="56" onclick="Button02_onclick" style="font:10 arial;" width="225"/>
+        <MaskEdit id="MaskEdit00" taborder="9" left="5.83%" top="421" right="68.12%" height="34" mask="@@:@@" value="910" type="string"/>
+        <MaskEdit id="MaskEdit01" taborder="10" value="0910" type="string" mask="##:##" left="37.54%" top="421" height="34" width="161"/>
+        <Grid id="Grid00" taborder="11" useinputpanel="false" left="26.7%" top="502" right="18.45%" height="146" binddataset="ds_table">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row band="body" size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell col="0" disptype="normal" text="year"/>
+                <Cell col="1" disptype="normal" text="hakki"/>
+                <Cell col="2" disptype="normal" text="gyogwa"/>
+                <Cell col="3" disptype="normal" text="gyogwamok"/>
+                <Cell col="4" disptype="normal" text="level"/>
+                <Cell col="5" disptype="normal" text="time"/>
+                <Cell col="6" disptype="normal" text="score"/>
+              </Band>
+              <Band id="body">
+                <Cell col="0" disptype="normal" text="bind:year"/>
+                <Cell col="1" disptype="normal" text="bind:hakki"/>
+                <Cell col="2" disptype="normal" text="bind:gyogwa"/>
+                <Cell col="3" disptype="normal" text="bind:gyogwamok"/>
+                <Cell col="4" disptype="normal" text="bind:level"/>
+                <Cell col="5" disptype="normal" text="bind:time"/>
+                <Cell col="6" disptype="normal" text="bind:score"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="ds_code_canrowposchange">
+        <ColumnInfo>
+          <Column id="gbn" type="STRING" size="256"/>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="cdfnm" type="STRING" size="256"/>
+          <Column id="gbn_code" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="gbn">10</Col>
+            <Col id="code">1001</Col>
+            <Col id="cdfnm">1학년</Col>
+            <Col id="gbn_code"/>
+          </Row>
+          <Row>
+            <Col id="gbn">10</Col>
+            <Col id="code">1002</Col>
+            <Col id="cdfnm">2학년</Col>
+            <Col id="gbn_code"/>
+          </Row>
+          <Row>
+            <Col id="gbn">10</Col>
+            <Col id="code">1003</Col>
+            <Col id="cdfnm">3학년</Col>
+            <Col id="gbn_code"/>
+          </Row>
+          <Row>
+            <Col id="gbn">20</Col>
+            <Col id="code">2001</Col>
+            <Col id="cdfnm">1학기</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">20</Col>
+            <Col id="code">2002</Col>
+            <Col id="cdfnm">2학기</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">30</Col>
+            <Col id="code">3001</Col>
+            <Col id="cdfnm">국어</Col>
+            <Col id="gbn_code">0001</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">30</Col>
+            <Col id="code">3002</Col>
+            <Col id="cdfnm">영어</Col>
+            <Col id="gbn_code">0002</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">30</Col>
+            <Col id="code">3003</Col>
+            <Col id="cdfnm">수학</Col>
+            <Col id="gbn_code">0003</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">30</Col>
+            <Col id="code">3004</Col>
+            <Col id="cdfnm">사회/도덕</Col>
+            <Col id="gbn_code">0004</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">30</Col>
+            <Col id="code">3005</Col>
+            <Col id="cdfnm">과학</Col>
+            <Col id="gbn_code">0005</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4001</Col>
+            <Col id="cdfnm">공통국어</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4002</Col>
+            <Col id="cdfnm">국어생활</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4003</Col>
+            <Col id="cdfnm">화법</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4004</Col>
+            <Col id="cdfnm">독서</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4005</Col>
+            <Col id="cdfnm">작문</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4006</Col>
+            <Col id="cdfnm">문법</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4007</Col>
+            <Col id="cdfnm">문학</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4008</Col>
+            <Col id="cdfnm">화법과작문</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0001</Col>
+            <Col id="code">4009</Col>
+            <Col id="cdfnm">독서와문법</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="code">4010</Col>
+            <Col id="cdfnm">공통영어</Col>
+            <Col id="gbn_code">0002</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="code">4011</Col>
+            <Col id="cdfnm">영어10-a</Col>
+            <Col id="gbn_code">0002</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="code">4012</Col>
+            <Col id="cdfnm">영어10-b</Col>
+            <Col id="gbn_code">0002</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">영어회화</Col>
+            <Col id="code">4012</Col>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0002</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">영어독해</Col>
+            <Col id="code">4013</Col>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0002</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">영어작문</Col>
+            <Col id="code">4014</Col>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0002</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="code">4015</Col>
+            <Col id="cdfnm">영어독해와작문</Col>
+            <Col id="gbn_code">0002</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="code">4016</Col>
+            <Col id="cdfnm">수학의활용(실용수학)</Col>
+            <Col id="gbn_code">0003</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">공통수학</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4017</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">수학10-가</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4018</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">수학10-나</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4019</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">미분과 적분</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4020</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">확률과통계</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4021</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">이산수학</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4022</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">미적분과 통계기본</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4023</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">적분과 통계</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4024</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">기하와 벡터</Col>
+            <Col id="gbn_code">0003</Col>
+            <Col id="gbn">40</Col>
+            <Col id="code">4025</Col>
+          </Row>
+          <Row>
+            <Col id="gbn_code">0004</Col>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">(공통)사회</Col>
+            <Col id="code">4026</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">국사</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4027</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">동아시아사</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4028</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">한국지리</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4029</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">세계지리</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4030</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">경제지리</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4031</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">한극근현대사</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4032</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">세계사</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4033</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">법과사회</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4034</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">법과정치</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4035</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">정치</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4036</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">경제</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4037</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="cdfnm">사회문화</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4038</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">한국사</Col>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4039</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">도덕</Col>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4040</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">윤리</Col>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4041</Col>
+          </Row>
+          <Row>
+            <Col id="code">4042</Col>
+            <Col id="cdfnm">생활과윤리</Col>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0004</Col>
+          </Row>
+          <Row>
+            <Col id="cdfnm">윤리와사상</Col>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0004</Col>
+            <Col id="code">4043</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="code">4044</Col>
+            <Col id="gbn_code">0005</Col>
+            <Col id="cdfnm">공통과학</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0005</Col>
+            <Col id="code">4045</Col>
+            <Col id="cdfnm">생활과과학</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0005</Col>
+            <Col id="code">4046</Col>
+            <Col id="cdfnm">물리</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0005</Col>
+            <Col id="code">4047</Col>
+            <Col id="cdfnm">화학</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0005</Col>
+            <Col id="code">4048</Col>
+            <Col id="cdfnm">생물</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0005</Col>
+            <Col id="code">4049</Col>
+            <Col id="cdfnm">지구과학</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">40</Col>
+            <Col id="gbn_code">0005</Col>
+            <Col id="code">4050</Col>
+            <Col id="cdfnm">생명과학</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_level" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="INT" size="256"/>
+          <Column id="level" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="level">3</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="level">4</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="level">5</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="level">6</Col>
+          </Row>
+          <Row>
+            <Col id="code">7</Col>
+            <Col id="level">7</Col>
+          </Row>
+          <Row>
+            <Col id="code">8</Col>
+            <Col id="level">8</Col>
+          </Row>
+          <Row>
+            <Col id="code">9</Col>
+            <Col id="level">9</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_time" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="time" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="time">1</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="time">2</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="time">3</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="time">4</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="time">5</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="time">6</Col>
+          </Row>
+          <Row>
+            <Col id="code">7</Col>
+            <Col id="time">7</Col>
+          </Row>
+          <Row>
+            <Col id="code">8</Col>
+            <Col id="time">8</Col>
+          </Row>
+          <Row>
+            <Col id="code">9</Col>
+            <Col id="time">9</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_table" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="year" type="STRING" size="256"/>
+          <Column id="hakki" type="STRING" size="256"/>
+          <Column id="gyogwa" type="STRING" size="256"/>
+          <Column id="gyogwamok" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="time" type="STRING" size="256"/>
+          <Column id="score" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="year">0210</Col>
+          </Row>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_score" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="MaskEdit01" propid="value" datasetid="ds_table" columnid="year"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_table.addRow();
+	this.ds_table.addRow();
+	
+	//입력값추가
+}
+	
+
+this.grid_ondropdown = function(obj:Grid, e:nexacro.GridEditEventInfo)
+{
+var row = this.ds_table.rowposition;
+	this.setItem(obj, row);
+		
+}
+
+
+
+//각컬럼 합계 구하기  
+this.fn_total = function (index) 
+{
+	var temp = 0;
+	for(var i=0;i<this.ds_table.getRowCount();i++){
+		temp = temp + nexacro.toNumber(this.Grid01.getCellText(i, index));
+	}
+	return temp;
+}
+
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_table.clearData();
+
+//데이터초기화 라인지우기 함수
+}
+
+
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+var val = this.Grid01.getCellText(-2,3);
+
+
+var temp = 0;
+
+	alert("최종점수는 " +val+ " 입니다");
+
+//버튼에 최종값출력하기 기능 
+
+}
+
+
+
+this.Grid01_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+
+	var row = this.ds_table.rowposition;
+	this.setItem(obj, row);
+	obj.dropdownCombo();
+	
+		
+
+
+}
+this.Grid01_onkeyup = function(obj:Grid, e:nexacro.KeyEventInfo)
+{
+	var row = this.ds_table.rowposition;
+	this.setItem(obj, row);
+obj.dropdownCombo();
+}
+
+
+
+
+
+
+//필터걸기 함수
+this.setItem = function(obj, row)
+{
+
+this.ds_code.filter("");
+var idx = obj.getCellPos();
+if(idx == 1){
+    this.ds_code.filter("gbn=='10'" );
+    } 
+    
+    else if(idx ==2) {
+ 
+  var row = this.ds_table.rowposition;
+	
+	var nVal = this.ds_table.getColumn(row, "year");
+		if(nVal == null)              //값이 널일때 공백으로 두고 메세지창 띄우는 함수
+		{
+			this.ds_code.filter("gbn==100");
+			//this.alert("※ 학년을 선입력 하세요!! ※");             
+						return ;
+		}
+  
+  
+  
+  
+  
+    this.ds_code.filter("gbn=='20'" );
+    
+    	
+	} 
+	
+	else if(idx == 3) 
+	{
+	
+	var row = this.ds_table.rowposition;
+	
+	var nVal = this.ds_table.getColumn(row, "hakki");
+		if(nVal == null)
+		{
+			this.ds_code.filter("gbn==100");
+			//this.alert("※ 학기를 선입력 하세요!! ※");
+						return ;
+		}
+	
+	
+	
+		this.ds_code.filter("gbn=='30'");
+		
+	} 
+	
+	
+	if(idx == 4)
+	{
+		
+		
+		var nVal = this.ds_table.getColumn(row, "gyogwa");
+		if(nVal == null)
+		{
+			this.ds_code.filter("gbn_code==100");
+			//this.alert("※ 교과를 선입력 하세요!! ※");
+						return ;
+		}  
+		
+		
+		
+		
+		var nrow = this.ds_code.findRow("code", nVal);	
+
+		this.ds_code.filter("gbn_code=="+this.ds_code.getColumn(nrow, "gbn_code")+"&&code!='"+nVal+"'");
+		
+		
+	}
+}
+
+
+this.Grid01_ontextchange = function(obj:Grid, e:nexacro.GridEditTextChangeEventInfo)
+{
+	
+	if(e.cell == 5)
+	{
+		if((!nexacro.isNumeric(e.posttext)) || (e.posttext > 9)) return false;
+	}
+	
+	if(e.cell == 6)
+	{
+		trace(this.ds_table.getColumn(e.row, "level"));
+		
+		
+		if(this.ds_table.getColumn(e.row, "level") == "" || this.ds_table.getColumn(e.row, "level") == null || (!nexacro.isNumeric(e.posttext)) || (e.posttext > 9)) return false;
+	
+	
+}
+
+	
+	
+	
+	
+}
+
+
+
+]]></Script>
+  </Form>
+</FDL>

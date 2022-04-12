@@ -1,0 +1,760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="800" onload="form_onload" ontimer="form_ontimer" onlbuttonup="form_onlbuttonup" ondragmove="form_ondragmove" ondrop="form_ondrop" onsize="form_onsize">
+    <Layouts>
+      <Layout height="800" width="920">
+        <Static id="stcTitle" taborder="0" text="Personalization" left="20" top="20" width="260" height="40" cssclass="sta_WF_pageTitle" messageid="sample.personalization" fittocontents="width"/>
+        <Static id="Static03_00" taborder="1" text="Widget Menu" left="374" top="66" height="30" cssclass="sta_WF_labelTxt01" width="100" verticalAlign="middle" textAlign="left" messageid="sample.personalization.widget" fittocontents="width"/>
+        <Combo id="cboWidget" taborder="2" left="Static03_00:5" top="63" width="170" height="36" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" index="0" text="---Choice---" value="0" itemheight="36">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="datacolumn">Choice...</Col>
+                <Col id="codecolumn">0</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">memo</Col>
+                <Col id="datacolumn">Memo</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">calc</Col>
+                <Col id="datacolumn">Calculator</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">watch</Col>
+                <Col id="datacolumn">Clock</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Button id="btnWidgetAdd" taborder="3" text="Add" cssclass="btn_WF_basic02" left="cboWidget:5" top="63" width="80" height="36" onclick="fnComBtnOnClick" messageid="sample.personalization.add"/>
+        <Button id="btnInit" taborder="4" text="Init" cssclass="btn_WF_basic02" left="btnWidgetAdd:3" top="63" width="80" height="36" onclick="fnComBtnOnClick" messageid="sample.personalization.init"/>
+        <Button id="btnSave" taborder="5" text="Save" cssclass="btn_WF_basic02" left="btnInit:3" top="63" height="36" onclick="fnComBtnOnClick" messageid="sample.personalization.save" width="80"/>
+        <Div id="Div01" taborder="6" left="20" top="115" width="47.28%" height="320" ondrag="fnComDivOnDrag" usePort="Y" border="1px solid #a1abba" portName="Week Schedule" cssclass="div_WF_widget01">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="1" text="Overview" left="30" top="5" height="45" cssclass="sta_WF_widgetTitle" right="30"/>
+              <Button id="btnClose" taborder="1" top="10" width="30" height="30" onclick="fnComBtnOnClick" right="25" cssclass="btn_WF_noteDel" visible="false"/>
+              <Static id="Static01" taborder="2" text="Document" left="30" top="65" width="41.67%" height="80" cssclass="sta_WF_widgetBox01"/>
+              <Static id="Static01_00" taborder="3" text="Schedule" top="65" height="80" cssclass="sta_WF_widgetBox02" left="Static01:10" right="30"/>
+              <Static id="Static02" taborder="4" left="30" top="152" height="151" cssclass="sta_WF_widgetImg01" right="30"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="7" text="Div00" left="20" top="444" ondrag="fnComDivOnDrag" usePort="Y" portName="게시판(업무)" formscrollbarsize="0" border="1px solid #a1abba" width="47.17%" cssclass="div_WF_widget01" height="320">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="1" text="Weekly Schedule" left="30" top="5" height="45" cssclass="sta_WF_widgetTitle" right="30"/>
+              <Button id="btnClose" taborder="0" top="10" width="30" height="30" onclick="fnComBtnOnClick" right="25" cssclass="btn_WF_noteDel" visible="false"/>
+              <Static id="Static01" taborder="2" text="Mon&#13;&#10;&lt;fc v='#111111'&gt;11&lt;/fc&gt;" left="30" top="67" width="50" height="50" cssclass="sta_WF_weeklyLabel01" usedecorate="true"/>
+              <Static id="Static02" taborder="3" text="Team Meeting" left="100" top="67" width="179" height="26" color="#111111"/>
+              <Static id="Static02_00" taborder="4" text="10:30am-11:30am" left="100" top="93" width="179" height="26" color="#59618e"/>
+              <Button id="Button00" taborder="5" top="74" width="36" height="36" right="30" cssclass="btn_WF_sampleMore"/>
+              <Button id="Button01" taborder="6" width="50" height="50" right="10" cssclass="btn_WF_sampleAdd" bottom="10"/>
+              <Static id="Static01_00" taborder="7" text="Mon&#13;&#10;&lt;fc v='#111111'&gt;11&lt;/fc&gt;" left="30" top="127" width="50" height="50" cssclass="sta_WF_weeklyLabel01" usedecorate="true"/>
+              <Static id="Static02_01" taborder="8" text="Business Meeting" left="100" top="127" width="179" height="26" color="#111111"/>
+              <Static id="Static02_00_00" taborder="9" text="14:00pm-15:00pm" left="100" top="151" width="179" height="26" color="#59618e"/>
+              <Button id="Button00_00" taborder="10" top="134" width="36" height="36" right="30" cssclass="btn_WF_sampleMore"/>
+              <Static id="Static01_01" taborder="11" text="Wed&#13;&#10;&lt;fc v='#111111'&gt;13&lt;/fc&gt;" left="30" top="187" width="50" height="50" cssclass="sta_WF_weeklyLabel01" usedecorate="true"/>
+              <Static id="Static02_02" taborder="12" text="Monthly Report" left="100" top="187" width="179" height="26" color="#111111"/>
+              <Static id="Static02_00_01" taborder="13" text="10:00am-11:30am" left="100" top="211" width="179" height="26" color="#59618e"/>
+              <Button id="Button00_01" taborder="14" top="194" width="36" height="36" right="30" cssclass="btn_WF_sampleMore"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div00" taborder="8" text="Div00" left="Div02:10" top="444" ondrag="fnComDivOnDrag" usePort="Y" portName="통합조회" formscrollbarsize="0" border="1px solid #a1abba" right="19" cssclass="div_WF_widget01" height="320">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="1" text="Today" left="30" top="5" height="45" cssclass="sta_WF_widgetTitle" right="30"/>
+              <Button id="btnClose" taborder="1" top="10" width="30" height="30" onclick="fnComBtnOnClick" right="25" cssclass="btn_WF_noteDel" visible="false"/>
+              <Static id="Static01" taborder="2" text="10:30am-11:30am" left="30" top="97" width="120" height="30" color="#fe5252"/>
+              <Static id="Static02" taborder="3" text="Topic : Technical meeting" left="30" top="127" width="196" height="30"/>
+              <Static id="Static03" taborder="4" left="30" width="40" height="40" cssclass="sta_WF_sampleProfile01" top="238"/>
+              <Static id="Static04" taborder="5" left="65" width="40" height="40" cssclass="sta_WF_sampleProfile02" top="238"/>
+              <Static id="Static05" taborder="6" left="100" width="40" height="40" cssclass="sta_WF_sampleProfile03" top="238"/>
+              <Static id="Static05_00" taborder="7" left="135" width="40" height="40" cssclass="sta_WF_sampleProfile04" top="238"/>
+              <Static id="Static05_01" taborder="8" left="170" width="40" height="40" cssclass="sta_WF_sampleProfile05" top="238"/>
+              <Static id="Static06" taborder="9" text="+2" left="205" width="40" height="40" cssclass="sta_WF_sampleMore" top="238"/>
+              <Button id="Button00" taborder="10" top="67" width="40" height="40" cssclass="btn_WF_sampleWrite" right="68"/>
+              <Button id="Button00_00" taborder="11" top="67" width="40" height="40" right="25" cssclass="btn_WF_samplesShare"/>
+              <Static id="Static02_00" taborder="12" text="MeetingRoom5" left="30" top="157" width="196" height="30"/>
+              <Static id="Static01_00" taborder="13" text="Team Meeting" left="30" top="67" width="120" height="30" cssclass="sta_WF_widgetTxt01"/>
+              <Button id="Button01" taborder="14" width="50" height="50" right="10" cssclass="btn_WF_sampleAdd" bottom="10"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="9" text="Div03" left="Div01:10" top="115" height="320" usePort="Y" ondrag="fnComDivOnDrag" portName="Budget Report" formscrollbarsize="0" border="1px solid #a1abba" cssclass="div_WF_widget01" right="20">
+          <Layouts>
+            <Layout>
+              <Button id="btnClose" taborder="0" top="10" width="30" height="30" cssclass="btn_WF_noteDel" onclick="fnComBtnOnClick" right="25" visible="false"/>
+              <TextArea id="TextArea00" taborder="1" left="40" top="63" height="90" right="40" cssclass="txt_WF_design01" displaynulltext="create new idea" wordWrap="char"/>
+              <Static id="Static00_00" taborder="2" text="Create New Idea" left="30" top="5" height="45" cssclass="sta_WF_widgetTitle" right="42"/>
+              <Button id="Button00" taborder="3" text="Done" left="40" top="238" height="50" width="354" cssclass="btn_WF_basic02"/>
+              <Static id="Static01" taborder="4" left="40" top="180" width="30" height="30" cssclass="sta_WF_ideaTag"/>
+              <Static id="Static05" taborder="5" left="81" width="40" height="40" cssclass="sta_WF_sampleProfile03" top="175"/>
+              <Button id="Button00_00" taborder="6" top="177" width="36" height="36" right="40" cssclass="btn_WF_samplesShare"/>
+              <Static id="Static02" taborder="7" text="Edward Lee" left="135" top="175" width="113" height="40"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="staMove" taborder="10" left="930" top="0" width="215" height="226" border="3px dashed silver" visible="false" borderRadius="20px"/>
+        <Div id="Div03_01" taborder="11" text="Div03" left="935" top="115" height="320" usePort="Y" ondrag="fnComDivOnDrag" portName="Budget Report" formscrollbarsize="0" border="1px solid #a1abba" cssclass="div_WF_widget02" right="-451" visible="false">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="2" left="10" top="10" right="10" bottom="10" background="#ffffff"/>
+              <Button id="btnClose" taborder="0" top="10" width="30" height="30" cssclass="btn_WF_noteDel" onclick="fnComBtnOnClick" right="25" visible="false"/>
+              <Div id="Div00" taborder="1" top="36" width="374" bottom="19" left="29">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static02" taborder="50" left="20" top="5" height="257" right="20" borderRadius="20px" cssclass="sta_WF_wdgCalendarBg"/>
+                    <Static id="Static03" taborder="51" left="21" top="41" height="30" text="" right="21" cssclass="sta_WF_wdgWeekBg"/>
+                    <Static id="Static00" taborder="0" left="6.4%" top="41" width="40" height="30" text="Sun" cssclass="sta_WF_wdgCalendarWeekH"/>
+                    <Static id="Static00_00" taborder="1" text="Mon" left="72" top="41" width="40" height="30" cssclass="sta_WF_wdgCalendarWeek"/>
+                    <Static id="Static00_01" taborder="2" text="Tue" left="120" top="41" width="40" height="30" cssclass="sta_WF_wdgCalendarWeek"/>
+                    <Static id="Static00_02" taborder="3" text="Wed" left="168" top="41" width="40" height="30" cssclass="sta_WF_wdgCalendarWeek"/>
+                    <Static id="Static00_03" taborder="4" text="Thu" left="216" top="41" width="40" height="30" cssclass="sta_WF_wdgCalendarWeek"/>
+                    <Static id="Static00_04" taborder="5" text="Fri" left="264" top="41" width="40" height="30" cssclass="sta_WF_wdgCalendarWeek"/>
+                    <Static id="Static00_05" taborder="6" text="Sat" left="312" top="41" width="40" height="30" cssclass="sta_WF_wdgCalendarWeek"/>
+                    <Button id="Button00" taborder="7" left="24" top="78" height="30" text="27" cssclass="btn_WF_widgetCalendarH" enable="false" width="40"/>
+                    <Button id="Button00_00" taborder="8" left="72" top="78" width="40" height="30" text="28" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_01" taborder="9" left="120" top="78" width="40" height="30" text="29" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_02" taborder="10" left="168" top="78" width="40" height="30" text="30" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_03" taborder="11" left="216" top="78" width="40" height="30" text="31" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_04" taborder="12" left="264" top="78" width="40" height="30" text="1" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_05" taborder="13" left="312" top="78" height="30" text="2" cssclass="btn_WF_widgetCalendar" width="40"/>
+                    <Button id="Button00_06" taborder="14" left="24" top="108" width="40" height="30" text="3" cssclass="btn_WF_widgetCalendarH"/>
+                    <Button id="Button00_00_00" taborder="15" left="72" top="108" width="40" height="30" text="4" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_01_00" taborder="16" left="120" top="108" width="40" height="30" text="5" cssclass="btn_WF_widgetCalendar,btn_WF_widgetToday"/>
+                    <Button id="Button00_02_00" taborder="17" left="168" top="108" width="40" height="30" text="6" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_03_00" taborder="18" left="216" top="108" width="40" height="30" text="7" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_04_00" taborder="19" left="264" top="108" width="40" height="30" text="8" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_05_00" taborder="20" left="312" top="108" width="40" height="30" text="9" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_07" taborder="21" left="24" top="138" width="40" height="30" text="10" cssclass="btn_WF_widgetCalendarH"/>
+                    <Button id="Button00_00_01" taborder="22" left="72" top="138" width="40" height="30" text="11" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_01_01" taborder="23" left="120" top="138" width="40" height="30" text="12" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_02_01" taborder="24" left="168" top="138" width="40" height="30" text="13" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_03_01" taborder="25" left="216" top="138" width="40" height="30" text="14" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_04_01" taborder="26" left="264" top="138" width="40" height="30" text="15" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_05_01" taborder="27" left="312" top="138" width="40" height="30" text="16" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_08" taborder="28" left="24" top="168" width="40" height="30" text="17" cssclass="btn_WF_widgetCalendarH"/>
+                    <Button id="Button00_00_02" taborder="29" left="72" top="168" width="40" height="30" text="18" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_01_02" taborder="30" left="120" top="168" width="40" height="30" text="19" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_02_02" taborder="31" left="168" top="168" width="40" height="30" text="20" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_03_02" taborder="32" left="216" top="168" width="40" height="30" text="21" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_04_02" taborder="33" left="264" top="168" width="40" height="30" text="22" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_05_02" taborder="34" left="312" top="168" width="40" height="30" text="23" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_09" taborder="35" left="24" top="198" width="40" height="30" text="24" cssclass="btn_WF_widgetCalendarH"/>
+                    <Button id="Button00_00_03" taborder="36" left="72" top="198" width="40" height="30" text="25" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_01_03" taborder="37" left="120" top="198" width="40" height="30" text="26" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_02_03" taborder="38" left="168" top="198" width="40" height="30" text="27" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_03_03" taborder="39" left="216" top="198" width="40" height="30" text="28" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_04_03" taborder="40" left="264" top="198" width="40" height="30" text="29" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_05_03" taborder="41" left="312" top="198" width="40" height="30" text="30" cssclass="btn_WF_widgetCalendar"/>
+                    <Button id="Button00_10" taborder="42" left="24" top="228" width="40" height="30" text="31" cssclass="btn_WF_widgetCalendarH"/>
+                    <Button id="Button00_00_04" taborder="43" left="72" top="228" width="40" height="30" text="1" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_01_04" taborder="44" left="120" top="228" width="40" height="30" text="2" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_02_04" taborder="45" left="168" top="228" width="40" height="30" text="3" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_03_04" taborder="46" left="216" top="228" width="40" height="30" text="4" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_04_04" taborder="47" left="264" top="228" width="40" height="30" text="5" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Button id="Button00_05_04" taborder="48" left="312" top="228" width="40" height="30" text="6" cssclass="btn_WF_widgetCalendar" enable="false"/>
+                    <Static id="Static01" taborder="49" text="January, 2021" top="1" height="40" left="20" right="20" cssclass="sta_WF_wdgCalendarTitle"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.bAni = false;
+this.fvObjDrag = false;
+this.fvTimerIdx = 0;
+this.fvTimerMax = 30;
+this.fvObjFrom;
+this.fvObjTo;
+this.fvMemocount = 1;
+
+// this.arrMonth = ["", "Jaunary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+// this.arrDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];	
+
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	// 초기화 위해 현재 position 임시저장
+	var sComps = this.components;
+	var i;
+	var nRow;
+	
+	for (i = 0; i < sComps.length; i++)
+	{
+		if (sComps[i].usePort == "Y")
+		{
+			nRow = this.dsPortInit.addRow();
+			
+			this.dsPortInit.setColumn(nRow, "compId", sComps[i].name);
+			this.dsPortInit.setColumn(nRow, "portName", sComps[i].portName);
+			this.dsPortInit.setColumn(nRow, "left", sComps[i].getOffsetLeft());
+			this.dsPortInit.setColumn(nRow, "top", sComps[i].getOffsetTop());
+			this.dsPortInit.setColumn(nRow, "width", sComps[i].getOffsetWidth());
+			this.dsPortInit.setColumn(nRow, "height", sComps[i].getOffsetHeight());
+		}
+	}
+	
+	var xmlPortInfo = nexacro.getPrivateProfile("portInfo");
+	var sCompId;
+	var nLeft, nTop, nWidth, nHeight;
+	
+	if (xmlPortInfo) // 임시 저장된 포틀릿 위치 정보가 있을 경우
+	{
+		var portInfoDs = new Dataset();
+		portInfoDs.loadXML(xmlPortInfo);
+		
+		if (portInfoDs != null && portInfoDs.rowcount > 0)
+		{
+			for (i = 0; i < portInfoDs.rowcount; i++)
+			{
+				sCompId = portInfoDs.getColumn(i, "compId");
+				nLeft = portInfoDs.getColumn(i, "left");
+				nTop = portInfoDs.getColumn(i, "top");
+				nWidth = portInfoDs.getColumn(i, "width");
+				nHeight = portInfoDs.getColumn(i, "height");
+				
+				if (this.components[sCompId]) 
+				{
+					this.components[sCompId].setOffsetLeft(nexacro.toNumber(nLeft));
+					this.components[sCompId].setOffsetTop(nexacro.toNumber(nTop));
+					this.components[sCompId].setOffsetWidth(nexacro.toNumber(nWidth));
+					this.components[sCompId].setOffsetHeight(nexacro.toNumber(nHeight));
+				} 
+				else 
+				{
+					if (sCompId == "divTile_memo") {
+						this.fnLoadWidget(this.dsWidgetList.findRow("id", "memo"));
+						
+						this.components[sCompId].setOffsetLeft(nexacro.toNumber(nLeft));
+						this.components[sCompId].setOffsetTop(nexacro.toNumber(nTop));
+						this.components[sCompId].setOffsetWidth(nexacro.toNumber(nWidth));
+						this.components[sCompId].setOffsetHeight(nexacro.toNumber(nHeight));
+						this.components[sCompId].form.fnSetTxt(portInfoDs.getColumn(i, "text"));
+					} else if(sCompId == "divTile_calc") {
+						this.fnLoadWidget(this.dsWidgetList.findRow("id", "calc"));
+						
+						this.components[sCompId].setOffsetLeft(nexacro.toNumber(nLeft));
+						this.components[sCompId].setOffsetTop(nexacro.toNumber(nTop));
+						this.components[sCompId].setOffsetWidth(nexacro.toNumber(nWidth));
+						this.components[sCompId].setOffsetHeight(nexacro.toNumber(nHeight));
+					} else if(sCompId == "divTile_watch") {
+						this.fnLoadWidget(this.dsWidgetList.findRow("id", "watch"));
+						
+						this.components[sCompId].setOffsetLeft(nexacro.toNumber(nLeft));
+						this.components[sCompId].setOffsetTop(nexacro.toNumber(nTop));
+						this.components[sCompId].setOffsetWidth(nexacro.toNumber(nWidth));
+						this.components[sCompId].setOffsetHeight(nexacro.toNumber(nHeight));
+					}					
+				}
+			}
+		}
+	}
+	
+	var xmlDelPortInfo = nexacro.getPrivateProfile("delPortInfo");
+	
+	// 삭제된 포틀릿 위치 정보가 있을 경우
+	if (xmlDelPortInfo != null && xmlDelPortInfo != "") { 
+		this.dsDelPortList.loadXML(xmlDelPortInfo);
+	}	
+};
+
+this.form_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
+{
+	if (e.timerid == 1)
+	{
+		this.fvTimerIdx++;
+		
+		var nLeft1 = this.fnMoveAni(this.fvTimerIdx, this.fvObjFrom.orgLeft, this.fvObjTo.orgLeft - this.fvObjFrom.orgLeft, this.fvTimerMax);
+		var nTop1 = this.fnMoveAni(this.fvTimerIdx, this.fvObjFrom.orgTop, this.fvObjTo.orgTop - this.fvObjFrom.orgTop, this.fvTimerMax);
+		var nWidth1 = this.fnMoveAni(this.fvTimerIdx, this.fvObjFrom.orgWidth, this.fvObjTo.orgWidth - this.fvObjFrom.orgWidth, this.fvTimerMax);
+		var nHeight1 = this.fnMoveAni(this.fvTimerIdx, this.fvObjFrom.orgHeight, this.fvObjTo.orgHeight - this.fvObjFrom.orgHeight, this.fvTimerMax);
+		
+		var nLeft2 = this.fnMoveAni(this.fvTimerIdx, this.fvObjTo.orgLeft, this.fvObjFrom.orgLeft - this.fvObjTo.orgLeft, this.fvTimerMax);
+		var nTop2 = this.fnMoveAni(this.fvTimerIdx, this.fvObjTo.orgTop, this.fvObjFrom.orgTop - this.fvObjTo.orgTop, this.fvTimerMax);
+		var nWidth2 = this.fnMoveAni(this.fvTimerIdx, this.fvObjTo.orgWidth, this.fvObjFrom.orgWidth - this.fvObjTo.orgWidth, this.fvTimerMax);
+		var nHeight2 = this.fnMoveAni(this.fvTimerIdx, this.fvObjTo.orgHeight, this.fvObjFrom.orgHeight - this.fvObjTo.orgHeight, this.fvTimerMax);
+		
+		this.fvObjFrom.move(nLeft1, nTop1, nWidth1, nHeight1);
+		this.fvObjTo.move(nLeft2, nTop2, nWidth2, nHeight2);
+		
+		if (this.fvTimerIdx == this.fvTimerMax) {
+			this.bAni = false;
+ 			this.fvTimerIdx = 0;
+ 			this.killTimer(e.timerid);
+ 		}
+	}
+	else if (e.timerid == 2)
+	{
+		this.killTimer(2);
+		this.fvObjNewMemo.bringToFront();
+	}
+};
+
+this.form_onlbuttonup = function(obj:nexacro.Form,e:nexacro.MouseEventInfo)
+{
+	if (this.fvObjDrag == true) {
+		this.fvObjDrag = false;
+		
+		this.fnRemoveDragObj();
+	}	
+};
+
+this.form_ondragmove = function(obj:nexacro.Form,e:nexacro.DragEventInfo)
+{
+	if (e.sourceobject.usePort == "Y") 
+	{
+		this.staMove.move(e.clientx + 10, e.clienty + 10);
+	} 
+	else 
+	{	
+		var arrPoint = e.userdata.split(",");
+		var nLeft;
+		var nTop;
+		var nRight;
+		var nBottom;
+		var nWidth;
+		var nHeight;
+		
+		if (this.fvChildObj.name == "btnResize") {
+			nLeft = e.canvasx - this.getOffsetLeft() - this.fvTargetObj.getOffsetLeft() - arrPoint[0];
+			nTop = e.canvasy - this.getOffsetTop() - this.fvTargetObj.getOffsetTop() - arrPoint[1];
+			
+			if (nLeft < 100) {
+				nLeft = 100;
+			}
+			
+			if (nTop < 100) {
+				nTop = 100;
+			}
+			
+			this.fvChildObj.move(nLeft, nTop);
+			
+			nWidth = this.fvChildObj.getOffsetRight();
+			nHeight = this.fvChildObj.getOffsetBottom();
+		
+			this.fvTargetObj.setOffsetWidth(nWidth);
+			this.fvTargetObj.setOffsetHeight(nHeight);
+		} else if (this.fvChildObj.name == "btnMove") {
+			nLeft = e.canvasx - this.getOffsetLeft() - arrPoint[0];
+			nTop = e.canvasy - this.getOffsetTop() - arrPoint[1];
+			nRight = nLeft + this.fvTargetObj.getOffsetWidth();
+			nBottom = nTop + this.fvTargetObj.getOffsetHeight();
+			
+			if (nLeft < 0) {
+				nLeft = 0;
+			} else if (nRight > this.getOffsetWidth()) {
+				nLeft = this.getOffsetWidth() - this.fvTargetObj.getOffsetWidth();
+			}
+			
+			if (nTop < 0) {
+				nTop = 0;
+			} else if (nBottom > this.getOffsetHeight()) {
+				nTop = this.getOffsetHeight() - this.fvTargetObj.getOffsetHeight();
+			}
+			
+			this.fvTargetObj.move(nLeft, nTop);
+		}
+	}	
+};
+
+this.form_ondrop = function(obj:nexacro.Form,e:nexacro.DragEventInfo)
+{
+	if (this.bAni == false)
+	{
+		this.fvObjFrom = e.userdata;
+		this.fvObjTo = this.fnGetDragToObj(e.fromobject);
+		
+		if (this.fvObjTo.usePort == "Y" && this.fvObjFrom instanceof Div)
+		{		
+			this.fvObjFrom.orgLeft = this.fvObjFrom.getOffsetLeft();
+			this.fvObjFrom.orgTop = this.fvObjFrom.getOffsetTop();
+			this.fvObjFrom.orgWidth = this.fvObjFrom.getOffsetWidth();
+			this.fvObjFrom.orgHeight = this.fvObjFrom.getOffsetHeight();
+			
+			this.fvObjTo.orgLeft = this.fvObjTo.getOffsetLeft();
+			this.fvObjTo.orgTop = this.fvObjTo.getOffsetTop();
+			this.fvObjTo.orgWidth = this.fvObjTo.getOffsetWidth();
+			this.fvObjTo.orgHeight = this.fvObjTo.getOffsetHeight();
+		
+			this.bAni = true;
+			this.setTimer(1, 10);
+		}
+	}	
+};
+
+this.fnComBtnOnClick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	switch (obj.name)
+	{
+		case "btnWidgetAdd" :
+			var sTitle = this.cboWidget.value;
+			
+			if (sTitle == 0) {
+				this.alert("추가할 위젯 종류를 설정해주세요");
+				
+				return;
+			} else {
+				this.fnLoadWidget(this.dsWidgetList.findRow("id", sTitle));
+			}		
+			break;
+			
+		case "btnInit" :
+			var i;
+			var sComId;
+			var nLeft, nTop, nWidth, nHeith;
+			
+			for (i = 0; i < this.dsPortInit.rowcount; i++)
+			{
+				sComId = this.dsPortInit.getColumn(i, "compId");
+				nLeft = this.dsPortInit.getColumn(i, "left");
+				nTop = this.dsPortInit.getColumn(i, "top");
+				nWidth = this.dsPortInit.getColumn(i, "width");
+				nHeith = this.dsPortInit.getColumn(i, "height");
+				
+				this.components[sComId].setOffsetLeft(nexacro.toNumber(nLeft));
+				this.components[sComId].setOffsetTop(nexacro.toNumber(nTop));
+				this.components[sComId].setOffsetWidth(nexacro.toNumber(nWidth));
+				this.components[sComId].setOffsetHeight(nexacro.toNumber(nHeith));
+			}
+
+			this.dsDelPortList.clearData();
+
+			nexacro.setPrivateProfile("portInfo", "");
+			nexacro.setPrivateProfile("delPortInfo", "");
+			
+			this.reload();		
+			break;
+			
+		case "btnSave" :
+			if (!this.confirm("저장하시겠습니까?")) {
+				return;
+			}
+			
+			var arrPortComp = [];
+			var tmpDs = new Dataset();
+			
+			tmpDs.addColumn("compId", "string");
+			tmpDs.addColumn("left", "string");
+			tmpDs.addColumn("top", "string");
+			tmpDs.addColumn("width", "string");
+			tmpDs.addColumn("height", "string");
+			tmpDs.addColumn("text", "string");
+			
+			var sComps = this.components;
+			var i;
+			var nRow;
+			
+			for (i = 0; i < sComps.length; i++)
+			{
+				if (sComps[i].usePort == "Y")
+				{
+					nRow = tmpDs.addRow();
+					
+					tmpDs.setColumn(nRow, "compId",  sComps[i].name);
+					tmpDs.setColumn(nRow, "left",  sComps[i].getOffsetLeft());
+					tmpDs.setColumn(nRow, "top",  sComps[i].getOffsetTop());
+					tmpDs.setColumn(nRow, "width",  sComps[i].getOffsetWidth());
+					tmpDs.setColumn(nRow, "height",  sComps[i].getOffsetHeight());
+					
+					if (sComps[i].name == "divTile_memo") {
+						tmpDs.setColumn(nRow, "text",  sComps[i].form.fnGetTxt());
+					}
+				}
+			}
+
+			nexacro.setPrivateProfile( "portInfo", tmpDs.saveXML());
+			tmpDs.destroy();
+			
+			if (this.dsDelPortList.rowcount > 0) {
+				nexacro.setPrivateProfile("delPortInfo", this.dsDelPortList.saveXML());
+			}		
+			break;
+			
+		case "btnClose" :
+			var nRow = this.dsDelPortList.addRow();
+			
+			this.dsDelPortList.setColumn(nRow, "portName", obj.parent.parent.portName);
+			this.dsDelPortList.setColumn(nRow, "compId", obj.parent.parent.name);
+			this.dsDelPortList.setColumn(nRow, "left", obj.parent.parent.getOffsetLeft());
+			this.dsDelPortList.setColumn(nRow, "top", obj.parent.parent.getOffsetTop());
+			this.dsDelPortList.setColumn(nRow, "width", obj.parent.parent.getOffsetWidth());
+			this.dsDelPortList.setColumn(nRow, "height", obj.parent.parent.getOffsetHeight());
+
+			obj.parent.parent.setOffsetWidth(0);
+			obj.parent.parent.setOffsetHeight(0);		
+			break;
+	}
+};
+
+this.form_onsize = function(obj:nexacro.Form,e:nexacro.SizeEventInfo)
+{
+	// Form Size 변경 시 달력 Center 위치
+	var nLeft = (this.Div03.getOffsetWidth() / 2) - (this.Div03.form.Div00.getOffsetWidth() / 2);
+	
+	this.Div03.form.Div00.move(nLeft, 36);
+};
+
+this.fnObjTile_onclick = function(obj, e)
+{
+	obj.targetDiv.bringToFront();
+}
+
+this.fnComDivOnDrag = function(obj:nexacro.Div,e:nexacro.DragEventInfo)
+{
+	this.fvObjDrag = true;
+	e.userdata = obj;
+
+	this.fnMakeDragObj(obj);
+
+	return true;	
+};
+
+this.fnLoadWidget = function(i)
+{
+	var i, j;
+	var sId;
+	var sUrl;
+	var nLeft;
+	var nTop;
+	var nWidth;
+	var nHeight;
+	var objTile;
+	var sMsg;
+	
+	this.fvMemocount = 1;
+	
+	sId = this.dsWidgetList.getColumn(i, "id");
+	sUrl = this.dsWidgetList.getColumn(i, "url");
+	nLeft = this.dsWidgetList.getColumn(i, "left");
+	nTop = this.dsWidgetList.getColumn(i, "top");
+	nWidth = this.dsWidgetList.getColumn(i, "width");
+	nHeight = this.dsWidgetList.getColumn(i, "height");
+
+	objTile = new Div("divTile_" + sId, nLeft, nTop, nWidth, nHeight);
+	objTile.set_async(false);
+	objTile.set_url(sUrl);
+	objTile.portName = "위젯";
+	objTile.usePort = "Y";
+	
+	for (i = 0; i < this.components.length; i++)
+	{
+		if (this.components[i].name == objTile.name) {
+			sMsg = this.cboWidget.text;
+			alert(sMsg + "는 이미 추가된 위젯입니다.");
+			
+			return;
+		}
+	}
+	
+	this.addChild(objTile.name, objTile);
+	objTile.show();
+
+	if (sId == "memo") {
+		objTile.form.btnResize.addEventHandler("ondrag", this.fnObjTile_ondrag, this);
+		objTile.form.btnResize.addEventHandler("onlbuttonup", this.fnObjTile_onlbuttonup, this);
+	}
+	
+	objTile.form.btnMove.addEventHandler("ondrag", this.fnObjTile_ondrag, this);
+	objTile.form.btnMove.addEventHandler("onlbuttonup", this.fnObjTile_onlbuttonup, this);
+	
+	for (j = 0; j < objTile.form.components.length; j++)
+	{
+		objTile.form.components[j].targetDiv = objTile;
+		objTile.form.components[j].addEventHandler("onclick", this.fnObjTile_onclick, this);
+	}
+};
+
+this.fnGetDragToObj = function(obj)
+{
+	if (obj.parent.parent.usePort == "Y") {
+		return obj.parent.parent;
+	} else {
+		return obj;	
+	}
+};
+
+this.fnMakeDragObj = function(obj)
+{
+	var nWidth = obj.getOffsetWidth();
+	var nHeight = obj.getOffsetHeight();
+	var sMemo = obj.text;
+	
+	this.staMove.setOffsetWidth(nWidth);
+	this.staMove.setOffsetHeight(nHeight);
+	this.staMove.set_visible(true);
+};
+
+this.fnRemoveDragObj = function()
+{
+	this.staMove.set_visible(false);
+};
+
+this.fnObjTile_ondrag = function(obj, e:nexacro.DragEventInfo)
+{
+	this.bDrag = true;
+	this.fvTargetObj = obj.parent.parent;
+	this.fvChildObj = obj;
+	
+	var nX;
+	var nY;
+	
+	if (obj.name == "btnResize") {
+		nX = nexacro.toNumber(e.canvasx);
+		nY = nexacro.toNumber(e.canvasy);
+	} else if (obj.name == "btnMove") {
+		nX = nexacro.toNumber(obj.getOffsetLeft()) + nexacro.toNumber(e.canvasx);
+		nY = nexacro.toNumber(obj.getOffsetTop()) + nexacro.toNumber(e.canvasy);
+	}
+	
+	e.userdata = nX + "," + nY; 
+	
+	this.fvTargetObj.bringToFront();
+	
+	return true;
+};
+
+this.fnMoveAni = function (t, b, c, d)
+{
+	t /= d / 2;
+	
+	if (t < 1) {
+		return c / 2 * t * t * t + b;
+	}
+	
+	t -= 2;
+	
+	return c / 2 * (t * t * t + 2) + b;
+};
+
+this.fnCloseMemo = function(obj)
+{
+	if (this.confirm("현재 메모를 삭제하시겠습니까?") == true) {
+		this.removeChild(obj.name);
+	}
+}
+
+this.fnCloseWidget = function(obj)
+{
+	switch (obj.name)
+	{
+		case "divTile_calc" :
+		case "divTile_watch" :
+			this.removeChild(obj.name);
+			break;
+	}
+};
+
+this.fnAddMemo = function(obj)
+{
+	var nLeft = obj.getOffsetLeft();
+	var nTop = obj.getOffsetTop() + 30;
+	var nWidth = obj.getOffsetWidth();
+	var nHeight = obj.getOffsetHeight();
+	var j;
+
+	var objTile = new Div("divTile_memo" + this.fvMemocount, nLeft, nTop, nWidth, nHeight);
+	this.addChild(objTile.name, objTile);
+	objTile.show();
+	objTile.set_async(false);
+	objTile.set_url("comm::commMemo.xfdl");
+	objTile.form.btnResize.addEventHandler("ondrag", this.fnObjTile_ondrag, this);
+	objTile.form.btnResize.addEventHandler("onlbuttonup", this.fnObjTile_onlbuttonup, this);
+	objTile.form.btnMove.addEventHandler("ondrag", this.fnObjTile_ondrag, this);
+	objTile.form.btnMove.addEventHandler("onlbuttonup", this.fnObjTile_onlbuttonup, this);	
+	
+	for (j = 0; j < objTile.form.components.length; j++)
+	{
+		objTile.form.components[j].targetDiv = objTile;
+		objTile.form.components[j].addEventHandler("onclick", this.fnObjTile_onclick, this);
+	}
+	
+	this.fvMemocount++;
+	this.fvObjNewMemo = objTile;
+	
+	this.setTimer(2, 10);
+};
+
+this.fnIsNull = function(sValue)
+{
+    if (new String(sValue).valueOf() == "undefined") return true;
+    if (sValue == null) return true;
+    
+    var ChkStr = new String(sValue);
+
+    if (ChkStr == null) return true;
+    if (ChkStr.toString().length == 0) return true;
+	
+    return false;
+};]]></Script>
+    <Objects>
+      <Dataset id="dsDelPortList">
+        <ColumnInfo>
+          <Column id="compId" type="STRING" size="256"/>
+          <Column id="portName" type="STRING" size="256"/>
+          <Column id="left" type="STRING" size="256"/>
+          <Column id="top" type="STRING" size="256"/>
+          <Column id="width" type="STRING" size="256"/>
+          <Column id="height" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsWidgetList">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="url" type="STRING" size="256"/>
+          <Column id="left" type="STRING" size="256"/>
+          <Column id="top" type="STRING" size="256"/>
+          <Column id="width" type="STRING" size="256"/>
+          <Column id="height" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">memo</Col>
+            <Col id="left">10</Col>
+            <Col id="top">186</Col>
+            <Col id="width">250</Col>
+            <Col id="height">250</Col>
+            <Col id="url">sample::widgetMemo.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="id">watch</Col>
+            <Col id="left">10</Col>
+            <Col id="top">186</Col>
+            <Col id="width">330</Col>
+            <Col id="height">210</Col>
+            <Col id="url">sample::widgetWatch.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="id">calc</Col>
+            <Col id="left">10</Col>
+            <Col id="top">186</Col>
+            <Col id="width">271</Col>
+            <Col id="height">365</Col>
+            <Col id="url">sample::widgetCalc.xfdl</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsPortInit">
+        <ColumnInfo>
+          <Column id="compId" type="STRING" size="256"/>
+          <Column id="left" type="STRING" size="256"/>
+          <Column id="top" type="STRING" size="256"/>
+          <Column id="width" type="STRING" size="256"/>
+          <Column id="height" type="STRING" size="256"/>
+          <Column id="portName" type="STRING" size="256"/>
+          <Column id="text" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

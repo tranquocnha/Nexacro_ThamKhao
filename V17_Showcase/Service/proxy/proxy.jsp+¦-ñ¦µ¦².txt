@@ -1,0 +1,7 @@
+1. proxy.jsp 는 서버에 등록을 한다. 물론 컴파일된 화면 소스도 동일한 domain위치에 있어야 한다. 
+
+2. lib.zip파일을 proxy.jsp있는 서버에 등록을 한다. 
+
+3. transaction의 url를 작성시 [proxy.jsp의 웹 전체경로?url=전송jsp위치]로 작성하면 된다 .
+예) http://localhost:8080/130523/services/proxy.jsp?url=http://172.10.11.158:8080/130523/services/XP_TEST.jsp
+

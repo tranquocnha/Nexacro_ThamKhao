@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Radio_Basic" classname="Radio_Basic" inheritanceid="" position="absolute" titletext="Radio_Basic" left="0" width="760" top="0" height="650">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Inner Dataset" position="absolute" left="30" width="300" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Radio id="Radio00" taborder="1" innerdataset="@ds_data2" codecolumn="Column0" datacolumn="Column1" position="absolute" value="M" left="30" width="88" top="73" height="53"/>
+        <Grid id="Grid00" taborder="2" position="absolute" autofittype="col" binddataset="ds_data1" left="30" width="150" top="251" height="160">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Radio id="Radio01" taborder="3" position="absolute" innerdataset="@ds_data2" codecolumn="Column0" datacolumn="Column1" left="200" width="83" top="251" height="50" style="align:left middle;" rtldirection="ltr"/>
+        <Radio id="Radio02" taborder="4" columncount="3" innerdataset="@ds_code" codecolumn="code" datacolumn="name" position="absolute" left="30" width="412" top="536" height="46" direction="vertical" rowcount="-1" value="2" index="1"/>
+        <Static id="Static02" text="Binding" position="absolute" left="30" width="300" top="196" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static00" text="ColumnCount" position="absolute" left="30" width="300" top="481" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Radio01" propid="value" datasetid="ds_data1" columnid="Column0"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_data2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">M</Col>
+            <Col id="Column1">Man</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">W</Col>
+            <Col id="Column1">Woman</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_data1" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">M</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">W</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">W</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">M</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">M</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">G</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_code" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="name">A</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="name">B</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="name">C</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="name">D</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="name">E</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[    
+]]></Script>
+  </Form>
+</FDL>

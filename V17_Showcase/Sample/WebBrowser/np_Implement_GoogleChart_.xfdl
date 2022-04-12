@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Temp_GoogleChart" classname="Temp_googleChart" left="0" top="0" width="760" height="430" titletext="Implementing Google Chart on WebBrowser" onload="Temp_googleChart_onload">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="WebBrowser00" left="14" top="44" height="290" taborder="0" width="736"/>
+        <Button id="Button00" taborder="1" text="Change Chart Data" left="14" top="347" height="37" onclick="Button00_onclick" width="132"/>
+        <Static id="Static05" taborder="2" text="Implement Google Chart on WebBrowser" cssclass="sta_WF_subtitP" left="14" top="13" height="18" class="sta_WF_subtitle" width="422" right="" bottom=""/>
+        <Static id="Static00" taborder="3" text="When clicking the button, chart data will be changed. " cssclass="sta_WF_subtitP" left="1.97%" top="398" height="18" class="sta_WF_subtitle" width="422" right="" bottom=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Temp_googleChart_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var url = application.gv_SvcUrl + "googleChart.html";
+	this.WebBrowser00.set_url(url);
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var arrData = [
+          ['Title', 'TEST1', 'TEST2', 'TEST3'], 	// column
+          ['2002', 300, 500, 200],					// row	
+          ['2003', 600, 300, 250],					// 
+          ['2005', 880, 1120, 200],					// 
+          ['2016', 900, 540, 350]					// 
+        ];
+     var arrOption = ['Title Change','Sales, Expenses, and Profit: 2016']; // title, subtitle
+	 this.WebBrowser00.callMethod("btnCallChart",arrData,arrOption);
+}
+]]></Script>
+  </Form>
+</FDL>

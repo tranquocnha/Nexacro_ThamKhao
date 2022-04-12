@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="hotkey" width="920" height="960" titletext="New Form" onload="hotkey_onload">
+    <Layouts>
+      <Layout height="960" mobileorientation="landscape" width="920">
+        <Static id="st_Title" taborder="0" text="Hot Key" left="20" top="20" width="121" height="40" cssclass="sta_WF_pageTitle" messageid="sample.hotkey"/>
+        <Static id="Static03_00" taborder="2" text="Setting" left="20" top="80" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="sample.hotkey.setting"/>
+        <Grid id="Grid01" taborder="3" left="49" top="122" width="350" height="194" binddataset="Dataset00" autofittype="col" oncellclick="Grid01_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="70"/>
+                <Column size="106"/>
+                <Column size="24"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="40"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="#"/>
+                <Cell col="1" text="Description"/>
+                <Cell col="2" colspan="2" text="Hot Key"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2" expandshow="hide" expandsize="24" expandimage="url('imagerc::btn_pvGrd_panelOpen.png')"/>
+                <Cell col="3" expandimage="url('imagerc::btn_pvGrd_panelOpen.png')" expandshow="hide" expandsize="24" cursor="pointer" background="url('imagerc::btn_pvGrd_panelOpen.png') no-repeat center center #ffffff"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="Div00" taborder="1" text="Div00" top="340" height="560" cssclass="div_WF_bgLaptop" width="860" left="30">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" left="32" top="17" width="796" height="70" background="#cccccc"/>
+              <Static id="Static01" taborder="6" text="데이터 불러오기" left="60" top="29" width="615" height="46" background="white" padding="0px 0px 0px 15px" messageid="sample.hotkey.dataload"/>
+              <Button id="btn_Search" taborder="1" text="Search" top="29" width="120" height="46" cssclass="btn_WF_basic01" left="Static01:5" hotkey="F2" onclick="btn_search_onclick"/>
+              <Button id="btn_Add" taborder="2" text="Add" top="108" width="100" height="38" cssclass="btn_WF_basic04" right="165" hotkey="ALT+A" onclick="btn_add_onclick"/>
+              <Button id="btn_Delete" taborder="3" text="Delete" top="108" width="100" height="38" cssclass="btn_WF_basic04" right="60" hotkey="ALT+D" onclick="btn_delete_onclick"/>
+              <Button id="btn_Save" taborder="4" text="Save" top="433" width="100" height="38" right="60" cssclass="btn_WF_basic02" hotkey="F3" onclick="btn_save_onclick"/>
+              <Grid id="Grid00" taborder="5" left="60" top="153" right="60" height="270" autofittype="col"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <PopupDiv id="PopupDiv00" left="970" top="166" width="280" height="160" border="1px solid #dddddd" background="#ffffff">
+          <Layouts>
+            <Layout>
+              <CheckBox id="chk_ctrl" taborder="0" text="Ctrl" left="14" top="30" width="91" height="28"/>
+              <CheckBox id="chk_shift" taborder="1" text="Shift" left="14" top="63" width="91" height="28"/>
+              <CheckBox id="chk_alt" taborder="2" text="Alt" left="14" top="96" width="91" height="28"/>
+              <ListBox id="ListBox00" taborder="3" top="0" width="138" right="0" bottom="0" innerdataset="ds_keylist" codecolumn="key" datacolumn="key" itemheight="30" border="0px none,0px none,0px none,1px solid #dddddd" padding="5px" onitemclick="PopupDiv00_ListBox00_onitemclick"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sampledata">
+        <ColumnInfo>
+          <Column id="ProductID" type="STRING" size="256"/>
+          <Column id="ProductName" type="STRING" size="256"/>
+          <Column id="UnitPrice" type="STRING" size="256"/>
+          <Column id="Qty" type="STRING" size="256"/>
+          <Column id="Amount" type="STRING" size="256"/>
+          <Column id="Notes" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ProductID">A10001</Col>
+            <Col id="ProductName">TV</Col>
+            <Col id="UnitPrice">2000000</Col>
+            <Col id="Qty">1</Col>
+            <Col id="Amount">2000000</Col>
+          </Row>
+          <Row>
+            <Col id="ProductID">A10002</Col>
+            <Col id="ProductName">Tablet</Col>
+            <Col id="UnitPrice">900000</Col>
+            <Col id="Qty">3</Col>
+            <Col id="Amount">2700000</Col>
+          </Row>
+          <Row>
+            <Col id="ProductID">A10003</Col>
+            <Col id="ProductName">Phone</Col>
+            <Col id="UnitPrice">1500000</Col>
+            <Col id="Qty">8</Col>
+            <Col id="Amount">12000000</Col>
+          </Row>
+          <Row>
+            <Col id="ProductID">A10004</Col>
+            <Col id="ProductName">Keyboard</Col>
+            <Col id="UnitPrice">20000</Col>
+            <Col id="Qty">5</Col>
+            <Col id="Amount">100000</Col>
+          </Row>
+          <Row>
+            <Col id="ProductID">A10005</Col>
+            <Col id="ProductName">Mouse</Col>
+            <Col id="UnitPrice">30000</Col>
+            <Col id="Qty">3</Col>
+            <Col id="Amount">90000</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">Search</Col>
+            <Col id="Column2">F2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">Save</Col>
+            <Col id="Column2">F3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">Add</Col>
+            <Col id="Column2">ALT+A</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">Delete</Col>
+            <Col id="Column2">ALT+D</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_keylist">
+        <ColumnInfo>
+          <Column id="key" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="key">A</Col>
+          </Row>
+          <Row>
+            <Col id="key">B</Col>
+          </Row>
+          <Row>
+            <Col id="key">C</Col>
+          </Row>
+          <Row>
+            <Col id="key">D</Col>
+          </Row>
+          <Row>
+            <Col id="key">E</Col>
+          </Row>
+          <Row>
+            <Col id="key">F</Col>
+          </Row>
+          <Row>
+            <Col id="key">G</Col>
+          </Row>
+          <Row>
+            <Col id="key">H</Col>
+          </Row>
+          <Row>
+            <Col id="key">I</Col>
+          </Row>
+          <Row>
+            <Col id="key">J</Col>
+          </Row>
+          <Row>
+            <Col id="key">K</Col>
+          </Row>
+          <Row>
+            <Col id="key">L</Col>
+          </Row>
+          <Row>
+            <Col id="key">M</Col>
+          </Row>
+          <Row>
+            <Col id="key">N</Col>
+          </Row>
+          <Row>
+            <Col id="key">O</Col>
+          </Row>
+          <Row>
+            <Col id="key">P</Col>
+          </Row>
+          <Row>
+            <Col id="key">Q</Col>
+          </Row>
+          <Row>
+            <Col id="key">R</Col>
+          </Row>
+          <Row>
+            <Col id="key">S</Col>
+          </Row>
+          <Row>
+            <Col id="key">T</Col>
+          </Row>
+          <Row>
+            <Col id="key">U</Col>
+          </Row>
+          <Row>
+            <Col id="key">V</Col>
+          </Row>
+          <Row>
+            <Col id="key">W</Col>
+          </Row>
+          <Row>
+            <Col id="key">X</Col>
+          </Row>
+          <Row>
+            <Col id="key">Y</Col>
+          </Row>
+          <Row>
+            <Col id="key">Z</Col>
+          </Row>
+          <Row>
+            <Col id="key">1</Col>
+          </Row>
+          <Row>
+            <Col id="key">2</Col>
+          </Row>
+          <Row>
+            <Col id="key">3</Col>
+          </Row>
+          <Row>
+            <Col id="key">4</Col>
+          </Row>
+          <Row>
+            <Col id="key">5</Col>
+          </Row>
+          <Row>
+            <Col id="key">6</Col>
+          </Row>
+          <Row>
+            <Col id="key">7</Col>
+          </Row>
+          <Row>
+            <Col id="key">8</Col>
+          </Row>
+          <Row>
+            <Col id="key">9</Col>
+          </Row>
+          <Row>
+            <Col id="key">0</Col>
+          </Row>
+          <Row>
+            <Col id="key">BACK</Col>
+          </Row>
+          <Row>
+            <Col id="key">TAB</Col>
+          </Row>
+          <Row>
+            <Col id="key">RETURN</Col>
+          </Row>
+          <Row>
+            <Col id="key">PAUSE</Col>
+          </Row>
+          <Row>
+            <Col id="key">CAPITAL</Col>
+          </Row>
+          <Row>
+            <Col id="key">ESACAPE</Col>
+          </Row>
+          <Row>
+            <Col id="key">SPACE</Col>
+          </Row>
+          <Row>
+            <Col id="key">PRIOR</Col>
+          </Row>
+          <Row>
+            <Col id="key">NEXT</Col>
+          </Row>
+          <Row>
+            <Col id="key">END</Col>
+          </Row>
+          <Row>
+            <Col id="key">HOME</Col>
+          </Row>
+          <Row>
+            <Col id="key">LEFT</Col>
+          </Row>
+          <Row>
+            <Col id="key">UP</Col>
+          </Row>
+          <Row>
+            <Col id="key">RIGHT</Col>
+          </Row>
+          <Row>
+            <Col id="key">DOWN</Col>
+          </Row>
+          <Row>
+            <Col id="key">INSERT</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD0</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD1</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD2</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD3</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD4</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD5</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD6</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD7</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD8</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMPAD9</Col>
+          </Row>
+          <Row>
+            <Col id="key">MULTIPLY</Col>
+          </Row>
+          <Row>
+            <Col id="key">ADD</Col>
+          </Row>
+          <Row>
+            <Col id="key">SEPARATOR</Col>
+          </Row>
+          <Row>
+            <Col id="key">SUBTRACT</Col>
+          </Row>
+          <Row>
+            <Col id="key">DECIMAL</Col>
+          </Row>
+          <Row>
+            <Col id="key">DIVIDE</Col>
+          </Row>
+          <Row>
+            <Col id="key">F1</Col>
+          </Row>
+          <Row>
+            <Col id="key">F2</Col>
+          </Row>
+          <Row>
+            <Col id="key">F3</Col>
+          </Row>
+          <Row>
+            <Col id="key">F4</Col>
+          </Row>
+          <Row>
+            <Col id="key">F5</Col>
+          </Row>
+          <Row>
+            <Col id="key">F6</Col>
+          </Row>
+          <Row>
+            <Col id="key">F7</Col>
+          </Row>
+          <Row>
+            <Col id="key">F8</Col>
+          </Row>
+          <Row>
+            <Col id="key">F9</Col>
+          </Row>
+          <Row>
+            <Col id="key">F10</Col>
+          </Row>
+          <Row>
+            <Col id="key">F11</Col>
+          </Row>
+          <Row>
+            <Col id="key">F12</Col>
+          </Row>
+          <Row>
+            <Col id="key">NUMLOCK</Col>
+          </Row>
+          <Row>
+            <Col id="key">SCROLL</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_copysampledata">
+        <ColumnInfo>
+          <Column id="ProductID" type="STRING" size="256"/>
+          <Column id="ProductName" type="STRING" size="256"/>
+          <Column id="UnitPrice" type="STRING" size="256"/>
+          <Column id="Qty" type="STRING" size="256"/>
+          <Column id="Amount" type="STRING" size="256"/>
+          <Column id="Notes" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.setHotkeyRow;
+
+this.hotkey_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+//search
+this.btn_search_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_copysampledata.copyData(this.ds_sampledata);
+	
+	this.Div00.form.Grid00.set_binddataset(this.ds_copysampledata);
+	this.Div00.form.Grid00.createFormat();
+	this.Div00.form.Grid00.setFormatRowProperty(0,"size",40);
+	this.Div00.form.Grid00.setFormatRowProperty(1,"size",46);
+	
+	for(var i=0;i<this.ds_sampledata.getColCount();i++){
+		this.Div00.form.Grid00.setCellProperty("body",i,"displaytype","editcontrol");
+		this.Div00.form.Grid00.setCellProperty("body",i,"edittype","text");
+	}
+};
+
+//add
+this.btn_add_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_copysampledata.addRow();
+};
+
+//delete
+this.btn_delete_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_copysampledata.deleteRow(this.Div00.form.Grid00.getSelectedDatasetRows());
+};
+
+//save
+this.btn_save_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_sampledata.copyData(this.ds_copysampledata);
+	alert(nexacro.getApplication().messages["sample.hotkey.save"]);
+};
+
+this.Grid01_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	this.PopupDiv00.form.ListBox00.clearSelect();
+	this.PopupDiv00.form.ListBox00.scrollTo(0,0);
+	
+	//화살표 있는셀 클릭시
+	if(e.cell == 3){
+		switch(e.row) {
+		//search 버튼
+		case 0:
+			this.setHotkeyRow = 0;
+			this.PopupDiv00.trackPopupByComponent(obj,e.canvasx,e.canvasy,null,null,"fn_setHotkey");
+			break;
+			
+		//save 버튼
+		case 1:
+			this.setHotkeyRow = 1;
+			this.PopupDiv00.trackPopupByComponent(obj,e.canvasx,e.canvasy,null,null,"fn_setHotkey");
+			break;
+			
+		//add 버튼
+		case 2:
+			this.setHotkeyRow = 2;
+			this.PopupDiv00.trackPopupByComponent(obj,e.canvasx,e.canvasy,null,null,"fn_setHotkey");
+			break;
+			
+		//delete 버튼
+		case 3:
+			this.setHotkeyRow = 3;
+			this.PopupDiv00.trackPopupByComponent(obj,e.canvasx,e.canvasy,null,null,"fn_setHotkey");
+			break;
+		default:
+		}
+	}
+};
+
+//hotkey 설정 pop 닫힐때 옴
+this.fn_setHotkey = function (objId,sKey)
+{
+	var shotkey = "";
+	var bIskey = false;
+	
+	if(!this.fn_IsNull(sKey)){
+		if(this.PopupDiv00.form.chk_ctrl.isChecked()){
+			shotkey += "CTRL+";
+		}
+		if(this.PopupDiv00.form.chk_shift.isChecked()){
+			shotkey += "SHIFT+";
+		}
+		if(this.PopupDiv00.form.chk_alt.isChecked()){
+			shotkey += "ALT+";
+		}
+		
+		shotkey += sKey;
+
+		for(var i=0;i<this.Dataset00.rowcount;i++){
+			if(shotkey == this.Dataset00.getColumn(i,"Column2")){
+				bIskey = true;
+				continue;
+			}
+		}
+		
+		this.PopupDiv00.form.chk_ctrl.set_value(false);
+		this.PopupDiv00.form.chk_shift.set_value(false);
+		this.PopupDiv00.form.chk_alt.set_value(false);
+		
+		if(bIskey){
+			alert(nexacro.getApplication().messages["sample.hotkey.alreadykey"]);
+			return;
+		}
+		
+		switch(this.setHotkeyRow) {
+		case 0:
+			this.Div00.form.btn_Search.set_hotkey(shotkey);
+			this.Dataset00.setColumn(0,"Column2",shotkey);
+			break;
+		case 1:
+			this.Div00.form.btn_Save.set_hotkey(shotkey);
+			this.Dataset00.setColumn(1,"Column2",shotkey);
+			break;
+		case 2:
+			this.Div00.form.btn_Add.set_hotkey(shotkey);
+			this.Dataset00.setColumn(2,"Column2",shotkey);
+			break;
+		case 3:
+			this.Div00.form.btn_Delete.set_hotkey(shotkey);
+			this.Dataset00.setColumn(3,"Column2",shotkey);
+			break;
+		default:
+		}
+	}
+};
+
+//팝업의 리스트 박스 클릭
+this.PopupDiv00_ListBox00_onitemclick = function(obj:nexacro.ListBox,e:nexacro.ItemClickEventInfo)
+{
+	var sKey = this.ds_keylist.getColumn(e.index,"key")
+	this.PopupDiv00.closePopup(sKey);
+};
+
+this.fn_IsNull = function (sValue)
+{
+	if (new String(sValue).valueOf() == "undefined") 
+	{
+		return true;
+	}
+	if (sValue == null) 
+	{
+		return true;
+	}
+
+	var v_ChkStr = new String(sValue);
+
+	if (v_ChkStr == null) 
+	{
+		return true;
+	}
+	if (v_ChkStr.toString().length == 0) 
+	{
+		return true;
+	}
+
+	return false;
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

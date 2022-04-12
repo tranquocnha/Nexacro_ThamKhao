@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="workFrame" classname="form_parent_general" inheritanceid="" position="absolute" scrollbars="none" onload="form_onload" left="0" width="1000" top="0" height="738" onclose="workFrame_onclose" onactivate="workFrame_onactivate" cssclass="frm_WF" onbeforeclose="workFrame_onbeforeclose" scrollbartype="none">
+    <Layouts>
+      <Layout>
+        <Static id="st_WF_bg" taborder="7" left="0" top="0" cssclass="sta_WF_bg" right="0" bottom="0"/>
+        <Static id="stc_title" taborder="1" text="Title" left="20" top="20" height="30" right="-20" style="border:0 solid #808080ff ;padding:0 0 0 20;font:bold 12 arial;" visible="false"/>
+        <ImageViewer id="frame_focus" taborder="0" left="428" top="81" width="148" height="75" style="focusborder:0 dotted #999999ff ;background:stretch 4,4;border:0 none #808080ff ;accessibility:enable all '본문컨텐츠' '';" readonly="true" onkillfocus="frame_focus_onkillfocus"/>
+        <ImageViewer id="Setfocus" taborder="2" onsetfocus="Setfocus_onsetfocus" onkillfocus="Setfocus_onkillfocus" left="709" top="521" width="148" height="75" style="focusborder:0 dotted #999999ff ;background:stretch 4,4;border:0 none #808080ff ;accessibility:enable all '화면 끝' '';" readonly="true"/>
+        <Tab id="Tab00" taborder="3" left="20" tabindex="0" scrollbars="autoboth" tabposition="top" right="20" bottom="20" onchanged="Tab00_onchanged" height="27" cssclass="tab_main">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="Design" cssclass="tabpage_main">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="Source" cssclass="tabpage_main">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage3" text="Script" cssclass="tabpage_main"/>
+            <Tabpage id="tabpage4" text="Description" cssclass="tabpage_main"/>
+          </Tabpages>
+        </Tab>
+        <Div id="div_Work" taborder="4" left="20" top="20" right="20" bottom="47" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase="" border="" cssclass="div_WF_design"/>
+        <Div id="div_Description" taborder="5" left="20" top="20" right="20" bottom="48" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase="" border="0px none" cssclass="div_WF_contents">
+          <Layouts>
+            <Layout>
+              <WebBrowser id="Wb" left="0" top="0" taborder="0" bottom="0" right="0"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <CMWebEditor id="codemirror" taborder="6" left="20" top="20" right="20" bottom="48" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Ds_Contents" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="contents" type="STRING" size="5000"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="contents">﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;FDL version="2.0"&gt;
+  &lt;TypeDefinition url="..\..\default_typedef.xml"/&gt;
+  &lt;Form id="Application_Cookie" classname="Application_Cookie" left="0" top="0" width="760" height="430" titletext="Verifying Cookie value"&gt;
+    &lt;Layouts&gt;
+      &lt;Layout&gt;
+        &lt;Button id="Application_Cookie" taborder="0" text="cookie" left="16" top="39" width="92" height="32" onclick="Application_Cookie_onclick"/&gt;
+        &lt;Static id="Static07" taborder="1" text="Verifying Cookie value" cssclass="sta_WF_subtitP" left="15" top="13" width="289" height="18" right="" bottom=""/&gt;
+      &lt;/Layout&gt;
+    &lt;/Layouts&gt;
+    &lt;Objects/&gt;
+    &lt;Script type="xscript5.0"&gt;&lt;![CDATA[
+this.Application_Cookie_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var arrCookie = window.document.cookie;
+	arrCookie = arrCookie.split(";");
+	var arrCookie1;
+	this.alert(arrCookie);
+	for(var i=0; i&lt;arrCookie.length; i++)
+	{
+		arrCookie1 = arrCookie[i].split("=");
+		if( arrCookie1[0] == "MenuID" ){
+			gv_MainForm.set_visible(false);
+			this.gv_Cookie = arrCookie1[1];		
+		}
+	}  
+}
+ 
+]]&gt;&lt;/Script&gt;
+  &lt;/Form&gt;
+&lt;/FDL&gt;
+</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.1"><![CDATA[/***********************************************************************
+ * 01. 업무구분 : HTML5 Frame
+ * 02. 화면명   : workFrame.xfdl
+ * 03. 화면설명 :
+ * 04. 작성일   :
+ * 05. 작성자   :
+ * 06. 수정이력 :
+ ***********************************************************************
+ *     수정일     작성자   내용
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+/************************************************************************************************
+ * 1. 공통 라이브러리
+ ************************************************************************************************/
+//include "lib::lib_Base.xjs"
+//include "lib::lib_Form.xjs"
+//include "lib::lib_Service.xjs"
+
+/************************************************************************************************
+ * 2. 변수 선언부
+ ************************************************************************************************/
+var objApp = nexacro.getApplication() ;
+
+this.pv_winKey;		//업무화면 Key코드
+this.pv_menuId;		//메뉴 ID
+this.fCloseFrame = "";	//	
+	
+/* 화면 Load Event 처리*/
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	this.codemirror.set_visible(false);
+	this.div_Description.set_visible(false);
+	
+	var pv_winKey = lib_Form.gfn_getFrameAguments("winKey",this.getOwnerFrame());	
+	var sPageUrl = lib_Form.gfn_getFrameAguments("pageUrl",this.getOwnerFrame());	
+	var sMenuNm = lib_Form.gfn_getFrameAguments("menuNm",this.getOwnerFrame());	
+	var sMenuId = lib_Form.gfn_getFrameAguments("menuId",this.getOwnerFrame());	
+	var sViewTitle = sMenuNm+" ("+sMenuId+")";
+	this.div_Work.set_url(sPageUrl);
+	this.stc_title.set_text(sViewTitle);
+
+	this.f_getSource();	
+}
+
+this.gfn_Exit = function ()
+{
+	objApp.gds_openMenu.clearData();
+}
+
+this.frame_focus_onkillfocus = function(obj:ImageViewer, e:TOBE.KillFocusEventInfo)
+{
+	if (e.newcomponent.name == "tab_Setfocus")
+	{
+		gv_topFrame.form.frame_focus.setFocus();
+	}
+}   
+
+this.workFrame_onclose = function(obj:Form, e:TOBE.CloseEventInfo)
+{
+	return;
+}
+
+function f_close()
+{
+	if(lib_Form.gfn_isEmpty(div_Work.url) == true) close();
+	div_Work.url = "";
+	this.fCloseFrame = "F";
+	if(lib_Form.gfn_isEmpty(div_Work.url) == true) close();
+}
+
+this.workFrame_onactivate = function(obj:Form, e:TOBE.ActivateEventInfo)
+{
+	var menuGrp='';
+	var menuFilterGrp ='';
+	var winKey = gv_workFrame.getActiveFrame().name;
+	var gRow = objApp.gds_openMenu.findRow('WIN_ID', winKey);
+	var menuId = objApp.gds_openMenu.getColumn(gRow, objApp.gv_MenuIdCol);
+ 		
+	// 현재 left Menu 그룹
+	if (gv_leftFrame.form.ds_Menu.rowcount >0) {
+		menuGrp = gv_leftFrame.form.ds_Menu.getColumn(0, objApp.gv_MenuIdCol);
+		menuGrp = menuGrp.substring(0,1);	
+	}
+
+	// 선택된 화면이 현재left Menu그룹이 아니면 left Menu dataset 재구성
+	if (menuId.substring(0,1) != menuGrp)
+	{
+		menuFilterGrp = menuId.substring(0,1) +'000';		
+		objApp.gds_Menu.filter(objApp.gv_MenuGIdCol + "=='"+menuFilterGrp+"' && MENU_LEVEL!=0");
+		gv_leftFrame.form.ds_Menu.copyData(objApp.gds_Menu, true);
+		objApp.gds_Menu.filter();
+
+		var lRow = gv_leftFrame.form.ds_Menu.findRow(objApp.gv_MenuIdCol, menuId);
+		gv_leftFrame.form.ds_Menu.set_rowposition(lRow);
+	}else{
+		var lRow = gv_leftFrame.form.ds_Menu.findRow(objApp.gv_MenuIdCol, menuId);		
+		if (lRow>-1)
+			gv_leftFrame.form.ds_Menu.set_rowposition(lRow);
+	}
+
+	objApp.gds_openMenu.set_rowposition(gRow);
+}
+
+this.Tab00_onchanged = function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
+{	
+	this.f_setSource(e.postindex);
+	//trace("Tab00_onchanged>>>>" + e.postindex);
+	if( e.postindex == 0 ){
+		this.div_Work.set_visible(true);
+		this.codemirror.set_visible(false);
+		this.div_Description.set_visible(false);		
+	} else if( e.postindex == 1 ){		
+		this.div_Work.set_visible(false);
+		this.codemirror.set_visible(true);
+		this.div_Description.set_visible(false);		
+	} else if( e.postindex == 2 ){
+		this.div_Work.set_visible(false);
+		this.codemirror.set_visible(true);
+		this.div_Description.set_visible(false);			
+	} else if( e.postindex == 3 ){
+		//trace("3 >>>>>"+objApp.gv_MenuNameCol + " :: " + lib_Form.gfn_isNull(lib_Form.gfn_getFrameAguments("descUrl",this.getOwnerFrame())));
+		if( lib_Form.gfn_isNull(lib_Form.gfn_getFrameAguments("descUrl",this.getOwnerFrame())) == false && lib_Form.gfn_isNull(this.div_Description.form.all["Wb"].url) == true){
+			if( objApp.gv_MenuNameCol == "MENU_NAME_KO" ){			
+				//trace("ko :: objApp.gv_Desc_en >> " + objApp.gv_Desc_en);
+				//trace("ko :: " + lib_Form.gfn_getFrameAguments("descUrl_ko",this.getOwnerFrame()));
+				//trace("ko :: " + objApp.gv_Desc_ko + lib_Form.gfn_getFrameAguments("descUrl_ko",this.getOwnerFrame()));
+				var strUrl = objApp.gv_Desc_ko + lib_Form.gfn_getFrameAguments("descUrl_ko",this.getOwnerFrame());
+				this.div_Description.form.all["Wb"].set_url(strUrl);	
+			} else {
+				//trace("en :: [" + objApp.gv_Desc_en + lib_Form.gfn_getFrameAguments("descUrl",this.getOwnerFrame()) +"]");
+				var strUrl = objApp.gv_Desc_en + lib_Form.gfn_getFrameAguments("descUrl",this.getOwnerFrame());
+				this.div_Description.form.all["Wb"].set_url(strUrl);	
+			}
+		}
+		this.div_Work.set_visible(false);
+		this.codemirror.set_visible(false);
+		this.div_Description.set_visible(true);			
+	}
+}
+
+this.f_ChangeUrl = function(sUrl)
+{
+	if( lib_Form.gfn_isNull(sUrl) == false ){
+		if(objApp.gv_locale == "KO")
+		{	 		
+			this.div_Description.form.all["Wb"].set_url(objApp.gv_Desc_ko + sUrl);	
+		} else {
+			this.div_Description.form.all["Wb"].set_url(objApp.gv_Desc_en + sUrl);	
+		}
+	}	
+}
+
+//폼을 읽어온다
+this.f_getSource = function()
+{
+	var sGrpNm = lib_Form.gfn_getFrameAguments("pageUrl",this.getOwnerFrame()).split("::")[0];
+	var sFileNm = lib_Form.gfn_getFrameAguments("pageUrl",this.getOwnerFrame()).split("::")[1];
+	
+	var objEnv = nexacro.getEnvironment();
+	var sFilePath = objEnv.services[sGrpNm].url;
+	
+	sFilePath = sFilePath.substr(1);
+	var sArgument = "";
+	var sSvcID = "getSource";
+	//objEnv.services["Svc"].url = "http://172.10.13.60:9090/Nexacro/17/";	
+	objEnv.services["Svc"].url = "http://support.tobesoft.co.kr/Next_JSP/V17/Showcase/Service/";	
+	var sController = "Svc::FileRead2.jsp";
+	sArgument += "FilePath="+sFilePath;
+	sArgument += " FileNm="+sFileNm;
+	//trace(sArgument);
+	var sInDatasets = "";
+	var sOutDatasets = "Ds_Contents=output";
+	var sCallbackFunc = "this.fn_callback";
+
+	lib_Form.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, false, false, false, this);
+}   
+
+// gfnService 처리 후 callback 처리
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return lib_Form.gfn_Alert(strErrorMsg, "error");
+	}  
+
+	switch (strServiceId) 
+	{
+		case "getSource":
+			alert("조회 성공\n"+this.Ds_Contents.getColumn(0,"contents")+"\n\n");
+			break;
+		default:
+			break;
+	}
+}
+
+//Tab변경시 값 셋팅
+this.f_setSource = function(idx)
+{
+	if( this.Ds_Contents.rowcount == 0 ) return;
+	
+	if( idx == 1 ){ //Form Source
+		if( this.Ds_Contents.getColumn(0,"contents").indexOf('<Objects/>') > -1 ){
+			var strLen = this.Ds_Contents.getColumn(0,"contents").indexOf('<Objects/>') + 10;
+		} else {	
+			var strLen = this.Ds_Contents.getColumn(0,"contents").indexOf('</Layouts>') + 10;
+		}	
+		//trace(" >>>>>>>>>>>>>>>>>>>>>> " + this.Ds_Contents.getColumn(0,"contents").substr(0 , strLen)+"\n  </Form>\n</FDL>" );
+		this.codemirror.set_contents(this.Ds_Contents.getColumn(0,"contents").substr(0 , strLen)+"\n  </Form>\n</FDL>");
+	} else if( idx == 2 ){ //Form Script
+		var strStartIdx = this.Ds_Contents.getColumn(0,"contents").indexOf('<![CDATA[') + 9;
+		var strEndIdx = this.Ds_Contents.getColumn(0,"contents").indexOf(']]]]><![CDATA[></Script>');
+		var strLen = strEndIdx - strStartIdx;
+		//trace(" >>>>>>>>>>>>>>>>>>>>>> " + this.Ds_Contents.getColumn(0,"contents").substr(strStartIdx , strLen) );
+		this.codemirror.set_contents(this.Ds_Contents.getColumn(0,"contents").substr(strStartIdx , strLen));		
+	} else if( idx == 3 ){ //Form Description
+		
+	} 
+}
+this.workFrame_onbeforeclose = function(obj:Form, e:nexacro.CloseEventInfo)
+{
+	//trace(this.getOwnerFrame().name);
+}
+]]></Script>
+  </Form>
+</FDL>

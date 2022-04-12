@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_System_FormComponentList" classname="Script_String_HalfToFull" inheritanceid="" position="absolute" titletext="Script_System_FormComponentList" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="440" width="90" top="80" height="40"/>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" binddataset="ds_data" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;DATA&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:DATA&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" position="absolute" left="30" width="500" top="130" height="150" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="240"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="DATA"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;padding:0 0 0 0;" text="bind:DATA"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="2" text="Obtaining list of components of Form" cssclass="sta_WF_subtitP" left="30" top="18" width="500" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_System_FormComponentList
+ * Discription : Obtaining list of components of Form 
+ */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var sRtn = this.fn_getFormComponentList();
+};
+
+/*
+ * Function Name : fn_getFormComponentList
+ * Discription   : Obtaining list of components of Form
+ * Parameter     : 
+ * Return        : array
+ * Example       : fn_getFormComponentList()
+ */
+this.fn_getFormComponentList = function()
+{
+	var arrCompList = this.components;
+
+	for(var i=0; i<arrCompList.length;i++)
+	{
+		this.ds_data.addRow();
+		this.ds_data.setColumn(i, "DATA" ,arrCompList[i].name);
+	} 
+};
+
+]]></Script>
+  </Form>
+</FDL>

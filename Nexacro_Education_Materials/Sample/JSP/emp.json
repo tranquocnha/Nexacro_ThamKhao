@@ -1,0 +1,39 @@
+{
+	"id": "ds_emp",
+	"ColumnInfo" :
+	{
+		"Column":
+		[
+			{ "id":"EMPL_ID", "type":"STRING", "size":"10" },
+			{ "id":"FULL_NAME", "type":"STRING", "size":"50" },
+			{ "id":"DEPT_CD", "type":"STRING", "size":"10" },
+			{ "id":"POS_CD", "type":"STRING", "size":"10" },
+			{ "id":"HIRE_DATE", "type":"DATE", "size":"10" },
+			{ "id":"SALARY", "type":"INT", "size":"10" },
+			{ "id":"GENDER", "type":"STRING", "size":"10" },
+			{ "id":"MARRIED", "type":"STRING", "size":"10" },
+			{ "id":"MEMO", "type":"STRING", "size":"10" }
+		]
+	},
+	"Rows":
+	[
+		{
+			 "EMPL_ID":"AA001", "FULL_NAME":"Olivia", "DEPT_CD":"01", "POS_CD":"03", "HIRE_DATE":"20101003", "SALARY":"83000", "GENDER":"W", "MARRIED":"true", "MEMO":"ivory"
+		},
+		{
+			 "EMPL_ID":"AA002", "FULL_NAME":"John", "DEPT_CD":"02", "POS_CD":"04", "HIRE_DATE":"20051011", "SALARY":"76000", "GENDER":"M", "MARRIED":"false", "MEMO":"greenyellow"
+		},
+		{
+			 "EMPL_ID":"BB001", "FULL_NAME":"Jackson", "DEPT_CD":"03", "POS_CD":"03", "HIRE_DATE":"20070206", "SALARY":"95000", "GENDER":"M", "MARRIED":"true", "MEMO":"aliceblue"
+		},
+		{
+			 "EMPL_ID":"BB002", "FULL_NAME":"Maia", "DEPT_CD":"04", "POS_CD":"02", "HIRE_DATE":"20090512", "SALARY":"60000", "GENDER":"W", "MARRIED":"false", "MEMO":"ivory"
+		},
+		{
+			 "EMPL_ID":"CC001", "FULL_NAME":"Adam", "DEPT_CD":"01", "POS_CD":"04", "HIRE_DATE":"20010109", "SALARY":"88000", "GENDER":"M", "MARRIED":"true", "MEMO":"greenyellow"
+		},
+		{
+			 "EMPL_ID":"DD001", "FULL_NAME":"Ray", "DEPT_CD":"02", "POS_CD":"03", "HIRE_DATE":"20160202", "SALARY":"60000", "GENDER":"M", "MARRIED":"true", "MEMO":"lightpink"
+		}
+	]
+}

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_MaskEdit" width="1000" height="700" titletext="Component-MaskEdit">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000">
+        <MaskEdit id="MaskEdit12" taborder="11" left="100" top="510" width="100" height="30" value="abcd" type="string" format="aaaa" limitbymask="decimal"/>
+        <MaskEdit id="MaskEdit00" taborder="1" left="96" top="70" width="104" height="30" value="AB123" type="string" format="AA-###"/>
+        <MaskEdit id="MaskEdit15" taborder="14" left="100" top="630" width="100" height="30" value="ABCD" type="string" format="A{AA}A" limitbymask="decimal"/>
+        <MaskEdit id="MaskEdit01" taborder="2" left="340" top="70" width="104" height="30" value="1200.56" format="#,###.00"/>
+        <MaskEdit id="MaskEdit14" taborder="13" left="100" top="590" width="100" height="30" value="ab12" type="string" format="zzzz" limitbymask="decimal"/>
+        <MaskEdit id="MaskEdit11" taborder="10" left="100" top="470" width="100" height="30" value="ABCD" type="string" format="AAAA" limitbymask="decimal"/>
+        <MaskEdit id="MaskEdit10" taborder="9" left="100" top="430" width="100" height="30" value="Ab12" type="string" format="9999" limitbymask="decimal"/>
+        <MaskEdit id="MaskEdit09" taborder="8" left="100" top="390" width="100" height="30" value="AbCd" type="string" format="****" limitbymask="decimal"/>
+        <MaskEdit id="MaskEdit08" taborder="7" left="100" top="350" width="100" height="30" value="1234" type="string" format="####" limitbymask="decimal"/>
+        <MaskEdit id="MaskEd1212" taborder="4" left="20" top="230" width="112" height="30" value="1200.50" type="number" format="#,###.00" limitbymask="decimal" locale="bg_BG"/>
+        <MaskEdit id="MaskEd00" taborder="5" left="138" top="230" width="112" height="30" value="1200.50" type="number" format="#,###.00" limitbymask="decimal" locale="ca_ES"/>
+        <MaskEdit id="MaskEdit07" taborder="6" left="100" top="312" width="100" height="30" value="Ab3$" type="string" format="@@@@" limitbymask="decimal"/>
+        <MaskEdit id="MaskEdit13" taborder="12" left="100" top="550" width="100" height="30" value="AB12" type="string" format="ZZZZ" limitbymask="decimal"/>
+        <Static id="Static10" taborder="15" text="####" left="20" top="350" width="70" height="30"/>
+        <Static id="Static11" taborder="16" text="****" left="20" top="390" width="70" height="30"/>
+        <Static id="Static12" taborder="17" text="9999" left="20" top="430" width="70" height="30"/>
+        <Static id="Static13" taborder="18" text="AAAA" left="20" top="470" width="70" height="30"/>
+        <Static id="Static14" taborder="19" text="aaaa" left="20" top="510" width="70" height="30"/>
+        <Static id="Static15" taborder="20" text="ZZZZ" left="20" top="550" width="70" height="30"/>
+        <Static id="Static09" taborder="21" text="@@@@" left="20" top="310" width="70" height="30"/>
+        <Static id="Static16" taborder="22" text="zzzz" left="20" top="590" width="70" height="30"/>
+        <Static id="Static18" taborder="23" text=" Basic Usage" left="10" top="40" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static19" taborder="0" text="MaskEdit" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <Static id="Static00" taborder="24" text="String" left="20" top="70" width="66" height="30"/>
+        <Static id="Static01" taborder="25" text="Number" left="244" top="70" width="86" height="30"/>
+        <Static id="Static24" taborder="26" text=" Mask - String Type (Prop. format)" left="10" top="280" width="326" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static25" taborder="27" text="A{AA}A" left="20" top="630" width="70" height="30"/>
+        <Static id="Static17" taborder="28" text="# : Decimal Number(0~9)" left="210" top="350" width="347" height="30"/>
+        <Static id="Static26" taborder="29" text="* : lower case &amp; upper case" left="210" top="390" width="347" height="30"/>
+        <Static id="Static27" taborder="30" text="9 : lower case &amp; upper case &amp; decimal number" left="210" top="430" width="347" height="30"/>
+        <Static id="Static28" taborder="31" text="A : upper case" left="210" top="470" width="347" height="30"/>
+        <Static id="Static29" taborder="32" text="a : lower case" left="210" top="510" width="347" height="30"/>
+        <Static id="Static30" taborder="33" text="Z : upper case &amp; decimal number" left="210" top="550" width="347" height="30"/>
+        <Static id="Static31" taborder="34" text="z : lower case &amp; decimal number" left="210" top="590" width="347" height="30"/>
+        <Static id="Static32" taborder="35" text="{} : Password -A{AA}A" left="210" top="630" width="347" height="30"/>
+        <Static id="Static34" taborder="36" text=" Mask - Number Type" left="603" top="280" width="222" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static08" taborder="37" text=" Local (Prop. locale)" left="10" top="200" width="222" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static33" taborder="38" text="@ : All ascii Characters" left="210" top="312" width="347" height="30"/>
+        <Static id="Static07" taborder="39" text=" Password (Prop. format)" left="10" top="120" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <MaskEdit id="MaskEdit16" taborder="3" left="20" top="150" width="172" height="30" value="8203011021121" type="string" format="######-{#######}"/>
+        <MaskEdit id="MaskEdit02_00" taborder="40" left="843" top="312" width="122" height="30" value="1200.5" type="number" format="#,###.##"/>
+        <MaskEdit id="MaskEdit03_00" taborder="41" left="843" top="350" width="122" height="30" value="1200.5" type="number" format="#,###.00"/>
+        <MaskEdit id="MaskEdit05_00" taborder="42" left="843" top="430" width="122" height="30" value="0.0" type="number" format="#,##0.0" limitbymask="none"/>
+        <MaskEdit id="MaskEdit06_00" taborder="43" left="843" top="390" width="122" height="30" value="0.0" type="number" format="#,###.#" limitbymask="decimal"/>
+        <Static id="Static06_00" taborder="44" text="#,###.#" left="739" top="390" width="97" height="30"/>
+        <Static id="Static02_00" taborder="45" text="#,##0.0" left="739" top="430" width="97" height="30"/>
+        <Static id="Static04_00" taborder="46" text="#,###.00" left="739" top="350" width="97" height="30"/>
+        <Static id="Static03_00" taborder="47" text="#,###.##" left="739" top="312" width="97" height="30"/>
+        <Static id="Static03_00_00" taborder="48" text="value 1200.5" left="613" top="312" width="122" height="30"/>
+        <Static id="Static03_00_00_00" taborder="49" text="value 0.0" left="613" top="390" width="122" height="30"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Button01" propid="text" datasetid="gds_dept" columnid="DEPT_NM"/>
+    </Bind>
+    <Objects/>
+  </Form>
+</FDL>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Form_TitleBar" classname="Form_go_0" inheritanceid="" position="absolute" titletext="Form TitleBar" left="0" width="760" top="0" height="430" onload="Form_TitleBar_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="This sample shows modification and change int the titlebar,content, height, background and display  &#13;&#10;and hide the maximize and minimize buttons." position="absolute" left="30" width="710" top="25" height="40" cssclass="sta_WF_explain" wordwrap="english"/>
+        <Button id="Button00" taborder="1" text="Open title bar popup" left="30" top="85" height="40" onclick="Button00_onclick" width="250"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//showmodal
+	var objApp = nexacro.getApplication() ; 
+	
+	var cf = new ChildFrame();
+    var  nX = objApp.mainframe.VFrameSet.HFrameSet.leftFrame.width + this.Button00.getOffsetRight() + 2;  // 1px + px is bordr of mainframe and extra 1 pixel is set to make sppace.
+    var  nY = nexacro.toNumber(objApp.mainframe.VFrameSet.TopFrame.height) 
+	+ nexacro.toNumber(objApp.mainframe.VFrameSet.HFrameSet.VFrameSet1.MdiTabFrame.height) 
+	+ nexacro.toNumber(this.Button00.getOffsetBottom()) 
+	+ nexacro.toNumber(objApp.mainframe.titlebarheight);
+	
+    // titlebar height is set as 22 pixel frm style.so it should be added.
+    // 2 pixel for boder and 1 pixel for adding
+	cf.init("test",  nX, nY, 500, 400, 0, 0, "Sample_Form::np_Form_TitleBar_Popup.xfdl" );
+	//cf.set_showtitlebar(true);
+	cf.set_dragmovetype(false);
+	cf.set_openalign("center middle");
+    cf.showModal("test",this.getOwnerFrame(),"", this);	
+};
+]]></Script>
+  </Form>
+</FDL>

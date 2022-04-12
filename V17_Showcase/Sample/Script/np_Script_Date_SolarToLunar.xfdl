@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_SolarToLunar" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_SolarToLunar" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="133" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="133" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="350" width="90" top="78" height="40"/>
+        <MaskEdit id="msk_input" taborder="0" value="20120501" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="78" height="40"/>
+        <CheckBox id="chk_input" taborder="1" text="leap month" readonly="true" position="absolute" left="350" width="140" top="133" height="40"/>
+        <Static id="Static05" taborder="3" text="Converting Solar to Lunar" cssclass="sta_WF_subtitP" left="30" top="18" width="340" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_SolarToLunar
+ * Description : Solar to Lunar conversion
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.chk_input.set_value(0);
+	var sRtn = this.fn_solarToLunar(this.msk_input.value);	
+
+	if (sRtn.substr(0,1) == 1)
+	{
+		this.chk_input.set_value(1);
+	}
+
+	this.edt_output.set_value(sRtn.substr(1,8));
+};
+
+/*
+ * Function Name : fn_solarToLunar
+ * Description   : Convert Solar to Lunar
+ * Parameter     : Date
+ * Return        : Pyeongdal = 0, Intercalation = 1 + Date, Failure null
+ * Example       : fn_solarToLunar("20121231");
+ */
+this.fn_solarToLunar = function(sDate) 
+{
+	var sMd         = "31,0,31,30,31,30,31,31,30,31,30,31";
+	var arrMd       = new Array();
+	var arrBaseInfo = new Array();
+	var arrDt       = new Array();	// Array variable to store some of lunar year
+	var nTd;		    			// To calculate the lunar days, this is used to store difference between lunar days 
+	var nTd1;			    		// used to store the value upto 1840
+	var nTd2;				    	// Number of days upto current date
+	var nTemp;					    // Temporary variable
+	var nLy, nLm, nLd;			    // Calculated lunar month, day, and year variables to store
+	var sLyoon;					    // Current Month intercalation 
+
+	var nY = parseInt(sDate.substr(0,4), 10);
+	var nM = parseInt(sDate.substr(4,2), 10);
+	var nD = parseInt(sDate.substr(6,2), 10);
+	
+	if (nY < 1841 || nY > 2043)	
+	{
+        return null;
+    }
+
+	arrBaseInfo = this.fn_solarBase();
+	arrMd       = sMd.split(",");
+	arrMd[1]    = 28;
+		
+    //Check Leap year
+    if ((nY % 4) == 0) 
+    {
+        if ((nY % 100) != 0 || (nY % 400) == 0)
+        { 
+            arrMd[1] = 29;
+        }
+    } 
+
+	// 672069 = 1840 * 365 + 1840/4 - 1840/100 + 1840/400 + 23  //No of days till 1840
+	nTd1 = 672069; 	 
+		
+	// No. of days from 1841 until last year
+	nTd2 = (nY - 1) * 365 + parseInt((nY - 1)/4) - parseInt((nY - 1)/100) + parseInt((nY - 1)/400);
+		
+	// Values vary upto last month increament
+	for (var i = 0; i <= nM - 2; i++)
+	{
+		nTd2 = nTd2 + parseInt(arrMd[i]);
+	}
+
+	// The number of days until the present day
+	nTd2 = nTd2 + nD;
+
+	// Difference of No of days between current solar calader and  1840 year Lunar calander
+	nTd = nTd2 - nTd1 + 1;
+	
+	// from 1841 till Lunar day calculation 
+	for (var i = 0; i <= nY - 1841; i++)
+	{
+		arrDt[i] = 0;
+		for (var j = 0; j <= 11; j++)
+		{
+			switch (parseInt(arrBaseInfo[i * 12 + j]))
+			{
+				case 1 : nTemp = 29;
+						 break;
+				case 2 : nTemp = 30;
+						 break;				
+				case 3 : nTemp = 58;	// 29 + 29
+						 break;				
+				case 4 : nTemp = 59;	// 29 + 30
+						 break;				
+				case 5 : nTemp = 59;	// 30 + 29
+						 break;				
+				case 6 : nTemp = 60;	// 30 + 30
+						 break;				
+			}
+			arrDt[i] = arrDt[i] + nTemp;
+		}
+	}
+		
+	// No. of year calculation 1840 - till now calculate the number of days , from year 1841 every lunar year rather than contributing the calculation year  -- Need to ask
+	nLy = 0;
+	do 
+	{
+		nTd = nTd - arrDt[nLy];
+		nLy = nLy + 1;
+	}
+	while(nTd > arrDt[nLy]);
+	
+	nLm    = 0;
+	sLyoon = "0";	// This variable displays the current month leap day, the default value is default month
+	do
+	{
+		if (parseInt(arrBaseInfo[nLy * 12 + nLm]) <= 2)
+		{
+			nTemp = parseInt(arrBaseInfo[nLy * 12 + nLm]) + 28;
+			if (nTd > nTemp)
+			{
+				nTd = nTd - nTemp;
+				nLm = nLm + 1;
+			}
+			else
+			{
+				break;
+			}
+		}
+		else
+		{
+			switch (parseInt(arrBaseInfo[nLy * 12 + nLm]))
+			{
+				case 3 :
+					m1 = 29;
+					m2 = 29;
+					break;
+				case 4 : 
+					m1 = 29;
+					m2 = 30;
+					break;					
+				case 5 : 
+					m1 = 30;
+					m2 = 29;
+					break;					
+				case 6 : 
+					m1 = 30;
+					m2 = 30;
+					break;					
+			}
+
+			if (nTd > m1)
+			{
+				nTd = nTd - m1;
+				if (nTd > m2)
+				{
+					nTd = nTd - m2;
+					nLm = nLm + 1;
+				}
+				else
+				{
+					sLyoon = "1";
+				}
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+	while(1);
+	
+	nLy = nLy + 1841;
+	nLm = nLm + 1;
+	nLd = nTd;
+
+    var sRtn = sLyoon + nLy; 
+    sRtn = sRtn + nLm.toString().padLeft(2, "0"); 
+    sRtn = sRtn + nLd.toString().padLeft(2, "0");    
+
+	return sRtn;
+};
+
+/*
+ * Function Name : fn_solarBase
+ * Description   : Each month based on the lunar calendar function to process information (process Period 1841-2043)
+ * Parameter     : 
+ * Return        : Lunar Calender Based Information
+ * Example       : fn_solarBase();
+ */
+this.fn_solarBase = function()
+{
+	var sBase;
+	
+	//1841
+	sBase = "1,2,4,1,1,2,1,2,1,2,2,1,";
+	sBase += "2,2,1,2,1,1,2,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,4,1,2,1,2,1,";
+	sBase += "2,2,1,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,2,1,5,2,1,2,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,3,2,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+	//1851
+	sBase += "2,2,1,2,1,1,2,1,2,1,5,2,";
+	sBase += "2,1,2,2,1,1,2,1,2,1,1,2,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,5,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,2,1,2,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,5,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+	sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+	sBase += "2,1,6,1,1,2,1,1,2,1,2,2,";
+	//1861
+	sBase += "1,2,2,1,2,1,2,1,2,1,1,2,";
+	sBase += "2,1,2,1,2,2,1,2,2,3,1,2,";
+	sBase += "1,2,2,1,2,1,2,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,4,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,1,1,2,2,1,2,2,2,";
+	sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+	sBase += "1,2,2,3,2,1,1,2,1,2,2,1,";
+	sBase += "2,2,2,1,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,2,1,1,5,2,1,";
+	//1871
+	sBase += "2,2,1,2,2,1,2,1,2,1,1,2,";
+	sBase += "1,2,1,2,2,1,2,1,2,2,1,2,";
+	sBase += "1,1,2,1,2,4,2,1,2,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+	sBase += "2,2,1,1,5,1,2,1,2,2,1,2,";
+	sBase += "2,2,1,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,4,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,1,2,2,1,2,2,1,2,1,1,2,";
+	//1881
+	sBase += "1,2,1,2,1,2,5,2,2,1,2,1,";
+	sBase += "1,2,1,2,1,2,1,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+	sBase += "2,1,1,2,3,2,1,2,2,1,2,2,";
+	sBase += "2,1,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,5,2,1,1,2,1,2,1,2,";
+	sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,5,2,1,2,2,1,2,1,2,1,2,";
+	//1891
+	sBase += "1,2,1,2,1,2,1,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,5,2,2,1,2,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,5,1,2,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,5,2,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,2,1,2,1,2,2,1,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,5,2,2,1,2,";
+	//1901
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,3,2,1,1,2,2,1,2,";
+	sBase += "2,2,1,2,1,1,2,1,1,2,2,1,";
+	sBase += "2,2,1,2,2,1,1,2,1,2,1,2,";
+	sBase += "1,2,2,4,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,1,1,2,2,1,2,1,2,2,1,2,";
+	sBase += "1,5,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	//1911
+	sBase += "2,1,2,1,1,5,1,2,2,1,2,2,";
+	sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+	sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+	sBase += "2,2,1,2,5,1,2,1,2,1,1,2,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,3,2,1,2,2,1,2,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,5,2,2,1,2,2,";
+	sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+	//1921
+	sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+	sBase += "2,1,2,2,3,2,1,1,2,1,2,2,";
+	sBase += "1,2,2,1,2,1,2,1,2,1,1,2,";
+	sBase += "2,1,2,1,2,2,1,2,1,2,1,1,";
+	sBase += "2,1,2,5,2,1,2,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+	sBase += "1,5,1,2,1,1,2,2,1,2,2,2,";
+	sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+	sBase += "1,2,2,1,1,5,1,2,1,2,2,1,";
+	//1931
+	sBase += "2,2,2,1,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,2,1,1,2,1,2,";
+	sBase += "1,2,2,1,6,1,2,1,2,1,1,2,";
+	sBase += "1,2,1,2,2,1,2,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,4,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+	sBase += "2,2,1,1,2,1,4,1,2,2,1,2,";
+	sBase += "2,2,1,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+	//1941
+	sBase += "2,2,1,2,2,4,1,1,2,1,2,1,";
+	sBase += "2,1,2,2,1,2,2,1,2,1,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,2,1,2,";
+	sBase += "1,1,2,4,1,2,1,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,1,2,";
+	sBase += "2,5,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,3,2,1,2,1,2,";
+	sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+	//1951
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,4,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,1,2,2,1,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,1,2,2,";
+	sBase += "2,1,4,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,5,2,1,2,2,";
+	sBase += "1,2,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,2,1,2,5,2,1,2,1,2,1,";
+	//1961
+	sBase += "2,1,2,1,2,1,2,2,1,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,2,3,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,1,2,2,1,";
+	sBase += "2,2,5,2,1,1,2,1,1,2,2,1,";
+	sBase += "2,2,1,2,2,1,1,2,1,2,1,2,";
+	sBase += "1,2,2,1,2,1,5,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,1,1,2,2,1,2,1,2,2,1,2,";
+	//1971
+	sBase += "1,2,1,1,5,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,1,2,2,2,1,";
+	sBase += "2,2,1,5,1,2,1,1,2,2,1,2,";
+	sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,5,2,1,1,2,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,1,";
+	sBase += "2,2,1,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,1,1,2,1,6,1,2,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+	//1981
+	sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+	sBase += "2,1,2,3,2,1,1,2,2,1,2,2,";
+	sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+	sBase += "2,1,2,2,1,1,2,1,1,5,2,2,";
+	sBase += "1,2,2,1,2,1,2,1,1,2,1,2,";
+	sBase += "1,2,2,1,2,2,1,2,1,2,1,1,";
+	sBase += "2,1,2,2,1,5,2,2,1,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+	sBase += "1,2,1,1,5,1,2,1,2,2,2,2,";
+	//1991
+	sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+	sBase += "1,2,2,1,1,2,1,1,2,1,2,2,";
+	sBase += "1,2,5,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,2,1,2,1,2,1,1,2,1,2,";
+	sBase += "1,2,2,1,2,2,1,5,2,1,1,2,";
+	sBase += "1,2,1,2,2,1,2,1,2,2,1,2,";
+	sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,1,2,3,2,2,1,2,2,2,1,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+	sBase += "2,2,1,1,2,1,1,2,1,2,2,1,";
+	//2001
+	sBase += "2,2,2,3,2,1,1,2,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,2,1,2,2,1,2,1,1,2,1,2,";
+	sBase += "1,5,2,2,1,2,1,2,2,1,1,2,";
+	sBase += "1,2,1,2,1,2,2,1,2,2,1,2,";
+	sBase += "1,1,2,1,2,1,5,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+	sBase += "2,1,1,2,1,1,2,1,2,2,1,2,";
+	sBase += "2,2,1,1,5,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+	//2011
+	sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,1,6,2,1,2,1,1,2,1,2,1,";
+	sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+	sBase += "1,2,1,2,1,2,1,2,5,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,2,2,1,2,2,";
+	sBase += "1,1,2,1,1,2,1,2,2,1,2,2,";
+	sBase += "2,1,1,2,3,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+	sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+	sBase += "2,1,2,5,2,1,1,2,1,2,1,2,";
+	//2021
+	sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+	sBase += "2,1,2,1,2,2,1,2,1,2,1,2,";
+	sBase += "1,5,2,1,2,1,2,2,1,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,2,1,2,2,1,";
+	sBase += "2,1,2,1,1,5,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+	sBase += "1,2,1,2,1,1,2,1,1,2,2,2,";
+	sBase += "1,2,2,1,5,1,2,1,1,2,2,1,";
+	sBase += "2,2,1,2,2,1,1,2,1,1,2,2,";
+	sBase += "1,2,1,2,2,1,2,1,2,1,2,1,";
+	//2031
+	sBase += "2,1,5,2,1,2,2,1,2,1,2,1,";
+	sBase += "2,1,1,2,1,2,2,1,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,5,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+	sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+	sBase += "2,2,1,2,1,4,1,1,2,1,2,2,";
+	sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+	sBase += "2,2,1,2,1,2,1,2,1,1,2,1,";
+	sBase += "2,2,1,2,5,2,1,2,1,2,1,1,";
+	sBase += "2,1,2,2,1,2,2,1,2,1,2,1,";
+	//2041
+	sBase += "2,1,1,2,1,2,2,1,2,2,1,2,";
+	sBase += "1,5,1,2,1,2,1,2,2,2,1,2,";
+	sBase += "1,2,1,1,2,1,1,2,2,1,2,2";
+	
+	var arrBase = new Array();
+	arrBase = sBase.split(",");
+	
+	return arrBase;
+};]]></Script>
+  </Form>
+</FDL>

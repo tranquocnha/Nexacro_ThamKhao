@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Form_getActivForm" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Form_getActivForm" left="0" top="0" width="800" height="600">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output0" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="350" width="90" top="78" height="40"/>
+        <Edit id="edt_output1" taborder="1" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="128" height="40"/>
+        <Static id="Form_getActivForm" taborder="3" text="Getting active screen name(ID)" cssclass="sta_WF_subtitP" left="30" top="18" width="410" height="40" titletext="Form_getActivForm"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Form_getActivForm
+ * Description : Getting active screen name(ID)
+ */
+ 
+
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	var objApp = nexacro.getApplication() ; 
+	
+	var objForm = objApp.getActiveForm() ;
+	
+	this.edt_output0.set_value(objForm.name);
+	this.edt_output1.set_value(objApp.getActiveForm().titletext);
+};
+ ]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_User_CheckSSN" inheritanceid="" position="absolute" titletext="Script_User_CheckSSN" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input" taborder="0" value="1234567890123" autoselect="true" autoskip="true" maxlength="13" inputtype="number" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <Static id="Static05" taborder="3" text="Checking Social Security Number" cssclass="sta_WF_subtitP" left="30" top="18" width="440" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_User_CheckSSN
+ * Description : Checking Social Security Number(Including Leap Year)
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bRtn = this.fn_checkSSN(this.edt_input.value);	
+	this.edt_output.set_value(bRtn);
+};
+
+/*
+ * Function Name : fn_checkSSN
+ * Description   : Checking Social Security Number(Including Leap Year)
+ * Parameter     : Social Security Number
+ * Return        : In case of Social Security Number is in correct format return true, otherwise return false
+ * Example       : fn_checkNumber("1234567890123");
+ */
+this.fn_checkSSN = function(sJuminNo)
+{
+	var arrChk  = [2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5];
+	var sFNum 	= sJuminNo.substr(0,6).toString();
+	var sLNum 	= sJuminNo.substr(6).toString();
+	var sYY     = sFNum.substr(0,2);
+	var sMM 	= sFNum.substr(2,2);
+	var sDD 	= sFNum.substr(4,2);
+	var sGenda 	= sLNum.substr(0,1);
+	var nSum    = 0; 
+	var sCC     = "20";
+
+	if (sYY < "00" || sYY > "99" || sMM < "01" || sMM > "12" || sDD < "01" || sDD > "31") 
+	{
+		return false;
+	}    
+	
+	if (sGenda < "1" || sGenda > "4") 
+	{
+		return false;
+	}      
+	
+	if (sGenda == "1" || sGenda == "2")
+	{
+		sCC = "19"; 
+	}
+
+	if (this.fn_isYYYYMMDD(parseInt(sCC + sYY), parseInt(sMM), parseInt(sDD)) == false) 
+	{
+		return false;
+	}          
+
+	for (var i = 0; i < 12 ; i++)
+	{
+        nSum += parseInt(sJuminNo.substr(i, 1)) * arrChk[i];
+		
+	}
+
+	nSum = 11 - (nSum % 11);
+	nSum = nSum % 10;
+	
+	if (nSum != parseInt(sJuminNo.substr(12, 1)))
+	{
+		return false;
+	}
+
+	return true; 
+};
+
+/*
+ * Function Name : fn_isYYYYMMDD
+ * Description   : Validate the last day of the month
+ * Parameter     : yyyy, MM, dd
+ * Return        : If the date is in correct format return true, otherwise return false
+ * Example       : fn_isYYYYMMDD(1988, 01, 01);
+ */
+this.fn_isYYYYMMDD = function(nYY, nMM, nDD) 
+{
+	switch (nMM) 
+	{
+		case 2:
+			if (nDD > 29) 
+			{
+                return false;
+            }
+			if (nDD == 29) 
+			{
+                if ((nYY % 4) == 0) 
+                {
+                    if ((nYY % 100) != 0 || (nYY % 400) == 0) 
+                    {
+                        return false;
+                    }
+                } 
+			}			
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			if (nDD == 31) 
+			{
+                return false;
+			}
+			break;
+	}
+
+	return true;
+};
+]]></Script>
+  </Form>
+</FDL>

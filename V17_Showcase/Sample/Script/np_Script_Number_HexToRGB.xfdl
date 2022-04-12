@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Number_HexToRGB" inheritanceid="" position="absolute" titletext="Script_Number_HexToRGB" left="0" top="0" width="760" height="430" background="">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_input0" taborder="1" value="FFCC00" autoselect="true" autoskip="true" position="absolute" left="30" width="190" top="118" height="40"/>
+        <Button id="btn_execute0" taborder="1" text="execute" onclick="btn_execute0_onclick" position="absolute" left="235" width="90" top="118" height="40"/>
+        <Edit id="edt_output0" taborder="1" autoselect="true" autoskip="true" position="absolute" left="340" width="60" top="118" height="40" textAlign="left" font="8pt &quot;Arial&quot;"/>
+        <Static id="Static01" text="output" position="absolute" left="340" width="60" top="78" height="30"/>
+        <Edit id="edt_output1" taborder="1" autoselect="true" autoskip="true" position="absolute" left="405" width="60" top="118" height="40" textAlign="left" font="8pt &quot;Arial&quot;"/>
+        <Edit id="edt_output2" taborder="1" autoselect="true" autoskip="true" position="absolute" left="470" width="60" top="118" height="40" value="" textAlign="left" font="8pt &quot;Arial&quot;"/>
+        <Edit id="edt_output3" taborder="1" autoselect="true" autoskip="true" position="absolute" left="340" width="190" top="168" height="40"/>
+        <Button id="btn_execute1" taborder="1" text="execute" onclick="btn_execute1_onclick" position="absolute" left="235" width="90" top="168" height="40"/>
+        <Edit id="edt_input1" taborder="1" autoselect="true" autoskip="true" value="255" position="absolute" left="30" width="60" top="168" height="40" textAlign="left" font="8pt &quot;Arial&quot;"/>
+        <Edit id="edt_input2" taborder="1" autoselect="true" autoskip="true" value="204" position="absolute" left="95" width="60" top="168" height="40" textAlign="left" font="8pt &quot;Arial&quot;"/>
+        <Edit id="edt_input3" taborder="1" autoselect="true" autoskip="true" value="0" position="absolute" left="160" width="60" top="168" height="40" textAlign="left" font="8pt &quot;Arial&quot;"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="30"/>
+        <Static id="Static05" taborder="2" text="Changing RGB to color code" cssclass="sta_WF_subtitP" left="30" top="18" width="370" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Number_HexToRGB
+ * Description : RGB Color Code Changing
+ */
+ 
+/*  Button Click  */
+this.btn_execute0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    this.fn_hexToDec(this.edt_input0.value);    
+}
+
+/*
+ * Function Name : fn_hexToDec
+ * Description   : Converting Color Code to RGB
+ * Parameter     : Color Code
+ * Return        : RGB
+ * Example       : fn_hexToDec("FFCC00");
+ */
+this.fn_hexToDec = function(sHex)
+{
+	sHex = sHex.toUpperCase();
+
+	var nA = this.fn_getDec(sHex.substring(0, 1));
+	var nB = this.fn_getDec(sHex.substring(1, 2));
+	var nC = this.fn_getDec(sHex.substring(2, 3));
+	var nD = this.fn_getDec(sHex.substring(3, 4));
+	var nE = this.fn_getDec(sHex.substring(4, 5));
+	var nF = this.fn_getDec(sHex.substring(5, 6));
+
+	var nRed   = (nA * 16) + nB;
+	var nGreen = (nC * 16) + nD;
+	var nBlue  = (nE * 16) + nF;
+
+	this.edt_output0.set_value(nRed);
+	this.edt_output1.set_value(nGreen);
+	this.edt_output2.set_value(nBlue);
+
+trace("============ " + sHex);
+//this.set_style("background-color:#" + sHex + "ff;");
+	this.set_background("#" + sHex);
+}
+
+/* Converting Hex value to Decimal */ 
+this.fn_getDec = function(sHex)
+{
+    var nRtn;
+    switch (sHex)
+    {
+        case "A":
+            nRtn = 10;
+            break;
+        case "B":
+            nRtn = 11;
+            break;
+        case "C":
+            nRtn = 12;
+            break;
+        case "D":
+            nRtn = 13;
+            break;
+        case "E":
+            nRtn = 14;
+            break;
+        case "F":
+            nRtn = 15;
+            break;
+        default:
+            nRtn = eval(sHex);
+            break;
+    }
+    return nRtn;
+}
+
+/*  Button Click  */
+this.btn_execute1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    this.fn_decToHex(this.edt_input1.value, this.edt_input2.value, this.edt_input3.value);    
+}
+
+/*
+ * Function Name : fn_decToHex
+ * Description   : Converting RGB value to color code
+ * Parameter     : RGB Value
+ * Return        : Color Code
+ * Example       : fn_decToHex(255, 204, 0);
+ */
+this.fn_decToHex = function(nRed, nGreen, nBlue)
+{    
+    var nA = fn_getHex(Math.floor(nRed / 16));
+    var nB = fn_getHex(nRed % 16);
+    var nC = fn_getHex(Math.floor(nGreen / 16));
+    var nD = fn_getHex(nGreen % 16);
+    var nE = fn_getHex(Math.floor(nBlue / 16));
+    var nF = fn_getHex(nBlue % 16);
+
+    var nHex = nA + nB + nC + nD + nE + nF;
+    
+    this.edt_output3.set_value(nHex);
+
+   this.set_style("background:#" + nHex + "ff;");
+}
+
+
+/* Converting decimal values ​​to Hex */
+function fn_getHex(nDec)
+{
+    var sRtn;
+    switch (nDec)
+    {
+        case 10:
+            sRtn = "A";
+            break;
+        case 11:
+            sRtn = "B";
+            break;
+        case 12:
+            sRtn = "C";
+            break;
+        case 13:
+            sRtn = "D";
+            break;
+        case 14:
+            sRtn = "E";
+            break;
+        case 15:
+            sRtn = "F";
+            break;
+        default:
+            sRtn = "" + nDec;
+            break;
+    }
+    return sRtn;
+}
+]]></Script>
+  </Form>
+</FDL>

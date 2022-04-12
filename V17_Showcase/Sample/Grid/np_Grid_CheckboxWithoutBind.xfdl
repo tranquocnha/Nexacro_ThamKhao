@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="grid_ck" left="0" top="0" width="1024" height="768" titletext="grid_ck">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="125" height="150" binddataset="Dataset00" oncellclick="Grid00_oncellclick" onheadclick="Grid00_onheadclick" width="500" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="1" text="Column0"/>
+                <Cell col="2" text="Column1"/>
+                <Cell col="3" text="Column2"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="expr:comp.parent.ck_func(currow)"/>
+                <Cell col="1" text="bind:Column0"/>
+                <Cell col="2" text="bind:Column1"/>
+                <Cell col="3" text="bind:Column2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_checkValue" taborder="1" text="Find selected row" left="30" top="75" height="40" onclick="btn_checkValue_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="150"/>
+        <Static id="Static07" taborder="2" text="This is sample is used to check/uncheck the checkbox on the grid witohout binding the header checkobx with the Dataset" cssclass="sta_WF_explain" left="30" top="25" width="900" height="30" style="font:bold 9 Dotum;" wordwrap="english"/>
+        <Static id="Stt_SelectedRow" taborder="3" left="30" top="284" right="56.25%" height="30" style="align:center middle;font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[ this.ck_arr = [];
+
+this.ck_func = function(nRow)
+{	
+	return this.ck_arr[nRow] == null ? 0 :  this.ck_arr[nRow];
+}
+
+
+this.Grid00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 0 )
+	{
+		var test =  this.ck_arr[e.row] == null ? 1 : this.ck_arr[e.row]^1;
+		this.ck_arr[e.row] = this.ck_arr[e.row] == null ? 1 : this.ck_arr[e.row]^1;
+		this.Grid00.redraw();
+	}
+	
+	
+}
+
+this.Grid00_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 0 )
+	{
+		var ck = this.Grid00.getCellProperty('head', 0 , 'text')^1;
+		for(var i = 0 ; i < this.Dataset00.rowcount ; i++)
+		{
+			this.ck_arr[i] = ck;
+		}
+		this.Grid00.setCellProperty('head', 0 , 'text', ck )
+		this.Grid00.redraw();
+	}
+}
+
+
+this.btn_checkValue_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var cnt = 0;
+	for(var i = 0 ; i < this.ck_arr.length ; i++)
+	{
+		if(this.ck_arr[i])
+		{
+			cnt = cnt + 1;
+		}	
+	}
+
+	this.Stt_SelectedRow.set_text("No. of selected rows : " + cnt);
+	//this.Stt_SelectedRow.style.set_color("#222222ff");
+	
+	if(cnt == 0){
+	 this.Stt_SelectedRow.set_text("There is no selected row " );
+	// this.Stt_SelectedRow.style.set_color("red");
+	 }
+}
+]]></Script>
+  </Form>
+</FDL>

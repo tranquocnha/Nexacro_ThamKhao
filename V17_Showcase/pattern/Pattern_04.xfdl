@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Work" classname="Work" inheritanceid="" position="absolute" titletext="Master/Detail (1:n)" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="sta_WFDA_Label03" position="absolute" text="" left="895" right="30" top="177" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label10" position="absolute" text="" left="895" right="30" top="210" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label16" position="absolute" text="" left="895" right="30" top="243" height="45" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label22" position="absolute" text="" left="895" right="30" top="287" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label28" position="absolute" text="" left="895" right="30" top="320" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="Static00" taborder="39" cssclass="sta_WFSA_BG" left="30" top="58" right="30" height="50"/>
+        <Static id="sta_WF_SearchBox" position="absolute" text="" left="0" right="0" top="0" height="41" cssclass="sta_WF_SearchBox"/>
+        <Static id="sta_WFDA_Label" text="Start date" position="absolute" left="30" width="190" top="177" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label05" position="absolute" text="" left="219" width="150" top="177" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label00" text="End date" position="absolute" left="368" width="190" top="177" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label01" position="absolute" text="" left="557" width="150" top="177" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label02" text="Salary Paid or not" position="absolute" left="706" top="177" height="34" cssclass="sta_WFDA_labelB" width="190"/>
+        <Combo id="Combo03" taborder="10" position="absolute" left="900" top="180" height="28" width="140"/>
+        <Static id="sta_WFDA_Label04" text="basic pay" position="absolute" left="30" width="190" top="210" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label06" position="absolute" text="" left="219" width="150" top="210" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label07" text="basic pay(%)" position="absolute" left="368" width="190" top="210" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label08" position="absolute" text="" left="557" width="150" top="210" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label09" text="Incentive(%)" position="absolute" left="706" top="210" height="34" cssclass="sta_WFDA_labelB" width="190"/>
+        <MaskEdit id="MaskEdit00" taborder="11" position="absolute" left="224" width="140" top="213" height="28" cssclass="input_point"/>
+        <MaskEdit id="MaskEdit01" taborder="12" position="absolute" left="562" width="140" top="213" height="28" cssclass="input_point"/>
+        <MaskEdit id="MaskEdit02" taborder="13" position="absolute" left="900" top="213" height="28" cssclass="input_point" width="140"/>
+        <Static id="sta_WFDA_Label11" text="Record date of &#13;&#10;retirement allowance" position="absolute" left="30" width="190" top="243" height="45" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label12" position="absolute" text="" left="219" top="243" height="45" cssclass="sta_WFDA_B" width="150"/>
+        <Static id="sta_WFDA_Label13" text="Date of middle retirement allowance settlement" position="absolute" left="368" width="190" top="243" height="45" cssclass="sta_WFDA_labelB" wordWrap="char"/>
+        <Static id="sta_WFDA_Label14" position="absolute" text="" left="557" width="150" top="243" height="45" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label15" text="number of middle settlement" position="absolute" top="243" height="45" cssclass="sta_WFDA_labelB" wordWrap="char" left="706" width="190"/>
+        <MaskEdit id="MaskEdit05" taborder="14" position="absolute" left="900" top="251" height="28" cssclass="input_point" width="140"/>
+        <Calendar id="Calendar03" taborder="15" text="2011-06-20" dateformat="yyyy-MM-dd" enable="false" position="absolute" left="224" top="251" height="28" width="140"/>
+        <Static id="sta_WFDA_Label17" text="national pension " position="absolute" left="30" width="190" top="287" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label18" position="absolute" text="" left="219" width="150" top="287" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label19" text="health insurance" position="absolute" left="368" width="190" top="287" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label20" position="absolute" text="" left="557" width="150" top="287" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label21" text="Type of retirement pension" wordwrap="none" position="absolute" left="706" top="287" height="34" cssclass="sta_WFDA_labelB" width="190"/>
+        <MaskEdit id="MaskEdit04" taborder="17" position="absolute" left="224" width="140" top="290" height="28"/>
+        <MaskEdit id="MaskEdit03" taborder="18" position="absolute" left="562" width="140" top="290" height="28"/>
+        <Combo id="Combo04" taborder="19" position="absolute" left="900" top="290" height="28" width="140"/>
+        <Static id="sta_WFDA_Label23" text="Bank" position="absolute" left="30" width="190" top="320" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label24" position="absolute" text="" left="219" width="150" top="320" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label25" text="Account" position="absolute" left="368" width="190" top="320" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label26" position="absolute" text="" left="557" width="150" top="320" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label27" text="Account holder" wordwrap="none" position="absolute" left="706" top="320" height="34" cssclass="sta_WFDA_labelB" width="190"/>
+        <MaskEdit id="MaskEdit07" taborder="20" position="absolute" left="562" width="140" top="323" height="28"/>
+        <Combo id="Combo05" taborder="21" position="absolute" left="224" width="140" top="323" height="28"/>
+        <Edit id="Edit04" taborder="22" position="absolute" left="900" top="323" height="28" width="140"/>
+        <Grid id="Grid00" taborder="27" binddataset="ds_grid" useinputpanel="false" position="absolute" autofittype="col" left="30" right="30" top="418" bottom="24">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="35"/>
+                <Column size="180"/>
+                <Column size="100"/>
+                <Column size="104"/>
+                <Column size="143"/>
+                <Column size="80"/>
+                <Column size="90"/>
+                <Column size="115"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Seq" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" displaytype="checkbox" edittype="checkbox" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="Company Name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="Representative" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="Phone Number" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="Registration Type" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="Credit" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="Cash" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" text="Field Evaluation" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" displaytype="checkbox" edittype="checkbox" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+                <Cell col="4" text="bind:Column4"/>
+                <Cell col="5" text="bind:Column5"/>
+                <Cell col="6" text="bind:Column6"/>
+                <Cell col="7" text="bind:Column7"/>
+                <Cell col="8" text="bind:Column8"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Calendar id="Calendar04" taborder="30" readonly="true" dateformat="yyyy-MM-dd" left="562" top="251" width="140" height="28" cssclass="readonly"/>
+        <Calendar id="Calendar01" taborder="31" dateformat="yyyy-MM-dd" cssclass="input_point" left="224" top="180" width="140" height="28"/>
+        <Calendar id="Calendar02" taborder="32" dateformat="yyyy-MM-dd" cssclass="input_point" left="562" top="180" width="140" height="28"/>
+        <Static id="st_progress" taborder="37" text="location" cssclass="sta_WF_progress" left="30" top="18" width="808" height="30"/>
+        <Static id="sta_WFSA_LabelP" taborder="40" text="Employee :" left="45" top="65" width="70" height="34"/>
+        <Static id="sta_WFSA_PointLabel00" taborder="41" text="Organization :" left="334" top="65" width="90" height="34"/>
+        <Static id="sta_WFSA_PointLabel01" taborder="42" text="Position :" left="567" top="65" width="68" height="34"/>
+        <Edit id="Edit00" taborder="43" cssclass="input_point" left="119" top="66" width="90" height="34" background="#ffffff"/>
+        <Edit id="Edit01" taborder="44" enable="false" left="214" top="66" width="100" height="34" background="#ffffff"/>
+        <Edit id="Edit02" taborder="45" value="CS Team" readonly="true" left="427" top="66" width="120" height="34" cssclass="readonly"/>
+        <Edit id="Edit03" taborder="46" value="Team Manager" readonly="true" left="629" top="66" width="120" height="34" cssclass="readonly"/>
+        <Button id="btn_WFSA_Search02" taborder="47" cssclass="btn_WFDA_Search" left="177" top="68" width="30" height="30" style="image:URL('theme://images/ico_Search.png');"/>
+        <Button id="btn_WF_search" taborder="48" cssclass="button_WF_white" top="66" width="70" height="34" left="769" text="Search"/>
+        <Button id="btn_WF_crud02" taborder="49" text="Save" top="121" right="30" width="70" height="34" cssclass="button_WF_blue"/>
+        <Button id="btn_WF_crud06" taborder="50" text="Delete" cssclass="button_WF_gray" top="121" right="105" width="70" height="34"/>
+        <Button id="btn_WF_crud07" taborder="51" text="Add" cssclass="button_WF_white" top="121" right="180" width="70" height="34"/>
+        <Static id="sta_WF_TitleLev00" taborder="52" text="Salary Information" cssclass="sta_WF_subtitP" left="30" top="118" width="270" height="40"/>
+        <Button id="btn_WF_crud00" taborder="53" text="Save" cssclass="button_WF_blue" top="374" right="30" width="70" height="34"/>
+        <Button id="btn_WF_crud01" taborder="54" text="Delete" cssclass="button_WF_gray" top="374" right="105" width="70" height="34"/>
+        <Button id="btn_WF_crud03" taborder="55" text="Add" cssclass="button_WF_white" top="374" right="180" width="70" height="34"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+          <Column id="Column8" type="STRING" size="256"/>
+          <Column id="Column9" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

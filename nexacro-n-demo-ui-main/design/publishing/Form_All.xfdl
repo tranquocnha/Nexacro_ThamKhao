@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_All" width="1280" height="940" titletext="New Form">
+    <Layouts>
+      <Layout height="940" mobileorientation="landscape" width="1280">
+        <Div id="Div00" taborder="0" text="Top" left="0" top="0" height="80" right="0" url="design::publishing/Form_Top.xfdl" background="#ffffff" border="0px none,0px none,1px solid #8D8D8D"/>
+        <Div id="Div01" taborder="1" text="Left" left="0" top="80" width="280" height="720" url="design::publishing/Form_Left.xfdl" background="#F5F7FC"/>
+        <Div id="Div02" taborder="2" text="Bottom" left="0" height="140" right="0" bottom="0" url="design::publishing/Form_Bottom.xfdl" background="#2D345C"/>
+        <Div id="Div03" taborder="3" text="Work" left="280" top="80" width="1000" height="720" url="design::publishing/Form_Work.xfdl" background="#F5F7FC"/>
+        <Static id="Static00" taborder="4" text="background : #2D345C" left="1290" top="802" width="200" height="140" background="#2D345C" color="#ffffff"/>
+        <Static id="Static01" taborder="5" text="background : #F5F7FC" left="1290" top="646" width="200" height="146" background="#F5F7FC"/>
+        <Static id="Static02" taborder="6" text="background : #F5F7FC&#13;&#10;-nexa-border : &#13;&#10;0px none,0px none,1px solid #8D8D8D" left="1290" top="0" width="264" height="80" background="#ffffff" border="0px none,0px none,1px solid #8D8D8D"/>
+        <Button id="Button00" taborder="7" left="1290" top="575" width="50" height="50" cssclass="btn_WF_toTop"/>
+        <Button id="Button00_00" taborder="8" left="1290" top="520" width="50" height="50" cssclass="btn_WF_contact"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="components" width="1000" height="2370" onload="components_onload">
+    <Layouts>
+      <Layout height="2370" width="1000">
+        <Div id="Div00" taborder="0" left="40" top="40" right="40" cssclass="div_WF_area" height="2290">
+          <Layouts>
+            <Layout>
+              <Static id="Static00_01" taborder="0" text="Component" left="30" top="14" width="300" height="40" cssclass="sta_WF_pageTitle" messageid="grid.renderer" fittocontents="width"/>
+              <Div id="Div00" taborder="1" left="25" top="79" width="420" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="Button" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Button id="Button02" taborder="2" text="Button" left="30" top="68" width="120" height="40" cssclass="btn_WF_basic01"/>
+                    <Button id="Button02_00_00" taborder="3" text="Button" left="160" top="118" width="120" height="40" cssclass="btn_WF_basic02" enable="false"/>
+                    <Button id="Button02_01" taborder="4" text="Button" left="30" top="118" width="120" height="40" cssclass="btn_WF_basic02"/>
+                    <Button id="Button00" taborder="5" top="68" width="40" height="40" cssclass="btn_WF_inquiry" left="312"/>
+                    <Button id="Button02_00" taborder="6" text="Button" left="160" top="68" width="120" height="40" cssclass="btn_WF_basic01" enable="false"/>
+                    <Button id="Button01" taborder="7" left="310" top="123" width="30" height="30" cssclass="btn_WF_add"/>
+                    <Button id="Button01_00" taborder="8" left="344" top="123" width="30" height="30" cssclass="btn_WF_delete"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Button id="Button02" left="20" top="68" width="120" height="40"/>
+                    <Button id="Button02_00_00" left="150" top="118" width="120" height="40"/>
+                    <Button id="Button02_01" left="20" top="118" width="120" height="40"/>
+                    <Button id="Button00" left="20" top="168" width="40" height="40"/>
+                    <Button id="Button02_00" left="150" top="68" width="120" height="40"/>
+                    <Button id="Button01" left="89" top="173" width="30" height="30"/>
+                    <Button id="Button01_00" left="123" top="173" width="30" height="30"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_00" taborder="2" top="290" width="420" height="190" right="25" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static03_00" taborder="0" text="Combo" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Combo id="Combo00" taborder="2" text="Combo00" left="50" top="68" width="150" height="40" itemheight="36" innerdataset="ds_combo" codecolumn="code" datacolumn="data"/>
+                    <Combo id="Combo00_00" taborder="3" text="Combo" left="225" top="68" width="150" height="40" enable="false" value="" index="-1"/>
+                    <Combo id="Combo00_00_00_00" taborder="4" text="Combo" left="50" top="123" width="150" height="40" cssclass="cmb_WF_essential" value="" index="-1"/>
+                    <Combo id="Combo00_01" taborder="5" text="Combo" left="225" top="123" width="150" height="40" readonly="true" value="" index="-1"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Combo id="Combo00" left="24" top="68" width="39.64%" height="40"/>
+                    <Combo id="Combo00_00" left="Combo00:20" top="68" height="40" right="24"/>
+                    <Combo id="Combo00_00_00_00" left="24" top="123" width="39.64%" height="40"/>
+                    <Combo id="Combo00_01" left="Combo00_00_00_00:20" top="123" height="40" right="24"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_00_00" taborder="3" top="501" width="420" height="190" right="25" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static03_00" taborder="0" text="MaskEdit" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <MaskEdit id="MaskEdit00" taborder="2" left="50" top="68" width="150" height="40"/>
+                    <MaskEdit id="MaskEdit00_00" taborder="3" left="225" top="68" width="150" height="40" enable="false"/>
+                    <MaskEdit id="MaskEdit00_01" taborder="4" left="50" top="125" width="150" height="40" readonly="true"/>
+                    <MaskEdit id="MaskEdit00_00_01" taborder="5" left="225" top="125" width="150" height="40" cssclass="msk_WF_essential"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <MaskEdit id="MaskEdit00_00" left="MaskEdit00:20" top="68" height="40" right="24"/>
+                    <MaskEdit id="MaskEdit00_00_01" left="MaskEdit00_01:20" top="118" height="40" right="24"/>
+                    <MaskEdit id="MaskEdit00" left="24" top="68" width="38.46%" height="40"/>
+                    <MaskEdit id="MaskEdit00_01" left="24" top="118" width="38.46%" height="40"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_01" taborder="4" left="25" top="501" width="420" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="Edit" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Edit id="Edit00" taborder="2" left="50" top="68" width="150" height="40"/>
+                    <Edit id="Edit00_00" taborder="3" left="225" top="68" width="150" height="40" enable="false"/>
+                    <Edit id="Edit00_01" taborder="4" left="50" top="123" width="150" height="40" readonly="true"/>
+                    <Edit id="Edit00_00_01" taborder="5" top="123" width="150" height="40" left="225" cssclass="edit_WF_essential"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Edit id="Edit00_00" left="Edit00:20" top="68" height="40" right="24"/>
+                    <Edit id="Edit00_00_01" left="Edit00_01:20" top="118" height="40" right="24"/>
+                    <Edit id="Edit00" left="24" top="68" width="39.94%" height="40"/>
+                    <Edit id="Edit00_01" left="24" top="118" width="39.94%" height="40"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_02" taborder="5" left="475" top="79" width="420" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="Checkbox / Radio" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Static id="Static02_02_00" taborder="2" text="Checkbox" left="40" top="67" width="100" height="30" cssclass="sta_WF_compTitle03"/>
+                    <CheckBox id="CheckBox00" taborder="3" left="40" top="99" width="50" height="50"/>
+                    <CheckBox id="CheckBox00_00" taborder="4" left="85" top="99" width="50" height="50" value="true"/>
+                    <Static id="Static02_00_02_00" taborder="5" text="Radio" left="244" top="67" width="100" height="30" cssclass="sta_WF_compTitle03"/>
+                    <Radio id="Radio00" taborder="6" left="244" top="99" width="82" height="50" innerdataset="ds_rdo" codecolumn="code" datacolumn="data" direction="vertical" value="1" text="" index="1"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Static id="Static02_00_02_00" top="67" width="82" height="30" right="40"/>
+                    <Radio id="Radio00" top="99" width="82" height="50" right="40"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_00_01" taborder="6" top="290" width="420" height="190" right="475" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static03_00" taborder="0" text="Listbox" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <ListBox id="ListBox00" taborder="2" left="50" top="63" height="106" right="50"/>
+                  </Layout>
+                  <Layout name="Layout0"/>
+                </Layouts>
+              </Div>
+              <Div id="Div00_01_00" taborder="7" left="25" top="712" width="870" height="300" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="Grid" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Grid id="Grid00" taborder="2" left="20" top="65" height="202" binddataset="ds_grid" autofittype="col" scrollbarsize="5" right="20">
+                      <Formats>
+                        <Format id="default">
+                          <Columns>
+                            <Column size="55"/>
+                            <Column size="80"/>
+                            <Column size="80"/>
+                            <Column size="80"/>
+                            <Column size="80"/>
+                            <Column size="80"/>
+                          </Columns>
+                          <Rows>
+                            <Row size="40" band="head"/>
+                            <Row size="40"/>
+                          </Rows>
+                          <Band id="head">
+                            <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                            <Cell col="1" text="ID"/>
+                            <Cell col="2" text="이름"/>
+                            <Cell col="3" text="설정금액"/>
+                            <Cell col="4" text="생성일"/>
+                            <Cell col="5" text="승인"/>
+                          </Band>
+                          <Band id="body">
+                            <Cell text="bind:checkbox" displaytype="checkboxcontrol" edittype="checkbox"/>
+                            <Cell col="1" text="bind:ID"/>
+                            <Cell col="2" text="bind:이름"/>
+                            <Cell col="3" text="bind:설정금액"/>
+                            <Cell col="4" text="bind:생성일"/>
+                            <Cell col="5" text="bind:승인" displaytype="imagecontrol"/>
+                          </Band>
+                        </Format>
+                      </Formats>
+                    </Grid>
+                  </Layout>
+                  <Layout name="Layout0"/>
+                </Layouts>
+              </Div>
+              <Div id="Div00_01_01" taborder="8" left="25" top="1032" width="420" height="278" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="Calendar" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Calendar id="Calendar00" taborder="2" left="20" top="65" width="160" height="40"/>
+                    <Calendar id="Calendar00_00" taborder="3" top="65" width="192" height="190" type="monthonly" right="20"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Calendar id="Calendar00" left="21.3%" top="75" height="40" right="21.3%"/>
+                    <Calendar id="Calendar00_00" top="114" height="190" right="21.3%" left="21.3%"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_00_00_00" taborder="9" top="1032" width="420" height="278" right="25" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static03_00" taborder="0" text="Textarea" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <TextArea id="TextArea00" taborder="2" left="30" top="65" height="190" right="30"/>
+                  </Layout>
+                  <Layout name="Layout0"/>
+                </Layouts>
+              </Div>
+              <Div id="Div00_01_02" taborder="10" left="25" top="1330" width="420" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="Static" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Static id="Static00_00_00_01_00_00_01" taborder="2" text="Static" left="30" top="60" width="170" height="30" cssclass="sta_WF_compTitle01"/>
+                    <Static id="Static01" taborder="3" text="Static01" left="30" top="104" width="120" height="60"/>
+                    <Static id="Static02" taborder="4" text="Static02" left="234" top="104" width="120" height="60"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Static id="Static02" top="104" height="60" text="&lt;u v='true'&gt;Static&lt;/u&gt; &lt;fc v=&quot;red&quot;&gt;color&lt;/fc&gt; &lt;fs v=&quot;15&quot;&gt;Size&lt;/fs&gt;" textAlign="center" left="Static01:16.67%" right="15" usedecorate="true"/>
+                    <Static id="Static01" background="linear-gradient(to right,#a598ef,#ff9fa6)" text="Static" textAlign="center" color="#ffffff" left="30" top="104" height="60" width="36.59%"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_00_00_01" taborder="11" top="1330" width="420" height="190" right="25" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static03_00" taborder="0" text="Groupbox" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <GroupBox id="GroupBox00" taborder="2" text="GroupBox00" left="30" top="65" width="358" height="94"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <GroupBox id="GroupBox00" left="30" top="65" height="94" right="30"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_01_02_00" taborder="12" left="25" top="1540" width="870" height="239" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="ImageViewer" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <ImageViewer id="ImageViewer00" taborder="2" left="30" top="95" width="234" height="115" image="url('imagerc::img_WF_sample01.png')"/>
+                    <Static id="Static02_02_00" taborder="3" text="stretch:none" left="30" top="57" width="200" height="30" cssclass="sta_WF_compTitle03"/>
+                    <Static id="Static02_02_00_00" taborder="4" text="stretch:fit" left="318" top="57" width="200" height="30" cssclass="sta_WF_compTitle03"/>
+                    <ImageViewer id="ImageViewer00_00" taborder="5" left="318" top="95" width="234" height="115" image="url('imagerc::img_WF_sample01.png')" stretch="fit"/>
+                    <Static id="Static02_02_00_00_00" taborder="6" text="stretch:fixaspectratio" left="604" top="57" width="200" height="30" cssclass="sta_WF_compTitle03"/>
+                    <ImageViewer id="ImageViewer00_00_00" taborder="7" left="604" top="95" width="234" height="115" image="url('imagerc::img_WF_sample01.png')" stretch="fixaspectratio"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Static id="Static02_02_00_00" left="30" top="224" width="200" height="30"/>
+                    <ImageViewer id="ImageViewer00_00" left="30" top="262" height="115" width="67.99%"/>
+                    <ImageViewer id="ImageViewer00" left="30" top="95" height="115" width="67.99%"/>
+                    <Static id="Static02_02_00_00_00" left="30" top="391" width="200" height="30"/>
+                    <ImageViewer id="ImageViewer00_00_00" left="30" top="429" height="115" width="67.99%"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_00_00_01_00" taborder="13" top="1799" width="420" height="190" right="25" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static03_00" taborder="0" text="Tab" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Tab id="Tab00" taborder="2" tabindex="0" left="30" top="65" width="358" height="94">
+                      <Tabpages>
+                        <Tabpage id="Tabpage1" text="Tabpage1"/>
+                        <Tabpage id="Tabpage2" text="Tabpage2"/>
+                      </Tabpages>
+                    </Tab>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Tab id="Tab00" left="20" top="65" height="94" right="20"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div00_01_02_01" taborder="14" left="25" top="1799" width="420" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="Progressbar" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <ProgressBar id="ProgressBar00" taborder="2" max="100" min="0" left="30" top="77" height="40" smooth="true" pos="60" text="60%" right="30"/>
+                  </Layout>
+                  <Layout name="Layout0"/>
+                </Layouts>
+              </Div>
+              <Div id="Div00_01_02_00_00" taborder="15" left="25" top="2009" width="870" height="239" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+                    <Static id="Static03_00" taborder="1" text="Menu" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+                    <Menu id="Menu00" taborder="2" left="30" top="75" height="43" right="30" innerdataset="ds_menu" captioncolumn="caption" checkboxcolumn="check" enablecolumn="enable" hotkeycolumn="hotkey" iconcolumn="icon" idcolumn="id" levelcolumn="level" popupitemheight="40"/>
+                  </Layout>
+                  <Layout name="Layout0">
+                    <Static id="Static03_00" text="Menu"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+            <Layout name="Layout0">
+              <Div id="Div00" left="20" top="79" height="241" right="20"/>
+              <Div id="Div00_00" top="550" height="190" left="20" right="20"/>
+              <Div id="Div00_01" left="20" top="970" height="190" right="20"/>
+              <Div id="Div00_01_00" left="20" top="1390" height="300" right="20"/>
+              <Div id="Div00_01_01" left="20" top="1710" height="340" right="20"/>
+              <Div id="Div00_01_02" left="20" top="2368" height="190" right="20"/>
+              <Div id="Div00_01_02_00" left="20" top="2788" height="609" right="20" text=""/>
+              <Div id="Div00_01_02_01" left="20" top="3627" height="190" right="20"/>
+              <Div id="Div00_01_02_00_00" left="20" top="3837" height="239" right="20"/>
+              <Div id="Div00_02" left="20" top="340" height="190" right="20" text=""/>
+              <Static id="Static00_01" left="30" top="14" width="300" height="40"/>
+              <Div id="Div00_00_00_00" top="2070" height="278" left="20" right="20"/>
+              <Div id="Div00_00_01" top="760" height="190" right="20" left="20"/>
+              <Div id="Div00_00_00_01_00" left="20" top="3417" height="190" right="20"/>
+              <Div id="Div00_00_00_01" top="2578" height="190" right="20" left="20"/>
+              <Div id="Div00_00_00" top="1180" height="190" right="20" left="20"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+      <Layout name="Layout0" width="410" height="4140" mobileorientation="portrait">
+        <Div id="Div00" left="20" top="20" right="20" height="4100"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid">
+        <ColumnInfo>
+          <Column id="checkbox" type="STRING" size="256"/>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="이름" type="STRING" size="256"/>
+          <Column id="설정금액" type="STRING" size="256"/>
+          <Column id="생성일" type="STRING" size="256"/>
+          <Column id="승인" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">#101</Col>
+            <Col id="이름">James</Col>
+            <Col id="설정금액">11,235</Col>
+            <Col id="생성일">2020-08-01</Col>
+            <Col id="checkbox">0</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#102</Col>
+            <Col id="이름">Bill</Col>
+            <Col id="설정금액">15,698</Col>
+            <Col id="생성일">2020-08-01</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#103</Col>
+            <Col id="이름">Elyse</Col>
+            <Col id="설정금액">15,756</Col>
+            <Col id="생성일">2020-08-02</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_reject.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#104</Col>
+            <Col id="이름">Jenny</Col>
+            <Col id="설정금액">15,756</Col>
+            <Col id="생성일">2020-08-02</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo_toggle">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="data">list1</Col>
+            <Col id="code">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">list2</Col>
+            <Col id="code">2</Col>
+          </Row>
+          <Row>
+            <Col id="data">list3</Col>
+            <Col id="code">3</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_menu">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="caption" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="enable" type="STRING" size="256"/>
+          <Column id="check" type="STRING" size="256"/>
+          <Column id="hotkey" type="STRING" size="256"/>
+          <Column id="icon" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">1</Col>
+            <Col id="caption">Nexacro</Col>
+            <Col id="level">0</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">2</Col>
+            <Col id="caption">Overview</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">3</Col>
+            <Col id="caption">Introduce</Col>
+            <Col id="level">1</Col>
+            <Col id="icon">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">5</Col>
+            <Col id="caption">Products</Col>
+            <Col id="level">2</Col>
+            <Col id="icon">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">6</Col>
+            <Col id="caption">Tobesoft</Col>
+            <Col id="level">0</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">7</Col>
+            <Col id="caption">History</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">8</Col>
+            <Col id="caption">IT Solution</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">9</Col>
+            <Col id="caption">Technology</Col>
+            <Col id="level">1</Col>
+            <Col id="enable">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">10</Col>
+            <Col id="caption">News</Col>
+            <Col id="level">0</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="caption">Notice</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="caption">Social Activity</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="caption">Recruit</Col>
+            <Col id="level">1</Col>
+            <Col id="icon">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="caption">Information</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="caption">Contact</Col>
+            <Col id="level">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.components_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="showmodal_parent" classname="popup_test1" left="0" top="0" width="760" height="430" titletext="Show modal form">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="popup" left="30" top="65" width="200" height="40" onclick="Button00_onclick"/>
+        <Static id="Static07" taborder="1" text="This is sample used to send the parameter to popup opened by showmodal, passing &quot;123&quot; to popup" cssclass="sta_WF_explain" left="30" top="25" width="700" height="30" verticalAlign="top"/>
+        <Static id="Static00" taborder="2" text="Received parameter by callback function, which is exdecuted  when popup is closed" cssclass="sta_WF_explain" left="30" top="145" width="700" height="30" verticalAlign="top"/>
+        <Edit id="Edit00" taborder="3" left="30" top="185" height="40" style="align:center middle;" width="569"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var objApp = nexacro.getApplication();	
+	var objLeftFrames =  objApp.mainframe.VFrameSet.HFrameSet.leftFrame;  
+	var objTopFrames = objApp.mainframe.VFrameSet.TopFrame;
+	var objTabFrames = objApp.mainframe.VFrameSet.HFrameSet.VFrameSet1.MdiTabFrame;	
+	
+	var nTitlebarHeight = 0;	
+	if(this.gfn_isNull(objApp.mainframe.titlebarheight))
+	{
+		nTitlebarHeight = 30; //titlebarheight 설정이 되어 있지 않을 경우, default = 30;
+	}
+	else
+	{
+		nTitlebarHeight = nexacro.toNumber(objApp.mainframe.titlebarheight)
+	}
+	
+	var  nX = objLeftFrames.width + this.Button00.getOffsetRight() + 2;  // 1px + px is bordr of mainframe and extra 1 pixel is set to make sppace.	
+    var  nY = nexacro.toNumber(objTopFrames.height) + nexacro.toNumber(objTabFrames.height) + nexacro.toNumber(this.Button00.getOffsetBottom()) + nTitlebarHeight;
+    // titlebar height is set as 22 pixel frm style.so it should be added.
+    // 2 pixel for boder and 1 pixel for adding
+	
+	this.lfn_Dialog("frmpop01", "Sample_Form::np_Form_Showmodal_Popup.xfdl", "123", nX, nY, 200, 200, true, "f_pop_callback");
+}
+
+this.lfn_Dialog = function (sFormId, sUrl, sArg, nLeft, nTop, nWidth, nHeight, bModeless, sCallbackFunc)
+{
+	var newChild = null;
+	var objParentFrame = this.getOwnerFrame();
+
+	newChild = new ChildFrame();
+	newChild.init(sFormId, nLeft, nTop, nWidth, nHeight, null, null, sUrl);
+	newChild.autosize = true;
+	newChild.showModal(objParentFrame, {pv_arg:sArg}, this, sCallbackFunc);
+}
+
+this.f_pop_callback=function(v1,v2)
+{
+	this.Edit00.set_value(v1 + " / " + v2);
+}
+
+//****************************************//
+this.gfn_isNull = function (Val)
+{
+	if (new String(Val).valueOf() == "undefined") 
+	{
+		return true;
+	}
+	if (Val == null) 
+	{
+		return true;
+	}
+	if (("x" + Val == "xNaN") && (new String(Val.length).valueOf() == "undefined")) 
+	{
+		return true;
+	}
+	if (Val.length == 0) 
+	{
+		return true;
+	}
+
+	return false;
+}]]></Script>
+  </Form>
+</FDL>

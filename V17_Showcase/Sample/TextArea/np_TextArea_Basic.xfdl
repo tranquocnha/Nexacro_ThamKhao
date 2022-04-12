@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="TextArea_Basic" classname="Static_Basic" inheritanceid="" position="absolute" titletext="TextArea" left="0" top="0" width="760" height="590" onload="TextArea_Basic_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Binding" class="sta_WF_subtitle" position="absolute" left="30" top="15" width="283" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid01" taborder="1" binddataset="ds_data" autofittype="col" position="absolute" left="30" top="70" width="300" height="329">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="code"/>
+                <Cell col="1" text="name"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" style="align:left;" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static01" text="WordWrap  : none" class="sta_WF_subtitle" position="absolute" left="420" top="15" width="283" height="40" cssclass="sta_WF_subtitP" wordWrap="none"/>
+        <TextArea id="TextArea00" taborder="2" left="30" top="409" width="300" height="121" readonly="true"/>
+        <TextArea id="TextArea01" taborder="3" left="420" top="70" width="300" height="70" value="ABCD 1234, ASAP aple A B C D" wordWrap="none"/>
+        <TextArea id="TextArea02" taborder="4" left="420" top="265" width="167" height="70" value="ABCD 1234, ASAP aple A B C D" wordWrap="char" onchanged="TextArea02_onchanged" padding="10"/>
+        <Static id="Static00" taborder="7" text="Setting value using Script" left="420" top="405" width="337" height="40" cssclass="sta_WF_subtitP"/>
+        <TextArea id="TextArea05" taborder="8" left="420" top="460" width="300" height="70"/>
+        <Static id="Static02" taborder="9" text="WordWrap  : char" left="420" top="210" width="283" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="TextArea00" propid="value" datasetid="ds_data" columnid="Column1"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">aple</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">pineapple</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">tangerine</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">orange</Col>
+            <Col id="Column0">4</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">blueberry</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">pomegranate</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">pear</Col>
+            <Col id="Column0">7</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">grape</Col>
+            <Col id="Column0">8</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">peach</Col>
+            <Col id="Column0">9</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">watermelon</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.TextArea_Basic_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var objDate = new Date();
+	var str = "Set value by using Script.";
+	this.TextArea05.set_value(str);	
+};
+
+]]></Script>
+  </Form>
+</FDL>

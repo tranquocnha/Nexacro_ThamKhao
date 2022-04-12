@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Menu1_01_Function" width="1000" height="1560" titletext="New Form" background="#F5F7FC">
+    <Layouts>
+      <Layout height="1560" width="1000">
+        <Div id="Div00" taborder="0" top="40" height="700" background="#ffffff" cssclass="div_WF_area" width="920" left="40">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Function" left="30" top="14" width="120" height="40" cssclass="sta_WF_pageTitle"/>
+              <Static id="Static01" taborder="1" left="25" top="66" height="60" cssclass="sta_WF_box01" right="25"/>
+              <Static id="Static02" taborder="2" text="Range of selection" left="45" top="76" width="135" height="40" cssclass="sta_WF_labelTxt01"/>
+              <Combo id="Combo00" taborder="3" text="Combo00" left="202" top="76" width="150" height="40"/>
+              <Button id="Button00" taborder="4" top="73" width="46" height="46" cssclass="btn_WF_inquiry" right="35"/>
+              <Static id="Static03" taborder="5" text="Inquire List" left="30" top="152" width="120" height="30" cssclass="sta_WF_compTitle02"/>
+              <Static id="Static04" taborder="6" text="Total" left="730" top="152" width="50" height="30" cssclass="sta_WF_txt14px" textAlign="right" padding="0px 8px 0px 0px"/>
+              <Static id="Static04_00" taborder="7" text="15" left="780" top="152" width="50" height="30" cssclass="sta_WF_totalNum"/>
+              <Button id="Button01" taborder="8" left="831" top="152" width="30" height="30" cssclass="btn_WF_add"/>
+              <Button id="Button01_00" taborder="9" left="865" top="152" width="30" height="30" cssclass="btn_WF_delete"/>
+              <Grid id="Grid00" taborder="10" left="25" top="194" width="870" height="370" binddataset="ds_grid" autofittype="col" scrollbarsize="5">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="46"/>
+                      <Column size="80"/>
+                      <Column size="84"/>
+                      <Column size="206"/>
+                      <Column size="89"/>
+                      <Column size="89"/>
+                      <Column size="86"/>
+                      <Column size="54"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="46" band="head"/>
+                      <Row size="46"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                      <Cell col="1" text="ID"/>
+                      <Cell col="2" text="이름"/>
+                      <Cell col="3" text="주소"/>
+                      <Cell col="4" text="설정금액"/>
+                      <Cell col="5" text="생성일"/>
+                      <Cell col="6" text="직장"/>
+                      <Cell col="7" text="승인"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:checkbox" displaytype="checkboxcontrol" edittype="checkbox"/>
+                      <Cell col="1" text="bind:ID"/>
+                      <Cell col="2" text="bind:이름"/>
+                      <Cell col="3" text="bind:주소"/>
+                      <Cell col="4" text="bind:설정금액" cssclass="grd_txtR"/>
+                      <Cell col="5" text="bind:생성일"/>
+                      <Cell col="6" text="bind:직장"/>
+                      <Cell col="7" text="bind:승인" displaytype="imagecontrol"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div00_00" taborder="1" top="765" height="765" background="#ffffff" cssclass="div_WF_area" text="" width="920" left="40">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="You can sort the data by the field values that the column references by clicking the column header in the grid.&#13;&#10;Clicking the same field repeatedly converts it to an ascending/ descending/cancel state; pressing the 'Ctrl' key and clicking&#13;&#10;the header allows you to sort multiple columns in the order you clicked.&#13;&#10;&#13;&#10;You can also sort through the context menu that appears when you right-click in the header area of the grid.&#13;&#10;Selecting 'Multiple Sort' in the context menu invokes a pop-up screen, allows you to add rows by pressing the '+' button,&#13;&#10;select the column name and sort order, and press the 'Apply' button to sort." left="30" top="68" width="865" height="156" cssclass="sta_WF_txt15px" onclick="Div00_00_Static00_onclick"/>
+              <Static id="Static01" taborder="1" left="0" top="253" height="461" right="0" cssclass="sta_WF_contentBg01"/>
+              <Static id="Static02" taborder="2" left="60" top="257" width="356" height="387" cssclass="sta_WF_con01"/>
+              <Static id="Static03" taborder="3" left="480" top="257" width="356" height="393" cssclass="sta_WF_con02"/>
+              <Static id="Static03_00" taborder="4" text="Inquire List" left="30" top="30" width="120" height="30" cssclass="sta_WF_compTitle02"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="2" left="0" top="1465" width="1" height="35"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid">
+        <ColumnInfo>
+          <Column id="checkbox" type="STRING" size="256"/>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="이름" type="STRING" size="256"/>
+          <Column id="주소" type="STRING" size="256"/>
+          <Column id="설정금액" type="STRING" size="256"/>
+          <Column id="생성일" type="STRING" size="256"/>
+          <Column id="직장" type="STRING" size="256"/>
+          <Column id="승인" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">#101</Col>
+            <Col id="이름">James</Col>
+            <Col id="주소">서울특별시 중구 세종대로 40</Col>
+            <Col id="설정금액">11,235</Col>
+            <Col id="생성일">2020-08-01</Col>
+            <Col id="직장">투비소프트</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#102</Col>
+            <Col id="이름">Bill</Col>
+            <Col id="주소">경상북도 경부시 불국로 873-243</Col>
+            <Col id="설정금액">15,698</Col>
+            <Col id="생성일">2020-08-01</Col>
+            <Col id="직장">강남구청</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#103</Col>
+            <Col id="이름">Elyse</Col>
+            <Col id="주소">경기도 수원시 장안구 연무동 190</Col>
+            <Col id="설정금액">15,756</Col>
+            <Col id="생성일">2020-08-02</Col>
+            <Col id="직장">투비소프트</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#104</Col>
+            <Col id="이름">Jenny</Col>
+            <Col id="주소">경기도 수원시 장안구 연무동 190</Col>
+            <Col id="설정금액">15,756</Col>
+            <Col id="생성일">2020-08-02</Col>
+            <Col id="직장">투비소프트</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_reject.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#105</Col>
+            <Col id="이름">William</Col>
+            <Col id="주소">서울특별시 중구 태평로1가 31 </Col>
+            <Col id="설정금액">23,317</Col>
+            <Col id="생성일">2020-08-03</Col>
+            <Col id="직장">서울시청</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#106</Col>
+            <Col id="이름">Daniel</Col>
+            <Col id="주소">서울특별시 중구 태평로1가 31 </Col>
+            <Col id="설정금액">15,756</Col>
+            <Col id="생성일">2020-08-03</Col>
+            <Col id="직장">투비소프트</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_reject.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#107</Col>
+            <Col id="이름">Ann</Col>
+            <Col id="주소">서울특별시 중구 태평로1가 31 </Col>
+            <Col id="설정금액">23,317</Col>
+            <Col id="생성일">2020-08-04</Col>
+            <Col id="직장">서울시청</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.Div00_00_Static00_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

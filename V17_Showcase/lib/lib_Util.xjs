@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script version="1.0" type="xscript5.1"><![CDATA[ 
+/**********************************************************************************
+ * Function Name: gfn_isHTML5
+ * Description  : 실행되는 환경을 체크
+ * Arguments    :
+ * return       : Boolean
+ **********************************************************************************/
+this.gfn_isHTML5 = function ()
+{
+		
+		if((system.navigatorname == "nexacro") || (system.navigatorname == "nexacro ActiveX"))
+		{ 
+			return false;
+		} else {			
+			return true;  
+		}	
+}
+  
+/**********************************************************************************
+ * Function Name: gfn_Decode
+ * Description  : Grid에서 expression으로  표현할때 decode 문처럼 사용할 수 있는 기능.
+ * Arguments    : decode(strVal, "test", true, false);
+ * return       : varRtnValue 로 decode 조건에 맞는 값 리턴.
+ **********************************************************************************/
+this.gfn_Decode = function()
+{ 
+ var i, fn;
+ fn = this.gfn_Decode;
+ for( i = 1 ; i < fn.arguments.length ; i+=2 )
+ {
+  if( fn.arguments[0] == fn.arguments[i] )  
+   return fn.arguments[i+1];
+ }
+ return fn.arguments[i-2];  
+}
+
+/**********************************************************************************
+ * Function Name: gfn_Iif
+ * Description  : 조건에 따른 Value 처리
+ * Arguments    : iif(strVal=="test", true, false);
+ * return       : iif 조건에 맞는 값 리턴.
+ **********************************************************************************/
+this.gfn_Iif = function (expr, v_true, v_false)
+{
+	return expr ? v_true : v_false;
+}
+
+/********************************************************************************
+ * Function Name: gfn_checkURL
+ * Description  : 입력값이 URL Type인지 체크하는 함수
+ * Arguments	: strValue(String)
+ * Return 		: true = 입력값이 URL형태일 경우
+ ********************************************************************************/
+this.gfn_checkURL = function (strValue)
+{
+	if (this.gfn_isNull(strValue)) 
+	{
+		return false;
+	}
+	else if (strValue.indexOf(".") == -1) 
+	{
+		return false;
+	}
+	else 
+	{
+		return true;
+	}
+}
+
+
+/********************************************************************************
+ * Function Name: gfn_checkEmail
+ * Description  : 입력값이 e-mail Type인지 체크하는 함수
+ * Arguments	: strValue(String)
+ * Return 		: true = 입력값이 email형태일 경우
+ ********************************************************************************/
+this.gfn_checkEmail = function (strValue)
+{
+	if (this.gfn_isNull(strValue)) 
+	{
+		return false;
+	}
+
+	var nIndexOfAt = strValue.indexOf("@");
+	var nIndexOfDot = strValue.indexOf(".");
+	var nLength = strValue.length;
+
+	// "@" 이 하나도 없거나 맨 끝에 위치한  경우
+	if (nIndexOfAt <= 0 || nIndexOfAt == nLength) 
+	{
+		return false;
+	}
+
+	// "." 이 하나도 없거나 맨 끝에 위치한 경우
+	if (nIndexOfDot <= 0 || nIndexOfDot == nLength) 
+	{
+		return false;
+	}
+
+	// "@"이 두개 이상 존재하는 경우
+	if (strValue.indexOf("@", nIndexOfAt + 1) != -1) 
+	{
+		return false;
+	}
+
+	// ".@" 인 경우 또는 "@."인 경우
+	if (strValue.substr(nIndexOfAt - 1, 1) == "." || strValue.substr(nIndexOfAt + 1, 1) == ".") 
+	{
+		return false;
+	}
+
+	// "@" 이후에 "."이 존재하지 않는 경우
+	if (strValue.indexOf(".", (nIndexOfAt + 2)) == -1) 
+	{
+		return false;
+	}
+
+	// 공백문자가 존재하는 경우
+	if (strValue.indexOf(" ") != -1) 
+	{
+		return false;
+	}
+
+	return true;
+}
+
+/********************************************************************************
+ * Function Name: gfn_checkPhone
+ * Description	: 입력값이 전화번호 format 인지 체크하는 함수
+ * Arguments	: strValue(String)
+ * Return 		: true = 입력값이 전화번호 형태일 경우
+ ********************************************************************************/
+this.gfn_checkPhone = function (strValue)
+{
+	// null 이거나 "-"이 존재하지 않는 경우
+	if (this.gfn_isNull(strValue) || (!this.gfn_isNull(strValue) && strValue.indexOf("-") == -1)) 
+	{
+		return false;
+	}
+	else if (strValue.indexOf(".") >= 0) 
+	{
+		return false;
+	}
+	else 
+	{
+		// "-" 사이의 값이 숫자가 아닌 경우
+		var arrNumbers = strValue.split("-");
+		for (var i = 0; i < arrNumbers.length; i++) 
+		{
+			if (!TOBE.isNumeric(arrNumbers[i])) 
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+/********************************************************************************
+ * Function Name	: gfnCheckDate8
+ * Description		: 입력값이 날짜 형태 인지 체크하는 함수
+ * Arguments		: strValue(String)
+ * Return 			: true = 입력값이 8자리 날짜(yyyyMMdd) 형태일 경우
+ ********************************************************************************/
+this.gfn_checkDate8 = function (strValue)
+{
+	if (this.gfn_Length(strValue) != 8) 
+	{
+		return false;
+	}
+	else if (!this.gfn_DateCheck(strValue)) 
+	{
+		return false;
+	}
+	return true;
+}
+
+/********************************************************************************
+ * Function Name	: gfnCheckDate10
+ * Description  	: 입력값이 날짜 형태 인지 체크하는 함수
+ * Arguments		: strValue(String)
+ * Return 			: true = 입력값이 10자리 날짜 형태일 경우
+ *					  허용 입력 타입(yyyy-MM-dd, yyyy/MM/dd, yyyy.MM.dd)
+ ********************************************************************************/
+this.gfn_checkDate10 = function (strValue)
+{
+	return this.gfn_checkDate8(this.gfn_Replace(this.gfn_Replace(this.gfn_Replace(strValue, "/", ""), "-", ""), ".", ""));
+}
+
+/********************************************************************************
+ * Function Name: gfn_getFileExt
+ * Description  : 파일 확장자를 가져온다.
+ * Arguments	: 파일명
+ * Return 		: String, 파일 확장자
+ ********************************************************************************/
+this.gfn_getFileExt = function (strFileName)
+{
+	strFileName = "" + strFileName;
+	var arrFileName = strFileName.split(".");
+	var strFileExt = arrFileName[arrFileName.length - 1];
+
+	return strFileExt.trim();
+}
+
+/********************************************************************************
+ * Function Name: gfn_getFileName
+ * Description  : 파일 경로에서 파일명만 가져온다.
+ * Arguments	: 파일명
+ * Return 		: String, 파일명
+ ********************************************************************************/
+this.gfn_getFileName = function (strFilePath)
+{
+	var strFileName = "";
+
+	strFilePath = this.gfn_ToString(strFilePath);
+	for (var i = 0; i < strFilePath.length; i++) 
+	{
+		if (this.gfn_Right(strFilePath, i + 1).indexOf("\\") > -1) 
+		{
+			break;
+		}
+		if (this.gfn_Right(strFilePath, i + 1).indexOf("\/") > -1) 
+		{
+			break;
+		}
+		strFileName = this.gfn_Right(strFilePath, i + 1);
+	}
+
+	return strFileName;
+}
+
+/********************************************************************************
+ * Function Name: gfn_htmlToChars
+ * Description  : html형식의 문자열에서 태그문자를 특수문자로 변형
+ * Arguments	: html형식 문자열
+ * Return 		: String, 변형문자열
+ ********************************************************************************/
+this.gfn_htmlToChars = function (str)
+{
+	str = "" + str;
+	if (this.gfn_isNull(str)) 
+	{
+		return "";
+	}
+	str = this.gfn_Replace(str, "\&", '&amp;');
+	str = this.gfn_Replace(str, "\'", '&apos;');
+	str = this.gfn_Replace(str, "\"", '&quot;');
+	str = this.gfn_Replace(str, "\'", '&#39;');
+	str = this.gfn_Replace(str, "<", '&lt;');
+	str = this.gfn_Replace(str, ">", '&gt;');
+	return str;
+}
+
+/********************************************************************************
+ * Function Name: gfn_SpecToChars
+ * Description  : 특수문자가 들어있는 문자열에서 html형식의 문자로 변형
+ * Arguments	: 특수문자 형식 문자열
+ * Return 		: String, 파일 확장자
+ ********************************************************************************/
+this.gfn_SpecToChars = function (str)
+{
+	str = "" + str;
+	if (this.gfn_isNull(str)) 
+	{
+		return "";
+	}
+	str = this.gfn_Replace(str, "\&amp;", '&');
+	str = this.gfn_Replace(str, "\&quot;", '"');
+	str = this.gfn_Replace(str, "\&#39;", '\'');
+	str = this.gfn_Replace(str, "\&lt;", '<');
+	str = this.gfn_Replace(str, "\&gt;", '>');
+	return str;
+}
+
+/********************************************************************
+ * Function Name: gfn_getDomainText
+ * Description  : 메세지 값을 문자열 치환하여 메세지 내용을 조회한다.
+ * Arguments    : TextID: 메세지ID, aArgs: 토큰문자배열
+ * 리턴 : 처리 메시지
+ ********************************************************************/
+this.gfn_getDomainText = function (TextID, aArgs)
+{
+	// alert("Util 256 " + TextID);
+
+	if (this.gfn_isNull(TextID)) 
+	{
+		return "";
+	}
+	
+	var nRow = nexacro.gds_DomainText.findRow(nexacro.gv_DomainIdCol, TextID);
+	if (nRow < 0) 
+	{
+		return TextID;
+	}
+
+
+	var sRtnMsg = nexacro.gds_DomainText.getColumn(nRow, nexacro.gv_DomainTextCol);
+
+	if (this.gfn_isNull(aArgs)) 
+	{
+		return sRtnMsg;
+	}
+
+	var sType = typeof (aArgs);
+
+	switch (sType) 
+	{
+		case "object":
+			if (aArgs.length > 0) 
+			{
+				for (var i = 0; i < aArgs.length; i++) 
+				{
+					var strVal  = aArgs[i];
+					sRtnMsg = this.gfn_Replace(sRtnMsg, nexacro.gv_TxtPrefix + (i + 1),  this.gfn_getDomainText(strVal));
+				}
+			}
+			else 
+			{
+				for (var strName; ; ) 
+				{
+					var strVal  = aArgs[strName];
+			
+					sRtnMsg = this.gfn_Replace(sRtnMsg, application.gv_TxtPrefix + strName, this.gfn_getDomainText(strVal));
+				}
+			}
+			break;
+		default:
+			sRtnMsg = this.gfn_Replace(sRtnMsg, application.gv_TxtPrefix + "1", this.gfn_getDomainText(aArgs));
+			break;
+	}
+	return sRtnMsg;
+}
+
+
+
+/*****************************************************************************************
+ * 함  수  명	: 	fn_getObjFont
+ * 입      력	: 	iFontSize
+ sFontName
+ * 반      환	: 	Font Object
+ * 기      능	: 	Font Object 생성 반환
+ *****************************************************************************************/
+this.gfn_getObjFont = function (iFontSize, sFontName, bBold)
+{
+	var strFont = sFontName + "," + iFontSize;
+	if (bBold == true) 
+	{
+		strFont += ",bold";
+	}
+	return strFont;
+} ]]></Script>

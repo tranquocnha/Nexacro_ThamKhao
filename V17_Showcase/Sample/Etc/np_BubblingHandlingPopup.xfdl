@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="sample_removeTabpage" classname="N213901" left="0" top="0" width="500" height="320" titletext="This sample shows the handling the Bubbling of evnts " onclose="sample_removeTabpage_onclose">
+    <Layouts>
+      <Layout screenid="desktop_D">
+        <Tab id="Tab00" taborder="1" left="17" top="97" height="197" tabindex="0" scrollbars="autoboth" width="463" border="" onchanged="Tab00_onchanged">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="tabpage1">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="tabpage2"/>
+          </Tabpages>
+        </Tab>
+        <Button id="Button00" taborder="2" text="Delete tabpage" left="17" top="53" height="34" onclick="Button00_onclick" width="230"/>
+        <Static id="Static07" taborder="3" text="This sample shows the handling the Bubbling of evnts " cssclass="sta_WF_explain" left="17" top="13" width="466" height="30" font=""/>
+        <Button id="Button01" taborder="4" text="Close Popup" onclick="Button01_onclick" left="257" top="53" height="34" width="230"/>
+        <Static id="stt_form" taborder="5" left="107.40%" top="210" right="-100.80%" height="32" background="#eeeeee" visible="false"/>
+        <Static id="stt_close" taborder="6" left="107.40%" top="168" right="-100.80%" height="32" visible="false" background="#eeeeee"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	this.Tab00.removeTabpage(1);
+};
+
+this.sample_removeTabpage_onclose = function(obj:nexacro.Form, e:nexacro.CloseEventInfo)
+{
+	this.alert("Tabpage onclose event :::::::: e.fromobject >>" + e.fromobject);
+	if(e.fromobject == "[object Form]"){ 
+	  //Form's onclose event is occurred in both cases when removeTabpage method is called or form is closed.
+	  // When removeTabpage is deleted this event is called because of Bubbling process. 
+	  // We can separate these event, we can check the value of e.formobject
+	  // if form is closed e.fromobject == "[object Form]" else if tabpage is removed it is e.fromobject == "[object Tab]"
+	  this.alert("@@ Form  close @@");
+   }
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+
+this.Tab00_onchanged = function(obj:nexacro.Tab,e:nexacro.TabIndexChangeEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="1160" onload="form_onload">
+    <Layouts>
+      <Layout height="1160" width="920">
+        <Static id="Static00" taborder="1" text="Animation" left="20" top="15" width="79" height="30" cssclass="sta_WF_compTitle02" messageid="comp.animation" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="Animation features are used to highlight data or highlight specific features. For example, if you enter an incorrect value in the Edit component, you may want to add a slight shaking effect or emphasize that the data is updated.&#13;&#10;&#13;&#10;To highlight the data displayed on the screen, the counter effect is also used by animation." left="20" top="Static00:2" height="80" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.animation.desc" right="20" width="880"/>
+        <ImageViewer id="ImageViewer00" taborder="2" left="20" top="Static01:10" width="600" height="150" image="url('imagerc::animation.gif')" border="0px none"/>
+        <Static id="Static00_00" taborder="3" text="Easing" left="20" top="ImageViewer00:20" width="79" height="30" cssclass="sta_WF_compTitle02" messageid="comp.animation" fittocontents="width"/>
+        <Static id="Static01_00" taborder="4" text="Specifies the rate at which animation effects are processed. There are three distinct values that specify the value of the easing property, except for &quot;linear&quot;. The first part is accompanied by the string &quot;ease&quot;. It is followed by a string of one of three strings: &quot;In&quot;, &quot;Out&quot;, and &quot;InOut&quot;. Combining the two strings is a string called &quot;ease in&quot;, which is a term used in the traditional animation industry. It means that the movement of an object begins slowly and becomes faster and faster. &quot;ease out&quot; is, on the contrary, starting fast and slowing down. They are also called &quot;slow in&quot; and &quot;slow out&quot;. &quot;ease in out&quot; speeds up like a car, giving it the fastest speed at midpoint and slowing down as it passes through midpoint. The last string is to determine the timing of the change in detail." left="20" top="Static00_00:2" height="140" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.animation.easing.desc" width="880"/>
+        <ImageViewer id="ImageViewer01" taborder="5" left="20" top="Static01_00:10" width="850" height="650" border="0px none" image="url('imagerc::animation_easing.png')"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

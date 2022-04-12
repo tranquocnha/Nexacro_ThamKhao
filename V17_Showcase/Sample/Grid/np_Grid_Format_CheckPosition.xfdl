@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Comp_Grid_Format_CheckPosition" left="0" top="0" width="1024" height="768" titletext="Comp_Grid_Format_CheckPosition">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="grd_output" taborder="1" useinputpanel="false" useselcolor="false" position="absolute" binddataset="ds_data" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;COL2&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:COL2&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" onlbuttondown="grd_output_onlbuttondown" left="30" top="78" width="500" height="200">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+                <Cell col="2" text="COL2"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL0"/>
+                <Cell col="1" text="bind:COL1"/>
+                <Cell col="2" text="bind:COL2"/>
+              </Band>
+              <Band id="summary">
+                <Cell/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="2" text="Distinguishing on Grid band(Head,Body) on clicking" cssclass="sta_WF_subtitP" left="30" top="18" width="700" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" preload="true" updatecontrol="true" useclientlayout="false" id="ds_data">
+        <ColumnInfo>
+          <Column id="COL0" size="256" type="STRING"/>
+          <Column id="COL1" size="256" type="STRING"/>
+          <Column type="STRING" size="256" id="COL2"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">Body</Col>
+            <Col id="COL1">Body</Col>
+            <Col id="COL2">Body</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Body</Col>
+            <Col id="COL1">Body</Col>
+            <Col id="COL2">Body</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Body</Col>
+            <Col id="COL1">Body</Col>
+            <Col id="COL2">Body</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Grid_Format_CheckPosition
+ * Description : Distinguishing on Grid band(Head,Body) on clicking
+ */
+
+/*  Mouse Right Click on Grid  */
+this.grd_output_onlbuttondown = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	if (e.row == -1)
+	{
+		alert("Head Band");
+	}
+	else if (e.row == -9)
+	{
+		alert("Blank Body");		
+	}
+	else if (e.row == -2)
+	{
+		alert("Summary Band");		
+	} else {
+
+		alert("Body Band");
+	}	
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TypeDefinition version="2.3">
+  <Modules>
+    <Module url="CompBase.json"/>
+    <Module url="ComComp.json"/>
+    <Module url="Grid.json"/>
+    <Module url="DeviceAPI.json"/>
+    <Module url="CommLib.json"/>
+    <Module url="TOBE.json"/>
+    <Module url="CMWebEditor.json"/>
+  </Modules>
+  <Components>
+    <Component type="JavaScript" id="Button" classname="nexacro.Button"/>
+    <Component type="JavaScript" id="Combo" classname="nexacro.Combo"/>
+    <Component type="JavaScript" id="Edit" classname="nexacro.Edit"/>
+    <Component type="JavaScript" id="MaskEdit" classname="nexacro.MaskEdit"/>
+    <Component type="JavaScript" id="TextArea" classname="nexacro.TextArea"/>
+    <Component type="JavaScript" id="Static" classname="nexacro.Static"/>
+    <Component type="JavaScript" id="Div" classname="nexacro.Div"/>
+    <Component type="JavaScript" id="PopupDiv" classname="nexacro.PopupDiv"/>
+    <Component type="JavaScript" id="Radio" classname="nexacro.Radio"/>
+    <Component type="JavaScript" id="CheckBox" classname="nexacro.CheckBox"/>
+    <Component type="JavaScript" id="ListBox" classname="nexacro.ListBox"/>
+    <Component type="JavaScript" id="Grid" classname="nexacro.Grid"/>
+    <Component type="JavaScript" id="Spin" classname="nexacro.Spin"/>
+    <Component type="JavaScript" id="Menu" classname="nexacro.Menu"/>
+    <Component type="JavaScript" id="PopupMenu" classname="nexacro.PopupMenu"/>
+    <Component type="JavaScript" id="Tab" classname="nexacro.Tab"/>
+    <Component type="JavaScript" id="GroupBox" classname="nexacro.GroupBox"/>
+    <Component type="JavaScript" id="Calendar" classname="nexacro.Calendar"/>
+    <Component type="JavaScript" id="ImageViewer" classname="nexacro.ImageViewer"/>
+    <Component type="JavaScript" id="ProgressBar" classname="nexacro.ProgressBar"/>
+    <Component type="JavaScript" id="Plugin" classname="nexacro.Plugin"/>
+    <Component type="JavaScript" id="Dataset" classname="nexacro.NormalDataset"/>
+    <Component id="WebBrowser" classname="nexacro.WebBrowser" type="JavaScript"/>
+    <Component type="JavaScript" id="FileDownload" classname="nexacro.FileDownload"/>
+    <Component type="JavaScript" id="FileUpload" classname="nexacro.FileUpload"/>
+    <Component type="JavaScript" id="VirtualFile" classname="nexacro.VirtualFile"/>
+    <Component type="JavaScript" id="FileDialog" classname="nexacro.FileDialog"/>
+    <Component type="JavaScript" id="CMWebEditor" classname="nexacro.CMWebEditor"/>
+  </Components>
+  <Services>
+    <Service prefixid="theme" type="resource" url="./_resource_/_theme_/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="initvalue" type="resource" url="./_resource_/_initvalue_/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="imagerc" type="resource" url="./_resource_/_images_/" cachelevel="session"/>
+    <Service prefixid="font" type="resource" url="./_resource_/_font_/" cachelevel="session"/>
+    <Service prefixid="Frame" type="form" url="./Frame/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Component" type="form" url="./Component/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="lib" type="js" url="./lib/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="template" type="form" url="./template/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="admin" type="form" url="./admin/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="guide" type="form" url="./guide/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="pattern" type="form" url="./pattern/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Application" type="form" url="./Sample/Application/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Grid" type="form" url="./Sample/Grid/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_DataSet" type="form" url="./Sample/DataSet/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Button" type="form" url="./Sample/Button/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Radio" type="form" url="./Sample/Radio/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Spin" type="form" url="./Sample/Spin/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Combo" type="form" url="./Sample/Combo/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_MaskEdit" type="form" url="./Sample/MaskEdit/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_ListBox" type="form" url="./Sample/ListBox/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Edit" type="form" url="./Sample/Edit/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_CheckBox" type="form" url="./Sample/CheckBox/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Div" type="form" url="./Sample/Div/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Shape" type="form" url="./Sample/Shape/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Form" type="form" url="./Sample/Form/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Applet" type="form" url="./Sample/Applet/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_ImageViewer" type="form" url="./Sample/ImageViewer/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_TabPage" type="form" url="./Sample/TabPage/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Static" type="form" url="./Sample/Static/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Calendar" type="form" url="./Sample/Calendar/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_ProgressBar" type="form" url="./Sample/ProgressBar/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Svc_org" type="JSP" url="http://172.10.13.60:9090/v13/Test/nexacro/Service/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="Sample_TextArea" type="form" url="./Sample/TextArea/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Script" type="form" url="./Sample/Script/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Image" type="file" url="./Images/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_FileUpDownload" type="form" url="./Sample/FileUpDownload/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Etc" type="form" url="./Sample/Etc/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Excel" type="form" url="./Sample/Excel/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Sample_Menu" type="form" url="./Sample/Menu/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="Svc" type="JSP" url="http://support.tobesoft.co.kr/Next_JSP/nexacro/Service/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="Sample_WebBrowser" type="form" url="./Sample/WebBrowser/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="xml" type="file" url="./xml/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="css" type="css" url="./css/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="test" type="form" url="./test/" version="0" communicationversion="0" cachelevel="session"/>
+    <Service prefixid="xcssrc" type="resource" url="./_resource_/_xcss_/" cachelevel="session"/>
+    <Service prefixid="codemirror" type="file" cachelevel="session" url="./codemirror/" include_subdir="true" version="0" communicationversion="0"/>
+  </Services>
+  <Protocols/>
+  <Update/>
+</TypeDefinition>

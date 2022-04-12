@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="findRowExpr" classname="C150525" left="0" top="0" width="1024" height="768" titletext="dataset findRowExpr">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="1" text="dataset findRowExpr" onclick="Static05_onclick" cssclass="sta_WF_subtitP" left="30" top="18" height="40" class="sta_WF_subtitle" verticalAlign="top" width="400"/>
+        <Static id="Static01" taborder="5" text="department" left="30" top="78" height="40" width="80"/>
+        <Edit id="ed_department" taborder="0" left="115" top="78" height="40" value="Sale" width="160"/>
+        <Button id="Button01" taborder="3" text="%Like%" onclick="Button00_onclick" left="547" top="78" height="40" width="90"/>
+        <Grid id="Grid01" taborder="4" binddataset="ds_data" useinputpanel="false" left="30" top="132" height="350" autofittype="col" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="180"/>
+                <Column size="200"/>
+                <Column size="100"/>
+                <Column size="151"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="group"/>
+                <Cell col="1" text="department"/>
+                <Cell col="2" text="employee"/>
+                <Cell col="3" text="telno"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:group" suppress="1"/>
+                <Cell col="1" style="align:left;" text="bind:department" suppress="1"/>
+                <Cell col="2" style="align:left;" text="bind:employee"/>
+                <Cell col="3" text="bind:telno"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static02" taborder="6" text="employee" left="295" top="78" height="40" width="70"/>
+        <Edit id="ed_employee" taborder="2" left="367" top="78" height="40" value="Ja" width="160"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="group" type="STRING" size="256"/>
+          <Column type="STRING" size="255" id="department"/>
+          <Column type="STRING" size="256" id="employee"/>
+          <Column id="telno" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Tom</Col>
+            <Col id="group">Technical Group</Col>
+            <Col id="telno">02-1234-0001</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Jany</Col>
+            <Col id="telno">02-1234-0002</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Piter</Col>
+            <Col id="telno">02-1234-0003</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Superman</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0004</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Jack</Col>
+            <Col id="telno">02-1234-0005</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group1</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Tony</Col>
+            <Col id="telno">02-1234-0006</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Sujan</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0007</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Mac</Col>
+            <Col id="telno">02-1234-0008</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Ann</Col>
+            <Col id="telno">02-1234-0009</Col>
+          </Row>
+          <Row>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Bess</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="telno">02-1234-0010</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Dana</Col>
+            <Col id="telno">02-1234-0011</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Elin</Col>
+            <Col id="telno">02-1234-0012</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nRow = this.ds_data.findRowExpr("department.toString().indexOf('" + this.ed_department.value.replace("'","\\'") + "')>=0&&employee.toString().indexOf('" + this.ed_employee.value.replace("'","\\'") + "')>=0");
+	
+   
+	if(nRow >= 0)
+	{
+		this.ds_data.set_rowposition(nRow);  
+	} else {
+		this.alert("There is no matched conditions.");
+		return;
+	}	
+};
+   
+             ]]></Script>
+  </Form>
+</FDL>

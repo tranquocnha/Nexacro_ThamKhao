@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_Tab_Sub111111" width="480" height="350" titletext="Component-Tab Sub">
+    <Layouts>
+      <Layout height="350" mobileorientation="landscape" width="480">
+        <Static id="Static00" taborder="2" text="this.parent.parent.parent.edt_text.value;" left="18" top="282" width="294" height="30"/>
+        <Button id="btn_tabBtn" taborder="0" text="Get" left="18" top="312" width="70" height="30" onclick="btn_tabBtn_onclick"/>
+        <Edit id="edt_text" taborder="1" left="98" top="312" width="150" height="30"/>
+        <Grid id="Grid01" taborder="3" left="10" top="10" height="162" binddataset="ds_sub" right="11" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="32"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Name"/>
+                <Cell col="1" text="Hire Date"/>
+                <Cell col="2" text="Salary"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:FULL_NAME"/>
+                <Cell col="1" text="bind:HIRE_DATE"/>
+                <Cell col="2" text="bind:SALARY"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static03" taborder="4" text=" Tabpage To Form Component" left="8" top="252" width="290" height="30" cssclass="sta_WF_TypeTitle" positionstep="0"/>
+        <Static id="Static08" taborder="5" text="Name" left="10" top="182" width="80" height="30"/>
+        <Edit id="Edit00" taborder="6" top="182" width="132" height="30" right="256"/>
+        <Static id="Static01" taborder="7" text="Hire Date" left="254" top="181" width="80" height="30"/>
+        <Calendar id="Calendar00" taborder="8" top="181" width="132" height="30" right="12"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.btn_tabBtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.parent.parent.parent.edt_text.value;
+	this.edt_text.set_value(sRtn);
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_sub" keystring="">
+        <ColumnInfo>
+          <Column id="EMPL_ID" type="STRING" size="10"/>
+          <Column id="FULL_NAME" type="STRING" size="50"/>
+          <Column id="DEPT_CD" type="STRING" size="10"/>
+          <Column id="HIRE_DATE" type="DATE" size="10"/>
+          <Column id="SALARY" type="INT" size="10"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="FULL_NAME">Maia</Col>
+            <Col id="HIRE_DATE">20101003</Col>
+            <Col id="SALARY">83000</Col>
+            <Col id="DEPT_CD">01</Col>
+            <Col id="EMPL_ID">XX100</Col>
+          </Row>
+          <Row>
+            <Col id="FULL_NAME">Ray</Col>
+            <Col id="HIRE_DATE">20051011</Col>
+            <Col id="SALARY">76000</Col>
+            <Col id="DEPT_CD">02</Col>
+            <Col id="EMPL_ID">YY200</Col>
+          </Row>
+          <Row>
+            <Col id="FULL_NAME">Jack</Col>
+            <Col id="HIRE_DATE">20070206</Col>
+            <Col id="SALARY">95000</Col>
+            <Col id="DEPT_CD">02</Col>
+            <Col id="EMPL_ID">ZZ300</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Edit00" propid="value" datasetid="ds_sub" columnid="FULL_NAME"/>
+      <BindItem id="item1" compid="Calendar00" propid="value" datasetid="ds_sub" columnid="HIRE_DATE"/>
+    </Bind>
+  </Form>
+</FDL>

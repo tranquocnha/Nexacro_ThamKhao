@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Sample_Tip_RegisteryValue" classname="np_Sample_Tip_RegisteryValue" left="0" top="0" width="760" height="430" titletext="Find Service Pack Information">
+    <Layouts>
+      <Layout>
+        <Static id="Static07" taborder="0" text="This script is used to find Service pack information" cssclass="sta_WF_explain" left="30" top="25" width="400" height="20" style="font:bold 9 Dotum;"/>
+        <Button id="Button00" taborder="1" text="Find Detail" left="30" top="55" height="40" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="200"/>
+        <Static id="Static00" taborder="2" text="OS Version" left="30" top="145" right="81.32%" height="15" cssclass="sta_WF_explain"/>
+        <Static id="Static01" taborder="3" text="Service pack" left="30" top="180" right="83.16%" height="16" cssclass="sta_WF_explain"/>
+        <Static id="Stt_SP" taborder="4" left="260" top="112" height="30" style="color:#415079ff;font:bold 9 Dotum;" width="300"/>
+        <Static id="Stt_OS" taborder="5" left="260" top="72" height="30" style="border:0 none #808080ff ;color:#415079ff;font:bold 9 Dotum;" width="300"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	this.Stt_OS.set_text(system.osversion);
+	//if(system.osversion=="Windows XP") {
+
+	if( system.navigatorname != "nexacro" ){
+		this.Stt_SP.set_text("HTML5에서는 정보를 가져올 수 없습니다.");
+		return; 
+	}	
+	// Vesrion of OS, in case of Window XP,Window 7 etc
+	// 넥사크로16 버전의 ExtCommon 2016.11월 기준 미적용
+	var strPATH = system.convertRealPath("%EXECUTE%") + "\\ExtCommonV13.dll";  //Location of dll file, in the nexacro installed folder.
+	/*
+	var Extension = {}; //object 명.
+	var strPATH = system.convertRealPath("%EXECUTE%") + "\\ExtCommonV13.dll";  //Location of dll file, in the nexacro installed folder.
+	
+	trace("strPATH :: " + strPATH);
+	
+	var ret = nexacro._addExtensionModule(Extension, strPATH);
+
+	var strKey = "HKEY_LOCAL_MACHINE";  
+	var strPath = "SYSTEM\\CurrentControlSet\\Control\\Windows\\";  // This is location of Service pack on the machine for windows
+	var strName = "CSDVersion";
+	*/
+	/*
+		sp1 256 
+		sp2 512 
+		sp3 768
+	*/
+	
+	// 넥사크로16 버전의 ExtCommon 2016.11월 기준 미적용
+	/*
+	var rtn = Extension._ext_getRegValue(strKey, strPath, strName, "DWORD");
+
+	if(rtn==768) {
+		this.Stt_SP.set_text("SP3");
+		
+	}else if(rtn==512) {
+		this.Stt_SP.set_text("SP2");
+		
+	}else if(rtn==256) {
+	
+		this.Stt_SP.set_text("SP1");
+		
+	}else {
+	
+		this.Stt_SP.set_text("unknown");
+	}
+	*/
+	
+	nexacro._clearExtensionModule(strPATH);
+	//} 
+	
+
+}
+]]></Script>
+  </Form>
+</FDL>

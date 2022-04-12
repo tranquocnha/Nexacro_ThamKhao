@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Supress" classname="Supress" left="0" top="0" width="760" height="510" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="68" width="400" height="376" binddataset="ds_data" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="171"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="State"/>
+                <Cell col="1" text="City"/>
+                <Cell col="2" text="Candidate"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="combo" text="bind:state" suppress="1" combodataset="ds_cmb" combocodecol="CODE" combodatacol="NAME"/>
+                <Cell col="1" text="bind:city" suppress="2"/>
+                <Cell col="2" text="bind:candidate"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="1" binddataset="ds_data" useinputpanel="false" left="440" top="68" height="376" width="400" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="88"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="State"/>
+                <Cell col="1" text="City"/>
+                <Cell col="2" text="Candidate"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="combo" text="bind:state" suppress="0" combodataset="ds_cmb" combocodecol="CODE" combodatacol="NAME"/>
+                <Cell col="1" text="bind:city" suppress="0"/>
+                <Cell col="2" text="bind:candidate"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="2" text="State Column Suppress" left="470" top="464" height="40" onclick="Button00_onclick" width="180" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button01" taborder="3" text="City Column  Suppress" left="660" top="464" height="40" onclick="Button01_onclick" width="180" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static07" taborder="4" text="This is sample shows suppress of columns" cssclass="sta_WF_subtitP" left="30" top="13" width="600" height="40" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="state" type="STRING" size="256"/>
+          <Column id="city" type="STRING" size="256"/>
+          <Column id="candidate" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="city">San Diego</Col>
+            <Col id="candidate">Sophia</Col>
+            <Col id="state">1</Col>
+          </Row>
+          <Row>
+            <Col id="city">San Diego</Col>
+            <Col id="candidate">Olivia</Col>
+            <Col id="state">1</Col>
+          </Row>
+          <Row>
+            <Col id="city">San Jose</Col>
+            <Col id="candidate">Sophia</Col>
+            <Col id="state">1</Col>
+          </Row>
+          <Row>
+            <Col id="city">San Diego</Col>
+            <Col id="candidate">Isabella</Col>
+            <Col id="state">1</Col>
+          </Row>
+          <Row>
+            <Col id="state">1</Col>
+            <Col id="city">San Diego</Col>
+            <Col id="candidate">Sophia</Col>
+          </Row>
+          <Row>
+            <Col id="state">1</Col>
+            <Col id="city">San Diego</Col>
+            <Col id="candidate">Mia</Col>
+          </Row>
+          <Row>
+            <Col id="state">1</Col>
+            <Col id="city">San Diego</Col>
+            <Col id="candidate">Jacob</Col>
+          </Row>
+          <Row>
+            <Col id="state">1</Col>
+            <Col id="candidate">William</Col>
+            <Col id="city">Bakersfield</Col>
+          </Row>
+          <Row>
+            <Col id="candidate">Alexander</Col>
+            <Col id="city">Bakersfield</Col>
+            <Col id="state">1</Col>
+          </Row>
+          <Row>
+            <Col id="city">Bakersfield</Col>
+            <Col id="candidate">Michael</Col>
+            <Col id="state">1</Col>
+          </Row>
+          <Row>
+            <Col id="city">Riverside</Col>
+            <Col id="state">1</Col>
+            <Col id="candidate">Alexander</Col>
+          </Row>
+          <Row>
+            <Col id="city">Albany</Col>
+            <Col id="state">2</Col>
+            <Col id="candidate">James</Col>
+          </Row>
+          <Row>
+            <Col id="city">Amsterdam</Col>
+            <Col id="state">2</Col>
+            <Col id="candidate">Daniel</Col>
+          </Row>
+          <Row>
+            <Col id="city">Amsterdam</Col>
+            <Col id="state">2</Col>
+            <Col id="candidate">Oliver</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_cmb" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="NAME">California</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2</Col>
+            <Col id="NAME">Los Angles</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bSucc = this.Grid01.setCellProperty( "Body", 0, "suppress", 1);
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bSucc = this.Grid01.setCellProperty( "Body", 1, "suppress", 2);
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,11 @@
+﻿{
+	"name": "CommLib",
+	"version": "0.0.0.1",
+	"description": "CommLib JS for nexacro common",
+	"license": "",
+	"scripts": [
+	    "CommLib/lib_Form.js"
+	]
+} 
+//@ sourceURL=CommLib.json
+

@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="CopyGriddata" left="0" top="0" width="1024" height="768" titletext="Copy the Grid data and paste into another Grid">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="buseoGrid01" taborder="0" binddataset="ds_buseoList01" useinputpanel="false" selecttype="area" autofittype="col" onkeydown="Grid_onkeydown" left="30" top="118" height="222" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="UP_BUSEO_CD"/>
+                <Cell col="1" text="BUSEO_CD"/>
+                <Cell col="2" text="BUSEO_NM"/>
+                <Cell col="3" text="BUSEO_LVL"/>
+                <Cell col="4" text="JUYA_GBCD"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:UP_BUSEO_CD"/>
+                <Cell col="1" text="bind:BUSEO_CD"/>
+                <Cell col="2" text="bind:BUSEO_NM"/>
+                <Cell col="3" text="bind:BUSEO_LVL"/>
+                <Cell col="4" text="bind:JUYA_GBCD"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="30" top="430" height="222" binddataset="Dataset00" onkeydown="Grid00_onkeydown" autofittype="col" selecttype="area" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+                <Cell col="4" text="Column4"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:Column0"/>
+                <Cell col="1" edittype="normal" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" edittype="none" text="bind:Column3"/>
+                <Cell col="4" edittype="normal" text="bind:Column4"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="2" text="Copy the Grid data and paste into another Grid" onclick="Static00_onclick" left="30" top="18" height="40" cssclass="sta_WF_subtitP" width="700"/>
+        <Static id="Static01" taborder="3" text="Copy data from this Grid, using ctrl+c" onclick="Static00_onclick" cssclass="sta_WF_explain" left="30" top="78" height="30" width="600"/>
+        <Static id="Static02" taborder="4" text="Paste the data in this Grid, using ctrl+v" onclick="Static00_onclick" cssclass="sta_WF_explain" left="30" top="390" height="30" width="600"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_buseoList01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="UP_BUSEO_CD" type="STRING" size="256"/>
+          <Column id="BUSEO_CD" type="STRING" size="256"/>
+          <Column id="BUSEO_NM" type="STRING" size="256"/>
+          <Column id="BUSEO_LVL" type="STRING" size="256"/>
+          <Column id="JUYA_GBCD" type="STRING" size="256"/>
+          <Column id="SAYONG_YN" type="STRING" size="256"/>
+          <Column id="SORT" type="STRING" size="256"/>
+          <Column id="SORT2" type="STRING" size="256"/>
+          <Column id="SORT3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="UP_BUSEO_CD">00000001</Col>
+            <Col id="BUSEO_CD">00000000</Col>
+            <Col id="BUSEO_NM">Test</Col>
+            <Col id="BUSEO_LVL">1</Col>
+            <Col id="JUYA_GBCD">1</Col>
+            <Col id="SAYONG_YN">1</Col>
+            <Col id="SORT">1</Col>
+            <Col id="SORT2">1</Col>
+            <Col id="SORT3">01</Col>
+          </Row>
+          <Row>
+            <Col id="UP_BUSEO_CD">00000002</Col>
+            <Col id="BUSEO_CD">10000001</Col>
+            <Col id="BUSEO_NM">Test</Col>
+            <Col id="BUSEO_LVL">2</Col>
+            <Col id="JUYA_GBCD">1</Col>
+            <Col id="SAYONG_YN">1</Col>
+            <Col id="SORT">1</Col>
+            <Col id="SORT2">2</Col>
+            <Col id="SORT3">02</Col>
+          </Row>
+          <Row>
+            <Col id="UP_BUSEO_CD">00000003</Col>
+            <Col id="BUSEO_CD">20000002</Col>
+            <Col id="BUSEO_NM">Test</Col>
+            <Col id="BUSEO_LVL">2</Col>
+            <Col id="JUYA_GBCD">1</Col>
+            <Col id="SAYONG_YN">1</Col>
+            <Col id="SORT">2</Col>
+            <Col id="SORT2">3</Col>
+            <Col id="SORT3">03</Col>
+          </Row>
+          <Row>
+            <Col id="UP_BUSEO_CD">00000004</Col>
+            <Col id="BUSEO_CD">30000003</Col>
+            <Col id="BUSEO_NM">Test</Col>
+            <Col id="BUSEO_LVL">2</Col>
+            <Col id="JUYA_GBCD">1</Col>
+            <Col id="SAYONG_YN">1</Col>
+            <Col id="SORT">3</Col>
+            <Col id="SORT2">4</Col>
+            <Col id="SORT3">04</Col>
+          </Row>
+          <Row>
+            <Col id="UP_BUSEO_CD">00000005</Col>
+            <Col id="BUSEO_CD">40000004</Col>
+            <Col id="BUSEO_NM">Test</Col>
+            <Col id="BUSEO_LVL">2</Col>
+            <Col id="JUYA_GBCD">1</Col>
+            <Col id="SAYONG_YN">1</Col>
+            <Col id="SORT">4</Col>
+            <Col id="SORT2">5</Col>
+            <Col id="SORT3">05</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0"/>
+            <Col id="Column1"/>
+            <Col id="Column2"/>
+            <Col id="Column3"/>
+            <Col id="Column4"/>
+          </Row>
+          <Row>
+            <Col id="Column0"/>
+            <Col id="Column1"/>
+            <Col id="Column4"/>
+            <Col id="Column3"/>
+            <Col id="Column2"/>
+          </Row>
+          <Row>
+            <Col id="Column0"/>
+            <Col id="Column1"/>
+            <Col id="Column2"/>
+            <Col id="Column3"/>
+            <Col id="Column4"/>
+          </Row>
+          <Row>
+            <Col id="Column0"/>
+            <Col id="Column1"/>
+            <Col id="Column2"/>
+            <Col id="Column3"/>
+            <Col id="Column4"/>
+          </Row>
+          <Row>
+            <Col id="Column0"/>
+            <Col id="Column1"/>
+            <Col id="Column2"/>
+            <Col id="Column3"/>
+            <Col id="Column4"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[//Form variable
+this.Clipboard = "";
+
+/* Grid's keydown event */
+this.Grid_onkeydown = function(obj:Grid, e:nexacro.KeyEventInfo)
+{
+	//Copy(Ctrl + C), paste(Ctrl + V) calling copy and paste common function
+
+	this.gfn_grdCopy_Paste(obj, e);
+}
+
+this.Grid00_onkeydown = function(obj:Grid, e:nexacro.KeyEventInfo)
+{
+	this.gfn_grdCopy_Paste(obj, e);
+}
+
+/**
+* Grid/Excel Copy & Paste
+* @param : obj	- Grid Object
+* @param e		- Event Info
+* @return : N/A
+* @example : gfn_grdCopy_Paste(obj, e)
+*/
+this.gfn_grdCopy_Paste = function (obj, e)
+{
+	if(e.ctrlkey){
+		if(e.keycode == 67){
+			// Processing data copy using ctrl + c key
+			var strGrdDsNm = obj.binddataset;
+			var v_clip = "";
+			var strSeperate = "	";
+			
+			for (var i=obj.selectstartrow;i<=obj.selectendrow;i++) {
+				for (var j=obj.selectstartcol;j<=obj.selectendcol;j++) {
+					if (j < obj.selectendcol) {
+						v_clip += obj.getCellValue(i,j) + strSeperate;
+					} else {
+						v_clip += obj.getCellValue(i,j);
+					}
+				}
+				if (i < obj.selectendrow) {
+					
+					v_clip += "/";
+				}
+			}
+			
+			v_clip += "/";
+			this.Clipboard = "";
+			this.Clipboard = v_clip;
+			
+			
+		} else if(e.keycode == 86) {
+			//Paste the data
+			// return in case of applying edit functionality
+			var vCurEditType = obj.getCurEditType();
+			if(vCurEditType != "none"){
+				var isT = this.Grid00.getEditCaret();
+				if(!this.utlf_IsNull(isT)){
+					return;
+				}
+			}
+	
+			var bAddrow = true;
+			
+			if (!this.utlf_IsNull(this.gfn_grdCopy_Paste.arguments[2])) {
+				bAddrow = this.gfn_grdCopy_Paste.arguments[2];
+			}
+			
+			//Grid Binddataset
+			var strGrdDsNm = obj.binddataset;
+			//cell count
+			var nGrdCellCnt = obj.getCellCount("body");
+			//cell position
+			var nGrdCellPos = obj.getCellPos();		
+			//row position
+			var nRowPos = eval("this." + strGrdDsNm).rowposition;
+			//arrText2 index
+			var k = 0;
+			//Dataset rowcount
+			var nDsRowCnt = eval("this." + strGrdDsNm).getRowCount();		
+			
+			var t_clip = this.Clipboard;
+			var strText = new String(t_clip);
+			var arrText = new Array();
+			var arrText2 = new Array();			
+			arrText = strText.split("/");
+			
+			if (nDsRowCnt < (arrText.length + nRowPos -1)) {
+				if (bAddrow) {
+					
+				} else {
+					return false;
+				}			
+			}			
+			//The number of rows which can be copied
+			var oDs =  eval("this." + strGrdDsNm);
+			for (var i=0;i<arrText.length;i++) {
+				
+				if (this.utlf_IsNull(arrText[i])) {
+					return;
+				}
+				arrText2 = arrText[i].split("	");
+				
+				//If the numbers are more than the existing rows of the dataset
+				if ( nDsRowCnt <= nRowPos) {
+					var nAddrow = oDs.addRow();
+				}
+				
+				var nLoopCnt = (nGrdCellPos + arrText2.length);
+				if (nLoopCnt > nGrdCellCnt) {
+					nLoopCnt = nGrdCellCnt;
+				}
+				
+				//Dataset setcolumn
+				k = 0;
+				for (var j=nGrdCellPos;j<nLoopCnt;j++) {
+					var colid = obj.getCellProperty("body", j, "text").substr(5);
+				
+					oDs.setColumn(nRowPos, colid, arrText2[k]);
+					
+					k++;
+				}				
+				nRowPos++;
+				eval("this." + strGrdDsNm).rowposition = nRowPos;
+			}
+		}
+	}
+
+}
+
+/**
+
+* Checking the value of Null.
+* @param : sValue - verifying Null value 
+* @return : true/false
+* @example : utlf_IsNull(sValue);
+*/
+this.utlf_IsNull = function (sValue)
+{
+	if( new String(sValue).valueOf() == "undefined") 
+		return true;
+	if( sValue == null )
+		return true;
+	if( ("x"+sValue == "xNaN") && ( new String(sValue.length).valueOf() == "undefined" ) )
+		return true;
+	if( sValue.length == 0 )
+		return true;
+	return false;
+}]]></Script>
+  </Form>
+</FDL>

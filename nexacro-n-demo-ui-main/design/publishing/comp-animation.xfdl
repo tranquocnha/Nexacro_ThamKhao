@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="550" onload="form_onload" ontimer="form_ontimer">
+    <Layouts>
+      <Layout height="550" width="920">
+        <Static id="Static01" taborder="0" text="Animation" left="20" top="20" width="121" height="40" cssclass="sta_WF_pageTitle" fittocontents="width" messageid="comp.animation"/>
+        <Static id="Static02" taborder="1" text="Circle Menu" left="20" top="72" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="comp.animation.circlemenu"/>
+        <Static id="Static03" taborder="2" text="Image Slide" left="470" top="72" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="comp.animation.imageslide"/>
+        <Static id="stButton" taborder="9" left="100" top="160" width="250" height="250" cssclass="sta_WF_stWorld"/>
+        <Div id="divBanner" taborder="10" left="515" top="130" width="320" height="320" text="" cssclass="div_WF_bannerBox"/>
+        <Button id="btnPrev" taborder="11" left="463" top="260" width="32" height="60" onclick="btnPrev_onclick" cssclass="btn_WF_slidePrev"/>
+        <Button id="btnNext" taborder="12" top="260" width="32" height="60" onclick="btnNext_onclick" cssclass="btn_WF_slideNext" left="855"/>
+        <Static id="stMenu01" taborder="3" left="130" top="430" width="70" height="70" visible="false" cssclass="sta_WF_stSNS01"/>
+        <Static id="stMenu02" taborder="4" left="130" top="550" width="70" height="70" visible="false" cssclass="sta_WF_stSNS02"/>
+        <Static id="stMenu03" taborder="5" left="130" top="670" width="70" height="70" visible="false" cssclass="sta_WF_stSNS03"/>
+        <Static id="stMenu04" taborder="6" left="260" top="430" width="70" height="70" visible="false" cssclass="sta_WF_stSNS04"/>
+        <Static id="stMenu05" taborder="7" left="260" top="550" width="70" height="70" visible="false" cssclass="sta_WF_stSNS05"/>
+        <Static id="stMenu06" taborder="8" left="260" top="670" width="70" height="70" visible="false" cssclass="sta_WF_stSNS06"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsImageList">
+        <ColumnInfo>
+          <Column id="img" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="img">imagerc::Animation/img_WF_bannerImg01.png</Col>
+          </Row>
+          <Row>
+            <Col id="img">imagerc::Animation/img_WF_bannerImg02.png</Col>
+          </Row>
+          <Row>
+            <Col id="img">imagerc::Animation/img_WF_bannerImg03.png</Col>
+          </Row>
+          <Row>
+            <Col id="img">imagerc::Animation/img_WF_bannerImg04.png</Col>
+          </Row>
+          <Row>
+            <Col id="img">imagerc::Animation/img_WF_bannerImg05.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	this.fnInitAniMenu();
+	this.fnInitSlideImage(this.divBanner, this.dsImageList);
+	
+	this.setTimer(0, 3000);
+	this.setTimer(1, 2000);
+};
+
+this.fnInitAniMenu = function()
+{
+	var objAni = new nexacro.Animation("aniMenuOpen", this);
+	this.addChild(objAni.name, objAni);
+	
+	this.stButton.aniIdx = 0;
+	
+	objAni.set_duration(500);
+	objAni.set_easing("easeoutcirc");
+	objAni.addTarget("AniItem00", this.stButton, "aniIdx:100");
+	objAni.addEventHandler("onrun", this.ani_onrun, this);
+	
+	objAni = new nexacro.Animation("aniMenuClose", this);  
+	this.addChild(objAni.name, objAni);
+	
+	objAni.set_duration(500);
+	objAni.set_easing("easeoutcirc");
+	objAni.addTarget("AniItem00", this.stButton, "aniIdx:0");
+	objAni.addEventHandler("onrun", this.ani_onrun, this);
+};
+
+this.fnInitSlideImage = function(objDiv, objDs)
+{
+	var objAni;
+	
+	objDiv.set_formscrollbartype("none");
+	
+	this.fnClearSlideImage(objDiv);
+	this.fnCreateSlideImage(objDiv, objDs);
+	
+	objAni = this.fnCreateSlideImageAni(objDiv);
+	
+	objDiv.stepIdx = 0;
+	objDiv.targetAni = objAni;
+	
+	objDiv.form.resetScroll();
+};
+
+this.ani_onrun = function(obj:nexacro.Animation,e:nexacro.AnimationEventInfo)
+{
+	var i, objMenu,
+		arrAngle = [1.04, 2.08, 3.12, 4.16, 5.20, 6.24],
+		nCenterX = this.stButton.getOffsetLeft() + (this.stButton.getOffsetWidth()/2),
+		nCenterY = this.stButton.getOffsetTop() + (this.stButton.getOffsetHeight()/2),
+		nAniIdx = this.stButton.aniIdx,
+		nMenuSize = 100,
+		nMenuGap = 150,
+		x, y, r, nStep;
+	
+	r = nMenuGap * (nAniIdx/100);
+	size = nMenuSize * (nAniIdx/100);
+	
+	for (i = 0; i < 6; i++) {
+		nStep = arrAngle[i] * (nAniIdx/100);
+		x = r * Math.cos(nStep);
+		y = r * Math.sin(nStep);
+		
+		objMenu = this.components["stMenu0"+(i+1)];
+		objMenu.move(nCenterX+x-(nMenuSize/2), nCenterY+y-(nMenuSize/2), size, size);
+	}
+};
+
+this.fnClearSlideImage = function(objDiv)
+{
+	var i,
+		objComponents = objDiv.form.components,
+		nCount = objComponents.length,
+		objDelete;
+	
+	for (i = nCount-1; i >= 0; i--) {
+		objDelete = objDiv.form.removeChild(objComponents[i].name);
+		objDelete.destroy();
+		objDelete = null;
+	}
+	
+	objDiv.form.resetScroll();
+};
+
+this.fnCreateSlideImage = function(objDiv, objDs)
+{
+	var i, nCount = objDs.rowcount,
+		nLeft = 0, nTop = 0,
+		nWidth = objDiv.getOffsetWidth(),
+		nHeight = objDiv.getOffsetHeight(),
+		objImgViewer, sImg;
+	
+	for (i = 0; i < nCount; i++) {
+		sImg = objDs.getColumn(i, "img");
+		
+		objImgViewer = new ImageViewer("imgView"+i, nLeft, nTop, nWidth, nHeight, null, null);
+		objDiv.form.addChild(objImgViewer.name, objImgViewer); 
+		objImgViewer.show();
+		
+		objImgViewer.set_image(sImg);
+		objImgViewer.set_stretch("fit");
+		
+		nLeft = objImgViewer.getOffsetLeft() + objImgViewer.getOffsetWidth();
+	}
+};
+
+this.fnCreateSlideImageAni = function(objDiv)
+{
+	var objAni;
+	
+	if (this.isValidObject(objDiv.name+"_ani")) {
+		objAni = this.all[objDiv.name+"_ani"];
+	} else {
+		objAni = new nexacro.Animation(objDiv.name+"_ani", this);  
+		this.addChild( objAni.name, objAni );
+		
+		objAni.set_duration(500);
+		objAni.set_easing("easeOutCubic");
+		objAni.addTarget("AniItem00", objDiv, "aniIdx:100");
+		objAni.targetComp = objDiv;
+		
+		objAni.addEventHandler("onrun", this.fnSlideImage_onrun, this);
+	}
+	
+	objDiv.aniIdx = 0;	
+	
+	return objAni;
+};
+
+this.fnSlideImage_onrun = function(obj:nexacro.Animation,e:nexacro.AnimationEventInfo)
+{
+	var objDiv = obj.targetComp,
+		nHPos = objDiv.startScrollPos + (objDiv.changeScrollPos * (objDiv.aniIdx/100));
+	
+	objDiv.form.scrollTo(nHPos, 0);
+};
+
+this.fnSetSlideImage = function(objDiv, nIdx)
+{
+	var objImgViewer = objDiv.form.components["imgView"+nIdx],
+		nStartScrollPos = objDiv.form.getHScrollPos(),
+		nChangeScrollPos = nexacro.toNumber(objImgViewer.getOffsetLeft());
+	
+	objDiv.startScrollPos = nStartScrollPos;
+	objDiv.changeScrollPos = nChangeScrollPos - nStartScrollPos;
+	objDiv.aniIdx = 0;
+	objDiv.stepIdx = nIdx;
+	
+	objDiv.targetAni.play();
+};
+
+this.form_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
+{
+	if (e.timerid == 0) {
+		if (this.stButton.status=="open") {
+			this.stButton.status = "close";
+			this.aniMenuClose.play();
+		} else {
+			for (var i = 0; i < 6; i++) {
+				objMenu = this.components["stMenu0"+(i+1)];
+				objMenu.set_visible(true);
+			}
+			this.stButton.status = "open";
+			this.aniMenuOpen.play();
+		}
+	} else if (e.timerid == 1) {
+		this.btnNext.click();
+	}
+};
+
+this.btnPrev_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var nCount = this.divBanner.form.components.length;
+	
+	if (this.divBanner.stepIdx > 0) {
+		this.fnSetSlideImage(this.divBanner, this.divBanner.stepIdx-1);
+	} else {
+		this.fnSetSlideImage(this.divBanner, nCount-1);
+	}
+};
+
+this.btnNext_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var nCount = this.divBanner.form.components.length;
+	
+	if (this.divBanner.stepIdx+1 < nCount) {
+		this.fnSetSlideImage(this.divBanner, this.divBanner.stepIdx+1);
+	} else {
+		this.fnSetSlideImage(this.divBanner, 0);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

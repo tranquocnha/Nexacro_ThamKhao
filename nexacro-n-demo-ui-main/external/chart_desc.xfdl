@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="250" onload="form_onload">
+    <Layouts>
+      <Layout height="250" width="440">
+        <Static id="Static00" taborder="1" text="Chart" left="20" top="19" width="150" height="30" cssclass="sta_WF_compTitle02" messageid="external.chart" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="Riamoresoft's rMate Chart is a web chart component for desktops and mobile devices that enables rapid development through the world's largest number of chart types and 450 samples. A separate development kit is provided for ease of use on the Nexacro Platform.(URL: &lt;l v='http://riamore.net/'&gt;http://riamore.net/&lt;/l&gt;)" left="20" top="Static00:2" height="120" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="external.chart.desc" usedecorate="true" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};]]></Script>
+  </Form>
+</FDL>

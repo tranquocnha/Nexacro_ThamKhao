@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="mobile_work" width="480" height="664" titletext="New Form">
+    <Layouts>
+      <Layout height="664" mobileorientation="landscape" width="480">
+        <Static id="Static00" taborder="0" text="Function" left="20" top="20" height="40" right="20" cssclass="sta_WF_compTitle02"/>
+        <Button id="Button00" taborder="1" width="50" height="50" right="20" bottom="75" cssclass="btn_WF_descM"/>
+        <Button id="Button00_00" taborder="2" width="50" height="50" right="20" bottom="20" cssclass="btn_WF_toTop"/>
+        <Static id="Static01" taborder="3" top="0" width="20" height="664" background="palegreen" right="0" visible="false"/>
+        <Static id="Static01_00" taborder="4" top="0" width="20" height="664" background="palegreen" left="0" visible="false"/>
+        <Static id="Static02" taborder="5" text="Mobile 좌우 여백&#13;&#10;20px" left="490" top="30" width="120" height="60" background="lightpink" visible="false"/>
+        <Static id="Static03" taborder="6" top="0" height="20" right="20" left="20" background="palegreen"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

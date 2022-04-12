@@ -1,0 +1,14 @@
+﻿comForm ={
+
+	gf_AddPage : function(strMenuId)
+	{
+	   alert("gf_AddPage:"+strMenuId);
+	}
+
+function gf_AddPage2(strMenuId)
+{
+	alert("gf_AddPage2:"+strMenuId);
+}
+
+};
+ 

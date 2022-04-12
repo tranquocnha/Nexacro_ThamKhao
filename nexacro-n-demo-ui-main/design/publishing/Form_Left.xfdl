@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Left" width="280" height="720" titletext="Form_Left" scrollbarsize="0" background="#ffffff">
+    <Layouts>
+      <Layout width="280" height="720" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" text="Grid" left="30" top="0" height="60" cssclass="sta_LF_menuTitle01" right="0"/>
+        <Div id="Div00" taborder="1" text="Div00" left="0" top="60" width="280" bottom="22">
+          <Layouts>
+            <Layout>
+              <Button id="Button00" taborder="0" text="Function" left="0" top="10" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_00" taborder="1" text="Renderer" left="0" top="60" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_01" taborder="2" text="Pagination" left="0" top="110" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_00_00" taborder="3" text="Export" left="0" top="160" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_02" taborder="4" text="Import" left="0" top="210" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_00_01" taborder="5" text="Personalization" left="0" top="260" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_03" taborder="6" text="Large Data" left="0" top="310" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_00_02" taborder="7" text="Pivot" left="0" top="360" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_01_00" taborder="8" text="Drag &amp; Drop" left="0" top="410" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_00_00_00" taborder="9" text="Dynamic Grid" left="0" top="460" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+              <Button id="Button00_02_00" taborder="10" text="Quantum Grid" left="0" top="510" width="280" height="50" cssclass="btn_LF_Lmenu"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="Button00" taborder="2" text="Function" left="290" top="70" width="280" height="50" cssclass="btn_LF_LmenuS" visible="false"/>
+        <Static id="Static01" taborder="3" text="선택된 상태" left="450" top="135" width="120" height="60" background="lemonchiffon" visible="false"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

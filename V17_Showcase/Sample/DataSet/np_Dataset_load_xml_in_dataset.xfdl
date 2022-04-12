@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="main" classname="main" left="0" top="0" width="760" height="450" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="load XML" left="30" top="78" height="40" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="150"/>
+        <Button id="Button01" taborder="1" text="Show saveXML" left="198" top="78" height="40" onclick="Button01_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="150"/>
+        <Static id="Static05" taborder="2" text="Load XML file in Dataset using Dataset's url, serverdatasetid property" cssclass="sta_WF_subtitP" left="30" top="18" width="920" height="40" class="sta_WF_subtitle" verticalAlign="top"/>
+        <TextArea id="TextArea00" taborder="3" left="30" top="128" height="300" enable="true" readonly="true" width="700"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_form"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	/* 
+		XML file url is set to dataset. Then it's serverdatasetid is set to Dataset.
+		This server side id exists in XML file as Dataset id="ds_form"
+		When dataset's load method is called the xml file is loaded into Dataset
+		Dataset's Data is displayed on the TextArea
+    */
+    this.ds_form.set_url("xml::eng.xml");
+	this.ds_form.set_serverdatasetid("datasetXML"); //ds_form id of dataset exists in the eng.xml
+	this.ds_form.load();
+};
+
+// Dataset's SaveXML data will be displayed on the TextArea
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.TextArea00.set_value(this.ds_form.saveXML());
+};
+
+
+
+]]></Script>
+  </Form>
+</FDL>

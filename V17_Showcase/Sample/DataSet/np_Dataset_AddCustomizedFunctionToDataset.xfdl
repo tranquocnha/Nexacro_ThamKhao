@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_defineLookExprFunctionInLib" classname="np_defineLookExprFunctionInLib" left="0" top="0" width="760" height="430" titletext="Adding customized lookupExpr function to Dataset">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="122" height="222" binddataset="Dataset00" autofittype="col" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="col1"/>
+                <Cell col="1" disptype="normal" text="col2"/>
+                <Cell col="2" disptype="normal" text="col3"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:col1"/>
+                <Cell col="1" disptype="normal" text="bind:col2"/>
+                <Cell col="2" disptype="normal" text="bind:col3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="Find" left="405" top="78" height="34" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="90"/>
+        <Static id="Static07" taborder="2" text="This sample shows adding lookupExpr customized function to Data.js file" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30"/>
+        <Static id="Static00" taborder="3" text="Matched value :" left="30" top="364" width="107" height="40" style="font:bold 9 Dotum;" wordwrap="english"/>
+        <Edit id="Edit00" taborder="4" left="138" top="364" height="40" readonly="true" width="200"/>
+        <Static id="Static01" taborder="5" text="col1 :" left="30" top="78" height="34" width="40"/>
+        <Edit id="Edit01" taborder="6" left="70" top="78" height="34" width="120" value="a"/>
+        <Static id="Static02" taborder="7" text="col2 :" left="225" top="78" height="34" width="40"/>
+        <Edit id="Edit02" taborder="8" left="265" top="78" height="34" width="120" value="b"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="col1" type="STRING" size="256"/>
+          <Column id="col2" type="STRING" size="256"/>
+          <Column id="col3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="col1">a</Col>
+            <Col id="col2">c</Col>
+            <Col id="col3">a</Col>
+          </Row>
+          <Row>
+            <Col id="col1">b</Col>
+            <Col id="col2">2</Col>
+            <Col id="col3">b</Col>
+          </Row>
+          <Row>
+            <Col id="col1">a</Col>
+            <Col id="col2">b</Col>
+            <Col id="col3">Resulted Column</Col>
+          </Row>
+          <Row>
+            <Col id="col1">a</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">d</Col>
+          </Row>
+          <Row>
+            <Col id="col1">a</Col>
+            <Col id="col2">2</Col>
+            <Col id="col3">e</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var rtrn_val = this.Dataset00.lookupExpr("col1 == '"+ this.Edit01.value +"' && col2 == '"+ this.Edit02.value +"'", "col3");  // first condition, second condition
+	//trace("rtrn_val ==== " + rtrn_val);
+	this.Edit00.set_value(rtrn_val); 
+};
+
+
+/**
+// Adding customized lookupExpr function will be added to Data.js 
+// This function will compare the first condition and find the row position with respect to first condition.
+// With respect to the row, it will return the value of the col3 of dataset.
+// Example it will find the row position of col1 = 'a' and col2 = 'b' which is 2, then find the value of "col3" column, which is "Resulted Column" 
+// Input parameter Parameter 1. expression condition,2. column, which value should be found matching with first column's condition. 
+*/
+_pDataset.lookupExpr = function (expr, outcol) 
+ {
+  var view = this._viewRecords;
+  var start = 0;
+  var end = view.length;
+
+  var row = this.findRowExpr(expr, start, end); 
+  // calls the findRowExpr function of Data.js from inside. 
+  
+  return (row == -1) ? undefined : this.getColumn(row, outcol);
+ };
+]]></Script>
+  </Form>
+</FDL>

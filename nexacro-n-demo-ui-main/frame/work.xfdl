@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="work" width="480" height="800" background="#F5F7FC" onlayoutchanged="work_onlayoutchanged" scrollbartype="none">
+    <Layouts>
+      <Layout height="800" width="480">
+        <Div id="divMain" taborder="0" top="20" height="760" background="#ffffff" left="20" right="20" formscrolltype="none" cssclass="div_WF_area">
+          <Layouts>
+            <Layout/>
+            <Layout name="large"/>
+          </Layouts>
+        </Div>
+        <Div id="divDesc" taborder="1" left="20" top="divMain:25" height="100" visible="false" cssclass="div_WF_area" right="20" formscrollbartype="none"/>
+        <ImageViewer id="imgPageLoading" taborder="2" left="0" top="0" image="url('imagerc::page_loading.gif')" right="0" background="transparent" border="0px none" bottom="0"/>
+      </Layout>
+      <Layout name="large" width="990" height="720" mobileorientation="landscape">
+        <Div id="divDesc" visible="true" left="40" top="divMain:25" height="100" right="30"/>
+        <Div id="divMain" left="40" top="40" height="700" width="920"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.menuInfo = {menuId: '', menuName: '', menuUrl: ''};
+
+this.loadMenuPage = function(menuId, menuUrl)
+{
+	this.divMain.set_url("");
+	this.divDesc.set_url("");
+	this.imgPageLoading.set_visible(true);
+	this.set_height(720);
+	this.divMain.set_url(menuUrl);
+	
+	this.menuInfo = {
+		menuId: menuId,
+		menuName: nexacro.getApplication().gdsMenu.lookup("id", menuId, "caption"),
+		menuUrl: menuUrl
+	};
+};
+
+this.work_onlayoutchanged = function(obj:nexacro.Form,e:nexacro.LayoutChangeEventInfo)
+{
+	return;if (e.newlayout == "large") {
+		var descUrl = this.getDescUrl(this.divMain.url);
+		this.divDesc.set_url(descUrl);
+	} else {
+		this.divDesc.set_url("");
+		
+		var height = this.height - this.divDesc.height - 55;
+		this.set_height(height);
+	}
+	
+	this.resetScroll();
+};
+
+this.mainPageOnLoad = function(height)
+{
+	this.divMain.set_height(height);
+	height = height + 70;	// 여백 추가(top: 40, bottom: 30)
+	this.set_height(height);
+	this.divDesc.set_height(0);
+	this.divDesc.set_url("");
+	this.divMain.form.resetScroll();
+	this.resetScroll();
+	
+	var p = this.parent.parent;
+	p["menuPageOnLoad"].call(p, height);
+	
+	this.divMain.set_visible(true);
+	this.imgPageLoading.set_visible(false);
+	
+	if (this.getCurrentLayoutName() == "large") {
+		this.divDesc.set_url(this.getDescUrl(this.divMain.url));
+	}
+};
+
+this.descPageOnLoad = function(height)
+{
+	this.divDesc.set_height(height);
+	height = this.height + height + 55;	// 여백 추가(top: 25, bottom: 30)
+	this.set_height(height);
+	this.divDesc.form.resetScroll();
+	this.resetScroll();
+	
+	var p = this.parent.parent;
+	p["menuPageOnLoad"].call(p, height);
+};
+
+this.getDescUrl = function(menuUrl)
+{
+	return new String(menuUrl).replace(".xfdl", "_desc.xfdl");
+};
+
+this.showDescription = function()
+{
+	var url = this.getDescUrl(this.divMain.url),
+		menuName = this.menuInfo.menuName;
+	this.openPopup("description", "frame::mobiledescription.xfdl", {menuName: menuName, descUrl: url}, "showtitlebar=false autosize=false openstatus=maximize");
+};]]></Script>
+  </Form>
+</FDL>

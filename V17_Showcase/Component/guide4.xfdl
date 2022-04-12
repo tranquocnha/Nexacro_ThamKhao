@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="guide3" classname="guide3" left="0" top="0" width="1025" height="674" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="3" text="Component Name" left="15" top="15" width="125" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static06" taborder="4" text="Component View" left="139" top="15" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;" right="15"/>
+        <Static id="Static03" taborder="10" text="ImageViewer" left="15" top="287" width="125" height="279" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static09" taborder="11" text="enabled" left="157" top="308" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static20" taborder="12" text="disabled" left="321" top="308" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <ImageViewer id="ImageViewer00" taborder="13" text="ImageViewer" left="156" top="346" width="150" height="40"/>
+        <ImageViewer id="ImageViewer01" taborder="14" text="ImageViewer" enable="false" left="322" top="346" width="150" height="40"/>
+        <Static id="Static59" taborder="15" text="stretch = &quot;none&quot;" usedecorate="true" left="161" top="418" width="120" height="13" style="color:#999999ff; font:Tahoma,8; "/>
+        <Static id="Static61" taborder="16" text="stretch = &quot;fixaspectratio&quot;" usedecorate="true" left="579" top="418" width="180" height="13" style="color:#999999ff; font:Tahoma,8; "/>
+        <Static id="Static60" taborder="17" text="stretch = &quot;fit&quot;" usedecorate="true" left="374" top="418" width="120" height="13" style="color:#999999ff; font:Tahoma,8; "/>
+        <ImageViewer id="ImageViewer02" taborder="18" image="URL('theme://Images\img_sample.png')" left="164" top="433" width="160" height="100"/>
+        <ImageViewer id="ImageViewer03" taborder="19" image="URL('theme://Images\img_sample.png')" stretch="fit" left="370" top="433" width="160" height="100"/>
+        <ImageViewer id="ImageViewer04" taborder="20" image="URL('theme://Images\img_sample.png')" stretch="fixaspectratio" left="576" top="433" width="160" height="100"/>
+        <Static id="Static01" taborder="21" text="Shape" left="15" top="44" width="125" height="100" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static17" taborder="22" text="HTML5 &amp; Hybrid 버전에서는 지원하지 않습니다." cssclass="sta_WF_Info_Orange" left="170" top="89" width="532" height="20" class="sta_WF_DscP"/>
+        <GroupBox id="GroupBox00" text="GroupBox00" left="171" top="163" width="210" height="106"/>
+        <GroupBox id="GroupBox01" text="GroupBox00" enable="false" left="412" top="163" width="210" height="106"/>
+        <Static id="Static02" taborder="23" text="Group Box" left="15" top="143" width="125" height="145" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static08" taborder="24" left="140" top="143" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static04" taborder="25" left="140" top="287" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static07" taborder="26" text="Splitter" left="15" top="565" width="125" height="100" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static10" taborder="27" left="140" top="565" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static12" taborder="29" left="140" top="664" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" id="ds_Grid" preload="true" updatecontrol="true" useclientlayout="false">
+        <ColumnInfo>
+          <Column id="Column0" size="256" type="STRING"/>
+          <Column id="Column1" size="256" type="STRING"/>
+          <Column id="Column2" size="256" type="STRING"/>
+          <Column id="Column3" size="256" type="STRING"/>
+          <Column id="Column4" size="256" type="STRING"/>
+          <Column id="Column5" size="256" type="STRING"/>
+          <Column id="Column6" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">1</Col>
+            <Col id="Column2">100000</Col>
+            <Col id="Column3">가나다라마</Col>
+            <Col id="Column4">abcdefghijk</Col>
+            <Col id="Column5">ABCDEFG</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">3</Col>
+            <Col id="Column2">200000</Col>
+            <Col id="Column3">ABCDEFG</Col>
+            <Col id="Column4">가나다라마</Col>
+            <Col id="Column5">가나다ABCD</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">5</Col>
+            <Col id="Column2">300000</Col>
+            <Col id="Column3">abcdefghijk</Col>
+            <Col id="Column4">ABCDEFG</Col>
+            <Col id="Column5">가나다라마</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">400000</Col>
+            <Col id="Column3">가나다ABCD</Col>
+            <Col id="Column4">가나다ABCD</Col>
+            <Col id="Column5">abcdefghijk</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">1</Col>
+            <Col id="Column2">100000</Col>
+            <Col id="Column3">가나다라마</Col>
+            <Col id="Column4">abcdefghijk</Col>
+            <Col id="Column5">ABCDEFG</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">3</Col>
+            <Col id="Column2">200000</Col>
+            <Col id="Column3">ABCDEFG</Col>
+            <Col id="Column4">가나다라마</Col>
+            <Col id="Column5">가나다ABCD</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">5</Col>
+            <Col id="Column2">300000</Col>
+            <Col id="Column3">abcdefghijk</Col>
+            <Col id="Column4">ABCDEFG</Col>
+            <Col id="Column5">가나다라마</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">400000</Col>
+            <Col id="Column3">가나다ABCD</Col>
+            <Col id="Column4">가나다ABCD</Col>
+            <Col id="Column5">abcdefghijk</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">1</Col>
+            <Col id="Column2">100000</Col>
+            <Col id="Column3">가나다라마</Col>
+            <Col id="Column4">abcdefghijk</Col>
+            <Col id="Column5">ABCDEFG</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">3</Col>
+            <Col id="Column2">200000</Col>
+            <Col id="Column3">ABCDEFG</Col>
+            <Col id="Column4">가나다라마</Col>
+            <Col id="Column5">가나다ABCD</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">5</Col>
+            <Col id="Column2">300000</Col>
+            <Col id="Column3">abcdefghijk</Col>
+            <Col id="Column4">ABCDEFG</Col>
+            <Col id="Column5">가나다라마</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">400000</Col>
+            <Col id="Column3">가나다ABCD</Col>
+            <Col id="Column4">가나다ABCD</Col>
+            <Col id="Column5">abcdefghijk</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">1</Col>
+            <Col id="Column2">100000</Col>
+            <Col id="Column3">가나다라마</Col>
+            <Col id="Column4">abcdefghijk</Col>
+            <Col id="Column5">ABCDEFG</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">3</Col>
+            <Col id="Column2">200000</Col>
+            <Col id="Column3">ABCDEFG</Col>
+            <Col id="Column4">가나다라마</Col>
+            <Col id="Column5">가나다ABCD</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">5</Col>
+            <Col id="Column2">300000</Col>
+            <Col id="Column3">abcdefghijk</Col>
+            <Col id="Column4">ABCDEFG</Col>
+            <Col id="Column5">가나다라마</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">400000</Col>
+            <Col id="Column3">가나다ABCD</Col>
+            <Col id="Column4">가나다ABCD</Col>
+            <Col id="Column5">abcdefghijk</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">1</Col>
+            <Col id="Column2">100000</Col>
+            <Col id="Column3">가나다라마</Col>
+            <Col id="Column4">abcdefghijk</Col>
+            <Col id="Column5">ABCDEFG</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">3</Col>
+            <Col id="Column2">200000</Col>
+            <Col id="Column3">ABCDEFG</Col>
+            <Col id="Column4">가나다라마</Col>
+            <Col id="Column5">가나다ABCD</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">5</Col>
+            <Col id="Column2">300000</Col>
+            <Col id="Column3">abcdefghijk</Col>
+            <Col id="Column4">ABCDEFG</Col>
+            <Col id="Column5">가나다라마</Col>
+            <Col id="Column6"/>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">400000</Col>
+            <Col id="Column3">가나다ABCD</Col>
+            <Col id="Column4">가나다ABCD</Col>
+            <Col id="Column5">abcdefghijk</Col>
+            <Col id="Column6"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="No" type="STRING" size="256"/>
+          <Column id="Name" type="STRING" size="256"/>
+          <Column id="subject" type="STRING" size="256"/>
+          <Column id="Date" type="STRING" size="256"/>
+          <Column id="Hit" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="No">1</Col>
+            <Col id="Name">administrator</Col>
+            <Col id="subject">test</Col>
+            <Col id="Date">2013-12-25</Col>
+          </Row>
+          <Row>
+            <Col id="No">2</Col>
+            <Col id="Name">administrator</Col>
+            <Col id="subject">testtest</Col>
+            <Col id="Date">2013-12-25</Col>
+          </Row>
+          <Row>
+            <Col id="No">3</Col>
+            <Col id="Name">administrator</Col>
+            <Col id="subject">testtesttest</Col>
+            <Col id="Date">2013-12-25</Col>
+          </Row>
+          <Row>
+            <Col id="No">4</Col>
+            <Col id="Name">administrator</Col>
+            <Col id="subject">test</Col>
+            <Col id="Date">2013-12-25</Col>
+          </Row>
+          <Row>
+            <Col id="No">5</Col>
+            <Col id="Name">administrator</Col>
+            <Col id="subject">testtest</Col>
+            <Col id="Date">2013-12-25</Col>
+          </Row>
+          <Row>
+            <Col id="No">6</Col>
+            <Col id="Name">administrator</Col>
+            <Col id="subject">testtesttest</Col>
+            <Col id="Date">2013-12-25</Col>
+          </Row>
+          <Row>
+            <Col id="No">7</Col>
+            <Col id="Name">administrator</Col>
+            <Col id="subject">test</Col>
+            <Col id="Date">2013-12-25</Col>
+          </Row>
+          <Row>
+            <Col id="No">8</Col>
+            <Col id="Name">administrator</Col>
+            <Col id="subject">testtest</Col>
+            <Col id="Date">2013-12-25</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

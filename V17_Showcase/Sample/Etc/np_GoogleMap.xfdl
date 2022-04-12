@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="GoogleMap" classname="GoogleMap" left="0" top="0" width="760" height="430" titletext="GoogleMap">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Execute" left="78.95%" top="44" right="2.5%" height="39" onclick="Button00_onclick" edge="url(&quot;theme://Images\btn_WF_common_N.png&quot;) 5px 5px"/>
+        <Map id="Map00" left="1.58%" top="43" right="22.11%" height="373" onload="Map00_onload" onclick="Map00_onclick"/>
+        <Static id="Static05" taborder="1" text="Google Map" cssclass="sta_WF_subtitP" left="1.97%" top="13" right="42.5%" height="18" class="sta_WF_subtitle" width="" bottom=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.fs_srcLatitude = "37.576683";
+this.fs_srcLongitude = "127.025591";
+this.Button00_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{  
+	
+	this.Map00.load(false, this.fs_srcLatitude, this.fs_srcLongitude);
+};
+      
+this.Map00_onload = function(obj:nexacro.Map, e:nexacro.MapEventInfo)
+{
+	var obj_mapmarker = new nexacro.MapMarker();
+	alert(obj_mapmarker);
+	obj_mapmarker.location.set_latitude(this.fs_srcLatitude);
+	obj_mapmarker.location.set_longitude(this.fs_srcLongitude);
+
+	
+	obj_mapmarker.set_text("Current position");
+	obj_mapmarker.set_visible(true);
+	
+	var tempMapMarker = this.Map00.addItem("MapMarker", obj_mapmarker);
+};
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="menu" width="480" height="768" onload="menu_onload">
+    <Layouts>
+      <Layout height="768" mobileorientation="landscape" width="480" stepcount="0">
+        <Button id="btnClose" taborder="0" text="X" top="0" width="50" height="50" right="0" onclick="btnClose_onclick"/>
+        <Static id="Static00" taborder="1" text="LOGO" left="0" top="0" width="120" height="60" cssclass="Noto_Bold"/>
+        <Static id="Static00_00" taborder="2" text="Grid" left="0" top="65" height="40" right="0" cssclass="Noto_Bold"/>
+        <Static id="Static01" taborder="3" text="Renderer" left="0" top="115" height="50" right="0" cursor="pointer" onclick="menu_onclick"/>
+        <Static id="Static02" taborder="4" text="Pagination" left="0" top="165" height="50" right="0" cursor="pointer" onclick="menu_onclick"/>
+        <Static id="Static03" taborder="5" text="Large Data" left="0" top="215" height="50" right="0" cursor="pointer" onclick="menu_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.menu_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.setMenu();
+};
+
+this.setMenu = function()
+{
+	var nTop = 0,
+		app = nexacro.getApplication(),
+		isMobile = system.getScreenWidth()>720?false:true,
+		isNRE = system.navigatorname.indexOf("nexacro")==-1?false:true,
+		filterExpr = "";
+	
+	filterExpr += isMobile?"mobile=='1'":"desktop=='1'";
+	filterExpr += isNRE?"&&nre=='1'":"&&wre=='1'";
+	
+	app.gdsMenu.filter(filterExpr);
+	this.dsMenu.copyData(app.gdsMenu, true);
+	app.gdsMenu.filter("");
+};
+
+this.menu_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	this.close(obj.text);
+};
+
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="dsMenu"/>
+    </Objects>
+  </Form>
+</FDL>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_CheckLeapYear" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_CheckLeapYear" left="0" top="0" width="800" height="600">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40" textAlign="left"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <MaskEdit id="msk_input" taborder="0" value="20131231" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="78" height="40" textAlign="left"/>
+        <Static id="Static05" taborder="3" text="Checking for leap year" cssclass="sta_WF_subtitP" left="30" top="18" width="300" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_CheckLeapYear
+ * Description : 윤년 여부 확인하기
+ */
+ 
+/*  버튼클릭  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bRtn = this.fn_checkLeapYear(this.msk_input.value);	
+	this.edt_output.set_value(bRtn);
+}
+
+/*
+ * Function Name : fn_checkLeapYear
+ * Description   : 윤년여부 확인
+ * Parameter     : 년월일/년
+ * Return        : 윤년일 경우 true/false
+ * Example       : fn_checkLeapYear("20121231");
+ */
+this.fn_checkLeapYear = function(sDate) 
+{
+    var bRtn = false;
+    var nY   = parseInt(sDate.substring(0,4));
+
+    if ((nY % 4) == 0) 
+    {
+        if ((nY % 100) != 0 || (nY % 400) == 0) 
+        {
+            bRtn = true;
+        }
+    } 
+
+    return bRtn;
+}
+]]></Script>
+  </Form>
+</FDL>

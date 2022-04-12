@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form_Pop" classname="SAMPLE003_POPUP" inheritanceid="" position="absolute" style="background:#f2f2efff;align:center middle;" onload="form_onload" left="0" width="382" top="0" height="328">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="4" text="title" left="0" top="0" width="382" height="328" cssclass="sta_POP_bg"/>
+        <Static id="Static09" taborder="5" text="15" visible="false" left="2" top="41" width="328" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Div id="divBoardForm" taborder="0" text="divBoardForm" position="absolute" left="17" width="344" top="56" height="220">
+          <Layouts>
+            <Layout>
+              <Static id="stRegDate" text="domain.reg.date" position="absolute" left="0" width="85" top="154" height="32" cssclass="sta_WFDA_labelB" taborder="7"/>
+              <Static id="stCommunityId" text="domain.community" position="absolute" left="0" width="85" top="185" height="32" cssclass="sta_WFDA_labelB" taborder="6"/>
+              <Static id="Static01" position="absolute" text="" left="84" width="260" top="31" height="32" taborder="5" cssclass="sta_WFDA_B"/>
+              <Edit id="edtTitle" taborder="13" position="absolute" userdata="A:U;" left="90" width="248" top="37" height="20"/>
+              <Static id="Static02" position="absolute" text="" left="84" width="260" top="62" height="62" taborder="4" cssclass="sta_WFDA_B"/>
+              <TextArea id="txaContents" taborder="14" wordwrap="char" position="absolute" userdata="A:U;" left="90" width="248" top="68" height="50"/>
+              <Static id="Static03" position="absolute" text="" left="84" width="260" top="123" height="32" taborder="3" cssclass="sta_WFDA_B"/>
+              <Edit id="edtRegId" taborder="15" enable="false" position="absolute" userdata="A:U;" left="90" width="248" top="129" height="20"/>
+              <Static id="Static04" position="absolute" text="" left="84" width="260" top="154" height="32" taborder="2" cssclass="sta_WFDA_B"/>
+              <Calendar id="calRegDate" taborder="16" readonly="true" dateformat="yyyy-MM-dd" enable="false" position="absolute" style="align:left middle; " userdata="A:U;" left="90" width="248" top="160" height="20" cssclass="readonly"/>
+              <Static id="Static00" position="absolute" text="" left="84" width="260" top="0" height="32" taborder="1" cssclass="sta_WFDA_B"/>
+              <Edit id="edtPostId" taborder="17" enable="false" position="absolute" userdata="A:U;" left="90" width="248" top="6" height="20"/>
+              <Static id="Static05" position="absolute" text="" left="84" width="260" top="185" height="32" cssclass="sta_WFDA_B"/>
+              <Combo id="cmbCommunityId" taborder="18" innerdataset="@ds_CboCommunityPopup" codecolumn="COMMUNITY_ID" datacolumn="COMMUNITY_NAME" position="absolute" displayrowcount="-1" userdata="A:U;" left="90" width="248" top="191" height="20"/>
+              <Static id="stPostId" text="domain.board.id" position="absolute" left="0" width="85" top="0" height="32" cssclass="sta_WFDA_labelB" taborder="11"/>
+              <Static id="stTitle" text="domain.title" position="absolute" left="0" width="85" top="31" height="32" cssclass="sta_WFDA_labelB" taborder="10"/>
+              <Static id="stContents" text="domain.contents" position="absolute" style="font:9 dotum;" left="0" width="85" top="62" height="62" cssclass="sta_WFDA_labelB" taborder="9"/>
+              <Static id="stRegId" text="domain.reg.id" position="absolute" left="0" width="85" top="123" height="32" cssclass="sta_WFDA_labelB" taborder="8"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_saveTemp" taborder="1" text="domain.save.temp" position="absolute" onclick="btn_saveTemp_onclick" userdata="A:T" left="140" width="46" top="283" height="23"/>
+        <Button id="btn_Cancel" taborder="2" text="domain.cancel" position="absolute" onclick="btn_Cancel_onclick" left="189" width="42" top="283" height="23"/>
+        <Static id="Static01" taborder="6" text="15" visible="false" left="2" top="49" width="15" height="230" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static02" taborder="7" text="15" visible="false" left="361" top="42" width="15" height="230" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static03" taborder="8" text="11" visible="false" left="366" top="-5" width="11" height="45" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static04" taborder="9" text="10" visible="false" left="324" top="2" width="46" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static05" taborder="10" text="15" visible="false" left="2" top="306" width="328" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static06" taborder="11" text="15" visible="false" left="14" top="273" width="328" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Button id="Button01" taborder="3" left="351" top="10" width="17" height="17" cssclass="btn_POP_close" tooltiptext="Close"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Board" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="CONTENTS" type="STRING" size="256"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="STRING" size="256"/>
+          <Column id="POST_ID" type="STRING" size="256"/>
+          <Column id="COMMUNITY_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_CboCommunityPopup" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COMMUNITY_ID" type="STRING" size="256"/>
+          <Column id="COMMUNITY_NAME" type="STRING" size="256"/>
+          <Column id="COMMUNITY_DESC" type="STRING" size="256"/>
+          <Column id="CATEGORY_ID" type="STRING" size="256"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="RED_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_BoardValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="CONTENTS" type="STRING" size="256"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="DATE" size="8"/>
+          <Column id="POST_ID" type="STRING" size="256"/>
+          <Column id="COMMUNITY_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TITLE">title:title,required:true,maxlength:150</Col>
+            <Col id="CONTENTS">title:contents,maxlength:360</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="divBoardForm.edtTitle" propid="value" datasetid="ds_Board" columnid="TITLE"/>
+      <BindItem id="item2" compid="divBoardForm.txaContents" propid="value" datasetid="ds_Board" columnid="CONTENTS"/>
+      <BindItem id="item3" compid="divBoardForm.edtRegId" propid="value" datasetid="ds_Board" columnid="REG_ID"/>
+      <BindItem id="item4" compid="divBoardForm.calRegDate" propid="value" datasetid="ds_Board" columnid="REG_DATE"/>
+      <BindItem id="item0" compid="divBoardForm.edtPostId" propid="value" datasetid="ds_Board" columnid="POST_ID"/>
+      <BindItem id="item5" compid="divBoardForm.cmbCommunityId" propid="value" datasetid="ds_Board" columnid="COMMUNITY_ID"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work Screen template
+ * 02. Screen name   : TEMPLATE003_POPUP.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by   content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+//include "lib::lib_Frame.xjs"
+include "lib::lib_Form.xjs"
+//include "lib::lib_HTML5_Frame.xjs"
+this.strMode = undefined;
+
+
+/***********************************************************************
+ * Event process specification
+ ************************************************************************/
+// Initializing on Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common function processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Setting parameter get from parent window
+	this.strMode = this.getOwnerFrame().paramMode;
+	this.ds_Board.clearData();
+	var nRow = this.ds_Board.addRow();
+	this.ds_CboCommunityPopup.copyData(this.parent.ds_CboCommunity);
+
+	// strMode : C - Setting data property
+	// : U - Basic data modifcation
+	if (this.strMode == "C") 
+	{
+		if (!this.gfn_isNull(application.gv_UserId)) 
+		{
+			this.ds_Board.setColumn(nRow, "REG_ID", application.gv_UserId);
+		}
+		this.ds_Board.setColumn(nRow, "REG_DATE", this.gfn_Today());
+		this.divBoardForm.cmbCommunityId.set_index(0);
+	}
+	else 
+	{
+		this.ds_Board.copyRow(nRow, this.lookup("dsArg"), this.lookup("dsArg").rowposition);
+	}
+}
+
+
+this.objRtnArr = new Array(2); //Array declaration when close button click, making array
+// Temperory save button click
+this.btn_saveTemp_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// After validation , if it is not abnormal, than raturn to parent window
+	if (this.gfn_DsCheckValid(this.ds_Board)) 
+	{
+		var resultDs = new Dataset;
+		resultDs.copyData(this.ds_Board);
+		this.objRtnArr[0] = resultDs;
+		this.objRtnArr[1] = this.strMode;
+		this.close(this.objRtnArr);
+	}
+}
+
+// Event processing on cancel button
+this.btn_Cancel_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// After closing the upload it return to parent window
+	this.objRtnArr[0] = "N";
+	this.close(this.objRtnArr);
+}
+
+/**********************************************************************************
+ * Function Name: gfn_getMenuId
+ * Description  : Retrieving menuid on work Frame.
+ * Arguments    :
+ * Return       : menuid
+ **********************************************************************************/
+this.gfn_getMenuId = function ()
+{
+	return this.pv_menuId;
+}
+]]></Script>
+  </Form>
+</FDL>

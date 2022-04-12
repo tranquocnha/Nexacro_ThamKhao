@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Form_ObjEvent" classname="Form_go_0" inheritanceid="" position="absolute" titletext="Form Object&amp;Event" left="0" width="760" top="0" height="430">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="object list" onclick="Button00_onclick" position="absolute" left="30" width="100" top="78" height="40"/>
+        <Static id="Static05" text="object, event list" position="absolute" left="30" width="270" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Button id="Button01" taborder="1" text="event list" left="400" top="78" width="100" height="40" onclick="Button01_onclick"/>
+        <TextArea id="TextArea00" taborder="2" left="30" top="128" width="350" height="278"/>
+        <TextArea id="TextArea01" taborder="3" left="400" top="128" width="350" height="278"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var x;
+	var objList;
+	   
+	for (x in obj)   	
+	{
+		this.objList = this.objList + (x + " : " + obj[x] + "\n");
+	}         
+	
+	this.TextArea00.set_value("");
+	this.TextArea00.set_value(this.objList);
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var y;
+	var eList;
+	   
+	for (y in e)   
+	{
+		this.eList = this.eList + (y + " : " + e[y] + "\n");
+	}         
+	this.TextArea01.set_value("");
+	this.TextArea01.set_value(this.eList);
+};
+   ]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="1000" onload="form_onload">
+    <Layouts>
+      <Layout height="1000" width="440">
+        <Static id="Static00" taborder="0" text="Renderer" left="20" top="14" width="105" height="40" cssclass="sta_WF_pageTitle" messageid="grid.renderer" fittocontents="width"/>
+        <Static id="Static01" taborder="1" text="Cell display type" left="20" top="66" width="146" height="30" cssclass="sta_WF_compTitle02" messageid="grid.cell.display.type" fittocontents="width"/>
+        <Grid id="Grid00" taborder="2" left="20" top="Static01:5" height="200" autofittype="col" scrollbarsize="5" binddataset="Dataset00" right="20" selecttype="cell" cssclass="grd_WF_celldisplay" formatid="mobile">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="90"/>
+                <Column size="100"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="46" band="head"/>
+                <Row size="46" band="head"/>
+                <Row size="46"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Button" color="#ffffff"/>
+                <Cell col="1" text="Calendar" color="#ffffff"/>
+                <Cell col="2" text="Checkbox" color="#ffffff"/>
+                <Cell col="3" text="Combo" color="#ffffff"/>
+                <Cell col="4" text="Currency" color="#ffffff"/>
+                <Cell col="5" text="Date" color="#ffffff"/>
+                <Cell col="6" text="Decorate text" color="#ffffff"/>
+                <Cell col="7" text="Edit" color="#ffffff"/>
+                <Cell row="1" text="Image" color="#ffffff"/>
+                <Cell row="1" col="1" text="Mask" color="#ffffff"/>
+                <Cell row="1" col="2" text="MaskEdit" color="#ffffff"/>
+                <Cell row="1" col="3" text="Number" color="#ffffff"/>
+                <Cell row="1" col="4" text="Progressbar" color="#ffffff"/>
+                <Cell row="1" col="5" text="Text" color="#ffffff"/>
+                <Cell row="1" col="6" text="Textarea" color="#ffffff"/>
+                <Cell row="1" col="7" text="None" color="#ffffff"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="buttoncontrol" text="Button" edittype="button"/>
+                <Cell col="1" displaytype="calendarcontrol" edittype="date" text="bind:Column0" calendardateformat="yyyy-MM-dd"/>
+                <Cell col="2" displaytype="checkboxcontrol" edittype="checkbox" text="bind:Column1"/>
+                <Cell col="3" displaytype="combocontrol" edittype="combo" text="bind:Column2" combodataset="Dataset04" combocodecol="code" combodatacol="data"/>
+                <Cell col="4" displaytype="currency" text="bind:Column3"/>
+                <Cell col="5" displaytype="date" text="bind:Column4" calendardateformat="yyyy-MM-dd"/>
+                <Cell col="6" displaytype="decoratetext" text="&lt;fc v='red'&gt;decorate&lt;/fc&gt; &lt;u v='true'&gt;text&lt;/u&gt;"/>
+                <Cell col="7" displaytype="editcontrol" edittype="text" text="bind:Column5"/>
+                <Cell row="1" displaytype="imagecontrol" text="bind:Column6" imagestretch="fixaspectratio"/>
+                <Cell row="1" col="1" displaytype="mask" text="1234567890" maskedittype="string" maskeditformat="#####{#####}"/>
+                <Cell row="1" col="2" displaytype="maskeditcontrol" edittype="mask" text="bind:Column8"/>
+                <Cell row="1" col="3" displaytype="number" text="9876543.21"/>
+                <Cell row="1" col="4" displaytype="progressbarcontrol" text="65" progressbarsmooth="true" padding="5px"/>
+                <Cell row="1" col="5" displaytype="text" text="Text"/>
+                <Cell row="1" col="6" displaytype="textareacontrol" edittype="textarea" wordWrap="char" text="bind:Column9"/>
+                <Cell row="1" col="7"/>
+              </Band>
+            </Format>
+            <Format id="mobile">
+              <Columns>
+                <Column size="160"/>
+                <Column size="180"/>
+              </Columns>
+              <Rows>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+                <Row size="50"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="Button" cssclass="grd_celldsiplay"/>
+                <Cell col="1" displaytype="buttoncontrol" edittype="button" text="button" padding="5px 10px"/>
+                <Cell row="1" text="Calendar" cssclass="grd_celldsiplay"/>
+                <Cell row="1" col="1" text="bind:Column0" displaytype="calendarcontrol" edittype="date"/>
+                <Cell row="2" text="Checkbox" cssclass="grd_celldsiplay"/>
+                <Cell row="2" col="1" text="bind:Column1" displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell row="3" text="Combo" cssclass="grd_celldsiplay"/>
+                <Cell row="3" col="1" text="bind:Column2" displaytype="combocontrol" edittype="combo"/>
+                <Cell row="4" cssclass="grd_celldsiplay" text="Currency"/>
+                <Cell row="4" col="1" text="bind:Column3" displaytype="currency"/>
+                <Cell row="5" cssclass="grd_celldsiplay" text="Date"/>
+                <Cell row="5" col="1" displaytype="date" text="bind:Column4"/>
+                <Cell row="6" cssclass="grd_celldsiplay" text="Decorate text"/>
+                <Cell row="6" col="1" text="&lt;fc v='red'&gt;decorate&lt;/fc&gt; &lt;u v='true'&gt;text&lt;/u&gt;" displaytype="decoratetext"/>
+                <Cell row="7" cssclass="grd_celldsiplay" text="Edit"/>
+                <Cell row="7" col="1" displaytype="editcontrol" edittype="text" text="bind:Column5"/>
+                <Cell row="8" text="Image" cssclass="grd_celldsiplay"/>
+                <Cell row="8" col="1" displaytype="imagecontrol" text="bind:Column6"/>
+                <Cell row="9" text="Mask" cssclass="grd_celldsiplay"/>
+                <Cell row="9" col="1" displaytype="mask" text="1234567890" maskedittype="string" maskeditformat="#####{#####}"/>
+                <Cell row="10" text="MaskEdit" cssclass="grd_celldsiplay"/>
+                <Cell row="10" col="1" displaytype="maskeditcontrol" edittype="mask" text="bind:Column8"/>
+                <Cell row="11" text="Number" cssclass="grd_celldsiplay"/>
+                <Cell row="11" col="1" displaytype="number" text="9876543.21"/>
+                <Cell row="12" text="Progressbar" cssclass="grd_celldsiplay"/>
+                <Cell row="12" col="1" displaytype="progressbarcontrol" text="65"/>
+                <Cell row="13" text="Text" cssclass="grd_celldsiplay"/>
+                <Cell row="13" col="1" displaytype="text" text="Text"/>
+                <Cell row="14" text="Textarea" cssclass="grd_celldsiplay"/>
+                <Cell row="14" col="1" displaytype="textareacontrol" edittype="textarea" text="bind:Column9"/>
+                <Cell row="15" text="None" cssclass="grd_celldsiplay"/>
+                <Cell row="15" col="1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static02" taborder="3" text="Tree grouping" left="20" top="323" width="130" height="30" cssclass="sta_WF_compTitle02" messageid="grid.tree.grouping" fittocontents="width"/>
+        <Grid id="Grid01" taborder="4" left="20" top="Static02:5" height="228" autofittype="col" scrollbarsize="5" binddataset="Dataset01" right="20" selecttype="cell" treeusecheckbox="false" treeinitstatus="expand,all" treeuseimage="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="50" band="left"/>
+                <Column size="200"/>
+                <Column size="80" band="right"/>
+              </Columns>
+              <Rows>
+                <Row size="46" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="#"/>
+                <Cell col="1" text="Department"/>
+                <Cell col="2" text="Count"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:no"/>
+                <Cell col="1" text="bind:team" displaytype="treeitemcontrol" edittype="tree" treelevel="bind:lvl"/>
+                <Cell col="2" text="bind:count"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static03" taborder="5" text="Multi format" left="20" top="610" width="117" height="30" cssclass="sta_WF_compTitle02" messageid="grid.multi.format" fittocontents="width"/>
+        <Radio id="Radio00" taborder="6" left="Static03:20" top="610" width="225" height="30" direction="vertical" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" index="0" text="Format 1" value="format1" onitemchanged="Div00_Radio00_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">format1</Col>
+                <Col id="datacolumn">Format 1</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">format2</Col>
+                <Col id="datacolumn">Format 2</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Grid id="Grid02" taborder="7" left="20" top="Static03:5" height="139" autofittype="col" scrollbarsize="5" binddataset="Dataset02" right="20" treeusecheckbox="false" treeinitstatus="expand,all" treeuseimage="false" scrollbartype="none" formatid="format1">
+          <Formats>
+            <Format id="format1">
+              <Columns>
+                <Column size="48"/>
+                <Column size="80"/>
+                <Column size="150"/>
+              </Columns>
+              <Rows>
+                <Row size="46" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="#"/>
+                <Cell col="1" text="Date"/>
+                <Cell col="2" text="Name"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="currow+1"/>
+                <Cell col="1" text="bind:date" displaytype="date"/>
+                <Cell col="2" text="expr:first_name+' '+last_name"/>
+              </Band>
+            </Format>
+            <Format id="format2">
+              <Columns>
+                <Column size="48"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="46" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="#"/>
+                <Cell col="1" text="Date"/>
+                <Cell col="2" text="First Name"/>
+                <Cell col="3" text="Last Name"/>
+                <Cell col="4" text="Gender"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="currow+1"/>
+                <Cell col="1" text="bind:date" displaytype="date"/>
+                <Cell col="2" text="bind:first_name"/>
+                <Cell col="3" text="bind:last_name"/>
+                <Cell col="4" text="bind:gender"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static04" taborder="8" text="Expression" left="20" top="800" width="102" height="30" cssclass="sta_WF_compTitle02" messageid="grid.expression" fittocontents="width"/>
+        <Grid id="Grid03" taborder="9" left="20" top="Static04:5" height="139" autofittype="col" scrollbarsize="5" binddataset="Dataset03" right="20" treeusecheckbox="false" treeinitstatus="expand,all" treeuseimage="false" scrollbartype="none" formatid="format1" selecttype="cell" autoupdatetype="comboselect">
+          <Formats>
+            <Format id="format1">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="46" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="A"/>
+                <Cell col="1" text="B"/>
+                <Cell col="2" text="A+B"/>
+                <Cell col="3" text="A*B"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:a" displaytype="maskeditcontrol" edittype="mask" maskeditformat="#,##0"/>
+                <Cell col="1" text="bind:b" displaytype="maskeditcontrol" edittype="mask" maskeditformat="#,##0"/>
+                <Cell col="2" expr="a+b" displaytype="number"/>
+                <Cell col="3" expr="a*b" displaytype="number"/>
+              </Band>
+            </Format>
+            <Format id="format2">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="234"/>
+              </Columns>
+              <Rows>
+                <Row size="46" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="A"/>
+                <Cell col="1" text="B"/>
+                <Cell col="2" text="A+B"/>
+                <Cell col="3" text="A*B"/>
+                <Cell col="4" text="C"/>
+                <Cell col="5" text="C=='Code1'?'text':'combo'"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:a" displaytype="maskeditcontrol" edittype="mask" maskeditformat="#,##0"/>
+                <Cell col="1" text="bind:b" displaytype="maskeditcontrol" edittype="mask" maskeditformat="#,##0"/>
+                <Cell col="2" expr="a+b" displaytype="number"/>
+                <Cell col="3" expr="a*b" displaytype="number"/>
+                <Cell col="4" text="bind:c" displaytype="combocontrol" edittype="combo" combodataset="Dataset04" combocodecol="code" combodatacol="data"/>
+                <Cell col="5" displaytype="expr:c=='Code1'?'editcontrol':'combocontrol'" edittype="expr:c=='Code1'?'text':'combo'" combodataset="Dataset05" combocodecol="code" combodatacol="data" text="bind:d"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Radio id="rdoTreeStatus" taborder="10" left="Static02:20" top="323" width="225" height="30" direction="vertical" innerdataset="dsGridTreeGrouping" codecolumn="code" datacolumn="data_en" index="1" text="Expand" value="expand,all" onitemchanged="rdoTreeStatus_onitemchanged"/>
+      </Layout>
+      <Layout name="large" width="920" height="1030">
+        <Grid id="Grid03" formatid="format2" left="20" top="Static04:10" height="139" right="25"/>
+        <Grid id="Grid02" left="25" top="Static03:10" height="139" right="25"/>
+        <Static id="Static04" left="25" top="795" width="345" height="30"/>
+        <Grid id="Grid01" left="25" top="Static02:10" height="228" right="25"/>
+        <Static id="Static03" left="30" top="600" width="120" height="30"/>
+        <Grid id="Grid00" left="25" top="Static01:10" height="186" right="25" formatid="default"/>
+        <Static id="Static02" left="30" top="313" width="424" height="30"/>
+        <Radio id="Radio00" left="Static03:20" top="600" width="225" height="30"/>
+        <Static id="Static00" top="20" left="20" width="105" height="40"/>
+        <Static id="Static01" left="20" top="Static00:12" width="440" height="30"/>
+        <Radio id="rdoTreeStatus" left="Static02:20" top="313" width="225" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="BIGDECIMAL" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+          <Column id="Column8" type="BIGDECIMAL" size="256"/>
+          <Column id="Column9" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">20200101</Col>
+            <Col id="Column1">1</Col>
+            <Col id="Column2">Code1</Col>
+            <Col id="Column3">1000000</Col>
+            <Col id="Column4">20200101</Col>
+            <Col id="Column8">5000000</Col>
+            <Col id="Column9">ABCDEFG
+HIJKLMNOP</Col>
+            <Col id="Column6">url('imagerc::img_TF_logo.png')</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01">
+        <ColumnInfo>
+          <Column id="no" type="STRING" size="256"/>
+          <Column id="lvl" type="INT" size="256"/>
+          <Column id="team" type="STRING" size="256"/>
+          <Column id="count" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="no">1</Col>
+            <Col id="lvl">0</Col>
+            <Col id="team">Group1</Col>
+            <Col id="count">4</Col>
+          </Row>
+          <Row>
+            <Col id="no">2</Col>
+            <Col id="lvl">1</Col>
+            <Col id="team">Team1</Col>
+            <Col id="count">3</Col>
+          </Row>
+          <Row>
+            <Col id="no">3</Col>
+            <Col id="lvl">1</Col>
+            <Col id="team">Team2</Col>
+            <Col id="count">1</Col>
+          </Row>
+          <Row>
+            <Col id="no">4</Col>
+            <Col id="lvl">0</Col>
+            <Col id="team">Group2</Col>
+            <Col id="count">4</Col>
+          </Row>
+          <Row>
+            <Col id="no">5</Col>
+            <Col id="lvl">1</Col>
+            <Col id="team">Team3</Col>
+            <Col id="count">2</Col>
+          </Row>
+          <Row>
+            <Col id="no">6</Col>
+            <Col id="lvl">1</Col>
+            <Col id="team">Team4</Col>
+            <Col id="count">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset02">
+        <ColumnInfo>
+          <Column id="date" type="STRING" size="256"/>
+          <Column id="first_name" type="STRING" size="256"/>
+          <Column id="last_name" type="STRING" size="256"/>
+          <Column id="gender" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="date">20200101</Col>
+            <Col id="first_name">John</Col>
+            <Col id="last_name">Doe</Col>
+            <Col id="gender">Male</Col>
+          </Row>
+          <Row>
+            <Col id="date">20200201</Col>
+            <Col id="first_name">Jane</Col>
+            <Col id="last_name">Roe</Col>
+            <Col id="gender">Female</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset03">
+        <ColumnInfo>
+          <Column id="a" type="BIGDECIMAL" size="256"/>
+          <Column id="b" type="BIGDECIMAL" size="256"/>
+          <Column id="c" type="STRING" size="256"/>
+          <Column id="d" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="a">10000</Col>
+            <Col id="b">100</Col>
+            <Col id="c">Code1</Col>
+          </Row>
+          <Row>
+            <Col id="a">20000</Col>
+            <Col id="b">50</Col>
+            <Col id="c">Code2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset04">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">Code1</Col>
+            <Col id="data">Code1</Col>
+          </Row>
+          <Row>
+            <Col id="code">Code2</Col>
+            <Col id="data">Code2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset05">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="data">Detail Code1</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="data">Detail Code2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsGridTreeGrouping">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data_en" type="STRING" size="256"/>
+          <Column id="data_ko" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">collapse,all</Col>
+            <Col id="data_en">Collapse</Col>
+            <Col id="data_ko">접기</Col>
+          </Row>
+          <Row>
+            <Col id="code">expand,all</Col>
+            <Col id="data_en">Expand</Col>
+            <Col id="data_ko">펼치기</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	if(nexacro.getApplication().langCode == "ko") this.rdoTreeStatus.set_datacolumn("data_ko");
+	else if(nexacro.getApplication().langCode == "en") this.rdoTreeStatus.set_datacolumn("data_en");
+	
+	this.gfnFormOnLoad();
+};
+
+this.Div00_Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid02.set_formatid(e.postvalue);
+};
+
+this.rdoTreeStatus_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid01.set_treeinitstatus(e.postvalue);
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

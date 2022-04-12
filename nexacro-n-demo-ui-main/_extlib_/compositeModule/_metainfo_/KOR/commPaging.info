@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MetaInfo version="2.0">
+  <Object id="commPaging">
+    <ObjectInfo inheritance="nexacro.CompositeComponent" classname="nexacro.commPaging" shorttypename="commPaging" csstypename="commPaging" csscontrolname="commPagingControl" group="Component" subgroup="Component ( default )" csspseudo="true" container="true" tabstop="true" cssstyle="true" defaultwidth="320" defaultheight="50" registration="allow" edittype="" useinitvalue="true" popup="false" edittypecomponent="" dblclickevent="onclick" requirement="IE8,IE9,IE10,IE11,Edge,Chrome,Safari,Firefox,Opera,Windows NRE,macOS NRE,Android NRE,iOS/iPadOS NRE,Android Default Web Browser,iOS/iPadOS Default Web Browser" description=""/>
+    <PropertyInfo>
+      <Property name="rowcount" readonly="false" initonly="false" hidden="false" control="false" expr="false" bind="false" unused="false" mandatory="false" group="Action" edittype="Number" defaultvalue="10" description="한페이지에 보여질 Row의 갯수를 설정하는 속성입니다"/>
+      <Property name="buttoncount" readonly="false" initonly="false" hidden="false" control="false" expr="false" bind="false" unused="false" mandatory="false" group="Action" defaultvalue="5" edittype="Number" description="Paging 리스트에 표현될 버튼의 최대 갯수를 설정하는 속성입니다."/>
+      <Property name="btnfirstcssclass" readonly="false" initonly="false" hidden="false" control="false" expr="false" bind="false" unused="false" mandatory="false" group="Information" edittype="CssClass"/>
+      <Property name="btnprevcssclass" readonly="false" initonly="false" hidden="false" control="false" expr="false" bind="false" unused="false" mandatory="false" group="Information" edittype="CssClass"/>
+      <Property name="btnnextcssclass" readonly="false" initonly="false" hidden="false" control="false" expr="false" bind="false" unused="false" mandatory="false" group="Information" edittype="CssClass"/>
+      <Property name="btnlastcssclass" readonly="false" initonly="false" hidden="false" control="false" expr="false" bind="false" unused="false" mandatory="false" group="Information" edittype="CssClass"/>
+      <Property name="btnnumcssclass" readonly="false" initonly="false" hidden="false" control="false" expr="false" bind="false" unused="false" mandatory="false" group="Information" edittype="CssClass"/>
+    </PropertyInfo>
+    <CSSInfo>
+      <PropertyInfo/>
+    </CSSInfo>
+    <StatusInfo/>
+    <MethodInfo>
+      <Method name="loadPage" async="false" unused="false" description="Paging리스트를 생성하는 메소드입니다.">
+        <Syntax text="loadPage(vTotalRowCount)">
+          <Return/>
+          <Arguments>
+            <Argument name="vTotalRowCount" type="Number"/>
+          </Arguments>
+        </Syntax>
+      </Method>
+    </MethodInfo>
+    <EventHandlerInfo>
+      <EventHandler name="onchangepage" group="Event" unused="false" description="페이지 변경했을 때 발생하는 이벤트입니다.">
+        <Syntax text="onchangepage(obj:nexacro.commPaging, e:nexacro.ChangeEventInfo)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="obj" type="nexacro.commPaging"/>
+            <Argument name="e" type="nexacro.ChangeEventInfo"/>
+          </Arguments>
+        </Syntax>
+      </EventHandler>
+      <EventHandler name="canchangepage" group="Event" unused="false">
+        <Syntax text="canchangepage(obj:nexacro.commPaging, e:nexacro.ChangeEventInfo)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="obj" type="nexacro.commPaging"/>
+            <Argument name="e" type="nexacro.ChangeEventInfo"/>
+          </Arguments>
+        </Syntax>
+      </EventHandler>
+    </EventHandlerInfo>
+  </Object>
+</MetaInfo>

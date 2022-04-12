@@ -1,0 +1,782 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE001" inheritanceid="" position="absolute" titletext="FILE ATTACHMENT" onbeforeclose="form_onbeforeclose" onload="form_onload" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="st_Title" text="domain.board.detail" position="absolute" wordwrap="english" left="15" width="343" top="38" height="22" cssclass="sta_WF_title"/>
+        <Button id="btn_Save" taborder="3" text="domain.save" position="absolute" style="font:bold 8 dotum;" onclick="btn_Save_onclick" userdata="A=T" right="15" width="42" top="42" height="23" cssclass="btn_module"/>
+        <Grid id="grd_GrdBoard" taborder="1" binddataset="ds_BoardFile" autoenter="select" useinputpanel="false" cellsizingtype="col" autofittype="col" nodatatext="There is no inquiry data." onrbuttonup="divGrd_grdCategory_onrbuttonup" position="absolute" style="align:center middle;font:dotum,9;" fillareatype="none" userdata="A=U" onheadclick="grd_GrdBoard_onheadclick" oncelldblclick="grd_GrdBoard_oncelldblclick" left="15" right="15" top="271" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="25"/>
+                <Column size="40"/>
+                <Column size="538"/>
+                <Column size="0"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox" text="0"/>
+                <Cell col="1"/>
+                <Cell col="2" text="domain.filename"/>
+                <Cell col="3" text="domain.filesize"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:_chk"/>
+                <Cell col="1" style="align:center;" expr="currow+1"/>
+                <Cell col="2" style="align:left;" text="bind:NAME"/>
+                <Cell col="3" style="align:left;" text="bind:FILE_SIZE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="stPostId" text="domain.board.id" position="absolute" left="15" width="85" top="70" height="32" cssclass="sta_WFDA_labelB"/>
+        <Static id="stTitle" text="domain.title" position="absolute" left="15" width="85" top="101" height="32" cssclass="sta_WFDA_labelB"/>
+        <Static id="stContents" text="domain.contents" position="absolute" left="15" width="85" top="132" height="68" cssclass="sta_WFDA_labelB"/>
+        <Static id="stRegId" text="domain.reg.id" position="absolute" left="406" width="86" top="70" height="32" cssclass="sta_WFDA_labelB"/>
+        <Static id="stRegDate" text="domain.reg.date" position="absolute" left="15" width="85" top="199" height="32" cssclass="sta_WFDA_labelB"/>
+        <Static id="stCommunityId" text="domain.community" position="absolute" left="406" width="86" top="199" height="32" cssclass="sta_WFDA_labelB"/>
+        <Static id="Static00" position="absolute" left="99" width="308" top="70" height="32" cssclass="sta_WFDA_B"/>
+        <Edit id="edt_PostId" taborder="1" readonly="true" position="absolute" left="106" width="295" top="76" height="20" cssclass="readonly"/>
+        <Static id="Static01" position="absolute" left="491" right="15" top="70" height="32" cssclass="sta_WFDA_B"/>
+        <Edit id="edt_RegId" taborder="1" readonly="true" position="absolute" left="497" top="76" height="20" cssclass="readonly" right="20"/>
+        <Static id="Static02" position="absolute" left="99" right="15" top="101" height="32" cssclass="sta_WFDA_B"/>
+        <Edit id="edt_Title" taborder="1" readonly="true" position="absolute" left="106" top="107" height="20" cssclass="readonly" right="20"/>
+        <Static id="Static03" position="absolute" left="99" right="15" top="132" height="68" cssclass="sta_WFDA_B"/>
+        <TextArea id="txa_Contents" taborder="1" wordwrap="char" readonly="true" position="absolute" left="106" top="138" height="56" cssclass="readonly" right="20"/>
+        <Static id="Static04" position="absolute" left="99" width="308" top="199" height="32" cssclass="sta_WFDA_B"/>
+        <Calendar id="cal_RegDate" taborder="1" position="absolute" style="align:left middle;" left="106" width="248" top="205" height="20" dateformat="yyyy-MM-dd" readonly="true" cssclass="readonly"/>
+        <Static id="Static05" position="absolute" left="491" right="15" top="199" height="32" cssclass="sta_WFDA_B"/>
+        <Combo id="cmb_CommunityId" taborder="1" innerdataset="@ds_CboCommunity" codecolumn="COMMUNITY_ID1" datacolumn="COMMUNITY_NAME" position="absolute" left="498" width="293" top="205" height="20" index="-1" readonly="true" cssclass="readonly"/>
+        <Button id="btn_Insert" taborder="1" text="domain.add" onclick="btn_Insert_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A=I" visible="false" right="-85" width="73" top="182" height="22" cssclass="btn_WF_crud"/>
+        <Button id="btn_Delete" taborder="1" text="domain.delete" onclick="btn_Delete_onclick" position="absolute" userdata="A=D" right="15" width="42" top="244" height="22" cssclass="btn_WF_crud" style="font:bold 8 dotum;"/>
+        <Static id="st_FileSize" text="0KB" position="absolute" style="background:transparent;align:right;" visible="false" right="141" width="72" top="244" height="22"/>
+        <Static id="st_Title00" text="domain.attachedfile" wordwrap="english" position="absolute" left="15" width="204" top="247" height="21" cssclass="sta_WF_subtit"/>
+        <FileDownload id="fileDown00" taborder="1" retry="0" position="absolute" visible="false" left="813" width="100" top="186" height="24" text="fileDownload"/>
+        <Div id="div_fup" taborder="4" top="241" height="25" scrollbars="none" right="60" width="75">
+          <Layouts>
+            <Layout>
+              <FileUpload id="fup_AttachedFile" taborder="0" retry="0" scrollbars="none" onload="fup_AttachedFile_onload" onitemchanged="fup_AttachedFile_onitemchanged" style="itemheight:22;buttonsize:73;buttonfont:bold 8 dotum;buttontext:domain.file.add;" bottom="0" left="2" height="22" width="73"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static42" taborder="5" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="6" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="7" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="8" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="9" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="11" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_GrdBoard" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="150"/>
+          <Column id="CONTENTS" type="STRING" size="360"/>
+          <Column id="REG_ID" type="STRING" size="20"/>
+          <Column id="REG_DATE" type="DATE" size="0"/>
+          <Column id="COMMUNITY_ID" type="STRING" size="16"/>
+          <Column id="POST_ID" type="STRING" size="16"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TITLE">Project party</Col>
+            <Col id="CONTENTS">There is project party. Mi Yeoung Le will inform date and time.</Col>
+            <Col id="REG_ID">hong80</Col>
+            <Col id="REG_DATE">20090626</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0005</Col>
+            <Col id="POST_ID">POST-00001</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdBoardValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="CONTENTS" type="STRING" size="256"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="DATE" size="8"/>
+          <Column id="POST_ID" type="STRING" size="256"/>
+          <Column id="COMMUNITY_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TITLE">title:title,required:true,maxlength:150</Col>
+            <Col id="CONTENTS">title:contents,maxlength:360</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CboCommunity" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="STRING" size="256"/>
+          <Column id="COMMUNITY_ID1" type="STRING" size="16"/>
+          <Column id="COMMUNITY_NAME" type="STRING" size="150"/>
+          <Column id="COMMUNITY_DESC" type="STRING" size="300"/>
+          <Column id="CATEGORY_ID" type="STRING" size="16"/>
+          <Column id="REG_ID" type="STRING" size="20"/>
+          <Column id="REG_DATE" type="DATE" size="0"/>
+          <Column id="USERID" type="STRING" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-1019</Col>
+            <Col id="COMMUNITY_NAME">Childhood football</Col>
+            <Col id="COMMUNITY_DESC">Childhood football</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090926</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-1017</Col>
+            <Col id="COMMUNITY_NAME">Cleaning welfare</Col>
+            <Col id="COMMUNITY_DESC">Cleaning welfare</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0006</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090926</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-1010</Col>
+            <Col id="COMMUNITY_NAME">Expo volunteer work</Col>
+            <Col id="COMMUNITY_DESC">Expo volunteer work</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0006</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090926</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-1009</Col>
+            <Col id="COMMUNITY_NAME">Lemon Terrace</Col>
+            <Col id="COMMUNITY_DESC">I can make it as beautiful as in my home magazine.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0005</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090926</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-1003</Col>
+            <Col id="COMMUNITY_NAME">All play</Col>
+            <Col id="COMMUNITY_DESC">I have done all play which I know.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-1009</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090925</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0020</Col>
+            <Col id="COMMUNITY_NAME">Woodwork outing</Col>
+            <Col id="COMMUNITY_DESC">We can make table by our hand.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0005</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090821</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0019</Col>
+            <Col id="COMMUNITY_NAME">Computer help</Col>
+            <Col id="COMMUNITY_DESC">We will help you to learn computer.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0006</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090821</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0015</Col>
+            <Col id="COMMUNITY_NAME">Rural volunteer work</Col>
+            <Col id="COMMUNITY_DESC">Rural volunteer work activity</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0006</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090821</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0018</Col>
+            <Col id="COMMUNITY_NAME">Same company worker gathering</Col>
+            <Col id="COMMUNITY_DESC">Very happy to see same company workers.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0004</Col>
+            <Col id="REG_ID">hong80</Col>
+            <Col id="REG_DATE">20090806</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0017</Col>
+            <Col id="COMMUNITY_NAME">Watching K league</Col>
+            <Col id="COMMUNITY_DESC">We welcome to anyone who have interest in K league.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090806</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0014</Col>
+            <Col id="COMMUNITY_NAME">Tancheon environment purification</Col>
+            <Col id="COMMUNITY_DESC">We want to make clean Tancheon</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0006</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090806</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0013</Col>
+            <Col id="COMMUNITY_NAME">MLB lovers</Col>
+            <Col id="COMMUNITY_DESC">MLB lovers</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090806</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0012</Col>
+            <Col id="COMMUNITY_NAME">Making computer</Col>
+            <Col id="COMMUNITY_DESC">Using computer after repairing~</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="REG_ID">hong80</Col>
+            <Col id="REG_DATE">20090805</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0011</Col>
+            <Col id="COMMUNITY_NAME">Riding car together</Col>
+            <Col id="COMMUNITY_DESC">This is gathering about the people who want to make new generation car pool.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">eugene</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0010</Col>
+            <Col id="COMMUNITY_NAME">From which petrol station we should fill oil?</Col>
+            <Col id="COMMUNITY_DESC">We can share here national gas station oil price information.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">babopack</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0009</Col>
+            <Col id="COMMUNITY_NAME">Repairing car by yourself</Col>
+            <Col id="COMMUNITY_DESC">We share car maintenance related information.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">bigblue</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0008</Col>
+            <Col id="COMMUNITY_NAME">This is about car insurance</Col>
+            <Col id="COMMUNITY_DESC">This contains all information about car insurance.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">whatsub</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0007</Col>
+            <Col id="COMMUNITY_NAME">Buying old car for selling on high prices</Col>
+            <Col id="COMMUNITY_DESC">This is community sharing information about sell and purchase used car.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">urobba</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0006</Col>
+            <Col id="COMMUNITY_NAME">Let's ride SM3 car together</Col>
+            <Col id="COMMUNITY_DESC">This community shares infomation about SM3 car.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">minminmin</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0005</Col>
+            <Col id="COMMUNITY_NAME">Spring Framework users gathering</Col>
+            <Col id="COMMUNITY_DESC">Spring Framework users gathering.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="REG_ID">howrock</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0004</Col>
+            <Col id="COMMUNITY_NAME">Learning FLEX easily</Col>
+            <Col id="COMMUNITY_DESC">This community sharing information about FLAX development.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="REG_ID">zoon73</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0003</Col>
+            <Col id="COMMUNITY_NAME">HTML CSS Javascript</Col>
+            <Col id="COMMUNITY_DESC">This is community regarding Javascript, HTML CSS development.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="REG_ID">subman</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0002</Col>
+            <Col id="COMMUNITY_NAME">THE PRACTICAL SQL</Col>
+            <Col id="COMMUNITY_DESC">This community is about learning SQL.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="REG_ID">bowman</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="COMMUNITY_ID1">COMMUNITY-0001</Col>
+            <Col id="COMMUNITY_NAME">JAVA development information sharing</Col>
+            <Col id="COMMUNITY_DESC">This community is about sharing information about JAVA development.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="REG_ID">hong80</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="USERID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_BoardFile" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_BoardFile_onrowposchanged">
+        <ColumnInfo>
+          <Column id="_chk" type="STRING" size="256"/>
+          <Column id="ID" type="STRING" size="50"/>
+          <Column id="NAME" type="STRING" size="255"/>
+          <Column id="REF_ID" type="STRING" size="50"/>
+          <Column id="FILE_SIZE" type="BIGDECIMAL" size="15"/>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+          <Column id="FULL_PATH" type="STRING" size="256"/>
+          <Column id="POST_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="_chk">4368</Col>
+            <Col id="ID">FILE-201207111403122340</Col>
+            <Col id="NAME">DownloadController.java</Col>
+            <Col id="REF_ID">POST-00001</Col>
+            <Col id="FILE_SIZE"/>
+            <Col id="FILE_PATH"/>
+            <Col id="FULL_PATH"/>
+            <Col id="POST_ID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="POST_ID" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="POST_ID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_AttachedFile" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_PostId" propid="value" datasetid="ds_GrdBoard" columnid="POST_ID"/>
+      <BindItem id="item1" compid="edt_RegId" propid="value" datasetid="ds_GrdBoard" columnid="REG_ID"/>
+      <BindItem id="item2" compid="edt_Title" propid="value" datasetid="ds_GrdBoard" columnid="TITLE"/>
+      <BindItem id="item3" compid="txa_Contents" propid="value" datasetid="ds_GrdBoard" columnid="CONTENTS"/>
+      <BindItem id="item4" compid="cmb_CommunityId" propid="value" datasetid="ds_GrdBoard" columnid="COMMUNITY_ID"/>
+      <BindItem id="item5" compid="cal_RegDate" propid="value" datasetid="ds_GrdBoard" columnid="REG_DATE"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work Screen template 13
+ * 02. Screen name   : TEMPLATE013.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by   content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs";
+/***********************************************************************
+ * Screen display variable section
+ ************************************************************************/
+this.strPostId = "";
+this.nMaxSize = undefined;
+this.nMaxRow = undefined;
+this.nTotalSize = undefined;
+this.strUploadURL = "xpQueryUpload.do";
+this.strDownloadURL = "xpQueryDownload.do";
+this.objFocusedGrd = undefined;
+/***********************************************************************
+ * Event processing information
+ ************************************************************************/
+// Initialization Form onload
+//2013.11.26.Hui Yeon Choi.Calednar initialize not occured dateformat. TOPS 34105(RP_34294)
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	this.strPostId = "POST-00001";
+	this.ds_Search.setColumn(0, "POST_ID", this.strPostId);
+/*
+
+	for (var i = 0; i < this.ds_BoardFile.getRowCount(); i++) 
+	{
+		if (this.ds_BoardFile.getRowType(i) == 4) 
+		{
+			for (var j = 0; j < this.ds_BoardFile.getColCount(); j++) 
+			{
+				if (this.ds_BoardFile.getColumn(i, j) != this.ds_BoardFile.getOrgColumn(i, j)) 
+				{
+					trace(i + "---" + j + "==>" + this.ds_BoardFile.getColumn(i, j) + "<==>" + this.ds_BoardFile.getOrgColumn(i, j) + "<");
+				}
+			}
+		}
+	}
+*/
+
+	// Grid, Combo Box Data Receive
+	this.fn_getComboData();
+
+	// Search processing
+	this.fn_Search();
+}
+
+// Form beforeclose Event processing
+// Before closing the form, here is popup creation to ask if there is modified data
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_BoardFile)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.btn_Save_onclick();
+		return false;
+	}
+}
+
+// Event processing on inset button click
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+}
+
+// Event processing on delete button click
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Delete();
+}
+
+// Event processing on save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// In case of item existing, reset
+	/*
+	 if(fup_AttachedFile.itemcount > 0){
+	 fup_AttachedFile.innerdataset = "";
+	 for(var i = fup_AttachedFile.itemcount - 1 ; i >= 0 ; i--){
+	 fup_AttachedFile.deleteItem(i);
+	 }
+	 }
+	 
+	 ds_AttachedFile.clearData();
+	 var nRow = 0;
+	 
+	 // ds_BoardFile 행수(rowcount)만큼 FileUpload 객체에 item 추가
+	 for(var j = 0 ; j < ds_BoardFile.rowcount ; j++){
+	 if(ds_BoardFile.getRowType(j) == Dataset.ROWTYPE_INSERT){
+	 fup_AttachedFile.appendItem();
+	 nRow = ds_AttachedFile.addRow();
+	 ds_AttachedFile.setColumn(nRow, "FILE_PATH", ds_BoardFile.getColumn(j, "FULL_PATH"));
+	 }
+	 }
+	 
+	 // ds_AttachedFile dataset을 FileUpload 객체의 innerdataset으로 설정
+	 fup_AttachedFile.innerdataset = "ds_AttachedFile";
+	 fup_AttachedFile.filecolumn = "FILE_PATH";
+	 */
+
+	// Determined URL(/xpQueryUpload.do) execute to upload
+	if (this.div_fup.fup_AttachedFile.itemcount > 1) 
+	{
+		this.div_fup.fup_AttachedFile.set_uploadurl((application.gv_BaseUrl + this.strUploadURL));
+		this.div_fup.fup_AttachedFile.upload();
+	}
+	else 
+	{
+		this.fn_Save();
+	}
+}
+
+// Sorting on Grid Head
+this.grd_GrdBoard_onheadclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	this.gfn_GridSort(obj, e);
+	// elct/Unselect all checkbox on button click
+	this.gfn_setGridCheckAll(obj, e);
+}
+
+// Event processin on attachement file list double click 
+this.grd_GrdBoard_oncelldblclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	var strFileId = this.ds_BoardFile.getColumn(e.row, "ID");
+	var strFileName = this.ds_BoardFile.getColumn(e.row, "NAME");
+	// var objFileDialog = new FileDialog;
+	// Downloading file to user's selected location
+	// strFilePath  = objFileDialog.open(gfn_getDomainText("domain.popup.filedownload"), FileDialog.SAVE, "%DOCUMENT%", strFileName);
+
+	// var objHttpObj = new HttpObject;
+	var strDownloadUrl = application.gv_BaseUrl + this.strDownloadURL + "?fileId=" + strFileId + "&fileName=" + escape(encodeURI(strFileName));
+	// var bSucc = objHttpObj.download(strDownloadUrl, strFilePath, true);
+	this.fileDown00.set_downloadurl(strDownloadUrl);
+
+	var bResult = this.fileDown00.download();
+}
+
+// After Upload success Callback method - Setting ID Column of Dataset
+this.fup_AttachedFile_onload = function (obj:FileUpload, e:FileUploadLoadEventInfo)
+{
+	var objResultDs = e.datasets[0];
+	var nRow = 0;
+
+	for (var i = 0; i < this.ds_BoardFile.rowcount; i++) 
+	{
+		if (this.gfn_isNull(this.ds_BoardFile.getColumn(i, "ID"))) 
+		{
+			this.ds_BoardFile.setColumn(i, "REF_ID", this.strPostId);
+			this.ds_BoardFile.setColumn(i, "ID", objResultDs.getColumn(nRow, "ID"));
+			nRow++;
+		}
+	}
+	this.fn_Save();
+}
+
+// Attachement file list Row Position change event
+this.ds_BoardFile_onrowposchanged = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	// Total size of file calculation
+	this.fn_calcTotalFileSize();
+}
+
+/***********************************************************************
+ * User defined function specification
+ ************************************************************************/
+// Total file size calculation
+this.fn_calcTotalFileSize = function ()
+{
+	this.nTotalSize = 0;
+
+	for (var i = 0; i < this.ds_BoardFile.rowcount; i++) 
+	{
+		this.nTotalSize += parseInt(this.ds_BoardFile.getColumn(i, "FILE_SIZE"));
+	}
+
+	this.st_FileSize.set_text((Math.ceil(this.nTotalSize / 1024) + "KB"));
+}
+
+this.fn_Search = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListBoardFile";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='2'" + " ";
+	sArgument += "querySet1='findXPBoardFileList'" + " ";
+	sArgument += "querySet2='findXPBoardByPk'";
+
+	var sInDatasets = "querySet1=ds_Search querySet2=ds_Search";
+	var sOutDatasets = "ds_BoardFile=querySet1 ds_GrdBoard=querySet2";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_getComboData = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListCommunity";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='getList'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='findXPCommunityList'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_CboCommunity=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fup_AttachedFile_onitemchanged = function (obj:FileUpload, e:FileUploadItemChangeEventInfo)
+{
+	var strFilePath = e.newvalue;
+	var strFileName = this.gfn_getFileName(e.newvalue);
+	var strFileExt = this.gfn_getFileExt(strFileName);
+
+	if(this.fn_Insert(strFilePath, strFileName, strFileExt)) {
+		this.div_fup.fup_AttachedFile.appendItem();	
+		this.div_fup.fup_AttachedFile.getNumSetter("top").subset(22);
+	} else {
+		this.div_fup.fup_AttachedFile.deleteItem(e.index);
+		this.div_fup.fup_AttachedFile.appendItem();
+	}
+	// var nFileSize    = objAttatchedFile.getFileSize();
+}
+
+// Event processing on add button click
+this.fn_Insert = function (strFilePath, strFileName, strFileExt)
+{
+	var nFileSize = 0;
+	/*
+	 // User selecting file
+	 var objFileDialog = new FileDialog;
+	 var objAttatchedFile = objFileDialog.open(gfn_getDomainText("domain.popup.fileupload"), FileDialog.LOAD);
+	 
+	 // For opening size informaton the selected file -File Open
+	 if(objAttatchedFile){
+	 objAttatchedFile.open(VirtualFile.openRead | VirtualFile.openText);
+	 } else {
+	 return;
+	 }
+	 
+	 var strFilePath  = objAttatchedFile.path;
+	 var strFileName  = objAttatchedFile.filename;
+	 var strFileExt   = gfn_getFileExt(strFileName);
+	 
+	 
+	 // Maximum size limt is 5MB
+	 if(nFileSize >= 5242880){
+	 gfn_Alert("msg.toobigdata", "warning");
+	 return;
+	 }
+	 */
+
+	// Setting required information on DataSet, ds_BoardFile, for File Upload
+	if (this.gfn_IndexOf(strFileName, "(") == -1 || this.gfn_IndexOf(strFileName, ")") == -1) 
+	{
+		/*
+		 ds_BoardFile.addColumn("POST_ID", "string", 256);
+		 ds_BoardFile.addColumn("FILE_PATH", "string", 256);
+		 ds_BoardFile.addColumn("FULL_PATH", "string", 256);
+		 */
+
+		var nNewRow = this.ds_BoardFile.addRow();
+
+		this.ds_BoardFile.setColumn(nNewRow, "NAME", strFileName);
+		this.ds_BoardFile.setColumn(nNewRow, "FILE_SIZE", nFileSize);
+		this.ds_BoardFile.setColumn(nNewRow, "FILE_PATH", strFilePath);
+		this.ds_BoardFile.setColumn(nNewRow, "POST_ID", this.strPostId);
+		this.ds_BoardFile.setColumn(nNewRow, "FULL_PATH", strFilePath);
+		this.fn_calcTotalFileSize();
+		return true;
+	}
+	else 
+	{
+		this.gfn_Alert("msg.invalid.filename");
+		
+		return false;
+	}
+}
+
+this.fn_Delete = function ()
+{
+	var nRow = this.ds_BoardFile.findRow("_chk", 1);
+	if (nRow == -1) 
+	{
+		return this.gfn_Alert("msg.err.grid.noselect", "error");
+	}
+
+	var rtVal = this.gfn_Confirm("msg.before.delete", "question");
+	if (rtVal == false) 
+	{
+		return;
+	}
+
+	var nRowCnt = this.ds_BoardFile.getRowCount();
+
+	for (var i = 0; i < nRowCnt; i++) 
+	{
+		var bIsChecked = this.ds_BoardFile.getColumn(i, "_chk");
+		if (bIsChecked == 1) 
+		{
+			for (var ni = 0; ni < this.div_fup.fup_AttachedFile.getItemCount(); ni++) 
+			{
+				if (this.div_fup.fup_AttachedFile.getValue(ni) == this.ds_BoardFile.getColumn(i, "FILE_PATH")) 
+				{
+					this.div_fup.fup_AttachedFile.deleteItem(ni);
+					this.div_fup.fup_AttachedFile.getNumSetter("top").addset(22);
+				}
+			}
+			this.ds_BoardFile.deleteRow(i);
+		}
+	}
+	
+	if(this.div_fup.fup_AttachedFile.getItemCount() == 0) {
+		this.div_fup.fup_AttachedFile.appendItem.addRow();
+	
+	}
+}
+
+this.fn_Save = function ()
+{
+	return;
+	// After validation , if there is not exception, than save all changed content in the Grid
+	if (this.gfn_DsCheckValid(this.ds_BoardFile) == false) 
+	{
+		return;
+	}
+
+	var sArgument = "";
+	var sSvcID = "saveAllBoardFile";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "USER_ID=" + TOBE.wrapQuote(application.gv_UserId);
+	sArgument += " " + "querySet1='createXPBoardFile,updateXPBoardFile,removeXPBoardFile'";
+
+	var sInDatasets = "querySet1=ds_BoardFile:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// After processing gfnService processing callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAllBoardFile":
+			this.gfn_Alert("msg.save.success");
+			this.fn_Search();
+			break;
+		default:
+			break;
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

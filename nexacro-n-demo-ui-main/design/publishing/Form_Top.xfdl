@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Top" width="1280" height="80" titletext="Form_Top">
+    <Layouts>
+      <Layout width="1280" height="80" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" left="0" top="15" width="200" height="50" cssclass="sta_TF_logo"/>
+        <Button id="Button00" taborder="1" text="Grid" left="280" top="15" width="140" height="50" cssclass="btn_TF_topNav"/>
+        <Button id="Button00_00" taborder="2" text="Component" left="425" top="15" width="140" height="50" cssclass="btn_TF_topNav"/>
+        <Button id="Button00_01" taborder="3" text="Device" left="570" top="15" width="140" height="50" cssclass="btn_TF_topNav"/>
+        <Button id="Button00_01_00" taborder="4" text="Sample" left="715" top="15" width="140" height="50" cssclass="btn_TF_topNav"/>
+        <Button id="Button01" taborder="5" left="1140" top="20" width="40" height="40" cssclass="btn_TF_function03"/>
+        <Button id="Button01_00" taborder="6" left="1190" top="20" width="40" height="40" cssclass="btn_TF_function02"/>
+        <Button id="Button01_01" taborder="7" left="1240" top="20" width="40" height="40" cssclass="btn_TF_function01"/>
+        <Button id="Button01_02" taborder="8" left="1140" top="90" width="40" height="40" cssclass="btn_TF_function03ENG" visible="false"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

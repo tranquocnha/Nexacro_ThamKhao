@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="generate_desc" width="920" height="140" onload="form_onload">
+    <Layouts>
+      <Layout height="140" width="920">
+        <Static id="Static00" taborder="1" text="컴포넌트 동적 생성" left="20" top="15" width="140" height="30" cssclass="sta_WF_compTitle02" messageid="comp.generate" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="자사 기존 버전 대비 최적화된 컴포넌트 구조 및 렌더링 기술을 통해 화면을 더욱 신속하게 표현합니다.&#13;&#10;본 데모를 통해 많은 양의 컴포넌트도 빠르게 표현하는 넥사크로플랫폼의 렌더링 성능을 직접 확인하세요." left="20" top="Static00:2" height="43" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.generate.desc" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

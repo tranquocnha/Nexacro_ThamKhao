@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_Row_PopupChose" left="0" top="0" width="1024" height="768" titletext="Grid_Row_PopupChose">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" width="300" height="150" binddataset="Dataset00" onexpandup="Grid00_onexpandup" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="232"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Item"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:code" expandshow="show" expandimage="URL('theme://Images\Btn_ChildminN.png')"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <PopupDiv id="PopupDiv00" text="PopupDiv00" left="340" top="117" width="168" height="258" visible="false" border="0px solid">
+          <Layouts>
+            <Layout>
+              <Grid id="Grid01" taborder="0" binddataset="ds_popup" useinputpanel="false" autofittype="col" left="0" top="0" width="168" height="258" oncelldblclick="PopupDiv00_Grid01_oncelldblclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="49"/>
+                      <Column size="115"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="40" band="head"/>
+                      <Row size="36"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="Code"/>
+                      <Cell col="1" text="Item"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:Column0"/>
+                      <Cell col="1" text="bind:Column1"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Static id="Static05" taborder="1" text="Way of selecting data using PopupDiv" cssclass="sta_WF_subtitP" left="30" top="18" width="600" height="40"/>
+        <Static id="Static00" taborder="2" text="1. left : 340 / top : 117&#13;&#10;2. left : 340 / top : 154 &#13;&#10;3. left : 340 / top : 189" left="556" top="153" width="188" height="60" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_popup" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">01</Col>
+            <Col id="Column1">Electric fan</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">02</Col>
+            <Col id="Column1">Air conditioning</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">03</Col>
+            <Col id="Column1">Notebook</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">04</Col>
+            <Col id="Column1">Desktop</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">05</Col>
+            <Col id="Column1">Women's Clothing</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">06</Col>
+            <Col id="Column1">Men's Clothing</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.col;
+this.row;
+this.Grid00_onexpandup = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	this.col = e.cell;
+	this.row = e.row;
+
+
+var objApp = nexacro.getApplication();
+var objMainframe = objApp.mainframe;
+
+	//var nX = system.screenToClientX(this, system.clientToScreenX(obj, (e.cell*232) +150));
+	//var nY = system.screenToClientY(this, system.clientToScreenY(obj, (e.row*24)+35));	
+
+	var nX = system.screenToClientX(this, system.clientToScreenX(obj, (e.cell*232) +150)+130);
+	var nY = system.screenToClientY(this, system.clientToScreenY(obj, (e.row*24)+35)+130);		
+ 	this.PopupDiv00.trackPopup(nX, nY, null, null, "call_back");
+	
+};
+this.call_back = function (strId,str)
+{
+	this.Dataset00.setColumn( this.row, this.col , str)
+};
+this.PopupDiv00_Grid01_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var value = this.ds_popup.getColumn(e.row , 1 );
+	this.PopupDiv00.closePopup(value);
+};
+
+ ]]></Script>
+  </Form>
+</FDL>

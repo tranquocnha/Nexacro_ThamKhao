@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Work" classname="Work" inheritanceid="" position="absolute" titletext="TAB" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" tabindex="0" scrollbars="autoboth" position="absolute" left="25" right="30" top="143" bottom="30" onchanged="Tab00_onchanged">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="TabPage1">
+              <Layouts>
+                <Layout>
+                  <Static id="sta_WFDA_Label15" position="absolute" text="" left="462" right="35" top="41" height="26" cssclass="sta_WFDA_Data"/>
+                  <Static id="sta_WFDA_Label23" position="absolute" text="" left="462" right="35" top="66" height="26" cssclass="sta_WFDA_Data"/>
+                  <Static id="sta_WFDA_Label27" position="absolute" text="" left="532" right="294" top="91" height="26" cssclass="sta_WFDA_Data"/>
+                  <Static id="sta_WFDA_Label37" position="absolute" text="" left="462" right="35" top="116" height="26" cssclass="sta_WFDA_Data"/>
+                  <Static id="sta_WFDA_Label41" position="absolute" text="" left="421" right="76" top="141" bottom="29" cssclass="sta_WFDA_Data"/>
+                  <Button id="btn_WF_crud02" taborder="29" text="Save" cssclass="button_WF_blue" top="10" right="10" width="50" height="28"/>
+                  <Button id="btn_WF_crud06" taborder="30" text="Delete" cssclass="button_WF_gray" top="10" right="65" width="60" height="28"/>
+                  <Button id="btn_WF_crud07" taborder="31" text="Modify" cssclass="button_WF_white" top="10" right="130" width="60" height="28"/>
+                  <Button id="btn_WF_crud00" taborder="32" cssclass="button_WF_white" top="10" right="195" width="50" height="28" text="Add"/>
+                  <Static id="sta_WFDA_Label12" taborder="33" text="Period of subcontracting construction" cssclass="sta_WFDA_labelB" left="10" top="40" width="180" height="50" wordWrap="char"/>
+                  <Static id="sta_WFDA_Label13" taborder="34" cssclass="sta_WFDA_B" left="189" top="40" width="367" height="50"/>
+                  <Static id="sta_WFDA_Label14" taborder="35" text="Tax/Tax-free" cssclass="sta_WFDA_labelB" left="555" top="40" width="180" height="50"/>
+                  <Static id="sta_WFDA_Label00" taborder="36" cssclass="sta_WFDA_B" left="734" top="40" right="10" height="50"/>
+                  <Static id="sta_WFDA_Label16" taborder="37" text="Construction execution" cssclass="sta_WFDA_labelB" left="10" top="89" width="180" height="40"/>
+                  <Static id="sta_WFDA_Label21" taborder="38" cssclass="sta_WFDA_B" left="189" top="89" width="367" height="40"/>
+                  <Static id="sta_WFDA_Label22" taborder="39" text="Contruction date" cssclass="sta_WFDA_labelB" left="555" top="89" width="180" height="40"/>
+                  <Static id="sta_WFDA_Label01" taborder="40" cssclass="sta_WFDA_B" left="734" top="89" right="10" height="40"/>
+                  <Static id="sta_WFDA_Label24" taborder="41" text="Contruction method" cssclass="sta_WFDA_labelB" left="10" top="128" width="180" height="40"/>
+                  <Static id="sta_WFDA_Label25" taborder="42" cssclass="sta_WFDA_B" left="189" top="128" width="367" height="40"/>
+                  <Static id="sta_WFDA_Label26" taborder="43" text="Contruction director" cssclass="sta_WFDA_labelB" left="555" top="128" width="180" height="40"/>
+                  <Static id="sta_WFDA_Label02" taborder="44" cssclass="sta_WFDA_B" left="734" top="128" right="10" height="40"/>
+                  <Static id="sta_WFDA_Label28" taborder="45" text="Contruction place" cssclass="sta_WFDA_labelB" left="10" top="167" width="180" height="40"/>
+                  <Static id="sta_WFDA_Label35" taborder="46" cssclass="sta_WFDA_B" left="189" top="167" width="367" height="40"/>
+                  <Static id="sta_WFDA_Label36" taborder="47" text="Bid director" cssclass="sta_WFDA_labelB" left="555" top="167" width="180" height="40"/>
+                  <Static id="sta_WFDA_Label03" taborder="48" cssclass="sta_WFDA_B" left="734" top="167" right="10" height="40" text=""/>
+                  <Static id="sta_WFDA_Label38" taborder="49" text="Construction outline" cssclass="sta_WFDA_labelB" left="10" top="206" bottom="10" width="180"/>
+                  <Static id="sta_WFDA_Label39" taborder="50" cssclass="sta_WFDA_B" left="189" top="206" bottom="10" width="367"/>
+                  <Static id="sta_WFDA_Label40" taborder="51" text="Remarks" cssclass="sta_WFDA_labelB" left="555" top="206" bottom="10" width="180"/>
+                  <Static id="sta_WFDA_Label04" taborder="52" cssclass="sta_WFDA_B" left="734" top="206" right="10" bottom="10"/>
+                  <Calendar id="Calendar00" taborder="53" value="20110615" dateformat="yyyy-MM-dd" cssclass="input_point" left="198" top="51" width="150" height="28"/>
+                  <Calendar id="Calendar01" taborder="54" value="20110615" dateformat="yyyy-MM-dd" cssclass="input_point" left="386" top="51" width="150" height="28"/>
+                  <Radio id="Radio00" taborder="55" columncount="2" innerdataset="@ds_radio_00" codecolumn="Column0" datacolumn="Column1" left="198" top="99" width="140" height="20"/>
+                  <Radio id="Radio01" taborder="56" columncount="2" index="1" innerdataset="@ds_radio_01" codecolumn="Column0" datacolumn="Column1" value="1" left="198" top="139" width="140" height="20"/>
+                  <Edit id="Edit02" taborder="57" cssclass="input_point" left="198" top="173" width="350" height="28"/>
+                  <Edit id="Edit05" taborder="58" cssclass="input_point" left="743" top="45" height="39" right="18"/>
+                  <Calendar id="Calendar02" taborder="59" value="20110615" dateformat="yyyy-MM-dd" cssclass="input_point" left="743" top="95" width="110" height="28"/>
+                  <Combo id="Combo00" taborder="60" left="863" top="95" width="40" height="28"/>
+                  <Edit id="Edit06" taborder="62" cssclass="input_point" left="743" top="134" width="210" height="28"/>
+                  <Edit id="Edit07" taborder="63" cssclass="input_point" left="743" top="173" width="210" height="28"/>
+                  <Button id="btn_WFSA_Search00" taborder="64" cssclass="btn_WFDA_Search" left="925" top="135" width="26" height="26"/>
+                  <Button id="btn_WFSA_Search01" taborder="65" cssclass="btn_WFDA_Search" left="925" top="174" width="26" height="26"/>
+                  <TextArea id="TextArea00" taborder="66" left="198" top="212" bottom="15" width="350"/>
+                  <TextArea id="TextArea01" taborder="67" left="743" top="212" right="18" bottom="15"/>
+                  <Static id="Static04" taborder="68" text="O'clock  " left="908" top="95" width="51" height="28"/>
+                  <Static id="Static06" taborder="70" text="~" left="353" top="51" width="28" height="28" textAlign="center"/>
+                  <Static id="sta_WF_TitleLev00" taborder="71" text="Detailed Information" cssclass="sta_WF_subtit" left="10" top="17" width="134" height="14"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="TabPage2">
+              <Layouts>
+                <Layout>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_grid" useinputpanel="false" position="absolute" left="0" top="40" right="0" bottom="0">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell text="Column0"/>
+                          <Cell col="1" text="Column1"/>
+                          <Cell col="2" text="Column2"/>
+                          <Cell col="3" text="Column3"/>
+                          <Cell col="4" text="Column4"/>
+                          <Cell col="5" text="Column5"/>
+                          <Cell col="6" text="Column6"/>
+                          <Cell col="7" text="Column7"/>
+                          <Cell col="8" text="Column8"/>
+                          <Cell col="9" text="Column9"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell text="bind:Column0"/>
+                          <Cell col="1" text="bind:Column1"/>
+                          <Cell col="2" text="bind:Column2"/>
+                          <Cell col="3" text="bind:Column3"/>
+                          <Cell col="4" text="bind:Column4"/>
+                          <Cell col="5" text="bind:Column5"/>
+                          <Cell col="6" text="bind:Column6"/>
+                          <Cell col="7" text="bind:Column7"/>
+                          <Cell col="8" text="bind:Column8"/>
+                          <Cell col="9" text="bind:Column9"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Button id="btn_WF_crud00" taborder="2" text="Add" cssclass="btn_WF_crud" top="12" right="142" width="45" height="23"/>
+                  <Button id="btn_WF_crud07" taborder="3" text="Modify" cssclass="btn_WF_crud" top="12" right="96" width="45" height="23"/>
+                  <Button id="btn_WF_crud06" taborder="4" text="Delete" cssclass="btn_WF_crud" top="12" right="50" width="45" height="23"/>
+                  <Button id="btn_WF_crud02" taborder="5" text="Save" cssclass="btn_module" top="12" right="4" width="45" height="23"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Static id="Static08" taborder="1" cssclass="sta_WFSA_BG" left="25" top="58" right="30" height="75"/>
+        <Static id="sta_WF_SearchBox" taborder="2" cssclass="sta_WF_SearchBox" left="0" top="0" right="0" height="62"/>
+        <Static id="sta_WFSA_PointLabel" taborder="3" text="Fixed Date :" left="45" top="67" width="85" height="20"/>
+        <Static id="sta_WFSA_PointLabel00" taborder="4" text="Organization :" left="354" top="67" width="97" height="20"/>
+        <Static id="sta_WFSA_PointLabel02" taborder="5" text="Employee :" left="45" top="101" width="85" height="20"/>
+        <Static id="sta_WFSA_PointLabel03" taborder="6" text="Working area :" left="354" top="101" width="97" height="20"/>
+        <Calendar id="Calendar00" taborder="7" dateformat="yyyy-MM-dd" cssclass="input_point" left="124" top="65" width="100" height="28"/>
+        <Edit id="Edit00" taborder="8" left="451" top="65" width="100" height="28" background="#ffffff"/>
+        <Button id="btn_WFSA_Search02" taborder="9" cssclass="btn_WFDA_Search" left="522" top="66" width="26" height="26"/>
+        <Edit id="Edit01" taborder="10" left="556" top="65" width="100" height="28" background="#ffffff"/>
+        <Combo id="Combo01" taborder="11" left="451" top="99" width="205" height="28"/>
+        <Static id="st_progress" taborder="12" text="location" cssclass="sta_WF_progress" left="30" top="18" width="800" height="30"/>
+        <Button id="btn_WF_search" taborder="13" cssclass="button_WF_white" top="99" width="70" height="28" left="686" text="Search"/>
+        <Edit id="Edit07" taborder="14" cssclass="input_point" left="124" top="99" width="100" height="28" background="#ffffff"/>
+        <Button id="btn_WFSA_Search00" taborder="15" cssclass="btn_WFDA_Search" left="195" top="100" width="26" height="26"/>
+        <Edit id="Edit08" taborder="16" enable="false" left="229" top="99" width="100" height="28" background="#ffffff"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+          <Column id="Column8" type="STRING" size="256"/>
+          <Column id="Column9" type="STRING" size="256"/>
+          <Column id="Column10" type="STRING" size="256"/>
+          <Column id="Column11" type="STRING" size="256"/>
+          <Column id="Column12" type="STRING" size="256"/>
+          <Column id="Column13" type="STRING" size="256"/>
+          <Column id="Column14" type="STRING" size="256"/>
+          <Column id="Column15" type="STRING" size="256"/>
+          <Column id="Column16" type="STRING" size="256"/>
+          <Column id="Column17" type="STRING" size="256"/>
+          <Column id="Column18" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">3</Col>
+            <Col id="Column3">4</Col>
+            <Col id="Column4">5</Col>
+            <Col id="Column5">6</Col>
+            <Col id="Column6">7</Col>
+            <Col id="Column7">8</Col>
+            <Col id="Column8">9</Col>
+            <Col id="Column9">10</Col>
+            <Col id="Column10">11</Col>
+            <Col id="Column11">12</Col>
+            <Col id="Column12">13</Col>
+            <Col id="Column13">14</Col>
+            <Col id="Column14">15</Col>
+            <Col id="Column15">16</Col>
+            <Col id="Column16">17</Col>
+            <Col id="Column17">18</Col>
+            <Col id="Column18">19</Col>
+          </Row>
+          <Row>
+            <Col id="Column9">J</Col>
+            <Col id="Column0">A</Col>
+            <Col id="Column1">B</Col>
+            <Col id="Column2">C</Col>
+            <Col id="Column3">D</Col>
+            <Col id="Column4">E</Col>
+            <Col id="Column5">F</Col>
+            <Col id="Column6">G</Col>
+            <Col id="Column7">H</Col>
+            <Col id="Column8">I</Col>
+            <Col id="Column18">S</Col>
+            <Col id="Column17">R</Col>
+            <Col id="Column16">Q</Col>
+            <Col id="Column15">P</Col>
+            <Col id="Column14">O</Col>
+            <Col id="Column13">N</Col>
+            <Col id="Column12">M</Col>
+            <Col id="Column11">L</Col>
+            <Col id="Column10">K</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_radio_01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">OnLine</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">OffLine</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_radio_00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">Yes</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">No</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[ 
+this.Tab00_onchanged = function(obj:nexacro.Tab,e:nexacro.TabIndexChangeEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

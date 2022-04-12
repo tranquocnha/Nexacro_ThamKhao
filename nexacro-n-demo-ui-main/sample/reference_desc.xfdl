@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="110" onload="form_onload">
+    <Layouts>
+      <Layout height="110" width="920">
+        <Static id="Static00" taborder="0" text="Reference" left="20" top="19" width="75" height="30" cssclass="sta_WF_compTitle02" fittocontents="width" messageid="sample.reference"/>
+        <Static id="Static01" taborder="1" text="Take a look around various sites developed with Nexacroplatform. Click on the thumbnail image to open the linked page." left="20" top="51" height="60" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" usedecorate="true" width="880" messageid="sample.reference.desc"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="multiCombo" classname="multiCombo" left="0" top="0" width="760" height="430" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output1" taborder="2" autoselect="true" autoskip="true" left="17" top="75" width="157" height="34" onchanged="edt_output1_onchanged"/>
+        <Button id="btn_execute" taborder="3" text="▼" onclick="btn_execute_onclick" left="173" top="75" width="34" height="34" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <PopupDiv id="pdiv_input" text="PopupDiv00" left="17" top="110" width="193" height="146" style="border:1 solid #808080ff ;" oncloseup="pdiv_input_oncloseup" border="0px solid">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_input" taborder="0" binddataset="ds_data" useinputpanel="false" oncellclick="pdiv_input_grd_input_oncellclick" left="0" top="0" width="190" height="146" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="29"/>
+                      <Column size="30"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="36"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:COL2"/>
+                      <Cell col="1" text="bind:COL0"/>
+                      <Cell col="2" text="bind:COL1"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Static id="Static07" taborder="4" text="This is sample shows combo for selecting multiple values" cssclass="sta_WF_explain" left="17" top="25" width="500" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+          <Column id="COL2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">01</Col>
+            <Col id="COL1">CODE01</Col>
+            <Col id="COL2">0</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">02</Col>
+            <Col id="COL1">CODE02</Col>
+            <Col id="COL2">0</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">03</Col>
+            <Col id="COL1">CODE03</Col>
+            <Col id="COL2">0</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">04</Col>
+            <Col id="COL1">CODE04</Col>
+            <Col id="COL2">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+/*  On Combo Button click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nX = this.edt_output1.getOffsetLeft();
+	var nY = this.edt_output1.getOffsetBottom();
+	
+	this.pdiv_input.trackPopupByComponent(this, nX, nY);
+};
+
+/*  When grid cell is clicked  */
+this.pdiv_input_grd_input_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.edt_output1.set_value(this.ds_data.getColumn(e.row, "COL1"));
+	this.fn_comboEdit_set();
+};
+
+//After selecting values and click again on combo's button
+this.pdiv_input_oncloseup = function(obj:PopupDiv, e:nexacro.EventInfo)
+{
+	this.fn_comboEdit_set();
+};
+
+//Setting values on the combo
+this.fn_comboEdit_set = function(value)
+{
+	var str_cd = "";
+	var str_txt = "";
+		
+	for (i=0; i<this.ds_data.getRowCount(); i++){
+		if (this.ds_data.getColumn(i, "COL2") == 1){
+			str_cd += this.ds_data.getColumn(i,"COL2") + ",";
+			str_txt += this.ds_data.getColumn(i,"COL1") + ",";
+		}
+	}	
+
+	this.edt_output1.set_value(str_txt.substr(0,str_txt.length-1));
+};
+
+]]></Script>
+  </Form>
+</FDL>

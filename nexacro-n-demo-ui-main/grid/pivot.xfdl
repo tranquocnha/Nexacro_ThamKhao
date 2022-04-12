@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="800" onload="form_onload">
+    <Layouts>
+      <Layout height="800" width="920">
+        <Static id="Static01" taborder="0" text="Pivot" left="20" top="20" width="59" height="40" cssclass="sta_WF_pageTitle" messageid="grid.pivot" fittocontents="none"/>
+        <Static id="Static01_00" taborder="1" left="20" top="71" height="60" cssclass="sta_WF_box01" right="20"/>
+        <Static id="Static02" taborder="2" text="Row count" left="45" top="81" width="68" height="40" cssclass="sta_WF_labelTxt01" messageid="grid.rowcount"/>
+        <Combo id="Combo00" taborder="3" left="Static02:20" top="81" width="150" height="40" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" index="0" text="10,000" value="10000" itemheight="40">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">30000</Col>
+                <Col id="datacolumn">30,000</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">100000</Col>
+                <Col id="datacolumn">100,000</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">200000</Col>
+                <Col id="datacolumn">200,000</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">400000</Col>
+                <Col id="datacolumn">400,000</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Button id="Button00" taborder="4" top="78" width="46" height="46" cssclass="btn_WF_inquiry" right="30" onclick="Button00_onclick"/>
+        <Static id="Static03" taborder="5" text="Inquiry result" left="20" top="152" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="inquiry.result"/>
+        <Static id="Static00" taborder="6" text="Server/Network &lt;fc v='red'&gt;0&lt;/fc&gt; sec, UI Rendering &lt;fc v='red'&gt;0&lt;/fc&gt; sec, &lt;fc v='red'&gt;0&lt;/fc&gt; rows" left="20" width="865" height="40" usedecorate="true" bottom="20"/>
+        <NxPivot id="NxPivot00" taborder="7" left="20" top="Static03:10" binddataset="dsList" bottom="66" onrender="NxPivot00_onrender" gridbodyheight="36" gridheadheight="36" gridsummheight="36" right="20">
+          <Contents><![CDATA[{"config":{
+		"fields": [],
+		"colAxis": [
+			{
+				"id": "col1",
+				"itemText": "Date",
+				"type": "date",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "CNT"
+			},
+			{
+				"id": "col9",
+				"itemText": "Channel",
+				"type": "string",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "CNT"
+			}
+		],
+		"rowAxis": [
+			{
+				"id": "col3",
+				"itemText": "Sales Department",
+				"type": "string",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "CNT"
+			},
+			{
+				"id": "col5",
+				"itemText": "Department",
+				"type": "string",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "CNT"
+			}
+		],
+		"values": [
+			{
+				"id": "col12",
+				"itemText": "Total Sales",
+				"type": "number",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "SUM"
+			},
+			{
+				"id": "col13",
+				"itemText": "Total Return Sales",
+				"type": "number",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "SUM"
+			},
+			{
+				"id": "col14",
+				"itemText": "Overcharge Price",
+				"type": "number",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "SUM"
+			},
+			{
+				"id": "col15",
+				"itemText": "Promotion Amount",
+				"type": "number",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "SUM"
+			},
+			{
+				"id": "col16",
+				"itemText": "Net Sales",
+				"type": "number",
+				"itemWidth": "100",
+				"sort": "ASC",
+				"aggregator": "SUM"
+			}
+		],
+		"filters": []
+	},
+	"panel":{
+		"toolbar": {
+			"size": "28",
+			"padding": "3 3 3 3",
+			"gap": "2",
+			"buttonsize": "20",
+			"cssclass": "NxPivot_toolbarArea",
+			"lbuttons": {
+				"9d5d6862-9a9f-dc4f-383a-ebaacda08ec1": {
+					"type": "rowsstatus",
+					"id": "addnew",
+					"toggle": "1",
+					"togglevalue": "0",
+					"tooltip": "expand row,collapse row",
+					"cssclass": "NxPivot_toolbarButton_rowstatus_expand,NxPivot_toolbarButton_rowstatus_collapse",
+					"align": "left"
+				},
+				"e98d42fb-8763-cba2-08f8-ebaad54eb13a": {
+					"type": "columnsstatus",
+					"id": "addnew",
+					"toggle": "1",
+					"togglevalue": "0",
+					"tooltip": "expand column, collapse column",
+					"cssclass": "NxPivot_toolbarButton_colstatus_expand,NxPivot_toolbarButton_colstatus_collapse",
+					"align": "left"
+				}
+			},
+			"rbuttons": {
+				"d5aa4f21-94f5-083d-4197-ebaadcae1c59": {
+					"type": "toolbarstatus",
+					"id": "addnew",
+					"toggle": "1",
+					"togglevalue": "0",
+					"tooltip": "collapse panel, expand panel",
+					"cssclass": "NxPivot_toolbarButton_show, NxPivot_toolbarButton_hide",
+					"align": "right"
+				},
+				"938f5595-2cda-51f5-409a-ebaae39fd6e3": {
+					"type": "execute",
+					"id": "addnew",
+					"toggle": "0",
+					"tooltip": "execute",
+					"cssclass": "NxPivot_toolbarButton_execute",
+					"align": "right"
+				},
+				"7a5dea33-a3ce-7e3d-57fb-ebaaeafedc2d": {
+					"type": "initialization",
+					"id": "addnew",
+					"toggle": "0",
+					"tooltip": "init",
+					"cssclass": "NxPivot_toolbarButton_init",
+					"align": "right"
+				},
+				"9c1d7a87-78a8-8c26-3789-ebaaf28e5bd1": {
+					"type": "autoexecute",
+					"id": "addnew",
+					"toggle": "1",
+					"togglevalue": "0",
+					"tooltip": "manual execute,auto execute",
+					"cssclass": "NxPivot_toolbarButton_manual,NxPivot_toolbarButton_auto",
+					"align": "right"
+				}
+			}
+		},
+		"items": {
+			"size": "120",
+			"cssclass1": "NxPivot_axisArea1",
+			"cssclass2": "NxPivot_axisArea2",
+			"padding": "5 5 5 5",
+			"gap": "3",
+			"titlebarsize": "20",
+			"titlebarcssclass": "NxPivot_axisArea_title",
+			"indicatorwidth": "16",
+			"indicatorheight": "42",
+			"indicatorcssclass": "NxPivot_drag_indicator",
+			"item": {
+				"width": "150",
+				"height": "35",
+				"padding": "6 6 6 6",
+				"gap": "4",
+				"cssclass": "NxPivot_axisArea_item",
+				"sortasccssclass": "NxPivot_axisArea_item_asc",
+				"sortdesccssclass": "NxPivot_axisArea_item_desc",
+				"filtercssclass": "NxPivot_axisArea_item_filter",
+				"aggregatorcssclass": "NxPivot_axisArea_item_aggregator",
+				"settingcssclass": "NxPivot_axisArea_item_setting",
+				"namecssclass": "NxPivot_axisArea_item_name",
+				"sortsize": "14",
+				"filtersize": "14",
+				"aggregatorsize": "20",
+				"buttonsize": "14"
+			}
+		}
+	},
+	"settingpopup":{
+		"cssclass": "NxPivot_popup",
+		"width": "200",
+		"height": "200",
+		"padding": "10 10 10 10",
+		"buttonwidth": "50",
+		"buttonheight": "25",
+		"buttonalign": "center",
+		"okbuttoncssclass": "NxPivot_popup_submit",
+		"cancelbuttoncssclass": "NxPivot_popup_close",
+		"labelcssclass": "NxPivot_popup_subtitle",
+		"dateformat": "yyyy-MM-dd"
+	}}]]></Contents>
+        </NxPivot>
+        <Button id="Button02" taborder="8" text="Export" top="147" width="100" height="40" cssclass="btn_WF_basic01" messageid="grid.export" onclick="Tab00_Tabpage1_Button02_onclick" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsList" onload="dsList_onload">
+        <ColumnInfo>
+          <Column id="col1" type="STRING" size="50"/>
+          <Column id="col2" type="STRING" size="50"/>
+          <Column id="col3" type="STRING" size="50"/>
+          <Column id="col4" type="STRING" size="50"/>
+          <Column id="col5" type="STRING" size="50"/>
+          <Column id="col6" type="STRING" size="50"/>
+          <Column id="col7" type="STRING" size="50"/>
+          <Column id="col8" type="STRING" size="50"/>
+          <Column id="col9" type="STRING" size="50"/>
+          <Column id="col10" type="STRING" size="50"/>
+          <Column id="col11" type="STRING" size="50"/>
+          <Column id="col12" type="INT" size="8"/>
+          <Column id="col13" type="INT" size="8"/>
+          <Column id="col14" type="INT" size="8"/>
+          <Column id="col15" type="INT" size="8"/>
+          <Column id="col16" type="INT" size="8"/>
+        </ColumnInfo>
+      </Dataset>
+      <ExcelExportObject id="ExcelExportObject00" exportuitype="exportprogress" exportactivemode="active" onerror="ExcelExportObject00_onerror"/>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{	
+	this.gfnFormOnLoad();
+	
+	this.langCode = nexacro.getApplication().langCode;
+	this.clearResult();
+	
+	// 피벗 다국어 처리
+	this.gfnChangeLanguage(this.NxPivot00, this.langCode == "ko" ? "ko_kr" : "en_us");
+};
+
+this.clearResult = function()
+{
+	if (this.langCode == "ko") {
+		this.Static00.set_text("서버/네트워크시간 <fc v='#d7381e'>0</fc> 초, 렌더링시간 <fc v='#d7381e'>0</fc> 초, 조회건수 <fc v='#d7381e'>0</fc> 건");
+	} else {
+		this.Static00.set_text("Server/Network <fc v='#d7381e'>0</fc> sec, UI Rendering <fc v='#d7381e'>0</fc> sec, <fc v='#d7381e'>0</fc> rows");
+	}
+};
+
+// 피벗 다국어처리
+this.gfnChangeLanguage = function(objPivot, sLang)
+{
+	var objPanel = objPivot.pivot.view.panel;
+	objPanel.language = objPivot.pivot.message.language[sLang];
+	objPanel.commCodeToolbar = objPanel.language.toolbar;
+	objPanel.toolbarButtonType = [ objPanel.commCodeToolbar.buttontypes[0].key , objPanel.commCodeToolbar.buttontypes[1].key , objPanel.commCodeToolbar.buttontypes[2].key 
+							, objPanel.commCodeToolbar.buttontypes[3].key , objPanel.commCodeToolbar.buttontypes[4].key , objPanel.commCodeToolbar.buttontypes[5].key ];
+							
+	objPanel.commCodeAxis = objPanel.language.axisArea;
+	objPanel.axisAreaInfo = {
+		axistypes : [ objPanel.commCodeAxis.types[0].key ,objPanel.commCodeAxis.types[1].key ,objPanel.commCodeAxis.types[2].key ,objPanel.commCodeAxis.types[3].key ],
+		axistext : [ objPanel.commCodeAxis.types[0].text ,objPanel.commCodeAxis.types[1].text ,objPanel.commCodeAxis.types[2].text ,objPanel.commCodeAxis.types[3].text	]
+	}
+	objPivot.redraw();
+}
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.dsList.clearData();
+	
+	this.clearResult();
+	
+	var strSvcId = "search",
+		strSvcUrl = "svc::pivotdata",
+		inData = "",
+		outData = "dsList=output",
+		strArg = "rowcount=" + nexacro.wrapQuote(this.Combo00.value) + " langCode=" + this.langCode,
+		callBackFnc = "fnCallback",
+		isAsync = true,
+		nDataType = 2;
+
+	this.starttime = new Date();
+	this.transaction(strSvcId, strSvcUrl, inData, outData, strArg, callBackFnc, isAsync, nDataType);
+};
+
+this.fnCallback = function(svcId, errCode, errMsg, elapsedTime)
+{
+	if (errCode < 0) {
+		alert(errMsg);
+	} else {
+		if (svcId == "search") {
+			this.endtime = new Date();
+			
+			this.NxPivot00.updateToDataset();
+			this.NxPivot00.render();
+		}
+	}
+};
+
+this.NxPivot00_onrender = function(obj:nexacro.NxPivot, e:nexacro.EventInfo)
+{
+	this.rendertime = new Date();
+	
+	var nTranTime = nexacro.round((this.endtime - this.starttime) / 1000, 3);
+	var nRenderTime = nexacro.round((this.rendertime - this.endtime) / 1000, 3);
+	
+	if (this.langCode == "ko") {
+		this.Static00.set_text("서버/네트워크시간 <fc v='#d7381e'>" + nTranTime + "</fc> 초, 렌더링시간 <fc v='#d7381e'>" + nRenderTime + "</fc> 초, 조회건수 <fc v='#d7381e'>" +  this.gfnAppendComma(this.dsList.rowcount) + "</fc>" + " 건");
+	} else {
+		this.Static00.set_text("Server/Network <fc v='#d7381e'>" + nTranTime + "</fc> sec, UI Rendering <fc v='#d7381e'>" + nRenderTime + "</fc> sec, <fc v='#d7381e'>" +  this.gfnAppendComma(this.dsList.rowcount) + "</fc>" + " rows");
+	}
+};
+
+this.Tab00_Tabpage1_Button02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ExcelExportObject00.clear();
+	
+	this.ExcelExportObject00.set_exporttype(nexacro.ExportTypes.EXCEL2007);
+	this.ExcelExportObject00.set_exporturl("xeni::XExportImport");
+	this.ExcelExportObject00.set_exportfilename("PivotExportSample");
+	
+	this.ExcelExportObject00.addExportItem(nexacro.ExportItemTypes.GRID, this.NxPivot00.getPivotGrid(), "Sheet1!A1", "allband", "allrecord", "suppress", "allstyle", "none", "border", "both");
+	
+	this.ExcelExportObject00.exportData();
+};
+
+this.ExcelImportObject00_onerror = function(obj:nexacro.ExcelImportObject,e:nexacro.ExcelImportErrorEventInfo)
+{
+	alert(e.errormsg);
+};
+
+]]></Script>
+  </Form>
+</FDL>

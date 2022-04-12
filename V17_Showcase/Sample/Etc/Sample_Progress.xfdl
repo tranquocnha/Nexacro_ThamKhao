@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="progress" classname="Temp_Tab_Tabbutton_Tooltip" left="0" top="0" width="625" height="768" titletext="New Form" ontimer="progress_ontimer">
+    <Layouts>
+      <Layout stepcount="3">
+        <ProgressBar id="ProgressBar00" taborder="2" text="onclick" pos="1" step="1" blockgap="0" blocksize="1" onclick="ProgressBar00_onclick" left="24" top="136" width="594" height="45" style="bartype:normal;barcolor:red;background:pink;color:black;" max="21" min="0"/>
+        <Button id="Button01" taborder="3" text="Button01" left="61.33%" top="128" right="29.98%" height="60" onclick="Button01_onclick"/>
+      </Layout>
+    </Layouts>
+    <InitValue style="stepshowtype:always;stepalign:left;"/>
+    <Script type="xscript5.0"><![CDATA[var ipos=1;
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ProgressBar00.set_pos(1);
+	this.ProgressBar00.set_step(1); 
+
+	this.setTimer(1,100);
+}
+
+
+this.progress_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+	if(e.timerid == 1)
+	{
+		ipos++;
+	    if(ipos <= 21) {	    
+
+//			this.ProgressBar00.stepIt();
+			this.ProgressBar00.set_pos(ipos);  
+
+		} else 	{
+			this.killTimer(1);
+			return;
+		}	
+	}	
+}
+]]></Script>
+  </Form>
+</FDL>

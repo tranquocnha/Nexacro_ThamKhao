@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Form_Message" classname="np_Form_Step" left="0" top="0" width="760" height="430" titletext="Message" style="stepshowtype:action;" dragscrolltype="all">
+    <Layouts>
+      <Layout stepcount="">
+        <GroupBox id="GroupBox00" text="alert" taborder="13" left="30" top="78" width="210" height="210"/>
+        <Button id="btnAlert1" taborder="14" text="Execute" onclick="btnAlert1_onclick" left="144" top="106" width="77" height="34"/>
+        <Static id="Static00" taborder="15" text="error" left="45" top="106" width="80" height="34"/>
+        <Static id="Static01" taborder="16" text="warning" left="45" top="150" width="80" height="34"/>
+        <Button id="btnAlert2" taborder="17" text="Execute" onclick="btnAlert2_onclick" left="144" top="150" width="77" height="34"/>
+        <Static id="Static02" taborder="18" text="information" left="45" top="194" width="80" height="34"/>
+        <Button id="btnAlert3" taborder="19" text="Execute" onclick="btnAlert3_onclick" left="144" top="194" width="77" height="34"/>
+        <Button id="btnAlert4" taborder="20" text="Execute" onclick="btnAlert4_onclick" left="144" top="238" width="77" height="34"/>
+        <Static id="Static03" taborder="21" text="question" left="45" top="238" width="80" height="34"/>
+        <GroupBox id="GroupBox01" text="confirm" taborder="22" left="269" top="78" width="210" height="210"/>
+        <Button id="btnAlert00" taborder="23" text="Execute" left="383" top="106" width="77" height="34" onclick="btnAlert00_onclick"/>
+        <Static id="Static04" taborder="24" text="error" left="284" top="106" width="80" height="34"/>
+        <Static id="Static05" taborder="25" text="warning" left="284" top="150" width="80" height="34"/>
+        <Button id="btnAlert05" taborder="26" text="Execute" left="383" top="150" width="77" height="34" onclick="btnAlert05_onclick"/>
+        <Static id="Static06" taborder="27" text="information" left="284" top="194" width="80" height="34"/>
+        <Button id="btnAlert06" taborder="28" text="Execute" left="383" top="194" width="77" height="34" onclick="btnAlert06_onclick"/>
+        <Button id="btnAlert07" taborder="29" text="Execute" left="383" top="238" width="77" height="34" onclick="btnAlert07_onclick"/>
+        <Static id="Static07" taborder="30" text="question" left="284" top="238" width="80" height="34"/>
+        <Static id="Static08" taborder="31" text="Message" cssclass="sta_WF_subtitP" left="30" top="18" width="200" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.btnAlert1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.alert("error Message","nexacro platform","error");
+}
+
+this.btnAlert2_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.alert("warning Message","nexacro platform","warning");
+}
+
+this.btnAlert3_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.alert("information Message","nexacro platform","information");
+}
+
+this.btnAlert4_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.alert("question Message","nexacro platform","question");
+}
+
+this.btnAlert00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.confirm("error Message","nexacro platform","error");
+}
+
+this.btnAlert05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.confirm("warning Message","nexacro platform","warning");
+}
+
+this.btnAlert06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.confirm("information Message","nexacro platform","information");
+}
+
+this.btnAlert07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.confirm("question Message","nexacro platform","question");
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE001" inheritanceid="" position="absolute" titletext="GRID FORM" onbeforeclose="form_onbeforeclose" onload="form_onload" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="st_BG" position="absolute" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Static id="st_Title" text="domain.board.list" position="absolute" wordwrap="english" left="15" width="204" top="38" height="22" cssclass="sta_WF_title"/>
+        <Button id="btn_Insert" taborder="1" text="domain.add" position="absolute" style="font:dotum,8, bold;" onclick="btn_Insert_onclick" userdata="A:I;" right="105" width="42" top="128" height="23" cssclass="btn_WF_crud"/>
+        <Button id="btn_Delete" taborder="2" text="domain.delete" position="absolute" style="font:dotum,8, bold;" onclick="btn_Delete_onclick" userdata="A:D;" right="60" width="42" top="128" height="23" cssclass="btn_WF_crud"/>
+        <Button id="btn_Save" taborder="3" text="domain.save" position="absolute" style="font:dotum,8, bold;" onclick="btn_Save_onclick" userdata="A:T;" right="15" width="42" top="128" height="23" cssclass="btn_module"/>
+        <Grid id="grd_GrdBoard" taborder="1" binddataset="ds_GrdBoard" autoenter="select" useinputpanel="false" selecttype="multirow" cellsizingtype="col" autofittype="col" nodatatext="There is no inquiry data." onrbuttonup="divGrd_grdCategory_onrbuttonup" position="absolute" style="align:center middle;font:dotum,9;" fillareatype="none" userdata="A:U;" onheadclick="grd_GrdBoard_onheadclick" left="15" right="15" top="156" bottom="230">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="615"/>
+                <Column size="149"/>
+                <Column size="164"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.title"/>
+                <Cell col="1" text="domain.reg.id"/>
+                <Cell col="2" text="domain.reg.date"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="text" style="align:left;" text="bind:TITLE"/>
+                <Cell col="1" edittype="text" style="align:left;" text="bind:REG_ID"/>
+                <Cell col="2" displaytype="date" edittype="none" style="align:center;" text="bind:REG_DATE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="divBoardForm" taborder="1" position="absolute" userdata="A:U;" left="15" right="-15" bottom="10" height="205">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" position="absolute" left="84" right="30" top="0" height="32" cssclass="sta_WFDA_B"/>
+              <Static id="Static01" position="absolute" left="84" right="30" top="31" height="32" cssclass="sta_WFDA_B"/>
+              <Static id="Static02" position="absolute" left="84" right="30" top="62" height="50" cssclass="sta_WFDA_B"/>
+              <Static id="Static03" position="absolute" left="84" right="30" top="111" height="32" cssclass="sta_WFDA_B"/>
+              <Static id="Static04" position="absolute" left="84" right="30" top="142" height="32" cssclass="sta_WFDA_B"/>
+              <Static id="Static05" position="absolute" left="84" right="30" top="173" height="32" cssclass="sta_WFDA_B"/>
+              <Static id="stPostId" text="domain.board.id" position="absolute" left="0" width="85" top="0" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stTitle" text="domain.title" position="absolute" left="0" width="85" top="31" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stContents" text="domain.contents" position="absolute" left="0" width="85" top="62" height="50" cssclass="sta_WFDA_labelB"/>
+              <Static id="stRegId" text="domain.reg.id" position="absolute" left="0" width="85" top="111" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stRegDate" text="domain.reg.date" position="absolute" left="0" width="85" top="142" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stCommunityId" text="domain.community" position="absolute" left="0" width="85" top="173" height="32" cssclass="sta_WFDA_labelB"/>
+              <Edit id="edtPostId" taborder="1" readonly="true" enable="false" position="absolute" left="90" top="6" height="20" cssclass="readonly" right="35"/>
+              <Edit id="edtTitle" taborder="1" position="absolute" left="90" top="37" height="20" right="35"/>
+              <TextArea id="txaContents" taborder="1" wordwrap="char" position="absolute" left="90" top="64" height="46" right="35"/>
+              <Edit id="edtRegId" taborder="1" readonly="true" enable="false" position="absolute" left="90" width="248" top="117" height="20" cssclass="readonly"/>
+              <Calendar id="calRegDate" taborder="1" readonly="true" dateformat="yyyy-MM-dd" enable="false" position="absolute" style="align:left middle; " left="90" width="248" top="148" height="20" cssclass="readonly"/>
+              <Combo id="cmbCommunityId" taborder="1" innerdataset="@ds_CboCommunity" codecolumn="COMMUNITY_ID" datacolumn="COMMUNITY_NAME" position="absolute" left="90" width="248" top="179" height="20"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static42" taborder="4" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="5" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="6" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="7" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="8" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static32" taborder="9" text="40" visible="false" left="427" top="116" width="50" height="40" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static44" taborder="10" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="Static00" taborder="11" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="46"/>
+        <Static id="st_searchCondition" text="domain.search.condition" position="absolute" left="35" width="72" top="82" height="22" cssclass="sta_WFSA_label"/>
+        <Combo id="cmb_searchCondition" taborder="1" value="0" codecolumn="codecolumn" datacolumn="datacolumn" index="0" position="absolute" left="109" width="114" top="82" height="22">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">domain.title</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">domain.reg.id</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Edit id="edt_searchKeyword" taborder="1" position="absolute" onkeydown="edt_searchKeyword_onkeydown" left="225" width="134" top="82" height="22"/>
+        <Button id="btn_Search" taborder="1" position="absolute" onclick="btn_Search_onclick" defaultbutton="true" right="15" width="51" top="70" height="46" cssclass="btn_WF_search"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdBoard" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onvaluechanged="ds_GrdBoard_onvaluechanged">
+        <ColumnInfo>
+          <Column id="TITLE" type="string" size="150"/>
+          <Column id="CONTENTS" type="string" size="360"/>
+          <Column id="REG_ID" type="string" size="20"/>
+          <Column id="REG_DATE" type="date" size="0"/>
+          <Column id="COMMUNITY_ID" type="string" size="16"/>
+          <Column id="POST_ID" type="string" size="16"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TITLE">The Amazing Spider-Man</Col>
+            <Col id="CONTENTS">Like most teenagers, Peter is trying to figure out who he is and how he got to be the person he is today. Peter is also finding his way with his first high school crush, Gwen Stacy, and together, they struggle with love, commitment, and secrets. As Peter discovers a mysterious briefcase that belonged to his father, he begins a quest to understand his parents' disappearance - leading him directly to Oscorp and the lab of Dr Curt Connors, his father's former partner. As Spider-Man is set on a collision course with Connors' alter-ego, The Lizard, Peter will make life-altering choices to use his powers and shape his destiny to become a hero</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A01</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">G.I. Joe: Retaliation</Col>
+            <Col id="CONTENTS">The G.I. Joe team is framed for crimes against the country by Zartan, disguised as the President, and Cobra Commander has all the world leaders under his influence, with their advanced warheads headed towards innocent populaces around the world. Outnumbered and outgunned, the surviving team members form a plan with their original leader, General Joseph Colton, to rescue the President and face off Cobra Commander, his accomplices and the world leaders.</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A02</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">Batman Begins</Col>
+            <Col id="CONTENTS">When his parents were killed, millionaire playboy Bruce Wayne relocates to Asia when he is mentored by Henri Ducard and Ra's Al Ghul in how to fight evil. When learning about the plan to wipe out evil in Gotham City by Ducard, Bruce prevents this plan from getting any further and heads back to his home. Back in his original surroundings, Bruce adopts the image of a bat to strike fear into the criminals and the corrupt as the icon known as 'Batman'. But it doesn't stay quiet for long. </Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A03</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">127 Hours (2010)</Col>
+            <Col id="CONTENTS">127 Hours is the true story of mountain climber Aron Ralston's remarkable adventure to save himself after a fallen boulder crashes on his arm and traps him in an isolated canyon in Utah. Over the next five days Ralston examines his life and survives the elements to finally discover he has the courage and the wherewithal to extricate himself by any means necessary, scale a 65 foot wall and hike over eight miles before he can be rescued. Throughout his journey, Ralston recalls friends, lovers, family, and the two hikers he met before his accident. Will they be the last two people he ever had the chance to meet?</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A04</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">Murder in Greenwich</Col>
+            <Col id="CONTENTS">In 1974, the teenager Martha Moxley moves to the high-class area of Belle Haven, Greenwich, Connecticut. On the Mischief Night, eve of Halloween, she was murdered in the backyard of her house and her murder remained unsolved. Twenty-two years later, the writer Mark Fuhrman, who is a former LA detective that has fallen in disgrace for perjury in O.J. Simpson trial and moved to Idaho, decides to investigate the case with his partner Stephen Weeks with the purpose of writing a book. The locals squirm and do not welcome them, but with the support of the retired detective Steve Carroll that was in charge of the investigation in the 70's, they discover the criminal and a net of power and money to cover the murder. </Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A05</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">Midnight in Paris</Col>
+            <Col id="CONTENTS">Gil and Inez travel to Paris as a tag-along vacation on her parents' business trip. Gil is a successful Hollywood writer but is struggling on his first novel. He falls in love with the city and thinks they should move there after they get married, but Inez does not share his romantic notions of the city or the idea that the 1920s was the golden age. When Inez goes off dancing with her friends, Gil takes a walk at midnight and discovers what could be the ultimate source of inspiration for writing. Gil's daily walks at midnight in Paris could take him closer to the heart of the city but further from the woman he's about to marry.</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A06</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">The Sweeney (2012)</Col>
+            <Col id="CONTENTS">Jack Reagan is a slobbish,old style cop whose unsubtle methods usually get results,to the annoyance of internal affairs officer Lewis,who would be even more annoyed if he knew that Reagan was having an affair with his young wife,policewoman Nancy. After Reagan disobeys orders and a shoot-out in central London following a bank hold-up ends in carnage he is stripped of office and briefly imprisoned. However,thanks to the loyalty of his young protege George Carter and a little string pulling from his superior Frank Haskins Reagan is released to bring down the villains in a gun battle at Gravesend marina,ensuring the continued existence of his department - the Sweeney.</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A07</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">Law &amp; Order: Special Victims Unit (1999)</Col>
+            <Col id="CONTENTS">This show delves into the dark side of the New York underworld as the detectives of a new elite force, the Special Victims Unit, investigate and prosecute various sexually oriented crimes, while trying to balance the effects of the investigation on their own lives.</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A08</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">Mystic River (2003)</Col>
+            <Col id="CONTENTS">This is the story of three well-meaning but flawed people: Paul Rivers, an ailing mathematician lovelessly married to an English émigré, Christina Peck, an upper-middle-class suburban housewife, happily married and mother of two little girls, and Jack Jordan, an ex-convict who has found in his Christian faith the strength to raise a family. They will be brought together by a terrible accident that will change their lives. By the final frame, none of them will be the same as they will learn harsh truths about love, faith, courage, desire and guilt, and how chance can change our worlds irretrievably, forever.</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A09</Col>
+          </Row>
+          <Row>
+            <Col id="TITLE">The Color of Money</Col>
+            <Col id="CONTENTS">Pool hustler Fast Eddie Felson finds the young, promising pool player Vincent in a local bar and he sees in him a younger version of himself. To try and make it as in the old days, Eddie offers to teach Vincent how to be a hustler. After some hesitations Vincent accepts and Eddie takes him and Vincent's girlfriend Carmen on a tour through the country to work the pool halls. However, Vincent's tendency to show off his talent and by doing so warning off the players and losing money, soon leads to a confrontation with Eddie.</Col>
+            <Col id="REG_DATE">20140501</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="POST_ID">A10</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdBoardValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="CONTENTS" type="STRING" size="256"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="DATE" size="8"/>
+          <Column id="POST_ID" type="STRING" size="256"/>
+          <Column id="COMMUNITY_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TITLE">title:title,required:true,maxlength:150</Col>
+            <Col id="CONTENTS">title:contents,maxlength:360</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CboCommunity" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="COMMUNITY_ID" type="string" size="16"/>
+          <Column id="COMMUNITY_NAME" type="string" size="150"/>
+          <Column id="COMMUNITY_DESC" type="string" size="300"/>
+          <Column id="CATEGORY_ID" type="string" size="16"/>
+          <Column id="REG_ID" type="string" size="20"/>
+          <Column id="REG_DATE" type="date" size="0"/>
+          <Column id="USERID" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COMMUNITY_ID">001</Col>
+            <Col id="COMMUNITY_NAME">Movie</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="cmb_searchCondition" propid="value" datasetid="ds_Search" columnid="SEARCH_CONDITION"/>
+      <BindItem id="item1" compid="edt_searchKeyword" propid="value" datasetid="ds_Search" columnid="SEARCH_KEYWORD"/>
+      <BindItem id="item2" compid="divBoardForm.edtPostId" propid="value" datasetid="ds_GrdBoard" columnid="POST_ID"/>
+      <BindItem id="item3" compid="divBoardForm.edtTitle" propid="value" datasetid="ds_GrdBoard" columnid="TITLE"/>
+      <BindItem id="item4" compid="divBoardForm.txaContents" propid="value" datasetid="ds_GrdBoard" columnid="CONTENTS"/>
+      <BindItem id="item5" compid="divBoardForm.edtRegId" propid="value" datasetid="ds_GrdBoard" columnid="REG_ID"/>
+      <BindItem id="item6" compid="divBoardForm.calRegDate" propid="value" datasetid="ds_GrdBoard" columnid="REG_DATE"/>
+      <BindItem id="item7" compid="divBoardForm.cmbCommunityId" propid="value" datasetid="ds_GrdBoard" columnid="COMMUNITY_ID"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work screen template 2
+ * 02. Screen name   : TEMPLATE002.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Modification history :
+ ***********************************************************************
+ *     Modification date     Modified by  Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * Screen display variable section
+ ************************************************************************/
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+// Initializing on Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common function processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Grid, Combo Box Data receive
+	this.fn_getComboData();
+	// Search processing
+	this.fn_Search(1);
+}
+
+// Form beforeclose Event processing
+// Before closing the form, here is pop-up creation to ask if there is modified data, pop-up creating
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_GrdBoard)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+}
+
+// Event processing on search button click
+this.btn_Search_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Search(1);
+}
+
+// Event processing on add button click
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+}
+
+// Event processing on Delete button click
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Delete();
+}
+
+// Event processing on Save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_GrdBoard) == false) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+	this.fn_Save();
+}
+
+// Sorting on Grid Head click
+this.grd_GrdBoard_onheadclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	this.gfn_GridSort(obj, e);
+}
+
+this.edt_searchKeyword_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	if (e.keycode == 13) 
+	{
+		this.fn_Search(1);
+	}
+}
+
+/***********************************************************************
+ * User created function specification
+ ************************************************************************/
+this.fn_getComboData = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListCommunity";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findXPCommunityList'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_CboCommunity=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_Search = function (nPage)
+{
+	return;
+	if (this.gfn_DsGetUpdated(this.ds_GrdBoard)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.search");
+		if (retValue == false) 
+		{
+			return;
+		}
+	}  
+
+	var sArgument = "";
+	var sSvcID = "getPagingListBoard";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='getList'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='findXPBoardList'";
+
+	var sInDatasets = "querySet1=ds_Search";
+	var sOutDatasets = "ds_GrdBoard=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.ds_Search.setConstColumn("pageIndex", nPage);
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+
+this.fn_Insert = function ()
+{
+	var nRow = this.ds_GrdBoard.addRow();
+	this.ds_GrdBoard.setColumn(nRow, "REG_DATE", this.gfn_Today());
+	this.divBoardForm.cmbCommunityId.set_index(0);
+}
+
+this.fn_Delete = function ()
+{
+	var nRow = this.ds_GrdBoard.rowposition;
+	//if (!this.ds_GrdBoard.getSelect(nRow)) 
+	if (!this.grd_GrdBoard.getSelectedRows(nRow)) 
+	{
+		this.gfn_Alert("err.grid.noselect");
+	}
+	else 
+	{
+		var rtVal = this.gfn_Confirm("msg.before.delete");
+		if (rtVal == true) 
+		{
+			//this.ds_GrdBoard.deleteSelectedRows();
+			this.ds_GrdBoard.deleteRow(nRow);			
+		}
+	}
+}
+
+this.fn_Save = function ()
+{
+	return;
+	// After validation process , if there not exception than , save the all modified data of Grid
+	if (this.gfn_DsCheckValid(this.ds_GrdBoard) == false) 
+	{
+		return;
+	}
+
+	var sArgument = "";
+	var sSvcID = "saveAllBoard";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "USER_ID=" + TOBE.wrapQuote(application.gv_UserId);
+	sArgument += " " + "querySet1='createXPBoard,updateXPBoard,removeXPBoard'";
+
+	var sInDatasets = "querySet1=ds_GrdBoard:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// After processing gfnService process callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAllBoard":
+			this.gfn_Alert("msg.save.success");
+			this.fn_Search(1);
+			break;
+		case "getPagingListBoard":
+			break;
+		default:
+			break;
+	}
+}
+
+
+this.ds_GrdBoard_onvaluechanged = function(obj:Dataset,  e:TOBE.DSColChangeEventInfo)
+{
+	trace('~~~~~');
+}
+]]></Script>
+  </Form>
+</FDL>

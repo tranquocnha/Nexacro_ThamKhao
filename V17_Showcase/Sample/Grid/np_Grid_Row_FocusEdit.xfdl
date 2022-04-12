@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_Row_FocusEdit" left="0" top="0" width="1024" height="768" titletext="Grid_Row_FocusEdit">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" binddataset="ds_employees" useinputpanel="false" autoenter="select" position="absolute" left="30" width="700" top="75" height="186" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="93"/>
+                <Column size="112"/>
+                <Column size="111"/>
+                <Column size="72"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="EmployeeID"/>
+                <Cell col="1" text="FullName"/>
+                <Cell col="2" text="Department"/>
+                <Cell col="3" text="Married"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="mask" text="bind:EMPL_ID" mask="AA-###" editdisplay="expr:comp.parent.iCurrow==currow ? 'display' : 'edit'" maskeditformat="AA-###" maskedittype="string" displaytype="expr:comp.parent.iCurrow == currow ? 'maskeditcontrol' : 'normal'" textAlign="left"/>
+                <Cell col="1" edittype="normal" style="align:left;" text="bind:FULL_NAME" editdisplay="expr:comp.parent.iCurrow==currow ? 'display' : 'edit'" displaytype="expr:comp.parent.iCurrow == currow ? 'editcontrol' : 'normal'" textAlign="left"/>
+                <Cell col="2" displaytype="expr:comp.parent.iCurrow == currow ? 'combocontrol' : 'combotext'" edittype="combo" style="align:left;" text="bind:DEPT_ID" combodataset="ds_department" combocodecol="code" combodatacol="text" combodisplay="expr:comp.parent.iCurrow == currow ? 'display' : 'edit'"/>
+                <Cell col="3" displaytype="expr:comp.parent.iCurrow == currow ? 'checkboxcontrol' : 'normal'" edittype="checkbox" text="bind:MARRIED" editdisplay="expr:comp.parent.iCurrow==currow ? 'display' : 'edit'" combodisplay="edit"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="1" text="Only the records having focus can be changed by input." left="30" top="25" width="500" height="30" class="sta_WF_subtitle" cssclass="sta_WF_explain"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_department" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="text" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="text">Sales</Col>
+          </Row>
+          <Row>
+            <Col id="code">02</Col>
+            <Col id="text">IT</Col>
+          </Row>
+          <Row>
+            <Col id="code">03</Col>
+            <Col id="text">Education</Col>
+          </Row>
+          <Row>
+            <Col id="code">04</Col>
+            <Col id="text">Marketing</Col>
+          </Row>
+          <Row>
+            <Col id="code">05</Col>
+            <Col id="text">HR</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_employees" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_employees_onrowposchanged">
+        <ColumnInfo>
+          <Column id="EMPL_ID" type="STRING" size="5"/>
+          <Column id="FULL_NAME" type="STRING" size="10"/>
+          <Column id="DEPT_ID" type="STRING" size="2"/>
+          <Column id="HIRE_DATE" type="DATE" size="8"/>
+          <Column id="GENDER" type="STRING" size="1"/>
+          <Column id="MARRIED" type="STRING" size="1"/>
+          <Column id="SALARY" type="INT" size="10"/>
+          <Column id="EMPL_MEMO" type="STRING" size="500"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="EMPL_ID">AA001</Col>
+            <Col id="FULL_NAME">ShinSoo Choo</Col>
+            <Col id="DEPT_ID">01</Col>
+            <Col id="HIRE_DATE">20011104</Col>
+            <Col id="GENDER">M</Col>
+            <Col id="MARRIED">1</Col>
+            <Col id="SALARY">2000</Col>
+            <Col id="EMPL_MEMO">Korean</Col>
+          </Row>
+          <Row>
+            <Col id="EMPL_ID">BB001</Col>
+            <Col id="FULL_NAME">Yuna Kim</Col>
+            <Col id="DEPT_ID">02</Col>
+            <Col id="HIRE_DATE">20050305</Col>
+            <Col id="GENDER">W</Col>
+            <Col id="MARRIED">0</Col>
+            <Col id="SALARY">3000</Col>
+            <Col id="EMPL_MEMO">Korean</Col>
+          </Row>
+          <Row>
+            <Col id="FULL_NAME">Sumi Jo</Col>
+            <Col id="EMPL_ID">CC001</Col>
+            <Col id="DEPT_ID">03</Col>
+            <Col id="HIRE_DATE">20100506</Col>
+            <Col id="GENDER">W</Col>
+            <Col id="MARRIED">0</Col>
+            <Col id="SALARY">5000</Col>
+            <Col id="EMPL_MEMO">Korean</Col>
+          </Row>
+          <Row>
+            <Col id="EMPL_ID">DD001</Col>
+            <Col id="FULL_NAME">JS Park</Col>
+            <Col id="DEPT_ID">04</Col>
+            <Col id="HIRE_DATE">20101123</Col>
+            <Col id="GENDER">M</Col>
+            <Col id="MARRIED">0</Col>
+            <Col id="SALARY">3500</Col>
+            <Col id="EMPL_MEMO">Korean</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Grid_Row_FocusEdit
+ * Discription : Only the records having focus can be changed by input.
+ */
+
+this.iCurrow = 0;
+
+this.ds_employees_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.iCurrow = e.newrow;
+};
+]]></Script>
+  </Form>
+</FDL>

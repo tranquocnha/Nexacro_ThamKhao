@@ -1,0 +1,18 @@
+﻿{
+	"name": "Chart",
+	"version": "17.0.0.20",
+	"description": "nexacro platform 17 Unified Framework Library",
+	"license": "",
+	"scripts": [
+			"Chart/ChartInfo.js", 
+			"Chart/Chart.js" 
+	],
+	"objInfo": [
+	    //"Chart/metainfo/Chart.info"
+	],
+	"designscripts": [
+		//"Chart/Design/ChartInfo.js", 
+		//"Chart/Design/Chart.js"
+	]
+}
+//# sourceURL=Chart.json

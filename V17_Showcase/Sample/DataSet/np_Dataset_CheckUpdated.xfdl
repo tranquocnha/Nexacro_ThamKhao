@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Dataset_CheckUpdated" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Dataset_CheckUpdated" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Button id="btn_execute0" taborder="1" text="execute" onclick="btn_execute0_onclick" position="absolute" left="380" width="90" top="78" height="40"/>
+        <Grid id="grd_output" taborder="0" useinputpanel="false" autoenter="select" binddataset="ds_data" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" style="font:Dotum,9;" position="absolute" left="30" width="330" top="78" height="150" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:COL0"/>
+                <Cell col="1" edittype="normal" text="bind:COL1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_execute1" taborder="2" text="add" onclick="btn_execute1_onclick" position="absolute" left="380" width="90" top="128" height="40"/>
+        <Button id="btn_execute2" taborder="3" text="delete" onclick="btn_execute2_onclick" position="absolute" left="380" width="90" top="178" height="40"/>
+        <Static id="Static05" taborder="4" text="Determine whether the DatSet is updated" cssclass="sta_WF_subtitP" left="30" top="18" width="600" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">1</Col>
+            <Col id="COL1">2</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">3</Col>
+            <Col id="COL1">4</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">5</Col>
+            <Col id="COL1">6</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Dataset_CheckUpdated
+ * Description : Determine whether the update Dataset
+ */
+  
+/*  Click the Update Status  */
+this.btn_execute0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert(this.fn_isUpdate(this.ds_data));	
+};
+/*  Click the Enter button   */
+this.btn_execute1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_data.addRow();	
+};
+/*  Click the Delete button   */
+this.btn_execute2_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    this.ds_data.deleteRow(this.ds_data.rowposition);
+};
+
+/*
+ * Function Name : fn_isUpdate
+ * Description   : Check the update of data sets
+ * Parameter     : Dataset
+ * Return        : In case of updated return true, in case of not updated return false
+ * Example       : fn_isUpdate(ds_data);
+ */
+this.fn_isUpdate = function(objDs)
+{
+	var bRtn = false;
+
+	// Check the number of deleted
+	if (objDs.updatecontrol) 
+	{
+		if (objDs.getDeletedRowCount() > 0) 
+		{
+            bRtn = true
+            return bRtn;
+        }
+	}
+
+	var nRowType;
+
+	for (var i = 0; i < objDs.getRowCount(); i++) 
+	{
+		nRowType = objDs.getRowType(i);
+
+		if (nRowType == 2 || nRowType == 4 || nRowType == 8) 
+		{
+			bRtn = true;
+			break;
+		}
+	}
+
+	return bRtn;
+};
+]]></Script>
+  </Form>
+</FDL>

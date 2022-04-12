@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="ExprCase5" left="0" top="0" width="1024" height="768" titletext="Expr Case5">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" width="700" height="250" binddataset="Dataset00" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="150"/>
+                <Column size="150"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="getCaseSum"/>
+                <Cell col="1" text="getCaseAvg"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+              </Band>
+              <Band id="summary">
+                <Cell expr="expr:dataset.getCaseSum('Column0&gt;15','Column0')"/>
+                <Cell col="1" expr="expr:dataset.getCaseAvg('Column1&gt;10','Column1')"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="1" text="getCaseSum and getCaseAge by using Summary area of the Grid" left="30" top="18" width="900" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="BIGDECIMAL" size="256"/>
+          <Column id="Column1" type="BIGDECIMAL" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">20</Col>
+            <Col id="Column2">a</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">10</Col>
+            <Col id="Column2">b</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">20</Col>
+            <Col id="Column1">30</Col>
+            <Col id="Column2">a</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">30</Col>
+            <Col id="Column1">30</Col>
+            <Col id="Column2">b</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">30</Col>
+            <Col id="Column1">40</Col>
+            <Col id="Column2">a</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">40</Col>
+            <Col id="Column1">20</Col>
+            <Col id="Column2">b</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

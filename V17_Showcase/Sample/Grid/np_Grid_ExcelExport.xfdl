@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="excelExport_multi" classname="excelExport_multi" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="export1" left="44" top="24" width="124" height="45" onclick="Button00_onclick"/>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="488" top="77" width="345" height="131" binddataset="Dataset00">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="92"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+              </Band>
+              <Band id="body" style="cellline:1 solid red;">
+                <Cell colspan="2" text="bind:Column0"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+              </Band>
+            </Format>
+            <Format id="format_copy">
+              <Columns>
+                <Column size="86"/>
+                <Column size="108"/>
+                <Column size="119"/>
+                <Column size="131"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="2" binddataset="Dataset00" useinputpanel="false" left="44" top="72" width="284" height="172">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+              </Band>
+              <Band id="body" style="cellline:1 solid red;">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell row="1" text="bind:Column3"/>
+                <Cell row="1" col="1" text="bind:Column4"/>
+                <Cell row="1" col="2" text="bind:Column5"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="3" text="export2" left="488" top="24" width="124" height="45" onclick="Button01_onclick"/>
+        <Button id="Button03" taborder="5" text="export3" left="43" top="296" width="133" height="44" onclick="Button03_onclick"/>
+        <Static id="Static00" taborder="6" text="Body row가 두줄" left="183" top="44" width="139" height="26"/>
+        <Static id="Static01" taborder="7" text="cell merge" left="630" top="43" width="145" height="25"/>
+        <Static id="Static02" taborder="8" text="여러시트에 출력" left="201" top="308" width="162" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">테스트1</Col>
+            <Col id="Column1">투비소프트</Col>
+            <Col id="Column2">test1</Col>
+            <Col id="Column3">aa-11</Col>
+            <Col id="Column4">가나다1</Col>
+            <Col id="Column5">123</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">테스트2</Col>
+            <Col id="Column1">투비소프트</Col>
+            <Col id="Column2">test2</Col>
+            <Col id="Column3">bb-1</Col>
+            <Col id="Column4">가나다2</Col>
+            <Col id="Column5">333</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">테스트3</Col>
+            <Col id="Column1">투비소프트</Col>
+            <Col id="Column2">test3</Col>
+            <Col id="Column3">cc-123</Col>
+            <Col id="Column4">가나다3</Col>
+            <Col id="Column5">444</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.exportObj = new ExcelExportObject();
+	
+
+	this.exportObj.addEventHandler("onexport", this.Export00_onexport, this);
+	this.exportObj.addEventHandler("onerror", this.Export00_onerror, this);
+
+
+	this.exportObj.set_exporttype(nexacro.ExportTypes.EXCEL2007);
+	this.exportObj.set_exporturl("http://localhost:8080/Test_01/nexacro/Sample/Grid/XExportImport");
+
+	this.exportObj.set_exportfilename("aaaa");	
+	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid01, "Sheet1!A1");
+	var result = this.exportObj.exportData();
+
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.exportObj = new ExcelExportObject();    
+	
+	
+	this.exportObj.addEventHandler("onexport", this.Export00_onexport, this);
+	this.exportObj.addEventHandler("onerror", this.Export00_onerror, this);
+	
+	this.exportObj.set_exporttype(nexacro.ExportTypes.EXCEL2007);
+	this.exportObj.set_exporturl("http://localhost:8080/Test_01/nexacro/Sample/Grid/XExportImport");
+	this.exportObj.set_exportfilename("aaaa");	
+	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid00, "Sheet1!A1");
+
+	var result = this.exportObj.exportData();
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Grid01.set_formatid("format1");
+}
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.exportObj = new ExcelExportObject();
+	
+	this.exportObj.addEventHandler("onexport", this.Export00_onexport, this);
+	this.exportObj.addEventHandler("onerror", this.Export00_onerror, this);
+	
+	this.exportObj.set_exporttype(nexacro.ExportTypes.EXCEL2007);
+	this.exportObj.set_exporturl("http://localhost:8080/Test_01/nexacro/Sample/Grid/XExportImport");
+	this.exportObj.set_exportfilename("aaaa");	
+	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid00, "Sheet1!A1");
+	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.Grid01, "Sheet2!A1");
+
+	var result = this.exportObj.exportData();
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="reportPop" width="900" height="650" background="#6954E1" onload="reportPop_onload">
+    <Layouts>
+      <Layout height="650" width="900">
+        <Button id="btnClose" taborder="1" width="50" height="50" right="5" top="5" cssclass="btn_MWF_closeDesc" onclick="btnClose_onclick"/>
+        <Static id="stcTitle" taborder="2" text="UbiReport Viewer" left="64" top="2" height="60" right="64" cssclass="sta_MWF_descTitle"/>
+        <Static id="Static01" taborder="3" left="0" top="60" right="0" background="#ffffff" text="" cssclass="sta_MWF_descBg" bottom="0"/>
+        <UbiReport id="UbiViewer" taborder="0" text="UbiViewer" left="20" top="80" right="20" bottom="20" border="1px solid #cccccc"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/************************************************************************************
+* 공통 함수
+************************************************************************************/
+include "lib::UbiCommon.xjs";
+
+/************************************************************************************
+* 뷰어 초기 설정
+************************************************************************************/
+this.svcurl = "https://demo.nexacroplatform.com/nexacro-demo";
+
+this.UbiViewer.key = this.gfn_getRandomKey();
+this.UbiViewer.ubiserverurl = this.svcurl + "/UbiServer";
+this.UbiViewer.resource = this.svcurl + "/ubi4/js";		// 툴바 이미지를 가져오는 경로 (For HTML)
+this.UbiViewer.reporturl = this.svcurl + "/ubi4/work/";	// 리포트 파일 경로(For Runtime)
+this.UbiViewer.resid = "UBIHTML";					// ubiservice.xml에 등록된 ID (For HTML)
+this.UbiViewer.scale = "-9998";						// 보기 배율 ( 60/80/100/.../300/-9998(폭맞춤)/-9999(쪽맞춤) )
+this.UbiViewer.datasource = "Tutorial4_ORADB";		// ubiserver.xml에 등록된 Datasource ID (For Runtime)
+this.UbiViewer.fileurl = this.svcurl + "/ubi4/resource";	// 이미지아이템/공통아이템 경로 (For Runtime)
+/************************************************************************************
+* 기타 API
+this.UbiViewer.setVisibleToolbar("SAVE_PDF", false);	//SAVE_PDF/SAVE_EXCEL/SAVE_EXCEL_NO/SAVE_PPTX/SAVE_HML/SAVE_DOCX/SAVE_CELL/SAVE_IMAGE/PRINT_PDF/PRINT_HTML/PRINT_UBI
+this.UbiViewer.setUserSaveList('Image,Pdf,Docx,Xls,Pptx,Hml,Cell');
+this.UbiViewer.setUserPrintList('Ubi,Html,Pdf');
+this.UbiViewer.printHTML();		// HTML PrintSet
+this.UbiViewer.printPDF();		// PDF PrintSet
+this.UbiViewer.export('PDF');	// PDF/EXCEL/EXCEL_NO/HWP/PPTX/HML/DOCX/CELL/IMAGE
+this.UbiViewer.print();			// Direct Print (전용뷰어)
+this.UbiViewer.printSet();		// PrintSet (전용뷰어)
+************************************************************************************/
+
+/************************************************************************************
+* 팝업 창으로 호출이 이루어졌을 때 사용이 됨
+************************************************************************************/
+this.reportPop_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	var ubiIsRuntime = this.parent.ubiIsRuntime || this.parent.parent.ubiIsRuntime;
+	var ubiReportFile = this.parent.ubiReportFile || this.parent.parent.ubiReportFile;
+	var ubiArgument = this.parent.ubiArgument || this.parent.parent.ubiArgument;
+	var ubiSvcUrl = this.parent.ubiSvcUrl || this.parent.parent.ubiSvcUrl;
+	var ubiLocalDs = this.parent.ubiLocalDs || this.parent.parent.ubiLocalDs;
+	var ubiGridObj = this.parent.ubiGridObj || this.parent.parent.ubiGridObj;
+	var ubiUseTrace = this.parent.ubiUseTrace || this.parent.parent.ubiUseTrace;
+
+	// 리포트가 정의되지 않았을 경우 리턴
+	if( ubiReportFile == undefined ) {
+		return;
+	}
+	this.callReport(ubiIsRuntime, ubiReportFile, ubiArgument, ubiSvcUrl, ubiLocalDs, ubiGridObj, ubiUseTrace);
+};
+
+/************************************************************************************
+* DIV로 호출이 이루어졌을 때 사용이 됨
+************************************************************************************/
+this.callReport = function (ubiIsRuntime, ubiReportFile, ubiArgument, ubiSvcUrl, ubiLocalDs, ubiGridObj, ubiUseTrace)
+{
+	this.UbiViewer.jrffile = ubiReportFile;
+	this.gfn_setUbiArgument(this.UbiViewer, ubiArgument, ubiUseTrace);
+
+	if (ubiIsRuntime == true) {		// Grid Runtime Report
+		this.gfn_setUbiRuntime(this.UbiViewer, ubiGridObj, ubiUseTrace);
+	} else {
+		this.UbiViewer.runtimedata = "";
+		if( ubiSvcUrl != null ) {		// Report using service
+			this.gfn_setUbiService(this.UbiViewer, ubiSvcUrl, ubiUseTrace);
+		}
+		else if( ubiLocalDs != null ) {	// Report using dataset
+			this.gfn_setUbiDataset(this.UbiViewer, ubiLocalDs, ubiUseTrace);
+			this.UbiViewer.setVisibleToolbar("SAVE",false);
+		}
+	}
+	this.UbiViewer.retrieve(this, "UbiPreviewEnd");
+};
+
+/************************************************************************************
+* 미리보기 완료 후 이벤트 처리
+************************************************************************************/
+this.UbiPreviewEnd = function()
+{
+	this.UbiViewer.addEventHandler('PrintEnd', this.UbiPrintEnd, this);
+	this.UbiViewer.addEventHandler('ExportEnd', this.UbiExportEnd, this);
+
+	// 조회된 페이지가 50 페이지 이상이면 PDF, HTML 인쇄를 비활설화하고 전용뷰어 인쇄를 활성화함
+	this.gfn_setActivePluginViewer(this.UbiViewer, 50);
+	
+	// 버전 확인
+	//this.UbiViewer.aboutBox();
+};
+
+/************************************************************************************
+* 인쇄  완료 후 콜백
+************************************************************************************/
+this.UbiPrintEnd = function(flag)
+{
+
+};
+
+/************************************************************************************
+* 저장 완료 후 콜백
+************************************************************************************/
+this.UbiExportEnd = function(flag, fileName)
+{
+	if (nexacro._Browser == 'Runtime') {
+		//trace(this.UbiViewer.getVariable('exportFilePath'));
+	} else {
+		//console.log('[HTML] ' + flag + ', ' + fileName);
+	}
+};
+
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};]]></Script>
+    <Objects/>
+  </Form>
+</FDL>

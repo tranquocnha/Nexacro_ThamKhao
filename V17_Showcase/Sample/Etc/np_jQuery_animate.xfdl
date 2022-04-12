@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="JQuery" classname="sample001" left="0" top="0" width="760" height="560" titletext="JQuery" onload="sample001_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_tail01" taborder="0" left="30" top="73" width="600" height="120" text="Div00" background="red">
+          <Layouts>
+            <Layout>
+              <Button id="Button00" taborder="0" text="..." left="556" top="10" width="32" height="26" onclick="Button_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_tail02" taborder="1" left="30" top="203" width="600" height="120" text="Div00" background="yellow">
+          <Layouts>
+            <Layout>
+              <Button id="Button00" taborder="0" text="..." left="556" top="10" width="32" height="26" onclick="Button_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_tail03" taborder="2" left="30" top="333" width="600" height="120" background="blue" text="Div00">
+          <Layouts>
+            <Layout>
+              <Button id="Button00" taborder="0" text="..." left="556" top="10" width="32" height="26" onclick="Button_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static05" taborder="3" text="Way of implementing Animation using jQuery" cssclass="sta_WF_subtitP" left="30" top="18" width="650" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.status = "normal";
+targetForm = null;
+
+this.sample001_onload = function(obj:nexacro.Form, e:nexacro.LoadEventInfo)
+{
+	targetForm = this;
+	
+	if(system.navigatorname!="nexacro")this.loadJQuery();
+	else  alert("Only Web Use");
+};
+
+this.loadJQuery = function()
+{
+	// jquery를 로딩하고 로딩완료시 callback 실행
+    // jQuery가 이미 로드되어 있으면 그냥 callback() 실행
+    if (typeof window.jQuery != 'undefined') {
+
+        targetForm.loadCallback();
+    }else {
+
+        // <script> element를 하나 생성
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+
+        // jQuery 로딩 완료 후 callback() 실행
+        // IE
+        if (script.readyState) {
+				script.onreadystatechange = function(){
+                if (script.readyState=='loaded' || script.readyState=='complete') {
+                    script.onreadystatechange = null;
+                    targetForm.loadCallback();
+                }
+            }
+        }
+        // 기타 브라우저
+        else {
+            script.onload = function(){
+                targetForm.loadCallback();
+            }
+        }
+        // jQuery 로딩
+        script.src = './nexacro17lib/component/ExtAPI/jquery-1.10.2.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+}
+
+this.loadCallback = function()
+{
+	this.fn_initAni();
+}
+
+this.Button_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{		
+	if(system.navigatorname!="nexacro")this.fn_runAni(obj.parent.parent);
+	else  alert("Only Web Use");
+};
+
+this.fn_initAni = function ()
+{
+	var i;
+	var objDiv;	
+	for(i=1;i<4;i++)
+	{
+		objDiv = this.components["div_tail0"+i];		
+		objDiv.orgLeft = objDiv.left;		
+		objDiv.orgTop = objDiv.top;
+		objDiv.orgWidth = objDiv.width;
+		objDiv.orgHeight = objDiv.height;
+	}
+	this.divRight.orgLeft = this.divRight.left;
+	this.divRight.orgTop = this.divRight.top;
+	this.divRight.orgWidth = this.divRight.width;
+	this.divRight.orgHeight = this.divRight.height;
+};
+
+this.fn_runAni = function (obj)
+{	
+	var i;
+	var objDiv;
+	var nTop = 8;
+	var nLeft = 8;
+	var nMaxHeight = 350;
+	var nMinHeight = 50;
+	
+	for(i=1;i<4;i++)
+	{		
+		objDiv = this.components["div_tail0"+i];		
+		//objDiv.set_top(nTop);
+		$(this.jquerid(objDiv)).animate({"left" : "8spx"}, {"duration":1000, "queue": false}).animate({"top" : nTop} );
+
+		if(objDiv.name==obj.name)
+		{
+			$(this.jquerid(objDiv)).animate({"height" : "350px"}, {"duration":1000, "queue": false});
+			//objDiv.set_height(nMaxHeight);
+			nTop = nTop+nMaxHeight+7;			
+
+		}else
+		{
+			$(this.jquerid(objDiv)).animate({"height" : "50px"}, {"duration":1000, "queue": false});
+			//objDiv.set_height(nMinHeight);
+			nTop = nTop+nMinHeight+7;
+		}
+	} 
+};    
+
+this.jquerid = function(objID)
+{
+	var generateID = "";
+	var prtID = objID;	
+	var i = 0;
+	var objApp = nexacro.getApplication();
+	var mainFrm = objApp.mainframe;
+	while(prtID != mainFrm){
+		
+		if(prtID.toString() == "[object Form]") generateID = "form." + generateID;
+		else generateID = prtID.name + ((generateID != "")?".":"") + generateID;
+		i++;
+		prtID = prtID.parent;	
+	}	
+	
+	var reGenerateID = nexacro.replaceAll(generateID, ".","\\.")
+	
+	/* QuickView에서는 return 시 "mainframe\\."을 없애야 합니다.*/  
+	return "#mainframe\\." + reGenerateID;
+};]]></Script>
+  </Form>
+</FDL>

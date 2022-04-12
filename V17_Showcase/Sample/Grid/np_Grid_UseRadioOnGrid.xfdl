@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Sample_grid_radio" left="0" top="0" width="760" height="850" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="1" binddataset="Dataset00" useinputpanel="false" selecttype="cell" left="30" top="115" height="150" style="accessibility:enable all 'Grid' '' '' ;" oncellclick="Grid00_oncellclick" autofittype="col" width="535" useselcolor="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40" band="left"/>
+                <Column size="110" band="left"/>
+                <Column size="108" band="left"/>
+                <Column size="98"/>
+                <Column size="104"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="none" style="accessibility: ;controlaccessibility:enable all 'Select all' '' '' ;"/>
+                <Cell col="1" text="Column0"/>
+                <Cell col="2" text="Column1"/>
+                <Cell col="3" text="Column2"/>
+                <Cell col="4" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" style="controlaccessibility: ;" text="bind:Column4"/>
+                <Cell col="1" text="bind:Column0"/>
+                <Cell col="2" text="bind:Column1"/>
+                <Cell col="3" displaytype="number" text="bind:Column2"/>
+                <Cell col="4" displaytype="number" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="0" text="１．Implementating radio button fuctionality on Grid Column using checkbox" left="30" top="75" height="30" width="600" cssclass="sta_WF_explain"/>
+        <Static id="Static01" taborder="2" text="２．Implementating radio button functionality on Grid row using checkbox" left="30" top="335" height="30" width="600" cssclass="sta_WF_explain"/>
+        <Grid id="Grid01" taborder="3" binddataset="Dataset01" useinputpanel="false" onlbuttonup="Grid01_onlbuttonup" left="30" top="375" height="150" autofittype="col" width="535">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="123"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No"/>
+                <Cell col="1" text="Title"/>
+                <Cell col="2" text="Agree"/>
+                <Cell col="3" text="Approve"/>
+                <Cell col="4" text="Dismiss"/>
+                <Cell col="5" text="Hold"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column5"/>
+                <Cell col="1" text="bind:Column4"/>
+                <Cell col="2" displaytype="checkboxcontrol" edittype="checkbox" text="bind:Column0"/>
+                <Cell col="3" displaytype="checkboxcontrol" edittype="checkbox" text="bind:Column1"/>
+                <Cell col="4" displaytype="checkboxcontrol" edittype="checkbox" text="bind:Column2"/>
+                <Cell col="5" displaytype="checkboxcontrol" edittype="checkbox" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid02" taborder="4" binddataset="Dataset00" useinputpanel="false" selecttype="cell" left="30" top="635" height="150" style="accessibility:enable all 'Grid' '' '' ;" oncellclick="Grid00_oncellclick" autofittype="col" width="535" useselcolor="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40" band="left"/>
+                <Column size="110" band="left"/>
+                <Column size="108" band="left"/>
+                <Column size="98"/>
+                <Column size="104"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="none" style="accessibility: ;controlaccessibility:enable all 'Select all' '' '' ;"/>
+                <Cell col="1" text="Column0"/>
+                <Cell col="2" text="Column1"/>
+                <Cell col="3" text="Column2"/>
+                <Cell col="4" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="image" edittype="none" style="backgroundimage:EXPR(Column4 == 1?'Image::Radio_button_on.png':'Image::Radio_button_off.png');controlalign: ;" cssclass="expr:Column4 == 1?'Expr_Radio_on':'Expr_Radio_off'"/>
+                <Cell col="1" text="bind:Column0"/>
+                <Cell col="2" text="bind:Column1"/>
+                <Cell col="3" displaytype="number" text="bind:Column2"/>
+                <Cell col="4" displaytype="number" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static02" taborder="5" text="３．Implementatng Radio button on Grid using Cell.displaytype" left="30" top="595" height="30" width="600" cssclass="sta_WF_explain"/>
+        <Static id="Static07" taborder="6" text="This is sample shows radio button on the Grid" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="BIGDECIMAL" size="256"/>
+          <Column id="Column3" type="BIGDECIMAL" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">Column1</Col>
+            <Col id="Column1">AAA</Col>
+            <Col id="Column2">100</Col>
+            <Col id="Column3">10</Col>
+            <Col id="Column4">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Column2</Col>
+            <Col id="Column1">AAA</Col>
+            <Col id="Column2">110</Col>
+            <Col id="Column3">11</Col>
+            <Col id="Column4">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Column3</Col>
+            <Col id="Column1">BBB</Col>
+            <Col id="Column2">200</Col>
+            <Col id="Column3">20</Col>
+            <Col id="Column4">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">0</Col>
+            <Col id="Column2">0</Col>
+            <Col id="Column3">0</Col>
+            <Col id="Column5">1</Col>
+            <Col id="Column4">Column１</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">1</Col>
+            <Col id="Column3">0</Col>
+            <Col id="Column2">0</Col>
+            <Col id="Column5">2</Col>
+            <Col id="Column4">Column２</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">0</Col>
+            <Col id="Column2">1</Col>
+            <Col id="Column3">0</Col>
+            <Col id="Column5">3</Col>
+            <Col id="Column4">Column３</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.Grid00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0)
+	{
+		this.Dataset00.set_enableevent(false);
+		for(var i=0; i<this.Dataset00.rowcount; i++)
+		{
+			if (e.row == i)
+			{
+				this.Dataset00.setColumn(e.row,"Column4","1");
+			}else{
+				this.Dataset00.setColumn(i,"Column4","0");
+			}	
+		}
+		this.Dataset00.set_enableevent(true);
+	}
+};
+
+this.Grid01_onlbuttonup = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	var ColIdx = e.col;
+	for(var i = 2; i < this.Grid01.getCellCount("head"); i++)
+	{
+		this.Dataset01.setColumn(e.row, i, 0);
+	}
+	this.Dataset01.setColumn(e.row, ColIdx, 1);
+};
+
+]]></Script>
+  </Form>
+</FDL>

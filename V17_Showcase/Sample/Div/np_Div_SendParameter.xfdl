@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Div_SendParameter" inheritanceid="" position="absolute" titletext="Div_SendParameter" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="350" width="90" top="73" height="40"/>
+        <Div id="div_output" taborder="1" text="Div00" border="1 solid #808080" url="Sample_Div::np_Div_SendParameter_Sub.xfdl" position="absolute" left="94" width="246" top="133" height="130"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="73" height="40"/>
+        <Edit id="edt_input0" taborder="1" value="nexacro platform" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="73" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="133" height="40"/>
+        <Static id="Static05" taborder="2" text="Passing parameters to link by URL from Div" left="30" top="18" width="600" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Div_SendParameter
+ * Description : Passing parameters to link by URL from Div
+ */
+
+this.fv_param = "";
+
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    this.fv_param = this.edt_input0.text;	
+};
+      ]]></Script>
+  </Form>
+</FDL>

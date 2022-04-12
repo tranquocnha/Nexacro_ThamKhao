@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_DragNDrop_Mouse" classname="Grid_DragNDrop_Mouse" inheritanceid="" position="absolute" titletext="New Form" ondragmove="Grid_DragNDrop_Mouse_ondragmove" ondrop="Grid_DragNDrop_Mouse_ondrop" onload="Grid_DragNDrop_Mouse_onload" text="This component does not support Drop" left="0" top="0" width="760" height="430" onactivate="Form_onactivate">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" binddataset="Dataset00" ondrag="Grid_text_ondrag" position="absolute" left="25" width="400" top="65" height="150" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+                <Cell col="1" disptype="normal" text="Column1"/>
+                <Cell col="2" disptype="normal" text="Column2"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+                <Cell col="1" disptype="normal" text="bind:Column1"/>
+                <Cell col="2" disptype="normal" text="bind:Column2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Edit id="Edit_text" taborder="1" position="absolute" left="434" width="200" top="65" height="40" displaynulltext="Drag not allowed"/>
+        <Edit id="Edit01" taborder="2" position="absolute" left="434" top="115" height="40" width="200" displaynulltext="Drag allowed"/>
+        <Edit id="Edit02" taborder="3" position="absolute" left="434" width="200" top="165" height="40" displaynulltext="Drag not allowed"/>
+        <Edit id="Edit03" taborder="4" position="absolute" left="434" width="200" top="215" height="40" displaynulltext="Drag allowed"/>
+        <Static id="Static00" text="Static00" position="absolute" left="793" width="197" top="35" height="37" visible="false"/>
+        <Static id="Static01" text="Drop is not allowed" position="absolute" left="793" width="260" top="80" height="37" visible="false" style="font:bold 14 Dotum;"/>
+        <Static id="Static02" taborder="5" text="This sample is used to retrive, modifiy,delete update the clob data" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">Japanese</Col>
+            <Col id="Column1">ABC</Col>
+            <Col id="Column2">Japan</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Korean</Col>
+            <Col id="Column1">DEF</Col>
+            <Col id="Column2">Korea</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">English</Col>
+            <Col id="Column1">XYZ</Col>
+            <Col id="Column2">America</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[var sTextDragData;
+var arr1 = [];
+var arr2 = new Array();
+
+this.Grid_DragNDrop_Mouse_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	// Drop unavailable
+	arr1[0] = this.Edit_text;
+	arr1[1] = this.Edit02;
+	// Drop possible
+	arr2[0] = this.Edit01;
+	arr2[1] = this.Edit03;
+};
+
+this.Grid_text_ondrag = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+	// Processing Drag Text
+	var col_id = obj.getCellProperty("body", e.cell, "text");
+	col_id = col_id.slice(5);
+	sTextDragData = this.Dataset00.getColumn(e.row, col_id);
+	
+	// Processing Drag Effect
+	var cell_rect = obj.getCellRect(e.row, e.cell);
+	this.Static00.set_left(cell_rect.left);
+	this.Static00.set_top(cell_rect.top);
+	this.Static00.set_width(cell_rect.width);
+	this.Static00.set_height(cell_rect.height);
+	this.Static00.set_text(sTextDragData);
+	this.Static00.set_visible(true);
+	return true;
+};
+
+this.Grid_DragNDrop_Mouse_ondragmove = function(obj:Form, e:nexacro.DragEventInfo)
+{
+	this.DragTextMove(obj, e);
+};
+
+this.DragTextMove = function(obj, e)
+{
+    var n_No = "No";
+    if( this.Static00.visible == true )
+    {
+		for(var i = 0; i < arr1.length; i++)
+		{
+			if(arr1[i].name == e.fromobject.name)
+			{
+				this.equal_Obj(obj, e);
+				break;
+			}else
+			{
+				this.defferent_Obj(obj, e);
+			}
+		}
+		this.Static00.move(e.clientx+5, e.clienty-15);
+    }
+};
+
+this.equal_Obj = function(obj, e)
+{
+	this.Static01.set_visible(true);
+	this.Static01.move(e.clientx-10, e.clienty+15);
+};
+
+this.defferent_Obj = function(obj, e)
+{
+	this.Static01.set_visible(false);
+};
+
+this.Grid_DragNDrop_Mouse_ondrop = function(obj:Form, e:nexacro.DragEventInfo)
+{
+	for(var i = 0; i < arr1.length; i++ )
+	{
+		if(e.fromobject != undefined && e.fromobject.name == arr1[i].name)
+		{
+			this.Static00.set_visible(false);
+			this.Static01.set_visible(false);
+			return false;
+		}
+	}
+
+   for(var i = 0; i < arr2.length; i++ )
+	{
+		if(e.fromobject != undefined && e.fromobject.name == arr2[i].name)
+		{
+			e.fromobject.set_value(sTextDragData);
+			this.Static00.set_visible(false);
+		}
+	}
+	this.Static00.set_visible(false);
+};]]></Script>
+  </Form>
+</FDL>

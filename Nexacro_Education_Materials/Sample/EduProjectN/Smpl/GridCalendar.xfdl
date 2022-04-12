@@ -1,0 +1,853 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="GridCalendar" width="1000" height="700" onload="GridCalendar_onload">
+    <Layouts>
+      <Layout width="1000" height="700" screenid="Desktop_screen">
+        <Grid id="Grid_calendar" taborder="0" left="10" top="80" binddataset="ds_data" selecttype="cell" autofittype="col" useselcolor="false" width="980" height="610">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="95"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="SUN" color="red"/>
+                <Cell col="1" text="MON"/>
+                <Cell col="2" text="TUE"/>
+                <Cell col="3" text="WED"/>
+                <Cell col="4" text="THU"/>
+                <Cell col="5" text="FRI"/>
+                <Cell col="6" text="SAT" color="red"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL_D0" verticalAlign="top"/>
+                <Cell col="1" text="bind:COL_D1" verticalAlign="top"/>
+                <Cell col="2" text="bind:COL_D2" verticalAlign="top"/>
+                <Cell col="3" text="bind:COL_D3" verticalAlign="top"/>
+                <Cell col="4" text="bind:COL_D4" verticalAlign="top"/>
+                <Cell col="5" text="bind:COL_D5" verticalAlign="top"/>
+                <Cell col="6" text="bind:COL_D6" verticalAlign="top"/>
+              </Band>
+            </Format>
+            <Format id="default_copy">
+              <Columns>
+                <Column size="24"/>
+                <Column size="60"/>
+                <Column size="24"/>
+                <Column size="60"/>
+                <Column size="24"/>
+                <Column size="60"/>
+                <Column size="24"/>
+                <Column size="60"/>
+                <Column size="24"/>
+                <Column size="60"/>
+                <Column size="24"/>
+                <Column size="60"/>
+                <Column size="24"/>
+                <Column size="60"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24" band="head"/>
+                <Row size="48"/>
+              </Rows>
+              <Band id="head">
+                <Cell colspan="2" style="cursor:hand;" text="◀"/>
+                <Cell col="2" colspan="10"/>
+                <Cell col="12" colspan="2" style="cursor:hand;" text="▶"/>
+                <Cell row="1" colspan="2" style="color:red;" text="Sunday"/>
+                <Cell row="1" col="2" colspan="2" text="Monday"/>
+                <Cell row="1" col="4" colspan="2" text="Tuesday"/>
+                <Cell row="1" col="6" colspan="2" text="Wednesday"/>
+                <Cell row="1" col="8" colspan="2" text="Thursday"/>
+                <Cell row="1" col="10" colspan="2" text="Friday"/>
+                <Cell row="1" col="12" colspan="2" style="color:blue;" text="Saturday"/>
+              </Band>
+              <Band id="body">
+                <Cell colspan="2" style="background:#ffffffff;background2:#ffffffff;color:red;">
+                  <Cell style="color:red;" text="bind:COL_D0"/>
+                  <Cell col="1" text="bind:COL_H0"/>
+                </Cell>
+                <Cell col="2" colspan="2" style="background:#ffffffff;background2:#ffffff;">
+                  <Cell text="bind:COL_D1"/>
+                  <Cell col="1" text="bind:COL_H1"/>
+                </Cell>
+                <Cell col="4" colspan="2" style="background:#ffffffff;background2:#ffffff;">
+                  <Cell text="bind:COL_D2"/>
+                  <Cell col="1" text="bind:COL_H2"/>
+                </Cell>
+                <Cell col="6" colspan="2" style="background:#ffffffff;background2:#ffffff;">
+                  <Cell text="bind:COL_D3"/>
+                  <Cell col="1" text="bind:COL_H3"/>
+                </Cell>
+                <Cell col="8" colspan="2" style="background:#ffffffff;background2:#ffffff;">
+                  <Cell text="bind:COL_D4"/>
+                  <Cell col="1" text="bind:COL_H4"/>
+                </Cell>
+                <Cell col="10" colspan="2" style="background:#ffffffff;background2:#ffffff;">
+                  <Cell text="bind:COL_D5"/>
+                  <Cell col="1" text="bind:COL_H5"/>
+                </Cell>
+                <Cell col="12" colspan="2" style="background:#ffffffff;background2:#ffffffff;color:blue;">
+                  <Cell style="color:blue;" text="bind:COL_D6"/>
+                  <Cell col="1" text="bind:COL_H6"/>
+                </Cell>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="st_calText" taborder="1" left="440" top="40" width="115" height="30" textAlign="center" font="bold 16px/normal &quot;Verdana&quot;,&quot;Malgun Gothic&quot;"/>
+        <Static id="Static06" taborder="2" text="Grid Calendar" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <Button id="btn_prev" taborder="3" left="410" top="40" width="30" height="30" background="url('theme://images/cal_WF_PrevBtnP.png') no-repeat center center" border="0px none" onclick="btn_prev_onclick"/>
+        <Button id="btn_next" taborder="4" left="555" top="40" width="30" height="30" background="url('theme://images/cal_WF_NextBtnP.png') no-repeat center center" border="0px none" onclick="btn_next_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data">
+        <ColumnInfo>
+          <Column id="COL_D0" type="STRING" size="256"/>
+          <Column id="COL_D1" type="STRING" size="256"/>
+          <Column id="COL_D2" type="STRING" size="256"/>
+          <Column id="COL_D3" type="STRING" size="256"/>
+          <Column id="COL_D4" type="STRING" size="256"/>
+          <Column id="COL_D5" type="STRING" size="256"/>
+          <Column id="COL_D6" type="STRING" size="256"/>
+          <Column id="COL_YMD0" type="STRING" size="256"/>
+          <Column id="COL_YMD1" type="STRING" size="256"/>
+          <Column id="COL_YMD2" type="STRING" size="256"/>
+          <Column id="COL_YMD3" type="STRING" size="256"/>
+          <Column id="COL_YMD4" type="STRING" size="256"/>
+          <Column id="COL_YMD5" type="STRING" size="256"/>
+          <Column id="COL_YMD6" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL_D6">1</Col>
+          </Row>
+          <Row>
+            <Col id="COL_D0">2</Col>
+            <Col id="COL_D1">3</Col>
+            <Col id="COL_D2">4</Col>
+            <Col id="COL_D3">5</Col>
+            <Col id="COL_D4">6</Col>
+            <Col id="COL_D5">7</Col>
+            <Col id="COL_D6">8</Col>
+          </Row>
+          <Row>
+            <Col id="COL_D0">9</Col>
+            <Col id="COL_D1">10</Col>
+            <Col id="COL_D2">11</Col>
+            <Col id="COL_D3">12</Col>
+            <Col id="COL_D4">13</Col>
+            <Col id="COL_D5">14</Col>
+            <Col id="COL_D6">15</Col>
+          </Row>
+          <Row>
+            <Col id="COL_D0">16</Col>
+            <Col id="COL_D1">17</Col>
+            <Col id="COL_D2">18</Col>
+            <Col id="COL_D3">19</Col>
+            <Col id="COL_D4">20</Col>
+            <Col id="COL_D5">21</Col>
+            <Col id="COL_D6">22</Col>
+          </Row>
+          <Row>
+            <Col id="COL_D0">23</Col>
+            <Col id="COL_D1">24</Col>
+            <Col id="COL_D2">25</Col>
+            <Col id="COL_D3">26</Col>
+            <Col id="COL_D4">27</Col>
+            <Col id="COL_D5">28</Col>
+            <Col id="COL_D6">29</Col>
+          </Row>
+          <Row>
+            <Col id="COL_D0">30</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_temp">
+        <ColumnInfo>
+          <Column id="START_DATE" type="STRING" size="256"/>
+          <Column id="END_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_EduSchedule">
+        <ColumnInfo>
+          <Column id="PROD_CODE" type="STRING" size="255"/>
+          <Column id="PROD_NAME" type="STRING" size="255"/>
+          <Column id="SEQ" type="INT" size="11"/>
+          <Column id="START_DATE" type="STRING" size="255"/>
+          <Column id="END_DATE" type="STRING" size="255"/>
+          <Column id="TYPE" type="STRING" size="255"/>
+          <Column id="TYPE_NAME" type="STRING" size="255"/>
+          <Column id="MAX_CNT" type="INT" size="11"/>
+          <Column id="EDU_CNT" type="INT" size="11"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">550</Col>
+            <Col id="START_DATE">20220302</Col>
+            <Col id="END_DATE">20220302</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">20</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">551</Col>
+            <Col id="START_DATE">20220303</Col>
+            <Col id="END_DATE">20220303</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">컴포넌트활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">20</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">561</Col>
+            <Col id="START_DATE">20220308</Col>
+            <Col id="END_DATE">20220308</Col>
+            <Col id="TYPE">C</Col>
+            <Col id="TYPE_NAME">퍼블리싱 기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">20</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">552</Col>
+            <Col id="START_DATE">20220308</Col>
+            <Col id="END_DATE">20220309</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">20</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">553</Col>
+            <Col id="START_DATE">20220310</Col>
+            <Col id="END_DATE">20220310</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">컴포넌트활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">20</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">554</Col>
+            <Col id="START_DATE">20220311</Col>
+            <Col id="END_DATE">20220311</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">모바일</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">15</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">5</Col>
+            <Col id="START_DATE">20220315</Col>
+            <Col id="END_DATE">20220315</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">18</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP14</Col>
+            <Col id="PROD_NAME">넥사크로 14</Col>
+            <Col id="SEQ">326</Col>
+            <Col id="START_DATE">20220316</Col>
+            <Col id="END_DATE">20220316</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">17</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">XP</Col>
+            <Col id="PROD_NAME">엑스플랫폼</Col>
+            <Col id="SEQ">497</Col>
+            <Col id="START_DATE">20220317</Col>
+            <Col id="END_DATE">20220318</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">16</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">562</Col>
+            <Col id="START_DATE">20220321</Col>
+            <Col id="END_DATE">20220324</Col>
+            <Col id="TYPE">C</Col>
+            <Col id="TYPE_NAME">퍼블리싱 기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">15</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">555</Col>
+            <Col id="START_DATE">20220322</Col>
+            <Col id="END_DATE">20220322</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">11</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">556</Col>
+            <Col id="START_DATE">20220323</Col>
+            <Col id="END_DATE">20220323</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">컴포넌트활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">13</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">557</Col>
+            <Col id="START_DATE">20220324</Col>
+            <Col id="END_DATE">20220324</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">운영자</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">14</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로N</Col>
+            <Col id="SEQ">558</Col>
+            <Col id="START_DATE">20220329</Col>
+            <Col id="END_DATE">20220329</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">16</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">559</Col>
+            <Col id="START_DATE">20220330</Col>
+            <Col id="END_DATE">20220330</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">컴포넌트활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">18</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로N</Col>
+            <Col id="SEQ">560</Col>
+            <Col id="START_DATE">20220331</Col>
+            <Col id="END_DATE">20220331</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">실무활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">12</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">568</Col>
+            <Col id="START_DATE">20220405</Col>
+            <Col id="END_DATE">20220405</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">15</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">577</Col>
+            <Col id="START_DATE">20220405</Col>
+            <Col id="END_DATE">20220408</Col>
+            <Col id="TYPE">C</Col>
+            <Col id="TYPE_NAME">퍼블리싱 기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">11</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">569</Col>
+            <Col id="START_DATE">20220406</Col>
+            <Col id="END_DATE">20220406</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">컴포넌트활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">20</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">570</Col>
+            <Col id="START_DATE">20220407</Col>
+            <Col id="END_DATE">20220407</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">모바일</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">10</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로N</Col>
+            <Col id="SEQ">6</Col>
+            <Col id="START_DATE">20220411</Col>
+            <Col id="END_DATE">20220412</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">14</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP14</Col>
+            <Col id="PROD_NAME">넥사크로 14</Col>
+            <Col id="SEQ">327</Col>
+            <Col id="START_DATE">20220413</Col>
+            <Col id="END_DATE">20220413</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">14</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">XP</Col>
+            <Col id="PROD_NAME">엑스플랫폼</Col>
+            <Col id="SEQ">498</Col>
+            <Col id="START_DATE">20220414</Col>
+            <Col id="END_DATE">20220414</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">14</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">571</Col>
+            <Col id="START_DATE">20220419</Col>
+            <Col id="END_DATE">20220419</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">20</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">580</Col>
+            <Col id="START_DATE">20220419</Col>
+            <Col id="END_DATE">20220419</Col>
+            <Col id="TYPE">C</Col>
+            <Col id="TYPE_NAME">퍼블리싱 기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">20</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">572</Col>
+            <Col id="START_DATE">20220420</Col>
+            <Col id="END_DATE">20220420</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">컴포넌트활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">12</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">573</Col>
+            <Col id="START_DATE">20220421</Col>
+            <Col id="END_DATE">20220421</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">운영자</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">14</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">574</Col>
+            <Col id="START_DATE">20220426</Col>
+            <Col id="END_DATE">20220426</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">기본</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">15</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NP17</Col>
+            <Col id="PROD_NAME">넥사크로 17</Col>
+            <Col id="SEQ">575</Col>
+            <Col id="START_DATE">20220427</Col>
+            <Col id="END_DATE">20220427</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">컴포넌트활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">17</Col>
+          </Row>
+          <Row>
+            <Col id="PROD_CODE">NPN</Col>
+            <Col id="PROD_NAME">넥사크로 N</Col>
+            <Col id="SEQ">576</Col>
+            <Col id="START_DATE">20220428</Col>
+            <Col id="END_DATE">20220430</Col>
+            <Col id="TYPE">A</Col>
+            <Col id="TYPE_NAME">실무활용</Col>
+            <Col id="MAX_CNT">20</Col>
+            <Col id="EDU_CNT">12</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.sYear  = "";	//최초 조회 년도
+this.sMonth = "";	//최초 조회 월
+this.fv_CurYear = "";	//이전, 이후 이동으로 현재 보고 있는 년도
+this.fv_CurMonth = "";	//이전, 이후 이동으로 현재 보고 있는 월
+this.fv_eduClosed = false;	//신청 마감여부(true:마감 false:신청)
+
+this.GridCalendar_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+
+	//년월 설정
+    this.sYear  = "2022";
+    this.sMonth = "03";
+
+//    var objDate = new Date();    
+//    this.sYear  = objDate.getYear();
+//    this.sMonth = (objDate.getMonth()+1).toString().padLeft(2,"0");
+
+    this.sSelectYear = this.sYear+this.sMonth;	
+    this.fn_drawCalendar(this.ds_data, this.Grid_calendar, this.sYear, this.sMonth);   
+	this.fn_drawSchedule();	
+}
+
+this.fv_minDate;	//표현된 일자의 최소일
+this.fv_maxDate;	//표현된 일자의 최대일
+this.fn_drawCalendar = function(objDS, objGrid, sYear, sMonth)
+{
+    this.fv_CurYear  = sYear;	//2019
+    this.fv_CurMonth = sMonth;	//06
+
+	var nYear  = parseInt(sYear, 10);
+    var nMonth = parseInt(sMonth, 10);
+    var nCurrLastDate = this.fn_getLastDate(nYear, nMonth);	//이번달 마지막 일
+    var nPrevLastDate = this.fn_getLastDate(nMonth == 1 ? nYear-1 : nYear, nMonth == 1 ? 12 : nMonth-1);	//이전달 마지막 일
+
+    var nStartDay = new Date(sYear  + "-" + sMonth + "-" + "01").getDay();	//2019-06-01 요일값
+    var nLastDay  = new Date(sYear  + "-" + sMonth + "-" + nCurrLastDate).getDay();	//2019-06-30 요일값
+						
+    objDS.clearData();
+    
+    var day;
+    var nRow = objDS.addRow();
+    for(var i=1, day=nStartDay; i<=nCurrLastDate; i++ )
+    {
+        objDS.setColumn(nRow, "COL_D"+day, i);
+        objDS.setColumn(nRow, "COL_YMD"+day, sYear+sMonth+i.toString().padLeft(2,"0"));
+
+        day = (day + 1) % 7;
+        if (day == 0 && i != nCurrLastDate){
+            nRow = objDS.addRow();
+        }        
+    }
+    
+    //이전달 일자 입력
+    for( var j=nStartDay-1, jj=0; j>=0; j--, jj++)
+    {
+		var sYearP  = (nMonth==1 ? sYear-1 : sYear).toString().padRight(4,"0");
+		var sMonthP = (nMonth==1 ? "12" : (nMonth-1)).toString().padLeft(2,"0");
+		var sDateP  = (nPrevLastDate-jj).toString().padLeft(2,"0");
+        objDS.setColumn(0, "COL_D"+j  , nPrevLastDate-jj);
+		objDS.setColumn(0, "COL_YMD"+j, sYearP+sMonthP+sDateP);
+    }
+    this.fv_minDate = sYearP+sMonthP+sDateP;
+    
+	//다음달 일자 입력
+    for( var k = nLastDay+1, h=1; k<=7; k++, h++)
+    {
+		var sYearN  = (nMonth==12 ? sYear+1 : sYear).toString().padRight(4,"0");
+		var sMonthN = (nMonth==12 ? "01" : (nMonth+1)).toString().padLeft(2,"0");
+		var sDateN  = h.toString().padLeft(2,"0");
+        objDS.setColumn(nRow, "COL_D"+k  , h);
+        objDS.setColumn(nRow, "COL_YMD"+k, sYearN+sMonthN+sDateN);
+    }
+    this.fv_maxDate =  sYearN+sMonthN+sDateN;
+    
+	this.st_calText.set_text(sYear + "년 " + nMonth + "월");
+	this.fn_setStyle();
+	
+ 	var nHeadSize = this.Grid_calendar.getRealRowFullSize("head");
+ 	var nBodySize = this.Grid_calendar.getRealRowFullSize("body");
+ 	this.Grid_calendar.set_height(nHeadSize+nBodySize+2);	
+}
+
+this.fn_getLastDate = function(nYear, nMonth)
+{
+    if(nMonth == 1 || nMonth == 3 || nMonth == 5 || nMonth == 7  || nMonth == 8 || nMonth == 10 || nMonth == 12){
+        nLastDate = 31;
+    }
+    else if (nMonth == 2){
+        if ((nYear % 4) == 0){
+            if ((nYear % 100) != 0 || (nYear % 400) == 0){
+                nLastDate = 29;
+            }
+            else{
+                nLastDate = 28;
+            }
+        } 
+        else{
+            nLastDate = 28;
+        }
+    } 
+    else{
+        nLastDate = 30;
+    }    
+	return nLastDate;
+}
+
+
+//교육일정 만들기
+this.fn_drawSchedule = function()
+{
+	//스케줄 초기화
+	this.fn_scheduleReset();
+
+	var strRow = -1;
+	var strCol = -1;
+
+	this.ds_EduSchedule.set_keystring("S:+TYPE+START_DATE+END_DATE");
+
+	//Static 만든 일자 정보 temp ds
+	this.ds_temp.clearData();
+	for(var i=0; i<this.ds_EduSchedule.rowcount; i++)
+	{
+		var eduNo    = this.ds_EduSchedule.getColumn(i, "SEQ");
+		var startYMD = this.ds_EduSchedule.getColumn(i, "START_DATE");
+		var endYMD   = this.ds_EduSchedule.getColumn(i, "END_DATE");
+		var nDay     = this.fn_getDiffDate(startYMD, endYMD);					// 기간 
+		var sProd    = this.ds_EduSchedule.getColumn(i, "PROD_CODE");	//제품코드
+		var sProdNm  = this.ds_EduSchedule.getColumn(i, "PROD_NAME");	//제품명
+		var sEduType = this.ds_EduSchedule.getColumn(i, "TYPE_NAME");	//과정명
+		var nStuCnt  = this.ds_EduSchedule.getColumn(i, "EDU_CNT");				//신청 갯수
+		var nMaxCnt  = this.ds_EduSchedule.getColumn(i, "MAX_CNT");			//최대 신청 갯수
+	
+		//달력에 표현되는 일자만 처리
+		if(startYMD < this.fv_minDate && startYMD > this.fv_maxDate)	continue;
+		
+		for(var nRow=0; nRow<this.ds_data.getRowCount(); nRow++)
+		{
+			for(var nCol=0; nCol<this.Grid_calendar.getCellCount("body"); nCol++)
+			{
+				var sCalDate = this.ds_data.getColumn(nRow, "COL_YMD" + nCol);	// 20190601...
+				if(sCalDate == startYMD){
+					strRow = nRow;
+					strCol = nCol;
+				}
+				if(strRow > -1) break
+			}
+			if(strRow > -1) break
+		}
+
+		if(strRow >= 0 && strCol >= 0){
+			var objRect = this.Grid_calendar.getCellRect(strRow, strCol);
+			var nX = objRect.left + this.Grid_calendar.getOffsetLeft()+1;
+			var nY = objRect.top  + this.Grid_calendar.getOffsetTop() + this.Grid_calendar.getRealRowFullSize("head");					
+			
+			var nW = 139 + (nDay * 140);
+			var nH = 35;			
+			var k = 0;
+			
+			//등록된 일정이 있으면 Y위치 변경
+			var gh = this.ds_temp.findRowExpr("START_DATE >='" + startYMD + "' && START_DATE <='" + endYMD + "'");				
+			if(gh > -1)	k++;
+			
+			nY += (k*36)+1;
+				
+			var objId = "_st" + eduNo;	//키값으로 생성
+			var objStatic = new Static(objId, nX, nY, nW, nH);
+			this.addChild(objId, objStatic);
+
+			objStatic.uProd = sProd;
+			
+			//스타일 처리
+			//마감 스타일 처리
+			if(nStuCnt >= nMaxCnt){
+				objStatic.set_cssclass("st_WF_scheduleClose");
+				objStatic.uClose = true;
+			}
+			else{
+				if(sProd == "XP"){
+					objStatic.set_cssclass("st_WF_scheduleX");
+				}
+				else if(sProd == "NP14"){
+					objStatic.set_cssclass("st_WF_schedule14");
+				}
+				else if(sProd == "NP17"){
+					objStatic.set_cssclass("st_WF_schedule17");
+				}
+				else {
+					objStatic.set_cssclass("st_WF_scheduleN");
+				}
+				objStatic.uClose = false;
+			}
+			
+			var sText = sProdNm + "\n" + sEduType + " 과정";			
+			objStatic.set_text(sText);
+			objStatic.addEventHandler("onclick", this.fn_temp, this);
+			objStatic.show();
+			
+// 			this.ds_temp.addRow();
+// 			this.ds_temp.setColumn(this.ds_temp.rowposition, "START_DATE", startYMD);
+// 			this.ds_temp.setColumn(this.ds_temp.rowposition, "END_DATE"  , endYMD);
+
+			var aa = parseInt(startYMD);
+			var bb = parseInt(endYMD);
+
+	this.ds_temp.set_enableevent(false);
+			for(var ii= aa; ii<=bb; ii++)
+			{
+				this.ds_temp.addRow();
+				this.ds_temp.setColumn(this.ds_temp.rowposition, "START_DATE", ii);
+				this.ds_temp.setColumn(this.ds_temp.rowposition, "END_DATE", k);				
+			}
+	this.ds_temp.set_enableevent(true);
+
+
+			strRow = -1;
+		}
+	}
+}
+
+this.fn_scheduleReset = function()
+{
+	var arrObj  = this.components;
+	var nLength = arrObj.length;	
+	
+	for(var i=nLength-1; i>=0; i--)
+	{
+		if(arrObj[i] instanceof nexacro.Static && arrObj[i].name.substr(0,3) == "_st")
+		{
+			this.removeChild(arrObj[i]);
+			arrObj[i].destroy();
+			arrObj[i] = null;
+		}
+	}
+}
+
+this.fn_temp = function(obj:Div,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.btnGrdPrev_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_addCalMonth(-1);
+}
+
+this.btnGrdNext_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_addCalMonth(1);
+}
+
+this.fn_addCalMonth = function(n)
+{
+    var objDate = new Date(this.fv_CurYear + "-" + this.fv_CurMonth + "-" + "01");
+	objDate.setMonth(objDate.getMonth() + n);	//전달 or 다음달
+	var sY = objDate.getYear();
+	var sM = (objDate.getMonth()+1).toString().padLeft(2,"0");
+
+	var mdiff = parseInt(sM) - parseInt(this.sMonth);
+	
+	this.fn_drawCalendar(this.ds_data, this.Grid_calendar, sY , sM);
+	this.fn_drawSchedule();
+}
+
+//일자 사이 간격 
+this.fn_getDiffDate = function(sStartDate, sEndDate)
+{
+    var vFromDate = new Date(parseInt(sEndDate.substring(0,4),  10), parseInt(sEndDate.substring(4,6)-1,  10), parseInt(sEndDate.substring(6,8), 10));
+    var vToDate = new Date(parseInt(sStartDate.substring(0,4),  10), parseInt(sStartDate.substring(4,6)-1,  10), parseInt(sStartDate.substring(6,8), 10));
+    
+    return parseInt((vFromDate - vToDate)/(1000*60*60*24));
+};
+
+
+//칼렌더 일자 색상 변경 Expr
+this.fn_setStyle = function()
+{
+	for(var i=0; i<this.Grid_calendar.getCellCount("Body"); i++)
+	{
+		this.Grid_calendar.setCellProperty("Body", i, "cssclass" , "EXPR:comp.parent.fn_color(COL_YMD"+i+")");		
+	}
+}
+
+this.fn_color = function(sYMD)
+{
+	//현재월, 이전, 이후  월 일자 색상 변경
+	if(sYMD.substr(0,6) == this.fv_CurYear + this.fv_CurMonth){
+		var nD = this.fn_getDay(sYMD);
+		if(nD == 0 || nD == 6){
+			return "grdCalendarDayColorWeek";
+		}
+		else{
+			return "grdCalendarDayColorCurr";
+		}
+	}	
+	else{	//이전, 이후 달		
+		return "grdCalendarDayColorPrev";
+	}
+}
+
+//요일구하기
+this.fn_getDay = function(strDate)
+{
+    var date = new Date();
+    var iYear = parseInt(strDate.substr(0, 4));
+    var iMonth = parseInt(strDate.substr(4, 2) - 1);
+    var iDate = parseInt(strDate.substr(6, 2));
+    
+	date.setFullYear(iYear,iMonth,iDate);
+    return date.getDay();
+};
+
+//이전달
+this.btn_prev_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_addCalMonth(-1);
+};
+
+//이후달
+this.btn_next_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_addCalMonth(1);
+};
+]]></Script>
+  </Form>
+</FDL>

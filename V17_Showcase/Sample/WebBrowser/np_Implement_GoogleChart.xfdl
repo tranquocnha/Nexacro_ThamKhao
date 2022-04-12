@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Temp_GoogleChart" classname="Temp_googleChart" left="0" top="0" width="1024" height="768" titletext="Google Chart" onload="Temp_googleChart_onload">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="WebBrowser00" left="30" top="70" taborder="0" bottom="28" right="31.74%"/>
+        <Button id="Button00" taborder="1" text="Change Chart Content" top="70" onclick="Button00_onclick" height="40" width="156" left="69.24%"/>
+        <Static id="Static03" taborder="5" text="source Download" onclick="Static03_onclick" top="92" width="140" color="#0074ff" cursor="pointer" height="18" left="84.28%"/>
+        <Static id="Static05" taborder="6" text="Implement Google Chart on WebBrowser" cssclass="sta_WF_explain" left="30" top="25" width="400" height="30" class="sta_WF_subtitle"/>
+        <Grid id="Grid00" taborder="7" binddataset="DsCombo" scrollbars="autovert" useinputpanel="false" autofittype="col" oncellclick="Grid00_oncellclick" left="69.34%" top="120" width="400" bottom="28">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="173"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Group" font="10pt &quot;Arial&quot;"/>
+                <Cell col="1" text="Classification" font="10pt &quot;Arial&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:group" suppress="1" suppressalign="middle,over"/>
+                <Cell col="1" text="bind:list"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="DsCombo">
+        <ColumnInfo>
+          <Column id="list" type="STRING" size="256"/>
+          <Column id="group" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="list">Area</Col>
+            <Col id="group">Area Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Simple Stepped Area</Col>
+            <Col id="group">Stepped Area Chart</Col>
+          </Row>
+          <Row>
+            <Col id="list">Simple Stepped Area Color</Col>
+            <Col id="group">Stepped Area Chart</Col>
+          </Row>
+          <Row>
+            <Col id="group">Bar Charts</Col>
+            <Col id="list">Bar</Col>
+          </Row>
+          <Row>
+            <Col id="list">Dual XChart</Col>
+            <Col id="group">Bar Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Bubble</Col>
+            <Col id="group">Bubble Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Bubble Chart</Col>
+            <Col id="group">Bubble Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Series Chart</Col>
+            <Col id="group">Bubble Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Coloring Column</Col>
+            <Col id="group">Column Charts</Col>
+          </Row>
+          <Row>
+            <Col id="group">Column Charts</Col>
+            <Col id="list">Labeling Column</Col>
+          </Row>
+          <Row>
+            <Col id="list">Labeling Column By Year</Col>
+            <Col id="group">Column Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Column Chart Desity</Col>
+            <Col id="group">Column Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Company Sales</Col>
+            <Col id="group">Column Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Company Sales Formats</Col>
+            <Col id="group">Column Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Material Chart</Col>
+            <Col id="group">Column Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Column</Col>
+            <Col id="group">Column Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Candlestick</Col>
+            <Col id="group">Candlestick Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Line</Col>
+            <Col id="group">Line Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Combo</Col>
+            <Col id="group">Combo Charts</Col>
+          </Row>
+          <Row>
+            <Col id="group">Visualization</Col>
+            <Col id="list">Gauge</Col>
+          </Row>
+          <Row>
+            <Col id="list">Overlays</Col>
+            <Col id="group">Overlays</Col>
+          </Row>
+          <Row>
+            <Col id="list">Waterfall</Col>
+            <Col id="group">Waterfall Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Gantt</Col>
+            <Col id="group">Gantt Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Geo</Col>
+            <Col id="group">GeoCharts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Country Population Map</Col>
+            <Col id="group">GeoCharts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Marker Geo Chart</Col>
+            <Col id="group">GeoCharts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Displaying Proportional Marker</Col>
+            <Col id="group">GeoCharts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Text Geo Chart</Col>
+            <Col id="group">GeoCharts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Color Geo Chart</Col>
+            <Col id="group">GeoCharts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Points</Col>
+            <Col id="group">Points</Col>
+          </Row>
+          <Row>
+            <Col id="list">Annotation</Col>
+            <Col id="group">Annotation Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Calendar</Col>
+            <Col id="group">Calendar Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Red Sox Calendar</Col>
+            <Col id="group">Calendar Charts</Col>
+          </Row>
+          <Row>
+            <Col id="group">Diff Charts</Col>
+            <Col id="list">Diff Pie Chart</Col>
+          </Row>
+          <Row>
+            <Col id="list">Diff Bar Chart</Col>
+            <Col id="group">Diff Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Slice</Col>
+            <Col id="group">Pie Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Remove Slice</Col>
+            <Col id="group">Pie Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Slice Visibility Threshhold</Col>
+            <Col id="group">Pie Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Pie Hole</Col>
+            <Col id="group">Pie Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Donut</Col>
+            <Col id="group">Pie Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Pie</Col>
+            <Col id="group">Pie Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Single Sankey</Col>
+            <Col id="group">Sankey Diagram</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sankey Diagram</Col>
+            <Col id="list">Multi Level Sankey</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sankey Diagram</Col>
+            <Col id="list">Controlling Color Sankey</Col>
+          </Row>
+          <Row>
+            <Col id="group">Scatter Charts</Col>
+            <Col id="list">Changing Shape</Col>
+          </Row>
+          <Row>
+            <Col id="group">Scatter Charts</Col>
+            <Col id="list">Dual YChart</Col>
+          </Row>
+          <Row>
+            <Col id="group">Scatter Charts</Col>
+            <Col id="list">Top XChart</Col>
+          </Row>
+          <Row>
+            <Col id="group">Table Chart</Col>
+            <Col id="list">Table Chart</Col>
+          </Row>
+          <Row>
+            <Col id="list">Simple Timeline</Col>
+            <Col id="group">Timelines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Level Timeline</Col>
+            <Col id="group">Timelines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Color Time Line</Col>
+            <Col id="group">Timelines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Overlapping Timeline</Col>
+            <Col id="group">Timelines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Tooltip Timeline</Col>
+            <Col id="group">Timelines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Highlight Tree Map</Col>
+            <Col id="group">Tree Map Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Tree Map</Col>
+            <Col id="group">Tree Map Charts</Col>
+          </Row>
+          <Row>
+            <Col id="list">Linear Trendline</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Exponetial Trendline</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Color Trendline</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Polynomial</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Opacity Trendline</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Linewidth</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Point Visible</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Changing Level</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Correlations</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Trendline</Col>
+            <Col id="group">Trendlines</Col>
+          </Row>
+          <Row>
+            <Col id="list">Simple Word Tree</Col>
+            <Col id="group">Word Tree</Col>
+          </Row>
+          <Row>
+            <Col id="list">Implicit And Explit</Col>
+            <Col id="group">Word Tree</Col>
+          </Row>
+          <Row>
+            <Col id="list">Prefix And Suffix</Col>
+            <Col id="group">Word Tree</Col>
+          </Row>
+          <Row>
+            <Col id="list">Styling Word Tree</Col>
+            <Col id="group">Word Tree</Col>
+          </Row>
+          <Row>
+            <Col id="list">TextSize</Col>
+            <Col id="group">Word Tree</Col>
+          </Row>
+          <Row>
+            <Col id="list">Controlling Colors</Col>
+            <Col id="group">Histogram</Col>
+          </Row>
+          <Row>
+            <Col id="list">Controlling Buckets</Col>
+            <Col id="group">Histogram</Col>
+          </Row>
+          <Row>
+            <Col id="list">Multiple Series</Col>
+            <Col id="group">Histogram</Col>
+          </Row>
+          <Row>
+            <Col id="list">Histograms</Col>
+            <Col id="group">Histogram</Col>
+          </Row>
+          <Row>
+            <Col id="list">Line Intervals</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+          <Row>
+            <Col id="list">Linear Intervals Tailored</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+          <Row>
+            <Col id="list">Bar Intervals</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+          <Row>
+            <Col id="list">Box Intervals</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+          <Row>
+            <Col id="list">Stick Intervals</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+          <Row>
+            <Col id="list">Point Intervals</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+          <Row>
+            <Col id="list">Area Intervals</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+          <Row>
+            <Col id="list">Combile Line Intervals</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+          <Row>
+            <Col id="list">Background Box</Col>
+            <Col id="group">Intervals</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="DsChart">
+        <ColumnInfo>
+          <Column id="gbn" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+          <Column id="opt" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="gbn">Column</Col>
+            <Col id="data">[['Bar Chart(바 차트)', 'TEST1', 'TEST2', 'TEST3'],['2013', 500, 200,600],['2014', 200,500,600],['2015', 400,350,150],['2016', 100,200,300]]</Col>
+            <Col id="opt">['Title Change','Sub Title, Expenses, and Profit: 2016']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Donut</Col>
+            <Col id="data">[['Task', 'Hours per Day'],['Work',2],['Eat',2],['Commute',  11],['Watch TV', 2],['Sleep',7]]</Col>
+            <Col id="opt">['My Daily Activities',0.4]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Area</Col>
+            <Col id="data">[['Year', 'Sales', 'Expenses'],['2015', 1170, 200],['2016', 1040, 560],['2017', 1000, 500],['2018', 500, 640]]</Col>
+            <Col id="opt">['Company Performance',{title: 'Year',  titleTextStyle: {color: '#333'}},{minValue: 0}]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Bar</Col>
+            <Col id="data">[['Galaxy', 'Distance', 'Brightness'],['Canis Major Dwarf', 24000, 4.5],['Sagittarius Dwarf', 8000, 23.3],['Ursa Major II Dwarf', 50000, 0.9],['Lg. Magellanic Cloud', 30000, 14.3],['Bootes I', 60000, 13.1]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Bubble</Col>
+            <Col id="data">[['ID', 'Life Expectancy', 'Fertility Rate', 'Region','Population'],['USA',80.66,1.67,'North America',33739900],['IRN',79.84,1.36,'Middle East',81902307],['DNK',78.6, 1.84,'Europe',5523095],['RUS',72.73,2.78,'Middle East',79716203],['GBR',80.05,2,'Europe',61801570],['DEU',72.49,1.7,'Europe',73137148],['IRQ',68.09,4.77,'Middle East',31090763],['ISR',81.55,2.96,'Middle East',7485600],['EGY',68.6, 1.54,'Europe',141850000],['CAN',78.09,2.05, 'North America',307007000]]</Col>
+            <Col id="opt">['Correlation between life expectancy, fertility rate and population of some world countries (2010)',{title: 'Life Expectancy'},{title: 'Fertility Rate'},{textStyle: {fontSize: 11}}]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Candlestick</Col>
+            <Col id="data">[['Mon', 90, 28, 38, 45],['Tue', 91, 38, 55, 66],['Wed', 50, 15, 27, 80],['Thu', 77, 77, 96, 50],['Fri', 68, 16, 52, 15]]</Col>
+            <Col id="opt"/>
+          </Row>
+          <Row>
+            <Col id="gbn">Line</Col>
+            <Col id="data">[['Year', 'Sales', 'Expenses'],['2007',1030,540],['2004',1000,400],['2006',660,1120],['2005',1170,460]]</Col>
+            <Col id="opt">['Company Performance','function',{ position: 'bottom' }]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Maps</Col>
+            <Col id="data">[['Country', 'Population'],['Tanzania', 'Tanzania: 51,045,882'],['Italy', 'Italy: 61,855,120'],['Iraq', 'Iraq: 37,056,169'],['Canada', 'Canada: 35,099,836'],['Nepal', 'Nepal: 31,551,305'],['Taiwan', 'Taiwan: 23,415,126'],]</Col>
+            <Col id="opt">[ true]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Combo</Col>
+            <Col id="data">[['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],['2015/01',135,1120,599,1268,288,682],['2015/02',165,938,522,998,450,614.6],['2015/03',157,1167,587,807,397,623],['2015/04',136,691,629,1026,366,569.6],['2015/05',139,1110,615,968,215,609.4]]</Col>
+            <Col id="opt">['Monthly Coffee Production by Country',{title: 'Cups'},{title: 'Month'},'bars',{5: {type: 'line'}}]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Gauge</Col>
+            <Col id="data">[['Label', 'Value'],['Memory', 20],['CPU', 95],['Network', 18]]</Col>
+            <Col id="opt">[600,240,80,100,65,80,5]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Histograms</Col>
+            <Col id="data">[['Dinosaur', 'Length'],['Seismosaurus (tremor lizard)', 45.7],['Spinosaurus (spiny lizard)', 12.2],['Supersaurus (super lizard)', 30.5],['Tyrannosaurus (tyrant lizard)', 15.2],['Ultrasaurus (ultra lizard)', 30.5],['Velociraptor (swift robber)', 1.8],['Acrocanthosaurus (top-spined lizard)', 12.2],['Albertosaurus (Alberta lizard)', 9.1],['Allosaurus (other lizard)', 12.2],['Deinonychus (terrible claw)', 2.7],['Diplodocus (double beam)', 27.1],['Dromicelomimus (emu mimic)', 3.4],['Gallimimus (fowl mimic)', 5.5],['Mamenchisaurus (Mamenchi lizard)', 21.0],['Megalosaurus (big lizard)', 7.9],['Microvenator (small hunter)', 1.2],['Ornithomimus (bird mimic)', 4.6],['Oviraptor (egg robber)', 1.5],['Plateosaurus (flat lizard)', 7.9],['Sauronithoides (narrow-clawed lizard)', 2.0],['Apatosaurus (deceptive lizard)', 22.9],['Archaeopteryx (ancient wing)', 0.9],['Argentinosaurus (Argentina lizard)', 36.6],['Baryonyx (heavy claws)', 9.1],['Brachiosaurus (arm lizard)', 30.5],['Ceratosaurus (horned lizard)', 6.1],['Coelophysis (hollow form)', 2.7],['Compsognathus (elegant jaw)', 0.9]]</Col>
+            <Col id="opt">['★ Lengths of dinosaurs, in meters ★',{ position: 'none' },['green'],]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Pie</Col>
+            <Col id="data">[['Mushrooms', 5],['Onions', 3],['Olives', 1],['Zucchini', 2],['Pepperoni', 4]]</Col>
+            <Col id="opt">['How Much Pizza I Ate Last Night']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Overlays</Col>
+            <Col id="data">[['Threat', 52],['Chandrian', 88],['Ghosts', 58],['Ghouls', 88],['UFOs', 60],['Vampires', 90],['Zombies', 90]]</Col>
+            <Col id="opt">['none','red',8]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Waterfall</Col>
+            <Col id="data">[['Mon', 28, 28, 30, 30],['Tue', 30, 30, 40, 40],['Wed', 40, 40, 60, 60],['Thu', 60, 60, 76, 76],['Fri', 76, 76, 86, 86]]</Col>
+            <Col id="opt"/>
+          </Row>
+          <Row>
+            <Col id="gbn">Gantt</Col>
+            <Col id="data">[['Research', 'Find sources',new Date(2015, 5, 1), new Date(2015, 5, 5), null,  100,  null],['Write', 'Write paper',null, new Date(2015, 5, 9), 259200000, 25, 'Research,Outline'],['Cite', 'Create bibliography', null, new Date(2015, 05, 7), 86400000, 20, 'Research'],['Complete', 'Hand in paper', null, new Date(2015, 5, 10), 86400000, 0, 'Cite,Write'],['Outline', 'Outline paper', null, new Date(2015, 5, 6), 86400000, 100, 'Research']]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Geo</Col>
+            <Col id="data">[['Country','Popularity'],['Germany', 100],['United States', 200],['Brazil', 500],['Canada', 700],['France', 200],['RU', 900]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Tree Map</Col>
+            <Col id="opt">['black','pink','green','red']</Col>
+            <Col id="data"/>
+          </Row>
+          <Row>
+            <Col id="gbn">Points</Col>
+            <Col id="data"/>
+            <Col id="opt">['polygon','star','diamond','square','triangle','circle']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Annotation</Col>
+            <Col id="data">[[new Date(2314, 2, 15), 11400, '', '',9645, '', ''],[new Date(2314, 2, 16), 14045, 'Lalibertines', 'First encounter',10374, undefined, undefined],[new Date(2014, 2, 17), 30022, 'Lalibertines', 'They are very tall',12766, 'Gallantors', 'First Encounter'],[new Date(2014, 2, 18), 11284, 'Lalibertines', 'Attack on our crew!',30334, 'Gallantors', 'Statement of shared principles'],[new Date(2314, 2, 19), 8476, 'Lalibertines', 'Heavy casualties',46467, 'Gallantors', 'Mysteries revealed'],[new Date(2314, 2, 20), 0, 'Lalibertines', 'All crew lost',59463, 'Gallantors', 'Omniscience achieved']]</Col>
+            <Col id="opt">[{displayAnnotations: true}]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Calendar</Col>
+            <Col id="data">[[ new Date(2012, 3, 13), 31032 ],[ new Date(2012, 3, 14), 34024 ],[ new Date(2012, 3, 15), 38024 ],[ new Date(2012, 3, 16), 31108 ],[ new Date(2012, 3, 17), 31229 ],[ new Date(2013, 9, 4), 32177 ],[ new Date(2013, 9, 5), 33705 ],[ new Date(2013, 9, 12), 32210 ],[ new Date(2013, 9, 13), 31029 ],[ new Date(2013, 9, 19), 38823 ],[ new Date(2013, 9, 23), 32345 ],[ new Date(2013, 9, 24), 35436 ],[ new Date(2013, 9, 30), 32447 ]]</Col>
+            <Col id="opt">['Red Sox Attendance',350]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Country Population Map</Col>
+            <Col id="data">[['Country', 'Population'],['Spain', 'Spain: 46,064,604'],['Indonesia', 'Indonesia: 260,581,100'],['US', 'US: 317,842,000'],['Nigeria', 'Nigeria: 186,987,563'],['Philippines', 'Philippines: 102,250,133'],['Ethiopia', 'Ethiopia: 101,853,268'],['Nigeria', 'Nigeria: 173,615,000'],['Germany', 'Germany: 80,682,351'],['Iran', 'Iran: 80,043,146'],['South Africa', 'South Africa: 54,978,907']]</Col>
+            <Col id="opt">[{ showTip: true }]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Trendline</Col>
+            <Col id="data">[['Age', 'Weight'],[ 2,6],[ 8,10.5],[ 12,24],[ 4,9],[ 8,12],[9,17]]</Col>
+            <Col id="opt">['Age vs. Weight comparison','none',{ trigger: 'both', orientation: 'both'},{0: {type: 'polynomial',degree: 2,visibleInLegend: true,}}]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Bubble Chart</Col>
+            <Col id="data">[['ID', 'X', 'Y', 'Temperature'],['',80,167,12],['',79,136,13],['',78,184,150],['',72,278,30],['',81,200,10],['',72,170,200],['',68,477,180]]</Col>
+            <Col id="opt">['blue','pink']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Dual XChart</Col>
+            <Col id="data">[['Galaxy', 'Distance', 'Brightness'],['Canis Major Dwarf', 4000, 13.3],['Sagittarius Dwarf', 2000, 2.5],['Ursa Major II Dwarf', 3000, 4.3],['Lg. Magellanic Cloud', 5000, 1.9],['Bootes I', 6000, 3.1]]</Col>
+            <Col id="opt">['Nearby galaxies modified','distance on the left, brightness on the right after modification.']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Series Chart</Col>
+            <Col id="data">[['ID', 'Life Expectancy', 'Fertility Rate', 'Region',     'Population'],['CAN',    40.66,              1.67,      'North America',  33739900],['DEU',    79.84,              2.36,      'Europe',         81902307],['DNK',    18.6,               3.84,      'Europe',         5523095],['EGY',    92.73,              4.78,      'Middle East',    79716203],['GBR',    20.05,              2,         'Europe',         61801570],['IRN',    72.49,              1.7,       'Middle East',    73137148],['IRQ',    68.09,              4.77,      'Middle East',    31090763],['ISR',    71.55,              4.96,      'Middle East',    7485600],['RUS',    48.6,               3.54,      'Europe',         141850000],['USA',    8.09,              2.05,      'North America',  307007000]]</Col>
+            <Col id="opt">['and population of some world countries (2016)',14]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Red Sox Calendar</Col>
+            <Col id="data">[[ new Date(2012, 3, 13), 31032 ],[ new Date(2012, 3, 14), 34024 ],[ new Date(2012, 3, 15), 38024 ],[ new Date(2012, 3, 16), 31108 ],[ new Date(2012, 3, 17), 31229 ],[ new Date(2013, 9, 4), 32177 ],[ new Date(2013, 9, 5), 33705 ],[ new Date(2013, 9, 12), 32210 ],[ new Date(2013, 9, 13), 31029 ],[ new Date(2013, 9, 19), 38823 ],[ new Date(2013, 9, 23), 32345 ],[ new Date(2013, 9, 24), 35436 ],[ new Date(2013, 9, 30), 32447 ]]</Col>
+            <Col id="opt">['Red Sox Attendance new data','#000080','#9ACD32','#FF0000']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Coloring Column</Col>
+            <Col id="data"/>
+            <Col id="opt">['Changed Motivation and Energy Level Throughout the Day',5,23]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Labeling Column</Col>
+            <Col id="data">[['2010', 40, 24, 20, 32, 18, 5, ''],['2020', 16, 22, 23, 30, 16, 9, ''],['2030', 28, 19, 29, 30, 12, 13, '']]</Col>
+            <Col id="opt">['percent',300,0]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Labeling Column By Year</Col>
+            <Col id="data">[['2010', 40, 24, 20, 32, 18, 5, ''],['2020', 16, 22, 23, 30, 16, 9, ''],['2030', 28, 19, 29, 30, 12, 13, '']]</Col>
+            <Col id="opt">['#888',10,10]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Column Chart Desity</Col>
+            <Col id="opt">[600,400]</Col>
+            <Col id="data">[["Element", "Density", { role: "style" } ],["Copper", 9.94, "#EB3F1A"],["Silver", 8.49, "#1A53EB"],["Gold", 9.30, "#EB1AA8"],["Platinum", 6.45, "color: #12AE0B"]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Company Sales</Col>
+            <Col id="data">[['Year', 'Sales', 'Expenses', 'Profit'],['2013', 1500, 500, 500],['2014', 1570, 860, 550],['2015', 760, 1820, 700],['2016', 1730, 940, 450]]</Col>
+            <Col id="opt">['Sales, Expenses, and Profit: 2013-2016']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Company Sales Formats</Col>
+            <Col id="data">[['Year', 'Sales', 'Expenses', 'Profit'],['2013', 1500, 500, 500],['2014', 1570, 860, 550],['2015', 760, 1820, 700],['2016', 1730, 940, 450]]</Col>
+            <Col id="opt">['Sales, Expenses, and Profit: 2013-2016']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Loan</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Material Chart</Col>
+            <Col id="data">[['Move', 'Percentage'],["King's pawn (e4)", 4],["Queen's pawn (d4)", 41],["Knight to King 3 (Nf3)", 22],["Queen's bishop pawn (c4)", 30],['Other', 13]]</Col>
+            <Col id="opt">['Chess opening moves Changed ','White to move modified']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Diff Pie Chart</Col>
+            <Col id="data">[['Major', 'Degrees'],['Business', 216070], ['Education', 128034],['Social Sciences &amp; History', 137101], ['Health', 21863],['Psychology', 24194],['Business', 558293], ['Education', 301265],['Social Sciences &amp; History', 222780], ['Health', 169634],['Psychology', 17216]]</Col>
+            <Col id="opt">['none']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Diff Bar Chart</Col>
+            <Col id="data">[['Name', 'Popularity'],['Cesar', 7250],['Rachel', 5200],['Patrick', 1900],['Eric', 1200],['Cesar', 3370],['Rachel', 6600],['Patrick', 7700],['Eric', 5500]]</Col>
+            <Col id="opt">['top']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Slice</Col>
+            <Col id="data">[['Language', 'Speakers (in millions)'],['Assamese', 23], ['Bengali', 43], ['Bodo', 1.4],['Dogri', 2.3], ['Gujarati', 26], ['Hindi', 600],['Kannada', 38], ['Kashmiri', 15.5], ['Konkani', 5],['Maithili', 20], ['Malayalam', 63], ['Manipuri', 1.5],['Marathi', 72], ['Nepali', 10.9], ['Oriya', 33],['Punjabi', 29], ['Sanskrit', 0.01], ['Santhali', 6.5],['Sindhi', 2.5], ['Tamil', 61], ['Telugu', 74], ['Urdu', 52]]</Col>
+            <Col id="opt">['Indian Language Using in 2016']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Remove Slice</Col>
+            <Col id="data">[['Pac Man', 'Percentage'],['', 90],['', 10]]</Col>
+            <Col id="opt">['red','transparent']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Slice Visibility Threshhold</Col>
+            <Col id="data">[['Pepperoni', 23],['Hawaiian', 16],['Mushroom', 22],['Sausage', 20],['Anchovies', 19] ]</Col>
+            <Col id="opt">['Modified Popularity of Types of Pizza']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Pie Hole</Col>
+            <Col id="data">[['My all applied effort',100]]</Col>
+            <Col id="opt">[0.7,'red']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Single Sankey</Col>
+            <Col id="data">[[ 'A', 'X', 1 ],[ 'A', 'Y', 2 ],[ 'A', 'Z', 10 ],[ 'B', 'X', 5 ],[ 'B', 'Y', 5 ],[ 'B', 'Z', 14 ]]</Col>
+            <Col id="opt">[600]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Multi Level Sankey</Col>
+            <Col id="opt">[600]</Col>
+            <Col id="data">[[ 'Brazil', 'Portugal', 1 ],[ 'Brazil', 'France', 1 ],[ 'Brazil', 'Spain', 1 ],[ 'Brazil', 'England', 2 ],[ 'Canada', 'Portugal', 8 ],[ 'Canada', 'France', 5 ],[ 'Canada', 'England', 10 ],[ 'Mexico', 'Portugal', 1 ],[ 'Mexico', 'France', 5 ],[ 'Mexico', 'Spain', 5 ],[ 'Mexico', 'England', 9 ],[ 'USA', 'Portugal', 8 ],[ 'USA', 'France', 6 ],[ 'USA', 'Spain', 6 ],[ 'USA', 'England', 5 ],[ 'Portugal', 'Angola', 2 ],[ 'Portugal', 'Senegal', 1 ],[ 'Portugal', 'Morocco', 1 ],[ 'Portugal', 'South Africa', 3 ],[ 'France', 'Angola', 5 ],[ 'France', 'Senegal', 3 ],[ 'France', 'Mali', 3 ],[ 'France', 'Morocco', 3 ],[ 'France', 'South Africa', 10 ],[ 'Spain', 'Senegal', 8 ],[ 'Spain', 'Morocco', 3 ],[ 'Spain', 'South Africa', 1 ],[ 'England', 'Angola', 1 ],[ 'England', 'Senegal', 1 ],[ 'England', 'Morocco', 2 ],[ 'England', 'South Africa', 7 ],[ 'South Africa', 'China', 1 ],[ 'South Africa', 'India', 1 ],[ 'South Africa', 'Japan', 3 ],[ 'Angola', 'China', 5 ],[ 'Angola', 'India', 13 ],[ 'Angola', 'Japan', 3 ],[ 'Senegal', 'China', 5 ],[ 'Senegal', 'India', 9 ],[ 'Senegal', 'Japan', 3 ],[ 'Mali', 'China', 5 ],[ 'Mali', 'India', 1 ],[ 'Mali', 'Japan', 3 ],[ 'Morocco', 'China', 5 ],[ 'Morocco', 'India', 9 ],[ 'Morocco', 'Japan', 3 ]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Controlling Color Sankey</Col>
+            <Col id="opt">[400]</Col>
+            <Col id="data">[[ 'Brazil', 'Portugal', 1 ],[ 'Brazil', 'France', 1 ],[ 'Brazil', 'Spain', 1 ],[ 'Brazil', 'England', 2 ],[ 'Canada', 'Portugal', 8 ],[ 'Canada', 'France', 5 ],[ 'Canada', 'England', 10 ],[ 'Mexico', 'Portugal', 1 ],[ 'Mexico', 'France', 5 ],[ 'Mexico', 'Spain', 5 ],[ 'Mexico', 'England', 9 ],[ 'USA', 'Portugal', 8 ],[ 'USA', 'France', 6 ],[ 'USA', 'Spain', 6 ],[ 'USA', 'England', 5 ],[ 'Portugal', 'Angola', 2 ],[ 'Portugal', 'Senegal', 1 ],[ 'Portugal', 'Morocco', 1 ],[ 'Portugal', 'South Africa', 3 ],[ 'France', 'Angola', 5 ],[ 'France', 'Senegal', 3 ],[ 'France', 'Mali', 3 ],[ 'France', 'Morocco', 3 ],[ 'France', 'South Africa', 10 ],[ 'Spain', 'Senegal', 8 ],[ 'Spain', 'Morocco', 3 ],[ 'Spain', 'South Africa', 1 ],[ 'England', 'Angola', 1 ],[ 'England', 'Senegal', 1 ],[ 'England', 'Morocco', 2 ],[ 'England', 'South Africa', 7 ],[ 'South Africa', 'China', 1 ],[ 'South Africa', 'India', 1 ],[ 'South Africa', 'Japan', 3 ],[ 'Angola', 'China', 5 ],[ 'Angola', 'India', 13 ],[ 'Angola', 'Japan', 3 ],[ 'Senegal', 'China', 5 ],[ 'Senegal', 'India', 9 ],[ 'Senegal', 'Japan', 3 ],[ 'Mali', 'China', 5 ],[ 'Mali', 'India', 1 ],[ 'Mali', 'Japan', 3 ],[ 'Morocco', 'China', 5 ],[ 'Morocco', 'India', 9 ],[ 'Morocco', 'Japan', 3 ]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Changing Shape</Col>
+            <Col id="opt">['red']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Dual YChart</Col>
+            <Col id="data">[[0, 0, 7],  [1, 1, 8],[2, 2, 7],[3, 3, 93],[4, 4, 5],[5, 5, 9],[6, 6, 71],[7, 7, 8],[8, 8, 93],[9, 9, 80],[10, 10, 2],[11, 0, 75],[12, 5, 80],[13, 3, 10], [14, 1, 12],[15, 5, 75], [16, 6, 8],  [17, 7, 98],[18, 3, 82], [19, 9, 94],  [20, 2, 79],[21, 2, 15], [22, 2, 56],  [23, 3, 97],[24, 4, 60], [25, 2, 80],  [26, 6, 92],[27, 2, 51], [28, 8, 29],  [29, 9, 73]]</Col>
+            <Col id="opt">['Students\' Final Grades for changed data','based on hours studied Modified for changed data']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Top XChart</Col>
+            <Col id="opt">['Students\' Final Grades for changed data','based on hours studied Modified for changed data']</Col>
+            <Col id="data">[[0, 67],  [1, 88],  [2, 77],[3, 93],  [4, 85],  [5, 91],[6, 71],  [7, 78],  [8, 93],[9, 80],  [10, 82], [0, 75],[5, 80],  [3, 90],  [1, 72],[5, 75],  [6, 68],  [7, 98],[3, 82],  [9, 94],  [2, 79],[2, 95],  [2, 86],  [3, 67],[4, 60],  [2, 80],  [6, 92],[2, 81],  [8, 79],  [9, 83],[3, 75],  [1, 80],  [3, 71],[3, 89],  [4, 92],  [5, 85],[6, 92],  [7, 78],  [6, 95],[3, 81],  [0, 64],  [4, 85],[2, 83],  [3, 96],  [4, 77],[5, 89],  [4, 89],  [7, 84],[4, 92],  [9, 98]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Simple Stepped Area</Col>
+            <Col id="data">[['Director (Year)','Rotten Tomatoes','IMDB'],['Alfred Hitchcock (1935)', 10.4,7.9],['Ralph Thomas (1959)',9.9,6.5],['Don Sharp (1978)',6.5,6.4],['James Hawes (2008)',8.4,4.2]]</Col>
+            <Col id="opt">['Accumulated Rating Changed']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Simple Stepped Area Color</Col>
+            <Col id="data">[['Director (Year)','Rotten Tomatoes','IMDB'],['Alfred Hitchcock (1935)', 10.4,7.9],['Ralph Thomas (1959)',9.9,6.5],['Don Sharp (1978)',6.5,6.4],['James Hawes (2008)',8.4,4.2]]</Col>
+            <Col id="opt">['#FE2EC8', '#4000FF', '#122A0A', '#610B0B']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Table Chart</Col>
+            <Col id="data">[['Mike',{v: 4000,f: '$20,000'},true],['Jim',{v:200,f: '$18,000'},false],['Alice',{v: 18500, f: '$19,500'}, true],['Bob',{v: 15000,f:'$17,000'},true]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Simple Timeline</Col>
+            <Col id="data">[['Jimmy Carter', new Date(1977, 4, 29), new Date(1991, 2, 4) ],[ 'George H. W. Bush',new Date(1989, 2, 4),  new Date(1993, 2, 4) ],['Bill Clinton',new Date(1993, 2, 4),new Date(2001, 2, 4) ]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Level Timeline</Col>
+            <Col id="data">[[ '1', 'Jimmy Carter', new Date(1977, 3, 30), new Date(1981, 3, 20) ],[ '2', 'George H. W. Bush',      new Date(1989, 2, 4),  new Date(1993, 2, 4) ],[ '3', 'Bill Clinton',  new Date(1993, 3, 20),  new Date(2001, 3, 20) ]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Color Time Line</Col>
+            <Col id="data">[[ 'President', 'George Washington1', new Date(1789, 3, 30), new Date(1797, 2, 4) ],[ 'President', 'John Adams1', new Date(1797, 2, 4), new Date(1801, 2, 4) ],[ 'President', 'Thomas Jefferson1', new Date(1801, 2, 4), new Date(1809, 2, 4) ],[ 'Vice President1', 'John Adams', new Date(1789, 3, 21), new Date(1797, 2, 4)],[ 'Vice President', 'Thomas Jefferson1', new Date(1797, 2, 4), new Date(1801, 2, 4)],[ 'Vice President1', 'Aaron Burr', new Date(1801, 2, 4), new Date(1805, 2, 4)],[ 'Vice President', 'George Clinton', new Date(1805, 2, 4), new Date(1812, 3, 20)],[ 'Secretary of State', 'John Jay', new Date(1789, 8, 25), new Date(1790, 2, 22)],[ 'Secretary of State', 'Thomas Jefferson', new Date(1790, 2, 22), new Date(1793, 11, 31)],[ 'Secretary of State', 'Edmund Randolph', new Date(1794, 0, 2), new Date(1795, 7, 20)],[ 'Secretary of State', 'Timothy Pickering', new Date(1795, 7, 20), new Date(1800, 4, 12)],[ 'Secretary of State', 'Charles Lee', new Date(1800, 4, 13), new Date(1800, 5, 5)],[ 'Secretary of State', 'John Marshall', new Date(1800, 5, 13), new Date(1801, 2, 4)],[ 'Secretary of State', 'Levi Lincoln', new Date(1801, 2, 5), new Date(1801, 4, 1)],[ 'Secretary of State', 'James Madison', new Date(1801, 4, 2), new Date(1809, 2, 3)]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Overlapping Timeline</Col>
+            <Col id="data">[[ 'Magnolia Room', 'Google Charts Changed', new Date(0,0,0,10,0,0), new Date(0,0,0,13,0,0)],[ 'Magnolia Room', 'App Engine Changed',    new Date(0,0,0,13,0,0), new Date(0,0,0,18,0,0)]]</Col>
+            <Col id="opt">[false,false]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Tooltip Timeline</Col>
+            <Col id="data">[[ 'Carter', null, 'Jimmy', new Date(1977, 4, 29), new Date(1991, 2, 4) ],[ 'Bush', null, 'George H. W.', new Date(1989, 2, 4),  new Date(1993, 2, 4) ],[ 'Clinton', null, 'Bill', new Date(1993, 2, 4),  new Date(2001, 2, 4) ]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Highlight Tree Map</Col>
+            <Col id="opt">['#FE9A2E','#8000FF','#5882FA','#4C0B5F','#38610B','#A9A9F5']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Tool Tip TreeMap</Col>
+            <Col id="opt">['#FE9A2E','#8000FF','#5882FA','#4C0B5F','#38610B','#A9A9F5']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Linear Trendline</Col>
+            <Col id="data">[['Diameter', 'Age'],[8, 40], [4, 20.5], [11, 54], [4, 22], [3, 18.5], [6.5, 34.8], [14, 75]]</Col>
+            <Col id="opt">['Age of sugar maples vs. trunk diameter, in inches for new data']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Exponetial Trendline</Col>
+            <Col id="data">[['Generation', 'Descendants'],[0, 1], [1, 570], [2, 869], [3, 2013]]</Col>
+            <Col id="opt">['Descendants by Generation for the changed data']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Color Trendline</Col>
+            <Col id="data">[['Generation', 'Descendants'],[0, 1], [1, 570], [2, 869], [3, 2013]]</Col>
+            <Col id="opt">['Descendants by Generation for the changed data']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Polynomial</Col>
+            <Col id="data">[['Age', 'Weight'],[ 8,8],[ 4,10.5],[ 11,17],[ 4,6],[ 3,4.5],[ 6.5,12]]</Col>
+            <Col id="opt">['Age vs. Weight comparison modified data']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Opacity Trendline</Col>
+            <Col id="data">[['Generation','Descendants'],[0, 1],[1, 570],[2, 869],[3, 2013]]</Col>
+            <Col id="opt">['blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Linewidth</Col>
+            <Col id="data">[['X', 'Y'],[0, 8],[1, 14],[2, 28],[3, 12],[4, 68]]</Col>
+            <Col id="opt">['red']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">PointVisible</Col>
+            <Col id="data">[['X', 'Y', 'Z'],[0, 6, 15],[1, 4, 26],[2, 6, 18],[3, 8, 30],[4, 8, 11],[5, 8, 13],[6, 12, 15],[7, 15, 19],[8, 35, 21],[9, 34, 29],[10, 50, 32]]</Col>
+            <Col id="opt">['red','blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Changing Level</Col>
+            <Col id="data">[['X', 'Y', 'Z'],[0, 6, 15],[1, 4, 26],[2, 6, 18],[3, 8, 30],[4, 8, 11],[5, 8, 13],[6, 12, 15],[7, 15, 19],[8, 35, 21],[9, 34, 29],[10, 50, 32]]</Col>
+            <Col id="opt">['red','blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Correlations</Col>
+            <Col id="data">[['Age', 'Weight'],[ 8,22],[ 4,8.5],[ 11,24],[ 4,15],[ 3,20.5],[ 6.5,27]]</Col>
+            <Col id="opt">['red']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Simple Word Tree</Col>
+            <Col id="data">[['Phrases'],['lion are better than cats'],['lion eat kibble'],['lion are better than hamsters'],['lion are awesome'],['lion are people too'],['lion eat mice'],['lion meowing'],['lion in the cradle'],['lion eat mice'],['lion in the cradle lyrics'],['lion eat kibble'],['lion for adoption'],['lion are family'],['lion eat mice'],['lion are better than kittens'],['lion are evil'],['lion are weird'],['lion eat mice'],]</Col>
+            <Col id="opt">['lion']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Implicit And Explit</Col>
+            <Col id="data">[['id', 'childLabel', 'parent', 'size', { role: 'style' }],[0, 'Life', -1, 1, 'pink'],[1, 'Archaea', 0, 1, 'black'],[2, 'Eukarya', 0, 5, 'green'],[3, 'Bacteria', 0, 1, 'blue'],[4, 'Crenarchaeota modified', 1, 1, 'black'],[5, 'Euryarchaeota modified', 1, 1, 'black'],[6, 'Korarchaeota modified', 1, 1, 'black'],[7, 'Nanoarchaeota modified', 1, 1, 'black'],[8, 'Thaumarchaeota modified', 1, 1, 'black'],[9, 'Amoebae modified', 2, 1, 'green'],[10, 'Plants modified', 2, 1, 'green'],[11, 'Chromalveolata modified', 2, 1, 'green'],[12, 'Opisthokonta modified', 2, 5, 'green'],[13, 'Rhizaria modified', 2, 1, 'green'],[14, 'Excavata modified', 2, 1, 'green'],[15, 'Animalia modified', 12, 5, 'green'],[16, 'Fungi modified', 12, 2, 'green'],[17, 'Parazoa modified', 15, 2, 'black'],[18, 'Eumetazoa modified', 15, 5, 'black'],[19, 'Radiata modified', 18, 2, 'black'],[20, 'Bilateria modified', 18, 5, 'black'],[21, 'Orthonectida modified', 20, 2, 'green'],[22, 'Rhombozoa modified', 20, 2, 'black'],[23, 'Acoelomorpha modified', 20, 1, 'black'],[24, 'Deuterostomia modified', 20, 5, 'black'],[25, 'Chaetognatha modified', 20, 2, 'black'],[26, 'Protostomia modified', 20, 2, 'black'],[27, 'Chordata modified', 24, 5, 'black'],[28, 'Hemichordata modified', 24, 1, 'black'],[29, 'Echinodermata modified', 24, 1, 'black'],[30, 'Xenoturbellida modified', 24, 1, 'black'],[31, 'Vetulicolia modified', 24, 1, 'black']]</Col>
+            <Col id="opt">['black', 'black', 'black']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Prefix And Suffix</Col>
+            <Col id="data">[['Phrases'],['Four score and seven years ago our fathers brought forth on this continent, a new world, conceived in Liberty, and dedicated to the proposition that all men are created equal. Now we are engaged in a great civil war, testing whether that world, or any world so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that world might live. It is altogether fitting and proper that we should do this. But, in a larger sense, we can not dedicate -- we can not consecrate -- we can not hallow -- this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us -- that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly resolve that these dead shall not have died in vain -- that this world, under God, shall have a new birth of freedom -- and that government of the people, by the people, for the people, shall not perish from the earth.']]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Styling Word Tree</Col>
+            <Col id="opt">['cats','blue', 'pink', 'yellow']</Col>
+            <Col id="data">[['Phrases'],['lion are better than cats'],['lion eat kibble'],['lion are better than hamsters'],['lion are awesome'],['lion are people too'],['lion eat mice'],['lion meowing'],['lion in the cradle'],['lion eat mice'],['lion in the cradle lyrics'],['lion eat kibble'],['lion for adoption'],['lion are family'],['lion eat mice'],['lion are better than kittens'],['lion are evil'],['lion are weird'],['lion eat mice'],]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">TextSize</Col>
+            <Col id="opt">[20]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Displaying Proportional Marker</Col>
+            <Col id="opt">['034','#3333FF','#FF33DD']</Col>
+            <Col id="data">[['India',1251695584,60],['China',1367485388,67],['Bangladesh',168957745, 23]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Text Geo Chart</Col>
+            <Col id="data">[['South America', 600],['Canada', 500],['India', 600],['Pakistan', 700],['China', 600]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Color Geo Chart</Col>
+            <Col id="data"/>
+            <Col id="opt">['#80FF00','#FAFAFA','#F5A9F2','#E6E6E6']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Controlling Colors</Col>
+            <Col id="data">[['Country', 'Population (mil)'],['AU',1211],['CN',1367],['US',1724],['FR',174],['BR',187]]</Col>
+            <Col id="opt">['Country Populations changed','#2E9AFE']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Controlling Buckets</Col>
+            <Col id="opt">['Country Populations','#2E64FE']</Col>
+            <Col id="data">[['Dinosaur', 'Length'],['Acrocanthosaurus (top-spined lizard)', 22.2],['Albertosaurus (Alberta lizard)', 12.1],['Allosaurus (other lizard)', 15.2],['Apatosaurus (deceptive lizard)', 10.9],['Archaeopteryx (ancient wing)', 1.9],['Argentinosaurus (Argentina lizard)', 16.6],['Baryonyx (heavy claws)', 19.1],['Brachiosaurus (arm lizard)', 20.5],['Ceratosaurus (horned lizard)', 13.1],['Coelophysis (hollow form)', 14.7],['Compsognathus (elegant jaw)', 1.9],['Deinonychus (terrible claw)', 3.7],['Diplodocus (double beam)', 27.1],['Dromicelomimus (emu mimic)', 7.4],['Gallimimus (fowl mimic)', 5.5],['Mamenchisaurus (Mamenchi lizard)', 21.0],['Megalosaurus (big lizard)', 17.9],['Microvenator (small hunter)', 8.2],['Ornithomimus (bird mimic)', 4.6],['Oviraptor (egg robber)', 9.5],['Plateosaurus (flat lizard)', 17.9],['Sauronithoides (narrow-clawed lizard)', 9.0],['Seismosaurus (tremor lizard)', 45.7],['Spinosaurus (spiny lizard)', 12.2],['Supersaurus (super lizard)', 30.5],['Tyrannosaurus (tyrant lizard)', 15.2],['Ultrasaurus (ultra lizard)', 30.5],['Velociraptor (swift robber)', 18.8]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Multiple Series</Col>
+            <Col id="opt">['Charges of subatomic particles Changed','#0080FF', '#F781F3', '#FE9A2E', '#2E64FE']</Col>
+            <Col id="data">[['Quarks', 'Leptons', 'Gauge Bosons', 'Scalar Bosons'],[4/3, -1, 0, 0],[5/3, -1, 0, null],[6/3, -1, 0, null],[-1/3, 0, 1, null],[-1/3, 0, -1, null],[-1/3, 0, null, null],[-1/3, 0, null, null]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Line Intervals</Col>
+            <Col id="opt">[4]</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Linear Intervals Tailored</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+            <Col id="opt">[4]</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Bar Intervals</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+            <Col id="opt">['blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Box Intervals</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+            <Col id="opt">['blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Stick Intervals</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+            <Col id="opt">['blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Point Intervals</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+            <Col id="opt">['blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Area Intervals</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+            <Col id="opt">['blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Combile Line Intervals</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+            <Col id="opt">['blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Background Box</Col>
+            <Col id="data">[[1, 100, 90, 110, 85, 96, 104, 120],[2, 30, 39, 22, 21, 28, 34, 40],[3, 130, 105, 140, 100, 117, 133, 139],[4, 100, 90, 110, 85, 95, 102, 110],[5, 70, 74, 63, 67, 69, 70, 72],[6, 120, 95, 130, 90, 113, 124, 140],[7, 80, 77, 83, 70, 77, 85, 90],[8, 90, 85, 95, 85, 88, 92, 95]]</Col>
+            <Col id="opt">['blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Box Plot</Col>
+            <Col id="data">[['a', 80, 90, 110, 85, 96, 80, 100],['b', 50, 39, 22, 21, 28, 54, 60],['c', 100, 105, 140, 120, 110, 133, 100],['d', 160, 90, 110, 55, 95, 102, 100],['e', 120, 124, 63, 67, 69, 70, 32],['f', 120, 95, 130, 90, 113, 124, 80],['g', 80, 77, 83, 70, 77, 85, 100],['h', 90, 85, 95, 85, 88, 52, 95]]</Col>
+            <Col id="opt">['blue','red','red','blue']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Marker Geo Chart</Col>
+            <Col id="data">[['City',   'Population', 'Area'],['Rome',      5761477,    1285.31],['Milan',     2324110,    281.76],['Naples',    459574,     351.27],['Turin',     407563,     680.17],['Palermo',   222222,     650.9],['Genoa',     612635,     243.60],['Bologna',   620181,     850.7],['Florence',  820282,     602.41],['Fiumicino', 22070,      213.44],['Anzio',     12092,      83.43],['Ciampino',  98062,      91]]</Col>
+            <Col id="opt">['red', 'yellow']</Col>
+          </Row>
+          <Row>
+            <Col id="gbn">Point Visible</Col>
+            <Col id="opt">['#40FF00', '#DF013A']</Col>
+            <Col id="data">[['X', 'Y', 'Z'],[0, 4, 7],[1, 3, 9],[2, 5, 12],[3, 8, 12],[4, 9, 14],[5, 12, 17],[6, 14, 19],[7, 19, 24],[8, 28, 25],[9, 39, 27],[10, 55, 31]]</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Temp_googleChart_onload = function(obj:nexacro.Form, e:nexacro.LoadEventInfo)
+{ 
+	this.drawChart();
+};
+
+this.drawChart = function(nRow)
+{
+	var strChart = nexacro.replaceAll(this.DsCombo.getColumn(nRow, "list"), " ", "");
+	//var strUrl = "http://172.10.13.132:8080/TEST/CHART/" + strChart +".html";
+	
+	var strUrl = "http://support.tobesoft.co.kr/Next_JSP/GoogleChart/chart/" + strChart +".html";
+	//this.alert("chart url is == " + strChart);
+	//var strUrl = "http://172.10.13.60:9090/ShowCaseJSP/chart/" + strChart +".html";
+	
+	this.WebBrowser00.set_url(strUrl);	
+};
+
+this.Button00_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	this.changeData(this.DsCombo.rowposition);
+};
+
+this.changeData = function(nRow)
+{
+	var strGbn    = this.DsCombo.getColumn(nRow, "list");
+	var nRow      = this.DsChart.findRow("gbn", strGbn);
+	var arrData   = eval(this.DsChart.getColumn(nRow,"data"));
+    var arrOption = eval(this.DsChart.getColumn(nRow,"opt")); 
+	
+	//trace("arrData " + arrData);
+	//trace("arrOption " + arrOption);
+	
+	this.WebBrowser00.callMethod("btnCallChart",arrData,arrOption);
+};
+
+this.Grid00_oncellclick = function(obj:nexacro.Grid, e:nexacro.GridClickEventInfo)
+{
+	this.drawChart(e.row);
+};
+
+this.Static03_onclick = function(obj:nexacro.Static,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://support.tobesoft.co.kr/Next_JSP/GoogleChart/Source.zip");
+};
+]]></Script>
+  </Form>
+</FDL>

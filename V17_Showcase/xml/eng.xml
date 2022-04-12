@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root xmlns="http://www.tobesoft.com/platform/dataset">
+  <Dataset id="datasetXML">
+    <ColumnInfo>
+      <Column id="approval" type="STRING" size="256"/>
+	  <Column id="employee" type="STRING" size="256"/>
+	  <Column id="newspaper" type="STRING" size="256"/>
+	  <Column id="notice" type="STRING" size="256"/>
+    </ColumnInfo>
+    <Rows>
+      <Row>
+            <Col id="approval">approval</Col>
+			<Col id="employee">employee</Col>
+            <Col id="newspaper">newspaper</Col>
+            <Col id="notice">notice</Col>
+      </Row>
+    </Rows>
+  </Dataset>
+  <Dataset id="dataset2">
+    <ColumnInfo>
+      <Column id="approval" type="STRING" size="256"/>
+	  <Column id="employee" type="STRING" size="256"/>
+	  <Column id="newspaper" type="STRING" size="256"/>
+	  <Column id="notice" type="STRING" size="256"/>
+    </ColumnInfo>
+    <Rows>
+      <Row>
+            <Col id="approval">approval</Col>
+			<Col id="employee">employee</Col>
+            <Col id="newspaper">newspaper</Col>
+            <Col id="notice">notice</Col>
+      </Row>
+    </Rows>
+  </Dataset>
+</Root>

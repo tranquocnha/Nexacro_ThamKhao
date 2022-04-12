@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_ImageViewer" width="1000" height="700" titletext="Component-ImageViewer">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000">
+        <Static id="Static07" taborder="5" text=" Basic Usage (Prop. image)" left="10" top="40" width="270" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static08" taborder="0" text="ImageViewer" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <ImageViewer id="ImageViewer00" taborder="1" left="20" top="100" width="203" height="50" image="url('theme://images/sta_TF_NexacroN.png')" border="1px solid gray"/>
+        <Static id="Static00" taborder="6" text=" Stretch (Prop. stretch)" left="510" top="40" width="242" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static03" taborder="7" text="Theme Image - theme://images/sta_TF_NexacroN.png" left="20" top="70" width="410" height="30"/>
+        <Static id="Static04" taborder="8" text="Image Resource - imagerc::img_nexacro.png" left="20" top="170" width="335" height="24"/>
+        <ImageViewer id="ImageViewer01" taborder="2" left="20" top="194" width="203" height="50" image="url('imagerc::img_nexacro.png')" background="#143a84"/>
+        <Radio id="Radio00" taborder="3" left="526" top="70" width="204" height="24" codecolumn="codecolumn" datacolumn="datacolumn" columncount="-1" value="none" onitemchanged="Radio00_onitemchanged" rowcount="-1" innerdataset="innerdataset" index="0">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">none</Col>
+                <Col id="datacolumn">none</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">fit</Col>
+                <Col id="datacolumn">fit</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">fixaspectratio</Col>
+                <Col id="datacolumn">ratio</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <ImageViewer id="ImageViewer03" taborder="4" left="20" top="288" width="100" height="90" image="URL(&quot;imagerc::loading.gif&quot;)" stretch="fixaspectratio"/>
+        <Static id="Static04_00" taborder="9" text="※ gif Image" left="20" top="264" width="315" height="24"/>
+        <ImageViewer id="ImageViewer02" taborder="10" left="526" top="100" width="233" height="70" image="url('theme://images/sta_TF_NexacroN.png')" border="1px solid gray"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.ImageViewer02.set_stretch(e.postvalue);
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="Button01" propid="text" datasetid="gds_dept" columnid="DEPT_NM"/>
+    </Bind>
+    <Objects/>
+  </Form>
+</FDL>

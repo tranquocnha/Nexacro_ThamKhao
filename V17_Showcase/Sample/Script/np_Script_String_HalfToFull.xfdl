@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_String_HalfToFull" inheritanceid="" position="absolute" titletext="Script_String_HalfToFull" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input" taborder="0" value="nexacro platform" text="XPLATFORM" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <Static id="Static05" taborder="3" text="Half-width character to full-width character conversion" cssclass="sta_WF_subtitP" left="30" top="18" width="720" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_String_HalfToFull
+ * Description : Half-width character to full-width character conversion
+ */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var sRtn = this.fn_halfToFull(this.edt_input.value);
+	this.edt_output.set_value(sRtn);
+}
+/*
+ * Function Name : fn_halfToFull
+ * Description   : Changing Half width character to full width character
+ * Parameter     : Half width character string
+ * Return        : Full width character
+ * Example       : fn_halfToFull("XPLATFORM");
+ */
+this.fn_halfToFull = function(sHalf)
+{
+    var sFull = "";
+    var sChar = "";
+
+    for (var i = 0; i < sHalf.length; i++) 
+    {
+        //By default there are ASCII values , in case of Korean Character no conversion is required.
+        // Default ASCII code values 
+        if ((sHalf.charCodeAt(i) >= 32) && (sHalf.charCodeAt(i) <= 126)) 
+        {
+            if (sHalf.charCodeAt(i) == 32)
+            {
+                sChar = unescape("%u"+(12288).toString(16));
+            }
+            else
+            {
+                sChar = sHalf.charCodeAt(i) + 65248;
+            }
+        }
+        else 
+        {
+            sChar = sHalf.charCodeAt(i);
+        }    
+
+        if (sHalf.charCodeAt(i) == 32)
+        {
+            sFull = sFull + (sChar);
+        }
+        else
+        { 
+            sFull = sFull + String.fromCharCode(sChar);
+        }
+    }
+
+    return sFull;
+}
+]]></Script>
+  </Form>
+</FDL>

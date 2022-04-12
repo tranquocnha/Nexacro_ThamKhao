@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project active_adl="UserGrid" version="1.3">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <ADL id="UserGrid" url="Sample_call.xadl"/>
+  <ComponentInfoGroup>
+    <ComponentInfo name="UserGrid" defaultwidth="" defaultheight="" image="1"/>
+    <ComponentInfo name="ToggleButton" defaultwidth="" defaultheight="" image="2"/>
+    <ComponentInfo name="UserBtn" defaultwidth="" defaultheight="" image="2"/>
+    <ComponentInfo name="EcoButton" defaultwidth="" defaultheight="" image="18"/>
+  </ComponentInfoGroup>
+  <Themes>
+    <RecentlyUsed>
+      <Theme url="style13.xtheme" extern="false"/>
+    </RecentlyUsed>
+  </Themes>
+</Project>

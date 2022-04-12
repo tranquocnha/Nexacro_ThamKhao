@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="COMP_GUIDE_06" classname="COMP_GUIDE_01" inheritanceid="" position="absolute" titletext="Grid #1" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" text="Component Name" position="absolute" style="background:#edeee6ff;border:1 solid #c6c6c5ff ;align:center middle;font:Tahoma,9,bold antialias;" left="0" width="130" top="0" height="26"/>
+        <Static id="Static02" text="Component View" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="636" top="0" height="26"/>
+        <Static id="Static10" text="Grid" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="25" height="505"/>
+        <Static id="Static11" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="25" height="505"/>
+        <Static id="Static15" text="default" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="173" width="60" top="57" height="15"/>
+        <Grid id="Grid00" taborder="1" binddataset="ds_menu" useinputpanel="false" position="absolute" left="173" width="494" top="74" height="119">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="idx"/>
+                <Cell col="1" text="lev"/>
+                <Cell col="2" text="UserData"/>
+                <Cell col="3" text="Caption"/>
+                <Cell col="4" text="enable"/>
+                <Cell col="5" text="hotkey"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:idx"/>
+                <Cell col="1" text="bind:lev"/>
+                <Cell col="2" style="align:left;padding:0 3 0 3;" text="bind:UserData"/>
+                <Cell col="3" style="align:left;padding:0 3 0 3;" text="bind:Caption"/>
+                <Cell col="4" text="bind:enable"/>
+                <Cell col="5" text="bind:hotkey"/>
+              </Band>
+              <Band id="summary">
+                <Cell/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" text="Tree" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="173" width="60" top="220" height="15"/>
+        <Grid id="Grid02" taborder="3" binddataset="ds_data" useinputpanel="false" useselcolor="false" treeusecheckbox="false" treeinitstatus="expand,all" left="176" top="240" width="303" height="282">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="290"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+              </Band>
+              <Band id="body" style="cellbackground2:#ffffffff;">
+                <Cell displaytype="tree" edittype="tree" text="bind:label" treelevel="bind:level"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="lev" type="STRING" size="256"/>
+          <Column id="UserData" type="STRING" size="256"/>
+          <Column id="Caption" type="STRING" size="256"/>
+          <Column id="enable" type="STRING" size="256"/>
+          <Column id="hotkey" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="UserData">Personnel management</Col>
+            <Col id="Caption">Personnel management</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1000</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Personnel master generating</Col>
+            <Col id="Caption">Personnel master generating</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1001</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Persionnel Information</Col>
+            <Col id="Caption">Persionnel Information</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey">Alt+K</Col>
+            <Col id="idx">1002</Col>
+          </Row>
+          <Row>
+            <Col id="UserData">Individual Picture registration Request</Col>
+            <Col id="Caption">Individual Picture registration Request</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1003</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="label" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="label">Technical Group</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="label">cs team</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">Tom</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">june</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">sam</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">technical team</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">betty</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">anna</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">consulting</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="label">consulting 1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">leo</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">odry</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">consulting 2</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">kim</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">judy</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">consulting 3</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">judy</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">education</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="label">kor_edu</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">cloy</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">sujan</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="label">eng_edu</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="label">piter</Col>
+            <Col id="level">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

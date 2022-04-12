@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_Format_UserFormat" left="0" top="0" width="1024" height="768" titletext="Grid_Format_UserFormat">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="550" width="90" top="78" height="40"/>
+        <Grid id="grd_output1" taborder="1" useinputpanel="false" binddataset="ds_data" position="absolute" left="30" width="500" top="282" height="190" autofittype="col">
+          <Formats/>
+        </Grid>
+        <Grid id="grd_output0" taborder="1" useinputpanel="false" binddataset="ds_data" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;COL3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:COL3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" cellsizingtype="col" position="absolute" left="30" width="500" top="78" height="190" cellmovingtype="col" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="106"/>
+                <Column size="119"/>
+                <Column size="93"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="COL1"/>
+                <Cell col="1" rowspan="2" text="COL2"/>
+                <Cell col="2" text="COL3"/>
+                <Cell row="1" col="2" text="COL4"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL1"/>
+                <Cell col="1" text="bind:COL2"/>
+                <Cell col="2" text="bind:COL3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <TextArea id="txt_output" taborder="1" position="absolute" left="30" width="500" top="492" height="100"/>
+        <Static id="Static00" taborder="2" text="Getting format information from the Grid changed by user" cssclass="sta_WF_subtitP" left="30" top="18" width="800" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL1" type="STRING" size="256"/>
+          <Column id="COL2" type="STRING" size="256"/>
+          <Column id="COL3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL2">Tobesoft</Col>
+            <Col id="COL3">XPLATFORM</Col>
+            <Col id="COL1">DATA1</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">DATA2</Col>
+            <Col id="COL2">Tobesoft</Col>
+            <Col id="COL3">XPLATFORM</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">DATA3</Col>
+            <Col id="COL2">Tobesoft</Col>
+            <Col id="COL3">XPLATFORM</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Grid_Format_UserFormat
+ * Description : Getting format information from the Grid changed by user
+ */
+ 
+ /* Get gridformat*/
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sFormatContents = this.grd_output0.getCurFormatString();
+	
+	this.txt_output.set_value(sFormatContents);
+
+	this.grd_output1.set_formats("<Formats> "+sFormatContents+" </Formats>");
+}
+  ]]></Script>
+  </Form>
+</FDL>

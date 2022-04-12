@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE001" inheritanceid="" position="absolute" titletext="GRID MONTHLY CALENDAR" onload="form_onload" left="0" top="0" width="1025" height="674" ontimer="form_ontimer">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="9" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="47"/>
+        <Static id="st_BG" class="sta_WF_SearchBox" position="absolute" left="0" top="32" width="790" height="40"/>
+        <Grid id="grd_Calendar" taborder="1" binddataset="ds_GrdCalendar" autoenter="select" useinputpanel="false" selecttype="cell" cellsizingtype="col" autofittype="col" nodatatext="There is no inquiry data." position="absolute" style="align:center middle;font:dotum,9;" fillareatype="none" userdata="A=U" left="15" top="132" oncellclick="grd_Calendar_oncellclick" right="15" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="barcolor:darksalmon;" text="domain.sunday"/>
+                <Cell col="1" text="domain.monday"/>
+                <Cell col="2" text="domain.tuesday"/>
+                <Cell col="3" text="domain.wednesday"/>
+                <Cell col="4" text="domain.thursday"/>
+                <Cell col="5" text="domain.friday"/>
+                <Cell col="6" text="domain.saturday"/>
+              </Band>
+              <Band id="body">
+                <Cell rowspan="3">
+                  <Cell text="bind:DAY0"/>
+                  <Cell row="1" text="bind:INFO0"/>
+                  <Cell row="2" text="bind:BASE_INFO0"/>
+                </Cell>
+                <Cell col="1" rowspan="3">
+                  <Cell text="bind:DAY1"/>
+                  <Cell row="1" text="bind:INFO1"/>
+                  <Cell row="2" text="bind:BASE_INFO1"/>
+                </Cell>
+                <Cell col="2" rowspan="3">
+                  <Cell text="bind:DAY2"/>
+                  <Cell row="1" text="bind:INFO2"/>
+                  <Cell row="2" text="bind:BASE_INFO2"/>
+                </Cell>
+                <Cell col="3" rowspan="3">
+                  <Cell text="bind:DAY3"/>
+                  <Cell row="1" text="bind:INFO3"/>
+                  <Cell row="2" text="bind:BASE_INFO3"/>
+                </Cell>
+                <Cell col="4" rowspan="3">
+                  <Cell text="bind:DAY4"/>
+                  <Cell row="1" text="bind:INFO4"/>
+                  <Cell row="2" text="bind:BASE_INFO4"/>
+                </Cell>
+                <Cell col="5" rowspan="3">
+                  <Cell text="bind:DAY5"/>
+                  <Cell row="1" text="bind:INFO5"/>
+                  <Cell row="2" text="bind:BASE_INFO5"/>
+                </Cell>
+                <Cell col="6" rowspan="3">
+                  <Cell text="bind:DAY6"/>
+                  <Cell row="1" text="bind:INFO6"/>
+                  <Cell row="2" text="bind:BASE_INFO6"/>
+                </Cell>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_Left" taborder="1" position="absolute" onclick="btn_Left_onclick" left="35" top="82" width="32" height="22" cssclass="btn_WF_schPrev"/>
+        <Combo id="cmbYear" taborder="1" innerdataset="dsCmbYear" codecolumn="CODE" datacolumn="DATA" position="absolute" class="input_point" left="70" top="83" width="93" height="20"/>
+        <Static id="stYear" text="Year" position="absolute" style="align:center middle;" left="165" top="83" width="35" height="20"/>
+        <Combo id="cmbMonth" taborder="1" innerdataset="dsCmbMonth" codecolumn="CODE" datacolumn="DATA" position="absolute" left="208" top="83" width="80" height="20"/>
+        <Static id="stMonth" text="Month" position="absolute" left="290" top="83" width="41" height="20" wordwrap="true" style="align:center middle;" onclick="stMonth_onclick"/>
+        <Button id="btn_moveTo" taborder="1" text="domain.calandar.move" position="absolute" onclick="btn_moveTo_onclick" left="339" top="83" width="74" height="20"/>
+        <Button id="btn_Right" taborder="1" position="absolute" onclick="btn_Right_onclick" left="416" top="82" width="32" height="22" cssclass="btn_WF_schNext"/>
+        <Static id="Static42" taborder="2" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="3" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="4" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="5" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="6" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="8" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="st_Title" text="domain.schd.monthly" position="absolute" class="sta_WF_TitleLev1" left="15" top="38" width="204" height="22" cssclass="sta_WF_title"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCmbYear" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">2000</Col>
+            <Col id="DATA">2000</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2001</Col>
+            <Col id="DATA">2001</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2002</Col>
+            <Col id="DATA">2002</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2003</Col>
+            <Col id="DATA">2003</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2004</Col>
+            <Col id="DATA">2004</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2005</Col>
+            <Col id="DATA">2005</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2006</Col>
+            <Col id="DATA">2006</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2007</Col>
+            <Col id="DATA">2007</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2008</Col>
+            <Col id="DATA">2008</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2009</Col>
+            <Col id="DATA">2009</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2010</Col>
+            <Col id="DATA">2010</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2011</Col>
+            <Col id="DATA">2011</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2012</Col>
+            <Col id="DATA">2012</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2013</Col>
+            <Col id="DATA">2013</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2014</Col>
+            <Col id="DATA">2014</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2015</Col>
+            <Col id="DATA">2015</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2016</Col>
+            <Col id="DATA">2016</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2017</Col>
+            <Col id="DATA">2017</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2018</Col>
+            <Col id="DATA">2018</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2019</Col>
+            <Col id="DATA">2019</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2020</Col>
+            <Col id="DATA">2020</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2021</Col>
+            <Col id="DATA">2021</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2022</Col>
+            <Col id="DATA">2022</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2023</Col>
+            <Col id="DATA">2023</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2024</Col>
+            <Col id="DATA">2024</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2025</Col>
+            <Col id="DATA">2025</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2026</Col>
+            <Col id="DATA">2026</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2027</Col>
+            <Col id="DATA">2027</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2028</Col>
+            <Col id="DATA">2028</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2029</Col>
+            <Col id="DATA">2029</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2030</Col>
+            <Col id="DATA">2030</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCmbMonth" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="DATA">01</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="DATA">02</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">03</Col>
+            <Col id="DATA">03</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">04</Col>
+            <Col id="DATA">04</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">05</Col>
+            <Col id="DATA">05</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">06</Col>
+            <Col id="DATA">06</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">07</Col>
+            <Col id="DATA">07</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">08</Col>
+            <Col id="DATA">08</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">09</Col>
+            <Col id="DATA">09</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">10</Col>
+            <Col id="DATA">10</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">11</Col>
+            <Col id="DATA">11</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">12</Col>
+            <Col id="DATA">12</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdCalendar" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DAY0" type="STRING" size="256"/>
+          <Column id="DAY1" type="STRING" size="256"/>
+          <Column id="DAY2" type="STRING" size="256"/>
+          <Column id="DAY3" type="STRING" size="256"/>
+          <Column id="DAY4" type="STRING" size="256"/>
+          <Column id="DAY5" type="STRING" size="256"/>
+          <Column id="DAY6" type="STRING" size="256"/>
+          <Column id="INFO0" type="STRING" size="256"/>
+          <Column id="INFO1" type="STRING" size="256"/>
+          <Column id="INFO2" type="STRING" size="256"/>
+          <Column id="INFO3" type="STRING" size="256"/>
+          <Column id="INFO4" type="STRING" size="256"/>
+          <Column id="INFO5" type="STRING" size="256"/>
+          <Column id="INFO6" type="STRING" size="256"/>
+          <Column id="BASE_INFO0" type="STRING" size="256"/>
+          <Column id="BASE_INFO1" type="STRING" size="256"/>
+          <Column id="BASE_INFO2" type="STRING" size="256"/>
+          <Column id="BASE_INFO3" type="STRING" size="256"/>
+          <Column id="BASE_INFO4" type="STRING" size="256"/>
+          <Column id="BASE_INFO5" type="STRING" size="256"/>
+          <Column id="BASE_INFO6" type="STRING" size="256"/>
+          <Column id="SCHD_ID0" type="STRING" size="256"/>
+          <Column id="SCHD_ID1" type="STRING" size="256"/>
+          <Column id="SCHD_ID2" type="STRING" size="256"/>
+          <Column id="SCHD_ID3" type="STRING" size="256"/>
+          <Column id="SCHD_ID4" type="STRING" size="256"/>
+          <Column id="SCHD_ID5" type="STRING" size="256"/>
+          <Column id="SCHD_ID6" type="STRING" size="256"/>
+          <Column id="HOL0" type="STRING" size="256"/>
+          <Column id="HOL1" type="STRING" size="256"/>
+          <Column id="HOL2" type="STRING" size="256"/>
+          <Column id="HOL3" type="STRING" size="256"/>
+          <Column id="HOL4" type="STRING" size="256"/>
+          <Column id="HOL5" type="STRING" size="256"/>
+          <Column id="HOL6" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Schd" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SCHD_ID" type="string" size="16"/>
+          <Column id="USER_ID" type="string" size="16"/>
+          <Column id="SCHD_TITLE" type="string" size="150"/>
+          <Column id="SCHD_CONTENTS" type="string" size="300"/>
+          <Column id="SCHD_STARTDATE" type="date" size="0"/>
+          <Column id="SCHD_ENDDATE" type="date" size="0"/>
+          <Column id="SCHD_PLACE" type="string" size="150"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0001</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">My Birthday</Col>
+            <Col id="SCHD_CONTENTS">Bithday party</Col>
+            <Col id="SCHD_STARTDATE">20090717</Col>
+            <Col id="SCHD_ENDDATE">20090717</Col>
+            <Col id="SCHD_PLACE">Our home</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0002</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Summer holiday</Col>
+            <Col id="SCHD_CONTENTS">Summer holiday</Col>
+            <Col id="SCHD_STARTDATE">20090726</Col>
+            <Col id="SCHD_ENDDATE">20090728</Col>
+            <Col id="SCHD_PLACE">Sorak mountain condo</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0003</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Project end</Col>
+            <Col id="SCHD_CONTENTS">This is project end day.</Col>
+            <Col id="SCHD_STARTDATE">20090731</Col>
+            <Col id="SCHD_ENDDATE">20090730</Col>
+            <Col id="SCHD_PLACE">Project room</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0004</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Business trip</Col>
+            <Col id="SCHD_CONTENTS">Business trip</Col>
+            <Col id="SCHD_STARTDATE">20090821</Col>
+            <Col id="SCHD_ENDDATE">20090821</Col>
+            <Col id="SCHD_PLACE">Daegu</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0005</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Holiday</Col>
+            <Col id="SCHD_CONTENTS">Holiday</Col>
+            <Col id="SCHD_STARTDATE">20091231</Col>
+            <Col id="SCHD_ENDDATE">20100105</Col>
+            <Col id="SCHD_PLACE">Holiday</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0006</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">JavaOne</Col>
+            <Col id="SCHD_CONTENTS">2009 JavaOne Conference</Col>
+            <Col id="SCHD_STARTDATE">20090601</Col>
+            <Col id="SCHD_ENDDATE">20090605</Col>
+            <Col id="SCHD_PLACE">San Francisco</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0007</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Developer meeting</Col>
+            <Col id="SCHD_CONTENTS">Project developer schedule meeting</Col>
+            <Col id="SCHD_STARTDATE">20090824</Col>
+            <Col id="SCHD_ENDDATE">20090824</Col>
+            <Col id="SCHD_PLACE">Meeting room 3</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-1004</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">SW Quality test</Col>
+            <Col id="SCHD_CONTENTS">Executing SW quality test before release</Col>
+            <Col id="SCHD_STARTDATE">20090928</Col>
+            <Col id="SCHD_ENDDATE">20090930</Col>
+            <Col id="SCHD_PLACE">Meeting room 4</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-1005</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Anyframe MiPlatform UI Sample presentation</Col>
+            <Col id="SCHD_CONTENTS">Anyframe MiPlatform UI Sample presentation and explanation</Col>
+            <Col id="SCHD_STARTDATE">20091007</Col>
+            <Col id="SCHD_ENDDATE">20091007</Col>
+            <Col id="SCHD_PLACE">Meeting room 1</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-1003</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">TOEIC exam</Col>
+            <Col id="SCHD_CONTENTS">TOEIC exam</Col>
+            <Col id="SCHD_STARTDATE">20090927</Col>
+            <Col id="SCHD_ENDDATE">20090927</Col>
+            <Col id="SCHD_PLACE">Bulgokjung</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-1007</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Health test</Col>
+            <Col id="SCHD_CONTENTS">Regular health check up</Col>
+            <Col id="SCHD_STARTDATE">20090907</Col>
+            <Col id="SCHD_ENDDATE">20090907</Col>
+            <Col id="SCHD_PLACE">Gomgin hospital</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_BaseInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DATE" type="STRING" size="256"/>
+          <Column id="INFO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work Screen  template
+ * 02. Screen name   : TEMPLATE011.xfdl
+ * 03. Screen explanation : 
+ * 04. Creation date   : 
+ * 05. Created by   : 
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by  Content
+ ***********************************************************************
+ *     
+ ***********************************************************************
+ */
+
+/***********************************************************************
+* Script Include  
+************************************************************************/
+include "lib::lib_Form.xjs";
+/***********************************************************************
+* Screen display variable section 
+************************************************************************/
+this.strCurrentMonth = -1;
+/***********************************************************************
+* Event processing specification
+************************************************************************/
+// Initialization on Form onload
+
+this.form_onload = function(obj:Form, e:TOBE.LoadEventInfo)
+{
+		//Common functionality processing on Form Load
+	this.gfn_FormOnLoad(obj);
+	this.strCurrentMonth = this.gfn_ToString(this.gfn_Today()).substr(0, 6);
+	//Search processing
+	this.fn_Search();
+}
+
+// ▶ Button click event
+
+
+this.btn_Right_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	// Next month calendar creating again
+	this.strCurrentMonth = this.gfn_ToString(this.gfn_addMonth(this.grd_Calendar.userData + "01", 1)).substr(0, 6);
+	if(parseInt(this.strCurrentMonth) >= 203101){
+		this.gfn_Alert("msg.gt.maxdate", "error");
+		return;
+	} else {
+		this.fn_drawCalendar(this.ds_GrdCalendar, this.grd_Calendar, this.ds_BaseInfo, this.ds_Schd);
+	}
+}
+
+// ◀ Button click event
+this.btn_Left_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	// Creating calader again by last month information
+	this.strCurrentMonth = this.gfn_ToString(this.gfn_addMonth(this.grd_Calendar.userData + "01", -1)).substr(0, 6);
+	if(parseInt(this.grd_Calendar.userData) <= 200001){
+		this.gfn_Alert("msg.gt.maxdate", "error");
+		return;
+	} else {
+		this.fn_drawCalendar(this.ds_GrdCalendar, this.grd_Calendar, this.ds_BaseInfo, this.ds_Schd);
+	}
+	this.fn_drawCalendar(this.ds_GrdCalendar, this.grd_Calendar, this.ds_BaseInfo, this.ds_Schd);
+}
+
+// Date move button click
+this.btn_moveTo_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	// Generating calendar information again by displaying information Combo box 
+	this.strCurrentMonth = this.gfn_getComponentValue("cmbYear", "text") + this.gfn_getComponentValue("cmbMonth", "text");
+	this.fn_drawCalendar(this.ds_GrdCalendar, this.grd_Calendar, this.ds_BaseInfo, this.ds_Schd);
+}
+
+// Event processing when double click calendar date
+
+this.grd_Calendar_oncelldblclick = function(obj:Grid, e:TOBE.GridClickEventInfo)
+{
+//2013.11.25.Hui Yeon Choi.Grid oncelldblclick not occured. Registered bug to TOPSS 34094(RP_34284) 
+
+	if(this.ds_GrdCalendar.getColumn(e.row, "DAY" + e.cell) != null){
+		var strSelectDate = this.gfn_ToString(this.strCurrentMonth).substr(0, 4) + this.gfn_ToString(this.strCurrentMonth).substr(4) + this.gfn_ToString(this.ds_GrdCalendar.getColumn(e.row, "DAY" + e.cell)).padLeft(2, "0");
+		var strScheduleId = this.ds_GrdCalendar.getColumn(e.row, "SCHD_ID" + e.cell);
+		
+		// In case of there is no schedule, than create new popup registering new schedule
+		// In case of having schedule, creating popup to modify the schedule
+		if(this.gfn_isNull(strScheduleId)){
+			this.gfn_Dialog("domain.schddetail", "template::TEMPLATE011_POPUP.xfdl", {paramMode:"C", paramDate:strSelectDate}, 525, 300, null, null, null, null, "fn_DialogCallback");
+		} else {
+			this.ds_Schd.rowposition = this.ds_Schd.findRow("SCHD_ID", strScheduleId);
+			this.gfn_Dialog("domain.schddetail", "template::TEMPLATE011_POPUP.xfdl", {paramMode:"U", dsArg:this.ds_Schd}, 525, 300, null, null, null, null, "fn_DialogCallback");
+		}
+	}
+}
+
+
+this.nGridCell = -1;
+this.nGridRow = -1;
+this.grd_Calendar_oncellclick = function(obj:Grid, e:TOBE.GridClickEventInfo)
+{
+	this.killTimer(1005);
+	if(this.nGridCell == e.cell && this.nGridRow == e.row) {
+		this.nGridCell =-1;
+		this.nGridRow = -1;
+		if(this.ds_GrdCalendar.getColumn(e.row, "DAY" + e.cell) != null){
+			var strSelectDate = this.gfn_ToString(this.strCurrentMonth).substr(0, 4) + this.gfn_ToString(this.strCurrentMonth).substr(4) + this.gfn_ToString(this.ds_GrdCalendar.getColumn(e.row, "DAY" + e.cell)).padLeft(2, "0");
+			var strScheduleId = this.ds_GrdCalendar.getColumn(e.row, "SCHD_ID" + e.cell);
+			
+			// In case of there is no schedule, than create new popup registering new schedule
+			// In case of having schedule, creating popup to modify the schedule
+			if(this.gfn_isNull(strScheduleId)){
+				this.gfn_Dialog("domain.schddetail", "template::TEMPLATE011_POPUP.xfdl", {paramMode:"C", paramDate:strSelectDate}, 525, 300, null, null, null, null, "fn_DialogCallback");
+			} else {
+				this.gfn_Dialog("domain.schddetail", "template::TEMPLATE011_POPUP.xfdl", {paramMode:"U", dsArg:this.ds_Schd}, 525, 300, null, null, null, null, "fn_DialogCallback");
+			}
+		}
+	} else {
+		this.nGridCell = e.cell;
+		this.nGridRow = e.row;
+		this.setTimer(1005, 800);
+	}
+}
+
+
+this.form_ontimer = function(obj:Form, e:TOBE.TimerEventInfo)
+{
+	this.killTimer(1005);
+	this.nGridCell =-1;
+	this.nGridRow = -1;
+}
+
+this.fn_DialogCallback = function(strID, rtn)
+{
+	if(rtn == "Y"){
+		this.fn_Search();
+	}
+}
+
+/***********************************************************************
+* User defined function specification
+************************************************************************/
+this.fn_Search = function() {
+	return;
+	var sArgument     = "";
+	var sSvcID        = "getListSchedule";
+	var sController   = "svcurl::xpController.do";
+	sArgument        += "service='xpService'" + " ";
+	sArgument        += "method='getList'" + " ";
+	sArgument        += "querySetCount='1'" + " ";
+	sArgument        += "querySet1='findXPScheduleList'";
+	
+	var sInDatasets   = "querySet1=dsSearch";
+	var sOutDatasets  = "ds_Schd=querySet1";
+	var sCallbackFunc = "fn_callback";
+    
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// This function creates calendar on Grid
+this.fn_drawCalendar = function(objGridDataset, objGrid, objBaseInfoDataset, objScheduleDataset) {
+	
+	var strYearMonth = this.gfn_isNull(this.strCurrentMonth) ? this.gfn_Left(gfn_Today(), 6) : this.strCurrentMonth;
+	var i, nCellPos, nNewRow, colid;
+	var nDayOfStart, nLastDay;
+
+	this.cmbYear.set_value(this.gfn_ToString(strYearMonth).substr(0, 4));
+	this.cmbMonth.set_value(this.gfn_ToString(strYearMonth).substr(4, 2));
+	
+	this.fn_makeBaseInfo(objBaseInfoDataset, strYearMonth);
+	
+	objGrid.userData = strYearMonth;
+	
+	objGrid.binddataset = "";
+	objGridDataset.clearData();
+	
+	nDayOfStart = this.gfn_getDay(strYearMonth + "01");
+	nLastDay    = parseInt(this.gfn_LastDateNum(strYearMonth));
+	nNewRow     = objGridDataset.addRow();
+	
+		
+	for(i = 1, nCellPos = nDayOfStart ; i <= nLastDay ; i++) {
+		objGridDataset.setColumn(nNewRow, "DAY" + nCellPos, i);
+		
+		// dsBaseInfo : Calendar Data
+		var nBaseInfoRow = objBaseInfoDataset.findRow("DATE", strYearMonth + this.gfn_ToString(i).padLeft(2, "0"));
+		
+		if(nBaseInfoRow >= 0){
+			objGridDataset.setColumn(nNewRow, "BASE_INFO" + nCellPos, objBaseInfoDataset.getColumn(nBaseInfoRow, "INFO"));
+		}
+		
+		nCellPos = (nCellPos + 1) % 7;
+		
+		if(nCellPos == 0 && i != nLastDay){
+			nNewRow = objGridDataset.addRow();
+		}
+	}
+	
+	var nScheduleRow, nCalendarRow;
+	var strScheduleStartDate, strScheduleEndDate, strScheduledDate;
+	var nCellPos;
+	
+	for(nScheduleRow = 0 ; nScheduleRow < objScheduleDataset.rowcount; nScheduleRow++){
+		strScheduleStartDate = objScheduleDataset.getColumn(nScheduleRow, "SCHD_STARTDATE");
+		strScheduleEndDate = objScheduleDataset.getColumn(nScheduleRow, "SCHD_ENDDATE");
+		
+		strScheduledDate = strScheduleStartDate + "";
+
+		nDayOfScheduledDate = parseInt(this.gfn_ToString(strScheduledDate).substr(6, 2));
+		// Schedule starting day ~ upto end by SCHD_TITLE setColumn
+		for(i = 1 ; i <= this.gfn_getDiffDay(strScheduleStartDate, strScheduleEndDate) ; i++){
+			// Verifying is there any schedule for this month
+			if(this.gfn_IndexOf(strScheduledDate, strYearMonth) >= 0){
+				nCellPos = this.gfn_getDay(strScheduledDate);
+				nCalendarRow = objGridDataset.findRow("DAY" + nCellPos, nDayOfScheduledDate + "");
+				if(nCalendarRow >= 0) {
+					objGridDataset.setColumn(nCalendarRow, "INFO" + nCellPos, objScheduleDataset.getColumn(nScheduleRow, "SCHD_TITLE"));
+					objGridDataset.setColumn(nCalendarRow, "SCHD_ID" + nCellPos, objScheduleDataset.getColumn(nScheduleRow, "SCHD_ID"));
+				}
+			}
+			
+			nCellPos++;
+			strScheduledDate = this.gfn_addDate(strScheduledDate, 1);
+			nDayOfScheduledDate = parseInt(this.gfn_ToString(strScheduledDate).substr(6, 2));
+		}
+	}
+	
+	objGrid.binddataset = objGridDataset.name;
+}
+
+// Processing basic information of calendar(Holiday, Lunar)
+this.fn_makeBaseInfo = function(objBaseInfoDataset, strYearMonth) {
+	var strHolidayName, strLunar, nMonthOfLunar, nDayOfLunar;
+	var nNewRow;
+	var strDate;
+	var nLastDay = parseInt(this.gfn_LastDateNum(strYearMonth));
+	
+	objBaseInfoDataset.clearData();
+}
+
+// After processing gfnService process callback
+this.fn_callback = function(strServiceId, strErrorCode, strErrorMsg){
+	
+	if(strErrorCode < 0){
+		return this.gfn_Alert(strErrorMsg, "error");
+	} 
+	
+	switch(strServiceId) {
+		case "getListSchedule":
+			this.fn_drawCalendar(this.ds_GrdCalendar, this.gfn_getComponent("grd_Calendar"), this.ds_BaseInfo, this.ds_Schd);
+			break;
+		default:
+		    this.fn_Search();
+			break;
+	}
+}
+this.stMonth_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

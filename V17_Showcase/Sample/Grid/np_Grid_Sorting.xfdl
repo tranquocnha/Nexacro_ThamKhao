@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="GridSortNexacro" classname="GridSortNexacro" left="0" top="0" width="760" height="430" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="115" height="300" binddataset="Dataset00" width="700" autofittype="col" cellsizingtype="col" cellmovingtype="col" onheadclick="Grid00_onheadclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="ID"/>
+                <Cell col="1" text="Code"/>
+                <Cell col="2" text="Name"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:ID"/>
+                <Cell col="1" text="bind:Code"/>
+                <Cell col="2" text="bind:Name"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="1" text="This is sample shows sorting on the Grid." cssclass="sta_WF_explain" left="30" top="25" width="500" height="30" style="font:bold 9 Dotum;" wordwrap="english"/>
+        <Static id="Static00" taborder="2" wordwrap="english" cssclass="sta_WF_explain" left="30" top="65" width="500" height="30" style="font:bold 9 Dotum;" text="Click the Grid column sorting on the Grid column will be appeared"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ID" type="INT" size="10"/>
+          <Column id="Code" type="STRING" size="256"/>
+          <Column id="Name" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">1</Col>
+            <Col id="Code">B001</Col>
+            <Col id="Name">LEE</Col>
+          </Row>
+          <Row>
+            <Col id="ID">2</Col>
+            <Col id="Code">A001</Col>
+            <Col id="Name">PARK</Col>
+          </Row>
+          <Row>
+            <Col id="ID">3</Col>
+            <Col id="Code">C001</Col>
+            <Col id="Name">KIM</Col>
+          </Row>
+          <Row>
+            <Col id="ID">4</Col>
+            <Col id="Code">D001</Col>
+            <Col id="Name">LEE</Col>
+          </Row>
+          <Row>
+            <Col id="ID">5</Col>
+            <Col id="Code">E001</Col>
+            <Col id="Name">Kevin</Col>
+          </Row>
+          <Row>
+            <Col id="ID">6</Col>
+            <Col id="Code">F001</Col>
+            <Col id="Name">Robert</Col>
+          </Row>
+          <Row>
+            <Col id="ID">7</Col>
+            <Col id="Code">G001</Col>
+            <Col id="Name">Michal</Col>
+          </Row>
+          <Row>
+            <Col id="ID">8</Col>
+            <Col id="Code">H001</Col>
+            <Col id="Name">Warne</Col>
+          </Row>
+          <Row>
+            <Col id="ID">9</Col>
+            <Col id="Code">I001</Col>
+            <Col id="Name">Grace</Col>
+          </Row>
+          <Row>
+            <Col id="ID">10</Col>
+            <Col id="Code">J001</Col>
+            <Col id="Name">Tom</Col>
+          </Row>
+          <Row>
+            <Col id="ID">11</Col>
+            <Col id="Code">K001</Col>
+            <Col id="Name">Robert</Col>
+          </Row>
+          <Row>
+            <Col id="ID">12</Col>
+            <Col id="Code">L001</Col>
+            <Col id="Name">KIM</Col>
+          </Row>
+          <Row>
+            <Col id="ID">13</Col>
+            <Col id="Code">M001</Col>
+            <Col id="Name">Rosy</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.gfn_gridSort = function(objGrid, col, AscMark,DscMark){
+	var	objDataset ;
+	var strHeadText ;
+	var strTitle ;
+	var strMark ;
+	var i;
+	objDataset = objGrid.getBindDataset() ;
+	if(objDataset == null) return ;
+   
+	var BodyColId = (objGrid.getCellProperty("body", col,"text")).toString().split(":");
+	for (var i = 0; i < objGrid.getCellCount("head"); i++) {
+		strHeadText = objGrid.getCellText(-1, i) ;
+		strTitle = strHeadText.substr(0, strHeadText.length - 1);
+		strMark = strHeadText.substr(strHeadText.length-1);
+		if(i==col){
+			if (strMark == AscMark) {
+				objGrid.setCellProperty( "head", i, "text", strTitle+DscMark);
+				objDataset.set_keystring("S:-"+BodyColId[1]);
+			} else if (strMark == DscMark) {
+				objGrid.setCellProperty( "head", i, "text", strTitle+AscMark);
+				objDataset.set_keystring("S:+"+BodyColId[1]);
+			} else {
+				objGrid.setCellProperty( "head", i, "text", strHeadText+AscMark);
+				objDataset.set_keystring("S:+"+BodyColId[1]);
+			}
+		} else {
+			if (strMark == AscMark || strMark == DscMark) {
+				objGrid.setCellProperty( "head", i, "text", strTitle);
+			}
+		}
+	}
+};
+
+this.Grid00_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (this.Dataset00.rowcount > 0) {
+		this.gfn_gridSort(obj, e.col, "▼","▲") ;
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

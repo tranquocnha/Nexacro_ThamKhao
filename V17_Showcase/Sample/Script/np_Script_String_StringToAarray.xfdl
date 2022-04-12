@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_String_StringToAarray" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_String_StringToAarray" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="3" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="240" height="40"/>
+        <Static id="Static00" text="input1" position="absolute" left="30" width="60" top="130" height="40"/>
+        <Edit id="edt_input1" taborder="1" value="3" autoselect="true" autoskip="true" inputtype="number" position="absolute" left="90" width="250" top="130" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="240" height="40"/>
+        <Button id="btn_execute" taborder="2" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="180" height="40"/>
+        <Edit id="edt_input0" taborder="0" value="nexacro platform" text="XPLATFORM" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="80" height="40"/>
+        <Static id="Static08" text="input0" position="absolute" left="30" width="60" top="80" height="40"/>
+        <Static id="Static05" taborder="4" text="Creating array by seprating string" cssclass="sta_WF_subtitP" left="30" top="18" width="440" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_String_StringToAarray
+ * Description : Making array by separating string as specified length
+ */
+ 
+/*  Button click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var arrRtn = this.fn_strToArr(this.edt_input0.value, this.edt_input1.value);	
+	this.edt_output.set_value(arrRtn);
+}
+
+/*
+ * Function Name : fn_strToArr
+ * Description   : This function is used for Making array by separating string as specified length
+ * Parameter     : String, length
+ * Return        : Return array of specified lenth after seperating with specified length
+ * Example       : fn_strToArr("XPLATFORM", 3);
+ */
+this.fn_strToArr = function(sString, nSize)
+{
+    if (nSize == null)
+    {
+        nSize = 0;
+    }
+    else 
+    {
+        nSize = Number(nSize);
+    }
+
+    var arrArray = new Array();
+
+    for (var i = 0; i < sString.length; i+=nSize)
+    {        
+        arrArray.push(sString.substr(i, nSize)); 
+    }
+
+    return arrArray;
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_Format_ScrollTwoGrid" left="0" top="0" width="1024" height="768" titletext="Grid_Format_ScrollTwoGrid">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="grd_output0" taborder="1" binddataset="ds_data" position="absolute" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;COL3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:COL3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" autofittype="col" onmouseenter="grd_output0_onmouseenter" left="30" top="78" width="300" height="200">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+                <Cell col="2" text="COL2"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL0"/>
+                <Cell col="1" text="bind:COL1"/>
+                <Cell col="2" text="bind:COL2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_output1" taborder="1" binddataset="ds_data" useinputpanel="false" autofittype="col" position="absolute" onmouseenter="grd_output1_onmouseenter" left="340" top="78" width="300" height="200">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+                <Cell col="2" text="COL2"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL0"/>
+                <Cell col="1" text="bind:COL1"/>
+                <Cell col="2" text="bind:COL2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="2" text="Scroll two grids at same time" cssclass="sta_WF_subtitP" left="30" top="18" width="390" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+          <Column id="COL2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">A</Col>
+            <Col id="COL1">1</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">B</Col>
+            <Col id="COL1">2</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">C</Col>
+            <Col id="COL1">3</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">D</Col>
+            <Col id="COL1">4</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">E</Col>
+            <Col id="COL1">5</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">F</Col>
+            <Col id="COL1">6</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">G</Col>
+            <Col id="COL2"/>
+            <Col id="COL1">7</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">H</Col>
+            <Col id="COL1">8</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">I</Col>
+            <Col id="COL1">9</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">J</Col>
+            <Col id="COL1">10</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">K</Col>
+            <Col id="COL1">11</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">L</Col>
+            <Col id="COL1">12</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">M</Col>
+            <Col id="COL1">13</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">N</Col>
+            <Col id="COL2"/>
+            <Col id="COL1">14</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">O</Col>
+            <Col id="COL2"/>
+            <Col id="COL1">15</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">P</Col>
+            <Col id="COL1">16</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">Q</Col>
+            <Col id="COL1">17</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">R</Col>
+            <Col id="COL1">18</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">S</Col>
+            <Col id="COL1">19</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">T</Col>
+            <Col id="COL1">20</Col>
+            <Col id="COL2"/>
+          </Row>
+          <Row>
+            <Col id="COL0">U</Col>
+            <Col id="COL1">21</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">V</Col>
+            <Col id="COL1">22</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">W</Col>
+            <Col id="COL1">23</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">X</Col>
+            <Col id="COL1">24</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Y</Col>
+            <Col id="COL1">25</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Z</Col>
+            <Col id="COL1">26</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Grid_Format_ScrollTwoGrid
+ * Discription : Scroll two grids at same time
+ */
+ 
+/*  onmouseenter */
+this.grd_output0_onmouseenter = function(obj:Grid, e:nexacro.MouseEventInfo)
+{
+    // Remove Scroll Event on Opposite Grid
+    this.grd_output1.removeEventHandler("onvscroll", this.grd_output1_onvscroll, this);    
+    // Connecting your own Scroll Event.
+    obj.addEventHandler("onvscroll", this.grd_output0_onvscroll, this);
+}
+
+/*  onmouseenter */
+this.grd_output1_onmouseenter = function(obj:Grid, e:nexacro.MouseEventInfo)
+{
+    // Remove the Scroll Event from Opposite of Grid
+    this.grd_output0.removeEventHandler("onvscroll", this.grd_output0_onvscroll, this);
+    // Connecting your own Scroll Event.
+    this.grd_output1.addEventHandler("onvscroll", this.grd_output1_onvscroll, this);
+}
+
+/*  onvscroll */
+this.grd_output0_onvscroll = function(obj:Grid, e:nexacro.ScrollEventInfo)
+{
+    this.grd_output1.vscrollbar.set_pos(e.pos);
+}
+
+/*  onvscroll */
+this.grd_output1_onvscroll = function(obj:Grid, e:nexacro.ScrollEventInfo)
+{
+    this.grd_output0.vscrollbar.set_pos(e.pos);
+}
+]]></Script>
+  </Form>
+</FDL>

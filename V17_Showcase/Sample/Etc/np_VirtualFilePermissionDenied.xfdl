@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="test" classname="test" left="0" top="0" width="760" height="490" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button01" taborder="1" text="Choose file by FileDialog" left="30" top="78" height="34" onclick="Button01_onclick" width="250" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Grid id="Grid00" taborder="2" useinputpanel="false" left="30" top="122" height="192" binddataset="Dataset00" autofittype="col" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="327"/>
+                <Column size="145"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="150"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Image File" font="14px &quot;맑은 고딕&quot;"/>
+                <Cell col="1" displaytype="text" edittype="readonly" text="Path" font="14px &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="image" text="bind:Column0" font="14px &quot;맑은 고딕&quot;"/>
+                <Cell col="1" displaytype="text" edittype="none" text="bind:Column1" font="14px &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="stt_log_status" taborder="5" left="30" top="424" height="20" style="color:red;align:center middle;font:9 Dotum;" width="700"/>
+        <Static id="Static07" taborder="6" text="This samle shows, if ADL filesecurelevel=private, then files from my documents and inside folder can be accessed. &#13;&#10;Files on another locations can not be accessed" cssclass="sta_WF_explain" left="30" top="18" width="803" height="50" style="font:bold 9 Dotum;" wordwrap="english"/>
+        <TextArea id="TextArea00" taborder="7" left="30" top="324" height="90" width="700"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <VirtualFile id="VirtualFile00" onsuccess="VirtualFile00_onsuccess" onerror="VirtualFile00_onerror"/>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="Dataset00_onload">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <FileDialog id="FileDialog00" filter="All(*.*)|*.*|" filterindex="0" defaultextension="false" onclose="FileDialog00_onclose"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.VirtualFile00.open("img.jpg", VirtualFile.openBinary | VirtualFile.openRead);
+	// Here is img.jpg is placed in my documents folder. 
+};
+this.VirtualFile00_onsuccess = function(obj:VirtualFile, e:nexacro.VirtualFileEventInfo)
+{
+	if(e.reason == 1)
+	{
+		this.VirtualFile00.read();
+	}
+	if(e.reason == 3)
+	{
+		this.TextArea00.set_value(e.binarydata);
+		// BLOB data will be displayed in the TextArea of the screen.
+		this.Dataset00.setColumn(0,0, e.binarydata);
+	}
+	this.stt_log_status.set_text("File read success!" );
+};
+ 
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if( system.navigatorname != "nexacro" ){
+		alert("지원되지 않습니다.");
+		return;
+	}		
+	this.FileDialog00.open("file", FileDialog.LOAD);
+	
+};
+
+
+this.FileDialog00_onclose = function(obj:FileDialog, e:nexacro.FileDialogEventInfo)
+{
+	this.Dataset00.setColumn(0,1,e.virtualfiles[0].path + e.virtualfiles[0].filename);
+	e.virtualfiles[0].addEventHandler("onsuccess", this.VirtualFile00_onsuccess, this);
+	this.VirtualFile00.open(e.virtualfiles[0].path + e.virtualfiles[0].filename, VirtualFile.openBinary | VirtualFile.openRead);
+
+};
+// On error, if error is occurred, it will be displayed on the static component at the bottom of the screen
+this.VirtualFile00_onerror = function(obj:VirtualFile, e:nexacro.VirtualFileErrorEventInfo)
+{
+	this.stt_log_status.set_text("File " + e.errormsg);
+};
+
+this.test_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.alert("Onload is called");
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

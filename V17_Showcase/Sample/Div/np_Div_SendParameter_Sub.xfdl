@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Comp_Div_SendParameter_Sub" inheritanceid="" position="absolute" titletext="Comp_Div_SendParameter_Sub" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Button id="btn_execute" taborder="1" text="output" onclick="btn_execute_onclick" position="absolute" left="59" width="120" top="42" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Div_SendParameter_Sub
+ * Description : Passing parameters to link by URL from Div
+ */
+
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	trace(this.parent.parent.fv_param);
+    this.alert(this.parent.parent.fv_param);	
+};
+   ]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="COMP_GUIDE_03" classname="COMP_GUIDE_01" inheritanceid="" position="absolute" titletext="Calendar,Radio,ChecBox,ProgressBar" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" text="Component Name" position="absolute" style="background:#edeee6ff;border:1 solid #c6c6c5ff ;align:center middle;font:Tahoma,9,bold antialias;" left="0" width="130" top="0" height="26"/>
+        <Static id="Static02" text="Component View" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="636" top="0" height="26"/>
+        <Static id="Static18" text="Calendar" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="25" height="235"/>
+        <Static id="Static19" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="25" height="235"/>
+        <Static id="Static20" text="enabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="30" height="13"/>
+        <Static id="Static21" text="disabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="311" width="120" top="30" height="13"/>
+        <Calendar id="Calendar00" taborder="1" position="absolute" dateformat="yyyy-MM-dd" left="138" width="90" top="53" height="20" value="null"/>
+        <Calendar id="Calendar01" taborder="2" dateformat="yyyy-MM-dd" position="absolute" enable="false" left="311" width="90" top="51" height="20" value="null"/>
+        <Static id="Static00" text="type=&quot;normal&quot;" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="88" height="13"/>
+        <Static id="Static03" text="type=&quot;spin&quot;" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="311" width="120" top="88" height="13"/>
+        <Static id="Static04" text="type=&quot;monthonly&quot;" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="524" width="120" top="38" height="13"/>
+        <Calendar id="Calendar02" taborder="3" text="2011-06-20" dateformat="yyyy-MM-dd" position="absolute" left="138" width="90" top="112" height="20" value="null"/>
+        <Calendar id="Calendar03" taborder="4" text="2011-06-20" dateformat="yyyy-MM-dd" position="absolute" type="spin" style="" left="311" width="90" top="112" height="20" value="null"/>
+        <Calendar id="Calendar04" taborder="5" value="20110620" text="2011-06-20" dateformat="yyyy-MM-dd" position="absolute" type="monthonly" left="524" width="220" top="62" height="186" locale="en_US"/>
+        <Static id="Static05" text="Radio" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="259" height="65"/>
+        <Static id="Static06" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="259" height="65"/>
+        <Static id="Static07" text="enabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="264" height="13"/>
+        <Static id="Static08" text="disabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="311" width="120" top="264" height="13"/>
+        <Radio id="Radio00" taborder="6" columncount="2" index="0" innerdataset="@DsRadio" codecolumn="Column0" datacolumn="Column1" value="0" text="남" position="absolute" style="" left="138" width="130" top="289" height="21"/>
+        <Radio id="Radio01" taborder="7" columncount="2" index="1" innerdataset="@DsRadio" codecolumn="Column0" datacolumn="Column1" value="1" text="여" enable="false" position="absolute" left="311" width="130" top="289" height="21"/>
+        <Static id="Static09" text="CheckBox" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="323" height="80"/>
+        <Static id="Static10" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="323" height="80"/>
+        <Static id="Static11" text="enabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="328" height="13"/>
+        <Static id="Static12" text="disabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="311" width="120" top="328" height="13"/>
+        <CheckBox id="CheckBox00" taborder="8" text="nexacro platform" position="absolute" left="138" width="115" top="348" height="20"/>
+        <CheckBox id="CheckBox01" taborder="9" text="nexacro platform" value="true" position="absolute" left="138" width="115" top="373" height="15"/>
+        <CheckBox id="CheckBox03" taborder="10" text="nexacro platform" enable="false" position="absolute" left="311" width="115" top="348" height="20"/>
+        <CheckBox id="CheckBox02" taborder="11" text="nexacro platform" value="true" enable="false" position="absolute" left="311" width="115" top="373" height="20"/>
+        <Static id="Static13" text="ProgressBar" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="402" height="135"/>
+        <Static id="Static14" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="402" height="135"/>
+        <Static id="Static15" text="enabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="407" height="13"/>
+        <Static id="Static16" text="disabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="383" width="120" top="407" height="13"/>
+        <Button id="Btn01" taborder="12" text="Progress Test" onclick="Btn01_onclick" position="absolute" left="512" width="97" top="483" height="20"/>
+        <ProgressBar id="ProgressBar00" taborder="13" max="100" min="0" pos="65" position="absolute" left="138" width="200" top="433" height="15"/>
+        <ProgressBar id="ProgressBar02" taborder="14" max="100" min="0" pos="65" enable="false" position="absolute" left="383" width="200" top="433" height="15"/>
+        <ProgressBar id="Pbr01" taborder="15" max="100" min="0" position="absolute" blocksize="1" left="138" width="368" top="486" height="15"/>
+        <Static id="Static28" text="※ Appearance&#13;&#10;    columncount = &quot;2&quot;" wordwrap="none" position="absolute" left="495" width="130" top="273" height="30" cssclass="sta_WF_Info_Orange"/>
+        <Calendar id="Calendar05" taborder="16" text="2011-06-20" type="spin" dateformat="yyyy-MM-dd" position="absolute" enable="false" left="311" width="90" top="140" height="20" value="null"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="DsRadio" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">Man </Col>
+          </Row>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">Female</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Btn01_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var i,j;
+	this.Pbr01.set_pos(0);
+	for (i = 0; i < 200; i += 2) 
+	{
+		this.Pbr01.stepIt();
+		this.updateWindow();
+		this.sleep(5);
+	}
+}
+  ]]></Script>
+  </Form>
+</FDL>

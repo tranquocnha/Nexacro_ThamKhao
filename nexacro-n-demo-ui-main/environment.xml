@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ENV version="2.1">
+  <Environment themeid="theme::demo" userfontid="font::NotoSans.xfont" datatyperule="2.0" enabletouchevent="true" scrollbartype="default" filesecurelevel="all" loadingimage="url('imagerc::page_loading.gif')">
+    <ScreenDefinition>
+      <Screen id="Mobile_screen" type="mobile_small" userzoom="true" scrollbartype="autoindicator"/>
+      <Screen id="Desktop_screen" type="desktop"/>
+    </ScreenDefinition>
+    <Variables/>
+    <Cookies/>
+    <httpheader/>
+  </Environment>
+  <Script type="xscript5.1"><![CDATA[]]></Script>
+</ENV>

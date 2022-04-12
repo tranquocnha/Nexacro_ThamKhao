@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Temp_MediaPlay" classname="Temp_MediaPlay" left="0" top="0" width="760" height="430" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="WebBrowser00" left="30" top="114" height="76" taborder="2" width="700"/>
+        <Button id="Button01" taborder="3" text="Call URL" left="30" top="67" height="37" onclick="Button01_onclick" width="90"/>
+        <Button id="Button02" taborder="4" text="set audio file" left="130" top="67" height="37" onclick="Button02_onclick" width="120"/>
+        <Static id="Static07" taborder="5" text="Playing mp3 file in WebBrowser, This mp3 file is played through HTML file" cssclass="sta_WF_explain" left="30" top="25" width="652" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button01_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{	
+	var objApp = nexacro.getApplication();
+	var audioUrl = objApp.all["gv_SvcUrl"];
+		
+	this.WebBrowser00.set_url(audioUrl + "audio.html");
+	//this.WebBrowser00.set_url("http://172.10.13.132:8080/TEST/HTML/audio.html");
+};
+
+this.Button02_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var doc = this.WebBrowser00.getProperty("document");
+	var docAudio = doc.callMethod("getElementById", "audio");
+	
+	var docAudioSource = doc.callMethod("getElementById", "audiosc");
+	docAudioSource.setProperty("src","./audio/RidingOnTheBus.mp3");
+	//docAudioSource.setProperty("src","./RidingOnTheBus.mp3");
+	docAudio.callMethod("load");
+	docAudio.callMethod("play");
+	
+	var rtn = docAudioSource.getProperty("src");
+};
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,13 @@
+﻿{
+    "name": "nexacroplatform common library",
+    "version": "1.0",
+    "description": "nexacroplatform common library",
+    "license": "",
+    "scripts": [
+        "util/es6-promise.auto.js",
+        "util/override.js",
+        "util/form.js",
+        "util/grid.js",
+        "util/history.js"
+    ]
+}

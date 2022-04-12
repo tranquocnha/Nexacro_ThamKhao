@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_User_WestenAge" classname="Script_String_HalfToFull" inheritanceid="" position="absolute" titletext="Script_User_WestenAge" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="238" height="40"/>
+        <Static id="Static00" text="input0" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input0" taborder="0" value="19750609" text="XPLATFORM" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="238" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="178" height="40"/>
+        <Edit id="edt_input1" taborder="1" value="20120604" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="128" height="40"/>
+        <Static id="Static07" text="input1" position="absolute" left="30" width="60" top="128" height="40"/>
+        <Static id="Static05" taborder="3" text="Calculating western age difference" cssclass="sta_WF_subtitP" left="30" top="18" width="460" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_User_WestenAge
+ * Discription : Calulating the western age difference
+ */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var sRtn = this.fn_getWestenAge(this.edt_input0.value, this.edt_input1.value);
+	this.edt_output.set_value(sRtn);
+}
+
+/*
+ * Function Name : fn_getWestenAge
+ * Discription   : Calculating western age difference between age of two people
+ * Parameter     : Date of Birth, Date for difference
+ * Return        : age difference //array(0:Age, 1:Number of months, 2:Days)
+ * Example       : fn_getWestenAge("19770609", "20120604");
+ */
+this.fn_getWestenAge = function(sValue, sDate)
+{
+	var iYear
+	var iMonth;
+	var iDay;
+	
+	iYear  = parseInt(sValue.substr(0,4),10);
+	iMonth = parseInt(sValue.substr(4,2),10);
+	iDay   = parseInt(sValue.substr(6,2),10);
+
+	var iCurrentYear  = parseInt(sDate.substr(0,4),10);
+	var iCurrentMonth = parseInt(sDate.substr(4,2),10);
+	var iCurrentDay   = parseInt(sDate.substr(6,2),10);
+	var iAge          = iCurrentYear - iYear;
+
+	if (iMonth > iCurrentMonth) 
+	{
+		iAge = iAge - 1;
+	} 
+	else if (iMonth == iCurrentMonth) 
+	{
+		if (iDay > iCurrentDay) 
+		{
+			iAge = iAge - 1;
+		}
+	}
+
+	if (iAge < 0) 
+	{
+		iAge = 0;
+	}
+
+	return iAge;
+}
+]]></Script>
+  </Form>
+</FDL>

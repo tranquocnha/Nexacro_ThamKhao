@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE008" inheritanceid="" position="absolute" titletext="TREE FORM" onload="form_onload" onbeforeclose="form_onbeforeclose" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="20" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="46"/>
+        <Div id="divCategory" taborder="1" position="absolute" style="background:white;border:1 solid #c6c6c5ff ;" left="309" right="15" top="156" bottom="21">
+          <Layouts>
+            <Layout>
+              <Static id="sta_WFDA_Label01" position="absolute" left="113" top="102" cssclass="sta_WFDA_B" right="10" bottom="10" taborder="0"/>
+              <Static id="sta_WFDA_Label00" position="absolute" left="113" top="71" height="32" cssclass="sta_WFDA_B" right="10" taborder="1"/>
+              <Static id="sta_WFDA_Label07" position="absolute" left="113" top="40" height="32" cssclass="sta_WFDA_B" right="10" taborder="2"/>
+              <Static id="stCategoryId" text="domain.category.id" position="absolute" left="10" width="104" top="40" height="32" cssclass="sta_WFDA_labelB" taborder="3"/>
+              <Edit id="edCategoryId" taborder="7" enable="false" position="absolute" left="119" top="46" height="20" right="16"/>
+              <Static id="stCategoryName" text="domain.name" position="absolute" left="10" width="104" top="71" height="32" cssclass="sta_WFDA_labelB" taborder="5"/>
+              <Edit id="edCategoryName" taborder="8" enable="false" position="absolute" left="119" top="77" height="20" right="16"/>
+              <Static id="stCategoryDesc" text="domain.desc" position="absolute" left="10" width="104" top="102" cssclass="sta_WFDA_labelB" bottom="10" taborder="4"/>
+              <TextArea id="txaCategoryDesc" taborder="9" wordwrap="char" enable="false" position="absolute" left="119" top="108" right="16" bottom="16"/>
+              <Static id="st_Title" text="domain.category" wordwrap="english" position="absolute" left="10" width="204" top="15" height="22" cssclass="sta_WF_subtit" taborder="6"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grd_TreeCommunity" taborder="5" useinputpanel="false" position="absolute" binddataset="ds_TreeCommunity" treeinitstatus="collapse,all" treeusecheckbox="false" autofittype="col" treeuseline="false" selecttype="treecell" scrollpixel="default" oncelldblclick="grd_TreeCommunity_oncelldblclick" cantreestatuschange="grd_TreeCommunity_cantreestatuschange" left="15" width="284" top="156" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="342"/>
+              </Columns>
+              <Rows>
+                <Row size="24"/>
+              </Rows>
+              <Band id="body">
+                <Cell displaytype="tree" edittype="tree" text="bind:TEXT_NAME" treelevel="bind:DEPTH"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="st_BG" position="absolute" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Static id="st_Title" text="domain.community.info" wordwrap="english" position="absolute" left="15" width="204" top="38" height="22" cssclass="sta_WF_title"/>
+        <Button id="btn_Save" taborder="1" text="domain.save" onclick="btn_Save_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A=T" right="15" width="42" top="128" height="23" cssclass="btn_module"/>
+        <Static id="st_searchCondition" text="domain.community.name" position="absolute" left="35" width="104" top="83" height="20" cssclass="sta_WFSA_label"/>
+        <Edit id="edt_searchKeyword" taborder="1" onkeydown="edt_searchKeyword_onkeydown" position="absolute" left="141" width="134" top="83" height="20"/>
+        <Button id="btn_Search" taborder="1" defaultbutton="true" onclick="btn_Search_onclick" position="absolute" right="15" width="51" top="70" height="46" cssclass="btn_WF_search"/>
+        <Static id="Static42" taborder="6" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="7" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="8" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="9" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="10" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static32" taborder="11" text="40" visible="false" left="427" top="116" width="50" height="40" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static05" taborder="19" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Div id="divCommunity" taborder="21" left="309" top="156" right="15" bottom="10" style="background:white;border:1 solid #c6c6c5ff ;" visible="false">
+          <Layouts>
+            <Layout>
+              <Static id="sta_WFDA_Label07" taborder="2" cssclass="sta_WFDA_B" left="113" top="40" height="32" right="10"/>
+              <Static id="sta_WFDA_Label00" taborder="3" cssclass="sta_WFDA_B" left="113" top="71" height="32" right="10"/>
+              <Static id="sta_WFDA_Label01" taborder="4" cssclass="sta_WFDA_B" left="113" top="102" right="10" bottom="10"/>
+              <Static id="stCommunityId" taborder="5" text="domain.community.id" cssclass="sta_WFDA_labelB" left="10" top="40" width="104" height="32"/>
+              <Edit id="edtCommunityId" taborder="6" enable="false" left="119" top="46" height="20" right="16"/>
+              <Static id="stCommunityName" taborder="7" text="domain.name" cssclass="sta_WFDA_labelB" left="10" top="71" width="104" height="32"/>
+              <Edit id="edtCommunityName" taborder="8" left="119" top="77" height="20" right="16"/>
+              <Static id="stCommunityDesc" taborder="9" text="domain.desc" cssclass="sta_WFDA_labelB" left="10" top="102" width="104" bottom="10"/>
+              <TextArea id="txaCommunityDesc" taborder="10" wordwrap="true" left="119" top="108" right="16" bottom="16"/>
+              <Static id="st_Title" taborder="11" text="domain.community" cssclass="sta_WF_subtit" left="10" top="15" width="204" height="22"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_TreeCommunity" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="ds_TreeCommunity_canrowposchange" onrowposchanged="ds_TreeCommunity_onrowposchanged">
+        <ColumnInfo>
+          <Column id="CATEGORY_ID" type="string" size="16"/>
+          <Column id="TEXT_NAME" type="string" size="150"/>
+          <Column id="CATEGORY_NAME" type="string" size="150"/>
+          <Column id="CATEGORY_DESC" type="string" size="300"/>
+          <Column id="CATE_REGDATE" type="date" size="0"/>
+          <Column id="COMMUNITY_ID" type="string" size="16"/>
+          <Column id="COMMUNITY_NAME" type="string" size="150"/>
+          <Column id="COMMUNITY_DESC" type="string" size="300"/>
+          <Column id="REG_ID" type="string" size="20"/>
+          <Column id="REG_DATE" type="date" size="0"/>
+          <Column id="DEPTH" type="bigdecimal" size="0"/>
+          <Column id="USERID" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="TEXT_NAME">Computer</Col>
+            <Col id="CATEGORY_NAME">Computer</Col>
+            <Col id="CATEGORY_DESC">This community is related to people who have interest in computer.</Col>
+            <Col id="CATE_REGDATE">20090623</Col>
+            <Col id="COMMUNITY_ID"/>
+            <Col id="COMMUNITY_NAME"/>
+            <Col id="COMMUNITY_DESC"/>
+            <Col id="REG_ID"/>
+            <Col id="REG_DATE">20120712</Col>
+            <Col id="DEPTH">0</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="TEXT_NAME">HTML CSS Javascript</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0003</Col>
+            <Col id="COMMUNITY_NAME">HTML CSS Javascript</Col>
+            <Col id="COMMUNITY_DESC">HTML CSS  This community is about Javascript development.</Col>
+            <Col id="REG_ID">subman</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="TEXT_NAME">FLEX Easy to learn</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0004</Col>
+            <Col id="COMMUNITY_NAME">FLEX easy to learn</Col>
+            <Col id="COMMUNITY_DESC">This community is about learning and developing FLEX applications.</Col>
+            <Col id="REG_ID">zoon73</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="TEXT_NAME">Spring Framework users gathering</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0005</Col>
+            <Col id="COMMUNITY_NAME">Spring Framework users gathering</Col>
+            <Col id="COMMUNITY_DESC">This is Spring Framework.</Col>
+            <Col id="REG_ID">howrock</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="TEXT_NAME">THE PRACTICAL SQL</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0002</Col>
+            <Col id="COMMUNITY_NAME">THE PRACTICAL SQL</Col>
+            <Col id="COMMUNITY_DESC">This community is about learning SQL.</Col>
+            <Col id="REG_ID">bowman</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0001</Col>
+            <Col id="TEXT_NAME">Making computer</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0012</Col>
+            <Col id="COMMUNITY_NAME">Making computer</Col>
+            <Col id="COMMUNITY_DESC">Using computer after repairing~</Col>
+            <Col id="REG_ID">hong80</Col>
+            <Col id="REG_DATE">20090805</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="TEXT_NAME">Car</Col>
+            <Col id="CATEGORY_NAME">Car</Col>
+            <Col id="CATEGORY_DESC">This community is related about people who are interested in car.</Col>
+            <Col id="CATE_REGDATE">20090623</Col>
+            <Col id="COMMUNITY_ID"/>
+            <Col id="COMMUNITY_NAME"/>
+            <Col id="COMMUNITY_DESC"/>
+            <Col id="REG_ID"/>
+            <Col id="REG_DATE">20120712</Col>
+            <Col id="DEPTH">0</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="TEXT_NAME">From which pertrol station whe should fill petrol?</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0010</Col>
+            <Col id="COMMUNITY_NAME">From which pertrol station whe should fill petrol?</Col>
+            <Col id="COMMUNITY_DESC">We can share national petrol information .</Col>
+            <Col id="REG_ID">babopack</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="TEXT_NAME">Sharing JAVA development information</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0001</Col>
+            <Col id="COMMUNITY_NAME">Sharing JAVA  development information</Col>
+            <Col id="COMMUNITY_DESC">This community is about sharing information to Java Developers.</Col>
+            <Col id="REG_ID">hong80</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="TEXT_NAME">Ride SM3 together </Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0006</Col>
+            <Col id="COMMUNITY_NAME">Ride SM3 together</Col>
+            <Col id="COMMUNITY_DESC">This community is about riding SM3 and sharing experience.</Col>
+            <Col id="REG_ID">minminmin</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="TEXT_NAME">This is about car related things</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0008</Col>
+            <Col id="COMMUNITY_NAME">This is about car related things</Col>
+            <Col id="COMMUNITY_DESC">Here is all information about car insurance.</Col>
+            <Col id="REG_ID">whatsub</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="TEXT_NAME">Riding car together</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0011</Col>
+            <Col id="COMMUNITY_NAME">Riding car together</Col>
+            <Col id="COMMUNITY_DESC">고유가 시대에 카풀을 원하시는 분들을 위한모임입니다.</Col>
+            <Col id="REG_ID">eugene</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="TEXT_NAME">Purchasing old car cheap for selling expensive</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0007</Col>
+            <Col id="COMMUNITY_NAME">Purchasing old car cheap for selling expensive</Col>
+            <Col id="COMMUNITY_DESC">Here is sharing information about selling and puchasing cars.</Col>
+            <Col id="REG_ID">urobba</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0002</Col>
+            <Col id="TEXT_NAME">Repairning car alone</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0009</Col>
+            <Col id="COMMUNITY_NAME">Repairning car alone</Col>
+            <Col id="COMMUNITY_DESC">Here we share information about car maintenance.</Col>
+            <Col id="REG_ID">bigblue</Col>
+            <Col id="REG_DATE">20090623</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="TEXT_NAME">Soccer</Col>
+            <Col id="CATEGORY_NAME">Early childhood football</Col>
+            <Col id="CATEGORY_DESC">Early childhood football test</Col>
+            <Col id="CATE_REGDATE">20090623</Col>
+            <Col id="COMMUNITY_ID"/>
+            <Col id="COMMUNITY_NAME"/>
+            <Col id="COMMUNITY_DESC"/>
+            <Col id="REG_ID"/>
+            <Col id="REG_DATE">20120712</Col>
+            <Col id="DEPTH">0</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="TEXT_NAME">K-League</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0017</Col>
+            <Col id="COMMUNITY_NAME">Lets K league</Col>
+            <Col id="COMMUNITY_DESC">Anyone who are interested in K league are interested here.</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090806</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="TEXT_NAME">Major League Baseball</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0013</Col>
+            <Col id="COMMUNITY_NAME">MLB lovers</Col>
+            <Col id="COMMUNITY_DESC">MLB lovers</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090806</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0004</Col>
+            <Col id="TEXT_NAME">friendship</Col>
+            <Col id="CATEGORY_NAME">friendship</Col>
+            <Col id="CATEGORY_DESC">promote friendship</Col>
+            <Col id="CATE_REGDATE">20090623</Col>
+            <Col id="COMMUNITY_ID"/>
+            <Col id="COMMUNITY_NAME"/>
+            <Col id="COMMUNITY_DESC"/>
+            <Col id="REG_ID"/>
+            <Col id="REG_DATE">20120712</Col>
+            <Col id="DEPTH">0</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0004</Col>
+            <Col id="TEXT_NAME">ng for classmates </Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0018</Col>
+            <Col id="COMMUNITY_NAME">Motivation gathering</Col>
+            <Col id="COMMUNITY_DESC">Motivation is good.</Col>
+            <Col id="REG_ID">hong80</Col>
+            <Col id="REG_DATE">20090806</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0006</Col>
+            <Col id="TEXT_NAME">Service</Col>
+            <Col id="CATEGORY_NAME">Service</Col>
+            <Col id="CATEGORY_DESC">This community is related to people who have interest in volunteer work.</Col>
+            <Col id="CATE_REGDATE">20090623</Col>
+            <Col id="COMMUNITY_ID"/>
+            <Col id="COMMUNITY_NAME"/>
+            <Col id="COMMUNITY_DESC"/>
+            <Col id="REG_ID"/>
+            <Col id="REG_DATE">20120712</Col>
+            <Col id="DEPTH">0</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_ID">CATEGORY-0006</Col>
+            <Col id="TEXT_NAME">Agricultural activities</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="CATE_REGDATE">20120712</Col>
+            <Col id="COMMUNITY_ID">COMMUNITY-0015</Col>
+            <Col id="COMMUNITY_NAME">농활</Col>
+            <Col id="COMMUNITY_DESC">Agricultural volunteer work</Col>
+            <Col id="REG_ID">test</Col>
+            <Col id="REG_DATE">20090821</Col>
+            <Col id="DEPTH">1</Col>
+            <Col id="USERID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SVC_ID" type="STRING" size="100"/>
+          <Column id="QUERY_LIST" type="STRING" size="256"/>
+          <Column id="SERVICE" type="STRING" size="100"/>
+          <Column id="IN_DATASET_LIST" type="STRING" size="256"/>
+          <Column id="OUT_DATASET_LIST" type="STRING" size="256"/>
+          <Column id="CONTROLLER" type="STRING" size="512"/>
+          <Column id="CALLBACK" type="STRING" size="100"/>
+          <Column id="SYNC_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SVC_ID">getListTree</Col>
+            <Col id="QUERY_LIST">querySet1=findXPDeptListForTree</Col>
+            <Col id="OUT_DATASET_LIST">dsTrvDept=querySet1</Col>
+          </Row>
+          <Row>
+            <Col id="SVC_ID">getListUserByDept</Col>
+            <Col id="QUERY_LIST">querySet1=findXPUserListByDept</Col>
+            <Col id="OUT_DATASET_LIST">dsGrdUser=querySet1</Col>
+          </Row>
+          <Row>
+            <Col id="SVC_ID">saveAll</Col>
+            <Col id="OUT_DATASET_LIST"/>
+            <Col id="IN_DATASET_LIST">querySet1=dsGrdUser:U</Col>
+            <Col id="QUERY_LIST">querySet1=createXPUser,updateXPUser,removeXPUser</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_TreeCommunityValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_TreeCommunity_onrowposchanged" canrowposchange="ds_TreeCommunity_canrowposchange">
+        <ColumnInfo>
+          <Column id="COMMUNITY_ID" type="STRING" size="16"/>
+          <Column id="TEXT_NAME" type="STRING" size="256"/>
+          <Column id="COMMUNITY_DESC" type="STRING" size="256"/>
+          <Column id="CATEGORY_ID" type="STRING" size="16"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="STRING" size="10"/>
+          <Column id="DEPTH" type="STRING" size="256"/>
+          <Column id="CATEGORY_DESC" type="STRING" size="256"/>
+          <Column id="COMMUNITY_NAME" type="STRING" size="256"/>
+          <Column id="CATEGORY_NAME" type="STRING" size="256"/>
+          <Column id="CATE_REGDATE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COMMUNITY_ID"/>
+            <Col id="TEXT_NAME"/>
+            <Col id="COMMUNITY_DESC">title:communitydesc,maxlength:300</Col>
+            <Col id="CATEGORY_ID"/>
+            <Col id="REG_ID"/>
+            <Col id="REG_DATE"/>
+            <Col id="DEPTH"/>
+            <Col id="CATEGORY_DESC"/>
+            <Col id="COMMUNITY_NAME">title:name,required:true,maxlength:150</Col>
+            <Col id="CATEGORY_NAME"/>
+            <Col id="CATE_REGDATE"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divCommunity.edtCommunityId" propid="value" datasetid="ds_TreeCommunity" columnid="COMMUNITY_ID"/>
+      <BindItem id="item1" compid="divCommunity.edtCommunityName" propid="value" datasetid="ds_TreeCommunity" columnid="COMMUNITY_NAME"/>
+      <BindItem id="item2" compid="divCommunity.txaCommunityDesc" propid="value" datasetid="ds_TreeCommunity" columnid="COMMUNITY_DESC"/>
+      <BindItem id="item6" compid="edt_searchKeyword" propid="value" datasetid="ds_Search" columnid="SEARCH_KEYWORD"/>
+      <BindItem id="item3" compid="divCategory.edCategoryId" propid="value" datasetid="ds_TreeCommunity" columnid="CATEGORY_ID"/>
+      <BindItem id="item4" compid="divCategory.edCategoryName" propid="value" datasetid="ds_TreeCommunity" columnid="CATEGORY_NAME"/>
+      <BindItem id="item5" compid="divCategory.txaCategoryDesc" propid="value" datasetid="ds_TreeCommunity" columnid="CATEGORY_DESC"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scop : Work screen template 9
+ * 02. Screen name   : TEMPLATE009.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Modification history :
+ ***********************************************************************
+ *     Modification date     Created by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * Screen display variable section
+ ************************************************************************/
+this.nCurRow = 0;
+this.treeStatus = 0;
+/***********************************************************************
+ * Event processing scope
+ ************************************************************************/
+// Form onload initializing
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Search process
+	this.fn_Search();
+}
+
+// Form beforeclose Event processing
+// Before closing the form, here is popup creation to ask if there is modified data
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_TreeCommunity)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+}
+
+// Event processing clicking on search button
+this.btn_Search_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// By using the given keyword, matching the specific row with the keyword, move the focus on that perticular row
+	var nRow = this.ds_TreeCommunity.findRow("COMMUNITY_NAME", this.lookup("edtSearchKeyword").text);
+
+	if (nRow >= 0) 
+	{
+		var gridRow = this.grd_TreeCommunity.getTreeParentRow(nRow);
+		var parentRow = 0;
+
+		for (var i = 0; i < gridRow; i++) 
+		{
+			if (!this.grd_TreeCommunity.isTreeCollapsedRow(i)) 
+			{
+				parentRow++;
+			}
+		}
+		var bGrd = this.grd_TreeCommunity.setTreeStatus(parentRow, true);
+		this.ds_TreeCommunity.set_rowposition(nRow);
+	}
+	else 
+	{
+		this.gfnAlert("msg.search.nodata");
+	}
+}
+
+// Event processing when we click the Insert button
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+}
+
+// Event processing while clicking on delete button
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Delete();
+}
+
+// Event processing while clicking on save button
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_TreeCommunity) == false) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+	this.nCurRow = this.ds_TreeCommunity.rowposition;
+	this.fn_Save();
+}
+
+// Event processing on category grid is clicked
+this.grd_TreeCommunity_oncelldblclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	var objDs = this[obj.binddataset];
+
+	if (this.treeStatus == 1) 
+	{
+		this.treeStatus = 0;
+		return;
+	}
+
+	var childRow = obj.getTreeChildRow(objDs.rowposition, 0, true);
+
+	// In case there is not child node in the Grid
+	if (childRow >= 0) 
+	{
+		var gridRow = obj.getTreeRow(objDs.rowposition);
+		if (obj.isTreeCollapsedRow(childRow, true)) 
+		{
+			obj.setTreeStatus(gridRow, true);
+		}
+		else 
+		{
+			obj.setTreeStatus(gridRow, false);
+		}
+	}
+	this.treeStatus = 0;
+}
+
+this.grd_TreeCommunity_cantreestatuschange = function (obj:Grid, e:GridTreeStatusEventInfo)
+{
+	this.treeStatus = 1;
+}
+
+// Hiding processing on category, community area
+this.fn_showCategory = function (bVisible)
+{
+	this.divCategory.set_visible(bVisible);
+	this.divCommunity.set_visible(!bVisible);
+}
+
+// Sorting on Grid Head click
+this.grd_GrdBoard_onheadclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	this.gfn_setGridCheckAll(obj, e);
+	this.gfn_GridSort(obj, e);
+}
+
+
+this.edt_searchKeyword_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	if (e.keycode == 13) 
+	{
+		this.fn_getMemberData(1);
+	}
+}
+
+// When processing the CanRow Position of DataSet
+this.ds_GrdCommunity_canrowposchange = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_TreeCommunity) && !this.gfn_DsCheckValid(this.ds_TreeCommunity)) 
+	{
+		return false;
+	}
+	return true;
+}
+
+// Event processing when changing row Position of DataSet
+this.ds_GrdCommunity_onrowposchanged = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	this.ds_TreeCommunity.filter("COMMUNITY_ID=='" + obj.getColumn(obj.rowposition, "COMMUNITY_ID") + "'");
+}
+
+this.grd_User_oncelldblclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	// User detail information popup creation
+	var resultForm = this.gfn_Dialog("domain.user.detailinfo", "template::TEMPLATE008_POPUP.xfdl", {
+		refform : this,
+		paramMode : "U",
+		dsArg : this.refform.ds_TreeCommunity,
+		dsDept : this.refform.lookup("ds_TreeDept")
+	}, 525, 300);
+
+	this.fn_AfterPopup(resultForm, "U");
+}
+
+// Event when user grid header is clicked
+this.grd_User_onheadclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	// Grid sort
+	this.gfn_GridSort(obj, e);
+}
+
+// Tree Grid Row Position change event processing
+this.ds_TreeCommunity_canrowposchange = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	// Verifying the validity
+	if (this.gfn_isNull(obj.getColumn(e.oldrow, "COMMUNITY_NAME")) && this.gfn_isNull(obj.getColumn(e.oldrow, "CATEGORY_NAME"))) 
+	{
+		this.gfnAlert("err.validator.required", "warning", this.gfn_getDomainText("domain.name"));
+		obj.set_rowposition(e.oldrow);
+		return false;
+	}
+	else 
+	{
+		return true;
+	}
+}
+
+// Tree Grid Row Position change event processing
+this.ds_TreeCommunity_onrowposchanged = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	// In case of having community ID - Community detail information detail output
+	if (this.gfn_isNull(obj.getColumn(e.newrow, "COMMUNITY_ID"))) 
+	{
+		this.fn_showCategory(true);
+		// In case of having community ID - Community detail information detail output
+	}
+	else 
+	{
+		this.fn_showCategory(false);
+	}
+}
+
+/***********************************************************************
+ * User defined function specification 
+ ************************************************************************/
+// Processing after closing popup
+this.fn_AfterPopup = function (obj, paramStr)
+{
+	if (!this.gfn_isNull(obj)) 
+	{
+		if (obj != "N") 
+		{
+			// Creating new ID
+			if (paramStr == "C") 
+			{
+				this.ds_TreeCommunity.addRow();
+				this.ds_TreeCommunity.copyRow(this.ds_TreeCommunity.rowposition, obj, obj.rowposition);
+				// Modifying the existing ID
+			}
+			else if (paramStr == "U") 
+			{
+				this.ds_TreeCommunity.copyRow(this.ds_TreeCommunity.rowposition, obj, obj.rowposition);
+			}
+		}
+	}
+}
+
+this.fn_Search = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListCommunity";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findXPCommunityListForTree'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_TreeCommunity=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_Save = function ()
+{
+	return;
+	// After searching if there is no exception, save all the modified content of Grid
+	if (this.gfn_DsCheckValid(this.ds_TreeCommunity) == false) 
+	{
+		return;
+	}
+
+	var sArgument = "";
+	var sSvcID = "saveAllCommunity";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "LOGIN_ID=" + TOBE.wrapQuote(application.gv_UserId);
+	sArgument += " " + "querySet1='createXPCommunity,updateXPCommunity,deleteXPCommunity'";
+
+	var sInDatasets = "querySet1=ds_TreeCommunity:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// After processing gfnService process callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAllCommunity":
+			this.gfn_Alert("msg.save.success");
+			break;
+		case "getListCommunity":
+			this.ds_TreeCommunity.set_rowposition(this.nCurRow);
+			break;
+		default:
+			break;
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

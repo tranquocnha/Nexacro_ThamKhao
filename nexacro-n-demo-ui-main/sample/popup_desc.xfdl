@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="130" onload="form_onload">
+    <Layouts>
+      <Layout height="130" width="920">
+        <Static id="Static00" taborder="0" text="Popup" left="20" top="19" width="150" height="30" cssclass="sta_WF_compTitle02" fittocontents="width" messageid="sample.popup"/>
+        <Static id="Static01" taborder="1" text="넥사크로플랫폼에서는 다양한 형태의 팝업을 호출할 수 있습니다. 모달/모달리스 형태로 호출할 수 있는 API가 제공되고 타이틀바, 리사이즈 등의 옵션을 선택할 수 있습니다." left="20" top="51" height="60" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" usedecorate="true" width="880"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="commWatch" width="330" height="210" titletext="시계" onload="commWatch_onload" ontimer="commWatch_ontimer">
+    <Layouts>
+      <Layout height="210" mobileorientation="landscape" width="330">
+        <Static id="Static00" taborder="11" left="0" top="0" right="0" bottom="0" cssclass="sta_WF_clockBg"/>
+        <Static id="Static01" taborder="3" text="LA" left="10" top="77" width="160" height="56" cssclass="sta_WF_clockLabel"/>
+        <Static id="Static06" taborder="1" text="베이징" left="10" top="16" width="160" height="56" cssclass="sta_WF_clockLabel"/>
+        <Static id="Static03" taborder="5" text="뉴욕" left="10" top="138" width="160" height="56" cssclass="sta_WF_clockLabel"/>
+        <Static id="stTime1" taborder="0" text="17:59" left="101" top="24" height="40" cssclass="sta_WF_clockTime" width="69"/>
+        <Static id="stTime2" taborder="2" text="16:59" left="101" top="85" height="40" cssclass="sta_WF_clockTime" width="69"/>
+        <Static id="stTime3" taborder="4" text="16:59" left="101" top="146" height="40" cssclass="sta_WF_clockTime" width="69"/>
+        <Static id="Static04" taborder="6" left="194" top="42" height="120" cssclass="sta_WF_clock01" width="120"/>
+        <Static id="stTime" taborder="7" text="17:59" left="213" top="74" width="82" height="37" cssclass="sta_WF_timer"/>
+        <Static id="Static07" taborder="8" text="SEOUL" left="214" top="118" width="81" height="19" cssclass="sta_cm_text14CWhite"/>
+        <Button id="btnMove" taborder="9" left="240" top="147" width="27" cssclass="btn_WF_widgetMove03" height="27"/>
+        <Button id="btnClose" taborder="10" top="5" width="30" height="30" cssclass="btn_WF_noteDel" right="5" onclick="btnClose_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.fvbType = true;
+
+this.commWatch_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.fnCheckTime();
+	this.setTimer(1, 1000);
+};
+
+this.commWatch_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
+{
+	if (e.timerid == 1) {
+		this.fnCheckTime();		
+	}
+};
+
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.parent.parent.fnCloseWidget(this.parent);
+};
+
+this.fnCheckTime = function()
+{
+	if (this.fvbType == true) {
+		this.fvbType=false;
+	} else {
+		this.fvbType=true;
+	}
+		
+	this.stTime.set_text(this.gfnTodayTime(9));
+	this.stTime1.set_text(this.gfnTodayTime(8));
+	this.stTime2.set_text(this.gfnTodayTime(-8));
+	this.stTime3.set_text(this.gfnTodayTime(-5));
+};
+
+this.gfnTodayTime = function (nHour)
+{
+	var strToday = "";
+	var objDate  = new Date();
+	
+	objDate.addHours(nHour);
+	
+	var hh = objDate.getUTCHours();
+	var mm = objDate.getUTCMinutes();
+	var ss = objDate.getUTCSeconds();
+
+	var year  = objDate.getUTCFullYear();
+	var month = objDate.getUTCMonth() + 1;
+	var day   = objDate.getUTCDate();
+
+	if (this.fvbType == true) {
+		strToday = String(hh).padLeft(2, "0")+ ":" + String(mm).padLeft(2, "0") ; // +"."+ String(ss).padLeft(2, "0");
+	} else {
+		strToday = String(hh).padLeft(2, "0")+ " " + String(mm).padLeft(2, "0"); // +"."+ String(ss).padLeft(2, "0");
+	}
+	
+	objDate  = null;
+
+	return strToday;
+};]]></Script>
+  </Form>
+</FDL>

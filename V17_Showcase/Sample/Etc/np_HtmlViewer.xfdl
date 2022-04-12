@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="HTMLViewer" classname="np_MSIE_Plugin" left="0" top="0" width="760" height="430" titletext="New Form" onload="HTMLViewer_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="3" text="HTML View" cssclass="sta_WF_subtitP" left="17" top="15" width="463" height="15"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+/*======================================================================================
+ Fuction Area
+=======================================================================================*/
+this.setHTMLViewer = function()
+{ 
+	var htmlViewer = new nexacro.HTMLViewer();
+	htmlViewer.init("showHtmlViewer", "absolute",15, 40, 509,450);
+	this.addChild(htmlViewer.name, htmlViewer);
+// 	htmlViewer.style.set_background("#e8e8e8");
+ 	htmlViewer.set_border("1px solid #f3f3f3");
+	htmlViewer.style.set_padding("5 0 0 5");
+	htmlViewer.set_scrollbars("autohorz");  
+//	htmlViewer.	("height"); 
+	 
+	//var html = "<table><tr><td>HtmlViewer example<br><br><img src='http://www.miplatform.co.kr/Miplatform/NewHome/images/main/main_image_help.gif' border=0/></td></tr></table>";
+	var html = '<table width="100%" border="0" cellspacing="0" cellpadding="10"  class="defoult_combo01"><tr><td>안녕하세요 <BR>투비소프트 기술지원팀입니다. <BR><BR>이번 공지내용은 당사 교육사업팀에서 준비한 XPLATFORM Pattern300 소스와 <BR>셀프스터디에 대한 안내 게시물입니다. <BR><BR>상세한 내용은 각 번호의 자세히 보기를 클릭하시면 해당 게시물에 대한 상세정보를 확인할 수 있습니다. <BR>(XPLATFORM 사용함에 있어 TIP자료 및 스터디 자료로 사용하시면 많은 도움이 될 것으로 봅니다. ) <BR><BR><BR><STRONG>1. XPLATFORM Pattern300</STRONG> <BR>XPLATFORM Pattern300은 <BR>기술지원사이트에 올라온 게시물의 조회수와 샘플 다운로드 회수가 많은 게시물들을 수집하여 <BR>일관된 샘플과 문서로 정리한 내용입니다.<BR><BR><A href="http://www.miplatform.co.kr/Miplatform/NewHome/asp/support/TotalView.asp?PCategory1=Education&amp;PCategory2=XPLATFORM&amp;PCategory3=EduBoard&amp;page=1&amp;display_cnt=20&amp;str_boardid=A09&amp;searchfield=제목&amp;searchgubun=OR&amp;keyword=&amp;BusinessSection=%&amp;str_an=13">자세히 보기 </A><BR><BR><BR><BR><STRONG>2. XPLATFORM 9.2 Runtime 셀프스터디<BR></STRONG>XPLATFORM 9.2 Runtime을 혼자서도 공부할 수 있도록 셀프스터디 최종본을 만들었습니다.<BR><BR><A href="http://www.miplatform.co.kr/Miplatform/NewHome/asp/support/TotalView.asp?PCategory1=Education&amp;PCategory2=XPLATFORM&amp;PCategory3=EduBoard&amp;page=1&amp;display_cnt=20&amp;str_boardid=A09&amp;searchfield=제목&amp;searchgubun=OR&amp;keyword=&amp;BusinessSection=%&amp;str_an=14">자세히 보기</A><BR><BR><BR><SPAN style="mso-no-proof: yes"><FONT face="맑은 고딕">기타 문의사항은 고객지원센터 대표번호 <SPAN lang=EN-US>1588-7895</SPAN>로 연락주시기 바랍니다<SPAN lang=EN-US>.<BR></SPAN></FONT></SPAN><BR></td></tr></table>';
+                
+                
+	    
+	htmlViewer.set_html(html);
+	htmlViewer.addEventHandler("onsize", this.htmlViewer_onsize, this);
+	htmlViewer.show();
+}  
+// HTMLViewer의 onsize이벤트
+this.htmlViewer_onsize = function(obj, e)
+{   
+	//resize처리에 대한 스크립트 기술 
+	
+	this.resetScroll();
+}   
+    
+
+
+this.HTMLViewer_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.setHTMLViewer();
+}
+]]></Script>
+  </Form>
+</FDL>

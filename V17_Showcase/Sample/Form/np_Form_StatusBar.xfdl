@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Form_StatusBar" classname="Form_go_0" inheritanceid="" position="absolute" titletext="Form StatusBar" left="0" width="760" top="0" height="430" onload="Form_TitleBar_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="min/max visible=false" onclick="Button00_onclick" position="absolute" left="30" width="250" top="78" height="40"/>
+        <Static id="Static05" text="StatusBar change" position="absolute" left="30" width="260" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Button id="Button01" taborder="1" text="titletext" left="30" top="128" width="250" height="40" onclick="Button01_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[var objParentFrame = null;
+
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.objParentFrame.titlebar.minbutton.set_statusbarheight(35);
+
+}
+  
+this.Form_TitleBar_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+    this.objParentFrame = this.getOwnerFrame();   
+}
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.objParentFrame.set_showstatusbar(false);
+	
+}
+    ]]></Script>
+  </Form>
+</FDL>

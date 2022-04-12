@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XCSS version="1.0"><![CDATA[.Grid .body .row .cell.cell_style1
+{
+	color : #3da2df;
+	-nexa-color-odd : #3da2df;
+	font : bold italic 13pt/normal "Arial";
+}
+
+.Grid .body .row .cell.grd_fix_left
+{
+	background : #f6edc5;
+	-nexa-background-odd : #f6edc5;
+
+}
+.Grid .body .row .cell.grd_fix_right
+{
+	background : #f8d2e3;
+	-nexa-background-odd : #f8d2e3;
+
+}
+.Grid.grd_MT_mnuPop
+{
+	-nexa-border : 2px solid #b42854,0px none,0px none,0px none;
+	background : #546169;
+}
+.Grid.grd_MT_mnuPop .body .row .cell, .Grid.grd_MT_mnuPop .body .row .cell[status=mouseover]
+{
+	-nexa-background-odd : transparent;
+	-nexa-color-odd : #ffffff;
+	color : #ffffff;
+	font : normal 18px "Malgun Gothic";
+	-nexa-text-align : left;
+	-nexa-vertical-align : middle;
+	-nexa-padding : 2px;
+	background : transparent;
+	-nexa-border : 0px none , 0px none , 1px solid #cbcbcb , 0px none;
+	border-radius : 0px;
+}
+.Grid.grd_MT_mnuPop .body .row .cell[userstatus=selected]
+{
+	-nexa-background-odd : #cbcbcb;
+	-nexa-color-odd : #546169;
+	color : #546169;
+	font : normal 18px "Malgun Gothic";
+	-nexa-text-align : left;
+	-nexa-vertical-align : middle;
+	-nexa-padding : 2px;
+	background : #cbcbcb;
+	-nexa-border : 0px none , 0px none , 1px solid #cbcbcb , 0px none;
+	border-radius : 0px;
+}
+.Static.st_WF_scheduleN
+{
+	background : #009cd1;
+	color : #ffffff;
+	font : 12px "Malgun Gothic","Verdana";
+	-nexa-padding : 0px 0px 0px 5px;
+}
+.Static.st_WF_schedule17
+{
+	background : indianred;
+	color : #ffffff;
+	font : 12px "Malgun Gothic","Verdana";
+	-nexa-padding : 0px 0px 0px 5px;
+}
+
+.Static.st_WF_schedule14
+{
+	background : #ea7d00;
+	color : #ffffff;
+	font : 12px "Malgun Gothic","Verdana";
+	-nexa-padding : 0px 0px 0px 5px;
+}
+
+.Static.st_WF_scheduleX
+{
+	background : #33ac7a;
+	color : #ffffff;
+	font : 12px "Malgun Gothic","Verdana";
+	-nexa-padding : 0px 0px 0px 5px;
+}
+
+.Static.st_WF_scheduleClose
+{
+	background : #c2c7d0;
+	color : #ffffff;
+	font : 12px "Malgun Gothic","Verdana";
+	-nexa-padding : 0px 0px 0px 5px;
+}
+
+.Grid .body .row .cell.grdCalendarDayColorCurr
+{
+	color : #666666;
+	-nexa-color-odd : #666666;
+	font : bold 14px "Malgun Gothic","Verdana";
+}
+.Grid .body .row .cell.grdCalendarDayColorPrev
+{
+	color : #c2c7d0;
+	-nexa-color-odd : #c2c7d0;
+	font : bold 14px "Malgun Gothic","Verdana";
+}
+
+.Grid .body .row .cell.grdCalendarDayColorWeek
+{
+	color : red;
+	-nexa-color-odd : red;
+	font : bold 14px "Malgun Gothic","Verdana";
+}
+
+]]></XCSS>

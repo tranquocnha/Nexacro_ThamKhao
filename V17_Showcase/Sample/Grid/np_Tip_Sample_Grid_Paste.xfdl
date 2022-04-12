@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Tip_Sample_Grid_Paste" classname="np_Tip_Sample_Grid_Paste" left="0" top="0" width="760" height="430" titletext="This sample is used to paste the selected content of the Grids">
+    <Layouts>
+      <Layout>
+        <Static id="Static07" taborder="0" text="This sample is used to paste the selected content of the Grid" cssclass="sta_WF_explain" left="30" top="25" width="500" height="30" style="font:bold 9 Dotum;"/>
+        <TextArea id="TextArea_Paste" taborder="1" left="441" top="128" width="309" height="250" readonly="true"/>
+        <Grid id="Grid_Copy" taborder="2" binddataset="ds_values" autoenter="select" useinputpanel="false" selecttype="multiarea" onkeydown="Grid_Copy_onkeydown" onkeyup="Grid_Copy_onkeyup" left="30" top="128" width="401" height="250" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+                <Cell col="4" text="Column4"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="text" edittype="text" text="bind:Column0"/>
+                <Cell col="1" displaytype="text" edittype="text" text="bind:Column1"/>
+                <Cell col="2" displaytype="text" edittype="text" text="bind:Column2"/>
+                <Cell col="3" displaytype="text" edittype="text" text="bind:Column3"/>
+                <Cell col="4" displaytype="text" edittype="text" text="bind:Column4"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="3" text="Paste seleted content" onclick="Button00_onclick" left="30" top="78" width="150" height="40"/>
+        <Static id="Static00" taborder="4" left="30" top="382" height="30" style="color:red;align:center middle;font:bold 9 Dotum;" width="700" text=""/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_values">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">12</Col>
+            <Col id="Column1">13</Col>
+            <Col id="Column2">45</Col>
+            <Col id="Column3">45</Col>
+            <Col id="Column4">125</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">14</Col>
+            <Col id="Column1">4</Col>
+            <Col id="Column2">1</Col>
+            <Col id="Column3">5</Col>
+            <Col id="Column4">4</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">45</Col>
+            <Col id="Column1">45</Col>
+            <Col id="Column2">4</Col>
+            <Col id="Column3">5</Col>
+            <Col id="Column4">5</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">45</Col>
+            <Col id="Column1">45</Col>
+            <Col id="Column2">45</Col>
+            <Col id="Column3">45</Col>
+            <Col id="Column4">45</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">45</Col>
+            <Col id="Column1">45</Col>
+            <Col id="Column2">45</Col>
+            <Col id="Column3">5</Col>
+            <Col id="Column4">4</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">45</Col>
+            <Col id="Column1">55</Col>
+            <Col id="Column2">66</Col>
+            <Col id="Column3">56</Col>
+            <Col id="Column4">58</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">55</Col>
+            <Col id="Column1">58</Col>
+            <Col id="Column2">59</Col>
+            <Col id="Column3">58</Col>
+            <Col id="Column4">56</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">45454</Col>
+            <Col id="Column1">54545</Col>
+            <Col id="Column2">545</Col>
+            <Col id="Column3">455</Col>
+            <Col id="Column4">45</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.onPaste = false;
+this.Grid_Copy_onkeyup = function(obj:Grid, e:nexacro.KeyEventInfo)
+{
+	var cPos = obj.getCellPos();
+	var rPos = this.ds_values.rowposition;
+	
+	var vCurEditType = obj.getCurEditType();
+	if(this.onPaste && vCurEditType == "text")
+	{
+		
+		var arr = obj.getEditText().split(/[S.\"*S\" $][ ]/g);
+		for(var i = 0 ; i < arr.length ; i++)
+		{
+			var strArr = arr[i].split(/[\t]/g);
+			for(var y = 0 ; y < arr.length ; y++)
+			{
+				var str = strArr[y];
+				if(str.charAt(0) == "\""){str = str.substr(1);} //If there are quotes in starting, then remove the quotes ... 
+					this.ds_values.setColumn(rPos+i, cPos+y, str) // Assigning copied values to TextArea
+			
+			}
+		}
+	}
+	this.onPaste = false;
+}
+
+this.Grid_Copy_onkeydown = function(obj:Grid, e:nexacro.KeyEventInfo)
+{
+	if(e.ctrlKey && e.keycode == 86)
+	{
+		this.onPaste = true;
+	}else{
+		this.onPaste = false;
+	}
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var rPoSt = this.Grid_Copy.selectstartrow;
+	var rPoEend = this.Grid_Copy.selectendrow;
+	var cPoSt = this.Grid_Copy.selectstartcol;
+	var cPoEend = this.Grid_Copy.selectendcol;
+	
+	var copyStr = "";
+	  
+	if(rPoSt.length > 1) //If data is selected by using control key
+	{
+		for(var i = 0 ; i < rPoSt.length ; i++)
+		{
+			copyStr+=this.Grid_Copy.getCellText(rPoSt[i],cPoSt[i]) + "\t";
+			if(rPoSt[i] != rPoSt[i+1]){copyStr+="\n";
+			} // Put enter key if all rows are different. For maintaining the selection order, processing enter key.
+
+		}
+	}else{ // If data is selected using shift key or dragging.
+		if(rPoEend < 0) {
+			this.Static00.set_text("There is no selected content");  // set the message to user
+		}else
+		{
+			this.Static00.set_text("");// set blank content
+			for(var i = rPoSt ; i <= rPoEend ; i++)
+			{
+				for(var y = cPoSt ; y <= cPoEend ; y++)
+				{
+					copyStr+=this.Grid_Copy.getCellText(i,y) + "\t";
+				}
+				copyStr += "\n"
+			}
+		}
+		
+	}
+	this.TextArea_Paste.set_value(copyStr);
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Form_Collection" classname="tip_collection" left="0" top="0" width="760" height="768" titletext="Form_Collection">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Getting list of components-components" top="68" width="272" height="34" onclick="Button00_onclick" right="480"/>
+        <Button id="Button01" taborder="1" text="Getting list of components-All (included in the data set)" onclick="Button01_onclick" top="68" width="370" height="34" right="100"/>
+        <Grid id="Grid00" taborder="2" left="30" top="112" height="300" binddataset="Dataset00" autosizingtype="col" autofittype="col" cellmovingtype="col" cellsizingtype="col" scrollbartype="" scrolltype="both" right="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="82"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="129"/>
+                <Column size="200"/>
+                <Column size="300"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="Parent" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="ID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="Name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="Type" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="Text" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="path" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="expr:rowidx+1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:Column4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="bind:Column0" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" style="align:left;" text="bind:Column1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="bind:Column2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" style="align:left;" text="bind:Column3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" style="align:left;" text="bind:Column5" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button04" taborder="4" text="Clear" top="68" height="34" onclick="Button04_onclick" right="30" width="60"/>
+        <Tab id="Tab00" taborder="5" top="432" height="250" tabindex="0" scrollbars="autoboth" style="background:beige;" left="540" right="30">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="tabpage1">
+              <Layouts>
+                <Layout>
+                  <Calendar id="Calendar00" taborder="6" left="10" top="10" width="150" height="34"/>
+                  <TextArea id="TextArea00" taborder="7" left="10" top="142" width="150" height="54" value="TextArea"/>
+                  <MaskEdit id="MaskEdit00" taborder="8" left="10" top="54" width="150" height="34" value="12345"/>
+                  <CheckBox id="CheckBox00" taborder="9" text="CheckBox" left="180" top="10" width="126" height="34"/>
+                  <Static id="Static00" taborder="10" text="Static" left="180" top="54" width="71" height="34"/>
+                  <Button id="Button03" taborder="11" text="Button" left="10" top="98" width="150" height="34"/>
+                  <Radio id="Radio00" taborder="6" left="180" top="98" width="91" height="34" onitemclick="Radio00_onitemclick" datacolumn="datacolumn" fittocontents="none" innerdataset="innerdataset" direction="vertical" codecolumn="codecolumn">
+                    <Dataset id="innerdataset">
+                      <ColumnInfo>
+                        <Column id="codecolumn" size="256"/>
+                        <Column id="datacolumn" size="256"/>
+                      </ColumnInfo>
+                      <Rows>
+                        <Row>
+                          <Col id="codecolumn">1</Col>
+                          <Col id="datacolumn">A</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">2</Col>
+                          <Col id="datacolumn">B</Col>
+                        </Row>
+                      </Rows>
+                    </Dataset>
+                  </Radio>
+                  <ImageViewer id="ImageViewer00" taborder="7" text="ImageViewer00" left="180" top="142" width="132" height="54"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="tabpage2"/>
+          </Tabpages>
+        </Tab>
+        <Div id="Div00" taborder="6" left="30" top="432" height="250" style="background:aqua;" text="Div00" width="500">
+          <Layouts>
+            <Layout>
+              <MaskEdit id="MaskEdit00" taborder="5" left="10" top="141" height="34" value="12345" width="270"/>
+              <CheckBox id="CheckBox00" taborder="6" text="CheckBox" left="300" top="97" width="126" height="34"/>
+              <TextArea id="TextArea00" taborder="7" left="10" top="10" height="77" value="TextArea" right="10"/>
+              <Static id="Static00" taborder="8" text="Static" left="300" top="141" width="104" height="34"/>
+              <Calendar id="Calendar00" taborder="9" left="10" top="97" height="34" width="270"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Form_getActivForm" taborder="3" text="Collection" cssclass="sta_WF_subtitP" left="30" top="18" width="410" height="40" titletext="Form_getActivForm"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	 this.get_com_info(this);	 
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    this.get_com_info_all(this);
+};
+   
+this.get_com_info = function(obj)
+{
+	var i;
+	var components = obj.components;
+	
+	this.Dataset00.set_enableevent(false);
+	
+	for( i = 0 ; i < components.length ; i++ )
+	{
+	    var nRow = this.Dataset00.addRow();
+	    this.Dataset00.setColumn(nRow,0,components[i].id);
+	    this.Dataset00.setColumn(nRow,1,components[i].name);
+	    this.Dataset00.setColumn(nRow,2,components[i].valueOf());
+	    this.Dataset00.setColumn(nRow,3,components[i].text);
+	    this.Dataset00.setColumn(nRow,4,this.valueOf());
+	    this.Dataset00.setColumn(nRow,5,this.get_url(components[i],""));
+	    var strType = components[i].valueOf(); 
+	    if (components[i].components){
+			if(strType == "[object Div]" || strType == "[object Tab]" || strType == "[object Tabpage]"){
+				this.get_com_info(components[i]);
+			}
+		} 
+	}
+	this.Dataset00.set_enableevent(true);
+};
+
+
+
+this.get_com_info_all = function(obj)
+{
+	var i;
+	var components = obj.all;
+	
+	this.Dataset00.set_enableevent(false);
+		
+	for( i = 0 ; i < components.length ; i++ )
+	{
+	    var nRow = this.Dataset00.addRow();
+	    this.Dataset00.setColumn(nRow,0,components[i].id);
+	    this.Dataset00.setColumn(nRow,1,components[i].name);
+	    this.Dataset00.setColumn(nRow,2,components[i].valueOf());
+	    this.Dataset00.setColumn(nRow,3,components[i].text);
+	    this.Dataset00.setColumn(nRow,4,this.valueOf());
+	    this.Dataset00.setColumn(nRow,5,this.get_url(components[i],""));
+	    var strType = components[i].valueOf(); 
+	    if (components[i].components){
+			if(strType == "[object Div]" || strType == "[object Tab]" || strType == "[object Tabpage]"){
+				this.get_com_info_all(components[i]);
+			}
+		} 
+	}
+	
+	this.Dataset00.set_enableevent(true);
+};
+
+
+this.get_url = function(obj, str)
+{
+	if(obj == "[object Form]"){var s = "form";}else{var s = obj.name;}
+	if(str != ""){s += "."+str}
+	if(obj ==  "[object MainFrame]"){return "application.mainframe." + str;}
+	return this.get_url(obj.parent, s);
+};
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.clearData();
+};
+]]></Script>
+  </Form>
+</FDL>

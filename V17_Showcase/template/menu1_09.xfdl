@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="work" classname="work" left="0" top="0" width="1025" height="674" titletext="New Form" cssclass="WF_work">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="21" binddataset="Dataset00" useinputpanel="false" autofittype="col" left="15" top="420" right="15" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30" band="left"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="213"/>
+                <Column size="80"/>
+                <Column size="60"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No"/>
+                <Cell col="1" text="Type"/>
+                <Cell col="2" text="Code name"/>
+                <Cell col="3" text="Date of request"/>
+                <Cell col="4" text="Representative"/>
+                <Cell col="5" text="Processing content"/>
+                <Cell col="6" text="Date of process"/>
+                <Cell col="7" style="accessibility:enable all 'Last row processing status' '';" text="Processing status"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:Column0"/>
+                <Cell col="1" edittype="normal" text="bind:Column1"/>
+                <Cell col="2" edittype="normal" text="bind:Column2"/>
+                <Cell col="3" edittype="normal" text="bind:Column3"/>
+                <Cell col="4" edittype="normal" text="bind:Column4"/>
+                <Cell col="5" displaytype="text" edittype="normal" text="bind:Column5"/>
+                <Cell col="6" edittype="normal" text="bind:Column6"/>
+                <Cell col="7" displaytype="checkbox" edittype="checkbox" text="bind:Column7"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="22" cssclass="sta_WF_map" left="105" top="70" width="788" height="320"/>
+        <Static id="Static01" taborder="23" cssclass="sta_map_northamerica" left="221" top="197" width="74" height="38"/>
+        <Static id="Static02" taborder="24" cssclass="sta_map_southamerica" left="329" top="336" width="74" height="37"/>
+        <Static id="Static03" taborder="25" cssclass="sta_map_europe" left="705" top="174" width="36" height="36"/>
+        <Static id="Static04" taborder="26" cssclass="sta_map_asia" left="685" top="236" width="21" height="35"/>
+        <Static id="Static05" taborder="27" cssclass="sta_map_africa" left="529" top="293" width="30" height="37"/>
+        <Static id="Static06" taborder="28" cssclass="sta_map_oseania" left="777" top="368" width="40" height="37"/>
+        <Static id="St_title" taborder="30" text="Map" cssclass="sta_WF_title" left="15" top="38" width="505" height="20"/>
+        <Static id="Static36" taborder="31" text="15" visible="false" left="12" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="32" text="Home &gt; Business screen guide &gt; Map" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static38" taborder="34" text="10" visible="false" left="149" top="0" width="100" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static39" taborder="35" text="20" visible="false" left="118" top="22" width="100" height="20" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static40" taborder="36" text="10" visible="false" left="911" top="0" width="50" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static42" taborder="37" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static41" taborder="38" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="39" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="Static43" taborder="40" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">check</Col>
+            <Col id="Column2">CSR</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+            <Col id="Column7">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">uncheck</Col>
+            <Col id="Column2">VGA</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+            <Col id="Column7">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">check</Col>
+            <Col id="Column2">RGB</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+            <Col id="Column7">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">uncheck</Col>
+            <Col id="Column2">CSR</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">check</Col>
+            <Col id="Column2">VGA</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">check</Col>
+            <Col id="Column2">RGB</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">check</Col>
+            <Col id="Column2">CSR</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">uncheck</Col>
+            <Col id="Column2">VGA</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">9</Col>
+            <Col id="Column1">check</Col>
+            <Col id="Column2">RGB</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">uncheck</Col>
+            <Col id="Column2">RGB</Col>
+            <Col id="Column3">2013-10-13</Col>
+            <Col id="Column4">Customer name</Col>
+            <Col id="Column5">Processing content</Col>
+            <Col id="Column6">2013-10-13</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[
+this.Comb_year_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	
+}
+
+this.btn_next_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Tab00_tabpage1_TAB3_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Static12_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

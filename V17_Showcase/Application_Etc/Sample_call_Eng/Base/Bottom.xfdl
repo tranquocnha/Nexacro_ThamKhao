@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Bottom" classname="Bottom" left="0" top="0" width="1024" height="100" titletext="New Form" style="background:#0080ffff;">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="[BottomFrame]" left="6" top="7" height="47" style="font:25 Dotum;" width="264"/>
+        <Edit id="Edit00" taborder="1" value="This is BottomFrame." left="12" top="56" height="25" width="168"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

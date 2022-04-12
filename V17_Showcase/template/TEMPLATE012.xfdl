@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE001" inheritanceid="" position="absolute" titletext="GRID WEEKLY CALENDAR" onload="form_onload" left="0" width="1025" top="0" height="674" ontimer="form_ontimer">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="9" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="46"/>
+        <Static id="st_BG" position="absolute" left="0" right="0" top="32" height="32" cssclass="sta_WF_SearchBox"/>
+        <Static id="st_Title" text="domain.schd.weekly" position="absolute" left="15" width="204" top="38" height="22" cssclass="sta_WF_title"/>
+        <Grid id="grd_Calendar" taborder="1" binddataset="ds_GrdCalendar" autoenter="select" useinputpanel="false" selecttype="row" cellsizingtype="col" autofittype="col" nodatatext="There is no inquiry data." position="absolute" style="align:center middle;font:dotum,9;" fillareatype="none" userdata="A=U" left="15" right="15" top="132" bottom="10" oncellclick="grd_Calendar_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="130"/>
+                <Column size="64"/>
+                <Column size="576"/>
+              </Columns>
+              <Rows>
+                <Row size="64"/>
+              </Rows>
+              <Band id="body">
+                <Cell style="align:center;" expr="expr:comp.parent.fn_GridTodayCellExpr(DAY)"/>
+                <Cell col="1" text="bind:BASE_INFO"/>
+                <Cell col="2" style="align:left;" text="bind:INFO"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_Left" taborder="1" position="absolute" onclick="btn_Left_onclick" left="317" width="32" top="82" height="22" cssclass="btn_WF_schPrev"/>
+        <Button id="btn_moveTo" taborder="1" text="domain.calandar.move" position="absolute" onclick="btn_moveTo_onclick" width="74" top="83" height="20" left="240"/>
+        <Button id="btn_Right" taborder="1" position="absolute" onclick="btn_Right_onclick" left="352" width="32" top="82" height="22" cssclass="btn_WF_schNext"/>
+        <Static id="st_Week" position="absolute" style="align:center middle;" left="38" width="99" top="38" height="22"/>
+        <Static id="Static00" text="domain.date.select" position="absolute" width="83" top="83" height="20" cssclass="sta_WFSA_label" left="35"/>
+        <Calendar id="cal_searchDate" taborder="1" dateformat="yyyy-MM-dd" position="absolute" width="110" top="83" height="20" left="120"/>
+        <Static id="Static42" taborder="2" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="3" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="4" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="5" text="10" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="6" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="8" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCmbYear" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">2000</Col>
+            <Col id="DATA">2000</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2001</Col>
+            <Col id="DATA">2001</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2002</Col>
+            <Col id="DATA">2002</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2003</Col>
+            <Col id="DATA">2003</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2004</Col>
+            <Col id="DATA">2004</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2005</Col>
+            <Col id="DATA">2005</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2006</Col>
+            <Col id="DATA">2006</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2007</Col>
+            <Col id="DATA">2007</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2008</Col>
+            <Col id="DATA">2008</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2009</Col>
+            <Col id="DATA">2009</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2010</Col>
+            <Col id="DATA">2010</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2011</Col>
+            <Col id="DATA">2011</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2012</Col>
+            <Col id="DATA">2012</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2013</Col>
+            <Col id="DATA">2013</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2014</Col>
+            <Col id="DATA">2014</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2015</Col>
+            <Col id="DATA">2015</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2016</Col>
+            <Col id="DATA">2016</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2017</Col>
+            <Col id="DATA">2017</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2018</Col>
+            <Col id="DATA">2018</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2019</Col>
+            <Col id="DATA">2019</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2020</Col>
+            <Col id="DATA">2020</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2021</Col>
+            <Col id="DATA">2021</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2022</Col>
+            <Col id="DATA">2022</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2023</Col>
+            <Col id="DATA">2023</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2024</Col>
+            <Col id="DATA">2024</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2025</Col>
+            <Col id="DATA">2025</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2026</Col>
+            <Col id="DATA">2026</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2027</Col>
+            <Col id="DATA">2027</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2028</Col>
+            <Col id="DATA">2028</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2029</Col>
+            <Col id="DATA">2029</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2030</Col>
+            <Col id="DATA">2030</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCmbMonth" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="DATA">01</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="DATA">02</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">03</Col>
+            <Col id="DATA">03</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">04</Col>
+            <Col id="DATA">04</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">05</Col>
+            <Col id="DATA">05</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">06</Col>
+            <Col id="DATA">06</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">07</Col>
+            <Col id="DATA">07</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">08</Col>
+            <Col id="DATA">08</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">09</Col>
+            <Col id="DATA">09</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">10</Col>
+            <Col id="DATA">10</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">11</Col>
+            <Col id="DATA">11</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">12</Col>
+            <Col id="DATA">12</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdCalendar" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DAY" type="STRING" size="256"/>
+          <Column id="INFO" type="STRING" size="256"/>
+          <Column id="BASE_INFO" type="STRING" size="256"/>
+          <Column id="HOL" type="STRING" size="256"/>
+          <Column id="IMPL" type="STRING" size="256"/>
+          <Column id="SCHD_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Schd" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SCHD_ID" type="string" size="16"/>
+          <Column id="USER_ID" type="string" size="16"/>
+          <Column id="SCHD_TITLE" type="string" size="150"/>
+          <Column id="SCHD_CONTENTS" type="string" size="300"/>
+          <Column id="SCHD_STARTDATE" type="date" size="0"/>
+          <Column id="SCHD_ENDDATE" type="date" size="0"/>
+          <Column id="SCHD_PLACE" type="string" size="150"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0001</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">My Birthday</Col>
+            <Col id="SCHD_CONTENTS">Birthday party</Col>
+            <Col id="SCHD_STARTDATE">20090717</Col>
+            <Col id="SCHD_ENDDATE">20090717</Col>
+            <Col id="SCHD_PLACE">Our home</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0002</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Summar holiday</Col>
+            <Col id="SCHD_CONTENTS">Summar holiday</Col>
+            <Col id="SCHD_STARTDATE">20090726</Col>
+            <Col id="SCHD_ENDDATE">20090728</Col>
+            <Col id="SCHD_PLACE">Sorak mountain condo</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0003</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Project end</Col>
+            <Col id="SCHD_CONTENTS">This is project end day.</Col>
+            <Col id="SCHD_STARTDATE">20090731</Col>
+            <Col id="SCHD_ENDDATE">20090730</Col>
+            <Col id="SCHD_PLACE">Project room</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0004</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Business trip</Col>
+            <Col id="SCHD_CONTENTS">Business trip</Col>
+            <Col id="SCHD_STARTDATE">20090821</Col>
+            <Col id="SCHD_ENDDATE">20090821</Col>
+            <Col id="SCHD_PLACE">Daegu</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0005</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Holiday</Col>
+            <Col id="SCHD_CONTENTS">Holiday</Col>
+            <Col id="SCHD_STARTDATE">20091231</Col>
+            <Col id="SCHD_ENDDATE">20100105</Col>
+            <Col id="SCHD_PLACE">Holiday</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0006</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">JavaOne</Col>
+            <Col id="SCHD_CONTENTS">2009 JavaOne Conference</Col>
+            <Col id="SCHD_STARTDATE">20090601</Col>
+            <Col id="SCHD_ENDDATE">20090605</Col>
+            <Col id="SCHD_PLACE">San Francisco</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-0007</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Developer meeting</Col>
+            <Col id="SCHD_CONTENTS">Project developer schedule meeting</Col>
+            <Col id="SCHD_STARTDATE">20090824</Col>
+            <Col id="SCHD_ENDDATE">20090824</Col>
+            <Col id="SCHD_PLACE">Meeting room 3</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-1004</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">SW Quality test</Col>
+            <Col id="SCHD_CONTENTS">Executing SW quality test before release</Col>
+            <Col id="SCHD_STARTDATE">20090928</Col>
+            <Col id="SCHD_ENDDATE">20090930</Col>
+            <Col id="SCHD_PLACE">Meeting room 4</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-1005</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Anyframe MiPlatform UI Sample presentation</Col>
+            <Col id="SCHD_CONTENTS">Anyframe MiPlatform UI Sample presentation and explanation</Col>
+            <Col id="SCHD_STARTDATE">20091007</Col>
+            <Col id="SCHD_ENDDATE">20091007</Col>
+            <Col id="SCHD_PLACE">Meeting room 1</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-1003</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">TOEIC exam</Col>
+            <Col id="SCHD_CONTENTS">TOEIC exam</Col>
+            <Col id="SCHD_STARTDATE">20090927</Col>
+            <Col id="SCHD_ENDDATE">20090927</Col>
+            <Col id="SCHD_PLACE">Bulgokjung</Col>
+          </Row>
+          <Row>
+            <Col id="SCHD_ID">SCHD-1007</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="SCHD_TITLE">Health test</Col>
+            <Col id="SCHD_CONTENTS">Regular health check up</Col>
+            <Col id="SCHD_STARTDATE">20090907</Col>
+            <Col id="SCHD_ENDDATE">20090907</Col>
+            <Col id="SCHD_PLACE">Gomgin hospital</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_BaseInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DATE" type="STRING" size="256"/>
+          <Column id="INFO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work screen template
+ * 02. Screen name   : TEMPLATE012.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs";
+
+//2013.11.26.Choi Hui Yeon Calendar is the right side of screen PopupCalendar,than regestring by cutting TOPS 34106(RP_34295) 
+/***********************************************************************
+ * Screen display variable section
+ ************************************************************************/
+this.strDateOfToday = undefined;
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+// Initialize on Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality processing Form Load
+	this.gfn_FormOnLoad(obj);
+
+	this.strDateOfToday = this.gfn_Today();
+
+	// Search processing
+	this.fn_Search();
+}
+
+// ◀ Button click event
+this.btn_Left_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// Drawing calendar, by setting date of calander to 7 days before today date
+	this.strDateOfToday = this.gfn_addDate(this.strDateOfToday, -7);
+
+	this.fn_drawCalendarWeekly(this.ds_GrdCalendar, this.grd_Calendar, this.ds_BaseInfo, this.ds_Schd);
+}
+
+// ▶ Button click event
+this.btn_Right_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// Drawing the calendar by settting date to one week after today date
+	this.strDateOfToday = this.gfn_addDate(this.strDateOfToday, 7);
+
+	this.fn_drawCalendarWeekly(this.ds_GrdCalendar, this.grd_Calendar, this.ds_BaseInfo, this.ds_Schd);
+}
+
+// Date move on button click
+this.btn_moveTo_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var strDate = this.gfn_getComponentValue("cal_searchDate", "value");
+	trace(strDate);
+	if (this.gfn_isNull(strDate)) 
+	{
+		this.gfnAlert("msg.noselect.date", "warning");
+		return;
+	}
+	else if (parseInt(strDate) <= 20000101) 
+	{
+		this.gfnAlertMsg("msg.gt.maxdate", "ERR");
+		return;
+	}
+	else 
+	{
+		this.strDateOfToday = this.gfn_getComponentValue("cal_searchDate", "value") + "";
+		this.fn_drawCalendarWeekly(this.ds_GrdCalendar, this.grd_Calendar, this.ds_BaseInfo, this.ds_Schd);
+	}
+}
+
+// Calendar date double click event
+this.grd_Calendar_oncelldblclick = function (obj:Grid, e:GridClickEventInfo)
+{
+//2013.11.25.Choi Hui Yeon .Grid oncelldblclick not occured. Registered bg TOPSS 34094(RP_34284) bug
+	var strSelectDate = this.ds_GrdCalendar.getColumn(e.row, "DAY");
+	var strScheduleId = this.ds_GrdCalendar.getColumn(e.row, "SCHD_ID");
+	
+	// In case there  is any schedule on the clicked day, creating a pop-up to modify the schedule
+	// In case if there is no schedule, creating new pop-up to insert new schedule
+	if (e.cell == 2) 
+	{
+		if (this.gfn_isNull(strScheduleId)) 
+		{
+			this.gfn_Dialog("domain.schddetail", "template::TEMPLATE012_POPUP.xfdl", {
+				paramMode : "C",
+				paramDate : strSelectDate
+			}, 525, 300, null, null, null, null, "fn_DialogCallback");
+		}
+		else 
+		{
+			this.dsSchd.set_rowposition(this.dsSchd.findRow("SCHD_ID", strScheduleId));
+			this.gfn_Dialog("domain.schddetail", "template::TEMPLATE012_POPUP.xfdl", {
+				refform : this,
+				paramMode : "U",
+				dsArg : this.refform.dsSchd
+			}, 525, 300, null, null, null, null, "fn_DialogCallback");
+		}
+
+	}
+}
+
+
+this.nGridCell = -1;
+this.nGridRow = -1;
+this.grd_Calendar_oncellclick = function(obj:Grid, e:TOBE.GridClickEventInfo)
+{
+	this.killTimer(1005);
+	if(this.nGridCell == e.cell && this.nGridRow == e.row) {
+		this.nGridCell =-1;
+		this.nGridRow = -1;
+
+		var strSelectDate = this.ds_GrdCalendar.getColumn(e.row, "DAY");
+		var strScheduleId = this.ds_GrdCalendar.getColumn(e.row, "SCHD_ID");
+		
+		// In case there  is any schedule on the clicked day, creating a pop-up to modify the schedule
+		// In case if there is no schedule, creating new pop-up to insert new schedule
+		if (e.cell == 2) 
+		{
+			if (this.gfn_isNull(strScheduleId)) 
+			{
+				this.gfn_Dialog("domain.schddetail", "template::TEMPLATE012_POPUP.xfdl", {
+					paramMode : "C",
+					paramDate : strSelectDate
+				}, 525, 300, null, null, null, null, "fn_DialogCallback");
+			}
+			else 
+			{
+				this.dsSchd.set_rowposition(this.dsSchd.findRow("SCHD_ID", strScheduleId));
+				this.gfn_Dialog("domain.schddetail", "template::TEMPLATE012_POPUP.xfdl", {
+					refform : this,
+					paramMode : "U",
+					dsArg : this.refform.dsSchd
+				}, 525, 300, null, null, null, null, "fn_DialogCallback");
+			}
+		}
+	} else {
+		this.nGridCell = e.cell;
+		this.nGridRow = e.row;
+		this.setTimer(1005, 800);
+	}
+}
+
+
+this.form_ontimer = function(obj:Form, e:TOBE.TimerEventInfo)
+{
+	this.killTimer(1005);
+	this.nGridCell =-1;
+	this.nGridRow = -1;
+}
+
+
+this.fn_DialogCallback = function(strID, rtn)
+{
+	if(rtn == "Y"){
+		this.fn_Search();
+	}
+}
+/***********************************************************************
+ * User defined function specification
+ ************************************************************************/
+this.fn_Search = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListSchedule";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findXPScheduleList'";
+
+	var sInDatasets = "querySet1=ds_Search";
+	var sOutDatasets = "ds_Schd=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// Function to create new calendar
+this.fn_drawCalendarWeekly = function (objGridDataset, objGrid, objBaseInfoDataset, objScheduleDataset)
+{
+	this.strDateOfToday = this.gfn_isNull(this.strDateOfToday) ? this.gfn_Today() : this.strDateOfToday;
+
+	var strDate,nNewRow;
+	var nDayOfToday;
+
+	this.fn_makeBaseInfo(this.ds_BaseInfo, this.strDateOfToday);
+	objGrid.set_binddataset("");
+	objGridDataset.clearData();
+
+	nDayOfToday = this.gfn_getDay(this.strDateOfToday);
+	strDate = this.gfn_addDate(this.strDateOfToday, -nDayOfToday);
+
+	objGrid.userData = strDate;
+
+	for (var i = 0; i <= 6; i++) 
+	{
+		nNewRow = objGridDataset.addRow();
+		objGridDataset.setColumn(nNewRow, "DAY", strDate);
+
+		// ds_BaseInfo : calendar Data
+		var nBaseInfoRow = objBaseInfoDataset.findRow("DATE", strDate);
+		if (nBaseInfoRow >= 0) 
+		{
+			objGridDataset.setColumn(nNewRow, "BASE_INFO", objBaseInfoDataset.getColumn(nBaseInfoRow, "INFO"));
+		}
+		strDate = this.gfn_addDate(strDate, 1);
+	}
+
+	var nScheduleRow,nCalendarRow;
+	var strScheduleStartDate,strScheduleEndDate,strScheduledDate;
+
+	// Schedule start day~ end day, setColumn by SCHD_TITLE 
+	for (nScheduleRow = 0; nScheduleRow < objScheduleDataset.rowcount; nScheduleRow++) 
+	{
+		strScheduleStartDate = objScheduleDataset.getColumn(nScheduleRow, "SCHD_STARTDATE");
+		strScheduleEndDate = objScheduleDataset.getColumn(nScheduleRow, "SCHD_ENDDATE");
+
+		// Verifying is there any schedule this week
+		if ((strScheduleStartDate >= objGrid.userData && strScheduleStartDate <= this.gfn_addDate(objGrid.userData, 6)) || 
+			(strScheduleEndDate >= objGrid.userData && strScheduleEndDate <= this.gfn_addDate(objGrid.userData, 6))) 
+		{
+			strScheduledDate = strScheduleStartDate + "";
+
+			for (i = 0; i < this.gfn_getDiffDay(strScheduleStartDate, strScheduleEndDate); i++) 
+			{
+				nCalendarRow = objGridDataset.findRow("DAY", strScheduledDate);
+
+				if (nCalendarRow >= 0) 
+				{
+					objGridDataset.setColumn(nCalendarRow, "INFO", objScheduleDataset.getColumn(nScheduleRow, "SCHD_TITLE"));
+					objGridDataset.setColumn(nCalendarRow, "SCHD_ID", objScheduleDataset.getColumn(nScheduleRow, "SCHD_ID"));
+				}
+				strScheduledDate = this.gfn_addDate(strScheduledDate, 1);
+			}
+		}
+	}
+
+	var nOrderOfWeek;
+	strDate = this.gfn_addDate(objGrid.userData, 6);
+	nOrderOfWeek = parseInt(this.gfn_ToString(strDate).substr(6, 2)) / 7;
+	if (nOrderOfWeek <= 1) 
+	{
+		nOrderOfWeek = 1;
+	}
+	else if (nOrderOfWeek <= 2) 
+	{
+		nOrderOfWeek = 2;
+	}
+	else if (nOrderOfWeek <= 3) 
+	{
+		nOrderOfWeek = 3;
+	}
+	else if (nOrderOfWeek <= 4) 
+	{
+		nOrderOfWeek = 4;
+	}
+	else if (nOrderOfWeek <= 5) 
+	{
+		nOrderOfWeek = 5;
+	}
+	this.st_Week.set_text((this.gfn_ToString(strDate).substr(0, 4) + "년 " + this.gfn_ToString(strDate).substr(4, 2) + "월 " + nOrderOfWeek + "주차"));
+
+	objGrid.set_binddataset(objGridDataset.name);
+}
+
+// Processing default information of calendar(Holiday, Lunar)
+this.fn_makeBaseInfo = function (objBaseInfoDataset, strDateOfToday)
+{
+	var strHolidayName,strLunar,nMonthOfLunar,nDayOfLunar;
+	var nNewRow;
+	var strDate;
+	var nDayOfToday = this.gfn_getDay(strDateOfToday);
+
+	objBaseInfoDataset.clearData();
+	strDate = this.gfn_addDate(strDateOfToday, -nDayOfToday);
+}
+
+// Calendar expr processing function
+this.fn_GridTodayCellExpr = function (strDate)
+{
+	return this.gfn_getFormat(strDate, "@@@@-@@-@@");
+}
+
+// After processing gfnService process callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "getListSchedule":
+			this.fn_drawCalendarWeekly(this.ds_GrdCalendar, this.grd_Calendar, this.ds_BaseInfo, this.ds_Schd);
+			break;
+		default:
+			this.fn_Search();
+			break;
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="mobile_Top" width="480" height="64" titletext="New Form">
+    <Layouts>
+      <Layout height="64" width="480">
+        <Button id="Button00" taborder="0" left="2" top="2" width="50" height="60" cssclass="btn_MTF_prevBtn"/>
+        <Button id="Button01" taborder="1" top="2" width="60" height="60" right="2" cssclass="btn_MTF_menuBtn"/>
+        <Static id="Static00" taborder="2" text="Grid" left="Button00:10" top="2" width="354" height="60" cssclass="sta_MTF_title"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

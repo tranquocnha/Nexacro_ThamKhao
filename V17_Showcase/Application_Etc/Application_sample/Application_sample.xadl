@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="Application_sample" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="" themeid="style13.xtheme">
+    <Layout>
+      <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="true" showtitlebar="true" showstatusbar="false" position="absolute 0 0 1024 739" style="titlebarheight:26;statusbarheight:0;" showcascadetitletext="false" layered="true" titletext="XFLATFORM" onsize="MainFrame_onsize" width="800" height="800">
+        <VFrameSet id="VFrameSet" separatesize="65,*,30" showstatusbar="false">
+          <Frames>
+            <ChildFrame id="ChildFrameTop" formurl="Env::env_frame_top.xfdl" resizable="false" showtitlebar="false" dragmovetype="none" style="background:transparent;titlebarheight:28;statusbarheight:0;" layered="true"/>
+            <HFrameSet id="HFrameSet" separatesize="196,*,47">
+              <Frames>
+                <ChildFrame id="ChildFrameLeft" style="border:0 none #00000000 ;" resizable="false" formurl="Env::env_frame_left.xfdl" showstatusbar="false" showtitlebar="false" dragmovetype="none" layered="true"/>
+                <FrameSet id="FrameSet">
+                  <Frames>
+                    <ChildFrame id="ChildFrame0" formurl="Env::env_base.xfdl" width="600" height="600" left="0" top="0"/>
+                    <ChildFrame id="ChildFrame1" formurl="Env::env_base2.xfdl" width="600" height="600" top="50" left="50"/>
+                  </Frames>
+                </FrameSet>
+              </Frames>
+            </HFrameSet>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <ScreenInfo/>
+  </Application>
+  <Script type="xscript5.0"><![CDATA[TOBE=nexacro;
+this.get_url = function(obj, str)
+{
+	if(obj == "[object Form]"){var s = "form";}else{var s = obj.name;}
+	if(str != ""){s += "."+str}
+	if(obj ==  "[object MainFrame]"){return "application.mainframe." + str;}
+	return this.get_url(obj.parent, s);
+}]]></Script>
+</ADL>

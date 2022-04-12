@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Application_Execenvironment" classname="Application_Cookie" left="0" top="0" width="760" height="430" titletext="Application environment">
+    <Layouts>
+      <Layout>
+        <Button id="Application_environment" taborder="0" text="Excute" left="30" top="78" width="90" height="40" onclick="Application_environment_onclick"/>
+        <Static id="Static07" taborder="1" text="nexacro platform Execution environment" cssclass="sta_WF_subtitP" left="30" top="18" width="535" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Application_environment_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.alert(system.navigatorname);
+}
+  ]]></Script>
+  </Form>
+</FDL>

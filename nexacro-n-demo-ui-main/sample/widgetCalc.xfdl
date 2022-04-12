@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="commCalc" width="265" height="363" titletext="계산기" onload="commCalc_onload">
+    <Layouts>
+      <Layout height="363" mobileorientation="landscape" width="265">
+        <Static id="Static00" taborder="" left="10" top="2" height="41" cssclass="sta_cm_box05" width="257"/>
+        <Static id="stCalc" taborder="1" left="7" top="2" height="41" width="257"/>
+        <Static id="Static04" taborder="2" left="7" top="37" cssclass="sta_WF_box03" width="250" bottom="7"/>
+        <Button id="Button00" taborder="3" text="7" left="21" top="142" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="Button01" taborder="4" text="8" left="81" top="142" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="Button02" taborder="5" text="9" left="137" top="142" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="Button03" taborder="6" text="6" left="137" top="195" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="Button04" taborder="7" text="4" left="21" top="195" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="Button05" taborder="8" text="5" left="81" top="195" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="Button06" taborder="9" text="3" left="137" top="248" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="Button07" taborder="10" text="1" left="21" top="248" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="Button08" taborder="11" text="2" left="81" top="248" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="btnBack" taborder="12" left="21" top="89" width="48" height="48" cssclass="btn_WF_calculatorBack" onclick="fn_comBtnOnClick" text=""/>
+        <Button id="Button10" taborder="13" text="0" left="21" top="301" width="108" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_callNumOnClick"/>
+        <Button id="btn_culator" taborder="14" text="." left="137" top="301" width="48" height="48" cssclass="btn_WF_calculatorNum" onclick="fn_comBtnOnClick"/>
+        <Button id="btnDivision" taborder="15" top="89" width="48" height="48" cssclass="btn_WF_division" onclick="fn_comBtnOnClick" left="195"/>
+        <Button id="btnMultiple" taborder="16" left="195" top="142" width="48" height="48" cssclass="btn_WF_multiple" onclick="fn_comBtnOnClick"/>
+        <Button id="btnMinus" taborder="17" left="195" top="195" width="48" height="48" cssclass="btn_WF_minus" onclick="fn_comBtnOnClick"/>
+        <Button id="btnPlus" taborder="18" left="195" top="248" width="48" cssclass="btn_WF_plus" height="48" onclick="fn_comBtnOnClick"/>
+        <Button id="btnAnd" taborder="19" left="195" top="301" width="48" cssclass="btn_WF_result" height="48" onclick="fn_comBtnOnClick"/>
+        <Button id="btnCE" taborder="20" text="CE" left="79" top="89" width="48" height="48" cssclass="btn_WF_calculatorNum" font="18px &quot;Arial&quot;" onclick="fn_comBtnOnClick"/>
+        <Button id="btnC" taborder="21" text="C" left="137" top="89" width="48" height="48" cssclass="btn_WF_calculatorNum" font="18px &quot;Arial&quot;" onclick="fn_comBtnOnClick"/>
+        <Static id="stNum" taborder="23" text="0" left="7" top="37" height="46" cssclass="sta_WF_calculatorTotal" width="250" background="#ffffff" border="1px solid silver" textAlign="right" padding="0px 10px 0px 0px" font="normal 700 20pt/normal &quot;gothic&quot;,&quot;Gulim&quot;"/>
+        <Button id="btnClose" taborder="24" top="3" width="30" height="30" cssclass="btn_WF_noteDel" right="7" onclick="fn_comBtnOnClick"/>
+        <Button id="btnMove" taborder="22" top="20" width="29" height="29" cssclass="btn_WF_widgetMove04" left="0"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.fvPushNum      = 0;    // 숫자를 누른 상태
+this.fvPushOperator = 1;    // 연산자를(+,-,*,/) 누른 상태
+this.fvPushEqual    = 2;    // '='를 누른 상태
+this.fvIsDecimalPoint;      // 소수점여부
+this.fvNumber;              // 출력장체 표시된 숫자
+this.fvResult;              // 연산 결과
+this.fvResultText;              // 연산 결과 텍스트
+this.fvMemory;              // 메모리 저장 변수
+this.fvIdxDecimalPoint;     // 소수점 Index
+this.fvPreOperator;         // 이전에 누른 연산자
+this.fvChkStatus;           // 숫자,'=',연산자 상태 변수
+this.fvFlagMemory;          // 메모리 사용 상태
+this.fvIsPushDot;           // 소수점를 누른 상태
+
+this.commCalc_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.fnSetC();
+};
+
+this.fn_comBtnOnClick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	switch (obj.name)
+	{
+		case "btnDivision" :
+			this.fnCalculate("/");
+			break;
+			
+		case "btnMultiple" :
+			this.fnCalculate("*");
+			break;
+			
+		case "btnMinus" :
+			this.fnCalculate("-");
+			break;
+			
+		case "btnPlus" :
+			this.fnCalculate("+");
+			break;
+		
+		case "btnAnd" :
+			this.fnCalculate("=");
+			break;
+			
+		case "btnBack" :
+			this.fnSetBackspace();
+			break;
+			
+		case "btnCE" :
+			this.fnSetCE();
+			break;
+			
+		case "btnC" :
+			this.fvResultText = "";
+			this.stCalc.set_text("");
+			this.fnSetC();		
+			break;
+			
+		case "btn_culator" :
+			this.fvIsDecimalPoint = true;
+			this.fvIsPushDot = true;			
+			break;
+			
+		case "btnClose" :
+			this.parent.parent.fnCloseWidget(this.parent);
+			break;
+	}
+};
+
+this.fn_callNumOnClick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnSetNum(obj.text);
+};
+
+this.fnSetNum = function(pushNumber)
+{
+    if (this.fvChkStatus == this.fvPushOperator || this.fvFlagMemory == true) { // 직전에 fvPushOperator 또는 메모리 관련 버튼을 누른 상태
+        this.fnSetCE();
+    } else if (this.fvChkStatus == this.fvPushEqual) { // 직전에 '='를 누른 상태
+        this.fnSetC();
+    }
+    
+    this.fvFlagMemory = false;
+    
+    var prevString = this.stNum.text;
+
+    if (this.fvIsDecimalPoint == true && this.fvIsPushDot == true) 
+	{
+        this.stNum.set_text(prevString + pushNumber);
+    }
+    else
+    {
+        if (prevString.charAt(0) == "0") { // 초기'0.'인 상태에선 '0'을 삭제하고 'pushNumber.'으로 세팅
+             this.stNum.set_text(pushNumber + prevString.substr(1));
+        } else { // '.'의 position으로 pushNumber Add처리
+           var vBefore = prevString.substr(0, this.fvIdxDecimalPoint);
+           var vAfter = prevString.substr(this.fvIdxDecimalPoint);
+           this.stNum.set_text(vBefore + pushNumber + vAfter);
+           this.fvIdxDecimalPoint++;
+        }
+    }
+    
+     this.fvNumber = this.stNum.text;
+    
+    if (this.fvNumber.indexOf(".") ==  this.fvNumber.length-1) {
+         this.fvNumber = nexacro.toNumber(this.fvNumber);
+    } else {
+        this. fvNumber = nexacro.toNumber(this.fvNumber.substr(0, this.fvNumber.length));
+    }
+    
+     this.fvChkStatus = this.fvPushNum;
+};
+
+this.fnCalculate = function(pushOperator)
+{
+    // 입력받은 연산자 저장, 연산은 하지 않는다. (직전에 숫자가 입력되지 않은 경우)
+    if (this.fvChkStatus!=this.fvPushNum)
+    {
+        if (pushOperator == "+" || pushOperator == "-" || pushOperator == "*" || pushOperator == "/") {
+            this.fvPreOperator = pushOperator;
+            this.fvChkStatus   = this.fvPushOperator;
+            
+			return;
+        }
+    }
+    
+    // 직전에 입력받은 연산자에 따라 연산을 수행, 입력받은 연산자 저장
+    switch (this.fvPreOperator)
+    {    
+        case '+':
+            this.fvResult += this.fvNumber;
+			this.fvResultText = this.fvResultText + " + " + this.fvNumber;
+            break;
+        
+		case '-':
+            this.fvResult -= this.fvNumber;
+			this.fvResultText = this.fvResultText + " - " + this.fvNumber;
+            break;
+        
+		case '*':
+            this.fvResult *= this.fvNumber;
+			this.fvResultText = this.fvResultText + " * " + this.fvNumber;
+            break;
+        
+		case '/':
+            this.fvResult /= this.fvNumber;
+			this.fvResultText = this.fvResultText + " / " + this.fvNumber;
+            break;
+        
+		default:
+            this.fvResult = this.fvNumber;
+			this.fvResultText = this.fvNumber;
+            break;
+    }
+	
+	var vIdxPoint = this.fvResult.toString().substr(this.fvIdxDecimalPoint);
+	var resultText = this.fvResult;
+    
+    this.stNum.set_text(resultText.toString());
+	this.stCalc.set_text(this.fvResultText);
+	
+    // 연산자 및 상태 저장
+    if (pushOperator == "=") {
+        this.fvChkStatus = this.fvPushEqual;
+    } else {
+        this.fvPreOperator = pushOperator;
+        this.fvChkStatus = this.fvPushOperator;
+        this.fvNumber = nexacro.toNumber(this.stNum.text.text);
+    }
+};
+
+/*----------------------------------------------------------------------------------------------
+ * 설명 : 계산 결과 삭제
+ ----------------------------------------------------------------------------------------------*/
+this.fnSetC = function()
+{
+    this.fnSetCE();
+    
+    this.fvNumber = 0;
+    this.fvResult = 0;
+    this.fvPreOperator = " ";
+    this.fvChkStatus = this.fvPushNum;
+};
+
+/*----------------------------------------------------------------------------------------------
+ * 설명 : 출력된 결과 삭제
+ ----------------------------------------------------------------------------------------------*/
+this.fnSetCE = function() 
+{
+    this.stNum.set_text("0");
+	
+	// '.'를 누른 상태
+    if (this.fvIsPushDot) {
+        this.fvIsDecimalPoint = true;
+	} else {
+        this.fvIsDecimalPoint = false;
+	}
+    
+    this.fvIdxDecimalPoint = 1;
+};
+
+this.fnSetBackspace = function()
+{
+    if (this.fvChkStatus == this.fvPushNum)
+    {
+        var resultText = this.stNum.text;
+    
+        // 소수점인 경우
+        if (this.fvIsDecimalPoint)
+        {
+            resultText = resultText.substr(0, resultText.length-1);
+            this.stNum.set_text(resultText);
+    
+            if (resultText.charAt(resultText.length-2) == ".") {
+                this.fvIsDecimalPoint = false;
+			}
+        }
+        else
+        {
+            resultText = resultText.substr(0, resultText.length-2) + ".";
+            
+			this.fvIdxDecimalPoint--;
+            this.stNum.set_text(resultText);
+        }
+
+        if (resultText.length == 1) {
+            this.fnSetCE();
+        }
+        
+        this.fvNumber = nexacro.toNumber(this.stNum.text);
+        this.fvChkStatus = this.fvPushNum;
+    }
+};]]></Script>
+  </Form>
+</FDL>

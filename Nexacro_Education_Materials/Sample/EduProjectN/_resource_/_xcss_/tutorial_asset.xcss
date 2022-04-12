@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XCSS version="1.0"><![CDATA[.Static.sta_label
+{
+	font : bold 13px "Arial","Malgun Gothic","Gulim";
+	-nexa-border : 0px none;
+	-nexa-padding : 0px 5px 0px 5px;
+}
+.Static.sta_labelbox
+{
+	background : #f7f7f7;
+	-nexa-border : 1px solid #c7c7c7;
+	-nexa-text-align : right;
+	-nexa-padding : 0px 5px 0px 5px;
+}
+.Static.sta_searchbox
+{
+	background : #f7f7f7;
+	-nexa-border : 1px solid #c7c7c7;
+	-nexa-text-align : left;
+	-nexa-padding : 0px 5px 0px 5px;
+}
+.Button.btn_search,.Button.btn_search[status=focused],.Button.btn_search[userstatus=selected]
+{
+	background : #834694;
+	color : #ffffff;
+	cursor : pointer;
+	font : 12px "Malgun Gothci","Arial","Gulim";
+	-nexa-border : 1px solid #6f397e;
+	-nexa-text-align : center;
+}
+.Button.btn_search[status=mouseover]
+{
+	background : #6f397e;
+	color : #ffffff;
+	-nexa-border : 1px solid #6f397e;
+}
+.Button.btn_search[userstatus=pushed]
+{
+	background : #6f397e;
+	color : #ffffff;
+	-nexa-border : 1px solid #6f397e;
+	-nexa-text-decoration : underline;
+}
+.Button.btn_search[status=disabled]
+{
+	background : #dddddd;
+	color : #aaaaaa;
+	-nexa-border : 1px solid #aaaaaa;
+}
+]]></XCSS>

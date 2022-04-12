@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Time_Difference" classname="Time_Difference" left="0" top="0" width="760" height="430" titletext="Time difference in hour minute and seconds">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Difference" onclick="Button00_onclick" left="260" top="105" height="34" width="100"/>
+        <Calendar id="Calendar00" taborder="1" value="20151017000000000" left="30" top="105" height="34" dateformat="yyyy-MM-dd ddd hh:mm:ss" editformat="yyyy-MM-dd HH:mm:ss" locale="en_US" width="220"/>
+        <Calendar id="Calendar01" taborder="2" left="380" top="105" height="34" value="20151018000000000" dateformat="yyyy-MM-dd ddd hh:mm:ss" editformat="yyyy-MM-dd HH:mm:ss" locale="en_US" width="220"/>
+        <Static id="Static00" taborder="3" left="30" top="149" height="50" style="color:#415079ff;font:bold 9 Dotum;" width="600"/>
+        <Static id="Static07" taborder="4" text="This is sample displays time difference between two times in hour, minutes and seconds" cssclass="sta_WF_explain" left="30" top="25" width="650" height="30" style="font:bold 9 Dotum;"/>
+        <Static id="Static01" taborder="5" text="Select the two datea and click on the Difference button" cssclass="sta_WF_explain" left="30" top="65" width="650" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	 
+	var arr = this.Difference(this.Calendar00.value, this.Calendar01.value);
+	this.Static00.set_text("Time difference between " + this.Calendar00.text + " and " +this.Calendar01.text +" is : \r\n"+arr[0]+" Hour "+arr[1]+" Minutes and "+arr[2]+" Seconds");
+};
+
+
+
+this.Difference = function(stDate, endDate)
+{
+	stDate = new String(stDate);
+	
+	endDate = new String(endDate);
+	
+	var sy = stDate.substr(0,4);
+	var sm = stDate.substr(4,2);
+	var sd = stDate.substr(6,2);
+	var shh = stDate.substr(8,2);
+	var smm = stDate.substr(10,2);
+	var sss = stDate.substr(12,2);
+
+	var ey = endDate.substr(0,4);
+	var em = endDate.substr(4,2);
+	var ed = endDate.substr(6,2);
+	var ehh = endDate.substr(8,2);
+	var emm = endDate.substr(10,2);
+	var ess = endDate.substr(12,2);
+	
+		
+	 var d1 = new Date (sy, sm, sd, shh, smm, sss);
+	 var d2 = new Date (ey, em, ed, ehh, emm, ess);
+	 
+	 var start_t = d1.valueOf();
+	 var end_t = d2.valueOf();
+
+
+
+	 var millis = end_t - start_t;
+	 
+	 //Hour
+	 var hours = Math.floor(millis/(1000*60*60), 0);
+	 //Minute 
+	 var minutes = Math.floor(millis/(1000*60) % 60, 0);
+	 //Mili seconds
+	 var seconds = Math.floor((millis/1000) % 60, 0);
+	 
+	 
+	 return [hours,minutes,seconds];
+};]]></Script>
+  </Form>
+</FDL>

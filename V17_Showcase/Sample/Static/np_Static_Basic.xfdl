@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Static_Basic" classname="Static_Basic" inheritanceid="" position="absolute" titletext="Static" onload="Static_Basic_onload" left="0" top="0" width="760" height="460">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Binding" class="sta_WF_subtitle" position="absolute" left="30" top="18" width="283" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid01" taborder="1" binddataset="ds_data" autofittype="col" position="absolute" left="30" top="73" width="253" height="326">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="code" font="9pt &quot;Arial&quot;"/>
+                <Cell col="1" text="name" font="9pt &quot;Arial&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" style="align:left;" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" text="Static00" position="absolute" left="75" top="409" width="25" height="30" padding="0 0 0 10" textAlign="right"/>
+        <Static id="Static02" text="Static00" position="absolute" left="117" top="409" width="100" height="30" border="1 solid #808080" padding="0 0 0 10" textAlign="left"/>
+        <Static id="Static08" position="absolute" left="421" top="73" width="269" height="21" padding="0 0 0 10" border="1 solid #808080"/>
+        <Static id="Static01" text="Expr" class="sta_WF_subtitle" position="absolute" left="421" top="18" width="283" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static03" taborder="2" text="Expressing Multiple Strings" left="421" top="129" width="369" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+        <Static id="Static04" taborder="3" left="421" top="184" width="267" height="38" text="ABCD&#13;&#10;EFGH" border="1 solid #808080" padding="0 0 0 10"/>
+        <Button id="Button00" taborder="4" text="Using Script for breaking lines" left="421" top="242" width="220" height="40" onclick="Button00_onclick"/>
+        <Static id="Static06" taborder="9" text="Value :" left="30" top="409" width="45" height="30"/>
+        <Static id="Static07" taborder="10" text="/" left="107" top="409" width="6" height="30"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Static00" propid="text" datasetid="ds_data" columnid="Column0"/>
+      <BindItem id="item1" compid="Static02" propid="text" datasetid="ds_data" columnid="Column1"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">aple</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">pineapple</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">tangerine</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">orange</Col>
+            <Col id="Column0">4</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">blueberry</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">pomegranate</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">pear</Col>
+            <Col id="Column0">7</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">grape</Col>
+            <Col id="Column0">8</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">peach</Col>
+            <Col id="Column0">9</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">watermelon</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Static_Basic_onload = function (obj:Form, e:LoadEventInfo)
+{
+	var objDate = new Date();
+	var sDate = this.toFormatString(objDate,"Y-m-d");
+	var str = "Today is  "+sDate.substr(0, 4) + " Year " +sDate.substr(5,2) + " Month "+sDate.substr(8, 2) + " Day";
+	this.Static08.set_text(str);
+};
+
+
+this.toFormatString = function(dt, fmt) {   
+      return fmt.replace(/(Y|y|m|d|h|H|i|s|am|pm)/gi,
+          function($1){
+              switch ($1){
+                  case 'Y': return dt.getFullYear();
+                  case 'y':   return dt.getFullYear().toString().substr(2);
+                  case 'm':   return dt.getMonth() + 1;
+                  case 'd':   return dt.getDate();
+                  case 'h':   return (h = dt.getHours() % 12) ? h : 12;
+                  case 'H':  return dt.getHours();
+                  case 'i':   return dt.getMinutes();
+                  case 's':   return dt.getSeconds();
+                  case 'am':   return dt.getHours() < 12 ? 'am' : 'pm';
+                  case 'pm':   return dt.getHours() < 12 ? 'am' : 'pm';
+              }
+          } 
+      )
+ };
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Static04.set_text('AB' +  String.fromCharCode(10) + 'CD');
+};
+  ]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="components" width="920" height="3590" onload="components_onload" titletext="기본 컴포넌트" ontimer="components_ontimer">
+    <Layouts>
+      <Layout height="3590" width="920">
+        <Div id="Div00" taborder="0" left="20" top="79" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Button" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Button id="Button00" taborder="2" text="Button" left="30" top="68" width="120" height="40" cssclass="btn_WF_basic01"/>
+              <Button id="Button04" taborder="3" text="Button" left="160" top="118" width="120" height="40" cssclass="btn_WF_basic02" enable="false"/>
+              <Button id="Button03" taborder="4" text="Button" left="30" top="118" width="120" height="40" cssclass="btn_WF_basic02"/>
+              <Button id="Button02" taborder="5" top="68" width="40" height="40" cssclass="btn_WF_inquiry" left="312"/>
+              <Button id="Button01" taborder="6" text="Button" left="160" top="68" width="120" height="40" cssclass="btn_WF_basic01" enable="false"/>
+              <Button id="Button05" taborder="7" left="310" top="123" width="30" height="30" cssclass="btn_WF_add"/>
+              <Button id="Button06" taborder="8" left="344" top="123" width="30" height="30" cssclass="btn_WF_delete"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="1" top="290" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" left="471">
+          <Layouts>
+            <Layout>
+              <Static id="Static03_00" taborder="0" text="Combo" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Combo id="Combo00" taborder="2" text="list1" left="50" top="68" width="150" height="40" itemheight="36" index="0" innerdataset="ds_combo" codecolumn="code" datacolumn="data" value="1"/>
+              <Combo id="Combo01" taborder="3" text="list1" left="227" top="68" width="150" height="40" enable="false" value="1" index="0" innerdataset="ds_combo" codecolumn="code" datacolumn="data" itemheight="36"/>
+              <Combo id="Combo02" taborder="4" text="list1" left="50" top="123" width="150" height="40" cssclass="cmb_WF_essential" value="1" index="0" innerdataset="ds_combo" codecolumn="code" datacolumn="data" itemheight="36"/>
+              <Combo id="Combo03" taborder="5" text="list1" left="227" top="123" width="150" height="40" readonly="true" value="1" index="0" innerdataset="ds_combo" codecolumn="code" datacolumn="data" itemheight="36"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div05" taborder="2" top="501" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" left="471">
+          <Layouts>
+            <Layout>
+              <Static id="Static03_00" taborder="0" text="MaskEdit" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <MaskEdit id="MaskEdit00" taborder="2" left="50" top="68" width="150" height="40" format="###-{####}-####" value="00123456789" type="string"/>
+              <MaskEdit id="MaskEdit01" taborder="3" left="227" top="68" width="150" height="40" enable="false" format="###-{####}-####" value="00123456789" type="string"/>
+              <MaskEdit id="MaskEdit02" taborder="4" left="50" top="125" width="150" height="40" readonly="true" format="###-{####}-####" value="00123456789" type="string"/>
+              <MaskEdit id="MaskEdit03" taborder="5" left="227" top="125" width="150" height="40" cssclass="msk_WF_essential" format="###-{####}-####" value="00123456789" type="string"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div04" taborder="3" left="20" top="501" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Edit" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Edit id="Edit00" taborder="2" left="50" top="68" width="150" height="40" value="James" text="James"/>
+              <Edit id="Edit01" taborder="3" left="227" top="68" width="150" height="40" enable="false" value="James" text="James"/>
+              <Edit id="Edit02" taborder="4" left="50" top="123" width="150" height="40" readonly="true" value="James" text="James"/>
+              <Edit id="Edit03" taborder="5" top="123" width="150" height="40" left="227" cssclass="edit_WF_essential" value="James" text="James"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="4" left="471" top="79" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" width="430" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Checkbox / Radio" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static02_02_00" taborder="2" text="Checkbox" left="50" top="67" width="100" height="30" cssclass="sta_WF_compTitle03"/>
+              <CheckBox id="CheckBox00" taborder="3" left="50" top="99" width="50" height="50"/>
+              <CheckBox id="CheckBox01" taborder="4" left="95" top="99" width="50" height="50" value="true"/>
+              <Static id="Static02_00_02_00" taborder="5" text="Radio" left="199" top="67" width="100" height="30" cssclass="sta_WF_compTitle03"/>
+              <Radio id="Radio00" taborder="6" left="184" top="99" width="82" height="50" innerdataset="ds_rdo" codecolumn="code" datacolumn="data" direction="vertical" value="1" text="" index="1"/>
+              <Static id="Static02_00_02_00_00" taborder="7" text="Toggle" left="320" top="67" width="70" height="30" cssclass="sta_WF_compTitle03"/>
+              <CheckBox id="CheckBox01_00" taborder="8" left="320" top="99" width="60" height="50" cssclass="chk_WF_toggle" value="true"/>
+            </Layout>
+            <Layout name="Layout0">
+              <Static id="Static02_02_00" left="38" top="67" width="100" height="30"/>
+              <CheckBox id="CheckBox00" left="38" top="99" width="50" height="50"/>
+              <CheckBox id="CheckBox01" left="83" top="99" width="50" height="50"/>
+              <Static id="Static02_00_02_00" left="187" top="67" width="100" height="30"/>
+              <Radio id="Radio00" left="172" top="99" width="82" height="50"/>
+              <Static id="Static02_00_02_00_00" left="308" top="67" width="70" height="30"/>
+              <CheckBox id="CheckBox01_00" left="308" top="99" width="60" height="50"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="5" top="290" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" left="20">
+          <Layouts>
+            <Layout>
+              <Static id="Static03_00" taborder="0" text="Listbox" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <ListBox id="ListBox00" taborder="2" left="50" top="63" height="106" right="50" innerdataset="ds_grid" codecolumn="ID" datacolumn="이름" value="#101" text="James" index="0"/>
+            </Layout>
+            <Layout name="Layout0"/>
+          </Layouts>
+        </Div>
+        <Div id="Div06" taborder="6" left="20" top="712" width="880" height="300" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="-1"/>
+              <Static id="Static03_00" taborder="1" text="Grid" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Grid id="Grid00" taborder="2" left="30" top="65" height="202" binddataset="ds_grid" autofittype="col" scrollbarsize="5" right="30">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="55"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="40" band="head"/>
+                      <Row size="40"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                      <Cell col="1" text="ID"/>
+                      <Cell col="2" text="Name"/>
+                      <Cell col="3" text="Price"/>
+                      <Cell col="4" text="Creation Date"/>
+                      <Cell col="5" text="Approval"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:checkbox" displaytype="checkboxcontrol" edittype="checkbox"/>
+                      <Cell col="1" text="bind:ID"/>
+                      <Cell col="2" text="bind:이름"/>
+                      <Cell col="3" text="bind:설정금액"/>
+                      <Cell col="4" text="bind:생성일"/>
+                      <Cell col="5" text="bind:승인" displaytype="imagecontrol"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+            <Layout name="Layout0"/>
+          </Layouts>
+        </Div>
+        <Div id="Div07" taborder="7" left="20" top="1032" width="430" height="278" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Calendar" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Calendar id="Calendar00" taborder="2" left="20" top="65" width="160" height="40"/>
+              <Calendar id="Calendar01" taborder="3" top="65" width="192" height="190" right="20" type="monthonly"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div08" taborder="8" top="1032" width="430" height="278" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" left="471">
+          <Layouts>
+            <Layout>
+              <Static id="Static03_00" taborder="0" text="Textarea" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <TextArea id="TextArea00" taborder="2" left="30" top="65" height="190" right="30" value="nexacro platform Overview&#10;&#10;UI/UX development platform that provides a system development environment optimized for businesses.&#10;Unified Framework-based HTML5 solution that ensures the best performance and speed.&#10;A WYSIWYG-based development tool ‘nexacro studio’ and a full array of UI/UX components.&#10;No-Download, No-Install, One Source Multi-Use support.&#10;" wordWrap="english"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div09" taborder="9" left="20" top="1330" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Static" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00_00_00_01_00_00_01" taborder="2" text="Static" left="30" top="60" width="170" height="30" cssclass="sta_WF_compTitle01"/>
+              <Static id="Static01" taborder="3" text="Static02" left="30" top="104" width="120" height="60" cssclass="sta_WF_compTitle02"/>
+              <Static id="Static02" taborder="4" text="Static03" left="234" top="104" width="130" height="60" background="linear-gradient(to right,#a598ef,#ff9fa6)"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div10" taborder="10" top="1330" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" left="471">
+          <Layouts>
+            <Layout>
+              <Static id="Static03_00" taborder="0" text="Groupbox" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <GroupBox id="GroupBox00" taborder="2" text="GroupBox" left="30" top="65" width="358" height="94"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div11" taborder="11" left="20" top="1540" width="880" height="239" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="ImageViewer" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <ImageViewer id="ImageViewer00" taborder="2" left="30" top="95" width="234" height="115" image="url('imagerc::img_WF_sample01.png')" text=""/>
+              <Static id="Static02_02_00" taborder="3" text="stretch:none" left="30" top="57" width="200" height="30" cssclass="sta_WF_compTitle03"/>
+              <Static id="Static02_02_00_00" taborder="4" text="stretch:fit" left="321" top="57" width="200" height="30" cssclass="sta_WF_compTitle03"/>
+              <ImageViewer id="ImageViewer01" taborder="5" left="321" top="95" width="234" height="115" image="url('imagerc::img_WF_sample01.png')" stretch="fit"/>
+              <Static id="Static02_02_00_00_00" taborder="6" text="stretch:fixaspectratio" left="610" top="57" width="200" height="30" cssclass="sta_WF_compTitle03"/>
+              <ImageViewer id="ImageViewer02" taborder="7" left="610" top="95" width="234" height="115" image="url('imagerc::img_WF_sample01.png')" stretch="fixaspectratio"/>
+            </Layout>
+            <Layout name="Layout0">
+              <ImageViewer id="ImageViewer00" left="20" top="95" width="98" height="115"/>
+              <ImageViewer id="ImageViewer01" left="151" top="95" width="98" height="115"/>
+              <ImageViewer id="ImageViewer02" left="282" top="95" width="98" height="115"/>
+              <Static id="Static02_02_00_00_00" left="263" top="57" height="30" right="2"/>
+              <Static id="Static02_02_00_00" left="158" top="57" width="81" height="30"/>
+              <Static id="Static02_02_00" left="20" top="57" width="95" height="30"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div13" taborder="12" top="1799" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" left="471">
+          <Layouts>
+            <Layout>
+              <Static id="Static03_00" taborder="0" text="Tab" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Tab id="Tab00" taborder="2" tabindex="0" left="30" top="65" width="358" height="94" tabbuttonwidth="100" tabbuttonheight="30">
+                <Tabpages>
+                  <Tabpage id="Tabpage1" text="Tabpage1"/>
+                  <Tabpage id="Tabpage2" text="Tabpage2"/>
+                </Tabpages>
+              </Tab>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div12" taborder="13" left="20" top="1799" width="430" height="190" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Progressbar" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <ProgressBar id="ProgressBar00" taborder="2" max="100" min="0" left="30" top="77" height="40" smooth="true" pos="60" text="60%" right="30"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div14" taborder="14" left="20" top="2009" width="880" height="169" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Menu" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Menu id="Menu00" taborder="2" left="30" top="65" height="43" right="30" innerdataset="ds_menu" captioncolumn="caption" checkboxcolumn="check" enablecolumn="enable" hotkeycolumn="hotkey" iconcolumn="icon" idcolumn="id" levelcolumn="level" popupitemheight="40"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static01" taborder="15" text="기본 컴포넌트" left="20" top="20" width="176" height="40" cssclass="sta_WF_pageTitle" messageid="comp.components"/>
+        <Div id="Div15" taborder="16" left="20" top="2198" width="880" height="389" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="ListView" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <ListView id="lstList" taborder="2" left="30" top="60" right="30" binddataset="dsList" bandinitstatus="collapse" bandexpandtype="accordion" oncellclick="lstList_oncellclick" onbandstatuschanged="lstList_onbandstatuschanged" formatid="default" height="307">
+                <Formats>
+                  <Format id="default">
+                    <Band id="body" left="0" width="100%" top="0" height="50" expandbartype="true" expandbarsize="50 50">
+                      <Cell id="Cell00" left="10" top="6" width="155" height="35" text="bind:ORG_NM" font="bold 12pt/normal &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                      <Cell id="Cell01" left="172" top="6" height="35" text="bind:EMP_NM" right="60" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                    </Band>
+                    <Band id="detail" left="0" width="100%" top="0" height="180">
+                      <Cell id="Cell00" left="8" top="10" width="150" displaytype="imagecontrol" text="bind:IMG_URL" bottom="10"/>
+                      <Cell id="Cell01" left="160" top="10" width="80" height="40" text="Name :" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                      <Cell id="Cell02" left="237" top="10" width="257" height="40" text="bind:EMP_NM" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                      <Cell id="Cell03" left="160" top="49" width="80" height="40" text="Position :" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                      <Cell id="Cell04" left="237" top="49" width="257" height="40" text="bind:JOB_NM" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                      <Cell id="Cell05" left="160" top="88" width="80" height="40" text="Tel :" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                      <Cell id="Cell06" left="237" top="88" width="257" height="40" text="bind:TEL_NO" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                      <Cell id="Cell07" left="160" top="127" width="80" height="40" text="E-mail :" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                      <Cell id="Cell08" left="237" top="127" width="257" height="40" text="bind:EMAIL" font="normal 11pt &quot;맑은 고딕&quot;,&quot;Noto Sans KR&quot;,&quot;Helvetica&quot;"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </ListView>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div16" taborder="17" left="20" top="2607" width="430" height="278" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Sketch" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Sketch id="Sketch00" taborder="2" left="30" top="65" text="" border="0px none" width="368" height="181"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div17" taborder="18" top="2607" width="430" height="278" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" left="471">
+          <Layouts>
+            <Layout>
+              <Static id="Static03_00" taborder="0" text="VideoPlayer" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <VideoPlayer id="VideoPlayer00" taborder="2" left="30" top="65" width="368" height="181" repeat="true" url="https://demo.nexacroplatform.com/nexacro-demo/ubi4/nexaCnP.mp4" autoplay="true" showcontrolbar="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div18" taborder="19" left="20" top="2905" width="430" height="278" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Graphic" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Graphics id="Graphics00" taborder="2" left="30" top="65" right="30" bottom="30"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div19" taborder="20" top="2905" width="430" height="278" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" left="471">
+          <Layouts>
+            <Layout>
+              <Static id="Static03_00" taborder="0" text="WebBrowser" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <Static id="Static00" taborder="1" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <WebBrowser id="WebBrowser00" taborder="2" left="30" top="65" width="368" height="181"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div20" taborder="21" left="20" top="3203" width="880" height="369" border="1px solid #e4e9f8" borderRadius="20px" background="#ffffff" text="" visible="false" formscrolltype="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Static00" left="0" top="40" height="1" background="#e4e9f8" right="0"/>
+              <Static id="Static03_00" taborder="1" text="Map" left="30" top="8" height="30" cssclass="sta_WF_txt20px" right="30"/>
+              <GoogleMap id="GoogleMap00" taborder="2" left="0" top="40" right="0" onload="GoogleMap00_onload" apikey="AIzaSyDB7kSi044ZqvzOhBqmyK4I-p_sLjTbnXM" bottom="0"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+      <Layout name="Layout0" width="440" height="5540" mobileorientation="portrait">
+        <Div id="Div00" left="20" top="79" right="20" height="190"/>
+        <Div id="Div02" left="20" top="499" height="190" right="20"/>
+        <Div id="Div03" left="20" top="709" height="190" text="" right="20"/>
+        <Div id="Div05" left="20" top="1129" height="190" text="" right="20"/>
+        <Div id="Div04" left="20" top="919" height="190" right="20"/>
+        <Div id="Div01" left="20" top="289" height="190" right="20"/>
+        <Div id="Div08" left="20" top="1957" height="278" right="20"/>
+        <Div id="Div06" left="20" top="1339" height="300" text="" right="20"/>
+        <Div id="Div11" text="" left="20" top="2675" height="239" right="20"/>
+        <Div id="Div09" left="20" top="2255" height="190" right="20"/>
+        <Div id="Div10" left="20" top="2465" height="190" right="20"/>
+        <Div id="Div15" left="20" top="3543" height="389" right="20"/>
+        <Div id="Div14" left="20" top="3354" height="169" right="20"/>
+        <Div id="Div13" left="20" top="3144" height="190" text="" right="20"/>
+        <Div id="Div12" left="20" top="2934" height="190" right="20"/>
+        <Div id="Div07" left="20" top="1659" height="278" right="20"/>
+        <Div id="Div16" left="20" top="3952" height="278" text="" right="20"/>
+        <Div id="Div17" left="20" top="4250" height="278" right="20"/>
+        <Div id="Div18" left="20" top="4548" height="278" right="20"/>
+        <Div id="Div19" left="20" top="4846" height="278" right="20"/>
+        <Div id="Div20" left="20" top="5144" height="369" right="20"/>
+        <Static id="Static01" left="212" top="20" width="136" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_rdo">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_grid">
+        <ColumnInfo>
+          <Column id="checkbox" type="STRING" size="256"/>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="이름" type="STRING" size="256"/>
+          <Column id="설정금액" type="STRING" size="256"/>
+          <Column id="생성일" type="STRING" size="256"/>
+          <Column id="승인" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">#101</Col>
+            <Col id="이름">James</Col>
+            <Col id="설정금액">11,235</Col>
+            <Col id="생성일">2020-08-01</Col>
+            <Col id="checkbox">0</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#102</Col>
+            <Col id="이름">Bill</Col>
+            <Col id="설정금액">15,698</Col>
+            <Col id="생성일">2020-08-01</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#103</Col>
+            <Col id="이름">Elyse</Col>
+            <Col id="설정금액">15,756</Col>
+            <Col id="생성일">2020-08-02</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_reject.png</Col>
+          </Row>
+          <Row>
+            <Col id="ID">#104</Col>
+            <Col id="이름">Jenny</Col>
+            <Col id="설정금액">15,756</Col>
+            <Col id="생성일">2020-08-02</Col>
+            <Col id="checkbox">1</Col>
+            <Col id="승인">imagerc::img_grd_approval.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_menu">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="caption" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="enable" type="STRING" size="256"/>
+          <Column id="check" type="STRING" size="256"/>
+          <Column id="hotkey" type="STRING" size="256"/>
+          <Column id="icon" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">1</Col>
+            <Col id="caption">Nexacro</Col>
+            <Col id="level">0</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">2</Col>
+            <Col id="caption">Overview</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">3</Col>
+            <Col id="caption">Introduce</Col>
+            <Col id="level">1</Col>
+            <Col id="icon">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">5</Col>
+            <Col id="caption">Products</Col>
+            <Col id="level">2</Col>
+            <Col id="icon">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">6</Col>
+            <Col id="caption">Tobesoft</Col>
+            <Col id="level">0</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="id">7</Col>
+            <Col id="caption">History</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">8</Col>
+            <Col id="caption">IT Solution</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">9</Col>
+            <Col id="caption">Technology</Col>
+            <Col id="level">1</Col>
+            <Col id="enable">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">10</Col>
+            <Col id="caption">News</Col>
+            <Col id="level">0</Col>
+            <Col id="icon"/>
+          </Row>
+          <Row>
+            <Col id="caption">Notice</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="caption">Social Activity</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="caption">Recruit</Col>
+            <Col id="level">1</Col>
+            <Col id="icon">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="caption">Information</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="caption">Contact</Col>
+            <Col id="level">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="data">list1</Col>
+            <Col id="code">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">list2</Col>
+            <Col id="code">2</Col>
+          </Row>
+          <Row>
+            <Col id="data">list3</Col>
+            <Col id="code">3</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo_toggle">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsList">
+        <ColumnInfo>
+          <Column id="EMP_NO" type="STRING" size="256"/>
+          <Column id="ORG_NM" type="STRING" size="256"/>
+          <Column id="EMP_NM" type="STRING" size="256"/>
+          <Column id="IMG_URL" type="STRING" size="256"/>
+          <Column id="JOB_NM" type="STRING" size="256"/>
+          <Column id="TEL_NO" type="STRING" size="256"/>
+          <Column id="EMAIL" type="STRING" size="256"/>
+          <Column id="BRITHDAY" type="STRING" size="256"/>
+          <Column id="REMARK" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ORG_NM">TOBESOFT</Col>
+            <Col id="EMP_NM">James</Col>
+            <Col id="IMG_URL">imagerc::img_WF_lstvProfile01.png</Col>
+            <Col id="JOB_NM">CEO</Col>
+            <Col id="EMP_NO">01070101</Col>
+            <Col id="TEL_NO">010-1111-1234</Col>
+            <Col id="EMAIL">ceo@tobesoft.com</Col>
+            <Col id="BRITHDAY">19650105</Col>
+            <Col id="REMARK">Remark1</Col>
+          </Row>
+          <Row>
+            <Col id="ORG_NM">R&amp;D</Col>
+            <Col id="EMP_NM">Bill</Col>
+            <Col id="IMG_URL">imagerc::img_WF_lstvProfile02.png</Col>
+            <Col id="JOB_NM">Team Leader</Col>
+            <Col id="EMP_NO">01070102</Col>
+            <Col id="TEL_NO">010-2222-2345</Col>
+            <Col id="EMAIL">Bill@tobesoft.com</Col>
+            <Col id="BRITHDAY">19800701</Col>
+            <Col id="REMARK">Remark2</Col>
+          </Row>
+          <Row>
+            <Col id="ORG_NM">Strategy Team</Col>
+            <Col id="EMP_NM">Elyse</Col>
+            <Col id="IMG_URL">imagerc::img_WF_lstvProfile03.png</Col>
+            <Col id="JOB_NM">General Manager</Col>
+            <Col id="EMP_NO">01070103</Col>
+            <Col id="TEL_NO">010-3333-4567</Col>
+            <Col id="EMAIL">Elyse@tobesoft.com</Col>
+            <Col id="BRITHDAY">19810725</Col>
+            <Col id="REMARK">Remark3</Col>
+          </Row>
+          <Row>
+            <Col id="ORG_NM">IT Infra Team</Col>
+            <Col id="EMP_NM">Jenny</Col>
+            <Col id="IMG_URL">imagerc::img_WF_lstvProfile04.png</Col>
+            <Col id="JOB_NM">General Manager</Col>
+            <Col id="EMP_NO">01070104</Col>
+            <Col id="TEL_NO">010-4444-5555</Col>
+            <Col id="EMAIL">Jenny@tobesoft.com</Col>
+            <Col id="BRITHDAY">19750302</Col>
+            <Col id="REMARK">Remark4</Col>
+          </Row>
+          <Row>
+            <Col id="ORG_NM">Law Team</Col>
+            <Col id="EMP_NM">John</Col>
+            <Col id="IMG_URL">imagerc::img_WF_lstvProfile05.png</Col>
+            <Col id="JOB_NM">General Manager</Col>
+            <Col id="EMP_NO">01070105</Col>
+            <Col id="TEL_NO">010-5555-9874</Col>
+            <Col id="EMAIL">John@tobesoft.com</Col>
+            <Col id="BRITHDAY">19790909</Col>
+            <Col id="REMARK">Remark5</Col>
+          </Row>
+          <Row>
+            <Col id="IMG_URL">imagerc::img_WF_lstvProfile06.png</Col>
+            <Col id="ORG_NM">General Affairs Team</Col>
+            <Col id="EMP_NM">Edward</Col>
+            <Col id="JOB_NM">Assistant Manager</Col>
+            <Col id="EMP_NO">01070106</Col>
+            <Col id="TEL_NO">010-6666-9632</Col>
+            <Col id="EMAIL">Edward@tobesoft.com</Col>
+            <Col id="BRITHDAY">19860129</Col>
+            <Col id="REMARK">Remark6</Col>
+          </Row>
+          <Row>
+            <Col id="IMG_URL">imagerc::img_WF_lstvProfile07.png</Col>
+            <Col id="ORG_NM">HR Team</Col>
+            <Col id="EMP_NM">Michael</Col>
+            <Col id="JOB_NM">Assistant Manager</Col>
+            <Col id="EMP_NO">01070107</Col>
+            <Col id="TEL_NO">010-7777-0258</Col>
+            <Col id="EMAIL">Michael@tobesoft.com</Col>
+            <Col id="BRITHDAY">19900701</Col>
+            <Col id="REMARK">Remark7</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sketch">
+        <ColumnInfo>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="value">data:image/png;base64,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</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[ 
+this.components_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	//Map component (IE10  IE11  Edge  Chrome  Safari  Firefox  Opera & mobile)
+	var osVersion = system.osversion;
+	if( ((osVersion.indexOf("Android") != -1 || osVersion.indexOf("iOS") != -1) && nexacro._Browser == "Runtime")
+	    || (nexacro._Browser == "IE" && nexacro._BrowserVersion >= 10)
+		|| nexacro._Browser == "Edge" || nexacro._Browser == "Chrome" || nexacro._Browser == "Safari" || nexacro._Browser == "Firefox")
+	{
+		this.Div20.set_visible(true);
+		this.resetScroll();
+	}
+
+	
+	
+	//Sketch Component
+	this.Div16.form.Sketch00.setBrushSize( 3 );
+	this.Div16.form.Sketch00.loadSketch( this.ds_sketch.getColumn(0,0) );
+	
+	
+	//WebBrowser Component (운영서버에서 정상작동을 위해서는 https로 호출되어야 함)
+	this.Div19.form.WebBrowser00.set_url("https://www.tobesoft.com/");
+	
+	
+	//Graphics Component
+	//GraphicsRect
+	var objGRect = new nexacro.GraphicsRect();
+	this.Div18.form.Graphics00.addChild( "GraphicsRect00", objGRect );
+	objGRect.set_x(50);
+	objGRect.set_y(50);
+	objGRect.set_width(50);
+	objGRect.set_height(50);
+	objGRect.set_strokepen("2px dashed green");
+	
+	// GraphicsEllipse
+	var objGEllipse = new nexacro.GraphicsEllipse();
+	objGEllipse.set_x(150);
+	objGEllipse.set_y(75);
+ 	objGEllipse.set_width(50);
+ 	objGEllipse.set_height(50);
+	objGEllipse.set_strokepen("3px solid gray");	
+	
+	// GraphicsText
+	var objGText = new nexacro.GraphicsText();
+	objGText.set_x(200);
+	objGText.set_y(50);
+	objGText.set_color('red');
+	objGText.set_font('14pt/normal Verdana'); 
+ 	objGText.set_text('tobesoft');
+	
+	// GraphicsImage
+	var objGImage = new nexacro.GraphicsImage();
+	objGImage.set_x(180);
+	objGImage.set_y(100);	
+	objGImage.set_image("url('imagerc::img_WF_sample02.png')");	
+	
+	// GraphicsLine
+	var objGLine = new nexacro.GraphicsLine();
+	objGLine.set_x(50);
+	objGLine.set_y(120);
+	objGLine.set_x2(100);
+	objGLine.set_y2(0);
+	objGLine.set_strokepen('2px solid red');  
+	
+	// GraphicsPaths
+	var objGPaths = new nexacro.GraphicsPaths();
+	objGPaths.set_x(50);
+	objGPaths.set_y(120);
+	objGPaths.set_strokepen('5px dotted blue');  
+
+	
+	var objGPath = new nexacro.GraphicsPath();	
+	trace(objGPath.hasSegments());
+	objGPaths.addChild( "GraphicsPath00", objGPath );
+	objGPath.moveTo(0,0);
+	objGPath.arcTo( 50, 50, 50, 100, 0, true, false );
+	trace(objGPath.hasSegments());
+	
+	// GraphicsGroup 
+	var objGGroup = new nexacro.GraphicsGroup();
+	this.Div18.form.Graphics00.addChild( "GraphicsGroup00", objGGroup );
+	objGGroup.addChild("GraphicsEllipse00", objGEllipse);
+	objGGroup.addChild("GraphicsText00", objGText);
+	objGGroup.addChild("GraphicsImage00", objGImage);
+	objGGroup.addChild("GraphicsLine00", objGLine);
+	objGGroup.addChild("GraphicsPaths00", objGPaths);
+	this.Div18.form.Graphics00.redraw();
+	
+		
+	
+	//MAP Component
+	this.Div20.form.GoogleMap00.load(false, 37.5240220, 126.9265940, 0, 15);
+};
+
+this.GoogleMap00_onload = function(obj:nexacro.GoogleMap,e:nexacro.GoogleMapEventInfo)
+{
+	var objGoogleMapMaker = new nexacro.GoogleMapMarker();
+	objGoogleMapMaker.set_latitude(37.5148693);
+	objGoogleMapMaker.set_longitude(127.0607522);
+	objGoogleMapMaker.set_text("TOBESOFT");
+	objGoogleMapMaker.set_visible(true);
+	
+	this.Div20.form.GoogleMap00.addItem("MapMarker", objGoogleMapMaker);
+};
+]]></Script>
+  </Form>
+</FDL>

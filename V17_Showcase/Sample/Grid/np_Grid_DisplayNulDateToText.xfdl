@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="GridDate" left="0" top="0" width="1024" height="768" titletext="Displaying Grid null date to text">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="88" width="500" height="110" binddataset="Dataset00" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="150"/>
+              </Columns>
+              <Rows>
+                <Row size="36"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="bind:Comment"/>
+                <Cell col="1" text="bind:Date"/>
+                <Cell col="2" text="bind:Date" calendardisplaynulltext="Set null text" calendardisplaynulltype="nulltext"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="2" text="This is sample shows 0000-00-00 value replacing as 'Set null text'.&#13;&#10;In the below Grid, if date is blank, it is set as Set null text." cssclass="sta_WF_explain" left="30" top="18" width="611" height="50" style="font:bold 9 Dotum;" onclick="Static07_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Comment" type="STRING" size="256"/>
+          <Column id="Date" type="DATE" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Comment">aaa</Col>
+            <Col id="Date">20141231</Col>
+          </Row>
+          <Row>
+            <Col id="Comment">undefined :</Col>
+          </Row>
+          <Row>
+            <Col id="Comment">Blank :</Col>
+            <Col id="Date"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.Static07_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

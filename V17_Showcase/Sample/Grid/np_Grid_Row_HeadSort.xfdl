@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_Row_Sort" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="HeadSort" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_output" taborder="0" useinputpanel="false" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;COL3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;bind:COL3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" binddataset="ds_data" onheaddblclick="grd_output_onheaddblclick" position="absolute" left="30" width="700" top="78" height="294" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+                <Cell col="2" text="COL2"/>
+                <Cell col="3" text="COL3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL0"/>
+                <Cell col="1" text="bind:COL1"/>
+                <Cell col="2" text="bind:COL2"/>
+                <Cell col="3" text="bind:COL3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="1" text="Implementing Sorting in Grid " left="30" top="13" width="500" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+          <Column id="COL2" type="STRING" size="256"/>
+          <Column id="COL3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">1</Col>
+            <Col id="COL1">A</Col>
+            <Col id="COL2">가</Col>
+            <Col id="COL3">6</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">7</Col>
+            <Col id="COL1">B</Col>
+            <Col id="COL2">나</Col>
+            <Col id="COL3">5</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">6</Col>
+            <Col id="COL1">C</Col>
+            <Col id="COL2">다</Col>
+            <Col id="COL3">4</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">5</Col>
+            <Col id="COL1">D</Col>
+            <Col id="COL2">라</Col>
+            <Col id="COL3">3</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">4</Col>
+            <Col id="COL1">E</Col>
+            <Col id="COL2">마</Col>
+            <Col id="COL3">2</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">3</Col>
+            <Col id="COL1">F</Col>
+            <Col id="COL2">바</Col>
+            <Col id="COL3">1</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">2</Col>
+            <Col id="COL1">G</Col>
+            <Col id="COL2">사</Col>
+            <Col id="COL3">7</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Comp_Grid_Row_Sort
+ * Description : Implementing Sorting in Grid
+ */
+
+/*  onheaddblclick  */
+this.grd_output_onheaddblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var objDs = this.objects[obj.binddataset];
+ 										
+	for (var i = 0; i < obj.getCellCount("head"); i++)
+	{	
+		var sHeadText = obj.getCellText(-1, i);
+        var nLen      = sHeadText.length - 1;  
+   
+		if (i == e.cell)
+		{
+            var sColId = (obj.getCellProperty("body", e.col,"text")).toString().split(":");
+			if (sHeadText.substr(nLen) == "▲") 
+			{
+				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▼");
+				objDs.set_keystring("S:-" + sColId[1]);
+			}
+			else if (sHeadText.substr(nLen) == "▼") 
+			{
+				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▲");
+				objDs.set_keystring("S:+" + sColId[1]);
+			}
+			else 
+			{
+				obj.setCellProperty( "head", i, "text", sHeadText+"▲");
+				objDs.set_keystring("S:+" + sColId[1]);
+			}
+			//this.alert("=================   ");
+		}
+		else
+		{
+			if (sHeadText.substr(nLen) == "▲" || sHeadText.substr(nLen) == "▼") 
+			{
+				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen));
+			}
+		}
+	}	
+};
+
+]]></Script>
+  </Form>
+</FDL>

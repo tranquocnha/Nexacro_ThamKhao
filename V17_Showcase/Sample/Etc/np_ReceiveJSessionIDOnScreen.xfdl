@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="web_test" classname="web_test" left="0" top="0" width="760" height="620" titletext="Receiving JJSESSIONID  value from JSP">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="WebBrowser00" left="30" top="105" height="140" taborder="0" width="700"/>
+        <Button id="Button00" taborder="1" text="Set JSP" left="740" top="105" height="34" onclick="Button00_onclick" width="140" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button01" taborder="2" text="Calling transaction" left="740" top="355" height="34" onclick="Button01_onclick" width="140" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static07" taborder="3" text="This sample shows, receiving JSessionID from JSP" cssclass="sta_WF_explain" left="30" top="25" width="500" height="30" style="font:bold 9 Dotum;"/>
+        <Grid id="Grid00" taborder="4" useinputpanel="false" left="30" top="355" height="150" binddataset="Dataset00" autofittype="col" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+                <Cell col="1" disptype="normal" text="Column1"/>
+                <Cell col="2" disptype="normal" text="Column2"/>
+                <Cell col="3" disptype="normal" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+                <Cell col="1" disptype="normal" text="bind:Column1"/>
+                <Cell col="2" disptype="normal" text="bind:Column2"/>
+                <Cell col="3" disptype="normal" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="5" text="Receiving JSessionID by transactionCalling transaction" cssclass="sta_WF_explain" left="30" top="315" width="500" height="30" style="font:bold 9 Dotum;"/>
+        <Edit id="Edit00" taborder="6" left="170" top="525" height="34" readonly="true" width="410"/>
+        <Static id="Static01" taborder="7" text="Received JSession id" left="30" top="525" width="140" height="34" style="font:bold 9 Dotum;"/>
+        <Static id="Static02" taborder="8" text="Receiving JSessionID from JSP onWebBrowser" cssclass="sta_WF_explain" left="30" top="65" width="500" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.jsession_id = "";  //Declared form object.
+
+
+// Linking JSP to WebBrowser by setting url.
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var objApp = nexacro.getApplication();
+	this.WebBrowser00.set_url( objApp.gv_SvcUrl + "send_session_id.jsp");
+};
+
+// Calling transaction 
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.transaction("test","Svc::send_session_id_transaction.jsp","","Dataset00=Dataset00","","fn_search_after");
+};
+
+// JSESSIONID is not received automatically from JSP, We have set in a variable manually.
+//JSESSIONID is received can be recieved in a variable from JSP file
+this.fn_search_after = function(svc, errcd,errmsg,jsession_id){
+	// JSESSIONID is saved into jsession_id form variable
+	this.Edit00.set_value(this.jsession_id);
+};]]></Script>
+  </Form>
+</FDL>

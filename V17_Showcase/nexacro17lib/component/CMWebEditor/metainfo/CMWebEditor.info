@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MetaInfo version="2.0">
+  <Object id="CMWebEditor">
+    <ObjectInfo inheritance="nexacro.WebBrowser" classname="nexacro.CMWebEditor" shorttypename="CMWebEditor" csstypename="CMWebEditor" csscontrolname="CMWebEditorControl" group="Component" subgroup="Component ( default )" csspseudo="true" container="false" composit="" tabstop="true" cssstyle="true" defaultwidth="0" defaultheight="0" registration="allow" edittype="" useinitvalue="true" popup="false" edittypecomponent="" dblclickevent="onusernotify" requirement="IE8,IE9,IE10,IE11,Edge,Chrome,Safari,Firefox,Opera,Windows nexacro Browser,macOS nexacro Browser,Android nexacro Browser,iOS nexacro Browser,Android Default Web Browser,iOS Default Web Browser" description="웹브라우저 ActiveX/Plugin의 Wrapper 컴포넌트입니다."/>
+    <PropertyInfo>
+      <Property name="contents" group="" subgroup="" edittype="String" unused="false" readonly="false" initonly="false" hidden="false" control="false" style="false" expr="false" bind="false" deprecated="false" mandatory="false" objectinfo="" refreshinfo="" enuminfo="" unitinfo="" delimiter="" requirement="" csspropertyname="" csselementname="" normalpropertyname="" description=""/>
+    </PropertyInfo>
+    <CSSInfo>
+      <PropertyInfo/>
+    </CSSInfo>
+    <StatusInfo/>
+    <MethodInfo>
+      <Method name="selectTheme" group="" async="false" usecontextmenu="false" deprecated="false" unused="false" requirement="" description="">
+        <Syntax text="selectTheme(strThemeName)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="strThemeName" type="String" in="true" out="false" option="false" variable="false" description="Theme를 지정합니다."/>
+          </Arguments>
+        </Syntax>
+      </Method>
+      <Method name="insertText" group="" async="false" usecontextmenu="false" deprecated="false" unused="false" requirement="" description="">
+        <Syntax text="insertText(strText)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="strText" type="String" in="true" out="false" option="false" variable="false" description="text를 추가합니다"/>
+          </Arguments>
+        </Syntax>
+      </Method>
+      <Method name="loadFileText" group="" async="false" usecontextmenu="false" deprecated="false" unused="false" requirement="" description="">
+        <Syntax text="loadFileText(strUrl)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="strUrl" type="String" in="true" out="true" option="false" variable="false" description="URL의 File을 읽어옵니다."/>
+          </Arguments>
+        </Syntax>
+      </Method>
+      <Method name="getText" group="" async="false" usecontextmenu="false" deprecated="false" unused="false" requirement="" description="">
+        <Syntax text="getText()">
+          <Return type="" description=""/>
+          <Arguments/>
+        </Syntax>
+      </Method>
+    </MethodInfo>
+    <EventHandlerInfo>
+      <EventHandler name="onnotify" group="Event" deprecated="false" unused="false" requirement="" description="">
+        <Syntax text="onnotify(obj:nexacro.CMWebEditor, e:nexacro.EditorUserNotifyInfo)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="obj" type="nexacro.CMWebEditor" in="true" out="false" option="false" variable="false" description=""/>
+            <Argument name="e" type="nexacro.EditorUserNotifyInfo" in="true" out="false" option="false" variable="false" description=""/>
+          </Arguments>
+        </Syntax>
+      </EventHandler>
+      <EventHandler name="oncontentschange" group="Event" deprecated="false" unused="false" requirement="" description="">
+        <Syntax text="oncontentschange(obj:nexacro.CMWebEditor, e:nexacro.EditorChangeInfo)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="obj" type="nexacro.CMWebEditor" in="true" out="false" option="false" variable="false" description=""/>
+            <Argument name="e" type="nexacro.EditorChangeInfo" in="true" out="false" option="false" variable="false" description=""/>
+          </Arguments>
+        </Syntax>
+      </EventHandler>
+      <EventHandler name="onhotkey" group="Event" deprecated="false" unused="false" requirement="" description="">
+        <Syntax text="onhotkey(obj:nexacro.CMWebEditor, e:nexacro.EditorHotkeyInfo)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="obj" type="nexacro.CMWebEditor" in="true" out="false" option="false" variable="false" description=""/>
+            <Argument name="e" type="nexacro.EditorHotkeyInfo" in="true" out="false" option="false" variable="false" description=""/>
+          </Arguments>
+        </Syntax>
+      </EventHandler>
+      <EventHandler name="oniframemousemove" group="Event" deprecated="false" unused="false" requirement="" description="">
+        <Syntax text="oniframemousemove(obj:nexacro.CMWebEditor, e:nexacro.EditorMouseMoveInfo)">
+          <Return type="" description=""/>
+          <Arguments>
+            <Argument name="obj" type="nexacro.CMWebEditor" in="true" out="false" option="false" variable="false" description=""/>
+            <Argument name="e" type="nexacro.EditorMouseMoveInfo" in="true" out="false" option="false" variable="false" description=""/>
+          </Arguments>
+        </Syntax>
+      </EventHandler>
+    </EventHandlerInfo>
+  </Object>
+</MetaInfo>

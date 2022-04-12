@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="FileUpDownload" classname="Main" left="0" top="0" width="760" height="750" titletext="FileUpDownload">
+    <Layouts>
+      <Layout>
+        <FileUpload id="FileUpload00" taborder="0" retry="0" index="0" left="30" top="73" width="700" height="300" onload="FileUpload00_onload" innerdataset="@ds_File" onitemchanged="FileUpload00_onitemchanged" style="buttontext:Select;" scrolltype="vertical" buttonsize="70" itemheight="40" onsuccess="FileUpload00_onsuccess" background="#f8f9fa" buttontext="Find"/>
+        <Button id="Button01" taborder="2" left="750" top="383" width="100" height="40" onclick="btn_upload" text="File Upload" font="" boxShadow=""/>
+        <Grid id="grd_FileList" taborder="5" binddataset="ds_File" scrollbars="autovert" useinputpanel="false" autofittype="col" left="30" top="383" width="700" height="300" cursor="crosshair" class="" onheadclick="grd_FileList_onheadclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="24"/>
+                <Column size="46"/>
+                <Column size="200"/>
+                <Column size="80"/>
+                <Column size="300"/>
+                <Column size="122"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox" style="background2: ;" font="14px/normal &quot;맑은고딕&quot;" color="#000000"/>
+                <Cell col="1" color="#000000" text="Seq" font="14px/normal &quot;맑은고딕&quot;"/>
+                <Cell col="2" color="#000000" text="File name" font="14px/normal &quot;맑은고딕&quot;"/>
+                <Cell col="3" color="#000000" text="File size" font="14px/normal &quot;맑은고딕&quot;"/>
+                <Cell col="4" color="#000000" text="File path" font="14px/normal &quot;맑은고딕&quot;"/>
+                <Cell col="5" color="#000000" text="File type" font="14px/normal &quot;맑은고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" font="14px/normal &quot;맑은고딕&quot;" color="#000000" background="#ffffff" text="bind:CHK"/>
+                <Cell col="1" testAlign="left" font="14px/normal &quot;맑은고딕&quot;" color="#000000" background="#ffffff" text="bind:NUM"/>
+                <Cell col="2" testAlign="left" font="14px/normal &quot;맑은고딕&quot;" color="#000000" background="#ffffff" text="bind:FILE_NAME"/>
+                <Cell col="3" testAlign="right" font="14px/normal &quot;맑은고딕&quot;" color="#000000" background="#ffffff" text="bind:FILE_SIZE"/>
+                <Cell col="4" testAlign="right" font="14px/normal &quot;맑은고딕&quot;" color="#000000" background="#ffffff" text="bind:FILE_PATH"/>
+                <Cell col="5" testAlign="right" font="14px/normal &quot;맑은고딕&quot;" color="#000000" background="#ffffff" text="bind:FILE_TYPE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="6" text="File Add" left="750" top="73" width="100" height="40" onclick="btn_add" font=""/>
+        <Button id="Button00" taborder="7" text="File Download" onclick="btn_download" left="750" top="433" width="100" height="40" font=""/>
+        <FileDownload id="FileDownload00" taborder="8" retry="0" onload="FileDownload00_onload" text="FileDownload00" visible="false" left="920" top="10" width="149" height="40"/>
+        <Static id="Static05" taborder="10" text="File Upload/Download" cssclass="sta_WF_subtitP" left="30" top="18" width="300" height="40"/>
+        <Button id="Button03" taborder="9" text="File Delete" onclick="btn_delete" left="750" top="483" width="100" height="40" font=""/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_File" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+          <Column id="FILE_SIZE" type="STRING" size="256"/>
+          <Column id="FILE_SAVENM" type="STRING" size="256"/>
+          <Column id="FILE_TYPE" type="STRING" size="256"/>
+          <Column id="NUM" type="STRING" size="256"/>
+          <Column id="CHK" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/*
+	Functionality : File add
+*/
+this.btn_add = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	this.FileUpload00.appendItem();
+};
+
+/*
+	Functionality : File download
+*/
+this.btn_download = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	for(var i = 0; i<this.ds_File.getRowCount(); i++){
+		if(this.ds_File.getColumn(i,"CHK")==1){
+			var strFileName = this.ds_File.getColumn(i, "FILE_SAVENM");
+			var strOriFileName = this.ds_File.getColumn(i, "FILE_NAME");
+			this.FileDownload00.downloadurl = "Svc::fileDownload.jsp?file="+strOriFileName;
+			//this.FileDownload00.downloadurl = "Svc_org::fileDownload.jsp?file="+strOriFileName;
+			this.FileDownload00.show();
+			var bSucc = this.FileDownload00.download();
+		}
+	}	
+};       
+
+/*    
+	Functionality : File upload
+*/
+this.btn_upload = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	var strUrl = "Svc::fileUpload.jsp?PATH=file";	
+	//var strUrl = "Svc_org::fileUpload.jsp?PATH=file";	
+	var bSucc = this.FileUpload00.upload(strUrl);
+};
+
+    
+
+/*
+	Functionality : Adding file for uploading(Maximum 1)
+*/
+this.FileUpload00_onitemchanged = function(obj:nexacro.FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	
+	//var vFile_up;
+	var sFilePath;
+	var sFileName;
+	//var nFileSize; 
+	var row_idx;
+	
+	sFilePath = obj.value;  
+
+	
+	if(sFilePath == null || sFilePath == "" ){
+	
+		var idx = this.FileUpload00.index;
+		this.ds_File.deleteRow(idx);
+		if(idx !=0){
+			this.FileUpload00.deleteItem(idx);
+		}
+		this.ds_File.setColumn(idx, "NUM", nexacro.toNumber(idx)+1);
+		return;
+	}
+	var dirExpt = sFilePath.lastIndexOf("\\")+1;	
+	
+	sFileName = sFilePath.substr(dirExpt);
+
+	if(this.ds_File.getRowCount() == this.FileUpload00.index){
+		this.ds_File.addRow();
+	}
+	var idx = this.FileUpload00.index;  
+	
+
+	this.ds_File.setColumn(idx, "FILE_PATH", sFilePath);
+	this.ds_File.setColumn(idx, "FILE_NAME", sFileName);
+	this.ds_File.setColumn(idx, "NUM", nexacro.toNumber(idx)+1);
+	this.ds_File.setColumn(idx, "CHK",1);
+
+};
+
+/*
+	Functionality : File deletion
+*/ 
+this.btn_delete = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{ 
+
+	for(var i = this.ds_File.getRowCount(); i>=0; i--)
+	{
+		if(this.ds_File.getColumn(i,"CHK") == 1){
+			this.ds_File.deleteRow(i);
+			this.FileUpload00.deleteItem(i); 
+
+		}
+	}
+	//var idx = this.FileUpload00.index;
+	for(var i =0;i<this.ds_File.getRowCount(); i++){
+		this.ds_File.setColumn(i, "NUM", i+1);
+	}
+
+	
+};
+
+this.grd_FileList_onheadclick = function(obj:nexacro.Grid, e:nexacro.GridClickEventInfo)
+{	
+	if(e.cell == 0){
+		if(obj.getCellProperty("head",0,'text') ==1){
+			obj.setCellProperty("head",0,'text',0)
+			for(var i=0;i<this.ds_File.getRowCount();i++){  
+				this.ds_File.setColumn(i,"CHK",0)
+			}
+		}else{
+			obj.setCellProperty("head",0,'text',1)
+			for(var i=0;i<this.ds_File.getRowCount();i++){
+				this.ds_File.setColumn(i,"CHK",1)
+			}
+		}
+	}  
+};
+
+this.FileDownload00_onload = function(obj:nexacro.FileDownload,  e:nexacro.FileDownLoadEventInfo)
+{
+	this.alert("Download success");
+};
+
+/*
+	Functionality : File upload success
+*/ 
+this.FileUpload00_onsuccess = function(obj:nexacro.FileUpload,e:nexacro.FileUploadEventInfo)
+{
+	if( e.datasets == null ){
+		this.alert("Upload error");
+	}else{
+		this.alert("Upload success");
+
+		// After file uploading sucess , saving file name into DataSet after receiving from output Dataset
+
+		this.ds_uploadresult.copyData(e.datasets[0]);
+trace(this.ds_uploadresult.saveXML()		);
+		for(var i=0; i<this.ds_uploadresult.rowcount; i++){
+			this.ds_File.setColumn(i,"FILE_PATH",this.ds_uploadresult.getColumn(i,"filePath"));
+			this.ds_File.setColumn(i,"FILE_SAVENM",this.ds_uploadresult.getColumn(i,"fileReName"));
+			this.ds_File.setColumn(i,"FILE_SIZE",this.ds_uploadresult.getColumn(i,"fileSize"));
+			this.ds_File.setColumn(i,"FILE_TYPE",this.ds_uploadresult.getColumn(i,"fileType"));
+		}
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

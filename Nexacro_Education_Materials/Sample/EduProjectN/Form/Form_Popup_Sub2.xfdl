@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Popup_Sub2" width="600" height="400" titletext="Form_Popup_Sub2" onload="form_onload" background="transparent">
+    <Layouts>
+      <Layout height="400" width="600">
+        <ImageViewer id="ImageViewer00" taborder="0" left="107" top="110" width="386" height="80" image="url('imagerc::NEXACRO.png')"/>
+        <Static id="st_close" taborder="1" text="Close" left="530" top="10" width="60" height="30" font="20px/normal &quot;Malgun Gothic&quot;" color="#f4f4f4" onclick="st_close_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[this.st_close_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+  </Form>
+</FDL>

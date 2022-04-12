@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Form_Step" classname="np_Form_Step" left="0" top="0" width="330" height="430" titletext="Step" style="stepshowtype:action;" dragscrolltype="all" ontimer="np_Form_Step_ontimer" onload="np_Form_Step_onload">
+    <Layouts>
+      <Layout stepcount="3">
+        <Static id="Static05" taborder="0" text="Step(1)" cssclass="sta_WF_subtitP" left="30" top="18" width="120" height="40"/>
+        <Static id="Static00" taborder="1" text="Step(2)" cssclass="sta_WF_subtitP" left="30" top="18" width="120" height="40" positionstep="1"/>
+        <Static id="Static01" taborder="2" text="Step(3)" cssclass="sta_WF_subtitP" left="30" top="18" width="120" height="40" positionstep="2"/>
+        <ImageViewer id="ImageViewer00" taborder="3" left="30" top="78" width="300" height="352" image="URL('Image::img_mip.gif')" imagealign="center middle"/>
+        <ImageViewer id="ImageViewer01" taborder="4" image="URL('Image::img_xpl.gif')" left="30" top="78" width="300" height="352" positionstep="1" imagealign="center middle"/>
+        <ImageViewer id="ImageViewer02" taborder="5" image="URL('Image::img_xpl13.gif')" left="30" top="78" width="300" height="352" positionstep="2" imagealign="center middle"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.nIndex = 0;
+this.np_Form_Step_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.setTimer(1, 2000);		
+};
+
+this.np_Form_Step_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+	if(e.timerid == 1){
+				
+		var StepCtrl = this.stepselector;
+		StepCtrl.set_stepindex(this.nIndex);
+		this.nIndex++;
+		if(this.nIndex == 3){
+			this.nIndex = 0;
+		}		
+	}
+};
+
+ ]]></Script>
+  </Form>
+</FDL>

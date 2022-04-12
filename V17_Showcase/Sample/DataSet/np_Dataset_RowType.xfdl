@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Dataset_RowType" classname="Script_String_HalfToFull" inheritanceid="" position="absolute" titletext="Dataset RowType" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_input" taborder="1" binddataset="ds_data" position="absolute" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;COL3&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;COL4&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;COL5&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:COL3&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;bind:COL4&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;bind:COL5&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" autofittype="col" left="90" top="78" width="500" height="147">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:COL0"/>
+                <Cell col="1" edittype="normal" text="bind:COL1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="30"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="245" height="30"/>
+        <Button id="btn_execute0" taborder="1" text="Delete" onclick="btn_execute0_onclick" position="absolute" left="609" width="90" top="78" height="40"/>
+        <Grid id="grd_output" taborder="1" useinputpanel="false" autofittype="col" position="absolute" left="90" top="245" width="500" height="147" binddataset="ds_org">
+          <Formats>
+            <Format id="default"/>
+          </Formats>
+        </Grid>
+        <Button id="btn_execute1" taborder="1" text="execute" onclick="btn_execute1_onclick" position="absolute" left="609" width="90" top="128" height="40"/>
+        <Static id="Static05" taborder="2" text="Verify the original buffer content of Dataset" cssclass="sta_WF_subtitP" left="30" top="18" width="600" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">AAA</Col>
+            <Col id="COL1">111</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">BBB</Col>
+            <Col id="COL1">222</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">CCC</Col>
+            <Col id="COL1">333</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">DDD</Col>
+            <Col id="COL1">444</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">EEE</Col>
+            <Col id="COL1">555</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_org" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Comp_Dataset_RowType
+ * Discription : Verifying the recorded Original buffer content and RowType of Dataset
+ */
+
+this.btn_execute0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_data.deleteRow(this.ds_data.rowposition);
+};
+
+this.btn_execute1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_org.addColumn("COL_TYPE", "STRING");
+	
+	for (var i = 0; i < this.ds_data.colcount; i++) 
+	{
+		this.ds_org.addColumn(this.ds_data.getColID(i), "STRING");
+	}
+	
+	this.fn_orgDataset();
+};
+
+/*
+ * Function Name : fn_orgDataset
+ * Description   : Verifying recorded OriginBuffer
+ * Parameter     : 
+ * Return        : 
+ * Example       : fn_orgDataset();
+ */
+this.fn_orgDataset = function()
+{
+	var sOrgCol = "";
+	var sOrgVal = "";
+	this.ds_org.clearData(); 
+	
+	// Modifying content
+	for (var i = 0; i < this.ds_data.rowcount; i++) 
+	{
+		var nRowType = this.ds_data.getRowType(i);
+		if (nRowType == 4)
+		{
+			this.ds_org.addRow();
+			this.ds_org.setColumn(this.ds_org.rowposition, "COL_TYPE", nRowType);
+			for (var j = 0; j < this.ds_data.colcount; j++) 
+			{
+				sOrgCol = this.ds_data.getColID(j);
+				sOrgVal = this.ds_data.getOrgColumn(i, sOrgCol);
+
+				this.ds_org.setColumn(this.ds_org.rowposition, sOrgCol, sOrgVal);
+			}
+		}
+	}
+	
+	// Modifying content
+	for (var i = 0; i < this.ds_data.getDeletedRowCount(); i++) 
+	{
+		this.ds_org.addRow();
+		this.ds_org.setColumn(this.ds_org.rowposition, "COL_TYPE", 8);
+		for (var j = 0; j < this.ds_data.colcount; j++) 
+		{
+			sOrgCol = this.ds_data.getColID(j);
+			sOrgVal = this.ds_data.getDeletedColumn(i, sOrgCol);
+			this.ds_org.setColumn(this.ds_org.rowposition, sOrgCol, sOrgVal);
+		}
+	}
+	
+	this.grd_output.createFormat();
+};
+
+]]></Script>
+  </Form>
+</FDL>

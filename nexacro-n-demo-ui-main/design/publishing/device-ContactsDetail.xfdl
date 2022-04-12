@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="664" onload="form_onload">
+    <Layouts>
+      <Layout height="664" width="440">
+        <ImageViewer id="ImageViewer00" taborder="0" left="180" top="30" width="80" height="80" cssclass="img_MWF_profile" image="url('imagerc::img_WF_lstvProfile01.png')" stretch="fit"/>
+        <Div id="Div00" taborder="1" left="20" top="130" height="160" right="20" background="#eeeeee" cssclass="div_MWF_contactBox">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="John Doe" left="50" top="19" height="30" cssclass="sta_MWF_contactName" right="50"/>
+              <Static id="Static01" taborder="1" text="+82-10-1234-5678" left="50" top="54" height="30" cssclass="sta_MWF_contactPhone" right="50"/>
+              <Button id="Button00" taborder="2" left="100" top="96" width="50" height="50" cssclass="btn_MWF_contactPhone"/>
+              <Button id="Button00_00" taborder="3" top="96" width="50" height="50" right="100" cssclass="btn_MWF_contactEmail"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="2" left="20" top="310" height="354" background="#eeeeee" right="20" cssclass="div_MWF_contactBox">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="Mobile" left="20" top="20" width="120" height="20" cssclass="sta_MWF_contactTitle"/>
+              <Static id="Static01" taborder="1" text="+82-10-1234-5678" left="20" top="40" width="120" height="20" cssclass="sta_MWF_contactTxt"/>
+              <Button id="Button00" taborder="2" top="15" width="50" height="50" right="20" cssclass="btn_MWF_contactPhone"/>
+              <Static id="Static00_00" taborder="3" text="Home" left="20" top="80" width="120" height="20" cssclass="sta_MWF_contactTitle"/>
+              <Static id="Static01_00" taborder="4" text="+82-2-1234-5678" left="20" top="100" width="120" height="20" cssclass="sta_MWF_contactTxt"/>
+              <Button id="Button00_00" taborder="5" top="75" width="50" height="50" right="20" cssclass="btn_MWF_contactPhone"/>
+              <Static id="Static00_01" taborder="6" text="Work" left="20" top="140" width="120" height="20" cssclass="sta_MWF_contactTitle"/>
+              <Static id="Static01_01" taborder="7" text="+82-2-1234-5678" left="20" top="160" width="120" height="20" cssclass="sta_MWF_contactTxt"/>
+              <Button id="Button00_01" taborder="8" top="135" width="50" height="50" right="20" cssclass="btn_MWF_contactPhone"/>
+              <Static id="Static00_02" taborder="9" text="Email" left="20" top="200" width="120" height="20" cssclass="sta_MWF_contactTitle"/>
+              <Static id="Static01_02" taborder="10" text="john@abc.com" left="20" top="220" width="120" height="20" cssclass="sta_MWF_contactTxt"/>
+              <Button id="Button00_02" taborder="11" top="195" width="50" height="50" right="20" cssclass="btn_MWF_contactEmail"/>
+              <Static id="Static00_02_00" taborder="12" text="Work Address" left="20" top="260" width="120" height="20" cssclass="sta_MWF_contactTitle"/>
+              <Static id="Static01_02_00" taborder="13" text="InBongeunsa-rotops Building, 617,&#13;&#10;Gangnam-gu, Seoul, Korea&#13;&#10;" left="20" top="280" width="290" height="40" verticalAlign="top" fittocontents="height" cssclass="sta_MWF_contactTxt"/>
+              <Button id="Button00_02_00" taborder="14" top="265" width="50" height="50" right="20" cssclass="btn_MWF_contactAddress"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_ListviewContact">
+        <ColumnInfo>
+          <Column id="Profile" type="STRING" size="256"/>
+          <Column id="Name" type="STRING" size="256"/>
+          <Column id="Organization" type="STRING" size="256"/>
+          <Column id="PhoneNum" type="STRING" size="256"/>
+          <Column id="iconCall" type="STRING" size="256"/>
+          <Column id="iconSMS" type="STRING" size="256"/>
+          <Column id="iconInfo" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Name">David Slater</Col>
+            <Col id="Organization">NBC Universal. Inc.</Col>
+            <Col id="PhoneNum">+82-10-1234-5678</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile01.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Jane Smith</Col>
+            <Col id="Organization">emirates Airlines</Col>
+            <Col id="PhoneNum">+82-10-3456-7890</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile02.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Veronica Smithers</Col>
+            <Col id="Organization">Valencia Marketing </Col>
+            <Col id="PhoneNum">+82-10-5678-1234</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile03.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">James Snyder</Col>
+            <Col id="Organization">Dominion</Col>
+            <Col id="PhoneNum">+82-10-9876-5432</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile04.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Serena Sotherby</Col>
+            <Col id="Organization">Coral Sands Resort</Col>
+            <Col id="PhoneNum">+82-10-6789-0123</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile05.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Jane Stevens</Col>
+            <Col id="Organization">Regency Group</Col>
+            <Col id="PhoneNum">+82-10-5432-1098</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile06.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Matthew Evan</Col>
+            <Col id="Organization">Hermes</Col>
+            <Col id="PhoneNum">+82-10-4567-8901</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile07.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Kate </Col>
+            <Col id="Organization">Hertz</Col>
+            <Col id="PhoneNum">+82-10-8910-2345</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile08.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.Div00_Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid02.set_formatid(e.postvalue);
+};
+
+this.Edit00_onchanged = function(obj:nexacro.Edit,e:nexacro.ChangeEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

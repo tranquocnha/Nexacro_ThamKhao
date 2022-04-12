@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModelInfo version="1.1">
+  <Models>
+    <Model id="Model_Button_CRUD" name="Model_Button_CRUD" iotype="" description="CRUD Common Button">
+      <Field required="false" id="RETRIEVE" label="Retrieve" fieldtype="FreeText" datatype="STRING" datasize="80"/>
+      <Field required="false" id="ADD" label="Add" fieldtype="FreeText" datatype="STRING" datasize="80"/>
+      <Field required="false" id="DELETE" label="Delete" fieldtype="FreeText" datatype="STRING" datasize="80"/>
+      <Field required="false" id="SAVE" label="Save" fieldtype="FreeText" datatype="STRING" datasize="80"/>
+    </Model>
+    <Model id="Model_Button_Popup" name="Model_Button_Popup" iotype="" description="">
+      <Field required="false" id="OK" label="OK" fieldtype="FreeText" datatype="STRING" datasize="80"/>
+      <Field required="false" id="CANCEL" label="Cancel" fieldtype="FreeText" datatype="STRING" datasize="80"/>
+    </Model>
+  </Models>
+  <Service id="" name="" url=""/>
+</ModelInfo>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="pdfviewer" width="440" height="760" onload="pdfviewer_onload">
+    <Layouts>
+      <Layout height="760" width="440">
+        <Static id="Static00" taborder="0" text="PDF Viewer" left="20" top="14" height="40" cssclass="sta_WF_pageTitle" width="128" messageid="external.pdfviewer" fittocontents="width"/>
+        <WebBrowser id="WebBrowser00" taborder="1" left="20" top="152" right="20" bottom="20"/>
+        <Static id="Static01" taborder="2" left="20" top="66" height="60" cssclass="sta_WF_box01" right="20"/>
+        <Static id="Static02" taborder="3" text="PDF File" left="40" top="76" width="70" height="40" cssclass="sta_WF_labelTxt01" fittocontents="width"/>
+        <Combo id="Combo00" taborder="4" text="nexacro17_en.pdf" left="127" top="76" width="263" height="40" innerdataset="Dataset00" codecolumn="Column0" datacolumn="Column0" index="0" value="nexacro17_en.pdf" onitemchanged="Combo00_onitemchanged" itemheight="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">nexacro17_en.pdf</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">TOBESOFT-CONSULTING.pdf</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Conversion-Service.pdf</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">X-PUSH-v28.pdf</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.pdfviewer_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	this.loadPdfViewer(this.Combo00.value);
+};
+
+this.Combo00_onitemchanged = function(obj:nexacro.Combo,e:nexacro.ItemChangeEventInfo)
+{
+	this.loadPdfViewer(e.postvalue);
+};
+
+this.loadPdfViewer = function(filename)
+{
+	var webrootUrl = nexacro.getProjectPath();
+	this.WebBrowser00.set_url(webrootUrl + "../pdfjs-dist/web/viewer.html?file=" + filename);
+};
+]]></Script>
+  </Form>
+</FDL>

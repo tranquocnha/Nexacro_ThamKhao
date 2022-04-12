@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="GoogleMap" classname="GoogleMap" left="0" top="0" width="760" height="530" titletext="GoogleMap" onload="GoogleMap_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="1" text="Google Map" cssclass="sta_WF_subtitP" left="30" top="18" height="40" class="sta_WF_subtitle" width="200"/>
+        <WebBrowser id="WebBrowser00" left="30" top="73" right="30" taborder="2" onloadcompleted="WebBrowser00_onloadcompleted" onusernotify="WebBrowser00_onusernotify" bottom="30"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[//this.fs_srcLatitude = "37.576683";
+//this.fs_srcLongitude = "127.025591";
+   
+this.fs_srcLatitude = "42.485374";
+this.fs_srcLongitude = "-71.212316";
+
+this.GoogleMap_onload = function(obj:nexacro.Form, e:nexacro.LoadEventInfo)
+{
+	this.WebBrowser00.set_url("http://support.tobesoft.co.kr/Next_JSP/nexacro/GoogleMap.html");
+	//this.WebBrowser00.set_url("http://172.10.13.132:8080/TEST/HTML/GoogleMap.html");
+	
+};
+
+this.WebBrowser00_onloadcompleted = function(obj:nexacro.WebBrowser, e:nexacro.WebLoadCompEventInfo)
+{
+	this.WebBrowser00.callMethod("initialize", this.fs_srcLatitude , this.fs_srcLongitude);
+};
+   
+this.WebBrowser00_onusernotify = function(obj:nexacro.WebBrowser, e:nexacro.WebTitleChangeEventInfo)
+{
+	if(e.userdata == "load")
+	{
+		this.WebBrowser00.callMethod("set_marker", this.fs_srcLatitude , this.fs_srcLongitude);
+	}
+};
+    ]]></Script>
+  </Form>
+</FDL>

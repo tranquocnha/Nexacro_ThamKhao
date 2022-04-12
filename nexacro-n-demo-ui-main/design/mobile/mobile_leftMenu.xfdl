@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="mobile_leftMenu" width="480" height="717" titletext="New Form">
+    <Layouts>
+      <Layout height="717" mobileorientation="landscape" width="480">
+        <Button id="Button00" taborder="0" left="2" top="2" width="60" height="60" cssclass="btn_MLF_homeBtn"/>
+        <Button id="Button01" taborder="1" width="60" height="60" right="2" top="2" cssclass="btn_MLF_closeMenu"/>
+        <Button id="Button02" taborder="2" text="Grid" left="0" top="66" height="60" right="0" onclick="Button02_onclick" cssclass="btn_MLF_Lmenu01"/>
+        <Button id="Button02_00" taborder="3" text="Components" left="0" top="126" height="60" right="0" onclick="Button02_onclick" cssclass="btn_MLF_Lmenu02,btn_MLF_LmenuS"/>
+        <Button id="Button02_01" taborder="4" text="Devices" left="0" top="537" height="60" right="0" onclick="Button02_onclick" cssclass="btn_MLF_Lmenu03"/>
+        <Button id="Button02_00_00" taborder="5" text="Sample" left="0" top="597" height="60" right="0" onclick="Button02_onclick" cssclass="btn_MLF_Lmenu04"/>
+        <Button id="Button02_00_00_00" taborder="6" text="3rd Party" left="0" top="657" height="60" right="0" onclick="Button02_onclick" cssclass="btn_MLF_Lmenu05"/>
+        <Div id="Div00" taborder="7" left="0" top="187" width="480" height="352" cssclass="div_MLF_subMenu">
+          <Layouts>
+            <Layout>
+              <Button id="Button00" taborder="0" text="Component" left="0" top="0" height="50" right="0" cssclass="brn_MLF_subMenu"/>
+              <Button id="Button00_00" taborder="1" text="Dynamically Generate" left="0" top="50" height="50" right="0" cssclass="brn_MLF_subMenu"/>
+              <Button id="Button00_01" taborder="2" text="Arrangement" left="0" top="100" height="50" right="0" cssclass="brn_MLF_subMenu"/>
+              <Button id="Button00_02" taborder="3" text="Fit to Contents" left="0" top="150" height="50" right="0" cssclass="brn_MLF_subMenu"/>
+              <Button id="Button00_03" taborder="4" text="File Transfer" left="0" top="200" height="50" right="0" cssclass="brn_MLF_subMenu"/>
+              <Button id="Button00_04" taborder="5" text="Tow-way Data binding" left="0" top="250" height="50" right="0" cssclass="brn_MLF_subMenu"/>
+              <Button id="Button00_04_00" taborder="6" text="Menu" left="0" top="300" height="50" right="0" cssclass="brn_MLF_subMenu"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="Button00_00" taborder="8" left="62" top="2" width="35" height="60" cssclass="btn_TF_function03_M"/>
+        <Button id="Button00_00_00" taborder="9" left="97" top="2" width="35" height="60" cssclass="btn_TF_function02_M"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

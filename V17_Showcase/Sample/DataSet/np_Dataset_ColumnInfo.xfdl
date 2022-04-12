@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Sample_Dataset" inheritanceid="" titletext="Getting Column's Change Information" position="absolute" left="0" top="0" width="760" height="490">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" selecttype="row" taborder="0" binddataset="Dataset00" position="absolute" left="30" top="78" width="410" height="160" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" text="Column0"/>
+                <Cell col="1" displaytype="normal" text="Column1"/>
+                <Cell col="2" displaytype="normal" text="Column2"/>
+                <Cell col="3" displaytype="normal" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:Column0"/>
+                <Cell col="1" displaytype="normal" text="bind:Column1"/>
+                <Cell col="2" displaytype="normal" text="bind:Column2"/>
+                <Cell col="3" displaytype="number" edittype="normal" editfilter="integer" text="bind:Column3" mask="#,##0"/>
+              </Band>
+              <Band id="summary">
+                <Cell text="expr:comp.parent.lookupFunc(&quot;Sum&quot;).call(Column0)"/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3" displaytype="number" editfilter="number" text="expr:dataset.getSum(&quot;Column3&quot;)" mask="#,##0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="0" onclick="Button00_onclick" text="Get Column Information" position="absolute" left="460" top="78" width="270" height="40"/>
+        <TextArea id="TextArea00" position="absolute" taborder="0" left="30" top="258" width="700" height="200"/>
+        <Button id="Button01" taborder="0" position="absolute" text="Changing Column Infomation" onclick="Button01_onclick" left="460" top="128" width="270" height="40"/>
+        <Button id="Button02" taborder="0" position="absolute" text="Getting Column's Changed Information" onclick="Button02_onclick" left="460" top="178" width="270" height="40"/>
+        <Static id="Static05" text="Dataset Column Information Expression" class="sta_WF_subtitle" position="absolute" left="30" top="18" width="550" height="40" cssclass="sta_WF_subtitP" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" id="Dataset00" preload="true" updatecontrol="true">
+        <ColumnInfo>
+          <Column id="Column0" size="256" type="STRING"/>
+          <Column id="Column1" size="256" type="STRING"/>
+          <Column id="Column2" size="256" type="STRING"/>
+          <Column id="Column3" size="256" type="INT"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">11</Col>
+            <Col id="Column1">11</Col>
+            <Col id="Column2">11</Col>
+            <Col id="Column3">12</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+            <Col id="Column1">11</Col>
+            <Col id="Column2">11</Col>
+            <Col id="Column3">12</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var strText = new String();
+	for (var i = 0; i < this.Dataset00.getColCount(); i++) 
+	{
+		var objColInfo = this.Dataset00.getColumnInfo(i);
+		strText += "ID = " + objColInfo.name;
+		strText += " SIZE = " + objColInfo.size;
+		strText += " type = " + objColInfo.type;
+		strText += "\n";
+	}
+	this.TextArea00.set_value(strText);
+};
+
+this.Button01_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var objColInfo = this.Dataset00.getColumnInfo(2);
+	objColInfo.set_type("INT");
+};
+
+this.Button02_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var strText = new String();
+	for (var i = 0; i < this.Dataset00.getColCount(); i++) 
+	{
+		var objColInfo = this.Dataset00.getColumnInfo(i);
+		strText += "ID = " + objColInfo.name;
+		strText += " SIZE = " + objColInfo.size;
+		strText += " type = " + objColInfo.type;
+		strText += "\n";
+	}
+	this.TextArea00.set_value(this.TextArea00.value + strText);
+};
+
+]]></Script>
+  </Form>
+</FDL>

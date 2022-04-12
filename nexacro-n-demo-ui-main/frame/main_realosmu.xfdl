@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="main_realosmu" width="1263" height="1150" titletext="New Form" onload="main_realosmu_onload" background="#FBFBFE">
+    <Layouts>
+      <Layout height="1150" width="1263">
+        <Static id="Static00" taborder="0" text="Real OSMU Solution" left="40" top="200" width="490" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height"/>
+        <Static id="Static01" taborder="1" text="넥사크로는 웹과 네이티브의 경계를 허물고 하나의 소스로 모든 비즈니스 환경에 완벽하게 대응하는 IT환경을 구축하는 유일한 Real OSMU 솔루션 입니다.&#13;&#10;사용자 중심의 UI·UX 구축 실현을 통해 당신의 기업 가치를 높이세요!" left="40" top="283" width="530" height="97" cssclass="sta_WF_mainvisualTxt" wordWrap="english" fittocontents="height" messageid="osmu.desc"/>
+        <ImageViewer id="ImageViewer00" taborder="2" top="70" width="640" height="540" right="20" image="url('imagerc::Main/img_WF_mainPR01.png')" cssclass="img_WF_mainvisualImg" background="transparent"/>
+        <Static id="Static00_00" taborder="3" text="개발 생산성을 높이는 IDE" left="673" top="726" width="580" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height" messageid="ide"/>
+        <Static id="Static01_00" taborder="4" text="사용성 모델 기반의 분석과 실제 사용자 테스트를 거쳐 최고의 개발 도구로 새롭게 태어난 넥사크로 스튜디오는 개발자의 편의성을 높이는 기능을 대폭 강화하고 디자이너, 퍼블리셔 등 역할에 따른 개별 인터페이스를 제공합니다." left="673" top="809" width="557" height="97" fittocontents="height" cssclass="sta_WF_mainvisualTxt" wordWrap="english" messageid="ide.desc"/>
+        <ImageViewer id="ImageViewer00_00" taborder="5" top="596" width="490" height="460" image="url('imagerc::Main/img_WF_mainPR03.png')" cssclass="img_WF_mainvisualImg" text="" left="20" background="transparent"/>
+        <Static id="Static02" taborder="6" text="background color : &#13;&#10;#FBFBFE" left="0" top="1152" width="198" height="77" background="palegreen" visible="false"/>
+      </Layout>
+      <Layout name="Layout0" width="480" height="1420" mobileorientation="portrait">
+        <ImageViewer id="ImageViewer00" top="200" width="425" height="350" right="27" stretch="fit"/>
+        <Static id="Static00" left="21" top="29" width="440" height="70"/>
+        <Static id="Static01" left="25" top="112" width="435" height="97" wordWrap="none"/>
+        <ImageViewer id="ImageViewer00_00" left="47" top="Static01_00:18" width="401" stretch="fit" height="372"/>
+        <Static id="Static00_00" left="21" top="596" width="430" height="70" wordWrap="english"/>
+        <Static id="Static01_00" left="19" top="Static00_00:13" width="440" height="97"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.main_realosmu_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	nexacro.applyI18n(this);
+};
+]]></Script>
+  </Form>
+</FDL>

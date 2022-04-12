@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_Calendar" width="1000" height="700" titletext="Component-Calendar" onload="Form_onload">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000" stepcount="2">
+        <Calendar id="Calendar00" taborder="1" left="20" top="70" width="180" height="30" locale="" value="20170101"/>
+        <Calendar id="cal_trailing" taborder="4" left="20" top="300" width="180" height="200" locale="" value="20210901" usetrailingday="true" type="monthonly"/>
+        <Calendar id="cal_today" taborder="13" left="116" top="70" width="180" height="30" locale="" value="20210901" positionstep="1"/>
+        <Calendar id="cal_lastday" taborder="14" left="116" top="110" width="180" height="30" locale="" value="20210901" positionstep="1"/>
+        <Radio id="Radio00" taborder="2" left="20" top="150" width="256" height="30" codecolumn="codecolumn" datacolumn="datacolumn" columncount="-1" value="normal" onitemchanged="Radio00_onitemchanged" rowcount="-1" innerdataset="innerdataset">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">normal</Col>
+                <Col id="datacolumn">normal</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">spin</Col>
+                <Col id="datacolumn">spin</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">monthonly</Col>
+                <Col id="datacolumn">month</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Radio id="Radio01" taborder="9" left="520" top="70" width="408" height="30" codecolumn="codecolumn" datacolumn="datacolumn" columncount="-1" value="normal" rowcount="-1" onitemchanged="Radio01_onitemchanged" innerdataset="innerdataset">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">normal</Col>
+                <Col id="datacolumn">normal</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">center</Col>
+                <Col id="datacolumn">center</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">none</Col>
+                <Col id="datacolumn">none</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">system</Col>
+                <Col id="datacolumn">system(Mobile)</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Calendar id="cal_popup" taborder="10" left="520" top="100" width="180" height="30" locale="" value="20210901" type="normal" dateformat="yyyy-MM-dd"/>
+        <Calendar id="Calendar04" taborder="11" left="518" top="190" width="180" height="200" locale="" value="20210901" type="monthonly" dateformat="yyyy-MM-dd" innerdataset="@ds_day" backgroundcolumn="back_color" bordercolumn="border_color" datecolumn="date" textcolorcolumn="text_color"/>
+        <Grid id="Grid00" taborder="12" left="518" top="398" width="472" height="154" binddataset="ds_day" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="28" band="head"/>
+                <Row size="28" band="head"/>
+                <Row size="32"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="date"/>
+                <Cell col="1" colspan="3" text="color"/>
+                <Cell row="1" col="1" text="text"/>
+                <Cell row="1" col="2" text="background"/>
+                <Cell row="1" col="3" text="border"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:date" displaytype="date" textAlign="center" calendardateformat="yyyy-MM-dd"/>
+                <Cell col="1" text="bind:text_color" edittype="text"/>
+                <Cell col="2" text="bind:back_color" edittype="text"/>
+                <Cell col="3" text="bind:border_color" edittype="text"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="24" text=" Basic Usage" left="10" top="40" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static08" taborder="0" text="Calendar" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle" positionstep="-1"/>
+        <Static id="Static00" taborder="25" text=" Trailing Day (Prop. usetrailingday)" left="10" top="240" width="336" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static01" taborder="26" text=" Date Calculation" left="10" top="40" width="202" height="30" cssclass="sta_WF_TypeTitle" positionstep="1"/>
+        <Static id="Static03" taborder="27" text=" Calendar Type (Prop. type)" left="10" top="120" width="276" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static04" taborder="28" text=" Calendar PopupType (Prop. popuptype)" left="510" top="40" width="384" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static05" taborder="29" text=" Anniversary (Prop. innerdataset)" left="510" top="160" width="312" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Radio id="rdo_tra" taborder="5" left="20" top="268" width="172" height="30" codecolumn="codecolumn" datacolumn="datacolumn" value="true" innerdataset="innerdataset" index="0" onitemchanged="rdo_tra_onitemchanged" rowcount="1">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">true</Col>
+                <Col id="datacolumn">true</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">false</Col>
+                <Col id="datacolumn">false</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Calendar id="cal_longformat" taborder="7" left="122" top="590" width="254" height="30" value="20210901" locale="ko_KR" dateformat="LONGDATE" editformat="SHORTDATE"/>
+        <Radio id="rdo_local" taborder="6" left="20" top="560" width="393" height="30" codecolumn="codecolumn" datacolumn="datacolumn" columncount="-1" value="ko_KR" rowcount="-1" innerdataset="innerdataset" index="0" onitemchanged="rdo_local_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">ko_KR</Col>
+                <Col id="datacolumn">Korean</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">ja_JP</Col>
+                <Col id="datacolumn">Japanese</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">en_US</Col>
+                <Col id="datacolumn">English </Col>
+              </Row>
+              <Row>
+                <Col id="datacolumn">German </Col>
+                <Col id="codecolumn">de_DE</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static06" taborder="30" text=" Localization (Prop. dateformat, editformat, local)" left="11" top="530" width="438" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static09" taborder="31" text="long date" left="19" top="590" width="114" height="30" cssclass="sta_WF_LabelTxt"/>
+        <Static id="Static10" taborder="32" text="short date" left="19" top="630" width="114" height="30" cssclass="sta_WF_LabelTxt"/>
+        <Calendar id="cal_shortformat" taborder="8" left="122" top="630" width="254" height="30" value="20210901" locale="ko_KR" dateformat="SHORTDATE" editformat="SHORTDATE"/>
+        <Static id="Static11" taborder="33" text="Today" left="20" top="70" width="104" height="30" cssclass="sta_WF_LabelTxt" positionstep="1"/>
+        <Static id="Static12" taborder="34" text="Last day" left="20" top="110" width="104" height="30" cssclass="sta_WF_LabelTxt" positionstep="1"/>
+        <Static id="Static14" taborder="35" text=" Basic Method" left="10" top="170" width="250" height="30" cssclass="sta_WF_TypeTitle" positionstep="1"/>
+        <Calendar id="cal_date" taborder="15" left="20" top="200" width="180" height="30" locale="" value="20210901" hotkey="" positionstep="1"/>
+        <Static id="st_year" taborder="17" left="150" top="240" width="170" height="30" cssclass="sta_WF_DetailArea" positionstep="1"/>
+        <Button id="btn_year" taborder="16" text="getYear()" left="20" top="240" width="120" height="30" positionstep="1" onclick="btn_year_onclick"/>
+        <Button id="btn_month" taborder="18" text="getMonth()" left="20" top="280" width="120" height="30" positionstep="1" onclick="btn_month_onclick"/>
+        <Button id="btn_day" taborder="20" text="getDay()" left="20" top="320" width="120" height="30" positionstep="1" onclick="btn_day_onclick"/>
+        <Calendar id="cal_select" taborder="23" left="150" top="360" width="170" height="30" locale="" value="20210901" hotkey="" positionstep="1" type="spin" dateformat="yyyy-MM-dd"/>
+        <Button id="btn_select" taborder="22" text="setCaretPos()" left="20" top="360" width="120" height="30" positionstep="1" onclick="btn_select_onclick"/>
+        <Static id="st_month" taborder="19" left="150" top="280" width="170" height="30" cssclass="sta_WF_DetailArea" positionstep="1"/>
+        <Static id="st_day" taborder="21" left="150" top="320" width="170" height="30" cssclass="sta_WF_DetailArea" positionstep="1"/>
+        <Calendar id="cal_type" taborder="3" left="20" top="180" width="180" height="30" locale="" value="20210901" type="normal"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.Form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	var sToday = this.fn_Today();
+	var sLastDay = this.fn_LastDay(sToday);
+	this.cal_today.set_value(sToday);
+	this.cal_lastday.set_value(sLastDay);
+};
+
+this.fn_Today = function()
+{
+	var objDate = new Date();
+	var sToday  = objDate.getFullYear().toString();
+	    sToday += (objDate.getMonth()+1).toString().padLeft(2, "0")
+	    sToday += objDate.getDate().toString().padLeft(2, "0"); 
+	return sToday;
+}
+
+this.fn_LastDay = function(sDate)
+{
+	var dDate = new Date(parseInt(sDate.substr(0,4)), parseInt(sDate.substr(4,2)), "01");
+	dDate = dDate.addDate(-1);
+
+	var objDate  = new Date(dDate);
+	var sRtn = objDate.getFullYear()
+             + (objDate.getMonth()+1).toString().padLeft(2, "0")
+             +  objDate.getDate().toString().padLeft(2, "0");               
+	return sRtn;
+}
+
+this.Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.cal_type.set_type(e.postvalue);
+	if(e.postvalue == "monthonly"){
+	}
+	else{
+		this.cal_type.set_width(160);
+		this.cal_type.set_height(25);
+	}
+
+};
+
+this.Radio01_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.cal_popup.set_popuptype(e.postvalue);
+};
+
+this.rdo_tra_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.cal_trailing.set_usetrailingday(this.rdo_tra.value);
+};
+
+this.rdo_local_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.cal_longformat.set_locale(this.rdo_local.value);
+	this.cal_shortformat.set_locale(this.rdo_local.value);
+};
+
+this.btn_year_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.st_year.set_text(this.cal_date.getYear());
+};
+
+this.btn_month_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.st_month.set_text(this.cal_date.getMonth());
+};
+
+this.btn_day_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.st_day.set_text(this.cal_date.getDay());
+};
+
+this.btn_select_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.cal_select.setFocus();
+	this.cal_select.setCaretPos(10);
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_day">
+        <ColumnInfo>
+          <Column id="date" type="STRING" size="256"/>
+          <Column id="text_color" type="STRING" size="256"/>
+          <Column id="back_color" type="STRING" size="256"/>
+          <Column id="border_color" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="date">20210909</Col>
+            <Col id="text_color">orange</Col>
+            <Col id="back_color"/>
+            <Col id="border_color">1px solid red</Col>
+          </Row>
+          <Row>
+            <Col id="date">20210915</Col>
+            <Col id="text_color">blue</Col>
+            <Col id="back_color">yellow</Col>
+            <Col id="border_color">1px solid red</Col>
+          </Row>
+          <Row>
+            <Col id="date">20210925</Col>
+            <Col id="text_color">yellow</Col>
+            <Col id="back_color">olive</Col>
+            <Col id="border_color">2px solid skyblue</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

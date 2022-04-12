@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script version="1.0" type="xscript5.1"><![CDATA[/**
+* @description 	      : 워크플로우 그리기 함수
+* @param objGraphics  : 워크플로우를 설정할 Graphics Component
+* @param objConfig    : 초기화 설정 값
+* @param bEditable    : 수정기능 활성화 여부
+* @return             : 없음
+*/
+this.gfnDrawWorkFlow = function (objGraphics, objConfig, bEditable) {
+    var i, nRow, dsItems, dsLines, objNewConfig,
+        objProperties, objType, objLine, objTitle, objPath,
+        objNode, objGuide, sId, sTitle, sType,
+        nWidth, nHeight, sLineId, arrTemp,
+        nX = 0, nY = 0;
+
+    if (!bEditable) bEditable = false;
+
+    //Graphics 컴포넌트에 config 정보 추가
+    if (objConfig) objGraphics.config = objConfig;
+
+    //config 정보 가져오기
+    objNewConfig = objGraphics.config;
+
+    //config정보가 없으면 리턴
+    if (!objNewConfig) return;
+
+    //노드 데이터셋 가져오기
+    dsItems = objNewConfig.itemsDs;
+
+    //연결선 데이터셋 가져오기
+    dsLines = objNewConfig.linesDs;
+
+    objBoard = objGraphics.getObjectByID("board");
+
+    if (objBoard) {
+        nX = objBoard.x;
+        nY = objBoard.y;
+    }
+
+    //Graphics 컴포넌트 초기화
+    objGraphics.clear();
+
+    //그룹 만들기
+    objProperties = { "x": nX, "y": nY };
+
+    //GraphicsGroup 생성함수 호출
+    objBoard = this.gfnSetGraphicProperties("GraphicsGroup", objProperties);
+    objGraphics.addChild("board", objBoard);
+
+    //노드 그리기
+    for (i = 0; i < dsItems.rowcount; i++) {
+        sId = dsItems.getColumn(i, "id");
+        sType = dsItems.getColumn(i, "type");
+        sTitle = dsItems.getColumn(i, "title");
+        objType = objNewConfig[sType];
+        nX = nexacro.toNumber(dsItems.getColumn(i, "x"));
+        nY = nexacro.toNumber(dsItems.getColumn(i, "y"));
+
+        //노드 그룹 오브젝트 만들기
+        objProperties = {
+            "x": nX, "y": nY
+        };
+        objNode = this.gfnSetGraphicProperties("GraphicsGroup", objProperties);
+
+        //노드 오브젝트 만들기
+        objPath = this.gfnSetGraphicProperties("GraphicsRect", objType);
+        objNode.addChild("node_" + sId + "_bg", objPath);
+
+        //노드 타이틀 속성 정보 가져오기
+        objTitle = objType.title;
+
+        //textAlign이 center일 경우 노드의 중심좌표를 x, y좌표로 설정
+        if (objTitle.textAlign == "center") {
+            objTitle.x = objType.x + (objType.width / 2);
+            objTitle.y = objType.y + (objType.height / 2);
+        }
+        //textAlign이 center가 아닐 경우 노드의 left, top 를 x, y좌표로 설정
+        else {
+            objTitle.x = objType.x;
+            objTitle.y = objType.y;
+        }
+
+        //Wordwarp을 위해 타이틀 오브젝트의 width 설정
+        objTitle.width = objType.width;
+
+        //텍스트 설정
+        objTitle.text = sTitle;
+
+        //노드 타이틀 오브젝트 만들기
+        objPath = this.gfnSetGraphicProperties("GraphicsText", objTitle);
+        objNode.addChild("node_" + sId + "_title", objPath);
+
+        objBoard.addChild("node_" + sId, objNode);
+    }
+
+    //연결선 그리기
+    //연결선 속성 정보 가져오기
+    objLine = objNewConfig.line;
+    for (i = 0; i < dsLines.rowcount; i++) {
+        //연결선 관련 추가 정보 설정
+        //Line ID
+        objLine.lineId = dsLines.getColumn(i, "id");
+
+        //시작 노드 ID
+        objLine.from = dsLines.getColumn(i, "from");
+
+        //시작 노드 기준 연결선 위치
+        objLine.fromPosition = dsLines.getColumn(i, "fromPosition");
+
+        //종료 노드 ID
+        objLine.to = dsLines.getColumn(i, "to");
+
+        //종료 노드 기준 연결선 위치
+        objLine.toPosition = dsLines.getColumn(i, "toPosition");
+
+        //시작선 모양
+        objLine.startCap = dsLines.getColumn(i, "startCap");
+
+        //종료선 모양
+        objLine.endCap = dsLines.getColumn(i, "endCap");
+
+        //연결선 그리기 함수 호출
+        objPath = this.gfnDrawGraphicPath(objGraphics, objLine);
+    }
+
+    //수정기능이 활성화 되었을 경우
+    if (bEditable == true) {
+        //가이드 설정 값 만들기
+        objGuide = {
+            "fillstyle": "#ffffff",
+            "strokepen": "1px solid #000000",
+            "x": "0",
+            "y": "0",
+            "width": "10",
+            "height": "10",
+            "visible": false
+        };
+
+        //가이드 오브젝트 만들기(노드 왼쪽)
+        objPath = this.gfnSetGraphicProperties("GraphicsEllipse", objGuide);
+        objBoard.addChild("guide_left", objPath);
+
+        //가이드 오브젝트 만들기(노드 위쪽)
+        objPath = this.gfnSetGraphicProperties("GraphicsEllipse", objGuide);
+        objBoard.addChild("guide_top", objPath);
+
+        //가이드 오브젝트 만들기(노드 오른쪽)
+        objPath = this.gfnSetGraphicProperties("GraphicsEllipse", objGuide);
+        objBoard.addChild("guide_right", objPath);
+
+        //가이드 오브젝트 만들기(노드 아래쪽)
+        objPath = this.gfnSetGraphicProperties("GraphicsEllipse", objGuide);
+        objBoard.addChild("guide_bottom", objPath);
+
+        //가이드 오브젝트 만들기(연결선 시작좌표)
+        objPath = this.gfnSetGraphicProperties("GraphicsEllipse", objGuide);
+        objBoard.addChild("guide_start", objPath);
+
+        //가이드 오브젝트 만들기(연결선 종료좌표)
+        objPath = this.gfnSetGraphicProperties("GraphicsEllipse", objGuide);
+        objBoard.addChild("guide_end", objPath);
+    }
+
+    //Graphics 컴포넌트 다시그리기
+    objGraphics.redraw();
+};
+
+/**
+* @description 	      : 연결선 그리기 함수
+* @param objGraphics  : 워크플로우를 설정할 Graphics Component
+* @param objConfig    : 연결선 설정 값
+* @return             : 연결선 오브젝트
+*/
+this.gfnDrawGraphicPath = function (objGraphics, objLine) {
+    var sFrom, sTo, arrFrom, arrTo, sFromPosition, sToPosition,
+		sStartCap, sEndCap, sFillStyle, sStorkepen,
+		objFromPath, objToPath, objPath, objCapPath, objPaths,
+		objXY, nX1, nX2, nY1, nY2,
+		sLineId, sFromId, sToId;
+
+    //라인 ID
+    sLineId = "line_" + objLine.lineId;
+
+    //시작 ID
+    sFrom = objLine.from;
+
+    //종료 ID
+    sTo = objLine.to;
+
+    //시작노드 기준 연결선 위치
+    sFromPosition = objLine.fromPosition;
+
+    //종료노드 기준 연결선 위치
+    sToPosition = objLine.toPosition;
+
+    //시작선 모양
+    sStartCap = objLine.startCap;
+
+    //종료선 모양
+    sEndCap = objLine.endCap;
+
+    //영역 색상값
+    sFillStyle = objLine.fillstyle;
+
+    //라인 색상값
+    sStorkepen = objLine.strokepen;
+
+    arrFrom = sFrom.split(",");
+    if (arrFrom.length == 2) {
+        nX1 = nexacro.toNumber(arrFrom[0]);
+        nY1 = nexacro.toNumber(arrFrom[1]);
+    } else {
+        //시작 노드 ID
+        sFromId = "node_" + sFrom;
+
+        //시작 노드 가져오기
+        objFromPath = objGraphics.getObjectByID(sFromId);
+
+        //노드 기준 연결선 위치 좌표값 가져오는 함수 호출(시작노드)
+        objXY = this.gfnGetPositionXY(objFromPath, sFromPosition);
+        nX1 = objXY.x;
+        nY1 = objXY.y;
+    }
+
+    arrTo = sTo.split(",");
+    if (arrTo.length == 2) {
+        nX2 = nexacro.toNumber(arrTo[0]);
+        nY2 = nexacro.toNumber(arrTo[1]);
+    } else {
+        //종료 노드 ID
+        sToId = "node_" + sTo;
+
+        //종료 노드 가져오기
+        objToPath = objGraphics.getObjectByID(sToId);
+
+        //노드 기준 연결선 위치 좌표값 가져오는 함수 호출(종료노드)
+        objXY = this.gfnGetPositionXY(objToPath, sToPosition);
+        nX2 = objXY.x;
+        nY2 = objXY.y;
+    }
+
+    //선 오브젝트 생성
+    objPath = new nexacro.GraphicsPath();
+
+    //선그룹 오브젝트 생성
+    objPaths = new nexacro.GraphicsPaths();
+
+    //라인 색상 설정
+    objPath.set_strokepen(sStorkepen);
+
+    //선 그룹에 선 오브젝트 추가
+    objPaths.addChild(sLineId + "_baseline", objPath);
+
+    var nDiffX, nDiffY;
+
+    //선 시작 위치 값을 선그룹의 사용자 변수에 설정
+    objPaths.startx = nX1;
+    objPaths.starty = nY1;
+
+    //선 종료 위치 값을 선그룹의 사용자 변수에 설정
+    objPaths.endx = nX2;
+    objPaths.endy = nY2;
+
+    //시작 종료 값이 대각선 위치에 있을 경우
+    //꺽인 선으로 표현
+    if (nX1 != nX2 && nY1 != nY2) {
+        nDiffX = nX1 - nX2;
+        nDiffY = nY1 - nY2;
+
+        objPath.moveTo(nX1, nY1);
+        if (sFromPosition == "left" || sFromPosition == "right") {
+            if (sToPosition == "left" || sToPosition == "right") {
+                objPath.lineTo(nX1 - (nDiffX / 2), nY1);
+                objPath.lineTo(nX1 - (nDiffX / 2), nY2);
+                objPath.lineTo(nX1 - nDiffX, nY2);
+            } else {
+                objPath.lineTo(nX2, nY1);
+                objPath.lineTo(nX2, nY2);
+            }
+        } else if (sFromPosition == "top" || sFromPosition == "bottom") {
+            if (sToPosition == "top" || sToPosition == "bottom") {
+                objPath.lineTo(nX1, nY1 - (nDiffY / 2));
+                objPath.lineTo(nX2, nY1 - (nDiffY / 2));
+                objPath.lineTo(nX2, nY1 - nDiffY);
+            } else {
+                objPath.lineTo(nX1, nY2);
+                objPath.lineTo(nX2, nY2);
+            }
+        }
+    }
+    //시작 종료값이 수직/수평일 경우 직선으로 표현
+    else {
+        objPath.moveTo(nX1, nY1);
+        objPath.lineTo(nX2, nY2);
+    }
+
+    //시작 선 모양이 설정되어 있을 경우 화살표 만들기 함수 호출
+    if (sStartCap == "true") this.gfnDrawGraphicsCap(sLineId + "_startcap", objPaths, objLine, sFromPosition, nX1, nY1);
+
+    //종료 선 모양이 설정되어 있을 경우 화살표 만들기 함수 호출
+    if (sEndCap == "true") this.gfnDrawGraphicsCap(sLineId + "_endcap", objPaths, objLine, sToPosition, nX2, nY2);
+
+    objBoard.addChild(sLineId, objPaths);
+
+    return objPath;
+};
+
+/**
+* @description 	    : 화살표 만들기 함수
+* @param sId  		: 화살표 ID
+* @param objPaths   : 연결선 그룹 오브젝트
+* @param objLine   	: 연결선 속성 오브젝트
+* @param sPosition  : 노드 기준 연결선 위치 값
+* @param nX   		: 화살표 표현할 X좌표
+* @param nY   		: 화살표 표현할 Y좌표
+* @return           : 없음
+*/
+this.gfnDrawGraphicsCap = function (sId, objPaths, objLine, sPosition, nX, nY) {
+    //영역 색상 값 
+    var sFillStyle = objLine.fillstyle;
+
+    //라인 색상 값
+    var sStrokpen = objLine.strokepen;
+
+    //화살표 width 값
+    var nWidth = objLine.capwidth;
+
+    //화살표 height 값
+    var nHeight = objLine.capheight;
+
+    //선 오브젝트 만들기
+    var objCapPath = new nexacro.GraphicsPath();
+    objCapPath.set_fillstyle(sFillStyle);
+    objCapPath.set_strokepen(sStrokpen);
+    objPaths.addChild(sId, objCapPath);
+
+    //화살표를 그릴 위치로 move
+    objCapPath.moveTo(nX, nY);
+
+    //노드 기준 왼쪽일 경우 ▶ 모양으로 그림
+    if (sPosition == "left") {
+        nX = nX - (nWidth / 2);
+        nY = nY - (nHeight / 2);
+
+        objCapPath.lineTo(nX, nY);
+
+        nY = nY + nHeight;
+
+        objCapPath.lineTo(nX, nY);
+    }
+    //노드 기준 오른쪽일 경우 ◀ 모양으로 그림
+    else if (sPosition == "right") {
+        nX = nX + (nWidth / 2);
+        nY = nY - (nHeight / 2);
+
+        objCapPath.lineTo(nX, nY);
+
+        nY = nY + nHeight;
+
+        objCapPath.lineTo(nX, nY);
+    }
+    //노드 기준 위쪽일 경우 ▼ 모양으로 그림
+    else if (sPosition == "top") {
+        nX = nX - (nWidth / 2);
+        nY = nY - (nHeight / 2);
+
+        objCapPath.lineTo(nX, nY);
+
+        nX = nX + nWidth;
+
+        objCapPath.lineTo(nX, nY);
+    }
+    //노드 기준 아래쪽일 경우 ▲ 모양으로 그림
+    else if (sPosition == "bottom") {
+        nX = nX + (nWidth / 2);
+        nY = nY + (nHeight / 2);
+
+        objCapPath.lineTo(nX, nY);
+
+        nX = nX - nWidth;
+
+        objCapPath.lineTo(nX, nY);
+    }
+
+    //closePath를 호출하여 그려진 선 영역 색칠하기
+    objCapPath.closePath();
+};
+
+/**
+* @description 	      	: 워크플로우 위치 변경함수
+* @param objGraphics  	: 워크플로우를 설정할 Graphics Component
+* @param nX1			: Drag 시작 X 좌표
+* @param nX2			: 현재 X 좌표
+* @param nY1			: Drag 시작 Y 좌표
+* @param nY2			: 현재 Y 좌표
+* @return             	: 없음
+*/
+this.gfnMoveWorkFlow = function (objGraphics, nX1, nX2, nY1, nY2) {
+    var objBoard = objGraphics.getObjectByID("board");
+
+    //이동될 위치 좌표값 계산
+    var nMoveX = objBoard.orgX + (nX2 - nX1);
+    var nMoveY = objBoard.orgY + (nY2 - nY1);
+
+    //위치 이동
+    objBoard.set_x(nMoveX);
+    objBoard.set_y(nMoveY);
+
+    //Graphics 컴포넌트 다시그리기
+    objGraphics.redraw();
+};
+
+/**
+* @description 	    : 노드 기준 연결선 위치 좌표값 가져오는 함수
+* @param objPath  	: 노드 오브젝트
+* @param sPosition  : 연결선 위치
+* @return           : 좌표값
+*/
+this.gfnGetPositionXY = function (objPath, sPosition) {
+    var objXY = { "x": null, "y": null },
+		objRect = objPath.getOffsetBoundRect();
+	
+    if (sPosition == "top") {
+        objXY.x = objRect.left + (objRect.width / 2);
+        objXY.y = objRect.top;
+    }
+    else if (sPosition == "left") {
+        objXY.x = objRect.left;
+        objXY.y = objRect.top + (objRect.height / 2);
+    }
+    else if (sPosition == "right") {
+        objXY.x = objRect.left + objRect.width;
+        objXY.y = objRect.top + (objRect.height / 2);
+    }
+    else if (sPosition == "bottom") {
+        objXY.x = objRect.left + (objRect.width / 2);
+        objXY.y = objRect.top + objRect.height;
+    }
+
+    return objXY;
+};
+
+/**
+* @description 	    : Graphics 하위 오브젝트 생성 및 속성 설정 함수
+* @param sCompId  	: 오브젝트 명
+* @param jsnProps   : 오브젝트 속성 값
+* @return           : Graphics 하위 오브젝트
+*/
+this.gfnSetGraphicProperties = function (sCompId, jsnProps) {
+    //Graphics 하위 오브젝트 생성
+    var objComp = new nexacro[sCompId],
+		objFunc, sProp;
+
+    //설정정보를 오브젝트의 속성으로 설정
+    for (sProp in jsnProps) {
+        //속성 설정함수 가져오기
+        objFunc = objComp["set_" + sProp];
+
+        if (objFunc) {
+            //속성 설정함수 실행
+            objFunc.call(objComp, jsnProps[sProp]);
+        }
+    }
+
+    //생성된 Graphics 하위 오브젝트 리턴
+    return objComp;
+};]]></Script>

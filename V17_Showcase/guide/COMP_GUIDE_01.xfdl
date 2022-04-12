@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="COMP_GUIDE_01" classname="COMP_GUIDE_01" inheritanceid="" position="absolute" titletext="Static,Edit,TextArea,MaskEdit" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" text="Component Name" position="absolute" style="background:#edeee6ff;border:1 solid #c6c6c5ff ;align:center middle;font:Tahoma,9,bold antialias;" left="0" width="130" top="0" height="26"/>
+        <Static id="Static02" text="Component View" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="636" top="0" height="26"/>
+        <Static id="Static00" text="Static" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="25" height="220"/>
+        <Static id="Static03" position="absolute" style="background:#ffffffff;border:1 solid #c6c6c5ff ;align:center middle;font:Tahoma,9,bold antialias;" text="" left="129" width="636" top="25" height="220"/>
+        <Static id="Static07" text="enabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="30" height="13"/>
+        <Static id="Static04" text="disabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="311" width="120" top="30" height="13"/>
+        <Static id="Static05" text="Edit" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="244" height="75"/>
+        <Static id="Static06" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="244" height="75"/>
+        <Static id="Static08" text="enabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="249" height="13"/>
+        <Static id="Static09" text="disabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="311" width="120" top="249" height="13"/>
+        <Static id="Static10" text="TextArea" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="318" height="145"/>
+        <Static id="Static11" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="318" height="145"/>
+        <Static id="Static12" text="enabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="323" height="13"/>
+        <Static id="Static13" text="disabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="311" width="120" top="323" height="13"/>
+        <Static id="Static14" text="MaskEdit" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="462" height="75"/>
+        <Static id="Static15" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="462" height="75"/>
+        <Static id="Static16" text="enabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="138" width="120" top="467" height="13"/>
+        <Static id="Static17" text="disabled" position="absolute" style="color:#999999ff;font:Tahoma,8;" left="311" width="120" top="467" height="13"/>
+        <Static id="Static26" text="XPLATFORM" position="absolute" left="138" width="120" top="52" height="20"/>
+        <Static id="Static27" text="XPLATFORM" position="absolute" enable="false" left="311" width="120" top="52" height="20"/>
+        <Static id="Static28" text="※ Set the basic height 20" position="absolute" wordwrap="none" left="469" width="255" top="53" height="15" cssclass="sta_WF_Info_Orange"/>
+        <Edit id="Edit00" taborder="1" position="absolute" value="nexacro platform" left="138" width="150" top="272" height="20"/>
+        <Edit id="Edit01" taborder="2" position="absolute" enable="false" value="nexacro platform" left="311" width="150" top="272" height="20"/>
+        <TextArea id="TextArea00" taborder="3" position="absolute" value="nexacro platform" left="138" width="150" top="346" height="105"/>
+        <TextArea id="TextArea01" taborder="4" position="absolute" value="nexacro platform" enable="false" left="311" width="150" top="346" height="105"/>
+        <Static id="Static29" text="※ assign wordwrap as both" wordwrap="none" position="absolute" left="469" width="255" top="346" height="15" cssclass="sta_WF_Info_Orange"/>
+        <MaskEdit id="MaskEdit00" taborder="5" position="absolute" value="1234567890" mask="@@@,@@@" left="138" width="150" top="490" height="20"/>
+        <MaskEdit id="MaskEdit01" taborder="6" position="absolute" enable="false" value="1234567890" mask="@@@,@@@" left="311" width="150" top="490" height="20"/>
+        <Static id="Static30" text="※ mask = &quot;@@@,@@@&quot;" wordwrap="none" position="absolute" left="469" width="255" top="492" height="15" cssclass="sta_WF_Info_Orange"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[  ]]></Script>
+  </Form>
+</FDL>

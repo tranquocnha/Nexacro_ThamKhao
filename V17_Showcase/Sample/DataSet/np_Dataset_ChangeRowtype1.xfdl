@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Comp_Dataset_ChangeRowtype" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Comp_Dataset_ChangeRowtype" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_output" taborder="1" useinputpanel="false" binddataset="ds_data" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;COL3&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;COL4&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;bind:COL3&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;bind:COL4&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" autoenter="select" position="absolute" left="30" width="613" top="78" height="150" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="75"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+                <Cell col="2" text="COL2"/>
+                <Cell col="3" text="COL3"/>
+                <Cell col="4" text="ROWTYPE"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:COL0"/>
+                <Cell col="1" edittype="normal" text="bind:COL1"/>
+                <Cell col="2" edittype="normal" text="bind:COL2"/>
+                <Cell col="3" edittype="normal" text="bind:COL3"/>
+                <Cell col="4" text="expr:dataset.getRowType(currow)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="553" width="90" top="238" height="40"/>
+        <Static id="Static05" taborder="2" text="Reverting the Changed column information to original value" cssclass="sta_WF_subtitP" left="30" top="18" width="800" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" id="ds_data" preload="true" updatecontrol="true" useclientlayout="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" size="256" type="STRING"/>
+          <Column id="COL2" size="256" type="STRING"/>
+          <Column id="COL3" type="STRING" size="256"/>
+          <Column id="COL4" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL1">1</Col>
+            <Col id="COL2">2</Col>
+            <Col id="COL3">3</Col>
+            <Col id="COL4">4</Col>
+            <Col id="COL0">0</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">a</Col>
+            <Col id="COL2">b</Col>
+            <Col id="COL3">c</Col>
+            <Col id="COL4">d</Col>
+            <Col id="COL0">0</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">data1</Col>
+            <Col id="COL2">data2</Col>
+            <Col id="COL3">data3</Col>
+            <Col id="COL4">data4</Col>
+            <Col id="COL0">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Dataset_ChangeRowtype1
+ * Description : Selected record in the DataSet return to the original value
+ */
+ 
+ /* set rowtype */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var iRowCount = this.ds_data.getRowCount();
+	var iColCount = this.ds_data.getColCount();
+	
+	for (var i = 0; i < iRowCount; i++)
+	{
+        if (this.ds_data.getRowType(i) != "1")
+        {
+            for (var j = 0; j < iColCount; j++)
+            {   
+                if (this.ds_data.getColumn(i, j) != this.ds_data.getOrgColumn(i, j))
+                {
+                    this.ds_data.setColumn(i, j, this.ds_data.getOrgColumn(i, j));
+                }
+            }
+            this.ds_data.set_updatecontrol(false);
+            this.ds_data.setRowType(i,Dataset.ROWTYPE_NORMAL);
+            this.ds_data.set_updatecontrol(true);
+        }
+	}
+}
+
+]]></Script>
+  </Form>
+</FDL>

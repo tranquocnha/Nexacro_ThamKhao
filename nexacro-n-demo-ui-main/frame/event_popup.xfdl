@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="event_popup" width="480" height="740" titletext="Nexacro Demo 리뉴얼 오픈 이벤트" onclick="Popup_onclick">
+    <Layouts>
+      <Layout height="740" width="480">
+        <ImageViewer id="ImageViewer00" taborder="4" left="0" top="0" image="url('imagerc::event_20210817_3.png')" right="0" bottom="0" border="0px none"/>
+        <Static id="Static00" taborder="0" left="80" top="642" width="153" height="51" onclick="Static00_onclick" cursor="pointer"/>
+        <Static id="Static01" taborder="1" left="247" top="642" width="153" height="51" onclick="Static01_onclick" cursor="pointer"/>
+        <CheckBox id="CheckBox00" taborder="2" text="하루동안 보지 않기" width="135" height="18" onchanged="CheckBox00_onchanged" right="72" bottom="3" cssclass="chk_WF_check16px"/>
+        <Static id="Static02" taborder="3" text="[닫기]" width="37" height="18" cursor="pointer" onclick="Static02_onclick" right="21" bottom="3"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Static00_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	//system.execBrowser("https://demo.nexacroplatform.com");
+	this.closePop();
+};
+
+this.Static01_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	gtag('event', 'Button Click', {
+		'event_category': 'Open Event',
+		'event_label': 'Survey Click'
+	});
+	system.execBrowser("https://docs.google.com/forms/d/e/1FAIpQLSeET_gT36bGQse3pVHQnBY3ZxEgWxUrM-N1B8GnObnrXxisUA/viewform?usp=sf_link");
+};
+
+this.Static02_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	this.closePop();
+};
+
+this.CheckBox00_onchanged = function(obj:nexacro.CheckBox,e:nexacro.CheckBoxChangedEventInfo)
+{
+	if (e.postvalue) {
+		this.setEventCookie("openEvent", "N", 1);
+	} else {
+		this.setEventCookie("openEvent", "Y", 1);
+	}
+};
+
+this.setEventCookie = function(name, value, expiredays) {
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + expiredays );
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+};
+
+this.closePop = function()
+{
+	if (this.parent instanceof nexacro.ChildFrame) {
+		this.close();
+	} else {
+		this.parent.set_visible(false);
+	}
+};]]></Script>
+  </Form>
+</FDL>

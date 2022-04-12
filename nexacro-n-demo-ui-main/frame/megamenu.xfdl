@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="megamenu" width="1280" height="740" background="#ffffff" onload="megamenu_onload">
+    <Layouts>
+      <Layout height="740" width="1280" stepcount="0">
+        <Button id="btnClose" taborder="1" top="15" width="50" height="50" right="17" onclick="btnClose_onclick" cssclass="btn_WF_megaClose"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.megamenu_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	nexacro._OnceCallbackTimer.callonce(this, function() {
+		this.setMenu();
+	}, 10);
+};
+
+this.setMenu = function()
+{
+	var left=0, top=0, width=256, height=80, gap=0,
+		app = nexacro.getApplication();
+	
+	app.gdsMenu.filter("level==0");
+	
+	for (var i = 0, len = 5; i < len; i++) {
+		var id = app.gdsMenu.getColumn(i, "id"),
+			caption = app.gdsMenu.getColumn(i, "caption"),
+			objId = "stcMenu_"+i,
+			menuTitle = new Static(objId, left, top, width, height, null, null),
+			cssclass = "";
+		
+		switch(id) {
+		case "010000":
+			cssclass = "sta_WF_megaTitle01";
+			break;
+		case "020000":
+			cssclass = "sta_WF_megaTitle02";
+			break;
+		case "030000":
+			cssclass = "sta_WF_megaTitle03";
+			break;
+		case "040000":
+			cssclass = "sta_WF_megaTitle04";
+			break;
+		case "050000":
+			cssclass = "sta_WF_megaTitle05";
+			break;
+		default:
+			cssclass = "sta_WF_megaTitleBlank";
+		}
+		
+		menuTitle.set_cssclass(cssclass);
+		menuTitle.set_text(caption);
+		this.addChild(objId, menuTitle); 
+		menuTitle.show();
+		
+		left += width + gap;
+	}
+	
+	app.gdsMenu.filter("level>0");
+	
+	left=8, top=110, width=240, height=47, gap=0;
+	var tempUpid = "";
+	
+	for (var i = 0, len = app.gdsMenu.rowcount; i < len; i++) {
+		var id = app.gdsMenu.getColumn(i, "id"),
+			caption = app.gdsMenu.getColumn(i, "caption"),
+			level = app.gdsMenu.getColumn(i, "level"),
+			upid = app.gdsMenu.getColumn(i, "upid"),
+			url = app.gdsMenu.getColumn(i, "url"),
+			objId = "btnMenu_"+id;
+		
+		if (i > 0 && tempUpid != upid) {
+			left += 256, top = 110;
+		}
+		
+		button = new Button(objId, left, top, width, height, null, null);
+		button.set_cssclass("btn_WF_megaMenu");
+		button.set_text(caption);
+		button.menuId = id;
+		button.addEventHandler("onclick", this.btnMenu_onclick, this);
+		this.addChild(objId, button); 
+		button.show();
+		
+		top += height + gap;
+		tempUpid = upid;
+	}
+	
+	app.gdsMenu.filter("");
+	
+	this.btnClose.bringToFront();
+};
+
+this.btnMenu_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var p = this.parent.parent,
+		menuId = obj.menuId;
+	p["hideMegaMenu"].call(p);
+	
+	this.openMenu(menuId);
+};
+
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var p = this.parent.parent;
+	p["hideMegaMenu"].call(p);
+};
+]]></Script>
+    <Objects/>
+  </Form>
+</FDL>

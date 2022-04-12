@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script type="xscript5.1"><![CDATA[if (nexacro.getProjectPath().indexOf("demo.tobesoft.com") > -1 || nexacro.getProjectPath().indexOf("20.194.19.73") > -1) {
+	// -----------------------------------------------------------------------------
+	// rMate Chart H5 License Key
+	//
+	// Product Name : rMateChart for HTML5 v6.0  
+	// License Type : Enterprise License - 정품
+	// Product No : CC79-0E25-5927-5EFK
+	// Authenticated server Info : 허가된 서버의 수=1, 서버 IP=20.194.19.73, 10.0.10.17, 도메인=demo.tobesoft.com, demo.nexacroplatform.com
+	// Expiration date : *
+	//
+	this.rMateChartH5License = "65a6c2095118adf8ba8c8f6594bed9da68e662737c8fc4f79f949b4d941950a8:6500320b352045373a312a2e20304c313a2e4330432e373039312d2c30334537322e35392d31352e3934323937312d2e35304532462c4b6d206f5063422e3a6d5472426f536620744c61566c3a70326f2e7230632061507856653a6e432e356f2d6d45654e642d2c366d2e6f3063202e45744c663a6f6673206543623a6f3274302e326f316d31653164313a3848";
+	// -----------------------------------------------------------------------------
+} else {
+	// -----------------------------------------------------------------------------
+	// rMate Chart H5 License Key 
+	//
+	// Product Name : rMate Chart for HTML5 v6.0
+	// License Type : Enteprorse Trial License
+	// Product No : E24C-01F4-3D3C-536F
+	// Authenticated server Info : undefined
+	// Expiration date : 2021/11/30
+	//
+	this.rMateChartH5License = "5a1fe333f2a7a608783b471e7c0212c30f39b82a043cd3df27f61de745da33aa:3100660b3448443a4f4220504c2056463a3632332e35302d2043503356443a33432d35342d4645314e302d2d36432e3430322d45453a564c41204c302033452f4c313a31742f203143323a303232303a32453120302a383a334830";
+	// -----------------------------------------------------------------------------
+}]]></Script>

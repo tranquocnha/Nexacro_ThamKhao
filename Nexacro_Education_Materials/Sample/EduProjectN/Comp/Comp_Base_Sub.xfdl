@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_Base_Sub" width="370" height="150" titletext="Components Sub">
+    <Layouts>
+      <Layout height="150" width="370">
+        <Static id="Static12" taborder="3" text="" left="114" top="49" width="248" height="44" border="" background="" padding="" cssclass="sta_WF_DetailArea"/>
+        <Static id="Static06" taborder="6" text="" left="114" top="92" width="248" height="44" border="" background="" padding="" cssclass="sta_WF_DetailArea"/>
+        <Static id="Static00" taborder="0" text="Linked Form" left="10" top="10" width="250" height="20" cssclass="sta_WF_Subtitle"/>
+        <Static id="Static11" taborder="1" text="Static" left="9" top="49" width="110" height="44" border="" background="" padding="" cssclass="sta_WF_DetailLabel"/>
+        <Static id="Static25" taborder="2" text="Nexacro" left="126" top="56" width="186" height="30"/>
+        <Static id="Static05" taborder="4" text="Edit" left="9" top="92" width="110" height="44" border="" background="" padding="" cssclass="sta_WF_DetailLabel"/>
+        <Edit id="Edit00" taborder="5" left="126" top="99" width="130" height="30" value="Nexacro" text="Nexacro"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+
+this.fn_open = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+/*
+	var sID    = obj.user_MID;
+	var sName  = nexacro.getApplication().gds_menu.lookup("MENU_ID", sID, "MENU_NAME");
+	var sURL   = nexacro.getApplication().gds_menu.lookup("MENU_ID", sID, "FORM_URL");	
+	
+	nexacro.getApplication().mainframe.VFrameSet0.HFrameSet0.LeftFrame.form.fn_openForm(sID, sName, sURL);
+*/	
+};
+]]></Script>
+  </Form>
+</FDL>

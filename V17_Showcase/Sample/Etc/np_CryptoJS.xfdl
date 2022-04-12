@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="test" classname="test" left="0" top="0" width="760" height="430" titletext="Encryption decryption example" onload="test_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="encrypt decrypt" left="25.26%" top="189" right="55.79%" height="35" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static00" taborder="1" text="Encrypted data" left="2.11%" top="98" right="78.42%" height="18" cssclass="sta_WF_subtitP" width="" bottom=""/>
+        <Static id="Static01" taborder="2" text="Decrypted data" left="2.11%" top="138" right="78.42%" height="18" cssclass="sta_WF_subtitP" width="" bottom=""/>
+        <Static id="Static02" taborder="3" text="Encrypted data" left="2.11%" top="276" right="78.42%" height="18" cssclass="sta_WF_subtitP" width="" bottom=""/>
+        <Static id="Static03" taborder="4" text="Decrypted data" left="2.11%" top="316" right="78.42%" height="18" cssclass="sta_WF_subtitP" width="" bottom=""/>
+        <Static id="Static06" taborder="7" text="This sampl e shows encryption and decryption of data, while sending and receiving from server" left="2.11%" top="7" right="3.16%" height="20" cssclass="sta_WF_subtitP" width="" bottom=""/>
+        <Edit id="Edit00" taborder="8" left="25.39%" top="98" right="47.11%" height="31" readonly="true"/>
+        <Edit id="Edit01" taborder="9" left="25.39%" top="138" right="47.11%" height="31" readonly="true"/>
+        <Edit id="Edit02" taborder="10" left="25.39%" top="276" right="47.11%" height="31" readonly="true"/>
+        <Edit id="Edit03" taborder="11" left="25.39%" top="316" right="47.11%" height="31" readonly="true"/>
+        <Static id="Static07" taborder="14" text="Sending data" cssclass="sta_WF_subtitP" left="2.11%" top="55" right="78.42%" height="18" width="" bottom=""/>
+        <Static id="Static08" taborder="15" text="Receiving data" cssclass="sta_WF_subtitP" left="2.11%" top="232" right="78.42%" height="18" width="" bottom=""/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[this.callValue = "";
+this.key = CryptoJS.enc.Utf8.parse("TOBESOFT12345678");
+this.iv  = CryptoJS.enc.Utf8.parse('1234567812345678');
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var key = CryptoJS.enc.Utf8.parse("TOBESOFT12345678");
+    var iv  = CryptoJS.enc.Utf8.parse('1234567812345678');
+	
+	var encrypted = this.dataEncode("test", this.key, this.iv);
+	var decrypted = this.dataDecode(encrypted, this.key, this.iv);
+	
+	var encrypted = this.Edit00.value;//(encrypted);
+	var decrypted = this.Edit01.value;//(decrypted);
+	
+	this.transaction("test","Svc::CryptoJS_.jsp","","","encrypted="+encrypted,"fn_search_after");
+}
+this.fn_search_after =function (a,b,c)
+{
+	this.Edit02.set_value(this.callValue);
+	this.Edit03.set_value(this.dataDecode(this.callValue, this.key, this.iv));
+}
+
+
+
+ //Encryption
+this.dataEncode = function(message, key, iv){
+       var encrypted = CryptoJS.AES.encrypt(message, key, { iv: iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.ZeroPadding});
+       return encrypted.toString();
+ }
+  //Decryption
+this.dataDecode = function(encrypted, key, iv){
+       var decrypted = CryptoJS.AES.decrypt(encrypted,key,{iv:iv,padding:CryptoJS.pad.ZeroPadding}); 
+       return decrypted.toString(CryptoJS.enc.Utf8);
+}
+this.test_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var key = CryptoJS.enc.Utf8.parse("TOBESOFT12345678");
+    var iv  = CryptoJS.enc.Utf8.parse('1234567812345678');
+	
+	var encrypted = this.dataEncode("test", this.key, this.iv);
+	var decrypted = this.dataDecode(encrypted, this.key, this.iv);
+	
+
+	this.Edit00.set_value(encrypted);
+	this.Edit01.set_value(decrypted);
+}
+]]></Script>
+  </Form>
+</FDL>

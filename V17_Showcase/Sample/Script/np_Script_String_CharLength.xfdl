@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_String_CharLength" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_String_CharLength" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="200" top="176" height="34"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="80" height="30"/>
+        <Edit id="edt_input" taborder="0" value="nexacro platform" text="XPLATFORM" autoselect="true" autoskip="true" position="absolute" left="90" width="200" top="78" height="34"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="178" height="30"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="200" width="90" top="122" height="34"/>
+        <Static id="Static05" taborder="3" text="Returns the length of the string" cssclass="sta_WF_subtitP" left="30" top="18" width="420" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_String_CharLength
+ * Description : Returns the length of the string
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nRtn = this.fn_charLength(this.edt_input.value);	
+	this.edt_output.set_value(nRtn);
+}
+
+/*
+ * Function Name : fn_charLength
+ * Description   : Returns the string length
+ * Parameter     : String
+ * Return        : String length
+ * Example       : fn_charLength("XPLATFORM");
+ */
+this.fn_charLength = function(sString) 
+{
+    var sString = sString.toString();
+    var nCnt    = 0;
+
+    for (var i = 0; i < sString.length; i++)
+    {
+		if (sString.charCodeAt(i) > 127)
+		{
+			nCnt += 2;
+		} 
+		else 
+		{
+			nCnt += 1;
+		}
+	}
+	return nCnt;
+}
+]]></Script>
+  </Form>
+</FDL>

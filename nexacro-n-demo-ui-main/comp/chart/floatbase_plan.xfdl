@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="floatbase" width="800" height="600">
+    <Layouts>
+      <Layout height="600" width="800">
+        <FloatChart id="FloatChart00" taborder="0" left="0" top="0" categorycolumn="bind:Browser" right="0" bottom="10" rotateaxis="true" binddataset="ds_browser_lanking" isdatetimevalue="true">
+          <Contents><![CDATA[{
+	"title": {
+		"id": "title",
+		"text": "Float Chart",
+		"textfont": "20pt/normal '맑은 고딕'",
+		"padding": "0px 0px 5px"
+	},
+	"legend": {
+		"id": "legend",
+		"padding": "3px 10px 3px 10px",
+		"itemtextfont": "9pt '맑은 고딕'",
+		"itemtextcolor": "#4c4c4c",
+		"visible": false
+	},
+	"tooltip": {
+		"id": "tooltip",
+		"background": "#4b4b4b",
+		"linestyle": "0px none",
+		"textcolor": "#ffffff",
+		"textfont": "10pt/normal '맑은 고딕'",
+		"padding": "5px"
+	},
+	"board": {
+		"id": "board"
+	},
+	"categoryaxis": {
+		"id": "categoryaxis",
+		"labeltextcolor": "#6f6f6f",
+		"labeltextfont": "10pt '맑은 고딕'",
+		"axislinestyle": "1px solid #d0d0d0",
+		"boardlinestyle": "1px solid #d0d0d0"
+	},
+	"valueaxes": [
+		{
+			"id": "valueaxis0",
+			"labeltextcolor": "#6f6f6f",
+			"labeltextfont": "10pt '맑은 고딕'",
+			"axislinestyle": "1px solid #d0d0d0",
+			"boardlinestyle": "1px solid #d0d0d0",
+			"opposite": "true",
+			"labeltype": "normal",
+			"boardlinevisible": "true",
+			"tickinterval": ""
+		}
+	],
+	"seriesset": [
+		{
+			"id": "series0",
+			"titletext": "series",
+			"linevisible": true,
+			"itemtext": "bind:percent",
+			"itemtextmask": "###%",
+			"itemtextvisible": true,
+			"itemtextcolor": "#ffffff",
+			"itemtextfont": "bold 8pt '맑은 고딕'",
+			"itemtexttype": "text",
+			"value3column": "bind:percent",
+			"highlightbarvisible": "true",
+			"value2column": "bind:from",
+			"valuecolumn": "bind:to"
+		}
+	]
+}]]></Contents>
+        </FloatChart>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_browser_lanking">
+        <ColumnInfo>
+          <Column id="Browser" type="STRING" size="256"/>
+          <Column id="from" type="DATE" size="256"/>
+          <Column id="to" type="DATE" size="256"/>
+          <Column id="percent" type="FLOAT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Browser">Edge</Col>
+            <Col id="from">20110220</Col>
+            <Col id="to">20110320</Col>
+            <Col id="percent">50</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">IE</Col>
+            <Col id="from">20110120</Col>
+            <Col id="to">20110220</Col>
+            <Col id="percent">70</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">IE1</Col>
+            <Col id="from">20110301</Col>
+            <Col id="to">20110322</Col>
+            <Col id="percent">0</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Opera</Col>
+            <Col id="from">20110210</Col>
+            <Col id="to">20110310</Col>
+            <Col id="percent">10</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Firefox</Col>
+            <Col id="from">20110110</Col>
+            <Col id="to">20110220</Col>
+            <Col id="percent">40</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Chrome</Col>
+            <Col id="from">20110220</Col>
+            <Col id="to">20110303</Col>
+            <Col id="percent">90</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Chrome</Col>
+            <Col id="from">20110310</Col>
+            <Col id="to">20110420</Col>
+            <Col id="percent">100</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Edge1</Col>
+            <Col id="from">20110220</Col>
+            <Col id="to">20110320</Col>
+            <Col id="percent">50</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">IE1</Col>
+            <Col id="from">20110120</Col>
+            <Col id="to">20110220</Col>
+            <Col id="percent">70</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">IE</Col>
+            <Col id="from">20110301</Col>
+            <Col id="to">20110322</Col>
+            <Col id="percent">0</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Opera1</Col>
+            <Col id="from">20110210</Col>
+            <Col id="to">20110310</Col>
+            <Col id="percent">10</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Firefox1</Col>
+            <Col id="from">20110110</Col>
+            <Col id="to">20110220</Col>
+            <Col id="percent">40</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Chrome1</Col>
+            <Col id="from">20110220</Col>
+            <Col id="to">20110303</Col>
+            <Col id="percent">90</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Chrome</Col>
+            <Col id="from">20110310</Col>
+            <Col id="to">20110420</Col>
+            <Col id="percent">100</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[ ]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,1509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="pageMgmt" inheritanceid="" position="absolute" titletext="Menu management by group" onload="form_onload" onbeforeclose="form_onbeforeclose" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="st_BG00" position="absolute" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Static id="st_Title" text="domain.menu.list" wordwrap="english" position="absolute" left="15" width="204" top="38" height="22" cssclass="sta_WF_title"/>
+        <Grid id="grd_menu" taborder="1" binddataset="ds_Menu" scrollpixel="default" useinputpanel="false" cellsizingtype="col" autofittype="col" treeusecheckbox="false" treeinitstatus="expand,null" position="absolute" left="15" right="15" top="156" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="552"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="domain.menu" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" colspan="5" text="domain.authority" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="1" text="domain.use" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="2" text="domain.add" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="3" text="domain.update" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="4" text="domain.delete" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="5" text="domain.print" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="tree" edittype="tree" text="bind:MENU_NAME" treelevel="bind:MENU_LEVEL" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" displaytype="checkbox" edittype="checkbox" text="bind:USE_FG" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" displaytype="checkbox" edittype="checkbox" text="bind:ADD_AUTH" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" displaytype="checkbox" edittype="checkbox" text="bind:EDIT_AUTH" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" displaytype="checkbox" edittype="checkbox" text="bind:DEL_AUTH" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" displaytype="checkbox" edittype="checkbox" text="bind:PRINT_AUTH" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="st_progress" taborder="2" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static00" taborder="8" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="46"/>
+        <Static id="st_searchCondition00" text="domain.group.list" position="absolute" left="35" width="72" top="83" height="20" cssclass="sta_WFSA_label"/>
+        <Combo id="cmb_Group" taborder="1" index="-1" position="absolute" innerdataset="@ds_Group" datacolumn="GROUP_NM" codecolumn="GROUP_ID" canitemchange="cmb_Group_canitemchange" onitemchanged="cmb_Group_onitemchanged" left="117" width="202" top="83" height="20"/>
+        <Button id="btn_Save" taborder="1" text="domain.save" onclick="btn_Save_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:T;" right="15" width="42" top="128" height="23" cssclass="btn_module"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Group" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="GROUP_ID" type="string" size="20"/>
+          <Column id="GROUP_NM" type="string" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="GROUP_NM">User</Col>
+          </Row>
+          <Row>
+            <Col id="GROUP_ID">ADMIN</Col>
+            <Col id="GROUP_NM">Admin</Col>
+          </Row>
+          <Row>
+            <Col id="GROUP_ID">TEST</Col>
+            <Col id="GROUP_NM">Test</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_Menu_onrowposchanged" oncolumnchanged="ds_Menu_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="MENU_ID" type="string" size="20"/>
+          <Column id="PAGE_ID" type="string" size="20"/>
+          <Column id="MENU_NAME" type="string" size="50"/>
+          <Column id="MENU_LEVEL" type="INT" size="10"/>
+          <Column id="MENU_GRP" type="string" size="10"/>
+          <Column id="MENU_TOP" type="string" size="10"/>
+          <Column id="MENU_SEQ" type="INT" size="10"/>
+          <Column id="MENU_OPTP" type="string" size="10"/>
+          <Column id="MENU_ARGS" type="string" size="50"/>
+          <Column id="MENU_STAT" type="string" size="10"/>
+          <Column id="MENU_DESC" type="string" size="100"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="STRING" size="20"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="STRING" size="20"/>
+          <Column id="GROUP_ID" type="string" size="32"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="ADD_AUTH" type="string" size="1"/>
+          <Column id="EDIT_AUTH" type="string" size="1"/>
+          <Column id="DEL_AUTH" type="string" size="1"/>
+          <Column id="PRINT_AUTH" type="string" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_ID">1000</Col>
+            <Col id="PAGE_ID"/>
+            <Col id="MENU_NAME">User management</Col>
+            <Col id="MENU_LEVEL">0</Col>
+            <Col id="MENU_GRP">1000</Col>
+            <Col id="MENU_TOP"/>
+            <Col id="MENU_SEQ">0</Col>
+            <Col id="MENU_OPTP"/>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831181214000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">1002</Col>
+            <Col id="PAGE_ID">TEMPLATE004</Col>
+            <Col id="MENU_NAME">User registration management</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">1000</Col>
+            <Col id="MENU_TOP">1000</Col>
+            <Col id="MENU_SEQ">1</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905191340000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">1004</Col>
+            <Col id="PAGE_ID">ADMSAMP002</Col>
+            <Col id="MENU_NAME">User group management</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">1000</Col>
+            <Col id="MENU_TOP">1000</Col>
+            <Col id="MENU_SEQ">2</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER"/>
+            <Col id="UPDATE_DT">20120906144301000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">1003</Col>
+            <Col id="PAGE_ID">ADMSAMP009</Col>
+            <Col id="MENU_NAME">User management by group</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">1000</Col>
+            <Col id="MENU_TOP">1000</Col>
+            <Col id="MENU_SEQ">3</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER"/>
+            <Col id="UPDATE_DT">20120906134400000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">1005</Col>
+            <Col id="PAGE_ID">ADMSAMP003</Col>
+            <Col id="MENU_NAME">Menu management by group</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">1000</Col>
+            <Col id="MENU_TOP">1000</Col>
+            <Col id="MENU_SEQ">4</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER"/>
+            <Col id="UPDATE_DT">20120906144249000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">2000</Col>
+            <Col id="PAGE_ID"/>
+            <Col id="MENU_NAME">Basis management</Col>
+            <Col id="MENU_LEVEL">0</Col>
+            <Col id="MENU_GRP">2000</Col>
+            <Col id="MENU_TOP"/>
+            <Col id="MENU_SEQ">5</Col>
+            <Col id="MENU_OPTP"/>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831181214000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">2001</Col>
+            <Col id="PAGE_ID">ADMSAMP004</Col>
+            <Col id="MENU_NAME">Common code management</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">2000</Col>
+            <Col id="MENU_TOP">2000</Col>
+            <Col id="MENU_SEQ">6</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906182817000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">2003</Col>
+            <Col id="PAGE_ID">ADMSAMP005</Col>
+            <Col id="MENU_NAME">Menu registration management</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">2000</Col>
+            <Col id="MENU_TOP">2000</Col>
+            <Col id="MENU_SEQ">7</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120831181214000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">2005</Col>
+            <Col id="PAGE_ID">ADMSAMP008</Col>
+            <Col id="MENU_NAME">Screen registration management</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">2000</Col>
+            <Col id="MENU_TOP">2000</Col>
+            <Col id="MENU_SEQ">8</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">2004</Col>
+            <Col id="PAGE_ID">ADMSAMP006</Col>
+            <Col id="MENU_NAME">Group registration management</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">2000</Col>
+            <Col id="MENU_TOP">2000</Col>
+            <Col id="MENU_SEQ">9</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905201049000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">5001</Col>
+            <Col id="PAGE_ID">ADMSAMP007</Col>
+            <Col id="MENU_NAME">Board management</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">2000</Col>
+            <Col id="MENU_TOP">2000</Col>
+            <Col id="MENU_SEQ">10</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906174117000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">0</Col>
+            <Col id="ADD_AUTH">0</Col>
+            <Col id="EDIT_AUTH">0</Col>
+            <Col id="DEL_AUTH">0</Col>
+            <Col id="PRINT_AUTH">0</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6000</Col>
+            <Col id="PAGE_ID"/>
+            <Col id="MENU_NAME">Template</Col>
+            <Col id="MENU_LEVEL">0</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP"/>
+            <Col id="MENU_SEQ">12</Col>
+            <Col id="MENU_OPTP"/>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905184625000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">60001</Col>
+            <Col id="PAGE_ID"/>
+            <Col id="MENU_NAME">Template</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">6000</Col>
+            <Col id="MENU_SEQ">13</Col>
+            <Col id="MENU_OPTP"/>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905182055000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905184826000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6001</Col>
+            <Col id="PAGE_ID">TEMPLATE001</Col>
+            <Col id="MENU_NAME">GRID BASIC</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">14</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905191250000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6002</Col>
+            <Col id="PAGE_ID">TEMPLATE002</Col>
+            <Col id="MENU_NAME">GRID FORM</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">15</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6003</Col>
+            <Col id="PAGE_ID">TEMPLATE003</Col>
+            <Col id="MENU_NAME">GRID POPUP</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">16</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6004</Col>
+            <Col id="PAGE_ID">TEMPLATE004</Col>
+            <Col id="MENU_NAME">GRID TAB</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">17</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6005</Col>
+            <Col id="PAGE_ID">TEMPLATE006</Col>
+            <Col id="MENU_NAME">SHUTTLE</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">18</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6006</Col>
+            <Col id="PAGE_ID">TEMPLATE007</Col>
+            <Col id="MENU_NAME">GRID SUBGRID</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">19</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6007</Col>
+            <Col id="PAGE_ID">TEMPLATE008</Col>
+            <Col id="MENU_NAME">TREE SUBGRID</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">20</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6008</Col>
+            <Col id="PAGE_ID">TEMPLATE009</Col>
+            <Col id="MENU_NAME">TREE FORM</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">21</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6009</Col>
+            <Col id="PAGE_ID">TEMPLATE010</Col>
+            <Col id="MENU_NAME">GRID FILTERING</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">22</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6010</Col>
+            <Col id="PAGE_ID">TEMPLATE011</Col>
+            <Col id="MENU_NAME">GRID MONTHLY CALENDAR</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">23</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6011</Col>
+            <Col id="PAGE_ID">TEMPLATE012</Col>
+            <Col id="MENU_NAME">GRID WEEKLY CALENDAR</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">24</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6012</Col>
+            <Col id="PAGE_ID">TEMPLATE013</Col>
+            <Col id="MENU_NAME">FILE ATTACHMENT</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">25</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6013</Col>
+            <Col id="PAGE_ID">TEMPLATE014</Col>
+            <Col id="MENU_NAME">GRID SUMMARY</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">26</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">6014</Col>
+            <Col id="PAGE_ID">TEMPLATE101</Col>
+            <Col id="MENU_NAME">PAGING</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60001</Col>
+            <Col id="MENU_SEQ">27</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120831181214000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905182055000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">60002</Col>
+            <Col id="PAGE_ID"/>
+            <Col id="MENU_NAME">Guide</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">6000</Col>
+            <Col id="MENU_SEQ">28</Col>
+            <Col id="MENU_OPTP"/>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905184351000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905191224000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600011</Col>
+            <Col id="PAGE_ID">CLASSGUIDE01</Col>
+            <Col id="MENU_NAME">Class EDIT</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">29</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905184351000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905191224000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+2000
+
+				<Col id="MENU_ID">600012</Col><Col id="PAGE_ID">CLASSGUIDE02</Col><Col id="MENU_NAME">Class STATIC</Col><Col id="MENU_LEVEL">2</Col><Col id="MENU_GRP">6000</Col><Col id="MENU_TOP">60002</Col><Col id="MENU_SEQ">30</Col><Col id="MENU_OPTP">MAIN</Col><Col id="MENU_ARGS"/><Col id="MENU_STAT">VIEW</Col><Col id="MENU_DESC"/><Col id="CREATE_USER">test</Col><Col id="CREATE_DT">20120905184351000</Col><Col id="UPDATE_USER">test</Col><Col id="UPDATE_DT">20120905184826000</Col><Col id="GROUP_ID">USER</Col><Col id="USE_FG">1</Col><Col id="ADD_AUTH">1</Col><Col id="EDIT_AUTH">1</Col><Col id="DEL_AUTH">1</Col><Col id="PRINT_AUTH">1</Col><Col id="_chk">0</Col></Row>
+          <Row>
+            <Col id="MENU_ID">600013</Col>
+            <Col id="PAGE_ID">COMPGUIDE01</Col>
+            <Col id="MENU_NAME">Component STATIC</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">31</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905184351000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905184826000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600014</Col>
+            <Col id="PAGE_ID">COMPGUIDE02</Col>
+            <Col id="MENU_NAME">Component BUTTON</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">32</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905184351000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905184826000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600015</Col>
+            <Col id="PAGE_ID">COMPGUIDE03</Col>
+            <Col id="MENU_NAME">Component CALENDAR</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">33</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905184351000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905184826000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600017</Col>
+            <Col id="PAGE_ID">COMPGUIDE05</Col>
+            <Col id="MENU_NAME">Component POPUP</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">34</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905184826000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905184834000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600016</Col>
+            <Col id="PAGE_ID">COMPGUIDE04</Col>
+            <Col id="MENU_NAME">Component SHAPE</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">35</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905184351000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905184834000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600018</Col>
+            <Col id="PAGE_ID">COMPGUIDE06</Col>
+            <Col id="MENU_NAME">Component ALERT</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">36</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905190645000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905190645000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600019</Col>
+            <Col id="PAGE_ID">COMPGUIDE07</Col>
+            <Col id="MENU_NAME">Component GRID1</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">37</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905190645000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905190645000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600020</Col>
+            <Col id="PAGE_ID">COMPGUIDE08</Col>
+            <Col id="MENU_NAME">Component GRID2</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">38</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905190645000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905190645000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600021</Col>
+            <Col id="PAGE_ID">COMPGUIDE09</Col>
+            <Col id="MENU_NAME">Component TAB1</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">39</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905190645000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905190645000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600022</Col>
+            <Col id="PAGE_ID">COMPGUIDE10</Col>
+            <Col id="MENU_NAME">Component TAB2</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60002</Col>
+            <Col id="MENU_SEQ">40</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905190645000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120905190645000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">60003</Col>
+            <Col id="PAGE_ID"/>
+            <Col id="MENU_NAME">Screen pattern</Col>
+            <Col id="MENU_LEVEL">1</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">6000</Col>
+            <Col id="MENU_SEQ">41</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110710000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110749000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600031</Col>
+            <Col id="PAGE_ID">PATTERN001</Col>
+            <Col id="MENU_NAME">Detail</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60003</Col>
+            <Col id="MENU_SEQ">42</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110710000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110749000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600032</Col>
+            <Col id="PAGE_ID">PATTERN002</Col>
+            <Col id="MENU_NAME">MultiDetail</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60003</Col>
+            <Col id="MENU_SEQ">43</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110710000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110749000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600033</Col>
+            <Col id="PAGE_ID">PATTERN003</Col>
+            <Col id="MENU_NAME">List/Detail</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60003</Col>
+            <Col id="MENU_SEQ">44</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110710000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110749000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600034</Col>
+            <Col id="PAGE_ID">PATTERN004</Col>
+            <Col id="MENU_NAME">Master/Detail(1:n)</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60003</Col>
+            <Col id="MENU_SEQ">45</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110710000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110749000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600035</Col>
+            <Col id="PAGE_ID">PATTERN005</Col>
+            <Col id="MENU_NAME">Master/Detail(n:n)</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60003</Col>
+            <Col id="MENU_SEQ">46</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110710000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110749000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600036</Col>
+            <Col id="PAGE_ID">PATTERN006</Col>
+            <Col id="MENU_NAME">TAB</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60003</Col>
+            <Col id="MENU_SEQ">47</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110710000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110749000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">600037</Col>
+            <Col id="PAGE_ID">PATTERN007</Col>
+            <Col id="MENU_NAME">Shuttle</Col>
+            <Col id="MENU_LEVEL">2</Col>
+            <Col id="MENU_GRP">6000</Col>
+            <Col id="MENU_TOP">60003</Col>
+            <Col id="MENU_SEQ">48</Col>
+            <Col id="MENU_OPTP">MAIN</Col>
+            <Col id="MENU_ARGS"/>
+            <Col id="MENU_STAT">VIEW</Col>
+            <Col id="MENU_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120906110710000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20120906110749000</Col>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="ADD_AUTH">1</Col>
+            <Col id="EDIT_AUTH">1</Col>
+            <Col id="DEL_AUTH">1</Col>
+            <Col id="PRINT_AUTH">1</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Menu_svc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="cmb_Group" propid="value" datasetid="ds_Search" columnid="SEARCH_CONDITION"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Business user group User group group registration management
+ * 02. User group name   : MenuMgmt.xfdl
+ * 03. User group expnanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Creation date     Created by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * User group variable declaration section
+ ************************************************************************/
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality prcessing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+
+
+	this.fn_GroupSearch();
+}
+
+// Processing on Form beforeclose Event
+// Before closing the form, here is pop-up creation to ask if there is modified data, pop-up creating
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Menu)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+}
+
+// Event processsing on save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	return;
+	if (!this.gfn_DsGetUpdated(this.ds_Menu)) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+
+	var retValue = this.gfn_Confirm("msg.before.save");
+	if (retValue == false) 
+	{
+		return;
+	}
+
+	this.fn_Save();
+}
+
+// Event processing before changing group combo
+this.cmb_Group_canitemchange = function (obj:Combo, e:ItemChangeEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Menu)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.search");
+		if (retValue == false) 
+		{
+			return false;
+		}
+		return true;
+	}
+	return true;
+}
+
+// Event processing after changing group combo
+this.cmb_Group_onitemchanged = function (obj:Combo, e:ItemChangeEventInfo)
+{
+	this.fn_Search();
+}
+
+// Event processing after chaging menu
+this.ds_Menu_oncolumnchanged = function (obj:Dataset, e:DSColChangeEventInfo)
+{
+	var nRow;
+	var i;
+
+	var nLevel = obj.getColumn(e.row, "MENU_LEVEL");
+	var strMenu = obj.getColumn(e.row, "MENU_ID");
+	var strMenuTop = obj.getColumn(e.row, "MENU_TOP");
+	var strMenuGrp = obj.getColumn(e.row, "MENU_GRP");
+
+	for (i = e.row + 1; i < obj.getRowCount(); i++) 
+	{
+		if (nLevel >= obj.getColumn(i, "MENU_LEVEL")) 
+		{
+			break;
+		}
+		obj.setColumn(i, e.columnid, e.newvalue);
+	}
+
+	nRow = obj.findRow("MENU_ID", strMenuTop);
+	while (nRow > -1) 
+	{
+		if (obj.getColumn(nRow, e.columnid) != e.newvalue) 
+		{
+			if (obj.findRowExpr("MENU_TOP=='" + strMenuTop + "'&&" + e.columnid + "!='" + e.newvalue + "'") > -1) 
+			{
+				break;
+			}
+			obj.setColumn(nRow, e.columnid, e.newvalue);
+		}
+		strMenuTop = obj.getColumn(nRow, "MENU_TOP");
+		nRow = obj.findRow("MENU_ID", strMenuTop);
+	}
+
+	/*
+	 switch(e.columnid) {
+	 case "USE_FG":
+	 if(e.newvalue == "0") {
+	 obj.setColumn(e.row, "ADD_AUTH",   e.newvalue);
+	 obj.setColumn(e.row, "EDIT_AUTH",  e.newvalue);
+	 obj.setColumn(e.row, "DEL_AUTH",   e.newvalue);
+	 obj.setColumn(e.row, "PRINT_AUTH", e.newvalue);
+	 
+	 for(i = e.row + 1; i < obj.getRowCount(); i++) {
+	 if(nLevel >= obj.getColumn(i, "MENU_LEVEL")) break;
+	 obj.setColumn(i, "ADD_AUTH",   e.newvalue);
+	 obj.setColumn(i, "EDIT_AUTH",  e.newvalue);
+	 obj.setColumn(i, "DEL_AUTH",   e.newvalue);
+	 obj.setColumn(i, "PRINT_AUTH", e.newvalue);
+	 }
+	 }
+	 default:
+	 for(i = e.row + 1; i < obj.getRowCount(); i++) {
+	 if(nLevel >= obj.getColumn(i, "MENU_LEVEL")) break;
+	 obj.setColumn(i, e.columnid, e.newvalue);
+	 }
+	 nRow = obj.findRow("MENU_ID", strMenuTop);
+	 while(nRow > -1) {
+	 if(obj.getColumn(nRow, e.columnid) != e.newvalue) {
+	 if(obj.findRowExpr("MENU_TOP=='" + strMenuTop + "'&&" + e.columnid + "!='" + e.newvalue + "'") > -1) break;
+	 obj.setColumn(nRow, e.columnid, e.newvalue);
+	 }
+	 strMenuTop = obj.getColumn(nRow, "MENU_TOP");
+	 nRow = obj.findRow("MENU_ID", strMenuTop);
+	 }
+	 break;
+	 }
+	 */
+}
+
+/***********************************************************************
+ * User defined function specification
+ ************************************************************************/
+// Menu search
+this.fn_Search = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListMenu";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "GROUP_ID=" + TOBE.wrapQuote(this.cmb_Group.value) + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findGrouMenuList'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_Menu=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+
+// Group search
+this.fn_GroupSearch = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListGroup";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findGroupList'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_Group=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// Save processing
+this.fn_Save = function ()
+{
+	return;
+	this.ds_Menu_svc.assign(this.ds_Menu);
+
+	this.fn_setSavedData();
+
+	var sArgument = "";
+	var sSvcID = "saveAll";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='updateGroupMenu,updateGroupMenu,removeGroupMenu'";
+
+	var sInDatasets = "querySet1=ds_Menu_svc:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_setSavedData = function ()
+{
+	for (var i = 0; i < this.ds_Menu_svc.getRowCount(); i++) 
+	{
+		if (this.ds_Menu_svc.getRowType(i) == 2 || this.ds_Menu_svc.getRowType(i) == 4) 
+		{
+			if (this.ds_Menu_svc.getColumn(i, "USE_FG") == "0") 
+			{
+				this.ds_Menu_svc.deleteRow(i);
+				i;
+			}
+		}
+	}
+}
+
+// After processing gfnService process callback 
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAll":
+			this.gfn_Alert("msg.save.success");
+			this.fn_Search();
+			break;
+		case "getListGroup":
+			if (this.ds_Group.rowcount == 0) 
+			{
+				return;
+			}
+			this.cmb_Group.set_index(0);
+			this.fn_Search();
+			break;
+		default:
+			break;
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

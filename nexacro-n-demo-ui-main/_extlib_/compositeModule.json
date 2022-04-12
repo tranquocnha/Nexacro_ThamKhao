@@ -1,0 +1,28 @@
+﻿{
+	"name": "compositeModule",
+	"moduletype": "component",
+	"version": "0",
+	"minnexacroversion": "",
+	"description": "",
+	"license": "",
+	"objInfo": [	
+    "compositeModule/_metainfo_/commPaging.info"
+	],
+	"scripts": [
+    "compositeModule/commPaging.xcdl.js"
+	],
+	"designscripts": [
+    "compositeModule/DesigncommPaging.js"
+	],
+	"help": "",	
+	"xcss": "compositeModule/_xcss_/compositeModule.xcss",
+	"images": "compositeModule/_images_/",	
+	"licensefiles": "",
+	"icons": "",
+	"userfolder": [
+
+	],
+	"contentseditor": [
+
+	]
+}

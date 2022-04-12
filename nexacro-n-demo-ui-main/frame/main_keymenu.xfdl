@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="main_keymenu" width="1263" height="560" titletext="New Form" background="aliceblue">
+    <Layouts>
+      <Layout height="560" width="1263">
+        <Static id="Static00" taborder="0" text="Key Menu" left="490" top="30" width="300" height="60" cssclass="sta_WF_mainboxTitle"/>
+        <Static id="Static01" taborder="1" left="5" top="126" width="300" height="360" border="1px solid #dddddd" cssclass="sta_WF_mainbox01"/>
+        <Static id="Static01_00" taborder="2" left="322" top="126" width="300" height="360" border="1px solid #dddddd" cssclass="sta_WF_mainbox02"/>
+        <Static id="Static01_01" taborder="3" left="639" top="126" width="300" height="360" border="1px solid #dddddd" cssclass="sta_WF_mainbox03"/>
+        <Static id="Static01_02" taborder="4" top="126" width="300" height="360" border="1px solid #dddddd" cssclass="sta_WF_mainbox04" right="7"/>
+      </Layout>
+      <Layout name="Layout0" width="480" height="530" mobileorientation="portrait" stepcount="4">
+        <Static id="Static01_00" left="90" top="130" width="300" height="360" positionstep="2"/>
+        <Static id="Static01_01" left="90" top="120" width="300" height="360" positionstep="3"/>
+        <Static id="Static01_02" top="130" width="300" height="360" right="90" positionstep="1"/>
+        <Static id="Static01" left="90" top="130" width="300" height="360"/>
+        <Static id="Static00" left="90" top="30" width="300" height="60" positionstep="-1"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

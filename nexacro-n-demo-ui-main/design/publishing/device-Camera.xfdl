@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="664" onload="form_onload">
+    <Layouts>
+      <Layout height="664" width="440">
+        <Button id="Button00" taborder="0" top="30" height="100" cssclass="btn_MWF_camera" width="100" left="170"/>
+        <ImageViewer id="ImageViewer00" taborder="1" left="20" top="150" height="250" image="url('imagerc::img_MWF_cameraImg.png')" stretch="fixaspectratio" right="20" text=""/>
+        <TextArea id="TextArea00" taborder="2" left="20" top="410" value="Succeed getting images." right="20" height="234"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.Div00_Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid02.set_formatid(e.postvalue);
+};
+]]></Script>
+  </Form>
+</FDL>

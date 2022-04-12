@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="samplePop" width="600" height="500" background="#6954E1">
+    <Layouts>
+      <Layout height="500" width="600">
+        <Button id="btnClose" taborder="0" width="50" height="50" right="0" top="5" cssclass="btn_MWF_closeDesc" onclick="btnClose_onclick"/>
+        <Static id="Static01" taborder="1" left="0" top="60" right="0" background="#ffffff" text="" cssclass="sta_MWF_descBg" bottom="0"/>
+        <Static id="stcTitle" taborder="2" text="Popup Sample" left="64" top="2" height="60" right="64" cssclass="sta_MWF_descTitle"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+  </Form>
+</FDL>

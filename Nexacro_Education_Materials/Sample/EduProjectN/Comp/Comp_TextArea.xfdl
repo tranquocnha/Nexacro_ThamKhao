@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_TextArea" width="1000" height="700" titletext="Component-TextArea">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000">
+        <Static id="Static04" taborder="7" text=" Basic Usage" left="10" top="40" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static06" taborder="0" text="TextArea" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <TextArea id="TextArea05" taborder="4" left="20" top="360" width="216" height="80" value="Nexacro &#10;tobesoft" inputfilter="digit"/>
+        <TextArea id="TextArea02" taborder="6" left="246" top="500" width="216" height="80" value="auto select" autoselect="true"/>
+        <TextArea id="TextArea01" taborder="5" left="20" top="500" width="216" height="80" value="ABCD" autoskip="true" maxlength="4"/>
+        <TextArea id="TextArea00" taborder="1" left="20" top="70" width="216" height="80" value="TextArea Component&#10;Nexacro&#10;Hello World"/>
+        <TextArea id="TextArea03" taborder="2" left="20" top="210" width="216" height="90" value="Nexacro&#10;TextArea &#10;123 890" inputtype="english,digit"/>
+        <TextArea id="TextArea04" taborder="3" left="246" top="210" width="216" height="90" value="12345&#10;1,200.34&#10;-1,200.34" inputtype="number"/>
+        <Static id="Static00" taborder="8" text=" Max Length / Auto Skip / Auto Select (Prop. maxlength, autoskip, autoselect)" left="10" top="470" width="680" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static01" taborder="9" text=" Input Type - english &amp; digit / number (Prop. inputtype)" left="10" top="180" width="490" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static02" taborder="10" text="  Input Filter - digit (Prop. inputfilter)" left="10" top="330" width="348" height="30" cssclass="sta_WF_TypeTitle"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+  </Form>
+</FDL>

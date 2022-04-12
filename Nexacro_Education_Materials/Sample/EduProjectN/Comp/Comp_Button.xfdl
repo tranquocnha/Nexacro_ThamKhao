@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_Button" width="1000" height="700" titletext="Component-Button">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000">
+        <Button id="Button00" taborder="1" text="Button" left="20" top="70" width="150" height="30"/>
+        <Static id="Static03" taborder="17" text=" Basic Usage" left="10" top="40" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static06" taborder="0" text="Button" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <Static id="Static00" taborder="18" text=" Expression (Prop. expr)" left="10" top="220" width="276" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Button id="Button06" taborder="9" text="Dept Name" left="20" top="250" width="248" height="30" expr="expr:&quot;Current time : &quot; + comp.parent.fn_getTime()" onclick="Button06_onclick"/>
+        <Button id="Button01" taborder="2" text="Button disable" left="178" top="70" width="150" height="30" enable="false"/>
+        <Static id="Static02" taborder="19" text=" Image &amp; Icon (Prop. icon / background)" left="10" top="130" width="376" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static04" taborder="20" text=" Status (Method setSelectStatus)" left="10" top="300" width="306" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Button id="btn_sun" taborder="10" text="Sun" left="20" top="330" width="40" height="30" onclick="fn_status" cssclass="btn_WF_Status"/>
+        <Button id="btn_mon" taborder="11" text="Mon" left="62" top="330" width="40" height="30" onclick="fn_status" cssclass="btn_WF_Status"/>
+        <Button id="btn_tue" taborder="12" text="Tue" left="104" top="330" width="40" height="30" onclick="fn_status" cssclass="btn_WF_Status"/>
+        <Button id="btn_wed" taborder="13" text="Wed" left="146" top="330" width="40" height="30" onclick="fn_status" cssclass="btn_WF_Status"/>
+        <Button id="btn_thu" taborder="14" text="Thu" left="188" top="330" width="40" height="30" onclick="fn_status" cssclass="btn_WF_Status"/>
+        <Button id="btn_fri" taborder="15" text="Fri" left="230" top="330" width="40" height="30" onclick="fn_status" cssclass="btn_WF_Status"/>
+        <Button id="btn_sat" taborder="16" text="Sat" left="272" top="330" width="40" height="30" onclick="fn_status" cssclass="btn_WF_Status"/>
+        <Button id="Button02" taborder="3" text="Retrieve" left="20" top="160" width="110" height="40" icon="URL(&quot;imagerc::img_b_select.png&quot;)" textPadding="0px 0px 0px 10px"/>
+        <Button id="Button03" taborder="4" text="AddRow" left="140" top="160" width="110" height="40" icon="URL(&quot;imagerc::img_b_insert.png&quot;)" textPadding="0px 0px 0px 10px"/>
+        <Button id="Button04" taborder="5" text="Delete" left="260" top="160" width="110" height="40" icon="URL(&quot;imagerc::img_b_delete.png&quot;)" textPadding="0px 0px 0px 10px"/>
+        <Button id="Button05" taborder="6" text="Save" left="380" top="160" width="110" height="40" icon="URL(&quot;imagerc::img_b_save.png&quot;)" textPadding="0px 0px 0px 10px"/>
+        <Button id="Button07" taborder="7" left="500" top="160" width="30" height="40" textPadding="0px 0px 0px 10px" background="url(&quot;imagerc::img_b_Print.png&quot;) no-repeat center center" border="0px none"/>
+        <Button id="Button08" taborder="8" left="540" top="160" width="30" height="40" background="url(&quot;imagerc::img_b_setting.png&quot;) no-repeat center center" border="0px none"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.fn_getTime = function()
+{
+	var objDate = new Date();
+	var sTime  = objDate.getHours().toString().padLeft(2, "0")   + ":";
+		sTime += objDate.getMinutes().toString().padLeft(2, "0") + ":";
+		sTime += objDate.getSeconds().toString().padLeft(2, "0");
+
+	return sTime;
+}
+
+this.fn_status = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var bStatus = obj.getSelectStatus();
+	if(bStatus){
+		obj.setSelectStatus(false);
+	}
+	else{
+		obj.setSelectStatus(true);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

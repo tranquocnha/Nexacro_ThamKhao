@@ -1,0 +1,1900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script type="xscript4.0"><![CDATA[/*********************************************************
+ *	공통 Utility 함수 모음
+*********************************************************/
+/*********************************************************************
+ * 함 수 명 	: gf_IsEmpty
+ * 함수설명 	: 입력값이 Null이거나 빈값인지 체크한다.
+ * 입    력 	: 문자열 값
+ * 결    과 	: Boolean형의 여부
+ *********************************************************************/
+function gf_IsEmpty(inVal)
+{	
+	if (new String(inVal).valueOf() == "undefined") return true;
+    if (inVal == null) return true;
+    
+    var v_ChkStr = new String(inVal);
+
+    if (v_ChkStr == null) return true;
+    if (v_ChkStr.toString().length == 0 ) return true;
+    return false;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_Trim
+ * 함수설명 	: 공백제거
+ * 입    력 	: 문자열 
+ * 결    과 	: String
+ *********************************************************************/
+function gf_Trim(sValue)
+{
+    if (sValue == null) return "";
+    if (new String(sValue).valueOf() == "undefined") return "";
+    if (new String(sValue) == null) return "";
+
+    var retVal = (new String(sValue)).replace(/^\s+|\s+$/g, '');
+
+    return retVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsNull
+ * 함수설명 	: NULL 여부 체크
+ * 입    력 	: 문자열 
+ * 결    과 	: Boolean형의 여부	- null = true, Not Null = false
+ *********************************************************************/
+function gf_IsNull(sValue)
+{
+    if (new String(sValue).valueOf() == "undefined") return true;
+    if (sValue == null) return true;
+    var v_ChkStr = new String(sValue);
+
+    if (v_ChkStr == null) return true;
+    if (v_ChkStr.toString().length == 0 ) return true;
+
+    return false;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_nvl
+ * 함수설명 	: 입력값을 체크하여 Null인경우 지정한 값을 리턴 
+				  Null이 아니면 입력값을 리턴한다.
+ * 입    력 	: inVal 	- 문자열 값
+				  nullVal 	- Null인경우 대치값
+ * 결    과 	: 입력값이 Null인경우 지정한값
+							Null이 아닌경우 입력값
+ *********************************************************************/
+function gf_nvl(inVal, nullVal)
+{
+	if(inVal == null) 
+	{
+		inVal = nullVal;
+	}
+	return inVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_emptyVal
+ * 함수설명 	: 입력값을 체크하여 Null이거나 빈값이면 지정한 값을 리턴 
+							아니면 입력값을 리턴한다.
+ * 입    력 	: inVal 	- 문자열 값
+				  emptyVal 	- 대치값
+ * 결    과 	: 입력값이 Null이거나 공백인 경우 지정한값
+							Null이거나 공백이 아닌경우 입력값
+ *********************************************************************/
+function gf_emptyVal(inVal, emptyVal)
+{
+	if(gf_IsEmpty(inVal)) 
+	{
+		inVal = emptyVal;
+	}
+	return inVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_SetQuote
+ * 함수설명 	: Argument 전송된 각 Data 값에 Quote(') 를 붙여준다.
+ * 입    력 	: 문자열 
+ * 결    과 	: String
+ *********************************************************************/
+function gf_SetQuote(argString) 
+{
+    if (gf_IsNull(argString))
+    {
+		argString = "";
+    }
+
+    var strVal = new String(argString);
+    var strRet = new String("'");
+
+    for (var i = 0; i < strVal.length; i++) 
+    {
+        if (strVal.substr(i, 1) == "'") 
+        {
+            strRet += '"';
+        } else if (strVal.substr(i, 1) == '"') {
+            strRet += '"';
+        } else {
+            strRet += strVal.substr(i, 1);
+        }
+    }
+    
+    strRet += "'";
+    return strRet;
+}
+
+/**********************************************************************
+ * 함 수 명 	: gf_appendDelimiter
+ * 함수설명 	: 문자열에서 구분자를 추가한다.
+ * 입    력 	: strValue 	- 문자열
+				  tokenNum 	- 스페이스로 구분된 숫자
+				  delimiter	- 구분문자
+ * 결    과 	: 하이픈이 추가된 문자열가 반환된다.
+ *********************************************************************/
+function gf_appendDelimiter(strValue, tokenNum, delimiter)
+{
+	var retVal		= "";
+	var strFormat 	= "";
+	var strEmpty 	= "";
+	
+	if (isNumeric(gf_removeSpace(tokenNum)) ) 
+	{
+		var arrToken = tokenNum.split(" ");
+		var nTokenCnt = arrToken.length;
+
+		if (nTokenCnt > 0) 
+		{
+			strFormat = strEmpty.padLeft(arrToken[0], "@");
+			for (var i=1; i<nTokenCnt; i++) 
+			{
+				strFormat += (delimiter + strEmpty.padLeft(toNumber(arrToken[i]), "@"));
+			}
+		}
+	}
+
+	if (strFormat.length < 1) 
+	{
+		retVal = strValue;
+	} else {
+		var nIndex  = 0;
+		var arrTemp = strFormat.split(delimiter);
+		
+		for(var i=0; i<arrTemp.length; i++)
+		{
+			if(i == 0)
+			{
+				retVal += strValue.substr(nIndex, arrTemp[i].length);
+			} else {
+				retVal += delimiter + strValue.substr(nIndex, arrTemp[i].length);
+			}
+			
+			nIndex = nIndex + arrTemp[i].length;
+		}
+	}
+
+	return retVal;
+}
+
+/**********************************************************************
+ * 함 수 명 	: gf_removeDelimiter
+ * 함수설명 	: 구분자를 제거한다.
+ * 입    력 	: 구분자가 포함된 스트링, 구분자
+ * 결    과 	: 구분자가 제거된 스트링이 반환된다.
+ *********************************************************************/
+function gf_removeDelimiter(strValue, delimiter)
+{
+	return strValue.replace(delimiter, ""); 
+}
+
+/**********************************************************************
+ * 함 수 명 	: gf_appendHyphen
+ * 함수설명 	: 문자열에서 하이픈(-)을 추가한다.
+ * 입    력 	: strValue 	- 하이픈이 없는 문자열
+				  tokenNum 	- 스페이스로 구분된 숫자
+ * 결    과 	: 하이픈이 추가된 문자열가 반환된다.
+ *********************************************************************/
+function gf_appendHyphen(strValue, tokenNum)
+{
+	return gf_appendDelimiter(strValue, tokenNum, "-");
+}
+
+/**********************************************************************
+ * 함 수 명 	: gf_removeHyphen
+ * 함수설명 	: 하이픈(-)을 제거한다.
+ * 입    력 	: 하이픈이 포함된 스트링
+ * 결    과 	: 하이픈이 제거된 스트링이 반환된다.
+ *********************************************************************/
+function gf_removeHyphen(strValue)
+{
+	return strValue.replace("-", "");
+}
+
+/**********************************************************************
+ * 함 수 명 : gf_removeSpace
+ * 함수설명 : 스페이스을 제거한다.
+ * 입    력 : 스페이스가 포함된 스트링
+ * 결    과 : 스페이스가 제거된 스트링이 반환된다.
+ *********************************************************************/
+function gf_removeSpace(strValue)
+{
+	return strValue.replace(" ", "");
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_removeSpecialChar(strValue)
+ * 함수설명 	: 특수문자를 제거한다
+ * 입    력 	: String
+ * 결    과 	: 특수문자를 제거한 문자열
+ *********************************************************************/
+function gf_removeSpecialChar(strValue)
+{
+	
+   var strSpecial = "~!@#$%^&*-+./=_`{|}()\\?<>";
+   
+	for (i = 0; i < strValue.length; i++) 
+	{
+		for (j = 0; j < strSpecial.length; j++) 
+		{
+			if (strValue.charAt(i) == strSpecial.charAt(j))
+			{
+				strValue = strValue.replace(strValue.charAt(i), "");
+			}
+		}
+	}
+
+   return strValue;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_appendComma
+ * 함수설명 	: 입력받은 Number에 컴마를 추가한다.
+ * 입    력 	: nNumber String
+ *            	  nDetail 출력시 소숫점 이하의 자릿수.(반올림함)
+ * 결    과 	: String(Comma 를 포함하고 있는 숫자)
+ *            	  정상 : Comma 가 포함하고 있는 Number Return
+ *********************************************************************/
+function gf_appendComma(nNumber,nDetail)
+{
+	if (nNumber == null)	return "";
+	if (nDetail	== null)	nDetail	= 0;
+	
+	nNumber				= parseFloat(nNumber);
+	nNumber				= Math.round(nNumber, nDetail);
+	
+	var strNumber		= new String(nNumber);
+	var arrNumber		= strNumber.split(".");
+	var strFormatNum	= "";
+	var j = 0;
+	
+	for ( i = arrNumber[0].length - 1; i >= 0; i--)
+	{
+		if (i != strNumber.length && j == 3)
+		{
+			strFormatNum = arrNumber[0].charAt(i) + "," + strFormatNum;
+			j = 0;
+		} else {
+			strFormatNum = arrNumber[0].charAt(i) + strFormatNum;
+		}
+		j++;
+	}
+	
+	if (arrNumber.length > 1)	strFormatNum = strFormatNum + "." + arrNumber[1];
+	
+	return strFormatNum;
+}
+
+/**********************************************************************
+ * 함 수 명 	: gf_removeComma
+ * 함수설명 	: 컴마를 제거한다.
+ * 입    력 	: 컴마가 포함된 스트링
+ * 결    과 	: 컴마가 제거된 스트링이 반환된다.
+ *********************************************************************/
+function gf_removeComma(strValue)
+{
+	return strValue.replace(",", "");
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_Rpad
+ * 함수설명 	: 오른쪽 채우기 함수
+ * 입    력 	: sValue 	- 대상문자열
+ *			  	  nLength 	- 자리수
+ *			  	  Char 		- 채울 문자
+ * 결    과 	: String
+ *********************************************************************/
+function gf_Rpad(sValue, nLength, Char) 
+{
+    if (new String(sValue).valueOf() == "undefined") sValue = "";
+    if (gf_IsNull(sValue)) sValue = "";
+
+    var strRetVal  = new String(sValue);
+    var nIteration = nLength - gf_GetLengB(strRetVal);
+
+    for (var i = 0; i < nIteration; i++) 
+    {
+        strRetVal = strRetVal + Char;
+    }
+    return strRetVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_Lpad
+ * 함수설명 	: 왼쪽 채우기 함수
+ * 입    력 	: sValue 	- 대상문자열
+ *			  	  nLength 	- 자리수
+ *			  	  Char 		- 채울 문자
+ * 결    과 	: String
+ ********************************************************************/
+function gf_Lpad(sValue, nLength, Char) 
+{
+    if (new String(sValue).valueOf() == "undefined") sValue = "";
+    if (gf_IsNull(sValue)) sValue = "";
+
+    var strRetVal 	= new String(sValue);
+    var strChar 	= "";
+    var nIteration 	= nLength - gf_GetLengB(strRetVal);
+    
+    for (var i = 0; i < nIteration; i++) 
+    {
+        strChar = Char + strChar;
+    }
+    return (strChar + strRetVal);
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_GetLengB
+ * 함수설명 	: 입력받은 전체 길이를 계산 결과를 Number Type으로 반환
+ *			  	  문자, 숫자, 특수문자 : 1 로 Count 
+ * 			  	  그 외 한글/한자 : 2 로 count 
+ * 입    력 	: 대상문자열
+ * 결    과 	: number
+ ********************************************************************/
+function gf_GetLengB(sValue)
+{
+    var v_ChkStr = sValue.toString();
+    var v_cnt = 0;
+
+    for (var i=0; i<v_ChkStr.length; i++)
+    {
+        if (v_ChkStr.charCodeAt(i) > 127)
+        {
+            v_cnt += 2;
+        } else {
+            v_cnt += 1;
+        }
+    }
+
+    return v_cnt;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_appendString
+ * 함수설명 	: 두 문자열이 모두 존재시 구분자를 더해서 리턴한다.
+ * 입    력 	: strVal1	- 문자1
+				  strVal2 	- 문자2
+				  delimiter - 구분자
+ * 결    과 	: 두분자열이 모두 존재시 strVal1 + delimiter + strVal2
+ *********************************************************************/
+function gf_appendString(strVal1, strVal2, delimiter)
+{
+	if(strVal1.length > 0 && strVal2.length > 0)
+	{
+		return strVal1+delimiter+strVal2;
+	}
+}
+
+/**********************************************************************
+ * 함 수 명 	: gf_getDigit
+ * 함수설명 	: 입력 문자열중 숫자값만 남긴다.
+ * 입    력 	: 입력문자열
+ * 결    과 	: 숫자문자열
+ *********************************************************************/
+function gf_getDigit(strValue)
+{
+	var regExp = new RegExp("\\D", "g");
+	var strRet = strValue.replace(regExp, "");
+
+	return strRet;
+}
+
+/**********************************************************************
+ * 함 수 명 	: gf_10To16
+ * 함수설명 	: 입력된 10진수를 16진수로 변환하는 함수
+ * 입    력 	: 10진수
+ * 결    과 	: 16진수 문자열
+ *********************************************************************/
+function gf_10To16(nVal)
+{
+	var n;
+	n = (nVal).toString(16);
+
+	return n;
+}
+
+/**********************************************************************
+ * 함 수 명 	: gf_16To10
+ * 함수설명 	: 입력된 16진수를 10진수로 변환하는 함수
+ * 입    력 	: 16진수 문자열
+ * 결    과 	: 10진수 숫자
+ *********************************************************************/
+function gf_16To10(strVal)
+{
+	var n;
+	n = (strVal).toString(10);
+	
+	return n;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_isSpecialChar(strValue)
+ * 함수설명 	: 특수문자가 있는지 Check한다.
+ * 입    력 	: String
+ * 결    과 	: Boolean 형의 특수문자존재 여부
+ *********************************************************************/
+function gf_isSpecialChar(strValue)
+{
+	var retVal = false;
+	if(strValue.search(/\W|\s/g) > -1) retVal = true;
+
+	return retVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_isKoreanChar
+ * 함수설명 	: 한글만으로 되어 있는지 Check한다.
+ * 입    력 	: String
+ * 결    과 	: Boolean형의 한글 여부
+ *********************************************************************/
+function gf_isKoreanChar(strValue)
+{
+	var retVal = true;
+	
+	for (i = 0; i < strValue.length; i++)
+	{
+		if (!((strValue.charCodeAt(i) > 0x3130 && strValue.charCodeAt(i) < 0x318F) || (strValue.charCodeAt(i) >= 0xAC00 && strValue.charCodeAt(i) <= 0xD7A3)))
+		{
+			retVal = false;
+		}
+	}
+	
+	return retVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_TransNullToEmpty
+ * 함수설명 	: NULL 일 경우 빈 값을 리턴한다.
+ * 입    력 	: String
+ * 결    과 	: 입력값이 null = ""
+ *                		Not Null = 원래의 값
+ *********************************************************************/
+function gf_TransNullToEmpty(sValue)
+{
+	if( gf_IsNull(sValue) )
+	{
+		return "";
+	}
+	return sValue;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_Mid
+ * 함수설명 	: 입력된 문자열에서 가운데 부분을 주어진 길이만큼 Return 한다.
+ * 입    력 	: trString	- 가운데 부문을 얻어올 원본 문자열
+ *                nIndex 	- 얻어올 첫 글자의 Index
+ *                nSize 	- 얻어올 글자수
+ * 결    과 	: 얻어진 문자열.
+ *********************************************************************/
+function gf_Mid(strString, nIndex, nSize)
+{
+    var nStart 	= ((nIndex == null) ? 0 : ((nIndex.toString().length <= 0) ? 0 : nIndex-1));
+    var nEnd 	= ((nSize  == null) ? strString.toString().length : ((nSize.toString().length <= 0) ? strString.toString().length : nSize));
+    var rtnVal 	= strString.substr(nStart, nEnd);
+
+    return String(rtnVal);
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_Right
+ * 함수설명 	: 문자열의 오른쪽부분을 지정한 길이만큼 Return 한다.
+ * 입    력 	: strString	- 대상 문자열
+ *			  	  nSize		- 얻어올 크기. [Default Value = 0]
+ * 결    과 	: 오른쪽 부분이 얻어진 문자열.
+ *********************************************************************/
+function gf_Right(strString, nSize)
+{
+    var nStart 	= String(strString).length;
+    var nEnd 	= Number(nStart) - Number(nSize);
+    var rtnVal 	= strString.substring(nStart, nEnd);
+
+    return rtnVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_Left
+ * 함수설명 	: 문자열의 왼쪽부분을 지정한 길이만큼 Return 한다.
+ * 입    력 	: strString	- 대상 문자열
+ *			  	  nSize		- 얻어올 크기. [Default Value = 0]
+ * 결    과 	: 왼쪽 부분이 얻어진 문자열
+ *********************************************************************/
+function gf_Left(strString, nSize)
+{
+    var rtnVal = "";
+    if (nSize > String(strString).length || nSize == null)
+    {
+        rtnVal = strString;
+    } else {
+        rtnVal = strString.substring(0, nSize);
+	}
+    return rtnVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_LTrimZero
+ * 함수설명 	: 왼쪽 0값을 제거한다.
+ * 입    력 	: strString	- 대상 문자열
+ * 결    과 	: String	- 변환 문자열
+ *********************************************************************/
+function gf_LTrimZero(strString)
+{
+	var pos;
+	var sTrim = "0";
+    var sOrg = new String(strString);
+
+	for( pos = 0 ; pos < sOrg.length ; pos+=sTrim.length )
+	{
+		if( sOrg.substr( pos, sTrim.length ) != sTrim )
+			break;
+	}
+	
+	return sOrg.substr(pos);
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_encProc
+ * 함수설명 	: 해당 데이터를 암호화 처리
+ * 입    력 	: strString	- 대상 문자열
+ * 결    과 	: String	- 변환 문자열
+ *********************************************************************/
+function gf_encProc( sSource )
+{
+	if( !gf_IsNull( sSource ) ) 
+	{
+		var ExtObj = new ExtCommon();
+		var base64 = ExtObj.encodeBase64(sSource);
+		
+		return base64;
+	} else {
+		return "";
+	}
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_decProc
+ * 함수설명 	: 해당 데이터를 복호화 처리
+ * 입    력 	: strString	- 대상 문자열
+ * 결    과 	: String	- 변환 문자열
+ *********************************************************************/
+function gf_decProc( sSource )
+{
+	if( !gf_IsNull( sSource ) ) 
+	{
+		var ExtObj = new ExtCommon();
+		var debase64 = ExtObj.decodeBase64(sSource, "OBJ");
+		
+		return debase64.getText(0);
+	} else {
+		return "";
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// 이하 주민등록/사업자번호/법인번호/이메일주소 체크관련 함수
+////////////////////////////////////////////////////////////////////////////////
+
+/*********************************************************************
+ * 함 수 명 	: gf_isSSN
+ * 함수설명 	: 주민등록번호 여부를 확인한다.
+ * 입    력 	: sJuminNo 입력문자열(주민번호 13자리)
+ * 결    과 	: Boolen 형식의 정합성 체크
+ *********************************************************************/
+function gf_isSSN(sJuminNo)
+{
+	var birthYear   = gf_GetBefo(sJuminNo);
+		birthYear  += sJuminNo.substr(0, 2);
+	var birthMonth 	= sJuminNo.substr(2, 2) - 1;
+	var birthDate 	= sJuminNo.substr(4, 2);
+	var birth 		= new Date(birthYear, birthMonth, birthDate);
+
+	if ( birth.getYear() % 100 != sJuminNo.substr(0, 2) ||
+		 birth.getMonth() != birthMonth ||
+		 birth.getDate() != birthDate) 
+	{
+		return false;
+	}
+
+	// Check Sum 코드의 유효성 검사
+	buf = new Array(13);
+	for (i = 0; i < 6; i++) buf[i] = parseInt(sJuminNo.charAt(i));
+	for (i = 6; i < 13; i++) buf[i] = parseInt(sJuminNo.charAt(i));
+	  
+	multipliers = [2,3,4,5,6,7,8,9,2,3,4,5];
+	for (i = 0, sum = 0; i < 12; i++) sum += (buf[i] *= multipliers[i]);
+
+	if ((11 - (sum % 11)) % 10 != buf[12]) 
+	{
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_GetBefo
+ * 함수설명 	: 주민번호 뒷 첫번째 자리로 년대를 return 한다
+ * 입    력 	: strRsrno 입력문자열(주민번호 13자리)
+ * 결    과 	: Boolen 형식의 정합성 체크
+ *********************************************************************/
+function gf_GetBefo(strRsrno)
+{
+    if (strRsrno.toString().length != 13)
+	{
+		return "N";
+	}
+	
+	if (!(strRsrno).match(/^\d{6}\d{7}$/))
+	{
+		return "N";
+	}
+    
+    var vGb = strRsrno.substr(6,1);
+
+    if (vGb == '1' || vGb == '2' || vGb == '5' || vGb == '6')
+    {
+        return '19';
+    } else if (vGb == '3' || vGb == '4' || vGb == '7' || vGb == '8') {
+        return '20';
+    }
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_GetSex
+ * 함수설명 	: 주민번호로 성별을 Return 한다.
+ * 입    력 	: strRsrno 입력문자열(주민번호 13자리)
+ * 결    과 	: 남자 'M' 여자 'W' 기타 'X'
+ *********************************************************************/
+function gf_GetSex(strRsrno)
+{
+    if (!(gf_isSSN(strRsrno)))
+        return false;
+
+    var vSexGb = strRsrno.substr(6,1);
+
+    if (vSexGb == '1' || vSexGb == '3' || vSexGb == '5' || vSexGb == '7') {
+        return "M";
+    } else if (vSexGb == '2' || vSexGb == '4' || vSexGb == '6' || vSexGb == '8') {
+        return "W";
+    } else {
+        return "X";
+    }
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_GetAge
+ * 함수설명 	: 생년 월일 또는 주민 번호로 법적연령-만나이를 구한다.
+ * 입    력 	: sValue	- 생년 월일 또는 주민 번호
+ *				  sDate 	- 기준일자
+ * 결    과 	: 나이 또는 true/false
+ *********************************************************************/
+function gf_GetAge(sValue, sDate)
+{
+    var vYear;
+    var vMonth;
+    var vDay;
+
+    if (gf_Trim(sValue).length == 13)
+    {
+        // 주민번호 정합성 체크
+        if (!gf_isSSN(sValue)) return false;
+        
+        var vBefor = gf_GetBefo(sValue);
+        if (vBefor == "N") return false;
+
+        sValue 	= vBefor + sValue;
+        vYear 	= parseInt(sValue.substr(0, 4), 10);
+        vMonth 	= parseInt(sValue.substr(4, 2), 10);
+        vDay 	= parseInt(sValue.substr(6, 2), 10);
+    
+    } else if (gf_Trim(sValue).length == 8) {
+        
+        vYear 	= parseInt(sValue.substr(0, 4), 10);
+        vMonth 	= parseInt(sValue.substr(4, 2), 10);
+        vDay 	= parseInt(sValue.substr(6, 2), 10);
+
+        if (!gf_IsDate(sValue)) return false;
+        
+    } else {
+        return false;
+    }
+
+    var vCurrentSystemDate;
+
+    if (gf_IsDate(sDate) == true) 
+    {
+        vCurrentSystemDate = sDate;
+    } else if (gf_IsEmpty(sDate) != "") {
+        return false;
+    }
+
+    var vCurrentSystemYear 	= parseInt(vCurrentSystemDate.substr(0, 4), 10);
+    var vCurrentSystemMonth = parseInt(vCurrentSystemDate.substr(4, 2), 10);
+    var vCurrentSystemDay 	= parseInt(vCurrentSystemDate.substr(6, 2), 10);
+    var vAge = vCurrentSystemYear - vYear;
+
+    if (vMonth > vCurrentSystemMonth) 
+    {
+        vAge = vAge - 1;
+    
+    } else if (vMonth == vCurrentSystemMonth) {
+        
+        if (vDay > vCurrentSystemDay) 
+        {
+            vAge = vAge - 1;
+        }
+    }
+
+    if (vAge < 0) 
+    {
+        vAge = 0;
+    }
+
+    return vAge;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsCompRegNo
+ * 함수설명 	: 사업자 등록번호 확인
+ * 입    력 	: 사업자 등록 번호
+ * 결    과 	: Boolean	-  true/false
+ *********************************************************************/
+function gf_IsCompRegNo(sValue)
+{
+	if( gf_IsNull(sValue) )	return false;
+	
+    var vCompNo = sValue.replace("-", "");
+	var checkID = new Array(1, 3, 7, 1, 3, 7, 1, 3, 5, 1);
+	var i, Sum=0, c2, remander;
+	
+	if (vCompNo.length != 10) 
+		return false; 
+	
+	for (i = 0; i <= 7; i++) 
+		Sum += checkID[i] * vCompNo.charAt(i);
+
+	c2 = "0" + (checkID[8] * vCompNo.charAt(8));
+	c2 = c2.substring(c2.length - 2, c2.length);
+
+	Sum += Math.floor(c2.charAt(0)) + Math.floor(c2.charAt(1));
+
+	remander = (10 - (Sum % 10)) % 10;
+
+	if (Math.floor(vCompNo.charAt(9)) != remander) 
+		return false;
+	return true;
+	
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsCorpRegNo
+ * 함수설명 	: 법인 등록번호 확인
+ * 입    력 	: 법인 등록 번호
+ * 결    과 	: Boolean	-  true/false
+ *********************************************************************/
+function gf_IsCorpRegNo(sValue)
+{
+	if( gf_IsNull(sValue) )	return false;
+	
+	var vCorpNo = sValue.replace("-", "");
+	var checkID = new Array(1,2,1,2,1,2,1,2,1,2,1,2);
+	var i, Sum=0, c2, remander;
+	
+	if (vCorpNo.length != 13) 
+		return false; 
+	
+	for (i = 0; i <= 12; i++) 
+		Sum += checkID[i] * vCorpNo.charAt(i);
+	
+	remander = Sum / 10;
+	var nIndex = remander.toString().indexOf(".");	
+	remander = remander.toString().substring(nIndex + 1, nIndex + 2);
+	remander = 10 - remander; 
+	
+	if (remander > 9 ) 
+		remander = 0;
+	if (remander == sValue.substring(12, 13)) 
+		return true;
+
+	return false
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_isFrnrIdNo
+ * 함수설명 	: 외국인 등록번호 여부를 확인한다.
+ * 입    력 	: strNo 입력문자열(등록번호13자리)
+ * 결    과 	: Boolen 형식의 정합성 체크
+ *********************************************************************/
+function gf_isFrnrIdNo(strNo)
+{
+	if (strNo.length != 13 || !isNumeric(strNo)) return false;
+	
+	var month = toNumber(strNo.substr(2, 2));
+	var day	  = toNumber(strNo.substr(4, 2));
+		
+	if (month < 1 || month > 12) return false;
+	if (day < 1 || day > 31) return false;
+	
+	var sum = 0;
+	var odd = 0;
+	var buf = array(13);
+	var multipliers = [2,3,4,5,6,7,8,9,2,3,4,5];
+	
+	for (var i=0; i<13; i++) 
+	{
+		buf[i] = toNumber(strNo.charAt(i));
+	}
+	
+	if (buf[11] < 6) return false;
+	
+	odd = buf[7] * 10 + buf[8];
+	if((odd%2) != 0) return false;
+	
+	for (var i=0; i<12; i++) 
+	{
+		sum += (buf[i] * multipliers[i]);
+	}
+	
+	sum = 11 - (sum % 11);
+	
+	if (sum >= 10) sum -= 10;
+	sum += 2;
+	if (sum >= 10) sum -= 10;
+	
+	if (buf[12] == sum) 
+	{
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_isCardNo
+ * 함수설명 	: 카드번호 여부를 확인한다.
+ * 입    력 	: strNo 입력문자열(카드번호13자리)
+ * 결    과 	: Boolen 형식의 정합성 체크
+ *********************************************************************/
+function gf_isCardNo(strNo)
+{
+	if (strNo.length < 13 || strNo.length > 19 || !isNumeric(strNo)) return false;
+	
+	var sum = 0;
+	var buf = new Array();
+	
+	for (var i=0; i<strNo.length; i++) 
+	{
+		buf[i] = toNumber(strNo.charAt(i));
+	}
+	
+	var temp;
+	for (var i=buf.length-1, j=0; i>=0; i--, j++) 
+	{
+		temp = buf[i] * ((j%2) + 1);
+		if (temp >= 10) 
+		{
+			temp = temp - 9;
+		}
+		sum += temp;
+	}
+	
+	if ((sum % 10) == 0) 
+	{
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_isEmail(strValue)
+ * 함수설명 	: E-메일 형식에 맞는지 Check한다.
+ * 입    력 	: String
+ * 결    과 	: Boolean형의 E-메일 형식에 맞는지 여부
+ *********************************************************************/
+function gf_isEmail(strValue)
+{
+	var retVal 	= false;
+	var sTmp 	= "";
+	var sRegExp = "[a-z0-9]+[a-z0-9.,]+@[a-z0-9]+[a-z0-9.,]+\\.[a-z0-9]+";
+
+	var regexp = new RegExp(sRegExp,"ig");
+	sTmp = regexp.exec(strValue);
+
+	if( sTmp == null ) 
+	{
+		retVal = false;
+	} else {
+
+		if( ( sTmp.index == 0 ) && (sTmp[0].length == strValue.length ) ) 
+		{
+			retVal = true;
+		} else {
+			retVal = false;
+		}
+	}
+	return retVal;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// 일반전화 및 핸드폰 번호 체크
+////////////////////////////////////////////////////////////////////////////////
+/*********************************************************************
+ * 함 수 명 	: gf_IsHandPhone
+ * 함수설명 	: 핸드폰(모바일) 전화번호 전체 유효성 check 
+ * 입    력 	: String
+ * 결    과 	: true/false
+ *********************************************************************/
+function gf_IsHandPhone(value) 
+{
+    //var pattern = /^(01[01346-9])-?([1-9]{1}[0-9]{2,3})-?([0-9]{4})$/;
+    var pattern = /^(01[0179])-?([1-9]{1}[0-9]{2,3})-?([0-9]{4})$/;
+
+    return pattern.exec(gf_removeSpace(value)) ? true : false;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsHandPhoneFront
+ * 함수설명 	: 핸드폰(모바일) 전화번호 앞자리 유효성 체크 (010...)
+ * 입    력 	: String
+ * 결    과 	: true/false
+ *********************************************************************/
+function gf_IsHandPhoneFront(value)
+{
+   
+   trace("gf_IsHandPhoneFront - value : " + value);
+   // var pattern = /^(01[01346-9])$/;
+    var pattern = /^(01[0179])$/;
+
+    return pattern.exec(gf_removeSpace(value)) ? true : false;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsHandPhoneMid
+ * 함수설명 	: 핸드폰(모바일) 전화번호 가운데 유효성 체크
+ * 입    력 	: String
+ * 결    과 	: true/false
+ *********************************************************************/
+function gf_IsHandPhoneMid(value)
+{
+    var pattern = /^([1-9]{1}[0-9]{2,3})$/;
+
+    return pattern.exec(gf_removeSpace(value)) ? true : false;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsHandPhoneLast
+ * 함수설명 	: 핸드폰(모바일) 전화번호 뒷자리 유효성 체크
+ * 입    력 	: String
+ * 결    과 	: true/false
+ *********************************************************************/
+function gf_IsHandPhoneLast(value)
+{
+    var pattern = /^([1-9]{1}[0-9]{2,3})$/;
+
+    return pattern.exec(gf_removeSpace(value)) ? true : false;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsPhone
+ * 함수설명 	: 일반 전화번호 유효성 check , 15XX-XXXX도 체크
+ * 입    력 	: String
+ * 결    과 	: true/false
+ *********************************************************************/
+function gf_IsPhone(value)
+{
+    var pattern = /^(0[2-8][0-5]?|01[01346-9])-?([1-9]{1}[0-9]{2,3})-?([0-9]{4})$/;
+    var pattern15xx = /^(1544|1566|1577|1588|1644|1688)-?([0-9]{4})$/;
+
+    return pattern.exec(value) || pattern15xx.exec(value) ? true : false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// 이하 날짜/시간관련 함수
+////////////////////////////////////////////////////////////////////////////////
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsDate
+ * 함수설명 	: 날짜 정합성 체크
+ * 입    력 	: String
+ * 결    과 	: Boolean
+ *********************************************************************/
+function gf_IsDate(val)
+{
+	val = "" + val;
+	try {
+		var objDate = new Date(gf_getFormat(val, "@@@@-@@-@@"));
+		if(gf_IsNull(objDate)) return false;
+		if(objDate.toFormatString("%Y-%m-%d") != gf_getFormat(val, "@@@@-@@-@@")) return false;
+	} catch(e)  {
+	    return false;
+	}
+    return true;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsMonth
+ * 함수설명 	: 년월 정합성 체크
+ * 입    력 	: String
+ * 결    과 	: Boolean
+ *********************************************************************/
+function gf_IsMonth(val)
+{
+    if (gf_IsDigit(val) != true)
+    {
+        return false;
+    }
+
+    if ((val.trim().length) != 6)
+    {
+        return false;
+    }
+    
+    var nYear 	= toNumber(val.toString().substr(0, 4));
+    var nMonth 	= toNumber(val.toString().substr(4, 2));
+       
+    if(gf_IsNull(nYear) || gf_IsNull(nMonth))
+    {
+		return false;
+    }
+    
+    if(nMonth > 12 || nMonth < 1)
+    {
+		return false;
+    }
+    return true;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsLeapYear
+ * 함수설명 	: 윤년여부 확인
+ * 입    력 	: sDate ( yyyyMMdd형태의 날짜 )( 예 : "20121122" )
+ * 결    과 	: Boolean
+ *********************************************************************/
+function gf_IsLeapYear(sDate)
+{
+    var ret;
+    var nY;
+    
+    if( gf_IsNull(sDate) )	return false;
+    
+    nY = parseInt(sDate.substring(0, 4), 10);
+
+    if ((nY % 4) == 0) 
+    {
+		if ((nY % 100) != 0 || (nY % 400) == 0)
+        {
+            ret = true;
+        } else { 
+            ret = false;
+        }
+    } else { 
+        ret = false;
+	}
+    return ret;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_MakeDate
+ * 함수설명 	: yyyyMMdd 형태의 문자열 날짜 출력
+ * 입    력 	: 예)gf_MakeDate("2010", "05", "01");
+ *				  nYear 	- Year : 년도
+ *				  nMonth 	- Month : 월
+ *				  nDate 	- Date : 일
+ * 결    과 	: Boolean
+ *********************************************************************/
+function gf_MakeDate(nYear, nMonth, nDate)
+{
+	if( gf_IsNull(nYear) || gf_IsNull(nMonth) || gf_IsNull(nDate) )	return "";
+	
+	var objDate = new Date(nYear, nMonth-1, nDate);
+
+	var sYear   = objDate.getFullYear().toString();
+	var sMonth  = gf_Right("0" + (objDate.getMonth() + 1), 2);
+	var sDate   = gf_Right("0" + objDate.getDate(), 2);
+
+	return sYear + sMonth + sDate;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_AddDate
+ * 함수설명 	: 입력된 날자에 nOffset 으로 지정된 만큼의 일을 증감한다.
+ * 입    력 	: sDate ( 날짜 )( 예 : "20121122" )
+ *				  nOffset (일 증감값) ( 예 : 10 또는 -10 )
+ * 결    과 	: String
+ *********************************************************************/
+function gf_AddDate(sDate, nOffset)
+{
+	if( gf_IsNull(sDate) || gf_IsNull(nOffset) )	return "";
+	
+    var nYear  	= parseInt(sDate.substr(0, 4));
+    var nMonth 	= parseInt(sDate.substr(4, 2));
+    var nDate 	= parseInt(sDate.substr(6, 2)) + nOffset;
+
+    return gf_MakeDate(nYear, nMonth, nDate);
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_AddMonth
+ * 함수설명 	: 입력된 날자에 nOffset 으로 지정된 만큼의 월을 증감한다.
+ * 입    력 	: sDate ( 날짜 )( 예 : "20121122" )
+ *				  nOffset (일 증감값) ( 예 : 10 또는 -10 )
+ * 결    과 	: String
+ *********************************************************************/
+function gf_AddMonth(sDate, nOffset)
+{
+	if( gf_IsNull(sDate) || gf_IsNull(nOffset) )	return "";
+	
+    var nYear 	= parseInt(sDate.substr(0, 4));
+    var nMonth 	= parseInt(sDate.substr(4, 2)) + nOffset;
+    var nDate 	= parseInt(sDate.substr(6, 2));
+	var nLastDate, sRet;
+	
+	if(nDate.toString().length == 1)
+	{
+		nDate = "0" + nDate;
+	}
+	
+	sRet 		= gf_MakeDate(nYear, nMonth, 1);	
+    nLastDate 	= gf_LastDateNum(sRet);
+    sRet 		= sRet.substr(0, 6);
+    
+    if( nDate > nLastDate )
+    {
+		sRet += nLastDate.toString();
+	} else {
+		sRet += nDate.toString();
+	}
+		
+	return sRet;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_LastDateNum
+ * 함수설명 	: 해당월의 마지막 날짜
+ * 입    력 	: sDate ( 날짜 )( 예 : "20100501" )
+ * 결    과 	: integer
+ *********************************************************************/
+function gf_LastDateNum(sDate)
+{
+	var nMonth, nLastDate;
+
+	if( gf_IsNull(sDate) )	return -1;
+	
+	nMonth = parseInt(sDate.substr(4, 2), 10);
+	if( nMonth == 1 || nMonth == 3 || nMonth == 5 || nMonth == 7  || nMonth == 8 || nMonth == 10 || nMonth == 12 )
+	{
+		nLastDate = 31;
+	} else if( nMonth == 2 ) {
+		if( gf_IsLeapYear(sDate) == true )
+		{
+			nLastDate = 29;
+		} else {
+			nLastDate = 28;
+		}
+	} else { 
+		nLastDate = 30;
+	}	
+	return nLastDate;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsTime
+ * 함수설명 	: 시간 정합성 체크
+ * 입    력 	: val(문자열)
+ * 결    과 	: Boolean
+ *********************************************************************/
+function gf_IsTime(val)
+{
+    if (gf_IsDigit(val) != true)
+    {
+        return false;
+    }
+
+    if (val.trim().toString().length != 6)
+    {
+        return false;
+    }
+    
+    var nHH = toNumber(val.toString().substr(0, 2));
+    var nMM = toNumber(val.toString().substr(2, 2));
+    var nSS = toNumber(val.toString().substr(4, 2));
+    
+    if(gf_IsNull(nHH) || gf_IsNull(nMM) || gf_IsNull(nMM))
+    {
+		return false;
+    }
+    
+    if(nHH > 23 || nHH < 0)
+    {
+		return false;
+    }
+    
+    if(nMM > 59 || nMM < 0)
+    {
+		return false;
+    }
+    
+    if(nSS > 59 || nSS < 0)
+    {
+		return false;
+    }
+    
+    return true;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_GetEpTime
+ * 함수설명 	: 사용시간 계산
+ * 입    력 	: strLoginDate(로그인시간)
+ *				  strLogoutDate(로그아웃시간)
+ * 결    과 	: String
+ *********************************************************************/
+function gf_GetEpTime(strLoginDate, strLogoutDate)
+{
+    // 총사용시간
+    var SecMilli = 1000;
+    var MinMilli = 1000 * 60;
+    var HrMilli  = MinMilli * 60;
+    var DyMilli  = HrMilli * 24;
+
+    var objLoginDate = new Date(strLoginDate.substr(0, 4), strLoginDate.substr(4, 2), strLoginDate.substr(6, 2),
+                                strLoginDate.substr(8, 2), strLoginDate.substr(10,2), strLoginDate.substr(12,2));
+    var objLogoutDate = new Date(strLogoutDate.substr(0, 4), strLogoutDate.substr(4, 2), strLogoutDate.substr(6, 2),
+                                 strLogoutDate.substr(8, 2), strLogoutDate.substr(10,2), strLogoutDate.substr(12,2));
+    var nDiffDate = objLogoutDate - objLoginDate;
+
+    var nDays 	= parseInt(nDiffDate / DyMilli);
+    var nHours 	= parseInt((nDiffDate / HrMilli) % 24);
+    var nMin 	= parseInt((nDiffDate / MinMilli) % 60);
+    var nSec 	= parseInt((nDiffDate / SecMilli) % 60);
+
+    var strReVal = "";
+    if (nDays != 0) strReVal += nDays + "일 ";
+    if (nHours != 0) strReVal += nHours + "시간 ";
+    if (nMin != 0) strReVal += nMin + "분 ";
+    if (nSec != 0) strReVal += nSec + "초";
+    return(strReVal);
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsDigit
+ * 함수설명 	: 숫자 정합성 체크
+ * 입    력 	: String
+ * 결    과 	: Boolean
+ *********************************************************************/
+function gf_IsDigit(val)
+{
+	var lvNum;	
+	var lvFlag 	 = "No";
+	var lvRetVal = false;	
+	var lvLength;
+	var i;
+	
+	if (gf_IsNull(val) == true)
+	{
+		lvFlag 	 = "Yes";
+		lvRetVal = false;
+		return lvRetVal;
+	}
+	
+	lvLength = val.length;
+	
+	if ((val.toString().split(".").length > 2) && lvFlag == "No")
+	{
+		lvFlag 	 = "Yes";
+		lvRetVal = false;
+	}
+	
+	if (lvFlag == "No")
+	{
+		for (i = 0; i < lvLength ; i++)
+		{ 
+			lvNum = val.substr(i,1);
+			if (i == 0)
+			{
+				if(gf_IsNum(lvNum) || (lvNum == "-" && val.substr(1, 1) != ".") 
+					|| (lvNum == "+"  && val.substr(1, 1) != "."))
+				{
+					lvRetVal = true;
+				} else {
+					lvRetVal = false;
+					break;
+				}
+			} else {
+				if(gf_IsNum(lvNum) || (lvNum == "." && val.substr(i+1, 1).length != 0))
+				{
+					lvRetVal = true;
+				} else {
+					lvRetVal = false;
+					break;
+				}
+			}
+	     }
+	 }
+	
+	return lvRetVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_IsNum
+ * 함수설명 	: 문자열이 숫자형식에 맞는지 여부 체크
+ * 입    력 	: sNum ( 체크할 문자열 )
+ * 결    과 	: Boolean
+ *********************************************************************/
+function gf_IsNum(sNum)
+{
+	var c;
+	var point_cnt = 0;
+	var ret = true;
+	
+	if( gf_IsNull(sNum) )	return false;
+	
+	for( i = 0 ; i < sNum.length ; i++ )
+	{
+		c = sNum.charAt(i);
+		if( i == 0 && ( c == "+" || c == "-" ) );
+		else if( c >= "0" && c <= "9" );
+		else if( c == "." )
+		{
+			point_cnt++;
+			if( point_cnt > 1 )
+			{
+				ret = false;
+				break;
+			}
+		} else {
+			ret = false;
+			break;
+		}
+	}
+	
+	return ret;
+}
+ 
+/********************************************************************
+* 기능 	: 문자 포맷 형식 변환 ( 해당 문자는 포맷에서 @ 사용)
+* 인수 	: strVal	: 문자열, 
+*         strMask	: 문자열 포맷, (@:문자, 포맷스트링("-", ",", ".")등
+* 리턴 	: 포맷된 문자
+********************************************************************/
+function gf_getFormat(strVal, strMask) 
+{
+    
+    var strRetVal = "";
+	var sUnit;
+	
+	if(gf_IsNull(strVal)) return "";
+	
+	strVal = "" + strVal;
+	
+    for(var i = 0; i < strMask.length; i++) 
+    {
+		sUnit = strMask.substr(i, 1);
+		
+		if( sUnit == "@")
+		{
+		    strRetVal += strVal.substr(0, 1);
+		    strVal = strVal.substr(1);
+		} else {
+		    strRetVal += sUnit;
+		}
+    }
+    
+    return strRetVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_GetDay
+ * 함수설명 	: 입력된 날자로부터 요일을 구함
+ * 입    력 	: strDate('yyyyMMdd' 형태로 표현된 날짜) 
+ * 결    과 	: String(0-일요일 ~ 6-토요일)
+ *********************************************************************/
+function gf_GetDay(strDate)
+{
+    var date = new Date(gf_getFormat(strDate, "@@@@-@@-@@"));
+    return date.getDay();
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_GetDay_Kor
+ * 함수설명 	: 입력된 날자로부터 한글로 요일을 구함
+ * 입    력 	: strDate('yyyyMMdd' 형태로 표현된 날짜) 
+ * 결    과 	: String(일, 월, 화, 수, 목, 금, 토)
+ *********************************************************************/
+function gf_GetDay_Kor(strDate)
+{
+	var week = new Array["일", "월", "화", "수", "목", "금", "토"];		
+	var weekDay = week[gf_GetDay(strDate)];
+	return weekDay;
+}
+
+
+/*******************************************************************************
+ * 함 수 명 	: gf_Today
+ * 함수설명 	: 해당 PC의 오늘 날짜를 가져온다
+ * 입    력 	: None
+ * 결    과 	: string
+******************************************************************************/
+function gf_Today()
+{
+    var strToday = "";
+    var objDate = new Date();
+    var strToday  = objDate.getFullYear() + "";
+		strToday += gf_Right("0" + (objDate.getMonth() + 1), 2);
+		strToday += gf_Right("0" + objDate.getDate(), 2);
+
+    return strToday;
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_TodayTime
+ * 함수설명 	: 해당 PC의 오늘 날짜+시간를 가져온다.
+ * 입    력 	: None
+ * 결    과 	: string
+******************************************************************************/
+function gf_TodayTime()
+{
+	var strToday = "";
+	var objDate = new Date();
+	var strToday  = objDate.getFullYear() + "";
+		strToday += gf_Right("0" + (objDate.getMonth() + 1), 2);
+		strToday += gf_Right("0" + objDate.getDate(), 2);
+		strToday += gf_Right("0" + objDate.getHours(), 2);
+		strToday += gf_Right("0" + objDate.getMinutes(), 2);
+		strToday += gf_Right("0" + objDate.getSeconds(), 2);
+	
+	return strToday;
+}	
+
+/*******************************************************************************
+ * 함 수 명 	: gf_diffDate
+ * 함수설명 	: 두 일자간의 차이 일수 계산
+ * 입    력 	: sStartDate(yyyyMMdd형태의 From 일자) ( 예 : "20121122" )
+ *              : sEndDate(yyyyMMdd형태의 To 일자) ( 예 : "20121202" )
+ * 결    과 	: integer
+******************************************************************************/
+function gf_diffDate(sStartDate, sEndDate)
+{
+    sStartDate = "" + sStartDate;
+    sEndDate   = "" + sEndDate;
+    
+    var vFromDate = new Date(parseInt(sEndDate.substring(0, 4),  10), parseInt(sEndDate.substring(4, 6) - 1,  10), parseInt(sEndDate.substring(6, 8), 10));
+    var vToDate = new Date(parseInt(sStartDate.substring(0, 4),  10), parseInt(sStartDate.substring(4, 6) - 1,  10), parseInt(sStartDate.substring(6, 8), 10));
+
+    return parseInt((vFromDate - vToDate) / (1000 * 60 * 60 * 24));
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_diffMonth
+ * 함수설명 	: 두 월간의 차이 월수 계산
+ * 입    력 	: sStartDate(yyyyMMdd형태의 From 일자) ( 예 : "20121122" )
+ *              : sEndDate(yyyyMMdd형태의 To 일자) ( 예 : "20121202" )
+ * 결    과 	: integer
+******************************************************************************/
+function gf_diffMonth(sStartDate, sEndDate)
+{
+	var nStartMon, nEndMon;
+
+	nStartMon = parseInt(sStartDate.substring(0, 4), 10) * 12 + parseInt(sStartDate.substring(4, 6) - 1,  10);
+	nEndMon = parseInt(sEndDate.substring(0, 4), 10) * 12 + parseInt(sEndDate.substring(4, 6) - 1,  10);
+
+	return (nEndMon - nStartMon);
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_diffTime
+ * 함수설명 	: 두 시간간의 차이 계산
+ * 입    력 	: sStartTime(HHmmss형태의 From 시간) 	( 예 : "033025" )
+ *              : sEndTime(HHmmss형태의 To 시간) 		( 예 : "034025" )
+ *              : sType(구하고자하는 타입(시, 분, 초)) ( 예 : "HH" )
+ * 결    과 	: integer
+******************************************************************************/
+function gf_diffTime(sStartTime, sEndTime, sType)
+{
+	var nReturnValue;
+	var nFrom_HH = toNumber(sStartTime.substring(0, 2));
+	var nFrom_mm = toNumber(sStartTime.substring(2, 4));
+	var nFrom_ss = toNumber(sStartTime.substring(4, 6));
+	
+	var nTo_HH = toNumber(sEndTime.substring(0, 2));
+	var nTo_mm = toNumber(sEndTime.substring(2, 4));
+	var nTo_ss = toNumber(sEndTime.substring(4, 6));
+	
+	var nFromTotal_ss = (nFrom_HH * 3600) + (nFrom_mm * 60) + nFrom_ss;
+	var nToTotal_ss   = (nTo_HH * 3600) + (nTo_mm * 60) + nTo_ss;
+	
+	if(sType == "HH")
+	{
+		return (Math.floor((nToTotal_ss - nFromTotal_ss) / 3600));
+	} else if(sType == "mm") {
+		return (Math.floor((nToTotal_ss - nFromTotal_ss) / 60));
+	} else if(sType == "ss") {
+		return (nToTotal_ss - nFromTotal_ss);
+	}
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_GetPretMonth
+ * 함수설명 	: 한달전 날짜 구하는 함수
+ * 입    력 	: strDate(yyyyMMdd형태의 From 일자) ( 예 : "20121122" )
+ * 결    과 	: string
+******************************************************************************/
+function gf_GetPretMonth(strDate) 
+{
+    if (strDate) 
+    {
+        var date = gf_str2Date(strDate);
+        var d = (new Date(date)).addMonth(-1);
+    } else {
+		var d = (new Date).addMonth(-1);
+    }
+
+	var s = (new Date(d)).getFullYear()
+		  + (((new Date(d)).getMonth() + 1) + "").padLeft(2, '0')
+		  + (((new Date(d)).getDate()) + "").padLeft(2, '0');
+
+	return (s);
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_str2Date
+ * 함수설명 	: 문자를 날짜로 변환
+ * 입    력 	: inDate (yyyyMMdd형태의 From 일자) ( 예 : "20121122" )
+ * 결    과 	: date
+ ******************************************************************************/
+function gf_str2Date(inDate)
+{
+	var date =  new Date(parseInt(inDate.substr(0, 4)), parseInt(inDate.substr(4, 2)) - 1, parseInt(inDate.substr(6, 2)));
+	return date;
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_str2Date
+ * 함수설명 	: 문자를 날짜로 변환
+ * 입    력 	: date
+ * 결    과 	: string
+ ******************************************************************************/
+function gf_date2Str(inDate)
+{
+  return (new Date(inDate)).getFullYear()
+		   + "-" +(((new Date(inDate)).getMonth() + 1) + "").padLeft(2, '0')
+		   + "-" +(((new Date(inDate)).getDate()) + "").padLeft(2, '0');
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_getFirstDate
+ * 함수설명 	: 현재월 1일 만들기.
+ * 입    력 	: strDate(yyyyMMdd형태의 From 일자) ( 예 : "20121122" )
+ * 결    과 	: string
+******************************************************************************/
+function gf_getFirstDate(strDate) 
+{
+    var s = "";
+
+    if (strDate == null) 
+    {
+	    s = getToday().substr(0,6) + "01";
+    } else {
+	    var date = new Date(parseInt(strDate.substr(0, 4)), parseInt(strDate.substr(4, 2)) - 1, 1);
+	    s = (new Date(date)).getFullYear()
+	      + (((new Date(date)).getMonth() + 1)+ "").padLeft(2, '0')
+	      + ((new Date(date)).getDate() + "").padLeft(2, '0');
+    }
+	return (s);
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_getLastDate
+ * 함수설명 	: 현재월 마지막일 만들기
+ * 입    력 	: strDate(yyyyMMdd형태의 From 일자) ( 예 : "20121122" )
+ * 결    과 	: string
+******************************************************************************/
+function gf_getLastDate(strDate) 
+{
+    var s = "";
+    if (strDate == null) 
+    {
+	    var date = (new Date()).addMonth(1);
+    } else {
+	    var date = new Date(parseInt(strDate.substr(0, 4)),parseInt(strDate.substr(4, 2)), 1);
+    }
+
+	date = (new Date(date)).addDate((new Date(date)).getDate()*-1);
+
+	s = (new Date(date)).getFullYear()
+	  + (((new Date(date)).getMonth() + 1) + "").padLeft(2, '0')
+	  + ((new Date(date)).getDate() + "").padLeft(2, '0');
+
+	return (s);
+}
+
+/*******************************************************************************
+ * 함 수 명 	: gf_getOneMonthAfter
+ * 함수설명 	: 한달후 날짜 구하는 함수.
+ * 입    력 	: strDate(yyyyMMdd형태의 From 일자) ( 예 : "20121122" )
+ * 결    과 	: string
+******************************************************************************/
+function gf_getOneMonthAfter(strDate) 
+{
+    if (strDate) 
+    {
+        var date = gf_str2Date(strDate);
+        var d = (new Date(date)).addMonth(1);
+    } else {
+		var d = (new Date).addMonth(1);
+    }
+
+	var s = (new Date(d)).getFullYear()
+		   + (((new Date(d)).getMonth() + 1) + "").padLeft(2, '0')
+		   + (((new Date(d)).getDate()) + "").padLeft(2, '0');
+
+	return (s);
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_getWeek
+ * 함수설명 	: 년월일(yyyyMMdd)을 입력하면 해당 주차를 리턴한다.
+ * 입    력 	: 8자리 년월일(yyyyMMdd)
+ * 결    과 	: 6자리 년도주차(yyyyWW)
+ *********************************************************************/
+function gf_getWeek(strDate) 
+{
+	if (strDate.length != 8 || !isNumeric(strDate)) 
+	{
+		return "";
+	}
+	
+	var year  = parseInt(strDate.substr(0, 4));
+	var month = parseInt(strDate.substr(4, 2));
+	var day   = parseInt(strDate.substr(6, 8));
+
+	var startAt = 1; ///////////// 일요일 표시 부분 / 0 : 일요일(일월화...) / 1 : 월요일(...금토일)
+
+	if(startAt == 0) 
+	{
+		day = day + 1;
+	}
+
+	var a    = Math.floor((14-month) / 12);
+	var y    = year + 4800 - a;
+	var m    = month + (12 * a) - 3;
+	var b    = Math.floor(y/4) - Math.floor(y/100) + Math.floor(y/400);
+	var J    = day + Math.floor(((153 * m) + 2) / 5) + (365 * y) + b - 32045;
+	var d4   = (((J + 31741 - (J % 7)) % 146097) % 36524) % 1461;
+	var L    = Math.floor(d4 / 1460);
+	var d1   = ((d4 - L) % 365) + L;
+	var week = Math.floor(d1/7) + 1;
+		week = week.toString();
+		
+	return year+week.padLeft(2, "0");			
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_dayConvertSet
+ * 함수설명 	: 일자 입력 후 Enter 시 해당 년월에 입력 일자를 불여서 값 Return;
+ *				  	- Calendar, Mask, Edit Component
+ *					- 정상적인 일자가 아닌 경우 이전값으로 설정(예: 20110231)
+ * 입    력 	: 1 ~ 31
+ * 결    과 	: YYYYMMDD
+ *********************************************************************/
+function gf_dayConvertSet(obj, strVal)
+{
+	var strConV 	= gf_Trim(strVal.replace("-", ""));
+	var objPreVal 	= obj.value;
+	var strToday 	= gf_Today();
+	var strGetDate 	= "";
+	var strSetDate 	= "";
+	
+	// DD
+	if(strConV.length >= 1  && strConV.length <= 2)
+	{
+		strGetDate = gf_Left(strToday, 6);
+		strSetDate = strGetDate + gf_Lpad(strConV.toString(), 2, "0"); 
+		
+	// MMDD
+	} else if(strConV.length >= 3  && strConV.length <= 4) {
+		strGetDate = gf_Left(strToday, 4);
+		strSetDate = strGetDate + gf_Lpad(strConV.toString(), 4, "0"); 
+	
+	// YYMMDD
+	} else {
+		strGetDate = gf_Left(strToday, 2);
+		strSetDate = strGetDate + gf_Lpad(strConV.toString(), 6, "0"); 
+	}
+	
+	if(!gf_IsDate(strSetDate))
+	{
+		if(obj == "[object Calendar]")
+		{
+			obj.value = objPreVal;
+		} else {
+			obj.value = "";
+		}
+	} else {
+		obj.value = strSetDate;
+	}
+	
+}
+
+/*********************************************************************
+ * 단말 관련
+ *********************************************************************/
+/*********************************************************************
+ * 함 수 명 	: gf_getIpAddr
+ * 함수설명 	: 컴퓨터의 IP Address를 조회한다.
+				  (IP가 여러개 존재시 첫번째 IP를 리턴한다.)
+ * 입    력 	: void
+ * 결    과 	: IP Address
+ *********************************************************************/
+function gf_getIpAddr()
+{
+	var extComm = new ExtCommon();
+	var retVal;
+	var arrIpAddr = extComm.getIPAddress();
+	
+	if (arrIpAddr.length > 0) 
+	{
+		retVal = arrIpAddr[0];
+	}
+
+	return retVal;
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_getMacAddr
+ * 함수설명 	: 해당 IP Address의 MAC Address를 조회한다.
+ * 입    력 	: IP Address
+ * 결    과 	: MAC Address
+ *********************************************************************/
+function gf_getMacAddr(strIpAddr)
+{
+	var extComm = new ExtCommon();
+	var retVal = "";
+	
+	if (strIpAddr == null) 
+	{
+		strIpAddr = gf_getIpAddr();
+	}
+	
+	var arrIpMacAddr = extComm.getMacAddress();
+	var arrIpMac;
+	
+	for (var i=0; i<arrIpMacAddr.length; i++) 
+	{
+		arrIpMac = arrIpMacAddr[i].split(":");
+		if(i==0) 
+		{
+			retVal = arrIpMac;
+		} else {
+			retVal += ","+arrIpMac;
+		}
+	}
+	
+	return retVal.toUpperCase();
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*********************************************************************
+ * 함 수 명 	: gf_arrayToString
+ * 함수설명 	: 배열값을 구분자를 붙여 문자열로 변환한다.
+ * 입    력 	: arrVal 	: 배열
+ * 결    과 	: 구분자가 더해진 문자열
+ *********************************************************************/
+function gf_arrayToString(arrVal)
+{
+	return arrVal.toString();
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_isExistInArray
+ * 함수설명 	: 배열에 해당 값이 존재하는지 확인한다.
+ * 입    력 	: arrVal 	: 배열
+				  varVal 	: 값
+ * 결    과 	: 배열에 존재여부
+ *********************************************************************/
+function gf_isExistInArray(arrVal, varVal) 
+{
+	var retVal = false;
+	var nCnt = arrVal.length;
+	for(var i=0; i<nCnt; i++) 
+	{
+		if (arrVal[i] == varVal) 
+		{
+			retVal = true;
+			break;
+		}
+	}
+
+	return retVal;
+} 
+ 
+/*********************************************************************
+ * 함 수 명 	: gf_Round
+ * 함수설명 	: 인자로 넘어 숫자에 Round 처리한다.
+ * 입    력 	: nValue 	: 값
+				  nDigit 	: Round 자리수
+ * 결    과 	: Round 된 숫자값
+ *********************************************************************/
+function gf_Round(nValue, nDigit)
+{
+    var nRound = 1;
+    for ( var i = 0; i < nDigit; i++) 
+    {
+        nRound = nRound * 10;
+    }
+
+    var nRetValue = nValue * nRound;
+    nRetValue = Math.round(nRetValue);
+    nRetValue = nRetValue / nRound;
+    return nRetValue;
+}
+
+/*******************************************************************************
+ * 기능            : Type Definition 에 정의된 Prefix 의 Url 얻어오기
+ * parameter    	: prefixId
+ * return         	: url
+******************************************************************************/
+function gf_GetPrefixUrl(prefixId)
+{
+    var url = "";
+    for (var i=0; i<application.services.length; i++) 
+    {
+        var objServices = application.services[i];
+
+        if (objServices["prefixid"] == prefixId) 
+        {
+            url = objServices["url"];
+            break;
+        }
+    }
+    return url;
+}
+
+
+/**********************************************************************************
+ * 함수명      : gf_GetExtFilterString
+ * 설명        : File_Dialog 에서 사용되는 확장자 Filter String을 반환한다.
+ * argument    : v_sFilterFlag  확장자
+**********************************************************************************/
+function gf_GetExtFilterString(v_sFilterFlag)
+{
+	switch(v_sFilterFlag) {
+		case "XLS" :
+			return "Excel 통합문서 (*.xlsx)|*.xlsx|Excel 97 - 2003 통합문서 (*.xls)|*.xls";
+		case "DOC" :
+			return "Word 통합문서 (*.docx)|*.docx|Word 97 - 2003 통합문서 (*.doc)|*.doc";
+		case "PPT" :
+			return "PowerPoint 통합문서 (*.pptx)|*.pptx|PowerPoint 97 - 2003 통합문서 (*.ppt)|*.ppt";
+		case "IMAGE" :
+			return "image files (*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif)|*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif";
+		default :
+			return "All (*.*)|*.*";
+	}
+}
+
+
+
+
+
+
+
+]]></Script>

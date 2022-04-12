@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="main_rolling" width="1263" height="700" titletext="New Form" onload="main_rolling_onload" ontimer="main_rolling_ontimer" stepshowtype="always" stepitemgap="7" stepitemsize="15" onstepchanged="main_rolling_onstepchanged">
+    <Layouts>
+      <Layout height="700" width="1263" stepcount="4" stepindex="0">
+        <Static id="Static00" taborder="0" text="그리드 컴포넌트" left="40" top="130" width="410" height="70" positionstep="0" cssclass="sta_WF_mainvisualTitle" messageid="rolling.grid.title" fittocontents="width"/>
+        <Static id="Static01" taborder="1" text="가장 유용하게 사용되는 컴포넌트로서 데이터를 빠르게 표현하고 효과적으로 탐색할 수 있는 다양한 편의 기능을 제공합니다.&#13;&#10;이 그리드 컴포넌트의 놀라운 기능과 성능을 체험해 보세요!" positionstep="0" left="45" top="213" width="465" height="60" fittocontents="height" cssclass="sta_WF_mainvisualTxt" messageid="rolling.grid.sub" wordWrap="english"/>
+        <Button id="btn_grid" taborder="2" text="더 알아보기" positionstep="0" left="45" top="Static01:7" width="150" height="50" cssclass="sta_WF_mainBtn01" messageid="main.learnmore" onclick="btn_grid_onclick"/>
+        <ImageViewer id="ImageViewer00" taborder="3" top="90" width="700" height="480" positionstep="0" right="30" image="url('imagerc::Main/img_WF_main01.gif')" cssclass="img_WF_mainvisualImg"/>
+        <Static id="Static02" taborder="4" text="넥사크로 컴포넌트" top="130" width="470" height="70" positionstep="1" cssclass="sta_WF_mainvisualTitle" messageid="rolling.component.title" right="23" fittocontents="width"/>
+        <Static id="Static03" taborder="5" text="Static03" top="213" width="465" height="60" positionstep="1" cssclass="sta_WF_mainvisualTxt" messageid="rolling.component.sub" fittocontents="height" wordWrap="english" right="23"/>
+        <Button id="btn_comp" taborder="6" text="Button02" top="Static03:17" width="150" height="50" positionstep="1" cssclass="sta_WF_mainBtn01" messageid="main.learnmore" onclick="btn_comp_onclick" right="338"/>
+        <Static id="Static04" taborder="7" text="각종 유용한 편의 기능" left="40" top="130" width="460" height="70" positionstep="2" cssclass="sta_WF_mainvisualTitle" messageid="rolling.useful.title" fittocontents="width"/>
+        <Static id="Static05" taborder="8" text="Static05" left="45" top="213" width="465" height="60" positionstep="2" cssclass="sta_WF_mainvisualTxt" messageid="rolling.useful.sub" wordWrap="english" fittocontents="height"/>
+        <Button id="btn_sample" taborder="9" text="Button03" left="45" top="Static05:7" width="150" height="50" positionstep="2" cssclass="sta_WF_mainBtn01" messageid="main.learnmore" onclick="btn_sample_onclick"/>
+        <Static id="Static06" taborder="10" text="유연한 연동 그리고 확장" top="130" width="510" height="70" positionstep="3" cssclass="sta_WF_mainvisualTitle" messageid="rolling.interface.title" right="10" textAlign="left" fittocontents="width"/>
+        <Static id="Static07" taborder="11" text="Static07" top="213" width="465" height="60" positionstep="3" cssclass="sta_WF_mainvisualTxt" messageid="rolling.interface.sub" fittocontents="height" wordWrap="english" right="33"/>
+        <Button id="btn_external" taborder="12" text="Button04" top="Static07:17" width="150" height="50" positionstep="3" cssclass="sta_WF_mainBtn01" messageid="main.learnmore" onclick="btn_external_onclick" right="348"/>
+        <ImageViewer id="ImageViewer01" taborder="13" top="90" width="700" height="480" positionstep="1" cssclass="img_WF_mainvisualImg" left="30" image="url('imagerc::Main/img_WF_main02.gif')"/>
+        <ImageViewer id="ImageViewer02" taborder="14" top="90" width="700" height="480" positionstep="2" right="30" cssclass="img_WF_mainvisualImg" image="url('imagerc::Main/img_WF_main03.gif')" stretch="none"/>
+        <ImageViewer id="ImageViewer03" taborder="15" top="90" width="700" height="480" positionstep="3" cssclass="img_WF_mainvisualImg" left="30" image="url('imagerc::Main/img_WF_main04.gif')"/>
+      </Layout>
+      <Layout name="Layout0" width="480" height="700" mobileorientation="landscape" stepcount="4" stepindex="0" screenid="Mobile_screen">
+        <ImageViewer id="ImageViewer00" top="btn_grid:5" height="300" stretch="fixaspectratio" left="30" right="30"/>
+        <Static id="Static01" left="30" top="Static00:0" height="127" right="30" wordWrap="english"/>
+        <Button id="btn_grid" width="150" left="30" top="Static01:10" height="50"/>
+        <ImageViewer id="ImageViewer01" top="btn_comp:5" height="300" stretch="fixaspectratio" left="30" right="30"/>
+        <ImageViewer id="ImageViewer02" top="btn_sample:5" height="300" stretch="fixaspectratio" left="30" right="30"/>
+        <ImageViewer id="ImageViewer03" top="btn_external:5" height="300" stretch="fixaspectratio" left="30" right="30"/>
+        <Static id="Static03" left="30" top="Static02:0" height="127" right="30"/>
+        <Static id="Static05" left="30" top="Static04:0" height="127" right="30"/>
+        <Static id="Static07" left="30" top="Static06:0" height="127" right="30"/>
+        <Button id="btn_comp" width="150" left="30" top="Static03:10" height="50"/>
+        <Button id="btn_sample" width="150" left="30" top="Static05:10" height="50"/>
+        <Button id="btn_external" width="150" left="30" top="Static07:10" height="50"/>
+        <Static id="Static00" top="30" left="30" height="70" right="30"/>
+        <Static id="Static02" left="20" top="30" height="70" right="15"/>
+        <Static id="Static04" left="30" top="30" height="70" right="30"/>
+        <Static id="Static06" left="20" top="30" height="70" right="10"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.main_rolling_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	//스텝 바뀔때 사라지고 나타나는 총 시간 = 680ms
+	this.setTimer(2,3780);
+	
+	this.appTopform = nexacro.getApplication().mainframe.all[0].form.divTop.form;
+	
+};
+
+this.main_rolling_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
+{
+	switch(e.timerid) {
+	case 0:
+		var nStepIndex = this.getStepIndex();
+		nStepIndex++;
+		
+		if(nStepIndex >= this.getStepCount()){
+			nStepIndex = 0;
+		}
+		
+		obj.set_visible(false);
+		//step 을 바꿀때 380ms 가 넘어가면 화면이 변경되는게 보임
+		this.setStepIndex(nStepIndex);
+		this.setTimer(1,380);
+		this.killTimer(0);
+		break;
+		
+	case 1:
+		obj.set_visible(true);
+		this.setTimer(5,50);
+		this.killTimer(1);
+		break;
+	
+	///////
+	case 2:
+		obj.set_opacity(0.8);
+		this.setTimer(3,50);
+		break;
+		
+	case 3:
+		obj.set_opacity(0.5);
+		this.setTimer(4,50);
+		this.killTimer(3);
+		break;
+		
+	case 4:
+		obj.set_opacity(0.3);
+		this.setTimer(0,50);
+		this.killTimer(4);
+		break;
+		
+	case 5:
+		obj.set_opacity(0.5);
+		this.setTimer(6,50);
+		this.killTimer(5);
+		break;
+	case 6:
+		obj.set_opacity(0.8);
+		this.setTimer(7,50);
+		this.killTimer(6);
+		break;
+	case 7:
+		obj.set_opacity(1.0);
+		this.killTimer(7);
+		break;
+		
+	default:
+	}
+	
+};
+
+//step 에서 더 알아보기 버튼 클릭시 이벤트 4개
+this.btn_grid_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{	this.appTopform.btnMenu_010000.click();		};
+
+this.btn_comp_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{	this.appTopform.btnMenu_020000.click();		};
+
+this.btn_sample_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{	this.appTopform.btnMenu_040000.click();		};
+
+this.btn_external_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{	this.appTopform.btnMenu_050000.click();		};
+
+
+
+//step 버튼 클릭했을때 이벤트 있다면 변경
+this.main_rolling_onstepchanged = function(obj:nexacro.Form,e:nexacro.StepChangeEventInfo)
+{
+	//클릭했을때 다음화면으로 바로 안가게
+	this.killTimer(2);
+	this.setTimer(2,3780);
+};
+]]></Script>
+  </Form>
+</FDL>

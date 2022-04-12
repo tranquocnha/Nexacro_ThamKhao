@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="hotkey_desc" width="920" height="200" titletext="New Form" onload="hotkey_desc_onload">
+    <Layouts>
+      <Layout height="200" mobileorientation="landscape" width="920">
+        <Static id="Static00" taborder="0" text="Hot Key" left="20" top="15" width="79" height="30" cssclass="sta_WF_compTitle02" messageid="sample.hotkey"/>
+        <Static id="Static01" taborder="1" text="단축키 설명" left="20" top="Static00:2" height="40" right="20" cssclass="sta_WF_txt15px" fittocontents="height" wordWrap="english" messageid="sample.hotkey.desc"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.hotkey_desc_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

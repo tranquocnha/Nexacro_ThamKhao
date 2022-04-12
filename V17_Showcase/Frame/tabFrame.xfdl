@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="MDI" left="0" top="0" width="1025" height="45" titletext="MDI Tab Menu" cssclass="frm_MDI" onload="form_onload" onsize="form_onsize" scrollbars="none" scrolltype="none" scrollbartype="none">
+    <Layouts>
+      <Layout>
+        <Static id="st_MDI_bg2" taborder="11" left="0" top="0" cssclass="sta_WF_bg" right="0" bottom="0"/>
+        <Edit id="Setfocus" taborder="9" readonly="true" oneditclick="Edit00_oneditclick" left="1000" top="28" width="1" height="1" style="background:stretch 4,4;"/>
+        <ImageViewer id="frame_focus" taborder="0" onsetfocus="Setfocus_onsetfocus" left="36" top="9" width="10" height="10" style="focusborder:0 dotted #999999ff ;background:stretch 4,4;border:0 solid #e5e5e5ff ;accessibility:enable all '상단 메뉴' '';" border="0 none"/>
+        <Static id="Static00" taborder="10" left="20" top="0" cssclass="sta_MDI_bg" right="20" bottom="0"/>
+        <Button id="btn_PreMdi" taborder="2" defaultbutton="true" onclick="btn_PreMdi_onclick" cssclass="btn_MDI_spinup" top="21" right="168" width="10" height="15" style="bordertype:round 2 2 ;" visible="false"/>
+        <Div id="div_Tab" taborder="1" left="20" top="15" right="178" onclick="div_Tab_onclick" scrollbars="none" background="transparent" text="" height="30" border="0px none">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Button id="btn_cascade" taborder="5" onclick="btn_arrange_onclick" cssclass="btn_MDI_screenpop" visible="true" top="20" right="100" width="21" height="20"/>
+        <Button id="btn_tilehorizontal" taborder="6" onclick="btn_arrange_onclick" cssclass="btn_MDI_screenH" visible="true" top="20" right="76" width="21" height="20"/>
+        <Button id="btn_vertical" taborder="7" onclick="btn_arrange_onclick" visible="true" top="20" right="52" width="21" height="20" cssclass="btn_MDI_screenV"/>
+        <Button id="btn_maximize" taborder="4" onclick="btn_arrange_onclick" cssclass="btn_MDI_screenmax" visible="true" top="20" right="124" width="21" height="20"/>
+        <Button id="btn_closeAll" taborder="8" onclick="btn_arrange_onclick" cssclass="btn_MDI_screenclose" top="20" right="28" width="21" height="20" onkillfocus="btn_closeAll_onkillfocus"/>
+        <Button id="btn_NexMdi" taborder="3" defaultbutton="true" onclick="btn_NexMdi_onclick" cssclass="btn_MDI_spindn" top="21" right="155" width="10" height="15" style="bordertype:round 2 2 ;align:center middle;" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Tab" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TAB_ID" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="TITLE_KO" type="STRING" size="256"/>
+          <Column id="WIN_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+ * Program ID    : tabFrame.xfdl
+ * Program Name  :
+ * Author        :
+ * Created On    :
+ * Content 	 : Implementing button on MDI menu
+ * =============================================================================
+ * Revision history     Crated by    Content
+ * =============================================================================
+ *
+ */    
+
+/************************************************************************************************
+ * 1. Common library
+ ************************************************************************************************/
+ 
+/************************************************************************************************
+ * 2. Veriable declaration
+ ************************************************************************************************/
+var objApp = nexacro.getApplication() ;
+
+this.FIRST_GAP = 1;
+this.BTN_GAP = 0;
+this.MARGIN_WIDTH = 58;
+
+this.TAB_WIDTH = 120;
+this.TAB_HEIGHT = 30;
+this.TAB_EXTRA_RIGHT_GAP = 24;
+this.EXTRA_WIDTH = 18;
+this.EXTRA_TOP = 6;
+this.EXTRA_HEIGHT = 17;
+
+
+this.EXTRA_BTN_PREFIX = "EXTRA_";
+this.TAB_BTN_PREFIX = "TAB_";
+this.bClose = true;
+
+/************************************************************************************************
+ * 3. Event processing
+ ************************************************************************************************/
+//Form onload 이벤트
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{	
+	//공통 Onload 함수 호출
+	lib_Form.gfn_FormOnLoad(obj);
+}
+
+//Form onsize 이벤트
+this.form_onsize = function (obj:Form, e:SizeEventInfo)
+{
+	//Tab 리스트 갱신 함수 호출
+	this.fn_redrawTab();
+}
+
+//Tab 버튼 onclick 이벤트
+this.btn_Tab_OnClick = function (obj:Button, e:ClickEventInfo)
+{
+	//업무화면 Id 구하기
+    var winId = obj.name.split(this.TAB_BTN_PREFIX).join("");
+	
+	//업무화면 Active
+	lib_Form.gfn_activeFrame(winId);		
+}
+
+//닫기 버튼 onclick 이벤트
+this.btn_Extra_OnClick = function (obj:Button, e:ClickEventInfo)
+{
+	//업무화면 Id 구하기
+    var windId = obj.name.split(this.TAB_BTN_PREFIX).join("").split(this.EXTRA_BTN_PREFIX).join("");
+	
+	//업무화면 닫기 함수 호출
+	this.gfn_TabOnClose(windId);
+//	this.bClose = true;
+}
+
+//다음 버튼 onclick 이벤트
+this.btn_NexMdi_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_moveFirst(this.fn_getFirstTabIndex() + 1);
+	
+	//Tab 리스트 갱신 함수 호출
+	this.fn_redrawTab();
+}
+
+//이전 버튼 onclick 이벤트
+this.btn_PreMdi_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	//trace("fn_getFirstTabIndex :: " + this.fn_getFirstTabIndex());
+	this.fn_moveFirst(this.fn_getFirstTabIndex() - 1);
+	
+	//Tab 리스트 갱신 함수 호출
+	this.fn_redrawTab();
+}
+
+//Frame 정렬 버튼 onclick 이벤트(Max, Min, Cascade, Vertical, Horizontal)
+this.btn_arrange_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//정렬타입 구하기
+    var strType = lib_Form.gfn_Replace(obj.name, "btn_", "");
+	
+	//Frame 정렬 함수 호출
+	lib_Form.gfn_ArrangeWin(strType);
+}
+
+//전체닫기 onkillfocus 이벤트
+this.btn_closeAll_onkillfocus = function(obj:Button, e:nexacro.KillFocusEventInfo)
+{
+	//다음 SetFocus 대상이 Setfocus 컴포넌트 일 경우
+	if(e.newcomponent.name == "Setfocus")
+	{
+		//열린화면이 없을 경우
+		if ( parseInt(objApp.gds_openMenu.rowcount)== 0)
+		{
+			//TopFrame영역에 Focus
+			 gv_topFrame.form.frame_focus.setFocus();
+		}else{
+		
+			//현재 Active된 WorkForm에 Focus
+		    var oAcitveFrame = gv_workFrame.getActiveFrame();
+		    oAcitveFrame.form.frame_focus.setFocus() ;
+		}	
+	}	
+}
+
+/************************************************************************************************
+ * 4. Function processing
+ ************************************************************************************************/
+ 
+//Tab 삭제 함수
+this.fn_delTab = function (winID)
+{
+	var nRow = this.ds_Tab.findRow("WIN_ID", winID);
+	if (nRow < 0) 
+	{
+		return false;
+	}
+
+	var tabID = this.TAB_BTN_PREFIX + winID;
+	
+	//Tab Button 삭제 함수
+	this.fn_delTabBtn(tabID);
+	
+	//데이터셋 리스트에서 삭제
+	this.ds_Tab.deleteRow(nRow);
+	
+	//Tab 리스트 갱신 함수 호출
+	this.fn_redrawTab();
+	
+	return true;
+}
+
+//Tab 추가 함수
+this.fn_addTab = function (winID, name, name_ko)
+{
+	var nRow = this.ds_Tab.findRow("WIN_ID", winID);
+	if (nRow > -1) 
+	{
+		return nRow;
+	}
+
+	var tabID = this.TAB_BTN_PREFIX + winID;
+	
+	//데이터셋 리스트에 추가
+	nRow = this.ds_Tab.addRow();
+	this.ds_Tab.setColumn(nRow, "TAB_ID", tabID);
+	this.ds_Tab.setColumn(nRow, "WIN_ID", winID);
+	this.ds_Tab.setColumn(nRow, "TITLE", name);
+	this.ds_Tab.setColumn(nRow, "TITLE_KO", name_ko);
+	
+	if( objApp.gv_locale == "KO" )
+	{
+		//Tab Button에 표현할 수 있는 Text 만들기 함수 호출
+		nxText = this.fn_limitText(name_ko, 'normal 14px/normal "맑은 고딕"', 108);
+	}
+	else 
+	{
+		//Tab Button에 표현할 수 있는 Text 만들기 함수 호출
+		nxText = this.fn_limitText(name, 'normal 14px/normal "맑은 고딕"', 108);
+	}	
+	
+	this.short_name = nxText;
+	
+	// Adding Tab button.
+	this.fn_addTabBtn(tabID, name, this.short_name);
+	
+	//Tab 리스트 갱신 함수 호출
+	this.fn_redrawTab();
+	this.bClose = true;
+	return nRow;
+}
+
+//Tab Button 추가 함수
+this.fn_addTabBtn = function (tabID, tabName, shortName)
+{
+	var tabObj;
+	var BtnObj;
+	var exBtnId = this.EXTRA_BTN_PREFIX + tabID;
+	var tabLength = this.TAB_WIDTH;
+	var objTextWidth;
+	var nButtonLeft;
+	var nButtonTop;
+	var nButtonWidth;
+	var nButtonHeight;
+	
+	//Tab Button 생성
+	if (lib_Form.gfn_isNull(this.fn_findObj(tabID))) 
+	{
+		tabObj = new Button();
+		
+		objTextWidth = tabLength;
+		nButtonLeft = this.fn_getLeft(tabID);
+		nButtonTop = 0;
+		nButtonWidth = this.fn_getLeft(tabID) + objTextWidth + this.MARGIN_WIDTH - this.fn_getLeft(tabID);
+		nButtonHeight = this.TAB_HEIGHT - 0;
+		
+		tabObj.init(tabID, nButtonLeft, nButtonTop, nButtonWidth, nButtonHeight);
+	}
+
+	this.fn_addObj(tabID, tabObj);
+	tabObj.set_text(shortName);
+	tabObj.set_tooltiptext(tabName);
+	tabObj.set_cssclass("btn_WF_MDI");
+
+	tabObj.setEventHandler("onclick", this.btn_Tab_OnClick, this);
+	tabObj.set_visible(true);
+	tabObj.show();
+
+	//Tab Extra Button 생성
+	if (this.fn_findObj(exBtnId) == null && tabName != "MAIN" )
+	{
+		BtnObj = new Button();		
+		BtnObj.init(exBtnId, tabObj.getOffsetRight() - this.TAB_EXTRA_RIGHT_GAP, this.EXTRA_TOP, tabObj.getOffsetRight() - this.TAB_EXTRA_RIGHT_GAP + this.EXTRA_WIDTH - (tabObj.getOffsetRight() - this.TAB_EXTRA_RIGHT_GAP), this.EXTRA_TOP + this.EXTRA_HEIGHT - this.EXTRA_TOP);
+		this.fn_addObj(exBtnId, BtnObj);
+		
+		BtnObj.set_cssclass("btn_MDI_close");
+		BtnObj.setEventHandler("onclick", this.btn_Extra_OnClick, this);
+
+		BtnObj.set_visible(true);
+		BtnObj.show();	
+	}
+
+	this.div_Tab.form.set_scrollbartype("none");
+	this.fn_setActive(tabID);
+}
+
+//Tab Button Text 변경 함수
+this.fn_ChangeText = function(winID, idx)
+{
+	var objBtn = eval("this.div_Tab.form."+this.TAB_BTN_PREFIX + winID);
+	var strText = "";
+	var strUrl = "";
+	if( idx > 0 ){
+		//var f_idx = idx-1;
+	} else {	
+		var f_idx = idx;	
+	}	
+	
+	var nMaxLength = 12;
+	if( objApp.gv_locale == "KO" ){
+		strText = this.ds_Tab.lookup("TAB_ID", this.TAB_BTN_PREFIX + winID, "TITLE_KO");	
+		strUrl = objApp.gds_openMenu.getColumn(idx, "Desc_Url_ko" );
+	} else if( objApp.gv_locale == "EN" ){
+		strText = this.ds_Tab.lookup("TAB_ID", this.TAB_BTN_PREFIX + winID, "TITLE");
+		strUrl = objApp.gds_openMenu.getColumn(idx, "Desc_Url" );
+		nMaxLength = 20;
+	}	
+
+ 	var strGrp = gv_workFrame.frames[idx].titletext.split(" > ")[0];
+ 	gv_workFrame.frames[idx].set_titletext(strGrp + " > " + strText);	
+	gv_workFrame.frames[idx].form.f_ChangeUrl(strUrl);
+	/*
+	if( strText.length > nMaxLength )
+		strText = strText.substr(0,nMaxLength)+"...";
+	*/
+	objBtn.set_tooltiptext(strText);
+	var nxText = this.fn_limitText(strText, 'normal 14px/normal "맑은 고딕"', 108);
+	objBtn.set_text(nxText);
+	
+}
+
+		
+//업무화면 닫기 함수
+this.gfn_TabOnClose = function (winid, bAsync)
+{
+	var objFrame = gv_workFrame.frames;
+	var objFrameCnt = gv_workFrame.frames.length;
+    var nRow = lib_Form.gfn_findData(objApp.gds_openMenu, objApp.gv_WinIdCol, winid);
+    var nCloseIdx = nRow-1;
+
+	if(nCloseIdx==-1)nCloseIdx = 0;
+	
+    if(!lib_Form.gfn_isNull(objFrame[winid]) && nRow > -1)
+    {
+        this.bClose = false;   
+        var rObj = gv_workFrame.removeChild(winid);
+        objApp.gds_openMenu.deleteRow(nRow);
+        rObj.destroy();   
+        rObj = null;        
+        this.fn_delTab(winid);
+    }
+
+    if(objFrame.length > 0)
+    {    	
+        if( objFrame.length == 1 )
+			lib_Form.gfn_activeFrame(objFrame[0].name);       
+        else
+			lib_Form.gfn_activeFrame(objFrame[nCloseIdx].name);
+    } else if( objFrame.length == 0 ) {
+		lib_Form.gfn_callMain();
+    }    
+}
+
+//현재 보여지는 상태에서 첫번째 Tab Index 구하는 함수
+this.fn_getFirstTabIndex = function ()
+{
+	for(var i=0; i < this.ds_Tab.rowcount;i++)
+	{
+		var tabID   = this.ds_Tab.getColumn(i, "TAB_ID");
+		var tabObj  = this.fn_findObj(tabID);
+		if(0 < tabObj.left) {
+			return i;
+		}
+	}
+	
+	return this.ds_Tab.rowcount-1;
+}
+
+//입력된 Index에 해당하는 Tab이 첫번째로 보이도록 위치 변경
+this.fn_moveFirst = function (nMoveIdx)
+{
+	var nIndex;
+	var tabID;
+	var tabObj;
+	var btnObj;
+	var tabFirstObj;
+
+	nIndex = this.fn_getFirstTabIndex();
+	if (nIndex < 0) 
+	{
+		return;
+	}
+
+	if (nMoveIdx < 0) 
+	{
+		return;
+	}
+	if (nMoveIdx >= this.ds_Tab.rowcount) 
+	{
+		return;
+	}
+
+	tabID = this.ds_Tab.getColumn(nIndex, "TAB_ID");
+	var tabFirstObj = this.fn_findObj(tabID);
+
+	tabID = this.ds_Tab.getColumn(nMoveIdx, "TAB_ID");
+	tabObj = this.fn_findObj(tabID);
+
+	var nShiftPos = tabObj.getOffsetLeft() - tabFirstObj.getOffsetLeft();
+
+	for (var i = 0; i < this.ds_Tab.rowcount; i++) 
+	{
+		tabID = this.ds_Tab.getColumn(i, "TAB_ID");
+		tabObj = this.fn_findObj(tabID);
+		btnObj = this.fn_findObj(this.EXTRA_BTN_PREFIX + tabID);		
+		tabObj.move(tabObj.getOffsetLeft() - nShiftPos, tabObj.getOffsetTop());
+		if(lib_Form.gfn_isNull(btnObj) == false )
+			btnObj.move(btnObj.getOffsetLeft() - nShiftPos, btnObj.getOffsetTop());
+	}
+}
+
+//이전/다음 버튼 상태 갱신 함수
+this.fn_setTabSpinBtnShow = function ()
+{
+	var tabObj;
+
+	if (this.ds_Tab.rowcount == 0) 
+	{
+		return;
+	}
+
+	tabObj = this.fn_findObj(this.ds_Tab.getColumn(this.ds_Tab.rowcount - 1, "TAB_ID"));
+
+	if (this.div_Tab.getOffsetWidth() < tabObj.getOffsetRight()) 
+	{
+		this.btn_NexMdi.set_visible(true);
+	}
+	else 
+	{
+		this.btn_NexMdi.set_visible(false);
+	}
+
+	tabObj = this.fn_findObj(this.ds_Tab.getColumn(0, "TAB_ID"));
+
+	if (tabObj.getOffsetLeft() < 0) 
+	{
+		this.btn_PreMdi.set_visible(true);
+	}
+	else 
+	{
+		this.btn_PreMdi.set_visible(false);
+	}
+}
+
+//Tab 선택 상태 이동 함수
+this.fn_moveTab = function (winID)
+{
+	var nRow = this.ds_Tab.findRow("WIN_ID", winID);
+	if (nRow < 0)
+	{
+		return nRow;
+	}
+
+	var tabID = this.TAB_BTN_PREFIX + winID;
+	this.fn_setActive(tabID);
+	this.fn_redrawTab();
+}
+
+//Tab 선택 상태 설정 함수
+this.fn_setActive = function (tabID)
+{
+	
+	var nRow = this.ds_Tab.findRow("TAB_ID", tabID);
+	if (nRow < 0) 
+	{
+		return false;
+	}
+	this.ds_Tab.set_rowposition(nRow);
+	this.fn_setActiveBtn(tabID);
+
+	return true;
+}
+
+//Tab Button 선택 상태 설정 함수
+this.fn_setActiveBtn = function (tabID)
+{
+	var TabObj;
+	var BtnObj;
+
+	for (var i = 0; i < this.ds_Tab.rowcount; i++) 
+	{
+		TabObj = this.fn_findObj(this.ds_Tab.getColumn(i, "TAB_ID"));
+		BtnObj = this.fn_findObj(this.EXTRA_BTN_PREFIX + this.ds_Tab.getColumn(i, "TAB_ID"));
+		
+		if (tabID == this.ds_Tab.getColumn(i, "TAB_ID")) 
+		{
+			TabObj.setSelectStatus(true);
+			//TabObj.set_cssclass("btn_WF_MDIS");
+			this.fn_showTabBtn(i);
+		}
+		else 
+		{
+			TabObj.setSelectStatus(false);
+			//TabObj.set_cssclass("btn_WF_MDI");
+		}
+	}
+}
+
+//선택된 Tab Button을 현재 화면에 보이도록 설정하는 함수
+this.fn_showTabBtn = function (nIdx)
+{
+	var i;
+	var nLeft;
+	var nRight;
+
+	var tabObj = this.fn_findObj(this.ds_Tab.getColumn(nIdx, this.lookup("_ID")));
+	nLeft = tabObj.getOffsetLeft();
+	nRight = tabObj.getOffsetRight();
+
+	
+	if (0 <= nLeft && this.div_Tab.getOffsetWidth() >= nRight) 
+	{
+		return;
+	}
+
+	nRight = tabObj.getOffsetRight();
+	nLeft = tabObj.getOffsetLeft();
+
+	if (nLeft < 0) 
+	{
+		this.fn_moveFirst(nIdx);
+		return;
+	}
+
+	for (var i = this.fn_getFirstTabIndex() + 1; i < this.ds_Tab.rowcount; i++) 
+	{
+		tabObj = this.fn_findObj(this.ds_Tab.getColumn(i, "TAB_ID"));
+		if (nRight - tabObj.getOffsetLeft() <= this.div_Tab.getOffsetWidth()) 
+		{
+			break;
+		}
+		this.fn_moveFirst(i);
+	}
+}
+
+//Tab Button 삭제 함수 
+this.fn_delTabBtn = function (tabID)
+{
+	var exBtnId = this.EXTRA_BTN_PREFIX + tabID;
+	var TabObj = this.fn_findObj(tabID);
+	var BtnObj = this.fn_findObj(exBtnId);
+
+	var nShitLeft = TabObj.getOffsetWidth() + this.BTN_GAP;
+	var curRow = this.ds_Tab.findRow("TAB_ID", tabID);
+
+	this.fn_removeObj(exBtnId);
+	this.fn_removeObj(tabID);
+
+	for (var i = curRow + 1; i < this.ds_Tab.rowcount; i++) 
+	{
+		TabObj = this.fn_findObj(this.ds_Tab.getColumn(i, "TAB_ID"));
+		BtnObj = this.fn_findObj(this.EXTRA_BTN_PREFIX + this.ds_Tab.getColumn(i, "TAB_ID"));
+		TabObj.move(TabObj.getOffsetLeft() - nShitLeft, TabObj.getOffsetTop());
+		BtnObj.move(BtnObj.getOffsetLeft() - nShitLeft, BtnObj.getOffsetTop());
+	}
+	this.bClose = true;
+}
+
+//Id로 Object 찾기 함수
+this.fn_findObj = function (strId)
+{
+	//return this.div_Tab.components[strId];
+	return this.div_Tab.form.all[strId];
+}
+
+//Id로 Object 삭제 함수
+this.fn_removeObj = function (strId)
+{
+	if (this.fn_findObj(strId) == null) 
+	{
+		return;
+	}
+	var strObj = this.div_Tab.removeChild(strId);
+	if (strObj != null) 
+	{
+		strObj.destroy();
+	}
+}
+
+//Object AddChild 함수
+this.fn_addObj = function (strId, obj)
+{
+	return this.div_Tab.addChild(strId, obj);
+}
+
+//Tab 리스트 갱신 함수
+this.fn_redrawTab = function ()
+{
+	var tabObj;
+	var exBtnObj;
+
+	this.fn_checkShowBtnAll();
+	this.fn_setTabSpinBtnShow();
+}
+
+//첫번째 Tab Button 기준으로 화면에 보이도록 초기화하는 함수
+this.fn_checkShowBtnAll = function ()
+{
+	if (this.ds_Tab.rowcount == 0) 
+	{
+		return;
+	}
+
+	var tabFirstObj = this.fn_findObj(this.ds_Tab.getColumn(0, "TAB_ID"));
+	var tabLastObj = this.fn_findObj(this.ds_Tab.getColumn(this.ds_Tab.rowcount - 1, "TAB_ID"));
+
+	var nLeft = tabFirstObj.getOffsetLeft();
+	var nRight = tabLastObj.getOffsetRight();
+
+
+	if (this.div_Tab.getOffsetWidth() >= (nRight - nLeft)) 
+	{
+		this.fn_moveFirst(0);
+		return;
+	}
+}
+
+//입력된 Tab Button의 왼쪽에 위치한 Tab Button 찾는 함수
+this.fn_getLeft = function (tabID)
+{
+	var curRow = this.ds_Tab.findRow("TAB_ID", tabID);
+
+	if (curRow == 0) 
+	{
+		return this.FIRST_GAP;
+	}
+	var prevTab = this.fn_findObj(this.ds_Tab.getColumn(curRow - 1, "TAB_ID"));
+	return prevTab.getOffsetRight() + this.BTN_GAP;
+}
+
+//Tab Button에 표현할 수 있는 Text 만드는 함수
+//버튼의 영역을 벗어날 경우 ... 표시
+this.fn_limitText = function(sText, sFont, nWidth)
+{
+  var nDotSize = 9;
+  var nWidth = nWidth - nDotSize;
+  var objTextSize = nexacro.getTextSize(sText, sFont);
+  var nLength = sText.length;
+  
+  if(nWidth>objTextSize.nx)
+  {
+    return sText;
+  }else
+  {
+    nLength--;
+    while(1)
+    {
+      objTextSize = nexacro.getTextSize(sText.substr(0, nLength), sFont);
+      
+      if(nWidth>objTextSize.nx)
+      {
+        break;
+      }
+      nLength--;
+    }
+  }
+  
+  return  sText.substr(0, nLength) + "...";
+}
+]]></Script>
+  </Form>
+</FDL>

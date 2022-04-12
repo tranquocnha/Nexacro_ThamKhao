@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_ChangeComboItemColor" left="0" top="0" width="1024" height="768" titletext="Grid_ChangeComboItemColor">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="30" top="115" height="254" binddataset="Dataset00" autofittype="col" cssclass="ComboListGrid01" width="800" autoenter="select">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="combocontrol" edittype="combo" text="bind:Column0" combodataset="ds_inner" combocodecol="code" combodatacol="value" combodisplay="display" cssclass="" textAlign="right" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="2" text="This is sample changing Grid combo list item's color while selected" cssclass="sta_WF_explain" left="30" top="25" width="900" height="30" style="font:bold 9 Dotum;"/>
+        <Static id="Static00" taborder="3" text="Grid como list item's color is changed to red, so that when list is opened again, that item will be displayed in red color" cssclass="sta_WF_explain" left="30" top="65" height="30" style="font:bold 9 Dotum;" wordwrap="english" width="900"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">Test1</Col>
+            <Col id="Column2">Test1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">Test2</Col>
+            <Col id="Column2">Test2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">Test3</Col>
+            <Col id="Column2">Test3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">Test4</Col>
+            <Col id="Column2">Test4</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">Test5</Col>
+            <Col id="Column2">Test5</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">Test6</Col>
+            <Col id="Column2">Test6</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_inner">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">1</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">2</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">3</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">4</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="value">5</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="value">6</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

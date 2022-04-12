@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="QuickCode_Form_Emp" width="1000" height="700" titletext="New Form" onload="Form_onload">
+    <Layouts>
+      <Layout height="700" width="1000">
+        <View id="view_comBtn" taborder="0" text="View00" viewdataset="viewdataset" top="10" width="536" height="30" right="0" cssclass="View_WF_Area">
+          <Layouts>
+            <Layout>
+              <Button id="btn_retrieve" left="154" top="0" width="90" height="30" text="Retrieve" cssclass="btn_WF_CRUD" onclick="view_comBtn_btn_retrieve_onclick"/>
+              <Button id="btn_add" left="249" top="0" width="90" height="30" text="Add" cssclass="btn_WF_CRUD" onclick="view_comBtn_btn_add_onclick"/>
+              <Button id="btn_delete" left="344" top="0" width="90" height="30" text="Delete" cssclass="btn_WF_CRUD" onclick="view_comBtn_btn_delete_onclick"/>
+              <Button id="btn_save" left="439" top="0" width="90" height="30" text="Save" cssclass="btn_WF_CRUD"/>
+            </Layout>
+          </Layouts>
+          <ModelInfo modelserviceid="Model" serviceid="" modelid="Model_Button_CRUD" filepath="Model_Common\Model_Button.xmodel">
+            <Fields>
+              <Field id="RETRIEVE" description="" fieldwidth="90" fieldheight="30px" cssclass="btn_WF_CRUD"/>
+              <Field id="ADD" description="" fieldwidth="90" fieldheight="30px" cssclass="btn_WF_CRUD"/>
+              <Field id="DELETE" description="" fieldwidth="90" fieldheight="30px" cssclass="btn_WF_CRUD"/>
+              <Field id="SAVE" description="" fieldwidth="90" fieldheight="30px" cssclass="btn_WF_CRUD"/>
+            </Fields>
+            <Components>
+              <Component id="btn_retrieve" fields="RETRIEVE"/>
+              <Component id="btn_add" fields="ADD"/>
+              <Component id="btn_delete" fields="DELETE"/>
+              <Component id="btn_save" fields="SAVE"/>
+            </Components>
+          </ModelInfo>
+          <ViewTemplateInfo filepath="EduButtonViewTemplate.xviewgen">
+            <Attribute id="direction" value="horizontal"/>
+            <Attribute id="halign" value="right"/>
+            <Attribute id="valign" value="middle"/>
+          </ViewTemplateInfo>
+        </View>
+        <View id="view_search" taborder="1" text="View01" viewdataset="viewdataset" left="10" top="50" height="60" right="10">
+          <Layouts>
+            <Layout>
+              <Static id="st_deptCd_Label" left="0" top="14" width="140" height="30" text="Department" cssclass="sta_WF_SearchLabel"/>
+              <Edit id="edt_deptCd" left="140" top="14" width="60" height="30"/>
+              <Button id="btn_deptPopupBtn" left="205" top="14" width="30" height="30" cssclass="btn_WF_Search"/>
+              <Edit id="edt_deptName" left="240" top="14" width="120" height="30"/>
+              <Static id="st_gender_Label" left="365" top="14" width="110" height="30" text="Gender" cssclass="sta_WF_SearchLabel"/>
+              <Radio id="rdo_gender" left="475" top="14" width="220" height="30" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" rowcount="-1" columncount="-1" onitemchanged="view_search_rdo_gender_onitemchanged" value="A" text="All" index="0">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">A</Col>
+                      <Col id="datacolumn">All</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">M</Col>
+                      <Col id="datacolumn">Male</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">W</Col>
+                      <Col id="datacolumn">Female</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Button id="btn_resetBtn" left="890" top="14" width="80" height="30" text="Reset" onclick="view_search_btn_resetBtn_onclick"/>
+            </Layout>
+          </Layouts>
+          <Objects>
+            <Dataset id="viewdataset">
+              <ColumnInfo>
+                <Column id="DEPT_CD" type="STRING" size="80"/>
+                <Column id="DEPT_NAME" type="STRING" size="80"/>
+                <Column id="GENDER" type="STRING" size="80"/>
+              </ColumnInfo>
+              <Rows>
+                <Row/>
+              </Rows>
+            </Dataset>
+          </Objects>
+          <Bind>
+            <BindItem id="bind_edt_deptCd" compid="edt_deptCd" propid="value" datasetid="viewdataset" columnid="DEPT_CD"/>
+            <BindItem id="bind_edt_deptName" compid="edt_deptName" propid="value" datasetid="viewdataset" columnid="DEPT_NAME"/>
+            <BindItem id="bind_rdo_gender" compid="rdo_gender" propid="value" datasetid="viewdataset" columnid="GENDER"/>
+          </Bind>
+          <ModelInfo modelserviceid="Model" serviceid="" modelid="Model_Search_Emp" filepath="Model_Common\Model_Search.xmodel">
+            <Fields>
+              <Field id="DEPT_CD" description="" comptype="edit" fieldwidth="60" fieldheight="30" labelwidth="140" cssclass="" labelcssclass="sta_WF_SearchLabel"/>
+              <Field id="DEPT_POPUP_BTN" description="" comptype="button" fieldwidth="30" fieldheight="30" labelwidth="0" cssclass="btn_WF_Search" labelcssclass="sta_WF_searchLabel"/>
+              <Field id="DEPT_NAME" label="Department" description="" comptype="edit" fieldwidth="120" fieldheight="30" labelwidth="0" cssclass="" labelcssclass="sta_WF_searchLabel"/>
+              <Field id="GENDER" description="" comptype="radio" fieldwidth="150" fieldheight="30" labelwidth="110" cssclass="" labelcssclass="sta_WF_SearchLabel"/>
+              <Field id="RESET_BTN" description="" comptype="button" fieldwidth="80" fieldheight="30" labelwidth="0" cssclass="" labelcssclass="sta_WF_searchLabel"/>
+            </Fields>
+            <Components>
+              <Component id="st_deptCd_Label" fields="DEPT_CD"/>
+              <Component id="edt_deptCd" fields="DEPT_CD"/>
+              <Component id="btn_deptPopupBtn" fields="DEPT_POPUP_BTN"/>
+              <Component id="edt_deptName" fields="DEPT_NAME"/>
+              <Component id="st_gender_Label" fields="GENDER"/>
+              <Component id="rdo_gender" fields="GENDER"/>
+              <Component id="btn_resetBtn" fields="RESET_BTN"/>
+            </Components>
+          </ModelInfo>
+          <ViewTemplateInfo filepath="EduSearchViewTemplate.xviewgen">
+            <Attribute id="direction" value="horizontal"/>
+            <Attribute id="halign" value="left"/>
+            <Attribute id="valign" value="middle"/>
+            <Attribute id="searchbuttontype" value="none"/>
+            <Attribute id="searchbuttontext" value="Search"/>
+            <Attribute id="searchbuttoncssclass" value="btn_search"/>
+            <Attribute id="searchbgcssclass" value="sta_searchbox"/>
+          </ViewTemplateInfo>
+        </View>
+        <View id="view_list" taborder="2" text="View02" viewdataset="viewdataset" left="10" top="115" right="406" bottom="10" cssclass="View_WF_Area">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_list" left="0" top="0" right="0" bottom="0" binddataset="viewdataset" onheadclick="view_list_grd_list_onheadclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="120"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="120"/>
+                      <Column size="100"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="32" band="head"/>
+                      <Row size="32"/>
+                      <Row size="32" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell id="cell_EMPL_ID" text="Emp ID"/>
+                      <Cell col="1" id="cell_FULL_NAME" text="Name"/>
+                      <Cell col="2" id="cell_DEPT_CD" text="Department"/>
+                      <Cell col="3" id="cell_POS_CD" text="Position"/>
+                      <Cell col="4" id="cell_HIRE_DATE" text="Hire Date"/>
+                      <Cell col="5" id="cell_SALARY" text="Annual Salary"/>
+                      <Cell col="6" id="cell_GENDER" text="Gender"/>
+                      <Cell col="7" id="cell_MARRIED" text="Married"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell id="cell_EMPL_ID" text="bind:EMPL_ID" displaytype="mask" edittype="mask" maskeditformat="AA-###" maskedittype="string" textAlign="center"/>
+                      <Cell col="1" id="cell_FULL_NAME" text="bind:FULL_NAME" displaytype="normal" edittype="normal"/>
+                      <Cell col="2" id="cell_DEPT_CD" text="bind:DEPT_CD" displaytype="combocontrol" edittype="combo" combodataset="ds_dept" combocodecol="DEPT_CD" combodatacol="DEPT_NAME"/>
+                      <Cell col="3" id="cell_POS_CD" text="bind:POS_CD" displaytype="combotext" edittype="combo" combodataset="ds_pos" combocodecol="POS_CD" combodatacol="POS_NAME"/>
+                      <Cell col="4" id="cell_HIRE_DATE" text="bind:HIRE_DATE" displaytype="calendarcontrol" edittype="date"/>
+                      <Cell col="5" id="cell_SALARY" text="bind:SALARY" displaytype="number" edittype="mask"/>
+                      <Cell col="6" id="cell_GENDER" text="expr:comp.parent.parent.parent.fn_gender(GENDER)" displaytype="normal" edittype="none"/>
+                      <Cell col="7" id="cell_MARRIED" text="bind:MARRIED" displaytype="checkboxcontrol" edittype="checkbox"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell id="cell_EMPL_ID" text=""/>
+                      <Cell col="1" id="cell_FULL_NAME" text=""/>
+                      <Cell col="2" id="cell_DEPT_CD" text=""/>
+                      <Cell col="3" id="cell_POS_CD" text=""/>
+                      <Cell col="4" id="cell_HIRE_DATE" text=""/>
+                      <Cell col="5" id="cell_SALARY" text=""/>
+                      <Cell col="6" id="cell_GENDER" text=""/>
+                      <Cell col="7" id="cell_MARRIED" text=""/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+          <Objects>
+            <Dataset id="viewdataset">
+              <ColumnInfo>
+                <Column id="EMPL_ID" type="STRING" size="10"/>
+                <Column id="FULL_NAME" type="STRING" size="50"/>
+                <Column id="DEPT_CD" type="STRING" size="10"/>
+                <Column id="POS_CD" type="STRING" size="10"/>
+                <Column id="HIRE_DATE" type="DATE" size="10"/>
+                <Column id="SALARY" type="INT" size="10"/>
+                <Column id="GENDER" type="STRING" size="10"/>
+                <Column id="MARRIED" type="STRING" size="10"/>
+                <Column id="MEMO" type="STRING" size="10"/>
+              </ColumnInfo>
+              <Rows>
+                <Row>
+                  <Col id="EMPL_ID">AA001</Col>
+                  <Col id="FULL_NAME">Olivia</Col>
+                  <Col id="DEPT_CD">01</Col>
+                  <Col id="POS_CD">03</Col>
+                  <Col id="HIRE_DATE">20101003</Col>
+                  <Col id="SALARY">83000</Col>
+                  <Col id="GENDER">W</Col>
+                  <Col id="MARRIED">true</Col>
+                  <Col id="MEMO">ivory</Col>
+                </Row>
+                <Row>
+                  <Col id="EMPL_ID">AA002</Col>
+                  <Col id="FULL_NAME">John</Col>
+                  <Col id="DEPT_CD">02</Col>
+                  <Col id="POS_CD">04</Col>
+                  <Col id="HIRE_DATE">20051011</Col>
+                  <Col id="SALARY">76000</Col>
+                  <Col id="GENDER">M</Col>
+                  <Col id="MARRIED">false</Col>
+                  <Col id="MEMO">greenyellow</Col>
+                </Row>
+                <Row>
+                  <Col id="EMPL_ID">BB001</Col>
+                  <Col id="FULL_NAME">Jackson</Col>
+                  <Col id="DEPT_CD">03</Col>
+                  <Col id="POS_CD">03</Col>
+                  <Col id="HIRE_DATE">20070206</Col>
+                  <Col id="SALARY">95000</Col>
+                  <Col id="GENDER">M</Col>
+                  <Col id="MARRIED">true</Col>
+                  <Col id="MEMO">aliceblue</Col>
+                </Row>
+                <Row>
+                  <Col id="EMPL_ID">BB002</Col>
+                  <Col id="FULL_NAME">Maia</Col>
+                  <Col id="DEPT_CD">04</Col>
+                  <Col id="POS_CD">02</Col>
+                  <Col id="HIRE_DATE">20090512</Col>
+                  <Col id="SALARY">60000</Col>
+                  <Col id="GENDER">W</Col>
+                  <Col id="MARRIED">false</Col>
+                  <Col id="MEMO">ivory</Col>
+                </Row>
+                <Row>
+                  <Col id="EMPL_ID">CC001</Col>
+                  <Col id="FULL_NAME">Adam</Col>
+                  <Col id="DEPT_CD">01</Col>
+                  <Col id="POS_CD">04</Col>
+                  <Col id="HIRE_DATE">20010109</Col>
+                  <Col id="SALARY">88000</Col>
+                  <Col id="GENDER">M</Col>
+                  <Col id="MARRIED">true</Col>
+                  <Col id="MEMO">greenyellow</Col>
+                </Row>
+                <Row>
+                  <Col id="EMPL_ID">DD001</Col>
+                  <Col id="FULL_NAME">Ray</Col>
+                  <Col id="DEPT_CD">02</Col>
+                  <Col id="POS_CD">03</Col>
+                  <Col id="HIRE_DATE">20160202</Col>
+                  <Col id="SALARY">60000</Col>
+                  <Col id="GENDER">M</Col>
+                  <Col id="MARRIED">true</Col>
+                  <Col id="MEMO">lightpink</Col>
+                </Row>
+              </Rows>
+            </Dataset>
+          </Objects>
+          <ModelInfo modelserviceid="Model" serviceid="" modelid="Model_Emp" filepath="Model_Edu\Model_Edu.xmodel">
+            <Fields>
+              <Field id="EMPL_ID" description="" displaytype="mask" edittype="mask" fieldwidth="80" cssclass="" summprop="none"/>
+              <Field id="FULL_NAME" description="" displaytype="normal" edittype="normal" fieldwidth="120" cssclass="" summprop="none"/>
+              <Field id="DEPT_CD" description="" displaytype="combocontrol" edittype="combo" fieldwidth="150" cssclass="" summprop="none"/>
+              <Field id="POS_CD" description="" displaytype="combotext" edittype="combo" fieldwidth="150" cssclass="" summprop="none"/>
+              <Field id="HIRE_DATE" description="" displaytype="calendarcontrol" edittype="date" fieldwidth="120" cssclass="" summprop="none"/>
+              <Field id="SALARY" description="" displaytype="number" edittype="mask" fieldwidth="100" cssclass="" summprop="none"/>
+              <Field id="GENDER" description="" displaytype="normal" edittype="none" fieldwidth="80" cssclass="" summprop="none"/>
+              <Field id="MARRIED" description="" displaytype="checkboxcontrol" edittype="checkbox" fieldwidth="80" cssclass="" summprop="none"/>
+            </Fields>
+            <Components>
+              <Component id="grd_list" fields="EMPL_ID,FULL_NAME,DEPT_CD,POS_CD,HIRE_DATE,SALARY,GENDER,MARRIED"/>
+            </Components>
+          </ModelInfo>
+          <ViewTemplateInfo filepath="EduGridViewTemplate.xviewgen">
+            <Attribute id="headbandsize" value="32"/>
+            <Attribute id="bodybandsize" value="32"/>
+            <Attribute id="summbandsize" value="32"/>
+          </ViewTemplateInfo>
+        </View>
+        <View id="view_detail" taborder="3" text="View03" viewdataset="viewdataset" top="115" width="390" right="10" bottom="10" sourceview="view_list" cssclass="View_WF_Area">
+          <Layouts>
+            <Layout>
+              <Static id="st_emplId_bg" left="0" top="0" width="390" height="42" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_emplId_Label" left="0" top="0" width="130" height="42" text="Emp ID" cssclass="sta_WF_DetailEssential"/>
+              <MaskEdit id="msk_emplId" left="136" top="6" width="248" height="30" format="AA-###" type="string"/>
+              <Static id="st_fullName_bg" left="0" top="41" width="390" height="42" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_fullName_Label" left="0" top="41" width="130" height="42" text="Name" cssclass="sta_WF_DetailEssential"/>
+              <Edit id="edt_fullName" left="136" top="47" width="248" height="30"/>
+              <Static id="st_deptCd_bg" left="0" top="82" width="390" height="42" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_deptCd_Label" left="0" top="82" width="130" height="42" text="Department" cssclass="sta_WF_DetailLabel"/>
+              <Combo id="cmb_deptCd" left="136" top="88" width="248" height="30" innerdataset="ds_dept" codecolumn="DEPT_CD" datacolumn="DEPT_NAME"/>
+              <Static id="st_posCd_bg" left="0" top="123" width="390" height="120" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_posCd_Label" left="0" top="123" width="130" height="120" text="Position" cssclass="sta_WF_DetailLabel"/>
+              <ListBox id="lst_posCd" left="136" top="129" width="248" height="108" innerdataset="ds_pos" codecolumn="POS_CD" datacolumn="POS_NAME"/>
+              <Static id="st_hireDate_bg" left="0" top="242" width="390" height="42" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_hireDate_Label" left="0" top="242" width="130" height="42" text="Hire Date" cssclass="sta_WF_DetailEssential"/>
+              <Calendar id="cal_hireDate" left="136" top="248" width="248" height="30"/>
+              <Static id="st_salary_bg" left="0" top="283" width="390" height="42" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_salary_Label" left="0" top="283" width="130" height="42" text="Annual Salary" cssclass="sta_WF_DetailLabel"/>
+              <MaskEdit id="msk_salary" left="136" top="289" width="248" height="30" format="#,###"/>
+              <Static id="st_gender_bg" left="0" top="324" width="390" height="42" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_gender_Label" left="0" top="324" width="130" height="42" text="Gender" cssclass="sta_WF_DetailLabel"/>
+              <Radio id="rdo_gender" left="136" top="330" width="248" height="30" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" columncount="-1" rowcount="-1">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">M</Col>
+                      <Col id="datacolumn">Male</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">W</Col>
+                      <Col id="datacolumn">Female</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="st_married_bg" left="0" top="365" width="390" height="42" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_married_Label" left="0" top="365" width="130" height="42" text="Married" cssclass="sta_WF_DetailLabel"/>
+              <CheckBox id="chk_married" left="136" top="371" width="248" height="30"/>
+              <Static id="st_memo_bg" left="0" top="406" width="390" height="160" cssclass="sta_WF_DetailArea"/>
+              <Static id="st_memo_Label" left="0" top="406" width="130" height="160" text="Memo" cssclass="sta_WF_DetailLabel"/>
+              <TextArea id="ta_memo" left="136" top="412" width="248" height="148"/>
+            </Layout>
+          </Layouts>
+          <Objects>
+            <Dataset id="viewdataset">
+              <ColumnInfo>
+                <Column id="EMPL_ID" type="STRING" size="10"/>
+                <Column id="FULL_NAME" type="STRING" size="50"/>
+                <Column id="DEPT_CD" type="STRING" size="10"/>
+                <Column id="POS_CD" type="STRING" size="10"/>
+                <Column id="HIRE_DATE" type="DATE" size="10"/>
+                <Column id="SALARY" type="INT" size="10"/>
+                <Column id="GENDER" type="STRING" size="10"/>
+                <Column id="MARRIED" type="STRING" size="10"/>
+                <Column id="MEMO" type="STRING" size="10"/>
+              </ColumnInfo>
+              <Rows>
+                <Row/>
+              </Rows>
+            </Dataset>
+          </Objects>
+          <Bind>
+            <BindItem id="bind_msk_emplId" compid="msk_emplId" propid="value" datasetid="viewdataset" columnid="EMPL_ID"/>
+            <BindItem id="bind_edt_fullName" compid="edt_fullName" propid="value" datasetid="viewdataset" columnid="FULL_NAME"/>
+            <BindItem id="bind_cmb_deptCd" compid="cmb_deptCd" propid="value" datasetid="viewdataset" columnid="DEPT_CD"/>
+            <BindItem id="bind_lst_posCd" compid="lst_posCd" propid="value" datasetid="viewdataset" columnid="POS_CD"/>
+            <BindItem id="bind_cal_hireDate" compid="cal_hireDate" propid="value" datasetid="viewdataset" columnid="HIRE_DATE"/>
+            <BindItem id="bind_msk_salary" compid="msk_salary" propid="value" datasetid="viewdataset" columnid="SALARY"/>
+            <BindItem id="bind_rdo_gender" compid="rdo_gender" propid="value" datasetid="viewdataset" columnid="GENDER"/>
+            <BindItem id="bind_chk_married" compid="chk_married" propid="value" datasetid="viewdataset" columnid="MARRIED"/>
+            <BindItem id="bind_ta_memo" compid="ta_memo" propid="value" datasetid="viewdataset" columnid="MEMO"/>
+          </Bind>
+          <ModelInfo modelserviceid="Model" serviceid="" modelid="Model_Emp" filepath="Model_Edu\Model_Edu.xmodel">
+            <Fields>
+              <Field id="EMPL_ID" description="" comptype="maskedit" fieldwidth="100%" fieldheight="42" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailEssential"/>
+              <Field id="FULL_NAME" description="" comptype="edit" fieldwidth="100%" fieldheight="42" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailEssential"/>
+              <Field id="DEPT_CD" description="" comptype="combo" fieldwidth="100%" fieldheight="42" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailLabel"/>
+              <Field id="POS_CD" description="" comptype="listbox" fieldwidth="100%" fieldheight="120" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailLabel"/>
+              <Field id="HIRE_DATE" description="" comptype="calendar" fieldwidth="100%" fieldheight="42" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailEssential"/>
+              <Field id="SALARY" description="" comptype="maskedit" fieldwidth="100%" fieldheight="42" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailLabel"/>
+              <Field id="GENDER" description="" comptype="radio" fieldwidth="100%" fieldheight="42" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailLabel"/>
+              <Field id="MARRIED" description="" comptype="checkbox" fieldwidth="100%" fieldheight="42" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailLabel"/>
+              <Field id="MEMO" description="" comptype="textarea" fieldwidth="100%" fieldheight="160" labelwidth="130" cssclass="" labelcssclass="sta_WF_DetailLabel"/>
+            </Fields>
+            <Components>
+              <Component id="st_emplId_bg" fields="EMPL_ID"/>
+              <Component id="st_emplId_Label" fields="EMPL_ID"/>
+              <Component id="msk_emplId" fields="EMPL_ID"/>
+              <Component id="st_fullName_bg" fields="FULL_NAME"/>
+              <Component id="st_fullName_Label" fields="FULL_NAME"/>
+              <Component id="edt_fullName" fields="FULL_NAME"/>
+              <Component id="st_deptCd_bg" fields="DEPT_CD"/>
+              <Component id="st_deptCd_Label" fields="DEPT_CD"/>
+              <Component id="cmb_deptCd" fields="DEPT_CD"/>
+              <Component id="st_posCd_bg" fields="POS_CD"/>
+              <Component id="st_posCd_Label" fields="POS_CD"/>
+              <Component id="lst_posCd" fields="POS_CD"/>
+              <Component id="st_hireDate_bg" fields="HIRE_DATE"/>
+              <Component id="st_hireDate_Label" fields="HIRE_DATE"/>
+              <Component id="cal_hireDate" fields="HIRE_DATE"/>
+              <Component id="st_salary_bg" fields="SALARY"/>
+              <Component id="st_salary_Label" fields="SALARY"/>
+              <Component id="msk_salary" fields="SALARY"/>
+              <Component id="st_gender_bg" fields="GENDER"/>
+              <Component id="st_gender_Label" fields="GENDER"/>
+              <Component id="rdo_gender" fields="GENDER"/>
+              <Component id="st_married_bg" fields="MARRIED"/>
+              <Component id="st_married_Label" fields="MARRIED"/>
+              <Component id="chk_married" fields="MARRIED"/>
+              <Component id="st_memo_bg" fields="MEMO"/>
+              <Component id="st_memo_Label" fields="MEMO"/>
+              <Component id="ta_memo" fields="MEMO"/>
+            </Components>
+          </ModelInfo>
+          <ViewTemplateInfo filepath="EduFreeformViewTemplateFieldBox.xviewgen">
+            <Attribute id="direction" value="horizontal"/>
+            <Attribute id="halign" value="left"/>
+            <Attribute id="valign" value="top"/>
+          </ViewTemplateInfo>
+        </View>
+        <Static id="st_title" taborder="4" text="Employees - QuickCode" left="10" top="8" width="243" height="30" cssclass="sta_WF_FrmTitle"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pos">
+        <ColumnInfo>
+          <Column id="POS_CD" type="string" size="32"/>
+          <Column id="POS_NAME" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="POS_CD">04</Col>
+            <Col id="POS_NAME">Officer</Col>
+          </Row>
+          <Row>
+            <Col id="POS_CD">03</Col>
+            <Col id="POS_NAME">Assistant Manager</Col>
+          </Row>
+          <Row>
+            <Col id="POS_CD">02</Col>
+            <Col id="POS_NAME">Division Manager</Col>
+          </Row>
+          <Row>
+            <Col id="POS_CD">01</Col>
+            <Col id="POS_NAME">Chairman</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_dept">
+        <ColumnInfo>
+          <Column id="DEPT_CD" type="STRING" size="32"/>
+          <Column id="DEPT_NAME" type="STRING" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="DEPT_CD">01</Col>
+            <Col id="DEPT_NAME">Accounting Team</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CD">02</Col>
+            <Col id="DEPT_NAME">HR Team</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CD">03</Col>
+            <Col id="DEPT_NAME">Sales Team</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CD">04</Col>
+            <Col id="DEPT_NAME">Design Team</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CD">05</Col>
+            <Col id="DEPT_NAME">Education Team</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <PopupAction id="PopupAction_Dpet" formurl="QuickCode::QuickCode_Pop_DeptSearch.xfdl" popupstyle="modal" popupid="popDept" title="Dept Search" targetview="QuickCode_Form_Emp (Form)" popupleft="-1" popuptop="-1" popupwidth="300" popupheight="400" onsuccess="PopupAction_Dpet_onsuccess" onerror="PopupAction_Dpet_onerror">
+        <Contents/>
+      </PopupAction>
+      <TranAction id="TranAction_Select" serviceid="svcSelect" serviceurl="SvcURL::select_emp.jsp?sDept=" outputdatasets="view_list.form.viewdataset=out_emp" async="true" targetview="QuickCode_Form_Emp (Form)">
+        <Contents><![CDATA[{
+    "model":{
+        "input":[
+            {
+                "name":"view_search:DEPT_CD",
+                "viewid":"view_search",
+                "fieldid":"DEPT_CD",
+                "value":"DEPT_CD"
+            },
+            {
+                "name":"view_search:GENDER",
+                "viewid":"view_search",
+                "fieldid":"GENDER",
+                "value":"GENDER"
+            }
+        ]
+    }
+}]]></Contents>
+      </TranAction>
+      <TranAction id="TranAction_Save" serviceid="svcSave" serviceurl="SvcURL::save_emp.jsp" inputdatasets="in_emp=view_detail.form.viewdataset:U" async="true" targetview="Form_Emp_QuickCode">
+        <Contents/>
+      </TranAction>
+      <TranAction id="TranAction_Code" async="true" serviceid="svcCode" serviceurl="SvcURL::select_code.jsp" outputdatasets="ds_dept=out_dept ds_pos=out_pos" targetview="QuickCode_Form_Emp">
+        <Contents/>
+      </TranAction>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[include "Lib::Common.xjs";
+
+this.PopupAction_Dpet_onsuccess = function(obj:nexacro.PopupAction, e:nexacro.ActionSuccessEventInfo)
+{
+	if(e.userdata.length > 0){
+		var arrRtn = e.userdata.split("|");
+		this.view_search.form.edt_deptCd.set_value(arrRtn[0]);
+		this.view_search.form.edt_deptName.set_value(arrRtn[1]);
+	}
+};
+
+this.view_comBtn_btn_retrieve_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.TranAction_Select.set_serviceurl("SvcURL::select_emp.jsp?sDept="+this.view_search.form.edt_deptCd.value);
+	this.TranAction_Select.run();
+	
+};
+
+this.view_comBtn_btn_add_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var nRow = this.view_list.form.viewdataset.addRow();
+	
+};
+
+this.view_comBtn_btn_delete_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.view_list.form.viewdataset.deleteRow(this.view_list.form.viewdataset.rowposition);
+};
+
+
+this.view_list_grd_list_onheadclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	this.cfn_GridSort(obj, e);
+};
+
+this.view_search_rdo_gender_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.fn_setFilter(e.postvalue);
+};
+
+this.fn_setFilter = function(sValue)
+{
+	if(sValue == "A"){
+		this.view_list.form.viewdataset.filter("");
+	}
+	else{
+		this.view_list.form.viewdataset.filter("GENDER == '" + sValue + "'");
+	}	
+}
+
+this.view_search_btn_resetBtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.view_search.form.edt_deptCd.set_value("");
+	this.view_search.form.edt_deptName.set_value("");
+	this.view_search.form.rdo_gender.set_value("A");
+	this.fn_setFilter("A");	
+};
+
+//Grid Gender Cell Expr Call
+this.fn_gender = function(sArg)
+{
+	if(sArg == "M"){
+		return "Male";
+	}
+	else{
+		return "Female";
+	}
+}
+]]></Script>
+    <Trigger>
+      <TriggerItem id="item0" triggertype="Form Init" triggerview="QuickCode_Form_Emp" triggerobj="QuickCode_Form_Emp" targetaction="TranAction_Code" condition=""/>
+      <TriggerItem id="item1" triggertype="Click" triggerview="view_search" triggerobj="btn_deptPopupBtn" targetaction="PopupAction_Dpet" condition=""/>
+      <TriggerItem id="item2" triggertype="Click" triggerview="view_comBtn" triggerobj="btn_retrieve" targetaction="TranAction_Select" condition=""/>
+      <TriggerItem id="item3" triggertype="Click" triggerview="view_comBtn" triggerobj="btn_save" targetaction="TranAction_Save" condition=""/>
+    </Trigger>
+  </Form>
+</FDL>

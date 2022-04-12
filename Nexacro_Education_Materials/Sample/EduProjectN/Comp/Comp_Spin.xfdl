@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_Spin" width="1000" height="700" titletext="Component-Spin">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000">
+        <Spin id="Spin02" taborder="2" left="20" top="160" width="160" height="30" min="100" max="200" increment="10" value="100" onspin="Spin02_onspin"/>
+        <Spin id="Spin03" taborder="4" left="118" top="250" width="96" height="30" min="100" max="200" increment="10" value="100"/>
+        <Spin id="Spin00" taborder="1" left="20" top="70" width="160" height="30" value="1"/>
+        <Spin id="Spin04" taborder="5" left="118" top="290" width="96" height="30" min="100" max="200" increment="10" value="100" type="noneditable"/>
+        <Spin id="Spin06" taborder="7" left="18" top="420" width="128" height="30" min="10000" max="20000" increment="1000" value="100" onspin="Spin02_onspin" buttonposition="left"/>
+        <Spin id="Spin05" taborder="6" left="118" top="330" width="24" height="30" min="100" max="200" increment="10" value="100" type="spinonly"/>
+        <Static id="Static04" taborder="9" text="non editable" left="18" top="290" width="95" height="30"/>
+        <Static id="Static03" taborder="10" text="normal" left="18" top="250" width="95" height="30"/>
+        <Static id="Static05" taborder="11" text="spin only" left="18" top="330" width="95" height="30"/>
+        <Static id="Static07" taborder="12" text=" Basic Usage" left="10" top="40" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static08" taborder="0" text="Spin" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <CheckBox id="CheckBox01" taborder="8" text="Display Comma" left="154" top="420" width="144" height="30" value="false" onclick="CheckBox01_onclick"/>
+        <CheckBox id="CheckBox00" taborder="3" text="circulation" left="192" top="162" width="118" height="30" value="false"/>
+        <Static id="Static00" taborder="13" text=" Increment: 10 / Max: 200 / Min: 100 (Prop. increment, max, min)" left="10" top="130" width="580" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static09" taborder="14" text=" Type (Prop. type)" left="8" top="220" width="282" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static10" taborder="15" text=" Spin Button Position (Prop. buttonposition)" left="8" top="390" width="392" height="30" cssclass="sta_WF_TypeTitle"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.chk_pass_onclick = function(obj:nexacro.CheckBox,e:nexacro.ClickEventInfo)
+{
+	this.edt_auto.set_password(obj.value);
+};
+
+this.Spin02_onspin = function(obj:nexacro.Spin,e:nexacro.SpinEventInfo)
+{
+	obj.set_circulation(this.CheckBox00.value);
+};
+
+this.CheckBox01_onclick = function(obj:nexacro.CheckBox,e:nexacro.ClickEventInfo)
+{
+	this.Spin06.set_displaycomma(obj.value);
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="Button01" propid="text" datasetid="gds_dept" columnid="DEPT_NM"/>
+    </Bind>
+    <Objects/>
+  </Form>
+</FDL>

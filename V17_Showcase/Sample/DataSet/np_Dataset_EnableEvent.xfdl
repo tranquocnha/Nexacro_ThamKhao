@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Dataset_EnableEvent" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Dataset EnableEvent" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Button id="btn_execute0" taborder="1" text="execute(false)" onclick="btn_execute0_onclick" position="absolute" left="449" width="150" top="78" height="40"/>
+        <Grid id="grd_output" taborder="0" binddataset="ds_data" autoenter="select" useinputpanel="false" style="font:Dotum,9;" position="absolute" left="30" width="400" top="78" height="150" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL0"/>
+                <Cell col="1" text="bind:COL1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_execute1" taborder="2" text="execute(true)" onclick="btn_execute1_onclick" position="absolute" left="449" width="150" top="128" height="40"/>
+        <Static id="Static05" taborder="3" text="Events control by using enableevent properties" cssclass="sta_WF_subtitP" left="30" top="18" width="700" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_data_onrowposchanged">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">1</Col>
+            <Col id="COL1">2</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">3</Col>
+            <Col id="COL1">4</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">5</Col>
+            <Col id="COL1">6</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Dataset_Enableevent
+ * Description : Controlling event status
+ */
+
+/*  Button Click  */
+this.btn_execute0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_data.set_enableevent(false);
+	this.ds_data.addRow();
+	this.ds_data.set_enableevent(true);	
+};
+
+/*  Button Click  */
+this.btn_execute1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_data.addRow();	
+};
+
+/*  On row span changed  */
+this.ds_data_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.alert(e.eventid);	
+};
+ ]]></Script>
+  </Form>
+</FDL>

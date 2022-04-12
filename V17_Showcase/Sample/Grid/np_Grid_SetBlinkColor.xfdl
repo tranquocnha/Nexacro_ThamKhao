@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_SetBlinkColor" left="0" top="0" width="1024" height="768" titletext="Grid BlinkColor" onload="Form_onload" ontimer="Form_ontimer">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" position="absolute" binddataset="Dataset00" useselcolor="false" left="30" top="78" width="500" height="258" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Flag"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0" cssclass="expr:comp.parent.asdf(currow);"/>
+                <Cell col="1" text="bind:Column1" cssclass="expr:comp.parent.asdf(currow);"/>
+                <Cell col="2" text="bind:flag" cssclass="expr:comp.parent.asdf(currow);"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static02" text="Changing specified cell BkColor using timer" class="sta_WF_subtitle" position="absolute" left="30" top="18" width="600" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="flag" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">a</Col>
+            <Col id="flag">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">b</Col>
+            <Col id="flag">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">c</Col>
+            <Col id="flag">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">d</Col>
+            <Col id="flag">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">e</Col>
+            <Col id="flag">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">f</Col>
+            <Col id="flag">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.styleArr = ["SetBlinkColor2", "SetBlinkColor1"];
+this.idx = 0 ;
+this.blinkRow = 0 ;
+
+this.asdf = function (nRow)
+{
+	
+	if(this.blinkRow == nRow)
+	{
+		return this.styleArr[this.idx ];
+	}
+	
+	return "";
+	
+};
+
+
+this.Form_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
+{
+	
+	var v = this.Dataset00.getColumn(e.timerid,2)^1;
+	this.Dataset00.setColumn(e.timerid, 2, v);
+	
+	this.idx = v;
+	
+	this.blinkRow = e.timerid;
+	this.Grid00.redraw();
+		
+};
+
+
+
+this.Form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.setTimer(1, 1000);
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Top" classname="Top" left="0" top="0" width="1024" height="100" titletext="New Form" style="background:#0080ffff;">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="[TopFrame]" left="0.68%" top="7" right="73.54%" height="47" style="font:25 Dotum;"/>
+        <Edit id="Edit00" taborder="1" left="11" top="60" height="25" value="TopFrame 입니다." width="186"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

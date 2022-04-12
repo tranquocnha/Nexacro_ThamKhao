@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="work" classname="work" left="0" top="0" width="1025" height="674" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static03" taborder="0" text="Detail Infomation" cssclass="sta_WF_subtit" left="30" top="378" width="127" height="18"/>
+        <Grid id="grd_list" taborder="1" binddataset="ds_list" scrollbars="fixedvert" useinputpanel="false" autofittype="col" left="30" top="158" right="30" height="200">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="160"/>
+                <Column size="130"/>
+                <Column size="240"/>
+                <Column size="240"/>
+                <Column size="195"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Department name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="Sales Representative" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="Sales Amount" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="Target figure" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="Achievement rate" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="none" text="bind:SALE_DEPT" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" displaytype="normal" edittype="none" text="bind:SALE_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" edittype="normal" style="align:right;accessibility:EXPR(&quot;enable all '&quot;+CHK+&quot;'     &quot;);" text="bind:SALE_SALES" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" edittype="normal" style="align:right;" text="bind:SITE_AMOUNT" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" edittype="normal" style="align:right;" text="bind:PROJ_RATE" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="2" cssclass="sta_WFSA_BG" left="30" top="98" right="30" height="50"/>
+        <Grid id="grd_detail2" taborder="3" useinputpanel="false" autofittype="col" left="30" top="406" right="30" bottom="30" binddataset="ds_detail">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Sales Department" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="Sales Representative" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="Sales Representative" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="Customer Name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="Customer Name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="Customer Name" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:SALE_DEPT" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" style="align:left;" text="bind:SALE_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="bind:SALE_DATE" mask="@@@@-@@-@@" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" style="align:left;" text="bind:SITE_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" style="align:left;" text="bind:PROJ_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" style="align:left;" text="bind:SALE_AMOUNT" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Btn_search" taborder="4" cssclass="button_WF_white" top="106" width="70" height="34" left="231" text="Search"/>
+        <Combo id="Comb_year" taborder="5" value="2014" text="2014" innerdataset="year" codecolumn="Column0" datacolumn="Column0" index="0" onitemchanged="Comb_year_onitemchanged" left="131" top="106" width="80" height="34"/>
+        <Static id="Static01" taborder="6" text="Search Year :" left="45" top="105" width="86" height="34"/>
+        <Static id="St_title" taborder="7" text="UI Standard(Master, Detail)" cssclass="sta_WF_subtit" left="30" top="58" width="505" height="30"/>
+        <Static id="st_progress" taborder="8" text="location &gt; UI Stamdard(Master, Detail)" cssclass="sta_WF_progress" left="30" top="18" width="808" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_list_onrowposchanged">
+        <ColumnInfo>
+          <Column id="SALE_DEPT" type="STRING" size="256"/>
+          <Column id="SALE_NM" type="STRING" size="256"/>
+          <Column id="SALE_SALES" type="STRING" size="256"/>
+          <Column id="SITE_AMOUNT" type="STRING" size="256"/>
+          <Column id="PROJ_RATE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_NM">Tom</Col>
+            <Col id="SALE_SALES">1,500,000,000</Col>
+            <Col id="SITE_AMOUNT">1,500,000,000</Col>
+            <Col id="PROJ_RATE">83.5</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 2 Team</Col>
+            <Col id="SALE_NM">Steev</Col>
+            <Col id="SALE_SALES">1,500,000,000</Col>
+            <Col id="SITE_AMOUNT">1,500,000,000</Col>
+            <Col id="PROJ_RATE">75.3</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_detail" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SALE_DEPT" type="STRING" size="256"/>
+          <Column id="SALE_NM" type="STRING" size="256"/>
+          <Column id="SALE_DATE" type="STRING" size="256"/>
+          <Column id="SITE_NM" type="STRING" size="256"/>
+          <Column id="PROJ_NM" type="STRING" size="256"/>
+          <Column id="SALE_AMOUNT" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_NM">Tom</Col>
+            <Col id="SALE_AMOUNT">235614000</Col>
+            <Col id="SALE_DATE">20130205</Col>
+            <Col id="SITE_NM">TOBESOFT</Col>
+            <Col id="PROJ_NM">Project A</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_NM">Adrianne Palicki</Col>
+            <Col id="SALE_AMOUNT">567300000</Col>
+            <Col id="SALE_DATE">20130206</Col>
+            <Col id="SITE_NM">NEXAWEB</Col>
+            <Col id="PROJ_NM">Project B</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_NM">Tom</Col>
+            <Col id="SALE_DATE">20130605</Col>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_AMOUNT">78900000</Col>
+            <Col id="SITE_NM">Samsung</Col>
+            <Col id="PROJ_NM">Project C</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_NM">Tom</Col>
+            <Col id="SALE_AMOUNT">215036000</Col>
+            <Col id="SALE_DATE">20130704</Col>
+            <Col id="SITE_NM">LG</Col>
+            <Col id="PROJ_NM">Project D</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_NM">Steev</Col>
+            <Col id="SALE_AMOUNT">159150000</Col>
+            <Col id="SALE_DATE">20130910</Col>
+            <Col id="SITE_NM">LG</Col>
+            <Col id="PROJ_NM">Project E</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_NM">Kate Mara</Col>
+            <Col id="SALE_DATE">20130205</Col>
+            <Col id="SITE_NM">Samsung</Col>
+            <Col id="PROJ_NM">Project F</Col>
+            <Col id="SALE_AMOUNT"> 854600000 </Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_NM">Steev</Col>
+            <Col id="SALE_DATE">20130206</Col>
+            <Col id="SITE_NM">Samsung</Col>
+            <Col id="PROJ_NM">Project G</Col>
+            <Col id="SALE_AMOUNT"> 356000000 </Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 1 Team</Col>
+            <Col id="SALE_NM">Karine Vanasse</Col>
+            <Col id="SALE_DATE">20130605</Col>
+            <Col id="SITE_NM">NEXAWEB</Col>
+            <Col id="PROJ_NM">Project H</Col>
+            <Col id="SALE_AMOUNT"> 889400000 </Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 2 Team</Col>
+            <Col id="SALE_NM">Ed Skrein</Col>
+            <Col id="SALE_DATE">20130206</Col>
+            <Col id="SITE_NM">NEXAWEB</Col>
+            <Col id="PROJ_NM">Project I</Col>
+            <Col id="SALE_AMOUNT">854600000</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 2 Team</Col>
+            <Col id="SALE_NM">Steev</Col>
+            <Col id="SALE_DATE">20130605</Col>
+            <Col id="SITE_NM">NEXAWEB</Col>
+            <Col id="PROJ_NM">Project J</Col>
+            <Col id="SALE_AMOUNT">356000000</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 2 Team</Col>
+            <Col id="SALE_NM">Tom</Col>
+            <Col id="SALE_DATE">20130704</Col>
+            <Col id="SITE_NM">TOBESOFT</Col>
+            <Col id="PROJ_NM">Project K</Col>
+            <Col id="SALE_AMOUNT">889400000</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 2 Team</Col>
+            <Col id="SALE_NM">Meryl Streep</Col>
+            <Col id="SALE_DATE">20130910</Col>
+            <Col id="SITE_NM">TOBESOFT</Col>
+            <Col id="PROJ_NM">Project L</Col>
+            <Col id="SALE_AMOUNT">200000000</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 2 Team</Col>
+            <Col id="SALE_NM">Angelina Jolie</Col>
+            <Col id="SALE_DATE">20130206</Col>
+            <Col id="SITE_NM">TOBESOFT</Col>
+            <Col id="PROJ_NM">Project M</Col>
+            <Col id="SALE_AMOUNT">236000000</Col>
+          </Row>
+          <Row>
+            <Col id="SALE_DEPT">Sales 2 Team</Col>
+            <Col id="SALE_NM">Milla Jovovich</Col>
+            <Col id="SALE_DATE">20130605</Col>
+            <Col id="SITE_NM">TOBESOFT</Col>
+            <Col id="PROJ_NM">Project N</Col>
+            <Col id="SALE_AMOUNT">784562500</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="year" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">2014</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2013</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2012</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2011</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2010</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2009</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2008</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2007</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2006</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2005</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2004</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/**********************************************************************
+ * 01. Work scope            : Work screen
+ * 02. Screen name           : tempListDetail.xfdl
+ * 03. Screen description    : Various Processing
+ * 04. Related screen and service : 
+ * 05. Related table name       : 
+ * 06. Created by             : Dong Hong Gil
+ * 07. Creation date            : 2013-10-07
+ * 08. Revision history
+ *********************************************************************
+ *    Modification date            Name        Reason
+ *********************************************************************
+ *   2013-10-07         Dong Hong Gil    Created first time
+ *********************************************************************/
+
+
+/*********************************************************************
+ * Common function collection: common script include processing .
+**********************************************************************/
+//include "lib::common.xjs"		// Common function collection
+
+/********************************************************************
+ * Form variable definition: Using common variable declared on the form.
+ ********************************************************************/
+//var lv_frmAuth = "RIUD" //Screen button privileges
+
+/*********************************************************************
+ * FORM COMMON FUNCTION AREA
+/ *********************************************************************/
+
+ 
+//Form load
+function form_onload(obj:Form, e:LoadEventInfo)
+{
+	 
+};
+
+this.ds_list_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.ds_detail.filter("");	
+	var strFilterStr = obj.getColumn(e.newrow,"SALE_NM");
+	this.ds_detail.filter("SALE_NM == '"+strFilterStr+"'");	
+};
+]]></Script>
+  </Form>
+</FDL>

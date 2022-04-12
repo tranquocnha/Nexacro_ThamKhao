@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="fileUploadDownloadBase" classname="file_test" left="0" top="0" width="760" height="690" titletext="File upload/Download sample">
+    <Layouts>
+      <Layout>
+        <FileUpload id="fileUpload" taborder="0" retry="0" index="0" left="197" top="70" width="533" height="34" onitemchanged="comp_onitemchanged" itemcount="1" multiselect="true" onerror="comp_onerror" onsuccess="comp_onsuccess" buttonsize="80" buttontext="Attach File" itemheight="34" background="#eeeeee"/>
+        <Grid id="grd_fileList" taborder="1" useinputpanel="false" left="30" top="114" width="700" height="150" binddataset="ds_fileList" cellsizingtype="none" cellsizebandtype="body" autosizingtype="none" autofittype="col" oncellclick="grd_fileList_oncellclick" font="9pt Arial">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="400"/>
+                <Column size="277"/>
+                <Column size="132"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="Source file name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="File name on server" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="Upload status" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow + 1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" style="align:left middle;" text="bind:orgFileName" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" style="align:left middle;" text="bind:newFileName" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="bind:uploadYn" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_upload" taborder="2" text="Upload" left="30" top="70" width="100" height="34" onclick="btn_upload_onclick"/>
+        <FileDownload id="fileDownload" taborder="4" retry="0" text="File download" left="104.74%" top="230" right="-19.74%" height="40" onload="FileDownload00_onload" visible="false" onerror="fileDownload_onerror" onsuccess="fileDownload_onsuccess" onclick="fileDownload_onclick" font="9pt Arial" color="#112e6f"/>
+        <Grid id="grd_fileDownList" taborder="5" binddataset="ds_fileDownList" useinputpanel="false" autofittype="col" left="30" top="354" height="150" oncellclick="grd_fileDownList_oncellclick" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="400"/>
+                <Column size="277"/>
+                <Column size="132"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="Source filename" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="Filename on the server" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="Upload status" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow + 1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" style="align:left middle;" text="bind:orgFileName" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" style="align:left middle;" text="bind:newFileName" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" displaytype="button" edittype="button" text="Success" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="6" text="Server file name" left="30" top="524" height="34" width="110"/>
+        <Edit id="edt_ServerFileName" taborder="7" left="152" top="524" height="34" value="nexacro_info.txt" width="245" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase="" border="1 solid #808080"/>
+        <Static id="Static01" taborder="8" text="Loal file name" left="30" top="568" height="34" width="110"/>
+        <Edit id="edt_LocalFileName" taborder="9" left="152" top="568" height="34" value="abc.txt" width="245" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase="" border="1 solid #808080"/>
+        <Button id="btn_down" taborder="10" text="Download" left="407" top="524" height="78" onclick="btn_down_onclick" width="152" background=""/>
+        <Static id="Static07" taborder="11" text="This is sample shows multiple file upload, these files are displayed on the below grid after upload" cssclass="sta_WF_explain" left="30" top="25" width="700" height="30"/>
+        <Static id="Static02" taborder="12" text="Uploaded files are displayed in the below Grid" cssclass="sta_WF_explain" left="30" top="314" width="337" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_fileList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="orgFileName" type="STRING" size="256"/>
+          <Column id="newFileName" type="STRING" size="256"/>
+          <Column id="uploadYn" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_fileDownList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="orgFileName" type="STRING" size="256"/>
+          <Column id="newFileName" type="STRING" size="256"/>
+          <Column id="uploadYn" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.comp_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+    var sFileName;
+	var sFilePath;
+	this.ds_fileList.clearData();
+	
+	if(obj.multiselect)
+    {		
+	    var sFullData = e.newvalue;
+		var aFilePath = sFullData.split(",");
+	}
+	
+	for(var i=0; i<aFilePath.length; i++)
+	{
+		sFilePath = aFilePath[i];
+		var dirExpt = sFilePath.lastIndexOf("\\")+1;
+		sFileName = sFilePath.substr(dirExpt);
+
+		var iAddRow = this.ds_fileList.addRow();
+		
+		this.ds_fileList.setColumn(iAddRow, "orgFileName", sFileName);
+	
+	}
+};
+
+this.comp_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	this.setWaitCursor(false);
+};
+
+this.sSaveFile = "";
+this.comp_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if( e.errorcode == 200 ) //upload completed
+	{
+		//var sSaveFile = e.errormsg;
+		this.sSaveFile = e.errormsg;
+		if (!this.gfn_isNull(this.sSaveFile)) {
+		trace("sSaveFile :: " + this.sSaveFile);
+			var aFileName = this.sSaveFile.split(";;");
+			var aOrgFileName = aFileName[0].split("||");
+			var aNewFileName = aFileName[1].split("||");
+			var iTotLength = aOrgFileName.length;
+			var iFindRow = 0;
+			
+			for (var iLoop=0; iLoop < iTotLength; iLoop++) {
+				iFindRow = this.ds_fileList.findRow("orgFileName", aOrgFileName[iLoop]);
+				
+				if (iFindRow > -1) {			
+					this.ds_fileList.setColumn(iFindRow, "newFileName", aNewFileName[iLoop]);//Saved file name
+					this.ds_fileList.setColumn(iFindRow, "uploadYn", "Y");//Upload status							
+				}
+			}
+			this.setWaitCursor(false);	
+			
+			this.fn_uploadAfter();
+
+		}
+	}else {
+		this.setWaitCursor(false);
+		this.alert("Upload error : "+ e.errorcode + "/"+ e.errormsg);
+	}
+};
+
+this.btn_upload_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.ds_fileList.getRowCount() > 0) {
+		this.setWaitCursor(true);
+		var sFileUrl = "Svc::fileUploadMulti.jsp?PATH=file" ;  		
+		//var sFileUrl = "Svc_org::fileUploadMulti.jsp?PATH=file" ;  
+		this.fileUpload.upload(sFileUrl);	
+
+	} else {
+		this.alert("Uplaod destination is not selected.");
+	}
+};
+
+
+this.fn_uploadAfter = function() 
+{	
+	this.alert("Upload completed!!!");
+	this.fileUpload.deleteItem(0);
+	this.fileUpload.appendItem();
+	this.ds_fileDownList.clearData();
+	this.ds_fileDownList.copyData(this.ds_fileList);
+	this.ds_fileList.clearData();
+};
+
+this.grd_fileDownList_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.col == 3) {
+		var strFileName = this.ds_fileDownList.getColumn(e.row, "newFileName");	
+		var strSaveFileName = this.ds_fileDownList.getColumn(e.row, "orgFileName");	
+		var sFileUrl = "Svc::fileDownload.jsp?PATH=file&file=" ;  
+		//var sFileUrl = "Svc_org::fileDownload.jsp?PATH=file&file=" ;  
+		this.fileDownload.set_downloadurl(sFileUrl+strFileName);
+		this.fileDownload.set_downloadfilename(strSaveFileName);
+		var bSucc = this.fileDownload.download();		
+	}
+};
+
+this.fileDownload_onerror = function(obj:FileDownload,  e:nexacro.FileDownloadErrorEventInfo)
+{
+	this.alert("================Error has occurred during file download================");	
+};
+
+this.fileDownload_onsuccess = function(obj:FileDownload,  e:nexacro.FileDownloadEventInfo)
+{
+	this.alert("Download compoeted");
+};
+
+/*****************************************************************************************
+ * Function name	: 	btn_down_onclick
+ * Input parameter	: 	
+ * Input parameter	: 	
+ * Funtionality	: 	
+ *****************************************************************************************/
+this.btn_down_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		var strFileName = this.edt_ServerFileName.value;	
+		var strSaveFileName = this.edt_LocalFileName.value;	
+		var sFileUrl = "Svc::fileDownload.jsp?PATH=file&file=" ;  // file is the name of the folder on the server, at the path spcefified on Svc
+		//var sFileUrl = "Svc_org::fileDownload.jsp?PATH=file&file=" ;  // file is the name of the folder on the server, at the path spcefified on Svc
+		this.fileDownload.set_downloadurl(sFileUrl+strFileName);
+		this.fileDownload.set_downloadfilename(strSaveFileName);
+		var bSucc = this.fileDownload.download();		
+};
+
+/*****************************************************************************************
+ * Function name	: 	this.gfn_isNull(sValue)
+ * Input parameter	: 	1. sValue - String
+ * Input parameter	: 	Boolean
+ * Funtionality	: 	Checking Null status.
+ *****************************************************************************************/
+this.gfn_isNull = function(sValue)
+{
+    var v_ChkStr = new String(sValue);
+    
+    if (new String(sValue).valueOf() == "undefined" || new String(sValue).valueOf() == "[Undefined]") return true;
+    if (sValue == null) return true;
+   	if( ("x"+sValue == "xNaN") && ( new String(sValue.length).valueOf() == "undefined" ) ) return true;
+    if (v_ChkStr == null) return true;
+    if (v_ChkStr.toString().length == 0 ) return true;
+    return false;
+};
+]]></Script>
+  </Form>
+</FDL>

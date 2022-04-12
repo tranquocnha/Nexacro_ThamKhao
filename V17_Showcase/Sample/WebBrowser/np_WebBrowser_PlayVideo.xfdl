@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="MediaPlay" classname="MediaPlay" left="0" top="0" width="760" height="480" titletext="Play video" onload="MediaPlay_onload">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="WebBrowser00" left="30" top="70" taborder="0" width="700" height="390"/>
+        <Static id="Static07" taborder="1" text="This is sample shows playing video in WebBrowser using HTML file" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" font=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.MediaPlay_onload = function(obj:nexacro.Form, e:nexacro.LoadEventInfo)
+{
+	var objApp = nexacro.getApplication();
+	var videoUrl = objApp.all["gv_SvcUrl"];
+	
+	var sPdfUrl = "http://techslides.com/demos/sample-videos/small.mp4";
+	this.WebBrowser00.set_url(videoUrl + "mediaplay_video.html?path="+sPdfUrl);
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="TypeDefinition_Services" classname="Application_Services" left="0" top="0" width="760" height="430" titletext="TypeDefinition Services">
+    <Layouts>
+      <Layout>
+        <Button id="Application_Services" taborder="0" text="Excute" left="30" top="78" width="90" height="34" onclick="Application_Cookie_onclick"/>
+        <Static id="Static07" taborder="1" text="TypeDefinition Services" cssclass="sta_WF_subtitP" left="30" top="18" width="302" height="40"/>
+        <Grid id="gdServices" taborder="2" useinputpanel="false" left="30" top="122" width="700" height="278" binddataset="dsServices">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="405"/>
+                <Column size="133"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="prefixid" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="type" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="url" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="cachelevel" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body" font="14px/normal &quot;Verdana&quot;">
+                <Cell style="align:left;" text="bind:prefixid"/>
+                <Cell col="1" style="align:left;" text="bind:type"/>
+                <Cell col="2" style="align:left;" text="bind:url"/>
+                <Cell col="3" style="align:left;" text="bind:cachelevel"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsServices" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="prefixid" type="STRING" size="256"/>
+          <Column id="type" type="STRING" size="256"/>
+          <Column id="url" type="STRING" size="256"/>
+          <Column id="cachelevel" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Application_Cookie_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsServices.clearData();
+	for(var i=0;i<application.services.length;i++)
+	{
+		this.dsServices.addRow();
+		this.dsServices.setColumn(this.dsServices.rowposition,"prefixid",application.services[i].prefixid);
+		this.dsServices.setColumn(this.dsServices.rowposition,"type",application.services[i].type);
+		this.dsServices.setColumn(this.dsServices.rowposition,"url",application.services[i].url);
+		this.dsServices.setColumn(this.dsServices.rowposition,"cachelevel",application.services[i].cachelevel);
+	}	   
+}
+]]></Script>
+  </Form>
+</FDL>

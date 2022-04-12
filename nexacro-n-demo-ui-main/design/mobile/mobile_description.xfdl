@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="mobile_leftMenu" width="480" height="600" titletext="New Form" background="#6954E1">
+    <Layouts>
+      <Layout height="600" mobileorientation="landscape" width="480">
+        <Button id="Button01" taborder="0" width="50" height="50" right="5" top="5" cssclass="btn_MWF_closeDesc"/>
+        <Static id="Static00" taborder="1" text="Sort" left="64" top="2" height="60" right="64" cssclass="sta_MWF_descTitle"/>
+        <Static id="Static01" taborder="2" left="0" top="60" right="0" bottom="0" background="#ffffff" text="" cssclass="sta_MWF_descBg"/>
+        <Static id="Static02" taborder="3" text="You can sort the data by the field values that the column references by clicking the column header in the grid. Clicking the same field repeatedly converts it to an ascending/ descending/cancel state; pressing the 'Ctrl' key and clicking the header allows you to sort multiple columns in the order you clicked.&#13;&#10;&#13;&#10;You can also sort through the context menu that appears when you right-click in the header area of the grid. Selecting 'Multiple Sort' in the context menu invokes a pop-up screen, allows you to add rows by pressing the '+' button, select the column name and sort order, and press the 'Apply' button to sort." left="30" top="100" height="350" right="30" wordWrap="english" fittocontents="height" cssclass="sta_WF_txt20px"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

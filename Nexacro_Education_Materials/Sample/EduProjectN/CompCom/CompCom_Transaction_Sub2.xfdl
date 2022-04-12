@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="CompCom_Transaction_Sub2" width="480" height="700" titletext="CompCom_Transaction_Sub2">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="480">
+        <Grid id="grd_list" taborder="0" left="10" top="70" bottom="10" binddataset="ds_sub2" width="460" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="32"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="DEPT_CD"/>
+                <Cell col="1" text="DEPT_NAME"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:DEPT_CD"/>
+                <Cell col="1" text="bind:DEPT_NAME" edittype="normal"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta_label" taborder="1" text="Linked Form" left="10" top="10" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static09" taborder="2" text="Dataset ds_sub2" left="10" top="40" width="174" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sub2" keystring="">
+        <ColumnInfo>
+          <Column id="DEPT_CD" type="STRING" size="32"/>
+          <Column id="DEPT_NAME" type="STRING" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="DEPT_CD">01</Col>
+            <Col id="DEPT_NAME">Accounting Team</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CD">02</Col>
+            <Col id="DEPT_NAME">HR Team</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CD">03</Col>
+            <Col id="DEPT_NAME">Sales Team</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CD">04</Col>
+            <Col id="DEPT_NAME">Design Team</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CD">05</Col>
+            <Col id="DEPT_NAME">Education Team</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[]]></Script>
+  </Form>
+</FDL>

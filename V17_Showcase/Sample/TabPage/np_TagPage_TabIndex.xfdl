@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="TabIndex" inheritanceid="" titletext="TabIndex 설정" position="absolute" left="0" top="0" width="760" height="530">
+    <Layouts>
+      <Layout>
+        <Spin id="Spin00" taborder="0" min="0" max="4" circulation="true" value="0" position="absolute" increment="1" type="normal" left="30" top="70" width="90" height="34"/>
+        <Button id="Button00" taborder="0" text="TabPage Set" position="absolute" onclick="Button00_onclick" left="130" top="70" width="120" height="34"/>
+        <Static id="Static02" text="Set the spin value and click on button to set tab index on TabPage" class="sta_WF_subtitle" position="absolute" left="30" top="25" width="500" height="30" cssclass="sta_WF_explain"/>
+        <Tab id="Tab00" taborder="1" tabindex="4" left="30" top="114" width="600" height="300" border="1 solid #808080">
+          <Tabpages>
+            <Tabpage id="Tabpage1" text="Tabpage1"/>
+            <Tabpage id="Tabpage2" text="Tabpage2"/>
+            <Tabpage id="Tabpage3" text="Tabpage3"/>
+            <Tabpage id="Tabpage4" text="Tabpage4"/>
+            <Tabpage id="Tabpage5" text="Tabpage5"/>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.Tab00.set_tabindex(this.Spin00.value);
+};
+]]></Script>
+  </Form>
+</FDL>

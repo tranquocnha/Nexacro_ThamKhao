@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="showmodal_popup" classname="popup_test2" left="0" top="0" width="340" height="250" titletext="Display popup by showmodal" onload="showmodal_popup_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="close" left="230" top="190" width="90" height="40" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static07" taborder="1" text="This popup receives paremeter from parent" cssclass="sta_WF_explain" left="17" top="13" width="310" height="30" style="font:bold 9 Dotum;" wordwrap="english" verticalAlign="top"/>
+        <Static id="Static00" taborder="2" text="Received &quot;123&quot; from parent" left="17" top="53" height="30" cssclass="sta_WF_explain" verticalAlign="top" width="280"/>
+        <Edit id="Edit00" taborder="3" left="17" top="103" height="40" readonly="true" style="align:center middle;" width="303"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.showmodal_popup_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.Edit00.set_value(this.parent.pv_arg);
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var v = "Callback Parameter, while closing ";
+	this.close(v);
+}
+]]></Script>
+  </Form>
+</FDL>

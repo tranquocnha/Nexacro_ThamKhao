@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="test_decorate" classname="test_decorate" left="0" top="0" width="760" height="430" titletext="Decorate text">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="&lt;fc v='blue'&gt;Sample text&lt;/fc&gt;" left="815" top="36" height="54" usedecorate="true" width="401" visible="false"/>
+        <Button id="Button00" taborder="1" text="true" left="540" top="70" width="90" height="34" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="2" text="false" left="540" top="114" width="90" height="34" onclick="Button01_onclick"/>
+        <Grid id="Grid00" taborder="3" useinputpanel="false" left="30" top="70" width="500" height="114" binddataset="Dataset00" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="239"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="decoratetext" text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static01" taborder="4" text="It is  &lt;fs v='12'&gt;&lt;b v='true'&gt;&lt;fc v='#FF6600'&gt;Text&lt;/fc&gt;&lt;/b&gt;&lt;/fs&gt; style" usedecorate="true" left="815" top="92" height="44" width="405" visible="false"/>
+        <Static id="Static07" taborder="5" text="This is sample shows applying font, color, size using usedecorate property" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" font=""/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">&lt;fc v='blue'&gt;Sample text&lt;/fc&gt;</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">It is &lt;fs v='12'&gt;&lt;b v='true'&gt;&lt;fc v='#FF6600'&gt;text&lt;/fc&gt;&lt;/b&gt;&lt;/fs&gt; style</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	this.Static00.set_usedecorate(true);
+	this.Static01.set_usedecorate(true);
+	this.Grid00.set_enableredraw(false);
+	this.Grid00.set_binddataset("");
+	this.Grid00.setCellProperty("Body",0,"displaytype","decoratetext");
+	this.Grid00.set_binddataset("Dataset00");
+	this.Grid00.set_enableredraw(true);
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	this.Static00.set_text("");
+	this.Static01.set_text("");
+	this.Static00.set_usedecorate(false);
+	this.Static01.set_usedecorate(false);
+	this.Static00.set_text("<fc v='blue'>Sample text</fc>");
+	this.Static01.set_text("It is  <fs v='12'><b v='true'><fc v='#FF6600'>Text</fc></b></fs> style");
+	this.Grid00.setCellProperty("Body",0,"displaytype","text");
+};
+]]></Script>
+  </Form>
+</FDL>

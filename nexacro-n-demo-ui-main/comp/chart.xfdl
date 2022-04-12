@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="661" onload="form_onload">
+    <Layouts>
+      <Layout height="661" width="440">
+        <Static id="Static00" taborder="1" left="0" top="1465" width="1" height="35"/>
+        <Static id="Static00_00" taborder="0" text="Chart" left="20" top="14" width="120" height="40" cssclass="sta_WF_pageTitle" fittocontents="width" messageid="comp.chart"/>
+        <ImageViewer id="ImageViewer00" taborder="2" left="20" top="80" width="26.82%" height="90" image="url('imagerc::chart_column.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer00_onclick"/>
+        <ImageViewer id="ImageViewer01" taborder="3" left="ImageViewer00:23" top="80" width="26.82%" height="90" image="url('imagerc::chart_bar.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer01_onclick"/>
+        <ImageViewer id="ImageViewer02" taborder="4" left="ImageViewer01:23" top="80" width="26.82%" height="90" image="url('imagerc::chart_line.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer02_onclick"/>
+        <Static id="Static01" taborder="5" text="Column" left="20" top="ImageViewer00:5" width="29.27%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <Static id="Static02" taborder="6" text="Bar" left="Static01:13" top="ImageViewer01:5" width="29.09%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <Static id="Static03" taborder="7" text="Line" left="Static02:14" top="ImageViewer02:5" width="28.86%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <ImageViewer id="ImageViewer03" taborder="8" left="20" top="224" width="26.82%" height="90" image="url('imagerc::chart_area.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer03_onclick"/>
+        <ImageViewer id="ImageViewer04" taborder="9" left="ImageViewer03:23" top="224" width="26.82%" height="90" image="url('imagerc::chart_point.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer04_onclick"/>
+        <ImageViewer id="ImageViewer05" taborder="10" left="ImageViewer04:23" top="224" width="26.82%" height="90" image="url('imagerc::chart_column_line.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer05_onclick"/>
+        <Static id="Static04" taborder="11" text="Area" left="20" top="ImageViewer03:5" width="29.27%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <Static id="Static05" taborder="12" text="Point" left="Static04:13" top="ImageViewer04:5" width="29.09%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <Static id="Static06" taborder="13" text="Mixed" left="Static05:14" top="ImageViewer05:5" width="28.86%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <ImageViewer id="ImageViewer06" taborder="14" left="20" top="368" width="26.82%" height="90" image="url('imagerc::chart_pie.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer06_onclick"/>
+        <ImageViewer id="ImageViewer07" taborder="15" left="ImageViewer06:23" top="368" width="26.82%" height="90" image="url('imagerc::chart_doughnut.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer07_onclick"/>
+        <ImageViewer id="ImageViewer08" taborder="16" left="ImageViewer07:23" top="368" width="26.82%" height="90" image="url('imagerc::chart_bubble.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer08_onclick"/>
+        <Static id="Static07" taborder="17" text="Pie" left="20" top="ImageViewer06:5" width="29.17%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <Static id="Static08" taborder="18" text="Doughnut" left="Static07:13" top="ImageViewer07:5" width="29.09%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <Static id="Static09" taborder="19" text="Bubble" left="Static08:14" top="ImageViewer08:5" width="28.86%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <ImageViewer id="ImageViewer09" taborder="20" left="20" top="512" width="26.82%" height="90" image="url('imagerc::chart_gauge.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer09_onclick"/>
+        <ImageViewer id="ImageViewer10" taborder="21" left="ImageViewer09:23" top="512" width="26.82%" height="90" image="url('imagerc::chart_radar.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer10_onclick"/>
+        <ImageViewer id="ImageViewer11" taborder="22" left="ImageViewer10:23" top="512" width="26.82%" height="90" image="url('imagerc::chart_float.png')" stretch="fixaspectratio" border="0px none" cursor="pointer" onclick="ImageViewer11_onclick"/>
+        <Static id="Static10" taborder="23" text="Gauge" left="20" top="ImageViewer09:5" width="29.17%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <Static id="Static11" taborder="24" text="Radar" left="Static10:13" top="ImageViewer10:5" width="29.09%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+        <Static id="Static12" taborder="25" text="Float" left="Static11:14" top="ImageViewer11:5" width="28.86%" height="20" cssclass="sta_WF_txt14px" textAlign="center" cursor="pointer"/>
+      </Layout>
+      <Layout height="590" width="920" name="large">
+        <Static id="Static00" taborder="1" left="0" top="1465" width="1" height="35"/>
+        <ImageViewer id="ImageViewer00" left="20" top="80" width="18.59%" height="110"/>
+        <ImageViewer id="ImageViewer01" left="ImageViewer00:51" top="80" width="18.59%" height="110"/>
+        <ImageViewer id="ImageViewer02" left="ImageViewer01:51" top="80" width="18.59%" height="110"/>
+        <Static id="Static01" left="20" top="ImageViewer00:5" width="18.59%" height="20"/>
+        <Static id="Static02" left="Static01:51" top="ImageViewer01:5" width="18.59%" height="20"/>
+        <Static id="Static03" left="Static02:51" top="ImageViewer02:5" width="18.59%" height="20"/>
+        <ImageViewer id="ImageViewer03" left="ImageViewer02:51" top="80" width="18.59%" height="110"/>
+        <ImageViewer id="ImageViewer04" left="20" top="248" width="18.59%" height="110"/>
+        <ImageViewer id="ImageViewer05" left="ImageViewer04:51" top="248" width="18.59%" height="110"/>
+        <Static id="Static04" left="Static03:51" top="ImageViewer03:5" width="18.59%" height="20"/>
+        <Static id="Static05" left="20" top="ImageViewer04:5" width="18.59%" height="20"/>
+        <Static id="Static06" left="Static05:51" top="ImageViewer05:5" width="18.59%" height="20"/>
+        <ImageViewer id="ImageViewer06" left="ImageViewer05:51" top="248" width="18.59%" height="110"/>
+        <ImageViewer id="ImageViewer07" left="ImageViewer06:51" top="248" width="18.59%" height="110"/>
+        <ImageViewer id="ImageViewer08" left="20" top="418" width="18.59%" height="110"/>
+        <Static id="Static07" left="Static06:51" top="ImageViewer06:5" width="18.59%" height="20"/>
+        <Static id="Static08" left="Static07:51" top="ImageViewer07:5" width="18.59%" height="20"/>
+        <Static id="Static09" left="20" top="ImageViewer08:5" width="18.59%" height="20"/>
+        <ImageViewer id="ImageViewer09" left="ImageViewer08:51" top="418" width="18.59%" height="110"/>
+        <ImageViewer id="ImageViewer10" left="ImageViewer09:51" top="418" width="18.59%" height="110"/>
+        <ImageViewer id="ImageViewer11" left="ImageViewer10:51" top="418" width="18.59%" height="110"/>
+        <Static id="Static10" left="Static09:51" top="ImageViewer09:5" width="18.59%" height="20"/>
+        <Static id="Static11" left="Static10:51" top="ImageViewer10:5" width="18.59%" height="20"/>
+        <Static id="Static12" left="Static11:51" top="ImageViewer11:5" width="18.59%" height="20"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="gdsRainfall">
+        <ColumnInfo>
+          <Column id="name" type="STRING" size="256"/>
+          <Column id="rainfall" type="FLOAT" size="256"/>
+          <Column id="mean" type="FLOAT" size="256"/>
+          <Column id="select" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="name">ABBOTSFORD</Col>
+            <Col id="rainfall">69</Col>
+            <Col id="mean">66.2</Col>
+            <Col id="select">1</Col>
+          </Row>
+          <Row>
+            <Col id="name">CONCORD</Col>
+            <Col id="rainfall">49.6</Col>
+            <Col id="mean">48.6</Col>
+          </Row>
+          <Row>
+            <Col id="name">SYDNEY BOTANIC GARDENS</Col>
+            <Col id="rainfall">94.1</Col>
+            <Col id="mean">68.2</Col>
+          </Row>
+          <Row>
+            <Col id="name">CHATSWOOD BOWLING CLUB</Col>
+            <Col id="rainfall">78</Col>
+            <Col id="mean">51</Col>
+          </Row>
+          <Row>
+            <Col id="name">CONCORD GOLF CLUB</Col>
+            <Col id="rainfall">11.2</Col>
+            <Col id="mean">59.1</Col>
+          </Row>
+          <Row>
+            <Col id="name">MARRICKVILLE GOLF CLUB</Col>
+            <Col id="rainfall">56</Col>
+            <Col id="mean">55.9</Col>
+          </Row>
+          <Row>
+            <Col id="name">SYDNEY AIRPORT AMO</Col>
+            <Col id="rainfall">66.6</Col>
+            <Col id="mean">60.3</Col>
+            <Col id="select">1</Col>
+          </Row>
+          <Row>
+            <Col id="name">PENNANT HILLS</Col>
+            <Col id="rainfall">53.2</Col>
+            <Col id="mean">56.8</Col>
+          </Row>
+          <Row>
+            <Col id="name">RANDWICK BOWLING CLUB</Col>
+            <Col id="rainfall">122.6</Col>
+            <Col id="mean">65.9</Col>
+          </Row>
+          <Row>
+            <Col id="name">SANS SOUCI</Col>
+            <Col id="rainfall">66</Col>
+            <Col id="mean">61.5</Col>
+            <Col id="select">1</Col>
+          </Row>
+          <Row>
+            <Col id="name">TERREY HILLS AWS</Col>
+            <Col id="rainfall">83.4</Col>
+            <Col id="mean">63.9</Col>
+          </Row>
+          <Row>
+            <Col id="name">SYDNEY</Col>
+            <Col id="rainfall">80</Col>
+            <Col id="mean">65.5</Col>
+          </Row>
+          <Row>
+            <Col id="name">STRATHFIELD GOLF CLUB</Col>
+            <Col id="rainfall">36</Col>
+            <Col id="mean">45.3</Col>
+          </Row>
+          <Row>
+            <Col id="name">LUCAS HEIGHTS</Col>
+            <Col id="rainfall">58.9</Col>
+            <Col id="mean">50.9</Col>
+          </Row>
+          <Row>
+            <Col id="name">CASTLE COVE</Col>
+            <Col id="rainfall">101</Col>
+            <Col id="mean">69.2</Col>
+          </Row>
+          <Row>
+            <Col id="name">PARRAMATTA NORTH</Col>
+            <Col id="rainfall">33.6</Col>
+            <Col id="mean">52.4</Col>
+          </Row>
+          <Row>
+            <Col id="name">COLLAROY</Col>
+            <Col id="rainfall">91.4</Col>
+            <Col id="mean">66.2</Col>
+          </Row>
+          <Row>
+            <Col id="name">BANKSTOWN AIRPORT AWS</Col>
+            <Col id="rainfall">53.4</Col>
+            <Col id="mean">43.6</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="gdsCountryLitres">
+        <ColumnInfo>
+          <Column id="country" type="STRING" size="256"/>
+          <Column id="value" type="FLOAT" size="256"/>
+          <Column id="select" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+          <Column id="valuedata" type="FLOAT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="country">Czech Republic</Col>
+            <Col id="value">356.9</Col>
+            <Col id="select"/>
+            <Col id="data">test1</Col>
+            <Col id="valuedata">100</Col>
+          </Row>
+          <Row>
+            <Col id="country">Ireland</Col>
+            <Col id="value">54</Col>
+            <Col id="select"/>
+            <Col id="data">tes2</Col>
+            <Col id="valuedata">10</Col>
+          </Row>
+          <Row>
+            <Col id="country">Germany</Col>
+            <Col id="value">115.8</Col>
+            <Col id="data">test3</Col>
+            <Col id="valuedata">200.11</Col>
+          </Row>
+          <Row>
+            <Col id="country">Australia</Col>
+            <Col id="value">109.9</Col>
+            <Col id="select"/>
+            <Col id="data">test4</Col>
+            <Col id="valuedata">19.1</Col>
+          </Row>
+          <Row>
+            <Col id="country">Austria</Col>
+            <Col id="value">108.3</Col>
+            <Col id="select">1</Col>
+            <Col id="data">test5</Col>
+            <Col id="valuedata">30.12</Col>
+          </Row>
+          <Row>
+            <Col id="country">UK</Col>
+            <Col id="value">65</Col>
+            <Col id="select"/>
+            <Col id="data">test6</Col>
+            <Col id="valuedata">10</Col>
+          </Row>
+          <Row>
+            <Col id="country">Belgium</Col>
+            <Col id="value">110</Col>
+            <Col id="select"/>
+            <Col id="data">test7</Col>
+            <Col id="valuedata">19.100</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="gdsCostProfit">
+        <ColumnInfo>
+          <Column id="category" type="STRING" size="256"/>
+          <Column id="profit" type="FLOAT" size="256"/>
+          <Column id="cost" type="FLOAT" size="256"/>
+          <Column id="revenue" type="FLOAT" size="256"/>
+          <Column id="profit1" type="FLOAT" size="256"/>
+          <Column id="cost1" type="FLOAT" size="256"/>
+          <Column id="revenue1" type="FLOAT" size="256"/>
+          <Column id="select" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="category">1</Col>
+            <Col id="profit">600</Col>
+            <Col id="cost">700</Col>
+            <Col id="revenue">9999</Col>
+            <Col id="profit1">400</Col>
+            <Col id="cost1">200</Col>
+            <Col id="revenue1">8000</Col>
+          </Row>
+          <Row>
+            <Col id="category">2</Col>
+            <Col id="profit">1000</Col>
+            <Col id="cost">1400</Col>
+            <Col id="revenue">5500</Col>
+            <Col id="profit1">2200</Col>
+            <Col id="cost1">4000</Col>
+            <Col id="revenue1">4040</Col>
+          </Row>
+          <Row>
+            <Col id="category">3</Col>
+            <Col id="profit">1500</Col>
+            <Col id="cost">1550</Col>
+            <Col id="revenue">2200</Col>
+            <Col id="profit1">1900</Col>
+            <Col id="cost1">2000</Col>
+            <Col id="revenue1">3000</Col>
+          </Row>
+          <Row>
+            <Col id="category">4</Col>
+            <Col id="profit">2200</Col>
+            <Col id="cost">1300</Col>
+            <Col id="revenue">1900</Col>
+            <Col id="profit1">50</Col>
+            <Col id="cost1">660</Col>
+            <Col id="revenue1">200</Col>
+          </Row>
+          <Row>
+            <Col id="category">5</Col>
+            <Col id="profit">1400</Col>
+            <Col id="cost">900</Col>
+            <Col id="revenue">9900</Col>
+            <Col id="profit1">3000</Col>
+            <Col id="cost1">1500</Col>
+            <Col id="revenue1">500</Col>
+          </Row>
+          <Row>
+            <Col id="category">6</Col>
+            <Col id="profit">2000</Col>
+            <Col id="cost">500</Col>
+            <Col id="revenue">27000</Col>
+            <Col id="profit1">80</Col>
+            <Col id="cost1">2900</Col>
+            <Col id="revenue1">3050</Col>
+            <Col id="select">1</Col>
+          </Row>
+          <Row>
+            <Col id="profit">1800</Col>
+            <Col id="category">7</Col>
+            <Col id="cost">1400</Col>
+            <Col id="revenue">8000</Col>
+            <Col id="profit1">2500</Col>
+            <Col id="cost1">800</Col>
+            <Col id="revenue1">2000</Col>
+          </Row>
+          <Row>
+            <Col id="category">8</Col>
+            <Col id="profit">2500</Col>
+            <Col id="cost">800</Col>
+            <Col id="revenue">5700</Col>
+            <Col id="profit1">3000</Col>
+            <Col id="cost1">1900</Col>
+            <Col id="revenue1">1900</Col>
+            <Col id="select">1</Col>
+          </Row>
+          <Row>
+            <Col id="category">9</Col>
+            <Col id="profit">2550</Col>
+            <Col id="cost">600</Col>
+            <Col id="revenue">3000</Col>
+            <Col id="profit1">1500</Col>
+            <Col id="cost1">1300</Col>
+            <Col id="revenue1">440</Col>
+          </Row>
+          <Row>
+            <Col id="category">10</Col>
+            <Col id="profit">1600</Col>
+            <Col id="cost">1200</Col>
+            <Col id="revenue">5000</Col>
+            <Col id="profit1">8989</Col>
+            <Col id="cost1">1500</Col>
+            <Col id="revenue1">200</Col>
+          </Row>
+          <Row>
+            <Col id="category">11</Col>
+            <Col id="profit">650</Col>
+            <Col id="cost">550</Col>
+            <Col id="revenue">3087</Col>
+            <Col id="profit1">2000</Col>
+            <Col id="cost1">1500</Col>
+            <Col id="revenue1">500</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.ImageViewer00_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Grouped Column", url: "comp::chart/GroupedColumn.xfdl"},
+		{name: "Stacked Column", url: "comp::chart/StackedColumn.xfdl"},
+		{name: "100% Stacked Column", url: "comp::chart/PercentStackedColumn.xfdl"},
+		{name: "Grouped Stack Column", url: "comp::chart/GroupedStackColumn.xfdl"},
+		{name: "Layered Column", url: "comp::chart/LayeredColumn.xfdl"}
+	];
+	
+	this.openChartPop("Column", list);
+};
+
+this.ImageViewer01_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Grouped Bar", url: "comp::chart/GroupedBar.xfdl"},
+		{name: "Stacked Bar", url: "comp::chart/StackedBar.xfdl"},
+		{name: "100% Stacked Bar", url: "comp::chart/PercentStackedBar.xfdl"},
+		{name: "Grouped Stack Bar", url: "comp::chart/GroupedStackBar.xfdl"},
+		{name: "Layered Bar", url: "comp::chart/LayeredBar.xfdl"}
+	];
+	
+	this.openChartPop("Bar", list);
+};
+
+this.ImageViewer02_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Segment Line", url: "comp::chart/SegmentLine.xfdl"},
+		{name: "Step Line", url: "comp::chart/StepLine.xfdl"},
+		{name: "Curve Line", url: "comp::chart/CurveLine.xfdl"}
+	];
+	
+	this.openChartPop("Line", list);
+};
+
+this.ImageViewer03_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Simple Area", url: "comp::chart/SimpleArea.xfdl"},
+		{name: "Stacked Area", url: "comp::chart/StackedArea.xfdl"},
+		{name: "100% Stack Area", url: "comp::chart/PercentStackedArea.xfdl"}
+	];
+	
+	this.openChartPop("Area", list);
+};
+
+this.ImageViewer04_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Point Markers", url: "comp::chart/PointMarkers.xfdl"},
+		{name: "Line with Markers", url: "comp::chart/PointMarkers_withLine.xfdl"}
+	];
+	
+	this.openChartPop("Point", list);
+};
+
+this.ImageViewer05_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Column + Line", url: "comp::chart/ColumnAndLine.xfdl"},
+		{name: "Line + Point", url: "comp::chart/LineAndPoint.xfdl"},
+		{name: "Multi Axis", url: "comp::chart/BarAndLine_MultiAxis.xfdl"}
+	];
+	
+	this.openChartPop("Mixed", list);
+};
+
+this.ImageViewer06_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Simple Pie", url: "comp::chart/SimplePie.xfdl"},
+		{name: "Select Pie", url: "comp::chart/SelectPie.xfdl"},
+		{name: "Angular Pie", url: "comp::chart/AngularPie.xfdl"}
+	];
+	
+	this.openChartPop("Pie", list);
+};
+
+this.ImageViewer07_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Simple Douhgnut", url: "comp::chart/SimpleDoughnut.xfdl"},
+		{name: "Select Doughnut", url: "comp::chart/SelectDoughnut.xfdl"},
+		{name: "Angular Doughnut", url: "comp::chart/AngularDoughnut.xfdl"}
+	];
+	
+	this.openChartPop("Doughnut", list);
+};
+
+this.ImageViewer08_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Scatter", url: "comp::chart/Scatter.xfdl"},
+		{name: "Bubble", url: "comp::chart/SimpleBubble.xfdl"}
+	];
+	
+	this.openChartPop("Bubble", list);
+};
+
+this.ImageViewer09_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Simple Gauge(Vertical)", url: "comp::chart/GaugeChart_Basic_vertical.xfdl"},
+		{name: "Simple Gauge(Horizontal)", url: "comp::chart/GaugeChart_Basic_horizontal.xfdl"},
+		{name: "Simple Gauge(Circular)", url: "comp::chart/GaugeChart_Basic_circular.xfdl"},
+		{name: "Gender Survey", url: "comp::chart/GaugeChart_gender_survey.xfdl"},
+		{name: "Sales", url: "comp::chart/GaugeChart_Sales.xfdl"},
+		{name: "Speed", url: "comp::chart/GaugeChart_speed.xfdl"},
+		{name: "Weather", url: "comp::chart/GaugeChart_weather.xfdl"}
+	];
+	
+	this.openChartPop("Gauge", list);
+};
+
+this.ImageViewer10_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Simple Radar(Circle)", url: "comp::chart/RadarChart_Basic.xfdl"},
+		{name: "Simple Radar(Polygon)", url: "comp::chart/RadarChart_Budget_vs_Spending.xfdl"},
+		{name: "Radar Multi Series", url: "comp::chart/Dynamic_RadarChart.xfdl"},
+		{name: "Radar Multi Series2", url: "comp::chart/RadarChart_MultiSeries.xfdl"},
+		{name: "Basic Chart & Radar Chart", url: "comp::chart/BasicChartandRadarChart.xfdl"},
+		{name: "Multi Polygon", url: "comp::chart/MultiPolygonChart.xfdl"},
+		{name: "Axisline Style", url: "comp::chart/RadarChart_Weather.xfdl"},
+		{name: "LinePoint", url: "comp::chart/RadarChart_2010_2013.xfdl"}
+	];
+	
+	this.openChartPop("Radar", list);
+};
+
+this.ImageViewer11_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	var list = [
+		{name: "Simple Float", url: "comp::chart/floatbase.xfdl"},
+		{name: "Float Plan", url: "comp::chart/floatbase_plan.xfdl"},
+		{name: "Waterfall", url: "comp::chart/floatbase_waterful.xfdl"}
+	];
+	
+	this.openChartPop("Float", list);
+};
+
+this.openChartPop = function(chartType, list)
+{
+	var sOption = "";
+	
+	if (this.getCurrentLayoutName() == "large") {
+		sOption = "showtitlebar=false autosize=false width=1024 height=700";
+	} else {
+		sOption = "showtitlebar=false autosize=false openstatus=maximize";
+	}
+	
+	this.openPopup("nexacroChartPop", "comp::chartPop.xfdl", {chartType: chartType, list: list}, sOption);
+};]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,995 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="pageMgmt" inheritanceid="" position="absolute" titletext="User management by group" onload="form_onload" onbeforeclose="form_onbeforeclose" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="21" cssclass="sta_WFSA_BG" left="383" top="407" right="15" height="46"/>
+        <Static id="st_Title00" text="domain.user.list" wordwrap="english" position="absolute" left="384" width="204" top="97" height="22" cssclass="sta_WF_title"/>
+        <Button id="btn_Insert" taborder="1" text="domain.add" onclick="btn_Insert_onclick" position="absolute" right="15" width="42" top="465" height="23"/>
+        <Edit id="edt_UserSearchKeyword" taborder="3" onkeydown="edt_UserSearchKeyword_onkeydown" position="absolute" left="538" width="134" top="419" height="20"/>
+        <Combo id="cmb_UserSearchCondition" taborder="4" value="0" text="domain.text" codecolumn="codecolumn" datacolumn="datacolumn" index="0" onitemchanged="cmb_searchCondition_onitemchanged" position="absolute" left="462" width="74" top="419" height="20">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">domain.text</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">domain.code</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="st_searchCondition" text="domain.search.condition" position="absolute" left="388" width="72" top="419" height="20" cssclass="sta_WFSA_label"/>
+        <Button id="btn_Delete" taborder="5" text="domain.delete" onclick="btn_Delete_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:D;" right="60" width="42" top="94" height="23" cssclass="btn_WF_crud"/>
+        <Grid id="grd_User" taborder="6" binddataset="ds_User" readonly="true" useinputpanel="false" position="absolute" left="383" right="15" top="493" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="85"/>
+                <Column size="96"/>
+                <Column size="128"/>
+                <Column size="134"/>
+                <Column size="252"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.user.id"/>
+                <Cell col="1" text="domain.user.name"/>
+                <Cell col="2" text="domain.phone"/>
+                <Cell col="3" text="domain.cellphone"/>
+                <Cell col="4" text="domain.email"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:USER_ID"/>
+                <Cell col="1" style="align:left;" text="bind:USER_NAME"/>
+                <Cell col="2" style="align:left;" text="bind:PHONE"/>
+                <Cell col="3" style="align:left;" text="bind:CELL_PHONE"/>
+                <Cell col="4" style="align:left;" text="bind:EMAIL"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_Save" taborder="10" text="domain.save" onclick="btn_Save_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:T;" right="15" width="42" top="94" height="23" cssclass="btn_module"/>
+        <Static id="st_Title" text="domain.user.group" wordwrap="english" position="absolute" left="15" width="204" top="97" height="22" cssclass="sta_WF_title"/>
+        <Grid id="grd_UserGroup" taborder="12" binddataset="ds_UserGroup" readonly="true" useinputpanel="false" position="absolute" left="383" right="15" top="122" height="270">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="85"/>
+                <Column size="96"/>
+                <Column size="128"/>
+                <Column size="134"/>
+                <Column size="252"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.user.id"/>
+                <Cell col="1" text="domain.user.name"/>
+                <Cell col="2" text="domain.phone"/>
+                <Cell col="3" text="domain.cellphone"/>
+                <Cell col="4" text="domain.email"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:USER_ID"/>
+                <Cell col="1" style="align:left;" text="bind:USER_NAME"/>
+                <Cell col="2" style="align:left;" text="bind:PHONE"/>
+                <Cell col="3" style="align:left;" text="bind:CELL_PHONE"/>
+                <Cell col="4" style="align:left;" text="bind:EMAIL"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_Group" taborder="13" binddataset="ds_Group" readonly="true" autoenter="select" useinputpanel="false" cellsizingtype="col" nodatatext="There is no retrieve data." onrbuttonup="divGrd_grdCategory_onrbuttonup" onheadclick="grd_GrdUser_onheadclick" position="absolute" style="align:center middle;font:dotum,9;" userdata="A=U" left="15" width="358" top="122" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="104"/>
+                <Column size="139"/>
+                <Column size="34"/>
+                <Column size="282"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.group.id"/>
+                <Cell col="1" text="domain.group"/>
+                <Cell col="2" text="domain.use"/>
+                <Cell col="3" text="domain.group.desc"/>
+                <Cell col="4" text="domain.reg.date"/>
+                <Cell col="5" text="domain.reg.id"/>
+                <Cell col="6" text="domain.update.date"/>
+                <Cell col="7" text="domain.update.id"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" edittype="expr:(dataset.getRowType(currow) == 2) ? 'normal' : 'none'" text="bind:GROUP_ID"/>
+                <Cell col="1" displaytype="normal" edittype="normal" text="bind:GROUP_NM"/>
+                <Cell col="2" displaytype="checkbox" edittype="checkbox" text="bind:USE_FG"/>
+                <Cell col="3" edittype="textarea" style="align:left;" text="bind:GROUP_DESC"/>
+                <Cell col="4" displaytype="date" edittype="none" text="bind:CREATE_DT"/>
+                <Cell col="5" displaytype="normal" edittype="none" text="bind:CREATE_USER"/>
+                <Cell col="6" displaytype="date" edittype="none" text="bind:UPDATE_DT"/>
+                <Cell col="7" displaytype="normal" edittype="none" text="bind:UPDATE_USER"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static41" taborder="14" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="15" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="Static43" taborder="16" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="17" text="10" visible="false" left="11" top="21" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static42" taborder="18" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="19" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static00" taborder="20" cssclass="sta_WFSA_BG" left="15" top="36" right="15" height="46"/>
+        <Edit id="edt_GroupSearchKeyword" taborder="8" onkeydown="edt_GroupSearchKeyword_onkeydown" position="absolute" left="225" width="134" top="48" height="20"/>
+        <Combo id="cmb_GroupSearchCondition" taborder="9" value="0" text="domain.name" codecolumn="codecolumn" datacolumn="datacolumn" index="0" position="absolute" left="109" width="114" top="48" height="20">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">domain.name</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">domain.user.id</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="st_searchCondition00" text="domain.search.condition" position="absolute" left="35" width="72" top="48" height="20" cssclass="sta_WFSA_label"/>
+        <Button id="btn_GroupSearch" taborder="7" onclick="btn_GroupSearch_onclick" position="absolute" right="15" width="51" top="36" height="46" cssclass="btn_WF_search"/>
+        <Button id="btn_UserSearch" taborder="2" onclick="btn_UserSearch_onclick" position="absolute" right="15" width="51" top="407" height="46" cssclass="btn_WF_search"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_User" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="ds_User_canrowposchange" onrowposchanged="ds_User_onrowposchanged">
+        <ColumnInfo>
+          <Column id="USER_ID" type="string" size="16"/>
+          <Column id="USER_NAME" type="string" size="20"/>
+          <Column id="EN_NAME" type="string" size="20"/>
+          <Column id="COMP_PHONE" type="string" size="20"/>
+          <Column id="PHONE" type="string" size="20"/>
+          <Column id="CELL_PHONE" type="string" size="20"/>
+          <Column id="COMPANY" type="string" size="60"/>
+          <Column id="JOB_POSITION" type="string" size="60"/>
+          <Column id="ASSIGNMENT" type="string" size="60"/>
+          <Column id="OFFICER_YN" type="string" size="1"/>
+          <Column id="FAX" type="string" size="20"/>
+          <Column id="ZIP_CODE" type="string" size="10"/>
+          <Column id="ADDRESS" type="string" size="300"/>
+          <Column id="COMP_ZIP_CODE" type="string" size="10"/>
+          <Column id="COMP_ADDRESS" type="string" size="300"/>
+          <Column id="EMAIL" type="string" size="30"/>
+          <Column id="DEPT_ID" type="string" size="16"/>
+          <Column id="PASSWORD" type="string" size="16"/>
+          <Column id="USERID" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="USER_ID">chulsoo</Col>
+            <Col id="USER_NAME">Cheon Su Kim</Col>
+            <Col id="EN_NAME">Kim Chulsoo</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">02-443-1231</Col>
+            <Col id="CELL_PHONE">010-234-1231</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Employee</Col>
+            <Col id="ASSIGNMENT">Development</Col>
+            <Col id="OFFICER_YN">Y</Col>
+            <Col id="FAX">02-533-5353</Col>
+            <Col id="ZIP_CODE">223232</Col>
+            <Col id="ADDRESS">Bundang-gu Seongnam-si</Col>
+            <Col id="COMP_ZIP_CODE">432221</Col>
+            <Col id="COMP_ADDRESS">Guri-si Gyeongi-do</Col>
+            <Col id="EMAIL">chulsoo@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0008</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">dongnam</Col>
+            <Col id="USER_NAME">Dong Nam Yun</Col>
+            <Col id="EN_NAME">Yoon Dongnam</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">02-443-1231</Col>
+            <Col id="CELL_PHONE">010-234-1231</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Senior manager</Col>
+            <Col id="ASSIGNMENT">Development</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-533-5353</Col>
+            <Col id="ZIP_CODE">442742</Col>
+            <Col id="ADDRESS">Bundang-gu Seongnam-si</Col>
+            <Col id="COMP_ZIP_CODE">432221</Col>
+            <Col id="COMP_ADDRESS">Buphyeong-gu Incheon-si</Col>
+            <Col id="EMAIL">dongnam@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">dongwoo</Col>
+            <Col id="USER_NAME"> Yu Dong Lee</Col>
+            <Col id="EN_NAME">Lee Dongwoo</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">010-6366-9999</Col>
+            <Col id="CELL_PHONE">010-6366-9999</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Manager</Col>
+            <Col id="ASSIGNMENT">Americas sales</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2145-2145</Col>
+            <Col id="ZIP_CODE">445370</Col>
+            <Col id="ADDRESS">Songsan-dong Hwaseong-si</Col>
+            <Col id="COMP_ZIP_CODE">445370</Col>
+            <Col id="COMP_ADDRESS">Songsan-dong hwaseong-si</Col>
+            <Col id="EMAIL">dongwoo.lee@anyframe.org</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">hong80</Col>
+            <Col id="USER_NAME">Dong Gil Hong</Col>
+            <Col id="EN_NAME">Hong Gildong</Col>
+            <Col id="COMP_PHONE">02-6456-1223</Col>
+            <Col id="PHONE">02-7484-0912</Col>
+            <Col id="CELL_PHONE">010-9911-0033</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Responsibility</Col>
+            <Col id="ASSIGNMENT">Application development</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-6481-0091</Col>
+            <Col id="ZIP_CODE">463180</Col>
+            <Col id="ADDRESS">Gumi-dong bundang-gu Seongnam-si Gyeongi-do</Col>
+            <Col id="COMP_ZIP_CODE">463810</Col>
+            <Col id="COMP_ADDRESS">Bundang-gu Seongnam-si Gyeonggi-do</Col>
+            <Col id="EMAIL">gildong@naver.com</Col>
+            <Col id="DEPT_ID">DEPT-0007</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">jihyun</Col>
+            <Col id="USER_NAME">Ji Hyun Lee</Col>
+            <Col id="EN_NAME">Lee Jihyun</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">041-122-5294</Col>
+            <Col id="CELL_PHONE">010-122-5294</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Employee</Col>
+            <Col id="ASSIGNMENT">Devlopment330-814</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">041-122-5294</Col>
+            <Col id="ZIP_CODE">330760</Col>
+            <Col id="ADDRESS">Cheonan-si Chungnam</Col>
+            <Col id="COMP_ZIP_CODE">330814</Col>
+            <Col id="COMP_ADDRESS">Cheonan-si Chungnam</Col>
+            <Col id="EMAIL">jihyun.lee@anyframe.org</Col>
+            <Col id="DEPT_ID">DEPT-0011</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">js.park</Col>
+            <Col id="USER_NAME">Jung Su Park</Col>
+            <Col id="EN_NAME">Park J.S.</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">041-122-5294</Col>
+            <Col id="CELL_PHONE">010-122-5294</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Manager</Col>
+            <Col id="ASSIGNMENT">Line</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">041-522-5294</Col>
+            <Col id="ZIP_CODE">339761</Col>
+            <Col id="ADDRESS">Geumnammyeon Yeongigun Chungnam </Col>
+            <Col id="COMP_ZIP_CODE">445330</Col>
+            <Col id="COMP_ADDRESS">Hwaseong-si Gyeongi-do</Col>
+            <Col id="EMAIL">js.park@anyframe.org</Col>
+            <Col id="DEPT_ID">DEPT-0011</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kkw</Col>
+            <Col id="USER_NAME">Kwang Hyun Kim</Col>
+            <Col id="EN_NAME">hwj</Col>
+            <Col id="COMP_PHONE">02-123-1234</Col>
+            <Col id="PHONE">02-1234-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1235</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Employee</Col>
+            <Col id="ASSIGNMENT">Development</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-6481-0091</Col>
+            <Col id="ZIP_CODE">442742</Col>
+            <Col id="ADDRESS">Bundang-gu Seongnam-si</Col>
+            <Col id="COMP_ZIP_CODE">463810</Col>
+            <Col id="COMP_ADDRESS">Bundang-gu Seongnam-si Gyeonggi-do</Col>
+            <Col id="EMAIL">kwanghyun@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kyungho</Col>
+            <Col id="USER_NAME">Ho Jun Kim</Col>
+            <Col id="EN_NAME">Kim Kyungho</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">010-0808-0808</Col>
+            <Col id="CELL_PHONE">010-0808-0808</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">General manager</Col>
+            <Col id="ASSIGNMENT">Domestic sales</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">053-744-6426</Col>
+            <Col id="ZIP_CODE">702020</Col>
+            <Col id="ADDRESS">Bokhyeon-dong Bug-gu Daegu</Col>
+            <Col id="COMP_ZIP_CODE">702260</Col>
+            <Col id="COMP_ADDRESS">Bokhyeon-dong buggu Daegu</Col>
+            <Col id="EMAIL">kyungho.kim@anyframe.org</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kyungjiin</Col>
+            <Col id="USER_NAME">Kyung Jiin Lee</Col>
+            <Col id="EN_NAME">Lee Kyungjiin</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">02-123-4567</Col>
+            <Col id="CELL_PHONE">010-123-4567</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Employee</Col>
+            <Col id="ASSIGNMENT">Business</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-455-4553</Col>
+            <Col id="ZIP_CODE">156886</Col>
+            <Col id="ADDRESS">36-1 Yeoui-dong Yoengdeungpo-gu Seoul</Col>
+            <Col id="COMP_ZIP_CODE">435040</Col>
+            <Col id="COMP_ADDRESS">Sanbun-dong gunphun-si Gyeonggi-do</Col>
+            <Col id="EMAIL">kyungjiin.lee@anyframe.org</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">sanghyun</Col>
+            <Col id="USER_NAME">Sang Hyun Choi</Col>
+            <Col id="EN_NAME">sanghyun</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">02-2486-7845</Col>
+            <Col id="CELL_PHONE">010-4578-9510</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Manager</Col>
+            <Col id="ASSIGNMENT">Development</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-9316-1049</Col>
+            <Col id="ZIP_CODE">450111</Col>
+            <Col id="ADDRESS">Yeogsam-dong gangnam-gu Seoul</Col>
+            <Col id="COMP_ZIP_CODE">578142</Col>
+            <Col id="COMP_ADDRESS">Yeogsam-dong Gangnam-gu Seoul</Col>
+            <Col id="EMAIL">sanghyun@anyframe.org</Col>
+            <Col id="DEPT_ID">DEPT-0011</Col>
+            <Col id="PASSWORD">test</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">sooni</Col>
+            <Col id="USER_NAME">Sun Lee Kim</Col>
+            <Col id="EN_NAME">Kim Sooni</Col>
+            <Col id="COMP_PHONE">02-242-2323</Col>
+            <Col id="PHONE">02-443-4343</Col>
+            <Col id="CELL_PHONE">010-234-2323</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Manager</Col>
+            <Col id="ASSIGNMENT">Human resource</Col>
+            <Col id="OFFICER_YN">Y</Col>
+            <Col id="FAX">02-533-5353</Col>
+            <Col id="ZIP_CODE">424432</Col>
+            <Col id="ADDRESS">Yeogsam-dong Seoul</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">Samcheog-si gangwon-do</Col>
+            <Col id="EMAIL">sooni@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0010</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">soungsoo</Col>
+            <Col id="USER_NAME">Seong Su Kim</Col>
+            <Col id="EN_NAME">Kim Sungsoo</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">010-9388-9999</Col>
+            <Col id="CELL_PHONE">010-9388-9999</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Deputy manager</Col>
+            <Col id="ASSIGNMENT">Planning_Operating part</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-455-4553</Col>
+            <Col id="ZIP_CODE">503060</Col>
+            <Col id="ADDRESS">503-060 Bongseon-dong Namgu Gwangju</Col>
+            <Col id="COMP_ZIP_CODE">506253</Col>
+            <Col id="COMP_ADDRESS">Oseon-dong gwansan-gu Gwangju</Col>
+            <Col id="EMAIL">soungsoo.kim@anyframe.org</Col>
+            <Col id="DEPT_ID">DEPT-0004</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">test</Col>
+            <Col id="USER_NAME">Tester</Col>
+            <Col id="EN_NAME">test</Col>
+            <Col id="COMP_PHONE">02-123-1234</Col>
+            <Col id="PHONE">02-1234-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Deputy manager</Col>
+            <Col id="ASSIGNMENT">Research and development</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-1234-1234</Col>
+            <Col id="ZIP_CODE">424432</Col>
+            <Col id="ADDRESS">Yeogsam-dong Seoul</Col>
+            <Col id="COMP_ZIP_CODE">123456</Col>
+            <Col id="COMP_ADDRESS">Bundang-gu Seongnam-si Gyeonggi-do</Col>
+            <Col id="EMAIL">test@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yongmi</Col>
+            <Col id="USER_NAME">Myong Mi Lee</Col>
+            <Col id="EN_NAME">Lee Youngmi</Col>
+            <Col id="COMP_PHONE">02-242-2222</Col>
+            <Col id="PHONE">02-233-2222</Col>
+            <Col id="CELL_PHONE">010-1334-2222</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Deputy manager</Col>
+            <Col id="ASSIGNMENT">sales</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-533-2222</Col>
+            <Col id="ZIP_CODE">424432</Col>
+            <Col id="ADDRESS">Yeogsam-dong Seoul</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">Seosan-si Chungcheongnam-do</Col>
+            <Col id="EMAIL">yongmi@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0009</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yoona</Col>
+            <Col id="USER_NAME">Yu Na Kim</Col>
+            <Col id="EN_NAME">yoona</Col>
+            <Col id="COMP_PHONE">123-123-1234</Col>
+            <Col id="PHONE">123-123-1234</Col>
+            <Col id="CELL_PHONE">123-123-1234</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Employee</Col>
+            <Col id="ASSIGNMENT">sales</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-455-4553</Col>
+            <Col id="ZIP_CODE">463810</Col>
+            <Col id="ADDRESS">Gumi-dong Bundang-gu Seongnam-si Gyeonggi-do</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">Seosan-si Chungcheongnam-do</Col>
+            <Col id="EMAIL">yoona@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0013</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yuli</Col>
+            <Col id="USER_NAME">Ri Yu Lee</Col>
+            <Col id="EN_NAME">Lee Yuli</Col>
+            <Col id="COMP_PHONE">02-242-1231</Col>
+            <Col id="PHONE">041-529-5294</Col>
+            <Col id="CELL_PHONE">010-529-5294</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Employee</Col>
+            <Col id="ASSIGNMENT">sales</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">041-529-5294</Col>
+            <Col id="ZIP_CODE">336882</Col>
+            <Col id="ADDRESS">Eumbongmyeon ansan-si Chungnam</Col>
+            <Col id="COMP_ZIP_CODE">330300</Col>
+            <Col id="COMP_ADDRESS">Seongseong-dong cheonan-si Chungchongnam-do</Col>
+            <Col id="EMAIL">yuli.lee@anyframe.org</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Group" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="ds_Group_canrowposchange" onrowposchanged="ds_Group_onrowposchanged">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="GROUP_ID" type="string" size="20"/>
+          <Column id="GROUP_NM" type="string" size="100"/>
+          <Column id="Group_DESC" type="string" size="10"/>
+          <Column id="Group_EXTP" type="string" size="10"/>
+          <Column id="Group_DESC" type="string" size="100"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="STRING" size="255"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="GROUP_NM">User</Col>
+            <Col id="Group_DESC"/>
+            <Col id="Group_EXTP"/>
+            <Col id="Group_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905203435000</Col>
+            <Col id="UPDATE_USER">test</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="GROUP_ID">ADMIN</Col>
+            <Col id="GROUP_NM">Admin</Col>
+            <Col id="Group_DESC"/>
+            <Col id="Group_EXTP"/>
+            <Col id="Group_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905202039000</Col>
+            <Col id="UPDATE_USER">test</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="GROUP_ID">TEST</Col>
+            <Col id="GROUP_NM">Test</Col>
+            <Col id="Group_DESC"/>
+            <Col id="Group_EXTP"/>
+            <Col id="Group_DESC"/>
+            <Col id="CREATE_USER">test</Col>
+            <Col id="CREATE_DT">20120905202246000</Col>
+            <Col id="UPDATE_USER">test</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_UserSearch" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_UserGroup" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="GROUP_ID" type="string" size="10"/>
+          <Column id="USER_ID" type="string" size="16"/>
+          <Column id="USER_NAME" type="string" size="20"/>
+          <Column id="EN_NAME" type="string" size="20"/>
+          <Column id="COMP_PHONE" type="string" size="20"/>
+          <Column id="PHONE" type="string" size="20"/>
+          <Column id="CELL_PHONE" type="string" size="20"/>
+          <Column id="COMPANY" type="string" size="60"/>
+          <Column id="JOB_POSITION" type="string" size="60"/>
+          <Column id="ASSIGNMENT" type="string" size="60"/>
+          <Column id="OFFICER_YN" type="string" size="1"/>
+          <Column id="FAX" type="string" size="20"/>
+          <Column id="ZIP_CODE" type="string" size="10"/>
+          <Column id="ADDRESS" type="string" size="300"/>
+          <Column id="COMP_ZIP_CODE" type="string" size="10"/>
+          <Column id="COMP_ADDRESS" type="string" size="300"/>
+          <Column id="EMAIL" type="string" size="30"/>
+          <Column id="DEPT_ID" type="string" size="16"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USER_ID">sooni</Col>
+            <Col id="USER_NAME">Lee Sun Kim</Col>
+            <Col id="EN_NAME">Kim Sooni</Col>
+            <Col id="COMP_PHONE">02-242-2323</Col>
+            <Col id="PHONE">02-443-4343</Col>
+            <Col id="CELL_PHONE">010-234-2323</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Manager</Col>
+            <Col id="ASSIGNMENT">Human Resource</Col>
+            <Col id="OFFICER_YN">Y</Col>
+            <Col id="FAX">02-533-5353</Col>
+            <Col id="ZIP_CODE">424432</Col>
+            <Col id="ADDRESS">Yeog sam dong Seoul-si</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">Samcheog-si Gangwon-do</Col>
+            <Col id="EMAIL">sooni@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0010</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USER_ID">test</Col>
+            <Col id="USER_NAME">Teo Seu Te</Col>
+            <Col id="EN_NAME">test</Col>
+            <Col id="COMP_PHONE">02-123-1234</Col>
+            <Col id="PHONE">02-1234-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Deputy manager</Col>
+            <Col id="ASSIGNMENT">Research and Development </Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-1234-1234</Col>
+            <Col id="ZIP_CODE">424432</Col>
+            <Col id="ADDRESS">Yeog sam dong Seoul-si</Col>
+            <Col id="COMP_ZIP_CODE">123456</Col>
+            <Col id="COMP_ADDRESS">Bungang-gu seongnam-si Gyeongi-do</Col>
+            <Col id="EMAIL">test@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="USER_ID">yoona</Col>
+            <Col id="USER_NAME">Yu Na Kim</Col>
+            <Col id="EN_NAME">yoona</Col>
+            <Col id="COMP_PHONE">123-123-1234</Col>
+            <Col id="PHONE">123-123-1234</Col>
+            <Col id="CELL_PHONE">123-123-1234</Col>
+            <Col id="COMPANY">Samsung SDS</Col>
+            <Col id="JOB_POSITION">Employee</Col>
+            <Col id="ASSIGNMENT">Business</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-455-4553</Col>
+            <Col id="ZIP_CODE">463810</Col>
+            <Col id="ADDRESS">Gumi-dong,Bundang-gu Seongnam-si, Gyongi-do</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">Seosan-si Chungcheongnam-do</Col>
+            <Col id="EMAIL">yoona@samsung.com</Col>
+            <Col id="DEPT_ID">DEPT-0013</Col>
+            <Col id="_chk">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="cmb_GroupSearchCondition" propid="value" datasetid="ds_Search" columnid="SEARCH_CONDITION"/>
+      <BindItem id="item1" compid="edt_GroupSearchKeyword" propid="value" datasetid="ds_Search" columnid="SEARCH_KEYWORD"/>
+      <BindItem id="item17" compid="cmb_UserSearchCondition" propid="value" datasetid="ds_UserSearch" columnid="SEARCH_CONDITION"/>
+      <BindItem id="item18" compid="edt_UserSearchKeyword" propid="value" datasetid="ds_UserSearch" columnid="SEARCH_KEYWORD"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : User registration management by group
+ * 02. Group user name   : GroupUserMgmt.xfdl
+ * 03. Group user explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date    modified by   content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * User defined function declaration
+ ************************************************************************/
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	//Common functionality processing Form Load
+	this.gfn_FormOnLoad(obj);
+
+	this.fn_GroupSearch();
+
+	this.fn_UserSearch();
+}
+
+// Form beforeclose Event processing
+// Before closing the form, here is pop-up creation to ask if there is modified data, pop-up creating
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_UserGroup)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+}
+
+// Event processing on User search button click
+this.btn_UserSearch_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_UserSearch();
+}
+
+// Event processing on group search button click
+this.btn_GroupSearch_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_GroupSearch();
+}
+
+// Event processing on group user add button click
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+}
+
+// Event processing on delete button click
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Delete();
+}
+
+// Event processing on save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	return;
+	if (!this.gfn_DsGetUpdated(this.ds_UserGroup)) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+
+	var retValue = this.gfn_Confirm("msg.before.save");
+	if (retValue == false) 
+	{
+		return;
+	}
+
+	this.fn_Save();
+}
+
+// After input enter from user search input window search processing occured
+this.edt_UserSearchKeyword_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	if (e.keycode == 13) 
+	{
+		this.fn_UserSearch();
+	}
+}
+
+// After pressing enter from group search window, processing event occured
+this.edt_GroupSearchKeyword_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	if (e.keycode == 13) 
+	{
+		this.fn_GroupSearch();
+	}
+}
+
+this.ds_Group_canrowposchange = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_UserGroup)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.moveropos");
+		if (retValue == false) 
+		{
+			return false;
+		}
+	}
+}
+
+this.ds_Group_onrowposchanged = function (obj:Dataset, e:DSRowPosChangeEventInfo)
+{
+	this.fn_UserGroupSearch();
+}
+/***********************************************************************
+ * User defined function specification
+ ************************************************************************/
+// Add
+this.fn_Insert = function ()
+{
+	if (this.ds_User.rowposition < 0) 
+	{
+		this.gfn_Alert("msg.err.noselect", "error", "domain.user");
+		return;
+	}
+
+	if (this.ds_Group.rowposition < 0) 
+	{
+		this.gfn_Alert("msg.err.noselect", "error", "domain.group");
+		return;
+	}
+
+	var nUserRow = this.ds_User.rowposition;
+	var strUserID = this.ds_User.getColumn(nUserRow, "USER_ID");
+	if (this.fn_isExistCode(strUserID) == true) 
+	{
+		this.gfn_Alert("msg.err.cancolumnchange", "error");
+		return;
+	}
+
+	var nRow = this.ds_UserGroup.addRow();
+	this.ds_UserGroup.copyRow(nRow, this.ds_User, nUserRow);
+	this.ds_UserGroup.setColumn(nRow, "GROUP_ID", this.ds_Group.getColumn(this.ds_Group.rowposition, "GROUP_ID"));
+}
+
+// Group user delete
+this.fn_Delete = function ()
+{
+	var nRow = this.ds_UserGroup.rowposition;
+
+	this.ds_UserGroup.deleteRow(nRow);
+
+}
+
+// Group search
+this.fn_GroupSearch = function ()
+{
+	return;
+	if (this.gfn_DsGetUpdated(this.ds_UserGroup)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.search");
+		if (retValue == false) 
+		{
+			return;
+		}
+	}
+
+	var sArgument = "";
+	var sSvcID = "getListGroup";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findGroupList'";
+
+	var sInDatasets = "querySet1=ds_Search";
+	var sOutDatasets = "ds_Group=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// Group user search 
+this.fn_UserGroupSearch = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListGroupUser";
+	var sController = "svcurl::xpController.do";
+
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "GROUP_ID=" + TOBE.wrapQuote(this.ds_Group.getColumn(this.ds_Group.rowposition, "GROUP_ID")) + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findGroupUserList'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_UserGroup=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// User search
+this.fn_UserSearch = function ()
+{
+	return;
+	this.gfn_updateToDataset();
+
+	var sArgument = "";
+	var sSvcID = "getListUser";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findXPUserList'";
+
+	var sInDatasets = "querySet1=ds_UserSearch";
+	var sOutDatasets = "ds_User=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+
+
+// Verifying to ensure the same group that has the same existing user id 
+this.fn_isExistCode = function (strGroupID)
+{
+	if (this.ds_UserGroup.findRow("USER_ID", strGroupID) > -1) 
+	{
+		return true;
+	}
+	return false;
+}
+
+// Save process
+this.fn_Save = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "saveAll";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='createUserGroup,updateUserGroup,removeUserGroup'";
+
+	var sInDatasets = "querySet1=ds_UserGroup:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// After calling gfnService process callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAll":
+			this.gfn_Alert("msg.save.success");
+			this.fn_UserSearch();
+			break;
+		case "getListGroup":
+			this.fn_UserGroupSearch();
+			break;
+		case "getListGroupUser":
+			break;
+		default:
+			break;
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

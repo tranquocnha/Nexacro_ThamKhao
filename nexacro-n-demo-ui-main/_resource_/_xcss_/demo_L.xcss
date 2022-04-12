@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XCSS version="1.0"><![CDATA[/***** Light Mode *****/
+
+.Div.div_WF_area
+{
+	background : #ffffff;
+	border-radius : 30px;
+	box-shadow : 5px 5px 10px RGBA(84,84,84,0.20);	
+}
+
+/*** Top Frame ***/
+.Static.sta_TF_logo
+{
+	background : url('imagerc::img_TF_logo.png') no-repeat center;
+	
+}
+.Button.btn_TF_topNav,
+.Button.btn_TF_topNav[status=focused]
+{
+	background : transparent;
+	-nexa-border : 0px none;
+	font : 20px "Noto Sans KR Bold";
+	color : #2D345C;	
+}
+.Button.btn_TF_topNav[status=mouseover],
+.Button.btn_TF_topNav[userstatus=pushed],
+.Button.btn_TF_topNav[userstatus=selected]
+{
+	background : transparent;
+	-nexa-border : 0px none;
+	color : #6954e1;	
+}
+.Button.btn_TF_function01,
+.Button.btn_TF_function01[status=focused],
+.Button.btn_TF_function01[userstatus=pushed],
+.Button.btn_TF_function01[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function01.png');	
+}
+.Button.btn_TF_function01[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function01_O.png');
+}
+.Button.btn_TF_function02,
+.Button.btn_TF_function02[status=focused],
+.Button.btn_TF_function02[userstatus=pushed],
+.Button.btn_TF_function02[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function02.png');	
+}
+.Button.btn_TF_function02[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function02_O.png');
+}
+.Button.btn_TF_function03,
+.Button.btn_TF_function03[status=focused],
+.Button.btn_TF_function03[userstatus=pushed],
+.Button.btn_TF_function03[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function03.png');	
+}
+.Button.btn_TF_function03[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function03_O.png');
+}
+.Button.btn_TF_function03ENG,
+.Button.btn_TF_function03ENG[status=focused],
+.Button.btn_TF_function03ENG[userstatus=pushed],
+.Button.btn_TF_function03ENG[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function03E.png');	
+}
+.Button.btn_TF_function03ENG[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function03E_O.png');
+}
+
+/*** Left Frame ***/
+.Static.sta_LF_menuTitle
+{
+	-nexa-padding : 0px 0px 0px 30px;
+	font : 20px "Noto Sans KR Medium";
+	color : #555555;
+	background : url('imagerc::img_LF_Title01.png') no-repeat left center;	
+}
+.Static.sta_LF_menuTitle01
+{
+	-nexa-padding : 0px 0px 0px 30px;
+	font : 20px "Noto Sans KR Medium";
+	color : #555555;
+	background : url('imagerc::img_LF_Title01.png') no-repeat left center;	
+}
+.Static.sta_LF_menuTitle02
+{
+	-nexa-padding : 0px 0px 0px 30px;
+	font : 20px "Noto Sans KR Medium";
+	color : #555555;
+	background : url('imagerc::img_LF_Title02.png') no-repeat left center;	
+}
+.Static.sta_LF_menuTitle03
+{
+	-nexa-padding : 0px 0px 0px 30px;
+	font : 20px "Noto Sans KR Medium";
+	color : #555555;
+	background : url('imagerc::img_LF_Title03.png') no-repeat left center;	
+}
+.Static.sta_LF_menuTitle04
+{
+	-nexa-padding : 0px 0px 0px 30px;
+	font : 20px "Noto Sans KR Medium";
+	color : #555555;
+	background : url('imagerc::img_LF_Title04.png') no-repeat left center;	
+}
+.Static.sta_LF_menuTitle05
+{
+	-nexa-padding : 0px 0px 0px 30px;
+	font : 20px "Noto Sans KR Medium";
+	color : #555555;
+	background : url('imagerc::img_LF_Title05.png') no-repeat left center;	
+}
+.Button.btn_LF_Lmenu,
+.Button.btn_LF_Lmenu[status=focused]
+{
+	-nexa-text-align : left;
+	-nexa-padding : 0px 0px 0px 30px;
+	-nexa-border : 0px none;
+	background : transparent;
+	font : 16px "Noto Sans KR Regular";
+	color : #929292;	
+}
+.Button.btn_LF_Lmenu[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : url('imagerc::img_LF_selectedMenu.png') no-repeat right center;	
+	color : #FE5252;
+}
+.Button.btn_LF_Lmenu[userstatus=pushed]
+{
+	-nexa-border : 0px none;
+	background : url('imagerc::img_LF_selectedMenu.png') no-repeat right center;	
+	font : 16px "Noto Sans KR Medium";
+	color : #FE5252;
+}
+.Button.btn_LF_Lmenu[userstatus=selected]
+{
+	-nexa-border : 0px none,0px none,0px none,4px solid #6954E1;
+	background : url('imagerc::img_LF_selectedMenu.png') no-repeat right center #e8edf9;
+	font : 16px "Noto Sans KR Medium";
+	color : #FE5252;
+}
+
+.Button.btn_LF_LmenuS,
+.Button.btn_LF_LmenuS[status=mouseover],
+.Button.btn_LF_LmenuS[status=focused],
+.Button.btn_LF_LmenuS[userstatus=pushed],
+.Button.btn_LF_LmenuS[userstatus=selected]
+{
+	-nexa-text-align : left;
+	-nexa-padding : 0px 0px 0px 30px;
+	-nexa-border : 0px none,0px none,0px none,4px solid #6954E1;
+	background : url('imagerc::img_LF_selectedMenu.png') no-repeat right center #e8edf9;
+	font : 16px "Noto Sans KR Medium";
+	color : #FE5252;
+}
+
+/*** Bottom Frame ***/
+.Button.btn_BF_link,
+.Button.btn_BF_link[status=focused]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	font : 17px "Noto Sans KR Regular";
+	color : #C5C9DF;
+}
+.Button.btn_BF_link[status=mouseover],
+.Button.btn_BF_link[userstatus=pushed],
+.Button.btn_BF_link[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	color : #868BA7;
+}
+
+.Static.sta_BF_copyright
+{
+	font : 13px/20px "Noto Sans KR Regular";
+	color : #868BA7;
+	-nexa-text-align : center;
+}
+/* Mobile_Bottom Frame */
+.Button.btn_MBF_link,
+.Button.btn_MBF_link[status=focused]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	font : 14px "Noto Sans KR Regular";
+	color : #C5C9DF;
+}
+.Button.btn_MBF_link[status=mouseover],
+.Button.btn_MBF_link[userstatus=pushed],
+.Button.btn_MBF_link[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	color : #868BA7;
+}
+
+
+/*** Work Frame ***/
+.Static.sta_WF_pageTitle
+{
+	font : 23px "Noto Sans KR Bold";
+	color : #2d345c;	
+}
+.Static.sta_WF_box01
+{
+	background : #FAF9FF;
+	border-radius : 10px;
+	/* box-shadow : 3px 3px 5px RGBA(84,84,84,0.20); */
+}
+.Static.sta_WF_txt14px
+{
+	font : 14px/normal "Noto Sans KR Regular";
+	color : #111111;
+}
+.Static.sta_WF_txt15px
+{
+	font : 15px/20px "Noto Sans KR Regular";
+	color : #111111;
+}
+.Static.sta_WF_txt20px
+{
+	font : 18px "Noto Sans KR Regular";
+	color : #111111;
+}
+.Static.sta_WF_labelTxt01
+{
+	font : 14px/normal "Noto Sans KR Regular";
+	color : #111111;
+}
+.Static.sta_WF_totalNum
+{
+	font : bold 14px "Noto Sans KR Medium";
+	color : #6954E1;
+}
+
+/* Mobile Top Frame */
+
+.Button.btn_MTF_prevBtn,
+.Button.btn_MTF_prevBtn[status=focused],
+.Button.btn_MTF_prevBtn[status=mouseover],
+.Button.btn_MTF_prevBtn[userstatus=pushed],
+.Button.btn_MTF_prevBtn[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_MTF_prevBtn.png');
+	
+}
+.Button.btn_MTF_menuBtn,
+.Button.btn_MTF_menuBtn[status=focused],
+.Button.btn_MTF_menuBtn[status=mouseover],
+.Button.btn_MTF_menuBtn[userstatus=pushed],
+.Button.btn_MTF_menuBtn[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_MTF_menuBtn.png');
+	
+}
+.Button.btn_MLF_homeBtn,
+.Button.btn_MLF_homeBtn[status=focused],
+.Button.btn_MLF_homeBtn[status=mouseover],
+.Button.btn_MLF_homeBtn[userstatus=pushed],
+.Button.btn_MLF_homeBtn[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_MLF_homeBtn.png');
+	
+}
+.Button.btn_MLF_closeMenu,
+.Button.btn_MLF_closeMenu[status=focused],
+.Button.btn_MLF_closeMenu[status=mouseover],
+.Button.btn_MLF_closeMenu[userstatus=pushed],
+.Button.btn_MLF_closeMenu[userstatus=selected]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_MLF_closeMenu.png');
+	
+}
+.Button.btn_MWF_closeDesc,
+.Button.btn_MWF_closeDesc[status=focused],
+.Button.btn_MWF_closeDesc[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_MWF_closeDesc.png');
+	
+}
+.Button.btn_MWF_closeDesc[userstatus=pushed],
+.Button.btn_MWF_closeDesc[userstatus=selected]
+{
+	-nexa-icon : url('imagerc::img_MWF_closeDesc_P.png');
+}
+.Static.sta_MTF_title
+{	
+	font : 20px "Noto Sans KR Bold";
+	color : #111111;
+}
+.Static.sta_MWF_descTitle
+{
+	font : 20px "Noto Sans KR Regular";
+	color : #ffffff;
+	-nexa-text-align : center;
+}
+
+.Button.btn_TF_function02_M,
+.Button.btn_TF_function02_M[status=focused],
+.Button.btn_TF_function02_M[userstatus=pushed],
+.Button.btn_TF_function02_M[userstatus=selected],
+.Button.btn_TF_function02_M[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-edge : url('imagerc::img_MTF_function02.png');	
+}
+.Button.btn_TF_function03_M,
+.Button.btn_TF_function03_M[status=focused],
+.Button.btn_TF_function03_M[userstatus=pushed],
+.Button.btn_TF_function03_M[userstatus=selected],
+.Button.btn_TF_function03_M[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-edge : url('imagerc::img_MTF_function03E.png');	
+}
+
+.Button.btn_TF_function03ENG_M,
+.Button.btn_TF_function03ENG_M[status=focused],
+.Button.btn_TF_function03ENG_M[userstatus=pushed],
+.Button.btn_TF_function03ENG_M[userstatus=selected],
+.Button.btn_TF_function03ENG_M[status=mouseover]
+{
+	-nexa-border : 0px none;
+	background : transparent;
+	-nexa-icon : url('imagerc::img_TF_function03E_M.png');	
+}
+]]></XCSS>

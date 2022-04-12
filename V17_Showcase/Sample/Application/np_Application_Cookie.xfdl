@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Application_Cookie" classname="Application_Cookie" left="0" top="0" width="760" height="430" titletext="Verifying Cookie value">
+    <Layouts>
+      <Layout>
+        <Button id="Application_Cookie" taborder="0" text="cookie" left="30" top="78" width="90" height="40" onclick="Application_Cookie_onclick"/>
+        <Static id="Static07" taborder="1" text="Verifying Cookie value" cssclass="sta_WF_subtitP" left="30" top="18" width="300" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.Application_Cookie_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var arrCookie = window.document.cookie;
+	arrCookie = arrCookie.split(";");
+	var arrCookie1;
+	this.alert(arrCookie);
+	for(var i=0; i<arrCookie.length; i++)
+	{
+		arrCookie1 = arrCookie[i].split("=");
+		if( arrCookie1[0] == "MenuID" ){
+			gv_MainForm.set_visible(false);
+			this.gv_Cookie = arrCookie1[1];	
+		}
+	}  
+}
+ 
+]]></Script>
+  </Form>
+</FDL>

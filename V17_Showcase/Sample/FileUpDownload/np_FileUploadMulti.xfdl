@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="WebEditorTest" classname="WebEditorTest" left="0" top="0" width="760" height="830" titletext="File Upload" onload="WebEditorTest_onload">
+    <Layouts>
+      <Layout>
+        <FileUpload id="FileUpload01" taborder="0" retry="0" index="0" onitemchanged="FileUpload00_onitemchanged" top="70" width="600" height="40" style="buttonsize:120;buttonpadding:0 0 0 10;buttontext:Select multiple files;border:0 solid #808080ff ;align:left middle;" multiselect="true" onerror="FileUpload01_onerror" onsuccess="FileUpload01_onsuccess" itemcount="1" innerdataset="@Dataset00" left="30" buttonsize="70" itemheight="36" buttontext="Find"/>
+        <Button id="Button04" taborder="1" text="Add Item" left="640" top="412" width="90" height="34" onclick="Button04_onclick"/>
+        <Button id="Button00" taborder="2" text="Upload" left="640" top="70" height="36" onclick="Button00_onclick" width="90"/>
+        <Grid id="Grid00" taborder="3" useinputpanel="false" left="30" top="120" height="153" binddataset="ds_File" width="700" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="FILE_PATH" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" disptype="normal" text="FILE_NAME" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" disptype="normal" text="FILE_SIZE" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" disptype="normal" text="FILE_SAVENM" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" disptype="normal" text="FILE_TYPE" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" disptype="normal" text="NUM" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" disptype="normal" text="CHK" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:FILE_PATH" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" disptype="normal" text="bind:FILE_NAME" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" disptype="normal" text="bind:FILE_SIZE" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" disptype="normal" text="bind:FILE_SAVENM" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" disptype="normal" text="bind:FILE_TYPE" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" disptype="normal" text="bind:NUM" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" disptype="normal" text="bind:CHK" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <FileUpload id="FileUpload02" taborder="4" multiselect="false" retry="0" index="0" onitemchanged="FileUpload01_onitemchanged" left="30" top="368" height="122" style="buttonsize:120;buttonpadding:0 0 0 10;buttontext:Select single file;align:left middle;" width="600" onsuccess="FileUpload02_onsuccess" background="#eeeeee" buttonsize="70" itemheight="34" buttontext="Find"/>
+        <Button id="Button01" taborder="5" text="Delete Item" left="640" top="456" height="34" width="90" onclick="Button01_onclick"/>
+        <Grid id="Grid01" taborder="6" useinputpanel="false" left="30" top="500" height="153" binddataset="ds_File00" width="700" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="40"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="FILE_PATH" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="FILE_NAME" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:FILE_PATH" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:FILE_NAME" color="#000000" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="7" text="Upload" left="640" top="368" height="34" onclick="Button02_onclick" width="90"/>
+        <Static id="Static05" taborder="8" text="Upload files by selecting mutiple files together" cssclass="sta_WF_explain" left="30" top="25" width="643" height="30"/>
+        <Static id="Static01" taborder="9" text="Upload files by selecting single file at a time" cssclass="sta_WF_explain" left="30" top="323" width="716" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_File" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+          <Column id="FILE_SIZE" type="STRING" size="256"/>
+          <Column id="FILE_SAVENM" type="STRING" size="256"/>
+          <Column id="FILE_TYPE" type="STRING" size="256"/>
+          <Column id="NUM" type="STRING" size="256"/>
+          <Column id="CHK" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_File00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+          <Column id="FILE_SIZE" type="STRING" size="256"/>
+          <Column id="FILE_SAVENM" type="STRING" size="256"/>
+          <Column id="FILE_TYPE" type="STRING" size="256"/>
+          <Column id="NUM" type="STRING" size="256"/>
+          <Column id="CHK" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <InitValue>
+      <FileUpload id="FileUpload01" innerdataset="@dsFilePath"/>
+    </InitValue>
+    <Script type="xscript5.0"><![CDATA[
+this.FileUpload00_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+    var sFileName;
+	var sFilePath;
+
+	if(e.newvalue != null)   // if File Dialog is opened and closed without selecting any file. Then there is exception from split method and length, 
+	{
+		if(obj.multiselect)
+		{		
+			var sFullData = e.newvalue;
+			var aFilePath = sFullData.split(",");
+			this.ds_File.clearData();
+		}
+		
+		for(var i=0; i<aFilePath.length; i++)
+		{
+			sFilePath = aFilePath[i];
+			var dirExpt = sFilePath.lastIndexOf("\\")+1;
+			sFileName = sFilePath.substr(dirExpt);
+			
+			this.ds_File.addRow();
+			
+			this.ds_File.setColumn(i, "FILE_PATH", sFilePath);
+			this.ds_File.setColumn(i, "FILE_NAME", sFileName);
+			this.ds_File.setColumn(i, "NUM", i+1);
+			this.ds_File.setColumn(i, "CHK",1);	
+		}
+	}
+};
+
+//Multiple file upload
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var sFileUrl  = "Svc::fileUpload.jsp";
+    this.FileUpload01.upload(sFileUrl + "?PATH=file");	
+};
+
+this.FileUpload01_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	var sFilePath = e.newvalue;
+	if(sFilePath != null)
+	{
+		var dirExpt = sFilePath.lastIndexOf("\\")+1;
+		var sFileName = sFilePath.substr(dirExpt);
+		var nRow = this.ds_File00.addRow();
+		
+		this.ds_File00.setColumn(nRow, "FILE_PATH", sFilePath);
+		this.ds_File00.setColumn(nRow, "FILE_NAME", sFileName);
+	}
+};
+
+//Add
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.FileUpload02.appendItem();
+};
+
+//Delete
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nRow = this.ds_File00.rowposition;
+	var rowCnt = this.FileUpload02.itemcount;
+	
+	//return;
+	if(nRow == -1 && rowCnt == 0)  
+	{
+		// If there is no file selector is exists on the screen.
+		this.alert("No file selector to delete.");
+	}else
+	{
+		this.FileUpload02.deleteItem(rowCnt - 1);
+		this.ds_File00.deleteRow(nRow);
+	}
+};
+
+//Single upload
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sFileUrl  = "Svc::fileUpload.jsp";
+    this.FileUpload02.upload(sFileUrl + "?PATH=file");
+};
+
+this.FileUpload01_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadLoadEventInfo)
+{
+	if( e.errorcode == 200 ) //upload completed
+	{	
+		alert("SUCC");
+	}
+};
+
+this.FileUpload02_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadLoadEventInfo)
+{
+	if( e.errorcode == 200 ) //upload completed
+	{	
+		alert("SUCC");
+	}	
+};
+]]></Script>
+  </Form>
+</FDL>

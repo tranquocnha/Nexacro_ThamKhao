@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="test" classname="test" inheritanceid="" position="absolute" titletext="New Form" left="0" top="0" width="760" height="520">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" position="absolute" left="30" width="591" top="138" height="200" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="col1"/>
+                <Cell col="1" text="col2"/>
+                <Cell col="2" text="col3"/>
+                <Cell col="3" text="col4"/>
+                <Cell col="4" text="col5"/>
+                <Cell col="5" text="col6"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+              </Band>
+            </Format>
+            <Format id="format_copy">
+              <Columns>
+                <Column size="40"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+                <Cell col="1"/>
+              </Band>
+            </Format>
+            <Format id="format_copy_2">
+              <Columns>
+                <Column size="40"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1"/>
+                <Cell row="1"/>
+                <Cell row="1" col="1"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+                <Cell col="1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="Get array of formats" onclick="Button00_onclick" position="absolute" left="30" width="150" top="88" height="40" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Edit id="Edit00" taborder="2" left="30" top="408" height="40" readonly="true" width="595"/>
+        <Static id="Static07" taborder="3" text="This is sample which returns the array of the formats on the Grid default, format, &#13;&#10;format_copy and format_copy2" cssclass="sta_WF_explain" left="30" top="18" width="600" height="50" style="font:bold 9 Dotum;" wordwrap="english"/>
+        <Static id="Static00" taborder="4" text="Array of Grid's formats is displayed below" cssclass="sta_WF_explain" left="30" top="368" width="600" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[//Clicking on this button will return array of formats specified on the Grid
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var fmt =  this.getFormatArr(this.Grid00.formats);
+	this.Edit00.set_value(fmt);
+};
+
+//This function will return array of formats specified on Grid00.
+//There are 3 formats added to this Grid,
+// 1.default, 2.format_copy, 3.format_copy_2
+this.getFormatArr = function(str, idx, arr)
+{
+	if(arr == null){arr = []; idx = 0;}
+	var st = str.indexOf("Format id=\"", idx)+11;
+	if(st < 12  ) {return arr;}
+	var end = str.indexOf("\">",st);
+	var s = str.substring(st,end);
+	arr[arr.length] = s;
+	idx = end;
+	return this.getFormatArr(str, idx, arr);
+};
+
+]]></Script>
+  </Form>
+</FDL>

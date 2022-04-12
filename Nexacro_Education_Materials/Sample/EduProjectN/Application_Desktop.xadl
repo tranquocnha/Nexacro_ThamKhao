@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="2.0">
+  <Application id="Application_Desktop" screenid="Desktop_screen" onload="Application_onload" licenseurl="NexacroN_client_license.xml">
+    <Layout>
+      <MainFrame id="mainframe" showtitlebar="true" showstatusbar="true" width="1280" height="840" titletext="Nexacro Education" titlebarbuttongap="4" titlebarbuttonsize="19 19" statusbarheight="25" titlebarheight="28">
+        <VFrameSet id="VFrameSet0" separatesize="50,*" showtitlebar="false">
+          <Frames>
+            <ChildFrame id="TopFrame" showtitlebar="false" showstatusbar="false" formurl="FrameBase::TopFrame.xfdl"/>
+            <HFrameSet id="HFrameSet0" separatesize="230,*" showtitlebar="false">
+              <Frames>
+                <ChildFrame id="LeftFrame" showtitlebar="false" showstatusbar="false" formurl="FrameBase::LeftFrame.xfdl"/>
+                <VFrameSet id="VFrameSet1" separatesize="35,*" showtitlebar="false">
+                  <Frames>
+                    <ChildFrame id="MDIFrame" formurl="FrameBase::MdiFrame.xfdl" showtitlebar="false"/>
+                    <FrameSet id="WorkFrame" showtitlebar="false">
+                      <Frames>
+                        <ChildFrame id="MainForm" formurl="FrameBase::MainForm.xfdl" showtitlebar="false" openstatus="maximize" onsize="mainframe_VFrameSet0_HFrameSet0_VFrameSet1_WorkFrame_MainForm_onsize"/>
+                      </Frames>
+                    </FrameSet>
+                  </Frames>
+                </VFrameSet>
+              </Frames>
+            </HFrameSet>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <Style url="xcssrc::EduProjectN.xcss"/>
+    <Style url="xcssrc::tutorial_asset.xcss"/>
+  </Application>
+  <Script type="xscript5.1"><![CDATA[this.av_WorkFrame = "";
+
+this.Application_onload = function(obj:nexacro.Application,e:nexacro.LoadEventInfo)
+{
+	this.fn_init(obj);
+};
+
+
+this.fn_init = function (obj)
+{
+	this.gds_menu.filter("MENU_FLAG == '1'");
+	this.av_WorkFrame = this.mainframe.VFrameSet0.HFrameSet0.VFrameSet1.WorkFrame;
+};
+
+
+this.App_Script = function ()
+{
+	return "App Script Desktop";
+};
+
+this.mainframe_VFrameSet0_HFrameSet0_VFrameSet1_WorkFrame_MainForm_onsize = function(obj:nexacro.ChildFrame,e:nexacro.SizeEventInfo)
+{
+	if(obj.openstatus == "maximize")
+	{
+		obj.set_showtitlebar(false);
+	}
+};
+
+
+]]></Script>
+</ADL>

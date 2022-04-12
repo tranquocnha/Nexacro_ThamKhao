@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_CheckTime" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_CheckTime" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40" textAlign="left"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <MaskEdit id="msk_input" taborder="0" value="123001" type="string" mask="##:##:##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="78" height="40" textAlign="left"/>
+        <Static id="Static05" taborder="3" text="Time validation" cssclass="sta_WF_subtitP" left="30" top="18" width="283" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_CheckTime
+ * Description : Time for validation
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bRtn = this.fn_checkTime(this.msk_input.value);	
+	this.edt_output.set_value(bRtn);
+}
+
+/*
+ * Function Name : fn_checkTime
+ * Description   : Time consistency check(24:00 & 00:00 Accommodate)
+ * Parameter     : Second time-resolved
+ * Return        : suitable true, unsuitable false
+ * Example       : fn_checkTime("123001");
+ */
+this.fn_checkTime = function(sTime) 
+{
+    var nHH = Number(sTime.toString().substr(0,2));
+    var nMM = Number(sTime.toString().substr(2,2));
+    var nSS = Number(sTime.toString().substr(4,2));
+
+    if (nHH > 24 || nHH < 0)
+    {
+		return false;
+    }    
+    
+    if (nMM > 59 || nMM < 0)
+    {
+		return false;
+    }
+    
+    if (nSS > 59 || nSS < 0)
+    {
+		return false;
+    }  
+    
+    return true;
+}]]></Script>
+  </Form>
+</FDL>

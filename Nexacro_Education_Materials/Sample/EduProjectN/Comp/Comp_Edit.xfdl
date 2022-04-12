@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_Edit" width="1000" height="700" titletext="Component-Edit">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000">
+        <Static id="Static01" taborder="9" text=" Max Length / Auto Skip / Auto Select (Prop. maxlength, autoskip, autoselect)" left="10" top="200" width="665" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static03" taborder="10" text=" Input Filter (Prop. inputfilter - digit)" left="10" top="390" width="355" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static02" taborder="11" text=" Input Type (Prop. inputtype - english &amp; digit / number)" left="10" top="310" width="495" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Edit id="Edit02" taborder="3" left="20" top="230" width="170" height="30" value="ABCD" maxlength="4" autoskip="true"/>
+        <Edit id="edt_auto" taborder="4" left="Edit02:10" top="230" width="170" height="30" value="Auto Select" autoselect="true"/>
+        <Edit id="Edit05" taborder="7" left="20" top="420" width="166" height="30" value="Nexacro" inputfilter="digit" text="Nexacro"/>
+        <Edit id="Edit03" taborder="5" left="20" top="340" width="170" height="30" value="Nexacro" inputtype="english,digit" text="Nexacro"/>
+        <Edit id="Edit04" taborder="6" left="Edit03:10" top="340" width="170" height="30" value="-1,234.55" inputtype="number"/>
+        <Edit id="Edit00" taborder="1" left="20" top="70" width="170" height="30" value="nexacro platform"/>
+        <CheckBox id="chk_pass" taborder="12" text="Password Type (Prop. password)" left="20" top="260" width="271" height="30" onclick="chk_pass_onclick" onchanged="chk_pass_onchanged"/>
+        <Static id="Static04" taborder="13" text=" Basic Usage" left="10" top="40" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static06" taborder="0" text="Edit" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <Edit id="Edit06" taborder="8" left="20" top="500" width="166" height="30" inputmode="upper" inputtype="english"/>
+        <Static id="Static00" taborder="14" text=" Input Mode (Prop. inputmode - Upper Only)" left="10" top="470" width="395" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static11" taborder="15" text=" Read Only (Prop. readonly)" left="10" top="120" width="272" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Edit id="Edit07" taborder="2" left="20" top="150" width="170" height="30" value="nexacro platform" readonly="true"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.chk_pass_onclick = function(obj:nexacro.CheckBox,e:nexacro.ClickEventInfo)
+{
+	this.edt_auto.set_password(obj.value);
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="Button01" propid="text" datasetid="gds_dept" columnid="DEPT_NM"/>
+    </Bind>
+    <Objects/>
+  </Form>
+</FDL>

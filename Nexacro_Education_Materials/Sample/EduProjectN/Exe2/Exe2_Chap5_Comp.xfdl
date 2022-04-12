@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Exe2_Chap5_Comp" width="1000" height="700" titletext="Exe2_Chap5_Comp" ondragmove="Form_ondragmove">
+    <Layouts>
+      <Layout height="700" width="1000" stepcount="0">
+        <Static id="Static06" taborder="0" text="Exercise - Button" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle" positionstep="-1"/>
+        <Static id="Static07" taborder="1" text="Exe 1 - Position &amp; Arrangement" left="10" top="40" width="280" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Button id="btn_Exe2_1" taborder="3" text="2_1" left="10" top="381" width="60" height="30" positionstep="0" onclick="btn_Exe2_1_onclick"/>
+        <Button id="btn_Exe2_5" taborder="8" text="2_5" left="510" top="381" width="60" height="30" positionstep="0" onclick="btn_Exe2_5_onclick"/>
+        <Button id="btn_Exe2_6" taborder="9" text="2_6" left="510" top="421" width="60" height="30" positionstep="0" onclick="btn_Exe2_6_onclick"/>
+        <Grid id="Grid00" taborder="10" left="510" positionstep="0" binddataset="Dataset2" autofittype="col" right="10" bottom="45" height="194">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="32"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL_NAME"/>
+                <Cell col="1" text="COL_SIZE"/>
+                <Cell col="2" text="COL_COLOR"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL_NAME" textAlign="center"/>
+                <Cell col="1" text="bind:COL_SIZE" textAlign="center"/>
+                <Cell col="2" text="bind:COL_COLOR" textAlign="center"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="Div2" taborder="7" text="Div" left="76" top="540" positionstep="0" height="148" width="418" />
+        <Button id="btn_Exe2_3" taborder="5" text="2_3" left="10" top="461" width="60" height="30" positionstep="0" onclick="btn_Exe2_3_onclick"/>
+        <Button id="btn_Exe2_2" taborder="4" text="2_2" left="10" top="421" width="60" height="30" positionstep="0" onclick="btn_Exe2_2_onclick"/>
+        <Button id="btn_Exe2_4" taborder="6" text="2_4" left="10" top="501" width="60" height="30" positionstep="0" onclick="btn_Exe2_4_onclick"/>
+        <Static id="Static03" taborder="2" text="Exe 2 - Dynamic Creation" left="10" top="351" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <ImageViewer id="img_grip" taborder="11" left="400" top="304" width="12" height="11" ondrag="obj_ondrag" onlbuttondown="obj_onlbuttondown" cursor="nw-resize" image="url('theme://images/img_SB_Grip.png')"/>
+        <Div id="div_base" taborder="12" left="10" top="72" border="1px solid #9c9c9c" background="#f2f2f2" bottom="img_grip:-7" right="img_grip:-7">
+          <Layouts>
+            <Layout>
+              <Button id="btn_base" taborder="0" text="btn_base" left="20" top="190" height="30" onclick="div_base_btn_base_onclick" right="300"/>
+              <Button id="btn_per" taborder="1" text="Get Width" top="110" height="30" left="100" width="50%" onclick="fn_getWidthPer"/>
+              <Button id="btn_arrange" taborder="2" text="Get Left" left="btn_base:10" top="190" height="30" width="200" onclick="fn_getArrange"/>
+              <Static id="Static02" taborder="3" text="left=&quot;100&quot; right = &quot;100&quot; width=null" left="70" top="0" width="260" height="30"/>
+              <Static id="Static01" taborder="4" text="null" left="10" top="0" width="60" height="30" cssclass="sta_WF_LabelTxt"/>
+              <Static id="Static03" taborder="5" text="Percent(%)" left="10" top="80" width="124" height="30" cssclass="sta_WF_LabelTxt"/>
+              <Static id="Static04" taborder="6" text="width = &quot;50%&quot;" left="134" top="80" width="210" height="30"/>
+              <Static id="Static05" taborder="7" text="Arrangement" left="10" top="160" width="134" height="30" cssclass="sta_WF_LabelTxt"/>
+              <Static id="Static06" taborder="8" text="left=&quot;btn_base:10&quot;" left="144" top="160" width="170" height="30"/>
+              <Button id="btn_null" taborder="9" text="Get Width" left="100" top="30" height="30" right="100" onclick="fn_getWidth"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <TextArea id="txt_log" taborder="13" left="div_base:10" top="73" height="div_base:50%" width="220" readonly="true"/>
+        <Static id="Static08" taborder="14" text="컴포넌트 동적 생성" left="80" top="383" width="240" height="30" onclick="Static08_onclick"/>
+        <Static id="Static08_00" taborder="15" text="동적 생성힌 컴포넌트 삭제" left="80" top="419" width="240" height="30" onclick="Static08_onclick"/>
+        <Static id="Static08_00_00" taborder="16" text="Div 안에 동적 생성힌 컴포넌트 삭제" left="80" top="500" width="240" height="30" onclick="Static08_onclick"/>
+        <Static id="Static08_01" taborder="17" text="Div 안에 컴포넌트 동적 생성" left="80" top="460" width="240" height="30" onclick="Static08_onclick"/>
+        <Static id="Static08_02" taborder="18" text="컴포넌트에 동적 이벤트 생성" left="580" top="381" width="230" height="30" onclick="Static08_onclick"/>
+        <Static id="Static08_02_00" taborder="19" text="컴포넌트에 동적 바인드" left="580" top="421" width="230" height="30" onclick="Static08_onclick"/>
+        <Edit id="edt_bind" taborder="20" left="750" top="421" width="176" height="30" value="script bind" text="script bind"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset2" keystring="">
+        <ColumnInfo>
+          <Column id="COL_NAME" type="STRING" size="50"/>
+          <Column id="COL_SIZE" type="INT" size="10"/>
+          <Column id="COL_COLOR" type="STRING" size="10"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL_NAME">Olivia</Col>
+            <Col id="COL_SIZE">200</Col>
+            <Col id="COL_COLOR">gold</Col>
+          </Row>
+          <Row>
+            <Col id="COL_NAME">John</Col>
+            <Col id="COL_SIZE">150</Col>
+            <Col id="COL_COLOR">greenyellow</Col>
+          </Row>
+          <Row>
+            <Col id="COL_NAME">Jackson</Col>
+            <Col id="COL_SIZE">250</Col>
+            <Col id="COL_COLOR">pink</Col>
+          </Row>
+          <Row>
+            <Col id="COL_NAME">Maia</Col>
+            <Col id="COL_SIZE">100</Col>
+            <Col id="COL_COLOR">khaki</Col>
+          </Row>
+          <Row>
+            <Col id="COL_NAME">Adam</Col>
+            <Col id="COL_SIZE">80</Col>
+            <Col id="COL_COLOR">lavender</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[// Exe 1
+this.fn_getWidth = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var sTxt = "";
+	sTxt  = "obj.width = " + obj.width + "\n";
+	sTxt += "obj.getOffsetWidth() = " + obj.getOffsetWidth() + "\n";
+	sTxt += "obj.getPixelWidth() = " + obj.getPixelWidth();
+
+	this.txt_log.set_value(sTxt);
+};
+
+this.fn_getWidthPer = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var sTxt = "";
+	sTxt  = "obj.width = " + obj.width + "\n";
+	sTxt += "obj.getOffsetWidth() = " + obj.getOffsetWidth() + "\n";
+	sTxt += "obj.getPixelWidth() = " + obj.getPixelWidth();
+
+	this.txt_log.set_value(sTxt);
+};
+
+this.fn_getArrange = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var sTxt = "";
+	sTxt  = "obj.left = " + obj.left + "\n";
+	sTxt += "obj.getOffsetLeft() = " + obj.getOffsetLeft() + "\n";
+	sTxt += "obj.getPixelLeft() = " + obj.getPixelLeft();
+
+	this.txt_log.set_value(sTxt);	
+};
+
+
+// Exe 2-1(Create Components on Form)
+this.btn_Exe2_1_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var objBtn = new Button();
+	objBtn.init("btn_Comp", 320, 380, 150, 100);
+	this.addChild("btn_Comp", objBtn);
+	objBtn.set_text("Created Button");
+	objBtn.set_background("skyblue");
+	objBtn.show();	
+};
+
+// Exe 2-2(Destroy Components on Form)
+this.btn_Exe2_2_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var objBtn = this.removeChild("btn_Comp"); 
+	objBtn.destroy(); 
+	objBtn = null;
+};
+
+
+// Exe 2-3 (Create Components on Div)
+this.btn_Exe2_3_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var objDivBtn = new Button();
+	objDivBtn.init("btn_divComp", 10, 10, 150, 100);
+	this.Div2.form.addChild("btn_divComp", objDivBtn);
+	objDivBtn.set_text("Created Div Button");
+	objDivBtn.set_background("greenyellow");
+	objDivBtn.show();
+};
+
+
+// Exe2-4 (Destroy Components on Div)
+this.btn_Exe2_4_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var objBtn = this.Div2.form.removeChild("btn_divComp"); 
+	objBtn.destroy(); 
+	objBtn = null;
+	
+};
+
+// Exe2-5 Add Event Handler
+this.btn_Exe2_5_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if(!this.isValidObject(this.btn_Comp)){
+		this.btn_Exe2_1_onclick();
+	}
+	this.btn_Comp.addEventHandler("onclick", this.fn_temp, this);	
+
+};
+
+this.fn_temp = function()
+{
+	this.alert("Add Event Handler");
+};
+
+// Exe2- d Data Binding
+this.btn_Exe2_6_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var objBindItem = new BindItem();
+	objBindItem.init("item00", "edt_bind", "value", "Dataset2", "COL_NAME");
+	this.addChild("item00", objBindItem);
+	objBindItem.bind();
+
+	objBindItem = new BindItem();
+	objBindItem.init("item01", "edt_bind", "width", "Dataset2", "COL_SIZE");
+	this.addChild("item01", objBindItem);
+	objBindItem.bind();
+
+	objBindItem = new BindItem();
+	objBindItem.init("item02", "edt_bind", "background", "Dataset2", "COL_COLOR");
+	this.addChild("item02", objBindItem);
+	objBindItem.bind();	
+};
+
+
+
+
+this.obj_ondrag = function(obj:nexacro.Button,e:nexacro.DragEventInfo)
+{
+	return true;
+};
+
+this.obj_onlbuttondown = function(obj:nexacro.Button,e:nexacro.MouseEventInfo)
+{
+	obj.nX = e.clientx;
+	obj.nY = e.clienty;	
+};
+
+this.Form_ondragmove = function(obj:nexacro.Form,e:nexacro.DragEventInfo)
+{
+	e.sourceobject.move(e.clientx-e.sourceobject.nX, e.clienty-e.sourceobject.nY);	
+	this.resetScroll();
+};
+
+
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="2.0">
+  <Application id="Application" screenid="Mobile_screen,Desktop_screen" onload="Application_onload" onbeforeexit="Application_onbeforeexit" licenseurl="./NexacroN_client_license.xml">
+    <Layout>
+      <MainFrame id="mainframe" width="480" height="768" showcascadetitletext="false" titletext="Nexacro N Demo" border="1px solid #eeeeee" showtitlebar="true">
+        <ChildFrame id="childframe" dragmovetype="none" showtitlebar="false"/>
+      </MainFrame>
+    </Layout>
+    <Style url="xcssrc::basic.xcss"/>
+    <Style url="xcssrc::demo_L.xcss"/>
+    <Style url="xcssrc::NxPivot.xcss"/>
+    <Style url="xcssrc::Chart.xcss"/>
+    <Style url="xcssrc::compositeModule.xcss"/>
+  </Application>
+  <Script type="xscript5.1"><![CDATA[
+this.Application_onload = function(obj:nexacro.Application,e:nexacro.LoadEventInfo)
+{
+	var projectUrl = nexacro.getProjectPath();
+	projectUrl = projectUrl.substring(0, projectUrl.lastIndexOf("/"));
+	projectUrl = projectUrl.substring(0, projectUrl.lastIndexOf("/")+1);
+	this.webRootUrl = projectUrl;
+	nexacro.getEnvironment().services["svc"].set_url(projectUrl);
+	nexacro.getEnvironment().services["xeni"].set_url(projectUrl);
+	
+	var privateData = nexacro.getPrivateProfile("privateData"),
+		langCode = "";
+	
+	if (nexacro.isEmpty(privateData)) {
+		langCode = system.locale.indexOf("ko")>-1?"ko":"en";
+	} else {
+		var data = JSON.parse(privateData);
+		langCode = this.langCode = data.langCode;
+		this.themeMode = data.themeMode;
+		
+		nexacro.loadStyle("xcssrc::demo_"+this.themeMode+".xcss");
+	}
+	
+	this.changeLanguage(langCode);
+};
+
+this.Application_onbeforeexit = function(obj:nexacro.Application,e:nexacro.ExitEventInfo)
+{
+	var data = {
+		"langCode": this.langCode,
+		"themeMode": this.themeMode
+	};
+	
+	nexacro.setPrivateProfile("privateData", JSON.stringify(data));
+};
+
+this.changeLanguage = function(langCode)
+{
+	this.langCode = langCode;
+    var objEnv = nexacro.getEnvironment();
+	objEnv.set_locale(langCode=="ko"?"ko_KR":"en_US");
+	
+	var xhr = new XMLHttpRequest(),
+		pThis = this;
+    
+	xhr.open("GET", "./i18n/"+langCode+".json");
+    xhr.send();
+	
+    xhr.onreadystatechange = function() {
+		if(this.readyState == 1 || this.readyState == 2 || this.readyState == 3)
+		{
+			//  서버 처리중,,,
+		}
+		else if (this.readyState == 4) {
+			//서버로부터 응답이 도착
+			pThis.messages = JSON.parse(this.responseText);
+			
+			var isMobile = system.getScreenWidth()>720?false:true,
+				isNRE = system.navigatorname.indexOf("nexacro")==-1?false:true,
+				filterExpr = "";
+		
+			filterExpr += isMobile?"mobile=='1'":"desktop=='1'";
+			filterExpr += isNRE?"&&nre=='1'":"&&wre=='1'";
+			
+			pThis.gdsAllMenu.filter(filterExpr);
+			pThis.gdsMenu.clearData();
+			
+			for (var i=0,len=pThis.gdsAllMenu.rowcount; i<len; i++) {
+				var r = pThis.gdsMenu.addRow();
+				pThis.gdsMenu.copyRow(r, pThis.gdsAllMenu, i, "id=id,caption=caption_"+langCode+",level=level,upid=upid,url=url");
+			}
+			
+			pThis.gdsMenu.applyChange();
+			
+			var root = pThis.mainframe.childframe;
+			
+			if (nexacro.isEmpty(root.formurl)) {
+				root.set_formurl("frame::root.xfdl");
+			} else {
+				root.form.reload();
+			}
+			
+			pThis.langCode = langCode;
+			
+			if (system.navigatorname.indexOf("nexacro") == -1) {
+				gtag('event', 'select_content', {
+					content_type: "changeLanguage",
+					items: [
+						{
+							id: langCode,
+							name: langCode=="ko"?"Korean":"English"
+						}
+					]
+				});
+			}
+		}
+	};
+};
+]]></Script>
+</ADL>

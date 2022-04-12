@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.2">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="CheckBox_Basic" classname="CheckBox_Basic" inheritanceid="" cachelevel="" position="absolute 0 0 761 430" version="" titletext="New Form">
+    <Layout>
+      <Static id="Static05" text="Binding" class="sta_WF_subtitle" position="absolute 15 15 298 30"/>
+      <CheckBox id="CheckBox00" taborder="1" text="CheckBox03" value="N" truevalue="Y" falsevalue="N" position="absolute 135 311 279 334"/>
+      <Grid id="Grid00" taborder="2" binddataset="Dataset01" position="absolute 37 313 120 407" autofittype="col">
+        <Formats>
+          <Format id="default">
+            <Columns>
+              <Col size="80"/>
+            </Columns>
+            <Rows>
+              <Row band="head" size="24"/>
+              <Row band="body" size="24"/>
+            </Rows>
+            <Band id="head">
+              <Cell col="0" disptype="normal" text="Column0"/>
+            </Band>
+            <Band id="body">
+              <Cell col="0" disptype="normal" text="bind:Column0"/>
+            </Band>
+          </Format>
+        </Formats>
+      </Grid>
+      <Grid id="Grid01" taborder="3" binddataset="Dataset00" position="absolute 27 37 170 135" autofittype="col">
+        <Formats>
+          <Format id="default">
+            <Columns>
+              <Col size="80"/>
+            </Columns>
+            <Rows>
+              <Row band="head" size="24"/>
+              <Row band="body" size="24"/>
+            </Rows>
+            <Band id="head">
+              <Cell col="0" disptype="normal" text="Column0"/>
+            </Band>
+            <Band id="body">
+              <Cell col="0" disptype="normal" text="bind:Column0"/>
+            </Band>
+          </Format>
+        </Formats>
+      </Grid>
+      <CheckBox id="CheckBox01" taborder="4" text="CheckBox00" position="absolute 181 38 341 59"/>
+      <CheckBox id="CheckBox02" taborder="5" text="CheckBox01" value="true" position="absolute 37 180 205 202" style="buttonborder:2 solid #808080ff ; "/>
+      <CheckBox id="CheckBox03" taborder="6" text="CheckBox02" position="absolute 29 245 151 266" style="buttonalign:right; "/>
+      <Static id="Static01" text="Flat Style" class="sta_WF_subtitle" position="absolute 15 161 298 176"/>
+      <Static id="Static02" text="우측정렬" class="sta_WF_subtitle" position="absolute 15 224 298 239"/>
+      <Static id="Static03" text="True Value" class="sta_WF_subtitle" position="absolute 15 287 298 302"/>
+    </Layout>
+    <Bind>
+      <BindItem id="item0" compid="CheckBox01" propid="value" datasetid="Dataset00" columnid="Column0"/>
+      <BindItem id="item1" compid="CheckBox00" propid="value" datasetid="Dataset01" columnid="Column0"/>
+      <BindItem id="item2" compid="CheckBox00" propid="text" datasetid="Dataset01" columnid="Column1"/>
+    </Bind>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">해제</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">선택</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">Y</Col>
+            <Col id="Column1">선택</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">N</Col>
+            <Col id="Column1">해제</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

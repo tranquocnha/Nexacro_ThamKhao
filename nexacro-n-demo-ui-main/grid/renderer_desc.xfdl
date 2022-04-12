@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="2940" onload="form_onload">
+    <Layouts>
+      <Layout height="2940" width="440">
+        <Static id="Static00_00" taborder="3" text="Cell display type" left="20" top="19" width="150" height="30" cssclass="sta_WF_compTitle02" messageid="grid.cell.display.type" fittocontents="width"/>
+        <Static id="Static00" taborder="0" text="A cell is one of the objects that make up the grid and has a separate property from the grid. You can bind columns in Dataset and use them, or you can set the displaytype and edittype properties of the cell to express them in components such as Button, Combo, CheckBox, Image, ProgressBar, Edit, or Tree.&#13;&#10;&#13;&#10;Depending on the 'displaytype' property setting for each cell of the grid component, various expressions such as buttons and images are possible.&#13;&#10;'displaytype' is a property that sets the format in which the bounded data is displayed on the screen when the cell is not in editing, providing 19 default formats and, if not set separately, is automatically displayed for the bound data type." left="20" top="Static00_00:10" height="340" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.cell.display.type.desc" right="20"/>
+        <Static id="Static02" taborder="9" left="20" top="Static00:10" height="260" right="20" background="url('imagerc::Desc/img_WF_gridMN02_1.png') no-repeat center center /contain" fittocontents="none"/>
+        <Static id="Static00_00_00" taborder="1" text="Tree grouping" left="20" top="Static02:20" width="129" height="30" cssclass="sta_WF_compTitle02" messageid="grid.tree.grouping" fittocontents="width"/>
+        <Static id="Static01" taborder="2" text="If the cell's 'displaytype' property is set to 'treetitemcontol', the cell area is displayed in the form of a tree control, and the bound data is displayed in text on the control.&#13;&#10;If you set the tree-related properties of a cell (treelevel, treastate, etc.) and set 'editttype' to 'tree', click the tree button displayed in the cell to enable the tree to Collapse/Expand.&#13;&#10;You can group columns through the 'keystring' property of a bound dataset to display subtotals together in the grid." left="20" top="Static00_00_00:10" height="220" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.tree.grouping.desc" right="20"/>
+        <Static id="Static02_00" taborder="10" left="20" top="Static01:10" height="260" right="20" background="url('imagerc::Desc/img_WF_gridMN02_2.png') no-repeat center center /contain" fittocontents="none"/>
+        <Static id="Static00_00_00_00" taborder="4" text="Multi format" left="20" top="Static02_00:20" width="129" height="30" cssclass="sta_WF_compTitle02" messageid="grid.multi.format" fittocontents="width"/>
+        <Static id="Static01_00" taborder="5" text="If you need to look at the same data from various perspectives or hide some of the data according to permissions, you can use multiple formats in a grid to process the data." left="20" top="Static00_00_00_00:10" height="80" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.multi.format.desc" right="20"/>
+        <Static id="Static01_00_00" taborder="6" text="In the Grid Contents Editor, where you edit the grid, you can add a new Format, copy an existing Format, and then modify some of the items.&#13;&#10;When you apply Format in Grid, specify the 'formatid' property value to select the desired Format." left="20" top="Static01_00:10" height="120" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.multi.format.editor.desc" right="20"/>
+        <Static id="Static02_00_00" taborder="11" left="20" top="Static01_00_00:10" height="260" right="20" background="url('imagerc::Desc/img_WF_gridMN02_3a.png') no-repeat center center /contain" fittocontents="none"/>
+        <Static id="Static02_00_00_00" taborder="12" left="20" top="Static02_00_00:0" height="100" right="20" background="url('imagerc::Desc/img_WF_gridMN02_3b.png') no-repeat center center /contain" fittocontents="none"/>
+        <Static id="Static00_00_00_00_00" taborder="7" text="Expression" left="20" top="Static02_00_00_00:20" width="129" height="30" cssclass="sta_WF_compTitle02" messageid="grid.expression" fittocontents="width"/>
+        <Static id="Static01_00_01" taborder="8" text="When you enter numeric values in the A and B columns, the cell's expr property displays the A+B, A*B results in the next cell. A simple expression can be expressed directly in an expr property, if the expression is long or complicated.&#13;&#10;You can call by defining a user function.&#13;&#10;In addition to the displayed text values, you can also apply extpr to each cell's properties, such as displaytype or cssclass. Selecting a value from the combo in the C column converts the next column to Edit or Combo, depending on the selected value." left="20" top="Static00_00_00_00_00:10" height="240" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.expression.desc" right="20"/>
+        <Static id="Static02_00_00_01" taborder="13" left="20" top="Static01_00_01:10" height="260" right="20" background="url('imagerc::Desc/img_WF_gridMN02_4a.png') no-repeat center center /contain" fittocontents="none"/>
+        <Static id="Static02_00_00_01_00" taborder="14" left="20" top="Static02_00_00_01:0" height="260" right="20" background="url('imagerc::Desc/img_WF_gridMN02_4b.png') no-repeat center center /contain" text="" fittocontents="none"/>
+        <Static id="Static02_00_00_01_01" taborder="15" left="20" top="Static02_00_00_01_00:0" height="260" right="20" background="url('imagerc::Desc/img_WF_gridMN02_4c.png') no-repeat center center /contain" text="" fittocontents="none"/>
+      </Layout>
+      <Layout name="large" width="920" height="2650">
+        <Static id="Static00" text="A cell is one of the objects that make up the grid and has a separate property from the grid. You can bind columns in Dataset and use them, or you can set the displaytype and edittype properties of the cell to express them in components such as Button, Combo, CheckBox, Image, ProgressBar, Edit, or Tree.&#13;&#10;&#13;&#10;Depending on the 'displaytype' property setting for each cell of the grid component, various expressions such as buttons and images are possible.&#13;&#10;'displaytype' is a property that sets the format in which the bounded data is displayed on the screen when the cell is not in editing, providing 19 default formats and, if not set separately, is automatically displayed for the bound data type." top="Static00_00:10" left="20" height="340" right="20"/>
+        <Static id="Static00_00_00" left="20" top="Static02:30" width="129" height="30"/>
+        <Static id="Static01" left="20" top="Static00_00_00:10" height="220" right="20"/>
+        <Static id="Static00_00_00_00" left="20" top="Static02_00:20" height="30" width="200"/>
+        <Static id="Static01_00" left="20" top="Static00_00_00_00:10" height="80" right="20"/>
+        <Static id="Static01_00_00" left="20" top="Static01_00:10" height="120" right="20"/>
+        <Static id="Static00_00_00_00_00" left="20" top="Static02_00_00_00:20" width="129" height="30"/>
+        <Static id="Static01_00_01" left="20" top="Static00_00_00_00_00:10" height="240" right="20"/>
+        <Static id="Static02" background="url('imagerc::Desc/img_WF_gridMN02_1.png') no-repeat center center /contain" height="350" left="10" top="Static00:20" right="30"/>
+        <Static id="Static02_00" left="20" top="Static01:10" height="350" right="20" text="" background="url('imagerc::Desc/img_WF_gridMN02_2.png') no-repeat center center /contain"/>
+        <Static id="Static02_00_00" height="350" left="20" top="Static01_00_00:10" right="20"/>
+        <Static id="Static02_00_00_01_01" height="212" left="20" top="Static02_00_00_01_00:50" right="20" text=""/>
+        <Static id="Static02_00_00_01_00" height="225" left="20" top="Static02_00_00_01:20" right="20"/>
+        <Static id="Static02_00_00_00"/>
+        <Static id="Static02_00_00_01"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};]]></Script>
+  </Form>
+</FDL>

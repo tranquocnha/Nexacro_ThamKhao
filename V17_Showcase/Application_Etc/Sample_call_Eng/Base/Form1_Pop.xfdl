@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Form1_Pop" classname="Form1_Pop" left="0" top="0" width="400" height="400" titletext="New Form" onload="Form1_Pop_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="1" text="Access to object of parent" left="2.5%" top="184" right="50%" height="37" onclick="Button00_onclick"/>
+        <Grid id="Grid00" taborder="2" useinputpanel="false" left="3%" top="55" right="5.5%" height="121" binddataset="Dataset01">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="120"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:Column0"/>
+                <Cell col="1" edittype="normal" style="align: ;" text="bind:Column1"/>
+                <Cell col="2" edittype="normal" text="bind:Column2"/>
+                <Cell col="3" edittype="normal" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="3" text="Access to object of parent&#13;&#10;(Div.Tab)" onclick="Button01_onclick" left="2.5%" top="224" right="50%" height="37"/>
+        <Button id="Button02" taborder="4" text="Access to object of parent&#13;&#10; (Div.Div)" onclick="Button02_onclick" left="50.25%" top="184" right="2.25%" height="37"/>
+        <Button id="Button03" taborder="5" text="Function of parent form" onclick="Button03_onclick" left="50.25%" top="224" right="2.25%" height="37"/>
+        <Static id="Static00" taborder="6" text="If there is not bound dataset to Grid of  popup &#13;&#10;window, dataset of upper Form will be bound." left="3%" top="14" right="8%" height="33" onclick="Static00_onclick"/>
+        <Button id="Button07" taborder="10" text="Forwarding value to parent" onclick="Button07_onclick" left="3%" top="264" right="51.25%" height="37"/>
+        <Edit id="Edit00" taborder="11" left="280" top="13" height="34" value="This is Popup Window" width="114"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">xxxxxxx</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert( "this.opener.Edit00.value : [" + this.opener.Edit00.value +"]");
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert( "this.opener.Div00.Tab00.tabpage1.Edit00.value : [" + this.opener.Div00.Tab00.tabpage1.Edit00.value +"]");
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert( "this.opener.Div00.Div00.Edit00.value : [" + this.opener.Div00.Div00.Edit00.value +"]");
+}
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.opener.fn_test("xxx");
+}
+
+this.Form1_Pop_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	alert("Value forwarded by parent form \n this.parent.mode : [" + this.parent.mode +"]");
+	this.set_titletext(this.parent.mode);
+	alert("Dataset forwarded by parent form \n this.parent.ds : \n" + this.parent.ds.saveXML());
+	this.Dataset01.copyData(this.parent.ds);
+	
+}
+
+this.Button07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+ 	this.opener.Edit00.set_value("Forwarding value~");
+ 	this.opener.Dataset00.setColumn(0,"Column0", "Forwarding value");
+	this.opener.fn_test1("Forwarding value", this.Dataset00);
+	this.close("success");
+}
+
+this.Static00_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Form_StaticTitleBar" classname="np_Form_StaticTitleBar" left="0" top="0" width="760" height="430" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Open screen" left="30" top="115" height="40" onclick="Button00_onclick" width="250"/>
+        <Static id="Static07" taborder="2" text="This sample shows creation and modification of title bar over the existing titlebar" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" style="font:bold 9 Dotum;"/>
+        <Static id="Static00" taborder="3" text="User can prevent the close button of the existing form. " wordwrap="english" cssclass="sta_WF_explain" left="30" top="65" width="600" height="30" style="align:left middle;font:bold 9 Dotum;" onclick="Static00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var objApp = nexacro.getApplication() ; 
+	var cf = new ChildFrame();
+    var  nX = objApp.mainframe.VFrameSet.HFrameSet.leftFrame.width + this.Button00.getOffsetRight() + 2;  // 1px + px is bordr of mainframe and extra 1 pixel is set to make sppace.
+    var  nY = nexacro.toNumber(objApp.mainframe.VFrameSet.TopFrame.height) 
+	+ nexacro.toNumber(objApp.mainframe.VFrameSet.HFrameSet.VFrameSet1.MdiTabFrame.height) 
+	+ nexacro.toNumber(this.Button00.getOffsetBottom()) 
+	+ nexacro.toNumber(objApp.mainframe.titlebarheight);
+    // titlebar height is set as 22 pixel frm style.so it should be added.
+    // 2 pixel for boder and 1 pixel for adding
+
+	cf.init("test", nX, nY, 100, 100, 0, 0, "Sample_Form::np_Form_TitleBarCreatePopup.xfdl" );//300,300
+	cf.set_showtitlebar(true);
+	cf.set_openalign("center middle");
+    cf.showModal("test",this.getOwnerFrame(),null, this);	
+	
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

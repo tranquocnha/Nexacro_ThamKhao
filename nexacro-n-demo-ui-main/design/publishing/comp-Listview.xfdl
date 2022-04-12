@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="compListview" width="1000" height="870" titletext="New Form">
+    <Layouts>
+      <Layout height="870" mobileorientation="landscape" width="1000">
+        <Div id="Div00" taborder="0" left="40" top="40" right="40" bottom="70" cssclass="div_WF_area">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="ListView" left="40" top="14" width="300" height="40" cssclass="sta_WF_pageTitle"/>
+              <ListView id="ListView00" taborder="1" left="40" top="70" height="640" right="40" binddataset="ds_Listview" bandexpandtype="accordion" bandinitstatus="collapse" scrollbarsize="12" formatid="default">
+                <Formats>
+                  <Format id="default">
+                    <Band id="body" width="100%" height="80" expandbartype="true" expandbarsize="50 30">
+                      <Cell id="Cell01" left="170" top="25" width="180" height="30" text="bind:Department" cssclass="cell_lstvTxt02"/>
+                      <Cell id="Cell03" left="360" top="25" width="180" height="30" text="bind:Name" cssclass="cell_lstvTxt03"/>
+                      <Cell id="Cell00" left="41" top="25" width="120" height="30" text="bind:id" cssclass="cell_lstvTxt01"/>
+                    </Band>
+                    <Band id="detail" width="100%" height="300">
+                      <Cell id="Cell01" left="250" top="35" width="180" height="30" text="bind:Department" cssclass="cell_lstvTxt04"/>
+                      <Cell id="Cell03" left="250" top="95" width="180" height="30" text="bind:Name" cssclass="cell_lstvTxt05"/>
+                      <Cell id="Cell05" left="250" top="65" width="180" height="30" text="bind:Position" cssclass="cell_lstvTxt04"/>
+                      <Cell id="Cell06" left="250" top="161" width="120" height="25" text="Tel" cssclass="cell_lstvTxt06"/>
+                      <Cell id="Cell07" left="250" top="186" width="180" height="25" text="bind:Tel" cssclass="cell_lstvTxt07"/>
+                      <Cell id="Cell08" left="250" top="221" width="120" height="25" text="Email" cssclass="cell_lstvTxt06"/>
+                      <Cell id="Cell09" left="250" top="246" width="180" height="25" text="bind:Email" cssclass="cell_lstvTxt07"/>
+                      <Cell id="Cell11" left="40" top="20" width="150" height="150" text="bind:Profile" cssclass="cell_lstvProfile" displaytype="imagecontrol"/>
+                    </Band>
+                  </Format>
+                  <Format id="mobile">
+                    <Band id="body" width="100%" height="80" expandbarsize="50 30" expandbartype="true">
+                      <Cell id="Cell01" left="101" top="10" width="150" height="30" text="bind:Department" cssclass="cell_lstvTxt02"/>
+                      <Cell id="Cell03" left="101" top="40" width="150" height="30" text="bind:Name" cssclass="cell_lstvTxt03"/>
+                      <Cell id="Cell00" left="21" top="25" width="80" height="30" text="bind:id" cssclass="cell_lstvTxt01"/>
+                    </Band>
+                    <Band id="detail" width="100%" height="300">
+                      <Cell id="Cell01" left="170" top="37" width="150" height="30" text="bind:Department" cssclass="cell_lstvTxt04"/>
+                      <Cell id="Cell03" left="170" top="97" width="150" height="30" text="bind:Name" cssclass="cell_lstvTxt05"/>
+                      <Cell id="Cell05" left="170" top="67" width="150" height="30" text="bind:Position" cssclass="cell_lstvTxt04"/>
+                      <Cell id="Cell06" left="40" top="168" width="120" height="25" text="Tel" cssclass="cell_lstvTxt06"/>
+                      <Cell id="Cell07" left="40" top="193" width="180" height="25" text="bind:Tel" cssclass="cell_lstvTxt07"/>
+                      <Cell id="Cell08" left="40" top="228" width="120" height="25" text="Email" cssclass="cell_lstvTxt06"/>
+                      <Cell id="Cell09" left="40" top="253" width="180" height="25" text="bind:Email" cssclass="cell_lstvTxt07"/>
+                      <Cell id="Cell11" left="10" top="10" width="150" height="150" text="bind:Profile" cssclass="cell_lstvProfile" displaytype="imagecontrol"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </ListView>
+            </Layout>
+            <Layout name="Layout0">
+              <ListView id="ListView00" left="20" top="70" height="640" right="20" formatid="mobile"/>
+              <Static id="Static00" left="20" top="14" width="300" height="40"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+      <Layout name="Layout0" width="410" height="800" mobileorientation="landscape">
+        <Div id="Div00" left="20" top="20" right="20" height="760"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Listview">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="Department" type="STRING" size="256"/>
+          <Column id="Name" type="STRING" size="256"/>
+          <Column id="Position" type="STRING" size="256"/>
+          <Column id="Tel" type="STRING" size="256"/>
+          <Column id="Email" type="STRING" size="256"/>
+          <Column id="Profile" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Department">Tobesoft</Col>
+            <Col id="Position">CEO</Col>
+            <Col id="Name">Matthew</Col>
+            <Col id="Tel">01011111234</Col>
+            <Col id="Email">Matthew@mail.com</Col>
+            <Col id="Profile">imagerc::img_WF_lstvProfile01.png</Col>
+            <Col id="id">TB-001</Col>
+          </Row>
+          <Row>
+            <Col id="Department">R&amp;D Dept</Col>
+            <Col id="Position">Senior Engineer</Col>
+            <Col id="Name">Alex</Col>
+            <Col id="Tel">01022225678</Col>
+            <Col id="Email">Alex@mail.com</Col>
+            <Col id="Profile">imagerc::img_WF_lstvProfile02.png</Col>
+            <Col id="id">TB-010</Col>
+          </Row>
+          <Row>
+            <Col id="Department">Planning Dept</Col>
+            <Col id="Position">General Manager</Col>
+            <Col id="Name">Mark</Col>
+            <Col id="Email">Mark@mail.com</Col>
+            <Col id="Tel">01033331234</Col>
+            <Col id="Profile">imagerc::img_WF_lstvProfile03.png</Col>
+            <Col id="id">TB-015</Col>
+          </Row>
+          <Row>
+            <Col id="Department">Technical Support</Col>
+            <Col id="Position">Senior Engineer</Col>
+            <Col id="Name">Kate</Col>
+            <Col id="Email">Kate@mail.com</Col>
+            <Col id="Tel">01011111234</Col>
+            <Col id="Profile">imagerc::img_WF_lstvProfile04.png</Col>
+            <Col id="id">TB-023</Col>
+          </Row>
+          <Row>
+            <Col id="Department">Customer Service</Col>
+            <Col id="Position">General Manager</Col>
+            <Col id="Name">Jennifer</Col>
+            <Col id="Email">Jennifer@mail.com</Col>
+            <Col id="Tel">01022225678</Col>
+            <Col id="Profile">imagerc::img_WF_lstvProfile05.png</Col>
+            <Col id="id">TB-036</Col>
+          </Row>
+          <Row>
+            <Col id="Department">Design Team</Col>
+            <Col id="Position">Team Manager</Col>
+            <Col id="Name">Henry</Col>
+            <Col id="Email">Henry@mail.com</Col>
+            <Col id="Tel">01033331234</Col>
+            <Col id="Profile">imagerc::img_WF_lstvProfile06.png</Col>
+            <Col id="id">TB-053</Col>
+          </Row>
+          <Row>
+            <Col id="Department">Marketing Dept</Col>
+            <Col id="Position">Team Manager</Col>
+            <Col id="Name">Pablo</Col>
+            <Col id="Email">Pablo@mail.com</Col>
+            <Col id="Tel">01012345678</Col>
+            <Col id="Profile">imagerc::img_WF_lstvProfile07.png</Col>
+            <Col id="id">TB-050</Col>
+          </Row>
+          <Row>
+            <Col id="Department">Management Dept</Col>
+            <Col id="Position">General Manager</Col>
+            <Col id="Name">Camila </Col>
+            <Col id="Email">Camila @mail.com</Col>
+            <Col id="Tel">01056781234</Col>
+            <Col id="Profile">imagerc::img_WF_lstvProfile08.png</Col>
+            <Col id="id">TB-068</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

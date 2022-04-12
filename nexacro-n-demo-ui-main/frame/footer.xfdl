@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="footer" width="480" height="140" background="#2D345C" scrollbarsize="0" onload="footer_onload">
+    <Layouts>
+      <Layout width="480" height="140">
+        <Static id="Static00" taborder="0" left="40" top="64" height="52" text="617, Bongeunsa-ro, Gangnam-gu, Seoul, Korea  I  +82-2-2140-7700&#13;&#10;COPYRIGHT©TOBESOFT.CO.LTD. ALL RIGHTS RESERVED" right="40" cssclass="sta_BF_copyright" messageid="copyright.short"/>
+        <Div id="Div00" taborder="1" left="0" top="15" height="59" background="transparent" right="0">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="1" left="50%" top="9" width="1" height="16" background="#868BA7"/>
+              <Button id="Button00" taborder="0" text="TOBESOFT" left="0" top="5" height="25" cssclass="btn_MBF_link" onclick="Div00_Button00_onclick" right="Static01:10" messageid="tobesoft"/>
+              <Button id="Button03" taborder="6" text="Apply for Education" left="148" top="25" width="128" height="25" cssclass="btn_MBF_link" onclick="Div00_Button03_onclick" visible="false" messageid="apply.education"/>
+              <Static id="Static04" taborder="7" left="27" top="29" width="1" height="16" background="#868BA7" visible="false"/>
+              <Button id="Button01" taborder="2" text="TOBETONG" left="Static04:15" top="25" width="74" height="25" cssclass="btn_MBF_link" onclick="Div00_Button01_onclick" visible="false" messageid="tobetong"/>
+              <Static id="Static02" taborder="3" left="Button01:15" top="29" width="1" height="16" background="#868BA7" visible="false"/>
+              <Button id="Button02" taborder="4" text="Support Center" left="Static01:10" top="5" height="25" cssclass="btn_MBF_link" onclick="Div00_Button02_onclick" right="0" messageid="support.center"/>
+              <Static id="Static03" taborder="5" left="291" top="29" width="1" height="16" background="#868BA7" visible="false"/>
+              <Button id="Button04" taborder="8" text="Technical Documents" top="25" height="25" cssclass="btn_MBF_link" width="140" left="Static03:15" onclick="Div00_Button04_onclick" visible="false" messageid="technical.documents"/>
+            </Layout>
+            <Layout name="large">
+              <Button id="Button00" taborder="0" left="7" top="15" width="86" height="25" cssclass="btn_BF_link"/>
+              <Static id="Static01" taborder="1" left="113" top="19" width="1" height="16" background="#868BA7"/>
+              <Button id="Button01" taborder="2" left="Static01:20" top="15" width="90" height="25" cssclass="btn_BF_link" visible="true"/>
+              <Static id="Static02" taborder="3" left="Button01:20" top="19" width="1" height="16" background="#868BA7" visible="true"/>
+              <Button id="Button02" taborder="4" left="Static02:20" top="15" width="122" height="25" cssclass="btn_BF_link"/>
+              <Static id="Static03" taborder="5" left="Button02:20" top="19" width="1" height="16" background="#868BA7" visible="true"/>
+              <Button id="Button03" taborder="6" left="428" top="15" width="156" height="25" cssclass="btn_BF_link" visible="true"/>
+              <Static id="Static04" taborder="7" left="Button03:20" top="19" width="1" height="16" background="#868BA7" visible="true"/>
+              <Button id="Button04" taborder="8" top="15" height="25" cssclass="btn_BF_link" width="170" left="Static04:20" visible="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+      <Layout width="1263" height="140" name="large" mobileorientation="portrait">
+        <Static id="Static00" taborder="0" left="40" top="64" height="52" text="Intops Building, 617, Bongeunsa-ro, Gangnam-gu, Seoul, Korea  I  CEO : Gunny Cho  I  Phone : +82-2-2140-7700&#13;&#10;COPYRIGHT© BY 2021 TOBESOFT.CO.LTD. ALL RIGHTS RESERVED" right="40" cssclass="sta_BF_copyright" messageid="copyright.long"/>
+        <Div id="Div00" taborder="1" left="17.89%" top="15" height="55" background="transparent" right="17.97%" text=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.footer_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	nexacro.applyI18n(this);
+};
+
+this.Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var app = nexacro.getApplication(),
+		url = app.langCode=="en"?"http://www.nexacro.com/":"http://www.tobesoft.co.kr/";
+	system.execDefaultBrowser(url);
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		gtag('event', 'Button Click', {
+			'event_category': "Link",
+			'event_label': 'Company',
+			'value': url
+		});
+	}
+};
+
+this.Div00_Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var url = "http://tobetong.com/";
+	system.execDefaultBrowser(url);
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		gtag('event', 'Button Click', {
+			'event_category': "Link",
+			'event_label': 'Tobetong',
+			'value': url
+		});
+	}
+};
+
+this.Div00_Button02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var url = "http://support.tobesoft.co.kr/";
+	system.execDefaultBrowser(url);
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		gtag('event', 'Button Click', {
+			'event_category': "Link",
+			'event_label': 'Support',
+			'value': url
+		});
+	}
+};
+
+this.Div00_Button03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var url = "http://support.tobesoft.co.kr/Next_JSP/nexacroHome/index.html#schedule=NP17";
+	system.execDefaultBrowser(url);
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		gtag('event', 'Button Click', {
+			'event_category': "Link",
+			'event_label': 'Education',
+			'value': url
+		});
+	}
+};
+
+this.Div00_Button04_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var url = "http://docs.tobesoft.com/";
+	system.execDefaultBrowser(url);
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		gtag('event', 'Button Click', {
+			'event_category': "Link",
+			'event_label': 'Technical Documents',
+			'value': url
+		});
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

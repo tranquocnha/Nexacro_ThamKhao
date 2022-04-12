@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="MainForm" width="1048" height="693" titletext="MainForm" cssclass="frm_WF_MainBg">
+    <Layouts>
+      <Layout width="1048" height="693" screenid="Desktop_screen">
+        <Static id="Static01_00" taborder="0" text="W 35" left="1013" top="0" width="35" height="693" cssclass="sta_WF_GSize" visible="false"/>
+        <Static id="Static01" taborder="1" text="W 35" left="0" top="0" width="35" height="693" cssclass="sta_WF_GSize" visible="false"/>
+        <Static id="Static02_00_00" taborder="2" text="H 35" left="311" top="658" width="530" height="35" cssclass="sta_WF_GSize" visible="false"/>
+        <Static id="Static02_00" taborder="3" text="H 35" left="0" top="0" width="1048" height="35" cssclass="sta_WF_GSize" visible="false"/>
+        <Static id="Static00" taborder="4" left="129" top="35" width="790" height="290" cssclass="sta_WF_MainImg"/>
+        <Static id="Static02_02" taborder="5" left="45" top="360" width="310" height="280" cssclass="sta_WF_MainBoard" text="Notice"/>
+        <Static id="Static02_02_00" taborder="6" left="368" top="360" width="310" height="280" cssclass="sta_WF_MainBoard" text="Tip"/>
+        <Static id="Static02_02_01" taborder="7" left="691" top="361" width="310" height="280" cssclass="sta_WF_MainBoard" text="FAQ"/>
+        <Grid id="Grid00" taborder="8" left="65" top="420" width="275" height="187" cssclass="grd_WF_Board" binddataset="ds_Notice" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="250"/>
+              </Columns>
+              <Rows>
+                <Row size="28"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid00_00" taborder="9" left="711" top="420" width="275" height="187" cssclass="grd_WF_Board" binddataset="ds_FAQ" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="259"/>
+              </Columns>
+              <Rows>
+                <Row size="28"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid00_01" taborder="10" left="378" top="416" width="295" height="187" cssclass="grd_WF_Board" binddataset="ds_Tip" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="241"/>
+              </Columns>
+              <Rows>
+                <Row size="50"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="bind:Column0" displaytype="textareacontrol" edittype="textarea"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Notice">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">* X-PUSH 변경사항 입니다.</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* 마이플랫폼 제품 제약사항 관련건</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* 기술지원 홈페이지 통합 관련 건</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* 구글, 안드로이드 앱 64bit 지원 일정</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* MiPlatform 정기 기본 교육 종료 안내</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Tip">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">* [XChart] 마우스로 Chart 클릭 시 X축, Y축 값 가져오기</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* Div 영역의 VScroll 이 max 값까지 도달했는 지 확인하기</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* Grid CheckBox 에서 true/false Value를 설정하는 우회방안</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_FAQ">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">* 투비소프트 교육 신청 방법 변경 안내</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* 다음 회차 교육은 언제 신청 할 수 있나요?</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* 교육 등록 마감 시 추가 등록은 가능한가요?</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* 각 제품별 교육일정은 어떻게 되나요?</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">* 교육 수료증은 어떻게 받을 수 있나요?</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[]]></Script>
+  </Form>
+</FDL>

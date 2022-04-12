@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="sample_grid_subsum" left="0" top="0" width="1024" height="768" titletext="Deleting specific sum row from Grid">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="128" height="300" binddataset="Dataset00" autofittype="col" width="978">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="83"/>
+                <Column size="90"/>
+                <Column size="96"/>
+                <Column size="130"/>
+                <Column size="138"/>
+                <Column size="77"/>
+                <Column size="84"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column1"/>
+                <Cell col="1" text="Column2"/>
+                <Cell col="2" text="Column3"/>
+                <Cell col="3" text="Column4"/>
+                <Cell col="4" text="No. of count"/>
+                <Cell col="5" text="Group Range"/>
+                <Cell col="6" text="Row Level"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:dataset.getRowLevel(currow) &gt; 0 ? &quot;&quot;:Column0"/>
+                <Cell col="1" text="expr:dataset.getRowLevel(currow) &gt; 0 ? &quot;&quot;:Column1"/>
+                <Cell col="2" text="expr:dataset.getRowLevel(currow) &gt; 0 ? &quot;Sum&quot;:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+                <Cell col="4" text="expr:dataset.getRowLevel(currow) &gt; 0  &amp;&amp; dataset.getGroupRangeCount(currow) &lt; 2 ? &quot;Count 1&quot;:&quot;&quot;"/>
+                <Cell col="5" text="expr:dataset.getGroupRangeCount(currow)"/>
+                <Cell col="6" text="expr:dataset.getRowLevel(currow)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="Delete 'Count 1' rows" left="30" top="78" height="40" onclick="Button00_onclick" wordwrap="char" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="180"/>
+        <Static id="Static07" taborder="3" text="Deleting specific summary rows from Grid" cssclass="sta_WF_subtitP" left="30" top="18" width="650" height="40" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" keystring="Column0-Column1">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="INT" size="256"/>
+          <Column id="col_rowcnt" type="INT" size="256" prop="COUNT"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">AA</Col>
+            <Col id="Column1">A01</Col>
+            <Col id="Column2">A1</Col>
+            <Col id="Column3">10</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">AA</Col>
+            <Col id="Column1">A01</Col>
+            <Col id="Column2">A2</Col>
+            <Col id="Column3">20</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">AA</Col>
+            <Col id="Column1">A02</Col>
+            <Col id="Column2">A1</Col>
+            <Col id="Column3">15</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">AA</Col>
+            <Col id="Column1">A02</Col>
+            <Col id="Column2">A2</Col>
+            <Col id="Column3">12</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">AA</Col>
+            <Col id="Column1">A03</Col>
+            <Col id="Column2">A1</Col>
+            <Col id="Column3">25</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">AA</Col>
+            <Col id="Column1">A04</Col>
+            <Col id="Column2">A1</Col>
+            <Col id="Column3">10</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+/*
+// This script is used to delete special summary rows from the Grid in certain condition.
+// As the below script the having row level 1 and group range count 1 to be deleted from Grid.
+// When this script is executed the two rows having Column3 as "Sum" and No. of count as "Count 1" are deleted.
+*/
+	for(var i=this.Dataset00.getRowCount()-1; i>=0 ;i-- )
+	{		
+		if( this.Dataset00.getRowLevel(i) > 0 &&  this.Dataset00.getGroupRangeCount(i) < 2){
+		    //Here Range count < 2) means rage count 1
+			this.Dataset00.deleteRow(i);	//Deleting the specified rows from Dataset, these will be updated into Grid.
+		}	
+	}	
+}
+
+]]></Script>
+  </Form>
+</FDL>

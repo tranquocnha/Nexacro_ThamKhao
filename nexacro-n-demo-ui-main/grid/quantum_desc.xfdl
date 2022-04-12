@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="210" onload="form_onload">
+    <Layouts>
+      <Layout height="210" width="920">
+        <Static id="Static00_00" taborder="0" text="Grid Header Column을 위의 Category Box에 Drag&amp;Drop하여 Category 형식의 그리드로 배치할 수 있습니다." left="20" top="47" height="140" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.quantum.desc" usedecorate="true" right="20"/>
+        <Static id="Static04" taborder="1" text="Quantum Grid" left="20" top="15" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.quantum" fittocontents="width"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

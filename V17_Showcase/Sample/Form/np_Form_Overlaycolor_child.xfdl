@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="overlaycolor_test1" classname="overlaycolor_test1" left="0" top="0" width="300" height="250" titletext="Overy color popup" style="background:lightslategray;">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="close" left="190" top="190" width="90" height="40" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static00" taborder="1" text="Change overlay color&#13;&#10;POP UP" left="26" top="70" width="252" height="59"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

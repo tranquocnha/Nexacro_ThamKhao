@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XCSS type="xcss1.0"><![CDATA[.Grid .body .row .cell.Comp_Grid_Cell_ChangeValueColor
+{
+	background : red;
+	-nexa-background-odd : red;
+	color : white;
+}
+
+.Grid .body .row .cell.cell_line
+{
+	-nexa-border : 3px solid red;
+}
+
+
+.Grid .body .row .cell.Expr_Case2_red
+{
+	background : red;
+	-nexa-background-odd : red;
+}
+.Grid .body .row .cell.Expr_Case2_pink
+{
+	background : pink;
+	-nexa-background-odd : pink;
+}
+
+.Grid .body .row .cell.Expr_Case2_blue
+{
+	background : blue;
+	-nexa-background-odd : blue;
+}
+.Grid .body .row .cell.Expr_Case2_yellow
+{
+	background : yellow;
+	-nexa-background-odd : yellow;
+}
+
+
+
+.Grid .body .row .cell.Expr_Case3_Lv1
+{
+	background : pink;
+	-nexa-background-odd : pink;
+}
+.Grid .body .row .cell.Expr_Case3_Lv2
+{
+	background : yellow;
+	-nexa-background-odd : yellow;
+}
+
+.Grid .body .row .cell.Expr_Case3_rowtype
+{
+	background : red;
+	-nexa-background-odd : red;
+}
+
+
+.Grid .body .row .cell.SetBlinkColor1
+{
+	background : red;
+	-nexa-background-odd : red;
+}
+
+.Grid .body .row .cell.SetBlinkColor2
+{
+	background : white;
+	-nexa-background-odd : white;
+}
+
+.Grid .body .row .cell.subtotalGrid_1
+{
+	background : pink;
+	-nexa-background-odd : pink;
+}
+.Grid .body .row .cell.subtotalGrid_2
+{
+	background : yellow;
+	-nexa-background-odd : yellow;
+}
+
+/*background*/
+.Grid .body .row .cell.Expr_bk_red
+{
+	background : red;
+	-nexa-background-odd : red;
+}
+
+.Grid .body .row .cell.Expr_bk_blue
+{
+	background : blue;
+	-nexa-background-odd : blue;
+}
+
+.Grid .body .row .cell.Expr_bk_lightgreen
+{
+	background : lightgreen;
+	-nexa-background-odd : lightgreen;
+}
+
+/*color*/
+.Grid .body .row .cell.Expr_font_red
+{		
+	color : red;
+	-nexa-color-odd : red;
+}
+
+.Grid .body .row .cell.Expr_font_blue
+{
+	color : blue;
+	-nexa-color-odd : blue;
+}
+
+.Grid .body .row .cell.Expr_font_lightgreen
+{
+	color : lightgreen;
+	-nexa-color-odd : lightgreen;
+}
+
+/*tree_font_color*/
+.Grid .body .row .cell.Expr_font_red .celltreeitem .treeitemtext
+{		
+	color : red;
+}
+
+.Grid .body .row .cell.Expr_font_lightgreen .celltreeitem .treeitemtext
+{
+	color : lightgreen;
+}
+
+.Grid .body .row .cell.Expr_font_blue .celltreeitem .treeitemtext
+{
+	color : blue;
+}
+/*treeImg*/
+.Grid .body .row .cell .celltreeitem .treeitemimage[userstatus=leaf]
+{
+	-nexa-icon : url("theme://Images/img_TreeItem.png");
+}
+
+.Grid .body .row .cell.Tree_img .celltreeitem .treeitemimage[userstatus=leaf]
+{
+	-nexa-icon : URL("http://www.miplatform.co.kr/Miplatform/NewHome/images/all/search_icon_01.gif");
+}
+
+.Grid .body .row .cell.No_tree_img .celltreeitem .treeitemimage[userstatus=leaf]
+{
+	-nexa-icon : URL("");
+}
+
+.Grid .body .row .cell.Local_img .celltreeitem .treeitemimage[userstatus=leaf]
+{
+	-nexa-icon : url("Image::btn_LF_setting_F.png");
+}
+
+.Grid .body .row .cell.Resouce_img .celltreeitem .treeitemimage[userstatus=leaf]
+{
+	-nexa-icon : url("btn_LF_setting_N");
+}
+
+.Grid .body .row .cell .celltreeitem .treeitemimage[userstatus=collapse]
+{
+	-nexa-icon : url("theme://Images/img_TreeClose.png");
+}
+
+.Grid .body .row .cell .celltreeitem .treeitemimage[userstatus=expand]
+{
+	-nexa-icon : url("theme://Images/img_TreeOpen.png");
+}
+
+
+.Grid .body .row .cell.Expr_Padding
+{
+	background : #ffffff;
+	-nexa-border : 1px solid #e5e5e5;
+	-nexa-background-odd : ;
+}
+
+.Grid .body .row .cell.Expr_Padding .celltreeitem .treeitemtext
+{
+	font : 10pt "맑은 고딕";
+	color : #000000;
+	-nexa-text-align : center;
+	-nexa-padding : 0px 0px 0px 50px;
+}
+
+.Grid .body .row .cell.Expr_Padding .celltreeitem .treeitemimage[userstatus=leaf]
+{
+	-nexa-padding : 0px 0px 0px 50px;
+}
+
+.Grid .body .row .cell.Expr_Radio_on
+{
+	background : url('imagerc::Radio_button_on.png') no-repeat center center white;
+	-nexa-background-odd : url('imagerc::Radio_button_on.png') no-repeat center center white;
+}
+
+.Grid .body .row .cell.Expr_Radio_off
+{
+	background : url('imagerc::Radio_button_off.png') no-repeat center center white;
+	-nexa-background-odd : url('imagerc::Radio_button_off.png') no-repeat center center white;
+}
+
+.Grid .body .row .cell.Expr_border
+{
+	-nexa-border : 1px solid #e5e5e5,1px solid #e5e5e5,0px solid #e5e5e5,1px solid #e5e5e5;
+}
+]]></XCSS>

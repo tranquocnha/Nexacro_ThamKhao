@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Combo_MultiCombo" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Combo_MultiCombo" left="0" top="0" width="800" height="600">
+    <Layouts>
+      <Layout>
+        <PopupDiv id="pdiv_input" text="PopupDiv00" visible="false" taborder="3" position="absolute" left="17" width="153" top="106" height="173" border="0px solid">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_input" taborder="0" binddataset="ds_data" useinputpanel="false" oncellclick="pdiv_input_grd_input_oncellclick" position="absolute" left="0" width="120" top="0" height="146" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase="" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="36"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell text="bind:COL0"/>
+                      <Cell col="1" text="bind:COL1"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Button id="btn_execute" taborder="2" onclick="btn_execute_onclick" text="▼" position="absolute" left="136" width="34" top="74" height="34"/>
+        <Edit id="edt_output0" taborder="0" autoselect="true" autoskip="true" position="absolute" left="17" width="40" top="74" height="34"/>
+        <Edit id="edt_output1" taborder="1" autoselect="true" autoskip="true" position="absolute" left="56" width="81" top="74" height="34"/>
+        <Static id="Static05" taborder="4" text="Creating Multi-Combo using Popup Div" onclick="Static05_onclick" left="15" top="14" width="520" height="40" class="sta_WF_subtitle" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">01</Col>
+            <Col id="COL1">CODE01</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">02</Col>
+            <Col id="COL1">CODE02</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">03</Col>
+            <Col id="COL1">CODE03</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">04</Col>
+            <Col id="COL1">CODE04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Combo_MultiCombo
+ * Description : Creating Multi-Combo using Popup Div
+ */
+
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{    
+var objApp = nexacro.getApplication();
+var objMainframe = objApp.mainframe;
+
+//	var nX = system.screenToClientX(this, system.clientToScreenX(obj,16)) - this.pdiv_input.width;
+//	var nY = system.screenToClientY(this, system.clientToScreenY(obj, 30));		
+
+ var nX = system.clientToScreenX(this.edt_output0, 0) - system.clientToScreenX(objMainframe, 0);
+ var nY = system.clientToScreenY(this.edt_output0, parseInt(this.edt_output0.height)) - system.clientToScreenY(objMainframe, 0);    
+    
+	//var nX=system.screenToClientX(this, e.screenX)- this.pdiv_input.width;
+	//var nY=system.screenToClientY(this, e.screenY);
+	            
+		
+	this.pdiv_input.trackPopup(nX, nY); // Expending ComboBox
+};
+
+/*  Button Click  */
+this.pdiv_input_grd_input_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.pdiv_input.closePopup();
+	this.edt_output0.set_value(this.ds_data.getColumn(e.row, "COL0"));
+	this.edt_output1.set_value(this.ds_data.getColumn(e.row, "COL1"));
+};
+     ]]></Script>
+  </Form>
+</FDL>

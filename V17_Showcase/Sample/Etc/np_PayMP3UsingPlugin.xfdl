@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Tip_Sample_PayMP3" classname="np_Tip_Sample_PayMP3" left="0" top="0" width="760" height="430" titletext="Sample for playing MP3 using Plugin" onload="np_Tip_Sample_PayMP3_onload">
+    <Layouts>
+      <Layout>
+        <Plugin id="Plugin00" left="3.95%" top="65" height="320" classid="{8856F961-340A-11D0-A96B-00C04FD705A2}" taborder="0" width="726" adjustalpha="false" windowed="true"/>
+        <Static id="Static07" taborder="1" text="This sample shows playing MP3 using plugin" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" style="font:bold 9 Dotum;"/>
+        <WebBrowser id="WebBrowser00" taborder="2" left="30" top="65" width="726" height="320" url="http://" visible="false" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Plugin00_NavigateComplete2 = function()
+{
+	/* Assigning content */
+    var _doc = this.Plugin00.getProperty("Document");
+    var _body = _doc.getProperty("body");
+	var strHtml = '<OBJECT ID=WMPlayer Name=WMPlayer classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95"  codeb ase=http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701    ';
+		strHtml += 'standby="Loading Microsoft Windows Media Player  components..."                               ';
+		strHtml += 'type="application/x-oleobject"                                                                ';  
+		strHtml += 'bgcolor="#000000" width="100%" height="100%">                                                   ';  
+		strHtml += '<param name="Filename" value="http://dl.bgms.kr/download/jmXSA/mp3/%EC%9C%A0%EC%97%94%EC%A0%A4+%EB%B3%B4%EC%9D%B4%EC%8A%A4-01-%EB%82%B4+%EC%98%81%ED%98%BC+%EB%B0%94%EB%9E%8C%EB%90%98%EC%96%B4">            ';
+		strHtml += '<param name="AllowScan" value="-1">                                                           ';
+		strHtml += '<param name="AllowChangeDisplaySize" value="1">                                               ';
+		strHtml += '<param name="AnimationAtStart" value="1">                                                     ';
+		strHtml += '<param name="AudioStream" value="1">                                                          ';
+		strHtml += '<param name="AutoStart" value="1">                                                            ';
+		strHtml += '<param Name="AutoSize" Value="1">                                                             ';
+		strHtml += '<param name="AutoResize" value="1">                                                           ';
+		strHtml += '<param name="AutoRewind" value="0">                                                           ';
+		strHtml += '<param name="Balance" value="0">                                                              ';
+		strHtml += '<param name="BaseURL">                                                                        ';
+		strHtml += '<param name="BufferingTime" value="5">                                                        ';
+		strHtml += '<param name="CaptioningID">                                                                   ';
+		strHtml += '<param name="ClickToPlay" value="-1">                                                         ';
+		strHtml += '<param name="CursorType" value="0">                                                           ';
+		strHtml += '<param name="CurrentPosition" value="-1">                                                     ';
+		strHtml += '<param name="CurrentMarker" value="0">                                                        ';
+		strHtml += '<param name="DefaultFrame">                                                                   ';
+		strHtml += '<param name="DisplayBackColor" value="0">                                                     ';
+		strHtml += '<param name="DisplayForeColor" value="16777215">                                              ';
+		strHtml += '<param name="DisplayMode" value="0">                                                          ';
+		strHtml += '<param name="DisplaySize" value="2">                                                          ';
+		strHtml += '<param name="Enabled" value="-1">                                                             ';
+		strHtml += '<param name="EnableContextMenu" value="0">                                                    ';
+		strHtml += '<param name="EnablePositionControls" value="-1">                                              ';
+		strHtml += '<param name="EnableFullScreenControls" value="-1">                                            ';
+		strHtml += '<param name="EnableTracker" value="-1">                                                       ';
+		strHtml += '<param name="InvokeURLs" value="-1">                                                          ';
+		strHtml += '<param name="Language" value="-1">                                                            ';
+		strHtml += '<param name="PlayCount" value="1">                                                            ';
+		strHtml += '<param name="PreviewMode" value="0">                                                          ';
+		strHtml += '<param name="Rate" value="1">                                                                 ';
+		strHtml += '<param name="SAMILang">                                                                       ';
+		strHtml += '<param name="SAMIStyle">                                                                      ';
+		strHtml += '<param name="SAMIFileName">                                                                   ';
+		strHtml += '<param name="SelectionStart" value="-1">                                                      ';
+		strHtml += '<param name="SelectionEnd" value="-1">                                                        ';
+		strHtml += '<param name="SendOpenStateChangeEvents" value="-1">                                           ';
+		strHtml += '<param name="SendWarningEvents" value="-1">                                                   ';
+		strHtml += '<param name="SendErrorEvents" value="-1">                                                     ';
+		strHtml += '<param name="SendKeyboardEvents" value="1">                                                   ';
+		strHtml += '<param name="SendMouseClickEvents" value="1">                                                 ';
+		strHtml += '<param name="SendMouseMoveEvents" value="1">                                                  ';
+		strHtml += '<param name="SendPlayStateChangeEvents" value="-1">                                           ';
+		strHtml += '<param name="ShowCaptioning" value="0">                                                       ';
+		strHtml += '<param name="ShowControls" value="1">                                                         ';
+		strHtml += '<param name="ShowAudioControls" value="-1">                                                   ';
+		strHtml += '<param name="ShowDisplay" value="0">                                                          ';
+		strHtml += '<param name="ShowGotoBar" value="0">                                                          ';
+		strHtml += '<param name="ShowPositionControls" value="1">                                                 ';
+		strHtml += '<param name="ShowStatusBar" value="-1">                                                       ';
+		strHtml += '<param name="ShowTracker" value="1">                                                          ';
+		strHtml += '<param name="TransparentAtStart" value="-1">                                                  ';
+		strHtml += '<param name="VideoBorderWidth" value="0">                                                     ';
+		strHtml += '<param name="VideoBorderColor" value="0">                                                     ';
+		strHtml += '<param name="VideoBorder3D" value="0">                                                        ';
+		strHtml += '<param name="Volume" value="600">                                                             ';
+		strHtml += '<param name="WindowlessVideo" value="0">                                                      ';
+		strHtml += '</OBJECT>                                                                                     ';
+		
+	_body.setProperty("innerHTML",strHtml);  
+	
+	return;
+    var _doc = this.Plugin00.getProperty("Document");
+    var _body = _doc.getProperty("body");	
+	
+	if(nexacro.Browser == "IE" && nexacro.BrowserVersion == 8)
+	{
+		objWb.set_url(sUrl + "?" + sParam);
+		return;
+	}
+	
+	var iframeObj = document.getElementById(objWb._ifrm_elem._object_id);
+	var iFrameDoc;
+	var iFrameBody;
+	if ( iframeObj.contentDocument ) 
+	{
+		iFrameDoc = iframeObj.contentDocument;
+		iFrameBody = iFrameDoc.getElementsByTagName('body')[0];
+	} else if ( iframeObj.contentWindow ) {
+		iFrameDoc = iframeObj.contentWindow.document;
+		iFrameBody = iFrameDoc.getElementsByTagName('body')[0];
+	}	
+	if(!iFrameBody)
+	{
+		iFrameBody = iFrameDoc.createElement("body");
+		iFrameDoc.appendChild(iFrameBody);   
+	}
+	iFrameBody.setProperty("innerHTML",strHtml);  
+};
+
+this.test_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	if( system.navigatorname != "nexacro" ){
+		alert("지원되지 않습니다.");
+		return;
+	}	
+	this.Plugin00.callMethod('Navigate' , "about:blank", "","_self", "", "");
+	
+};
+
+
+this.np_Tip_Sample_PayMP3_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	if( system.navigatorname == "nexacro" ){
+		this.Plugin00.callMethod('Navigate' , "about:blank", "","_self", "", "");
+		this.Plugin00.addEventHandler("NavigateComplete2", this.Plugin00_NavigateComplete2, this);
+	}
+	else{
+		this.WebBrowser00.set_visible(true);
+    var _doc = this.WebBrowser00.getProperty("document");
+    var _body = _doc.getProperty("body");
+	var strHtml = '<OBJECT ID=WMPlayer Name=WMPlayer classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95"  codeb ase=http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701    ';
+		strHtml += 'standby="Loading Microsoft Windows Media Player  components..."                               ';
+		strHtml += 'type="application/x-oleobject"                                                                ';  
+		strHtml += 'bgcolor="#000000" width="100%" height="100%">                                                   ';  
+		strHtml += '<param name="Filename" value="http://dl.bgms.kr/download/jmXSA/mp3/%EC%9C%A0%EC%97%94%EC%A0%A4+%EB%B3%B4%EC%9D%B4%EC%8A%A4-01-%EB%82%B4+%EC%98%81%ED%98%BC+%EB%B0%94%EB%9E%8C%EB%90%98%EC%96%B4">            ';
+		strHtml += '<param name="AllowScan" value="-1">                                                           ';
+		strHtml += '<param name="AllowChangeDisplaySize" value="1">                                               ';
+		strHtml += '<param name="AnimationAtStart" value="1">                                                     ';
+		strHtml += '<param name="AudioStream" value="1">                                                          ';
+		strHtml += '<param name="AutoStart" value="1">                                                            ';
+		strHtml += '<param Name="AutoSize" Value="1">                                                             ';
+		strHtml += '<param name="AutoResize" value="1">                                                           ';
+		strHtml += '<param name="AutoRewind" value="0">                                                           ';
+		strHtml += '<param name="Balance" value="0">                                                              ';
+		strHtml += '<param name="BaseURL">                                                                        ';
+		strHtml += '<param name="BufferingTime" value="5">                                                        ';
+		strHtml += '<param name="CaptioningID">                                                                   ';
+		strHtml += '<param name="ClickToPlay" value="-1">                                                         ';
+		strHtml += '<param name="CursorType" value="0">                                                           ';
+		strHtml += '<param name="CurrentPosition" value="-1">                                                     ';
+		strHtml += '<param name="CurrentMarker" value="0">                                                        ';
+		strHtml += '<param name="DefaultFrame">                                                                   ';
+		strHtml += '<param name="DisplayBackColor" value="0">                                                     ';
+		strHtml += '<param name="DisplayForeColor" value="16777215">                                              ';
+		strHtml += '<param name="DisplayMode" value="0">                                                          ';
+		strHtml += '<param name="DisplaySize" value="2">                                                          ';
+		strHtml += '<param name="Enabled" value="-1">                                                             ';
+		strHtml += '<param name="EnableContextMenu" value="0">                                                    ';
+		strHtml += '<param name="EnablePositionControls" value="-1">                                              ';
+		strHtml += '<param name="EnableFullScreenControls" value="-1">                                            ';
+		strHtml += '<param name="EnableTracker" value="-1">                                                       ';
+		strHtml += '<param name="InvokeURLs" value="-1">                                                          ';
+		strHtml += '<param name="Language" value="-1">                                                            ';
+		strHtml += '<param name="PlayCount" value="1">                                                            ';
+		strHtml += '<param name="PreviewMode" value="0">                                                          ';
+		strHtml += '<param name="Rate" value="1">                                                                 ';
+		strHtml += '<param name="SAMILang">                                                                       ';
+		strHtml += '<param name="SAMIStyle">                                                                      ';
+		strHtml += '<param name="SAMIFileName">                                                                   ';
+		strHtml += '<param name="SelectionStart" value="-1">                                                      ';
+		strHtml += '<param name="SelectionEnd" value="-1">                                                        ';
+		strHtml += '<param name="SendOpenStateChangeEvents" value="-1">                                           ';
+		strHtml += '<param name="SendWarningEvents" value="-1">                                                   ';
+		strHtml += '<param name="SendErrorEvents" value="-1">                                                     ';
+		strHtml += '<param name="SendKeyboardEvents" value="1">                                                   ';
+		strHtml += '<param name="SendMouseClickEvents" value="1">                                                 ';
+		strHtml += '<param name="SendMouseMoveEvents" value="1">                                                  ';
+		strHtml += '<param name="SendPlayStateChangeEvents" value="-1">                                           ';
+		strHtml += '<param name="ShowCaptioning" value="0">                                                       ';
+		strHtml += '<param name="ShowControls" value="1">                                                         ';
+		strHtml += '<param name="ShowAudioControls" value="-1">                                                   ';
+		strHtml += '<param name="ShowDisplay" value="0">                                                          ';
+		strHtml += '<param name="ShowGotoBar" value="0">                                                          ';
+		strHtml += '<param name="ShowPositionControls" value="1">                                                 ';
+		strHtml += '<param name="ShowStatusBar" value="-1">                                                       ';
+		strHtml += '<param name="ShowTracker" value="1">                                                          ';
+		strHtml += '<param name="TransparentAtStart" value="-1">                                                  ';
+		strHtml += '<param name="VideoBorderWidth" value="0">                                                     ';
+		strHtml += '<param name="VideoBorderColor" value="0">                                                     ';
+		strHtml += '<param name="VideoBorder3D" value="0">                                                        ';
+		strHtml += '<param name="Volume" value="600">                                                             ';
+		strHtml += '<param name="WindowlessVideo" value="0">                                                      ';
+		strHtml += '</OBJECT>                                                                                     ';
+		
+	_body.setProperty("innerHTML",strHtml);
+	}	
+};
+]]></Script>
+  </Form>
+</FDL>

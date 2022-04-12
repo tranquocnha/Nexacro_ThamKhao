@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_HanGulWeek" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_HanGulWeek" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="190" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="80" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="190" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="130" height="40"/>
+        <MaskEdit id="msk_input0" taborder="0" value="20131231" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="80" height="40"/>
+        <Static id="Static05" taborder="3" text="Find day name in input date" cssclass="sta_WF_subtitP" left="30" top="18" width="370" height="40" onclick="Static05_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/*
+ * File Name   : Script_Date_HanGulWeek
+ * Description : Searching day in the input date
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_hanGulWeek(this.msk_input0.value);	
+	this.edt_output.set_value(sRtn);
+};
+
+/*
+ * Function Name : fn_hanGulWeek
+ * Description   : Searching day in the input date
+ * Parameter     : Date
+ * Return        : Name of day in English
+ * Example       : fn_hanGulWeek("20121231");
+ */
+this.fn_hanGulWeek = function(sDate) 
+{
+    var dDate    = new Date(parseInt(sDate.substr(0,4))
+						  , parseInt(sDate.substr(4,2))-1
+						  , parseInt(sDate.substr(6,2)));
+    var sDay     = dDate.getDay();
+	var arrweek  = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");		
+	var sRtn     = arrweek[sDay];
+
+	return sRtn;
+};
+
+this.Static05_onclick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

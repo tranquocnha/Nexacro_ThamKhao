@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Work" classname="Work" inheritanceid="" position="absolute" titletext="List/Detail" left="0" width="1025" top="0" height="740">
+    <Layouts>
+      <Layout>
+        <Static id="Static08" taborder="48" cssclass="sta_WFSA_BG" left="30" top="58" right="30" height="75"/>
+        <Static id="sta_WFDA_Label" text="Organization code" position="absolute" left="30" width="140" top="445" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WF_SearchBox" position="absolute" text="" left="0" right="0" top="0" height="62" cssclass="sta_WF_SearchBox"/>
+        <Static id="sta_WFSA_PointLabel" text="Fixed Date :" position="absolute" left="45" width="85" top="67" height="20"/>
+        <Static id="sta_WFSA_PointLabel00" text="Organization :" position="absolute" left="354" width="97" top="67" height="20"/>
+        <Static id="sta_WFSA_PointLabel02" text="Employee :" position="absolute" left="45" width="85" top="101" height="20"/>
+        <Static id="sta_WFSA_PointLabel03" text="Working area :" position="absolute" left="354" width="97" top="101" height="20"/>
+        <Calendar id="Calendar00" taborder="11" text="2011-06-20" dateformat="yyyy-MM-dd" position="absolute" left="124" width="100" top="65" height="28" cssclass="input_point" value="20160101"/>
+        <Edit id="Edit00" taborder="13" position="absolute" left="451" width="100" top="65" height="28" background="#ffffff"/>
+        <Button id="btn_WFSA_Search02" taborder="14" position="absolute" style="image:URL('theme://images/ico_Search.png'); " left="523" width="26" top="66" height="26" cssclass="btn_WFDA_Search"/>
+        <Edit id="Edit01" taborder="15" position="absolute" left="556" width="100" top="65" height="28" background="#ffffff"/>
+        <Combo id="Combo01" taborder="16" position="absolute" left="451" width="205" top="99" height="28"/>
+        <Static id="sta_WF_TitleLev00" text="Title" position="absolute" left="30" width="134" top="143" height="40" cssclass="sta_WF_subtitP"/>
+        <Button id="btn_WF_crud06" taborder="23" text="Add" position="absolute" right="255" width="70" top="407" height="28" cssclass="button_WF_white"/>
+        <Button id="btn_WF_crud03" taborder="20" text="Save" position="absolute" right="30" width="70" top="407" height="28" cssclass="button_WF_blue"/>
+        <Button id="btn_WF_crud04" taborder="21" text="Delete" position="absolute" right="105" width="70" top="407" height="28" cssclass="button_WF_gray"/>
+        <Button id="btn_WF_crud05" taborder="22" text="Modify" position="absolute" right="180" width="70" top="407" height="28" cssclass="button_WF_white"/>
+        <Static id="sta_WFDA_Label05" position="absolute" text="" left="169" width="146" top="445" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label00" text="Korean Name" position="absolute" left="314" width="140" top="445" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label02" text="Order/Text-free" position="absolute" left="30" width="140" top="511" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label03" text="Closed date" position="absolute" left="30" width="140" top="544" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label04" text="Remarks" position="absolute" left="30" width="140" top="577" bottom="30" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label01" position="absolute" text="" left="169" width="436" top="478" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label06" text="Effective period" position="absolute" left="30" width="140" top="478" height="34" cssclass="sta_WFDA_labelB"/>
+        <Edit id="Edit02" taborder="24" position="absolute" left="178" width="126" top="448" height="28" cssclass="input_point"/>
+        <Calendar id="Calendar01" taborder="25" text="2011-06-20" dateformat="yyyy-MM-dd" position="absolute" left="178" width="110" top="481" height="28" cssclass="input_point"/>
+        <Calendar id="Calendar02" taborder="26" text="2011-06-20" dateformat="yyyy-MM-dd" position="absolute" left="333" width="110" top="481" height="28" cssclass="input_point"/>
+        <Static id="sta_WFDA_Label07" position="absolute" text="" left="453" width="152" top="445" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label08" position="absolute" text="" left="743" right="30" top="445" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label09" text="English Name" position="absolute" left="604" width="140" top="445" height="34" cssclass="sta_WFDA_labelB"/>
+        <Edit id="Edit03" taborder="27" position="absolute" left="461" width="133" top="448" height="28" cssclass="input_point"/>
+        <Edit id="Edit04" taborder="28" position="absolute" left="751" width="155" top="448" height="28"/>
+        <Static id="sta_WFDA_Label10" text="Working area" position="absolute" left="604" width="140" top="478" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label11" position="absolute" text="" left="743" right="30" top="478" height="34" cssclass="sta_WFDA_B"/>
+        <Combo id="Combo03" taborder="29" position="absolute" left="751" width="155" top="481" height="28"/>
+        <Static id="sta_WFDA_Label12" position="absolute" text="" left="169" width="146" top="511" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label13" text="Established date" position="absolute" left="314" width="140" top="511" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label15" text="Established date" position="absolute" left="604" width="140" top="511" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label16" position="absolute" text="" left="743" right="30" top="511" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label17" position="absolute" text="" left="169" width="146" top="544" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label18" text="Korean Name" position="absolute" left="314" width="140" top="544" height="34" cssclass="sta_WFDA_labelB"/>
+        <Static id="sta_WFDA_Label19" position="absolute" text="" left="453" right="30" top="544" height="34" cssclass="sta_WFDA_B"/>
+        <Static id="sta_WFDA_Label22" position="absolute" text="" left="169" right="30" top="577" bottom="30" cssclass="sta_WFDA_B"/>
+        <Edit id="Edit05" taborder="30" position="absolute" left="178" width="83" top="514" height="28" cssclass="sta_WFDA_labelB"/>
+        <CheckBox id="CheckBox00" taborder="31" position="absolute" left="269" width="28" top="514" height="28"/>
+        <Combo id="Combo04" taborder="32" position="absolute" left="751" width="155" top="514" height="28"/>
+        <Calendar id="Calendar03" taborder="33" text="2011-06-20" dateformat="yyyy-MM-dd" position="absolute" left="461" width="117" top="514" height="28"/>
+        <Calendar id="Calendar04" taborder="34" text="2011-06-20" dateformat="yyyy-MM-dd" position="absolute" left="178" width="110" top="547" height="28"/>
+        <Edit id="Edit06" taborder="35" position="absolute" left="461" width="445" top="547" height="28"/>
+        <TextArea id="TextArea00" taborder="36" position="absolute" left="178" right="38" top="582" bottom="36"/>
+        <Button id="Button00" taborder="37" text="Excel Download" position="absolute" right="30" width="120" top="149" height="28" cssclass="button_WF_white"/>
+        <Grid id="Grid00" taborder="41" binddataset="ds_grid" useinputpanel="false" autofittype="col" position="absolute" left="30" top="187" height="200" right="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="141"/>
+                <Column size="129"/>
+                <Column size="102"/>
+                <Column size="211"/>
+                <Column size="144"/>
+                <Column size="154"/>
+                <Column size="113"/>
+                <Column size="118"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Processing Status" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="Construction type" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="Order Number" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="Subcontracting construction name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="Cnstruction period" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="execution  amount " font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="Requestor" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="Date of Request" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" text="Division" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="bind:Column1" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="bind:Column2" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="bind:Column3" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="bind:Column4" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="bind:Column5" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="bind:Column6" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="bind:Column7" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" text="bind:Column8" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="st_progress" taborder="42" text="location" cssclass="sta_WF_progress" left="30" top="18" width="808" height="30"/>
+        <Button id="btn_WF_search" taborder="49" top="99" width="70" height="28" text="Search" left="686" cssclass="button_WF_white"/>
+        <Edit id="Edit07" taborder="50" cssclass="input_point" left="124" top="99" width="100" height="28" background="#ffffff"/>
+        <Button id="btn_WFSA_Search00" taborder="51" cssclass="btn_WFDA_Search" left="196" top="100" width="26" height="26" style="image:URL('theme://images/ico_Search.png');"/>
+        <Edit id="Edit08" taborder="52" enable="false" left="229" top="99" width="100" height="28" background="#ffffff"/>
+        <Static id="Static06" taborder="53" text="~" left="304" top="481" width="15" height="28"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+          <Column id="Column8" type="STRING" size="256"/>
+          <Column id="Column9" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

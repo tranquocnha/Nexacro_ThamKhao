@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_System_FormID" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_System_FormID" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="138" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="138" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="30" width="310" top="78" height="40"/>
+        <Static id="Static05" taborder="3" text="Checking current screen ID" cssclass="sta_WF_subtitP" left="30" top="18" width="360" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_System_FormID
+ * Description : Finding current screen file name
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_formID();	
+	this.edt_output.set_value(sRtn);
+};
+
+/*
+ * Function Name : fn_formID
+ * Description   : Finding current screen file name
+ * Parameter     : 
+ * Return        : Form ID
+ * Example       : fn_formID();
+ */
+this.fn_formID = function() 
+{
+	var sUrl   = this.getOwnerFrame().formurl;
+	var nStart = 0;
+	var nIndex = sUrl.indexOf("::");
+
+    //Finding service group closing location
+    if ( nIndex > - 1)
+    {
+        nStart = nIndex + 2;
+    }
+	
+	var nEnd    = sUrl.indexOf(".xfdl");
+    var sFromId = sUrl.substring(nStart, nEnd);	
+    
+    //In case if you have sub folder
+	if (sFromId.indexOf("\\") > -1)
+	{
+		var arPath = sFromId.split("\\");	
+		sFromId    = arPath[arPath.length - 1];
+	}
+	return sFromId;
+};
+]]></Script>
+  </Form>
+</FDL>

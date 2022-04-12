@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="250" onload="form_onload">
+    <Layouts>
+      <Layout height="250" width="920">
+        <Static id="Static00" taborder="1" text="기본 컴포넌트" left="20" top="15" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="comp.components" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="웹 어플리케이션에 있어 가장 중요한 요소 중 하나는 사용자와 시스템을 연결해주는 UI 컨트롤입니다. &#13;&#10;넥사크로플랫폼은 60여가지 이상의 UI 컴포넌트를 제공하고 있으며 버튼, 에디트박스, 그리드, 체크박스, 콤보 등의 기본 컴포넌트를 통해 사용자에게 효과적으로 데이터를 표현하거나 조작하게 하여 업무 생산성을 제고합니다.&#13;&#10;&#13;&#10;또한 기본 컴포넌트 내에 Sketch, Video, Graphic, MAP 등의 컴포넌트가 포함되어 있어 업무 시스템 구축 시 기능에 대한 확장성을 제공합니다.&#13;&#10;&#13;&#10;모든 컴포넌트는 멀티 플랫폼, 멀티 브라우저를 기본 지원하여 웹 호환성을 위한 별도 작업이 불필요하므로 시스템 구축에 대한 비용을 절감시킵니다." left="20" top="Static00:2" height="193" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.components.desc" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

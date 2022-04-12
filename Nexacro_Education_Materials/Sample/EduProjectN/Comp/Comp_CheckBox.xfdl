@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Comp_CheckBox" width="1000" height="700" titletext="Component-Checkbox">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000">
+        <Static id="Static07" taborder="7" text=" Basic Usage" left="10" top="40" width="250" height="30" cssclass="sta_WF_TypeTitle"/>
+        <CheckBox id="CheckBox00" taborder="1" text="Marital Status" left="20" top="70" width="160" height="30" onchanged="CheckBox00_onchanged" value="true"/>
+        <CheckBox id="CheckBox03" taborder="4" text="Position-Right  " left="172" top="516" width="152" height="50" value="true" iconPosition="right" textAlign=""/>
+        <CheckBox id="CheckBox04" taborder="5" text="Position-Top" left="324" top="516" width="152" height="50" value="true" iconPosition="top" textAlign="center"/>
+        <CheckBox id="CheckBox05" taborder="6" text="Position-Bottom" left="476" top="516" width="152" height="50" value="true" iconPosition="bottom" textAlign="center"/>
+        <CheckBox id="CheckBox02" taborder="3" text="Position-Left" left="20" top="516" width="152" height="50" value="true"/>
+        <CheckBox id="CheckBox01" taborder="2" text="true 'Y' / false 'N'" left="20" top="150" width="158" height="30" truevalue="Y" falsevalue="N" value="Y" onchanged="CheckBox01_onchanged"/>
+        <Static id="Static08" taborder="0" text="CheckBox" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <Static id="Static04" taborder="8" text=" True/False Value (Prop. truevalue / falsevalue)" left="10" top="120" width="436" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Static id="Static05" taborder="9" text=" Icon Position (Prop. iconPosition)" left="10" top="486" width="380" height="30" cssclass="sta_WF_TypeTitle"/>
+        <Grid id="Grid00" taborder="10" left="20" top="230" width="300" height="226" binddataset="ds_data" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="60"/>
+                <Column size="120"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="32"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="data"/>
+                <Cell col="1" text="default"/>
+                <Cell col="2" text="true Y / false N"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column0" displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="2" text="bind:Column0" displaytype="checkboxcontrol" edittype="checkbox" checkboxtruevalue="Y" checkboxfalsevalue="N"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <CheckBox id="CheckBox06" taborder="11" text="Default" left="335" top="229" width="150" height="30"/>
+        <CheckBox id="CheckBox06_00" taborder="12" text="true Y / false N" left="335" top="259" width="150" height="30" truevalue="Y" falsevalue="N"/>
+        <Static id="sta_default" taborder="13" left="184" top="70" width="206" height="30" text="※ default value: true"/>
+        <Static id="sta_value" taborder="14" left="184" top="150" width="206" height="30" text="※ value: Y"/>
+        <Static id="Static04_00" taborder="15" text=" Default vs TrueValue / FalseValue" left="10" top="200" width="326" height="30" cssclass="sta_WF_TypeTitle"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.CheckBox01_onchanged = function(obj:nexacro.CheckBox,e:nexacro.CheckBoxChangedEventInfo)
+{
+	this.sta_value.set_text("※ value: " + obj.value);
+};
+
+this.CheckBox00_onchanged = function(obj:nexacro.CheckBox,e:nexacro.CheckBoxChangedEventInfo)
+{
+	this.sta_default.set_text("※ default value: " + obj.value);
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_data">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">true</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">false</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Y</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">N</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="CheckBox06" propid="value" datasetid="ds_data" columnid="Column0"/>
+      <BindItem id="item1" compid="CheckBox06_00" propid="value" datasetid="ds_data" columnid="Column0"/>
+    </Bind>
+  </Form>
+</FDL>

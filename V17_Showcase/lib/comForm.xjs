@@ -1,0 +1,665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script type="xscript4.0"><![CDATA[/*********************************************************
+ *	FORM 관련 함수 모음
+*********************************************************/
+
+
+/*******************************************************************************
+ * 기능        : Work FrameSet 영역에 화면 생성.
+ * parameter    : strMenuId - Menu Id
+ * return       :
+******************************************************************************/
+function gf_AddPage(strMenuId)
+{
+	/*
+	if(strMenuId=="09001")
+	{
+		gf_PushPop("Push", "work::work003.xfdl", 1280, 640, false, "Top Left");
+		return;
+	}
+	*/
+	
+    //trace("gf_AddPage >>> strMenuId : " + strMenuId);
+    if (gf_IsNull(strMenuId)) return;
+    
+    var fRow = gds_menu.findRow("menuId", strMenuId);
+    if (fRow < 0) return;
+
+    var strUrl = "";
+    var strForm_Path = gds_menu.getColumn(fRow, "formPath");
+    var strFormId    = gds_menu.getColumn(fRow, "formId");
+    var strCaption   = gds_menu.getColumn(fRow, "menuNm");
+//     var strCaption1  = gds_menu.lookup("menuId", gds_menu.getColumn(fRow, "menuId1Level"), "menuNm");
+//     var strCaption2  = gds_menu.lookup("menuId", gds_menu.getColumn(fRow, "menuId2Level"), "menuNm");
+//     var strCaption3  = gds_menu.lookup("menuId", gds_menu.getColumn(fRow, "menuId3Level"), "menuNm");
+    
+    strUrl = strForm_Path + "::" + strFormId + ".xfdl";
+    
+    if (gf_IsNull(strForm_Path) || gf_IsNull(strFormId)) return;
+
+    var strPageId = "WORKFORM_" + strMenuId;
+	
+	// 기 Open Window Focus 처리
+	var objPage	= afrm_WorkSet.all[strPageId];
+    
+    afrm_WorkSet.reqMenuId = strMenuId;
+	
+    var openRow = gds_openPage.findRow("formId", strPageId);
+    
+    if (!gf_IsNull(objPage) || openRow > -1)
+    {
+		// Intro 활성화 여부 체크 - 2011.08.09
+		if(!afrm_WorkSet.visible)
+		{
+			afrm_WorkSet.visible = true;
+			afrm_Intro.visible  = false;
+		}
+		// ----------------------------------------
+		// old
+        //objPage.form.setFocus(); 	
+        //afrm_Tab.form.fn_ActiveTitle(gds_openPage.getColumn(openRow, "formId"));
+        // 2011.12.26 New
+        afrm_Tab.form.fn_tab_WorkTitle_Change(openRow);
+        
+        // LeftMenu Group Filter 2011.11.17 Add ------------------------------- Start
+        var v_TopMenuId  = gds_menu.getColumn(fRow, "menuId1Level");		
+		var v_GrpMenuId  = gds_menu.getColumn(fRow, "menuId2Level");				
+		afrm_Top.form.fn_setSubMenu(v_TopMenuId, v_GrpMenuId);
+		gds_menu_left.rowposition = gds_menu_left.findRow("menuId" ,strMenuId);
+		
+		// 그리드 스크롤 포지션 조정	: 2011.12.14 Add
+		if(afrm_Left.form.grd_LF_SubMenu.vscrollbar.max > afrm_Left.form.fv_nMenuGrdPos)
+		{
+			afrm_Left.form.grd_LF_SubMenu.vscrollbar.pos = afrm_Left.form.fv_nMenuGrdPos;
+		}
+        // LeftMenu Group Filter 2011.11.17 Add ------------------------------- End 
+        
+		// 이미열려있는 화면일 경우 화면간 interface Arg 존재시 호출 
+		var arrArg = gf_GetScreenParams();		
+		//trace("gf_AddPage >>> arrArg :" + arrArg);
+		if (!gf_IsNull(arrArg)) 
+		{
+			objPage.form.div_Work.f_getScreenParams(arrArg);		 
+		}		
+		return;
+	}
+	
+    // Max Window Count 체크
+    if (gds_openPage.getRowCount() > av_OpenWindowCnt - 1)
+    {
+        // 업무화면 Opoen 갯수 10개로 제한.
+        //alert("업무화면은 " + av_OpenWindowCnt + "개를 초과 할 수 없습니다.");
+        gf_GetMsg("MA001", "업무화면은 " + av_OpenWindowCnt + "개를 초과 할 수 없습니다.");
+        return;
+    }
+    
+    //trace("afrm_WorkSet.visible : " + afrm_WorkSet.visible);
+    
+    // Intro 활성화 여부 체크 - 2011.08.09
+	/*if(!afrm_WorkSet.visible)
+	{
+		afrm_WorkSet.visible = true;
+		afrm_Tab.visible = true;
+		afrm_Intro.visible  = false;
+    }*/
+    afrm_HFrameSet2.separatesize  = "218,*";
+	afrm_VFrameSet3.separatesize  = "29,0,*";
+    // ---------------------------------------
+    // 타이틀
+//     var strTitletext = "";
+//     if (!gf_IsNull(strCaption1)) 
+//     {
+// 		strTitletext = strCaption1 + " > ";
+//     }
+// 
+//     if (!gf_IsNull(strCaption2)) 
+//     {
+// 		strTitletext += strCaption2 + " > ";
+//     }
+// 
+//     if (!gf_IsNull(strCaption3)) 
+//     {
+// 		strTitletext += strCaption3 + " > ";
+//     }
+    
+    // 2011.09.29 수정
+    var strTitletext = gds_menu.lookup("menuId", gds_menu.getColumn(fRow, "menuId2Level"), "menuNm");//gds_menu.getColumn(fRow, "menuPath") ;
+    // gds_menu.lookup("menuId", gds_menu.getColumn(fRow, "menuId1Level"), "menuNm");
+    if (!gf_IsNull(strCaption)) 
+    {
+		//strTitletext += strCaption;
+		strTitletext += ">" + "<b v='true'>"  + strCaption + "</b>"; 
+    }
+    
+    // ChildFrame 생성
+    var objNewPage = new ChildFrame();
+
+	objNewPage.init(strPageId, 0, 0, av_divWidth, av_divHeight, "frm::frmWork.xfdl");
+	
+    afrm_WorkSet.addChild(strPageId, objNewPage);
+    objNewPage.ARG_FORM_URL = strUrl;
+    objNewPage.ARG_MENU_ID 	= strMenuId;
+    objNewPage.ARG_TITLE 	= strCaption;					// Navigation
+    objNewPage.showtitlebar = false;
+    objNewPage.resizable 	= true;
+   
+    objNewPage.openstatus 	= "maximize";
+    objNewPage.style.border		= "0 none transparent";
+    objNewPage.style.bordertype	= "normal 0 0";   
+    objNewPage.titletext = strCaption;						// 화면 Title
+ 
+	objNewPage.show();
+	
+	
+	/******* 팝업/메뉴 전환 버튼 생성 **********/
+	var objTitlebar = objNewPage.titlebar;		
+	var objButton = new Button();
+	var nBtnLeft = objTitlebar.minbutton.position.left-40;
+	var nBtnTop = 0;
+	var nBtnRight = nBtnLeft + 20;
+	var nBtnBottom = nBtnTop + 21;
+	
+	//버튼 위치 설정
+	objButton.init("btn_Pop", nBtnLeft, nBtnTop, nBtnRight, nBtnBottom);
+	//버튼 초기 Class 설정
+	//objButton.background = "blue";
+	objButton.class = "CFnewWin";
+	//버튼 Margin설정
+	//objButton.style.margin = "2 0 -4 0";
+	objButton.style.cursor = "hand";
+	objButton.onclick.addHandler(btnChanagePop_onclick);
+	objTitlebar.addChild(objButton.name, objButton);
+	objButton.type = "POP";
+	objButton.menuId = strPageId;
+	//dup 창띄어내기 버튼 생성
+	objButton.show();
+	/******* 팝업/메뉴 전환 버튼 생성 **********/
+
+
+    // Open 정보 추가
+    var nRow = gds_openPage.addRow();
+    gds_openPage.setColumn(nRow, "menuNm", strCaption);
+    gds_openPage.setColumn(nRow, "menuId", strMenuId);
+    gds_openPage.setColumn(nRow, "formId", strPageId);
+    gds_openPage.setColumn(nRow, "level" , "0");
+    
+    // Title Tab 추가
+    afrm_Tab.form.fn_AddTitle(strPageId, strCaption);
+
+    // 화면 최대화
+    av_OpenStatus = "maximize";
+    av_arrange = "m";
+
+    return objNewPage;
+}
+
+function btnChanagePop_onclick(obj:Button,  e:ClickEventInfo)
+{
+	if(obj.type=="POP")
+	{
+		obj.type = "MENU";
+		sysf_ChangePopup(obj.menuId);
+	}else if(obj.type=="MENU")
+	{
+		obj.type = "POP";
+		sysf_ChangeMenu(obj.menuId);
+	}
+}
+
+function sysf_ChangePopup(menuId)
+{
+	var objChildFrame;
+	objChildFrame = afrm_WorkSet.removeChild(menuId);
+	
+	if( objChildFrame != undefined )
+	{
+		objChildFrame.openstatus = "normal";
+		objChildFrame.showModeless(menuId+"_POP");
+	} else
+	{
+		alert(menuId + "Form Not");
+	}
+}
+
+function sysf_ChangeMenu(menuId){ 
+
+	var objChildFrame = application.popupframes[menuId+"_POP"];
+	if( objChildFrame != undefined )
+	{
+		var rtn = objChildFrame.hideModeless();
+		afrm_WorkSet.addChild(menuId, objChildFrame);
+		objChildFrame.openstatus = "normal";
+		objChildFrame.openstatus = "maximize";
+		
+		//hideModeless인해 bottom쪽 버튼 활성화안되는현상 lfn_activeTabpage() 호출로 개선
+		//
+		//gv_TabFrame.form.lfn_activeTabpage(menuId);
+	}else
+	{
+		alert(menuId + "Form Not");
+	}
+}
+
+//gf_PushPop("Push", "work::work003.xfdl", 1280, 640, false, "Top Left");
+function gf_PushPop(strId, strURL, nWidth, nHeight, bShowTitle)
+{
+    var newChild = null;
+    var objParentFrame = this.getOwnerFrame();
+    var nRight = 0;
+    var nBottom = 0;
+	
+	var nX   = system.clientToScreenX(afrm_Top, 0);
+	var nY   = system.clientToScreenY(afrm_Top, 54);
+	trace(nX);
+	trace(nY);
+    var newChild = new ChildFrame;
+    newChild.init(strId, nX, nY, nX+nWidth, nY+nHeight, strURL);
+    newChild.showtitlebar = false;
+	
+	newChild.style.background = "transparent"; 
+	newChild.style.border = "0px none #ffffffff";
+	newChild.layered = true;
+	
+    var rtn = newChild.showModal(objParentFrame, "");
+    return rtn;
+}
+
+/*******************************************************************************
+ * 기능        : Form Load 시 공통 기능 처리
+ * parameter    : form obj
+ * return       :
+******************************************************************************/
+function gf_SetInitForm(obj) 
+{
+	var nX = obj.orgWidth;
+	var nY = obj.orgHeight;
+	
+	if (gf_IsNull(nX)) 
+	{
+		if(isExistVariable("av_divWidth"))	
+		{
+			nX = gv_initWidth;
+		} else {
+			nX = obj.position.width;
+		}
+	}
+	
+	if (gf_IsNull(nY)) 
+	{
+		if(isExistVariable("av_divHeight"))	
+		{
+			nY = gv_initHeight;
+		} else {
+			nY = obj.position.height;
+		}
+	}
+	
+	//trace("gf_SetInitForm >>> obj.name :" + obj.name + " / nX : " + nX + "/ nY : " + nY);
+	gf_rszf_SetResize(obj, nX, nY);
+}
+
+
+/*****************************************************************************************
+ * 함  수  명	: 	gf_GetMsg()
+ * 입      력	: 	1. strCode	- Message Code
+ *                  2. strTxt 	- Message Txt(사용자 지정 메세지 내용)
+ * 반      환	: 	팝업 return값
+ * 기      능	: 	Client Message Convert 및 공통팝업 호출
+ *****************************************************************************************/
+function gf_GetMsg(strCode, strTxt)
+{
+	var rtnVal;
+	var bMsgType;
+	var strMsgTx;
+	var arrMsgTx;
+	
+	var nFIdx = gds_message.findRow("msgId", strCode);
+	
+	if(nFIdx == -1) 
+	{
+		//alert("메시지코드 에러..메시지 관리에서 등록하세요..Code : " + strCode);
+		gf_GetMsg("MA001", "메시지코드 에러..메시지 관리에서 등록하세요..Code : " + strCode);
+		return false;
+	}
+	
+	fMsgType = gds_message.getColumn(nFIdx, "msgTp");
+	strMsgTx = gds_message.getColumn(nFIdx, "msgTx");
+	
+	if(gf_IsNull(strMsgTx))
+	{
+		strMsgTx = strTxt
+	} else {
+		// Message Convert
+		if(gf_IsNull(strTxt))
+		{
+			// strMsgTx = 
+		} else {		
+			arrMsgTx = strTxt.split("|");
+			for(var i=0; i<arrMsgTx.length;i++) 
+			{
+				//var strIdx = "&Itm" + i.toString();
+				var strIdx = "{" + i.toString() + "}";
+				strMsgTx = strMsgTx.replace(strIdx, arrMsgTx[i]);		// {0} ---> "조회조건0"
+			}
+		}
+	}
+	
+	// 공통팝업 호출
+	if(fMsgType == "A")				// Alert
+	{
+		gf_Alert(strMsgTx);
+		
+	} else if(fMsgType == "C") {	// Confirm
+		rtnVal = gf_Confirm(strMsgTx);
+		return rtnVal;
+		
+	} else if(fMsgType == "S") {	// Status
+		rtnVal = strMsgTx;
+		return rtnVal;
+	}
+	
+}
+
+/*****************************************************************************************
+ * 함  수  명	: 	gf_SetStatus
+ * 입      력	: 	1. strText 	: 보여줄 메시지
+ *					2. strColr 	: Font Colr
+ *					3. bBold	: Bold 유무
+ *					4. bBlink	: Blink 유무
+ * 반      환	: 	none
+ * 기      능	: 	TRANSACTION에 상태를 BOTTOM에 출력한다.
+ *****************************************************************************************/
+function gf_SetStatus(strText, strColr, bBold, bBlink)
+{
+	afrm_Stat.form.fn_SetMessage(strText, strColr, bBold, bBlink);
+	
+}
+
+/*********************************************************************
+ * 함 수 명 	: gf_Alert
+ * 함수 설명 	: 공통 알림창
+ * 입    력		: strMsg	- 알림내용
+ * 결    과		: true
+ *********************************************************************/
+function gf_Alert(strMsg)
+{
+	var strArgument = {fv_Contents:strMsg};
+	
+	gf_Dialog( "comAlert"				// dialogId
+			 , "com::comAlert.xfdl"		// Url
+			 , 300						// Width
+			 , 151						// Height
+			 , false					// Show Title
+			 , -1						// str Align - popup Position
+			 , strArgument				// Argument
+			 , false					// isModeless : Default - false
+			 );
+	
+}
+ 
+ /*********************************************************************
+ * 함 수 명 	: gf_Confirm
+ * 함수 설명 	: 공통 확인창
+ * 입    력		: strMsg	- 확인내용
+ * 결    과		: true/false
+ *********************************************************************/
+function gf_Confirm(strMsg)
+{
+	var rtnVal;
+	var strArgument = {fv_Contents:strMsg};
+	
+	rtnVal = gf_Dialog( "comConfirm"			// dialogId
+					  , "com::comConfirm.xfdl"	// Url
+					  , 300						// Width
+					  , 151						// Height
+					  , false					// Show Title
+					  , -1						// str Align - popup Position
+					  , strArgument				// Argument
+					  , false					// isModeless : Default - false
+					  );
+
+	return rtnVal;
+}
+
+/*******************************************************************************
+ * 작성자 : AA
+ * 공통 Modal Dialog를 실행 한다.
+ * parameter 1. strId  : Dialog ID
+             2. strURL : Form URL
+             3. nTop   : Form TOP Position
+             4. nLeft  : Form Left Position
+             5. nWidth : Form Width
+             6. nHeight: Form Height
+             7. bShowTitle : Form Title 을 표시 할지 여부
+             8. strAlign: Dialog 의 위치 - '-1' : 모니터의 중앙
+                                          - 'Bottom Left' : Click 된 마우스 위치의 좌측 하단 정렬
+                                          - 'Top Left' : Click 된 마우스 위치의 좌측 상단 정렬
+                                          - 'Bottom Right' : Click 된 마우스 위치의 우측 하단 정렬
+                                          - 'Top Right' : Click 된 마우스 위치의 우측 상단 정렬
+                                          - 'offset' : Click 된 마우스 위치에서 nTop,nLeft만큼 들여쓰기.
+                                          - 'absolute' : 입력된 좌표를 Screen 좌표로 인식.(손영기)
+                                          - '0' : 사용자 임의 정렬
+             9. strArgument: Dialog 로 전달될 Argument - {strMessage1:'E'}
+            10. isModeless: 10번째 true 면 Dialog 를 Modeless로 띄운다.
+ * return true/false - 적합 / 부적합
+ ******************************************************************************/
+function gf_Dialog(strId, strURL, nWidth, nHeight, bShowTitle, strAlign, strArgument, isModeless)
+{
+    var newChild = null;
+    var objParentFrame = this.getOwnerFrame();
+    var nRight = 0;
+    var nBottom = 0;
+	
+	//trace("gf_Dialog	>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+	/*
+	trace("strId		: " + strId);
+	trace("strURL 	  	: " + strURL);
+	//trace("nTop 	  	: " + nTop);
+	//trace("nLeft 	  	: " + nLeft);
+	trace("nWidth 	  	: " + nWidth);
+	trace("nHeight 	  	: " + nHeight);
+	trace("bShowTitle 	: " + bShowTitle);
+	trace("strAlign 	: " + strAlign);
+	trace("strArgument 	: " + strArgument);
+	trace("isModeless 	: " + isModeless);
+	//trace("isLayered 	: " + isLayered);
+	//trace("bAutoSize 	: " + bAutoSize);
+	*/
+	//return;
+	
+    if (strAlign == "Bottom Left") 
+    {
+        nLeft = system.cursorx;
+        nBottom = system.cursory - 5;
+        nTop = nBottom - nHeight;
+        nRight = nLeft + nWidth;
+        
+    } else if (strAlign == "Top Left") {
+        nTop = system.cursory - 5;
+        nLeft = system.cursorx;
+        nBottom = nTop + nHeight;
+        nRight = nLeft + nWidth;
+        
+    } else if (strAlign == "Bottom Right") {
+        nRight = system.cursorx;
+        nBottom = system.cursory - 5;
+        nTop = nBottom - nHeight;
+        nLeft = nRight - nWidth;
+        
+    } else if (strAlign == "Top Right") {
+        nTop = system.cursory - 5;
+        nRight = system.cursorx;
+        nBottom = nTop + nHeight;
+        nLeft = nRight - nWidth;
+        
+    } else if (strAlign == "-1") {
+
+        var strScreenRes = system.getScreenResolution(1);
+        var nCenterX = new Number(strScreenRes.split(" ")[0]);
+        var nCenterY = new Number(strScreenRes.split(" ")[1]);
+
+        var nMarginX = 0;
+        var nMoniterIndex = system.getMonitorIndex(system.cursorx, system.cursory);
+        
+        if (nMoniterIndex == 2) 
+        {
+            var strMarginRes = system.getScreenResolution(1);
+            nMarginX = new Number(strMarginRes.split(" ")[0]);
+        }
+        nTop = Math.round(mainframe.position.height / 2) - Math.round(nHeight / 2) + mainframe.position.top;
+        nLeft = Math.round(mainframe.position.width / 2) - Math.round(nWidth / 2) + mainframe.position.left;
+        nBottom = nTop + nHeight;
+        nRight = nLeft + nWidth;
+        
+    } else if (strAlign == "offset") {
+        nTop += system.cursory;
+        nLeft += system.cursorx;
+        nBottom = nTop + nHeight;
+        nRight = nLeft + nWidth;
+        
+    } else if (strAlign == "absolute") {
+        nBottom = nTop + nHeight;
+        nRight = nLeft + nWidth;
+        
+    } else {
+        nTop += mainframe.position.top;
+        nLeft += mainframe.position.left;
+        nBottom = nTop + nHeight;
+        nRight = nLeft + nWidth;
+    }
+
+    // 화면 밖으로 벗어나는 Dialog 방지
+    var nMonitor = system.getMonitorIndex((nLeft+nRight)/2,(nTop+nBottom)/2);
+    var rectScreen = system.getScreenRect(nMonitor);
+    
+    if(nBottom > rectScreen.bottom)
+    {
+        nTop = rectScreen.bottom - (nBottom - nTop);
+        nBottom = rectScreen.bottom;
+    } 
+    
+    if(nTop < rectScreen.top)
+    {
+        nBottom = rectScreen.top + (nBottom - nTop);
+        nTop = rectScreen.top;
+    }
+    
+    if(nRight > rectScreen.right)
+    {
+        nLeft = rectScreen.right - (nRight - nLeft);
+        nRight = rectScreen.right;
+    }
+    
+    if(nLeft < rectScreen.left)
+    {
+        nRight = rectScreen.left + (nRight - nLeft);
+        nLeft = rectScreen.left;
+    }
+    
+    var newChild = new ChildFrame;
+    newChild.init(strId, nLeft, nTop, nRight, nBottom, strURL);
+
+    if (!bShowTitle) newChild.showtitlebar = false;
+	
+	// RD Viewer 처리시 
+	if(strId == "openReportPop")
+	{
+		newChild.style.background = "transparent"; 
+		newChild.style.border = "0px none #ffffffff";
+		//newChild.layered = true;
+	} else {		// 일반팝업
+		
+		if(bShowTitle)		// 메뉴화면을 팝업화면으로 동시 사용할때
+		{
+			newChild.style.background = "transparent"; 
+			newChild.style.border = "1 solid #2d6da3";
+		} else {
+			newChild.style.background = "transparent"; 
+			newChild.style.border = "0px none #ffffffff";
+			newChild.layered = true;
+		}
+	}
+	
+    if (isModeless == true)
+    {
+        return newChild.showModeless(objParentFrame, strArgument);
+    } else {
+        var rtn = newChild.showModal(objParentFrame, strArgument);
+        return rtn;
+    }
+}
+
+
+/*******************************************************************************
+ * 기능        : 화면간의 parameter 설정.
+ * parameter    : arrParam - 인자 array
+ * return       :
+******************************************************************************/
+function gf_SetScreenParams(arrParam)
+{
+	av_ArrParam = arrParam;
+}
+
+
+/*******************************************************************************
+ * 기능        : 화면간의 parameter 들의 전달값 가져옴.
+ * parameter    : 
+ * return       : returnArray - 인자 array
+******************************************************************************/
+function gf_GetScreenParams()
+{
+	var returnArray = av_ArrParam;
+	
+	// 초기화
+	av_ArrParam = new Array();
+	
+	//trace("gf_GetScreenParams - 화면간의 parameter 들의 전달값 가져옴 >>> returnArray : " + returnArray );
+	
+	return returnArray;
+}
+
+
+/*******************************************************************************
+ * 기능        : Work FrameSet 영역에 화면  생성.
+ * parameter    : strMenuId - Menu Id
+ * return       :
+******************************************************************************/
+function gf_OpenMenu(strMenuId, arrParam)
+{
+	gf_SetScreenParams(arrParam);  	// 화면간의 parameter 설정.
+    
+    gf_AddPage(strMenuId);			// mdi 화면 생성
+ }
+
+
+/*******************************************************************************
+ * 기능        : 고객정보를 접근할 때 경고를 보여줌
+ * parameter    : strScrnId : 화면ID 
+                  strPrgmId : 프로그램ID(Controller 프로그램ID를 말함.  ~.mvc )
+                  strPrgmNm : 프로그래명(Controller명 또는 화면명)
+ * return       :
+******************************************************************************/
+function  gf_PopNotice(strScrnId, strPrgmId, strPrgmNm)
+{
+	strArgument = {Arg1:strScrnId,Arg2:strPrgmId,Arg3:strPrgmNm};
+	
+    //팝업호출
+    var rtnVal = gf_Dialog("popNotice"        // dialogId
+              , "cmn::cmnM010P01.xfdl"        // Url
+              , 380                           // Width
+              , 192                           // Height
+              , false                         // Show Title
+              , -1                            // str Align - popup Position
+              , strArgument                   // Argument
+              , false                         // isModeless : Default - false
+              );
+	
+	//리턴값 체크
+	if(rtnVal != null)
+	{
+	    return rtnVal[0];  // 로그저장시 Y , 비저장시 N 이 리턴
+	}
+	
+	return null;
+}
+]]></Script>

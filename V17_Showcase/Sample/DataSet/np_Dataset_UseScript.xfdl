@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Dataset_UseScript" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Dataset_UseScript" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="559" width="90" top="85" height="40"/>
+        <Grid id="grd_output0" taborder="0" autoenter="select" useinputpanel="false" style="font:Dotum,9;" position="absolute" left="30" width="250" top="85" height="147" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:COL0"/>
+                <Cell col="1" edittype="normal" text="bind:COL1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_output1" taborder="1" autoenter="select" useinputpanel="false" style="font:Dotum,9;" position="absolute" left="289" width="250" top="85" height="147" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:COL0"/>
+                <Cell col="1" edittype="normal" text="bind:COL1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Edit id="Edit00" taborder="2" left="30" top="242" width="250" height="40"/>
+        <Edit id="Edit01" taborder="3" left="289" top="242" width="250" height="40"/>
+        <Static id="Static05" taborder="4" text="By using Script Creating GlobalDataSet, LocalDataSet " cssclass="sta_WF_subtitP" left="30" top="25" width="700" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Comp_Dataset_UseScript
+ * Description : By using Script Creating GlobalDataSet, LocalDataSet
+ */
+
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var objApp = nexacro.getApplication();
+	var objGdS = new Dataset;	
+	objApp.addVariable("gds_data", objGdS, "global");
+	objApp.gds_data.set_name("gds_data");
+	objApp.gds_data.addColumn("COL0","String");
+	objApp.gds_data.addColumn("COL1","String");
+	objApp.gds_data.addRow();
+	objApp.gds_data.setColumn(objApp.gds_data.rowposition,"COL0","global COL0");
+	objApp.gds_data.setColumn(objApp.gds_data.rowposition,"COL1","global COL1");
+	this.grd_output0.set_binddataset("gds_data");
+	this.grd_output0.createFormat();
+
+	     
+	var objLdS = new Dataset;
+	objLdS.set_name("ds_data");
+	this.addChild("ds_data", objLdS);  
+
+	this.ds_data.addColumn("COL0","String");
+	this.ds_data.addColumn("COL1","String");
+	this.ds_data.addRow();
+	this.ds_data.setColumn(this.ds_data.rowposition,"COL0","1");
+	this.ds_data.setColumn(this.ds_data.rowposition,"COL1","first");
+	this.ds_data.addRow();
+	this.ds_data.setColumn(this.ds_data.rowposition,"COL0","2");
+	this.ds_data.setColumn(this.ds_data.rowposition,"COL1","second");
+
+	this.grd_output1.set_binddataset("ds_data");	
+	this.grd_output1.createFormat();
+
+    this.Edit00.set_value('global dataset count : ' + objApp.all["gds_data"].rowcount);
+    this.Edit01.set_value('local  dataset count : ' + this.all["ds_data"].rowcount);
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,63 @@
+﻿<HTML >
+<HEAD>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <TITLE>test</TITLE> 
+	<link rel="stylesheet" href="../lib/codemirror.css">
+	<script src="../lib/codemirror_new.js" type="text/javascript"></script>
+	<script src="../mode/sql/sql.js" type="text/javascript"></script>
+	
+<link rel="stylesheet" href="../addon/hint/show-hint.css" />
+<script src="../addon/hint/show-hint.js"></script>
+<script src="../addon/hint/sql-hint.js"></script>	
+</HEAD>
+<BODY>
+<div id="code"></div>
+<form>
+<textarea id="editor" name="editor" rows="20" cols="50">
+SELECT TITLE, 
+       LINK, 
+       IMAGE, 
+       AUTHOR, 
+       PRICE, 
+       DISCOUNT, 
+       PUBLISHER, 
+       PUBDATE, 
+       ISBN, 
+       DESCRIPTION, 
+       CHECKDATE, 
+       INPUTDATE 
+  FROM BOOKINFO
+WHERE 1=1
+<if test="dsBOOKINFO_I.ISBN != null and dsBOOKINFO_I.ISBN != '' ">
+    AND ISBN = #{dsBOOKINFO_I.ISBN}
+</if>
+</textarea>
+</form>
+
+    <SCRIPT type="text/javascript">
+
+		var ta = document.getElementById('editor');
+		var code = document.getElementById('code');
+      var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+        lineNumbers: true,
+        extraKeys: {"Ctrl-Space": "autocomplete"},
+		mode: "text/x-mariadb"
+      });
+/*	  
+		var editor = CodeMirror(code, {
+		  value: "At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. ",
+		  mode: "sql"
+		});
+		*/
+		/*
+		var editor = CodeMirror.fromTextArea(ta, {
+			lineNumbers: true,
+			lineWrapping: true,
+			theme: "eclipse",
+			val: ta.value
+		} );
+		*/
+		
+    </SCRIPT>
+</BODY>
+</HTML>

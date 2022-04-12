@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Db_test" classname="Db_test" left="0" top="0" width="760" height="430" titletext="Retrive data from database and perform search, modify, delete funcationality" onload="Db_test_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="1. db Setting/Open" left="2.24%" top="40" height="30" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;" width="137"/>
+        <TextArea id="TextArea00" taborder="1" left="2.24%" top="320" right="1.97%" height="101"/>
+        <Button id="Button05" taborder="6" text="2. Search" left="71.97%" top="35" right="15.92%" height="30" onclick="Button05_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Grid id="Grid00" taborder="7" useinputpanel="false" left="2.24%" top="128" right="1.97%" height="146" binddataset="Dataset00" autoenter="select" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="text" edittype="text" text="bind:Column0" editdisplay="display"/>
+                <Cell col="1" displaytype="text" edittype="text" text="bind:Column1" editdisplay="display"/>
+                <Cell col="2" displaytype="text" edittype="text" text="bind:Column2" editdisplay="display"/>
+                <Cell col="3" displaytype="text" edittype="text" text="bind:Column3" editdisplay="display"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button03" taborder="9" text="4. Add" left="71.97%" top="71" right="15.92%" height="30" onclick="Button03_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button01" taborder="10" text="3. Save" left="85.79%" top="35" right="2.11%" height="30" onclick="Button01_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button02" taborder="11" text="5. Delete" left="85.79%" top="71" right="2.11%" height="30" onclick="Button02_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static07" taborder="12" text="This is sample shows SQL Lite DB connection. Retrive, insert ,modify and delete functionality " cssclass="sta_WF_subtitP" left="17" top="13" width="737" height="20" style="font:bold 9 Dotum;"/>
+        <Static id="Static00" taborder="13" text="Log status" cssclass="sta_WF_subtitP" left="17" top="292" width="281" height="20" style="font:bold 9 Dotum;"/>
+        <Static id="Static01" taborder="14" text="Data" cssclass="sta_WF_subtitP" left="17" top="100" width="281" height="20" style="font:bold 9 Dotum;"/>
+        <Static id="Static05" taborder="15" text="&quot;demo.s3db&quot; Download" onclick="Static03_onclick" left="216" top="44" width="280" height="23" style="color:red;font:underline 10 arial;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <LiteDBConnection id="LiteDBConnection00" busytimeout="60000" preconnect="false" onsuccess="LiteDBConnection00_onsuccess" datasource="C:\demo.s3db"/>
+      <LiteDBStatement id="LiteDBStatement00" onsuccess="LiteDBStatement00_onsuccess" onerror="LiteDBStatement00_onerror" ldbconnection="@LiteDBConnection00"/>
+      <Dataset id="McsSvcListVL">
+        <ColumnInfo>
+          <Column id="acptNo" type="string" size="32"/>
+          <Column id="acptDt" type="string" size="32"/>
+          <Column id="svcTy" type="string" size="32"/>
+          <Column id="svcStat" type="string" size="32"/>
+          <Column id="cuDiscountYn" type="string" size="32"/>
+          <Column id="acptResvc" type="string" size="32"/>
+          <Column id="custReqDt" type="string" size="32"/>
+          <Column id="custReqHm" type="string" size="32"/>
+          <Column id="specialPromDtYn" type="string" size="32"/>
+          <Column id="promDt" type="string" size="32"/>
+          <Column id="promHm" type="string" size="32"/>
+          <Column id="attndDy" type="string" size="32"/>
+          <Column id="epTim" type="string" size="32"/>
+          <Column id="visitDt" type="string" size="32"/>
+          <Column id="visitHm" type="string" size="32"/>
+          <Column id="description" type="string" size="32"/>
+          <Column id="acptTy" type="string" size="32"/>
+          <Column id="custTy" type="string" size="32"/>
+          <Column id="custNo" type="string" size="32"/>
+          <Column id="custNm" type="string" size="32"/>
+          <Column id="telNo1" type="string" size="32"/>
+          <Column id="telNo2" type="string" size="32"/>
+          <Column id="zipCd" type="int" size="4"/>
+          <Column id="highAddr" type="string" size="32"/>
+          <Column id="midAddr" type="string" size="32"/>
+          <Column id="lowAddr" type="string" size="32"/>
+          <Column id="address" type="string" size="32"/>
+          <Column id="goodsCd" type="string" size="32"/>
+          <Column id="oldGoodsCd" type="string" size="32"/>
+          <Column id="modelCd" type="string" size="32"/>
+          <Column id="divCd" type="string" size="32"/>
+          <Column id="passDt" type="string" size="32"/>
+          <Column id="passHm" type="string" size="32"/>
+          <Column id="sympCd1" type="string" size="32"/>
+          <Column id="sympCd2" type="string" size="32"/>
+          <Column id="sympDesc" type="string" size="32"/>
+          <Column id="badCls" type="string" size="32"/>
+          <Column id="fixCd" type="string" size="32"/>
+          <Column id="fixDetail" type="string" size="32"/>
+          <Column id="fixDesc" type="string" size="32"/>
+          <Column id="causeDesc" type="string" size="32"/>
+          <Column id="repairCd" type="string" size="32"/>
+          <Column id="repairHm" type="int" size="4"/>
+          <Column id="buyingYm" type="string" size="32"/>
+          <Column id="productNo" type="string" size="32"/>
+          <Column id="repairChg" type="int" size="4"/>
+          <Column id="partsAmt" type="int" size="4"/>
+          <Column id="ysmsCls" type="string" size="32"/>
+          <Column id="fixTy" type="string" size="32"/>
+          <Column id="svcCancelTy" type="string" size="32"/>
+          <Column id="exApplyCd" type="string" size="32"/>
+          <Column id="cicReply" type="string" size="32"/>
+          <Column id="cicReplyDesc" type="string" size="32"/>
+          <Column id="extraEarn" type="string" size="32"/>
+          <Column id="realCust" type="string" size="32"/>
+          <Column id="productYm" type="string" size="32"/>
+          <Column id="custReqYn" type="string" size="32"/>
+          <Column id="preReport" type="string" size="32"/>
+          <Column id="preReportDesc" type="string" size="32"/>
+          <Column id="exFcd" type="string" size="32"/>
+          <Column id="grtBrkcd" type="string" size="32"/>
+          <Column id="midBrkcd" type="string" size="32"/>
+          <Column id="brkItemcd" type="string" size="32"/>
+          <Column id="productNm" type="string" size="32"/>
+          <Column id="visitForm" type="string" size="32"/>
+          <Column id="visitFormNm" type="string" size="32"/>
+          <Column id="reqImportant1" type="string" size="32"/>
+          <Column id="reqImportant1Nm" type="string" size="32"/>
+          <Column id="reqImportant2" type="string" size="32"/>
+          <Column id="reqImportant2Nm" type="string" size="32"/>
+          <Column id="siteTy" type="string" size="32"/>
+          <Column id="builtinYn" type="string" size="32"/>
+          <Column id="agentCd" type="string" size="32"/>
+          <Column id="agentNm" type="string" size="32"/>
+          <Column id="fixRentalYn" type="string" size="32"/>
+          <Column id="gradeModelYn" type="string" size="32"/>
+          <Column id="repairSupplyYn" type="string" size="32"/>
+          <Column id="modProdDiffYn" type="string" size="32"/>
+          <Column id="modProdDiffStat" type="string" size="32"/>
+          <Column id="custAmt" type="int" size="4"/>
+          <Column id="ymMixYn" type="string" size="32"/>
+          <Column id="hRepairCd" type="string" size="32"/>
+          <Column id="repCls" type="string" size="32"/>
+          <Column id="partMaxRepairCd" type="string" size="32"/>
+          <Column id="overtimeRepairCostYn" type="string" size="32"/>
+          <Column id="repDcAmt" type="int" size="4"/>
+          <Column id="repDcDesc" type="string" size="32"/>
+          <Column id="extraDcReason" type="string" size="32"/>
+          <Column id="dataYn" type="string" size="32"/>
+          <Column id="overTimeYn" type="string" size="32"/>
+          <Column id="rentalProductStatus" type="string" size="32"/>
+          <Column id="notiCustTy" type="string" size="32"/>
+          <Column id="qrCode" type="string" size="32"/>
+          <Column id="storeDisplayYn" type="string" size="32"/>
+          <Column id="rcptSympAccuracyYn" type="string" size="32"/>
+          <Column id="Cyber_Acpt" type="string" size="32"/>
+          <Column id="Special_in" type="int" size="4"/>
+          <Column id="as_barcode_yn" type="string" size="32"/>
+          <Column id="RentalNo" type="string" size="32"/>
+          <Column id="TravelEarn" type="int" size="4"/>
+          <Column id="SeparateSale" type="int" size="4"/>
+          <Column id="servicContentYN" type="string" size="32"/>
+          <Column id="AcptRentalYn" type="string" size="32"/>
+          <Column id="settleF" type="string" size="32"/>
+          <Column id="szSpecialIncomCash" type="int" size="4"/>
+          <Column id="szSpecialIncomCard" type="int" size="4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="acptNo">C9100836CS</Col>
+            <Col id="acptDt">20120910</Col>
+            <Col id="svcTy">A</Col>
+            <Col id="svcStat">3</Col>
+            <Col id="acptResvc">1</Col>
+            <Col id="custReqDt">20120910</Col>
+            <Col id="custReqHm">0920</Col>
+            <Col id="promDt">20120910</Col>
+            <Col id="promHm">0920</Col>
+            <Col id="attndDy">20120910</Col>
+            <Col id="epTim">0920</Col>
+            <Col id="visitDt">20120910</Col>
+            <Col id="visitHm">0900</Col>
+            <Col id="description">10일 0920약속 출/수안내 화면만 안나옴 </Col>
+            <Col id="acptTy">A</Col>
+            <Col id="custTy">A</Col>
+            <Col id="custNo">C10751978</Col>
+            <Col id="custNm">67CV7Iq57ZqM</Col>
+            <Col id="telNo1">MDE2LTc1MC02ODQ2</Col>
+            <Col id="telNo2">MDItODQxLTY4NDY=</Col>
+            <Col id="zipCd">103764</Col>
+            <Col id="highAddr">서울</Col>
+            <Col id="midAddr">영등포구</Col>
+            <Col id="lowAddr">신길1동  </Col>
+            <Col id="address">64uk7Jq4IDEwMS02MDPtmLgg</Col>
+            <Col id="goodsCd">TLV</Col>
+            <Col id="oldGoodsCd">TV</Col>
+            <Col id="modelCd">21FS4R-NS.AKRLLA</Col>
+            <Col id="divCd">GRZ</Col>
+            <Col id="passHm">0836</Col>
+            <Col id="sympCd1">TLV00000013</Col>
+            <Col id="sympCd2">00000009</Col>
+            <Col id="sympDesc">화면이 나오다 안나오는 경우</Col>
+            <Col id="badCls">1</Col>
+            <Col id="fixCd">2</Col>
+            <Col id="fixDetail">CPT조정</Col>
+            <Col id="causeDesc">CPT불량으로화면무</Col>
+            <Col id="repairCd">A</Col>
+            <Col id="repairHm">20</Col>
+            <Col id="buyingYm">200608</Col>
+            <Col id="productNo">607KKXL1S330</Col>
+            <Col id="repairChg">10000</Col>
+            <Col id="partsAmt">0</Col>
+            <Col id="ysmsCls">Y</Col>
+            <Col id="fixTy">A</Col>
+            <Col id="extraEarn">0</Col>
+            <Col id="productYm">200607</Col>
+            <Col id="custReqYn">N</Col>
+            <Col id="preReport">10</Col>
+            <Col id="grtBrkcd">DC</Col>
+            <Col id="midBrkcd">DCF</Col>
+            <Col id="brkItemcd">DAL</Col>
+            <Col id="productNm">일반형_TV</Col>
+            <Col id="visitForm">A</Col>
+            <Col id="visitFormNm">빠른시간방문</Col>
+            <Col id="reqImportant1">N</Col>
+            <Col id="reqImportant1Nm">기타또는요구사항없음</Col>
+            <Col id="siteTy">H</Col>
+            <Col id="builtinYn">N</Col>
+            <Col id="gradeModelYn">N</Col>
+            <Col id="repairSupplyYn">Y</Col>
+            <Col id="custAmt">10000</Col>
+            <Col id="repDcAmt">0</Col>
+            <Col id="dataYn">N</Col>
+            <Col id="overTimeYn">X</Col>
+            <Col id="storeDisplayYn">N</Col>
+            <Col id="rcptSympAccuracyYn">N</Col>
+            <Col id="Cyber_Acpt">N</Col>
+            <Col id="Special_in">0</Col>
+            <Col id="TravelEarn">0</Col>
+            <Col id="SeparateSale">0</Col>
+            <Col id="servicContentYN">N</Col>
+            <Col id="settleF">A</Col>
+            <Col id="szSpecialIncomCash">0</Col>
+            <Col id="szSpecialIncomCard">0</Col>
+          </Row>
+          <Row>
+            <Col id="acptNo">C9071541LC</Col>
+            <Col id="acptDt">20120907</Col>
+            <Col id="svcTy">A</Col>
+            <Col id="svcStat">3</Col>
+            <Col id="acptResvc">1</Col>
+            <Col id="custReqDt">20120910</Col>
+            <Col id="custReqHm">1010</Col>
+            <Col id="promDt">20120910</Col>
+            <Col id="promHm">1010</Col>
+            <Col id="attndDy">20120910</Col>
+            <Col id="epTim">1010</Col>
+            <Col id="visitDt">20120910</Col>
+            <Col id="visitHm">1030</Col>
+            <Col id="description">[모바일접수][비회원]전면부 표시부 교체</Col>
+            <Col id="acptTy">A</Col>
+            <Col id="custTy">A</Col>
+            <Col id="custNo">C11406758</Col>
+            <Col id="custNm">7Zmp7KCQ7Iic</Col>
+            <Col id="telNo1">MDEwLTY2NTctOTQ1OA==</Col>
+            <Col id="telNo2">LS0=</Col>
+            <Col id="zipCd">103777</Col>
+            <Col id="highAddr">서울</Col>
+            <Col id="midAddr">영등포구</Col>
+            <Col id="lowAddr">신길3동 250~324 </Col>
+            <Col id="address">MjU3LTIyICA07Li1</Col>
+            <Col id="goodsCd">HWI</Col>
+            <Col id="oldGoodsCd">HC</Col>
+            <Col id="modelCd">WQD74PJ7.AKOR</Col>
+            <Col id="divCd">CWZ</Col>
+            <Col id="passHm">1559</Col>
+            <Col id="sympCd1">HWI00000013</Col>
+            <Col id="sympCd2">ZZZZZZZZ</Col>
+            <Col id="badCls">1</Col>
+            <Col id="fixCd">1</Col>
+            <Col id="fixDetail">PCB교환</Col>
+            <Col id="causeDesc">디스플레이PCB불량으로액정안들어옴</Col>
+            <Col id="repairCd">C</Col>
+            <Col id="repairHm">30</Col>
+            <Col id="buyingYm">201006</Col>
+            <Col id="productNo">004KMSA00126</Col>
+            <Col id="repairChg">0</Col>
+            <Col id="partsAmt">0</Col>
+            <Col id="ysmsCls">M</Col>
+            <Col id="fixTy">A</Col>
+            <Col id="exApplyCd">F</Col>
+            <Col id="extraEarn">0</Col>
+            <Col id="realCust">황점순</Col>
+            <Col id="productYm">201004</Col>
+            <Col id="custReqYn">Y</Col>
+            <Col id="preReport">10</Col>
+            <Col id="exFcd">A3</Col>
+            <Col id="grtBrkcd">ZZ</Col>
+            <Col id="midBrkcd">ETC</Col>
+            <Col id="brkItemcd">ETC</Col>
+            <Col id="productNm">이온수기/정수기</Col>
+            <Col id="visitForm">B</Col>
+            <Col id="visitFormNm">편한시간방문</Col>
+            <Col id="reqImportant1">N</Col>
+            <Col id="reqImportant1Nm">기타또는요구사항없음</Col>
+            <Col id="siteTy">H</Col>
+            <Col id="builtinYn">N</Col>
+            <Col id="gradeModelYn">N</Col>
+            <Col id="repairSupplyYn">N</Col>
+            <Col id="modProdDiffYn">N</Col>
+            <Col id="custAmt">0</Col>
+            <Col id="hRepairCd">WC1</Col>
+            <Col id="repDcAmt">0</Col>
+            <Col id="dataYn">N</Col>
+            <Col id="overTimeYn">X</Col>
+            <Col id="rcptSympAccuracyYn">N</Col>
+            <Col id="Cyber_Acpt">Y</Col>
+            <Col id="Special_in">0</Col>
+            <Col id="TravelEarn">0</Col>
+            <Col id="SeparateSale">0</Col>
+            <Col id="servicContentYN">N</Col>
+            <Col id="settleF">F</Col>
+            <Col id="szSpecialIncomCash">0</Col>
+            <Col id="szSpecialIncomCard">0</Col>
+          </Row>
+          <Row>
+            <Col id="acptNo">C9100925KQ</Col>
+            <Col id="acptDt">20120910</Col>
+            <Col id="svcTy">A</Col>
+            <Col id="svcStat">3</Col>
+            <Col id="custReqDt">20120910</Col>
+            <Col id="custReqHm">1100</Col>
+            <Col id="promDt">20120910</Col>
+            <Col id="promHm">1100</Col>
+            <Col id="attndDy">20120910</Col>
+            <Col id="epTim">1100</Col>
+            <Col id="visitDt">20120910</Col>
+            <Col id="visitHm">1050</Col>
+            <Col id="description">전1.2/야채칸이 얼음/뭔가 빠진거같다하심/09101100</Col>
+            <Col id="acptTy">A</Col>
+            <Col id="custTy">A</Col>
+            <Col id="custNo">C14260273</Col>
+            <Col id="custNm">7Jyg6rK966eM</Col>
+            <Col id="telNo1">MDEwLTQ3ODgtMjI5MA==</Col>
+            <Col id="telNo2">MDItODMyLTIyOTA=</Col>
+            <Col id="zipCd">103732</Col>
+            <Col id="highAddr">서울</Col>
+            <Col id="midAddr">영등포구</Col>
+            <Col id="lowAddr">도림동 155~235 </Col>
+            <Col id="address">MjMxLTEg7ZWc65287JWE7YyM7Yq4IDEwMS02MDHtmLg=</Col>
+            <Col id="goodsCd">SBS</Col>
+            <Col id="oldGoodsCd">RF</Col>
+            <Col id="modelCd">R-T768RHHS.AKOR</Col>
+            <Col id="divCd">CNZ</Col>
+            <Col id="passHm">0925</Col>
+            <Col id="sympCd1">SBS00000002</Col>
+            <Col id="sympCd2">00000005</Col>
+            <Col id="sympDesc">야채박스에 야채/과일이 언다고 할 경우</Col>
+            <Col id="fixCd">8</Col>
+            <Col id="fixDetail">자가처리 </Col>
+            <Col id="causeDesc">야채칸 육류/생선 래버설정으로과냉</Col>
+            <Col id="repairHm">0</Col>
+            <Col id="repairChg">0</Col>
+            <Col id="partsAmt">0</Col>
+            <Col id="ysmsCls">Z</Col>
+            <Col id="fixTy">A</Col>
+            <Col id="svcCancelTy">D</Col>
+            <Col id="extraEarn">0</Col>
+            <Col id="custReqYn">N</Col>
+            <Col id="preReport">10</Col>
+            <Col id="productNm">양문_냉장고</Col>
+            <Col id="visitForm">A</Col>
+            <Col id="visitFormNm">빠른시간방문</Col>
+            <Col id="reqImportant1">N</Col>
+            <Col id="reqImportant1Nm">기타또는요구사항없음</Col>
+            <Col id="siteTy">H</Col>
+            <Col id="builtinYn">N</Col>
+            <Col id="gradeModelYn">N</Col>
+            <Col id="repairSupplyYn">Y</Col>
+            <Col id="custAmt">0</Col>
+            <Col id="hRepairCd">RE3</Col>
+            <Col id="repDcAmt">0</Col>
+            <Col id="dataYn">N</Col>
+            <Col id="overTimeYn">X</Col>
+            <Col id="storeDisplayYn">N</Col>
+            <Col id="rcptSympAccuracyYn">N</Col>
+            <Col id="Cyber_Acpt">N</Col>
+            <Col id="Special_in">0</Col>
+            <Col id="TravelEarn">0</Col>
+            <Col id="SeparateSale">0</Col>
+            <Col id="servicContentYN">N</Col>
+            <Col id="settleF">F</Col>
+            <Col id="szSpecialIncomCash">0</Col>
+            <Col id="szSpecialIncomCard">0</Col>
+          </Row>
+          <Row>
+            <Col id="acptNo">C9101010WO</Col>
+            <Col id="acptDt">20120910</Col>
+            <Col id="svcTy">A</Col>
+            <Col id="svcStat">1</Col>
+            <Col id="custReqDt">20120910</Col>
+            <Col id="custReqHm">1150</Col>
+            <Col id="promDt">20120910</Col>
+            <Col id="promHm">1150</Col>
+            <Col id="attndDy">20120910</Col>
+            <Col id="epTim">1150</Col>
+            <Col id="description">&#13;
+&#13;
+0910 1150 / 출수부안내ok / 이사전 철거요청 운송용고정볼트 지참으로 철거요청 하심 / &#13;
+</Col>
+            <Col id="acptTy">A</Col>
+            <Col id="custTy">A</Col>
+            <Col id="custNo">C29724729</Col>
+            <Col id="custNm">7J20IOyngOyXsA==</Col>
+            <Col id="telNo1">MDEwLTI1NjMtMzU0NA==</Col>
+            <Col id="telNo2">LS0=</Col>
+            <Col id="zipCd">103726</Col>
+            <Col id="highAddr">서울</Col>
+            <Col id="midAddr">영등포구</Col>
+            <Col id="lowAddr">대림3동 301~307 현대3차아파트</Col>
+            <Col id="address">7ZiE64yAM+ywqOyVhO2MjO2KuCAzMDHrj5kgMTExMO2YuA==</Col>
+            <Col id="goodsCd">DRW</Col>
+            <Col id="oldGoodsCd">WM</Col>
+            <Col id="modelCd">FR3229WA.AKOR</Col>
+            <Col id="divCd">DFZ</Col>
+            <Col id="passHm">1014</Col>
+            <Col id="sympCd1">DRW00000002</Col>
+            <Col id="sympCd2">00000001</Col>
+            <Col id="sympDesc">기타</Col>
+            <Col id="repairHm">0</Col>
+            <Col id="repairChg">0</Col>
+            <Col id="partsAmt">0</Col>
+            <Col id="custReqYn">Y</Col>
+            <Col id="productNm">드럼_세탁기</Col>
+            <Col id="visitForm">C</Col>
+            <Col id="visitFormNm">업무시간내약속</Col>
+            <Col id="reqImportant1">E</Col>
+            <Col id="reqImportant1Nm">부품지참요구</Col>
+            <Col id="gradeModelYn">N</Col>
+            <Col id="custAmt">0</Col>
+            <Col id="repDcAmt">0</Col>
+            <Col id="storeDisplayYn">N</Col>
+            <Col id="Cyber_Acpt">N</Col>
+            <Col id="Special_in">0</Col>
+            <Col id="TravelEarn">0</Col>
+            <Col id="SeparateSale">0</Col>
+            <Col id="settleF">F</Col>
+            <Col id="szSpecialIncomCash">0</Col>
+            <Col id="szSpecialIncomCard">0</Col>
+          </Row>
+          <Row>
+            <Col id="acptNo">C9101041DM</Col>
+            <Col id="acptDt">20120910</Col>
+            <Col id="svcTy">A</Col>
+            <Col id="svcStat">1</Col>
+            <Col id="custReqDt">20120910</Col>
+            <Col id="custReqHm">1710</Col>
+            <Col id="promDt">20120910</Col>
+            <Col id="promHm">1710</Col>
+            <Col id="attndDy">20120910</Col>
+            <Col id="epTim">1710</Col>
+            <Col id="description">[모바일접수][비회원]냉기가 나오긴하나 약하고,냉동실은 문을 열었을때 전등이 안켜집니진</Col>
+            <Col id="acptTy">A</Col>
+            <Col id="custTy">A</Col>
+            <Col id="custNo">C002319679</Col>
+            <Col id="custNm">6rmA7KO87Jew</Col>
+            <Col id="telNo1">MDEwLTI2MDItMzIyNQ==</Col>
+            <Col id="telNo2">LS0=</Col>
+            <Col id="zipCd">103813</Col>
+            <Col id="highAddr">서울</Col>
+            <Col id="midAddr">영등포구</Col>
+            <Col id="lowAddr">신길동  </Col>
+            <Col id="address">MTIwLTjrsojsp4AgMzAx7Zi4</Col>
+            <Col id="goodsCd">REF</Col>
+            <Col id="oldGoodsCd">RF</Col>
+            <Col id="passHm">1055</Col>
+            <Col id="sympCd1">REF00000003</Col>
+            <Col id="sympCd2">ZZZZZZZZ</Col>
+            <Col id="repairHm">0</Col>
+            <Col id="repairChg">0</Col>
+            <Col id="partsAmt">0</Col>
+            <Col id="realCust">김주연</Col>
+            <Col id="custReqYn">Y</Col>
+            <Col id="productNm">일반_냉장고</Col>
+            <Col id="visitForm">B</Col>
+            <Col id="visitFormNm">편한시간방문</Col>
+            <Col id="reqImportant1">N</Col>
+            <Col id="reqImportant1Nm">기타또는요구사항없음</Col>
+            <Col id="gradeModelYn">N</Col>
+            <Col id="custAmt">0</Col>
+            <Col id="repDcAmt">0</Col>
+            <Col id="Cyber_Acpt">Y</Col>
+            <Col id="Special_in">0</Col>
+            <Col id="TravelEarn">0</Col>
+            <Col id="SeparateSale">0</Col>
+            <Col id="settleF">F</Col>
+            <Col id="szSpecialIncomCash">0</Col>
+            <Col id="szSpecialIncomCard">0</Col>
+          </Row>
+          <Row>
+            <Col id="acptNo">C9100930BS</Col>
+            <Col id="acptDt">20120910</Col>
+            <Col id="svcTy">A</Col>
+            <Col id="svcStat">1</Col>
+            <Col id="custReqDt">20120910</Col>
+            <Col id="custReqHm">1800</Col>
+            <Col id="promDt">20120910</Col>
+            <Col id="promHm">1800</Col>
+            <Col id="attndDy">20120910</Col>
+            <Col id="epTim">1800</Col>
+            <Col id="description">방문전연락 / 선이 4개가 끊어졌다함, cd 가 안나온다함</Col>
+            <Col id="acptTy">A</Col>
+            <Col id="custTy">A</Col>
+            <Col id="custNo">C14959652</Col>
+            <Col id="custNm">6rmA66+46rK9</Col>
+            <Col id="telNo1">MDItNjMxOC0yODQx</Col>
+            <Col id="telNo2">MDEwLTMyMzQtMjg0MQ==</Col>
+            <Col id="zipCd">103728</Col>
+            <Col id="highAddr">서울</Col>
+            <Col id="midAddr">영등포구</Col>
+            <Col id="lowAddr">대림동  </Col>
+            <Col id="address">MTEyMeuyiOyngCDsi6DrjIDrprzsnpDsnbTslYTtjIztirggMTAx64+ZIDcwMe2YuA==</Col>
+            <Col id="goodsCd">HTH</Col>
+            <Col id="oldGoodsCd">AV</Col>
+            <Col id="passHm">0930</Col>
+            <Col id="sympCd1">HTH00000007</Col>
+            <Col id="sympCd2">00000001</Col>
+            <Col id="sympDesc">CD /DVD Disc 도아 안 열리는 경우</Col>
+            <Col id="repairHm">0</Col>
+            <Col id="repairChg">0</Col>
+            <Col id="partsAmt">0</Col>
+            <Col id="custReqYn">Y</Col>
+            <Col id="productNm">홈시어터</Col>
+            <Col id="visitForm">C</Col>
+            <Col id="visitFormNm">업무시간내약속</Col>
+            <Col id="reqImportant1">N</Col>
+            <Col id="reqImportant1Nm">기타또는요구사항없음</Col>
+            <Col id="gradeModelYn">N</Col>
+            <Col id="custAmt">0</Col>
+            <Col id="repDcAmt">0</Col>
+            <Col id="storeDisplayYn">N</Col>
+            <Col id="Cyber_Acpt">N</Col>
+            <Col id="Special_in">0</Col>
+            <Col id="TravelEarn">0</Col>
+            <Col id="SeparateSale">0</Col>
+            <Col id="settleF">F</Col>
+            <Col id="szSpecialIncomCash">0</Col>
+            <Col id="szSpecialIncomCard">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var db_Path = "C:\\Users\\TOBE\\Documents\\demo.s3db";
+	//"%MYDOCUMENT%demo3.s3db";  //location of the DB
+	this.LiteDBConnection00.set_datasource(db_Path);
+	this.TextArea00.set_value("Please put demo.s3db in my documents location.");
+	var r_open = this.LiteDBConnection00.open(); 
+	this.TextArea00.set_value(this.TextArea00.value + "\nthis.AsyncDBCon00.busytimeout : " + this.LiteDBConnection00.busytimeout);
+	this.TextArea00.set_value(this.TextArea00.value + "\nthis.AsyncDBCon00.datasource : " + this.LiteDBConnection00.datasource);
+	this.TextArea00.set_value(this.TextArea00.value + "\nthis.AsyncDBCon00.openflag : " + this.LiteDBConnection00.openflag);
+	this.TextArea00.set_value(this.TextArea00.value + "\nthis.AsyncDBCon00.preconnect : " + this.LiteDBConnection00.preconnect);
+	this.TextArea00.set_value(this.TextArea00.value + "\nreturn value : "+r_open);
+	
+};
+
+this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.LiteDBStatement00.set_ldbconnection(this.LiteDBConnection00)
+	var r_executeQuery = this.LiteDBStatement00.executeQuery("select * from Dataset00");
+	this.TextArea00.set_value(this.TextArea00.value + "\nreturn value : "+r_executeQuery);
+	
+};
+
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var r_executeQuery ="";
+	for(var i = 0 ; i < this.Dataset00.getDeletedRowset().length; i++)
+	{
+		var delValue = this.Dataset00.getDeletedRowset()[i];
+		var sql = "DELETE FROM Dataset00 WHERE Column0="+delValue[0];
+		this.LiteDBStatement00.set_ldbconnection(this.LiteDBConnection00);
+		r_executeQuery = this.LiteDBStatement00.executeUpdate(sql);
+	}
+	
+	
+	
+	for(var i = 0 ; i < this.Dataset00.rowcount; i++)
+	{
+		var type = this.Dataset00.getRowType(i);
+		var sql = "";
+		if(type == Dataset.ROWTYPE_INSERT)
+		{
+			sql = "insert into Dataset00 (Column0 ,Column1, Column2, Column3)Values("+this.Dataset00.getColumn(i,0)+",'"+this.Dataset00.getColumn(i,1)+"','"+this.Dataset00.getColumn(i,2) +"','"+this.Dataset00.getColumn(i,3)+"')";
+			this.LiteDBStatement00.set_ldbconnection(this.LiteDBConnection00);
+			r_executeQuery = this.LiteDBStatement00.executeUpdate(sql);
+			
+		}
+		if(type == Dataset.ROWTYPE_UPDATE)
+		{
+			sql = "UPDATE  Dataset00 set Column1='"+this.Dataset00.getColumn(i,1)+"', Column2='"+this.Dataset00.getColumn(i,2)+"', Column3='"+this.Dataset00.getColumn(i,3)+"' where Column0='"+this.Dataset00.getColumn(i,0)+"'";
+			this.LiteDBStatement00.set_ldbconnection(this.LiteDBConnection00);
+			r_executeQuery = this.LiteDBStatement00.executeUpdate(sql);
+		}
+	}
+};                             
+
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.deleteRow(this.Dataset00.rowposition);	
+};
+
+this.LiteDBConnection00_onsuccess = function(obj:LiteDBConnection,  e:nexacro.LiteDBEventInfo)
+{
+	
+};
+
+this.LiteDBStatement00_onsuccess = function(obj:LiteDBStatement,  e:nexacro.LiteDBEventInfo)
+{
+
+	if(e.reason == 7 ) // Search
+	{
+		this.Dataset00.copyData(e.returnvalue);
+	}
+	if(e.reason == 8 ) //insert 
+	{
+		if(e.returnvalue == 1)
+		{
+			// Success
+		}else if (e.returnvalue == 0)
+		{
+			//Fail
+		}
+	}
+	
+	
+};
+
+this.LiteDBStatement00_onerror = function(obj:LiteDBStatement,  e:nexacro.LiteDBErrorEventInfo)
+{
+	//Error
+};
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.insertRow(this.Dataset00.rowposition);
+};
+
+this.Static03_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://support.tobesoft.co.kr/Next_JSP/nexacro/localDB.zip");
+};
+
+this.Db_test_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	if( system.navigatorname != "nexacro" ){
+		alert("지원되지 않습니다.");
+		return;
+	}	
+};
+]]></Script>
+  </Form>
+</FDL>

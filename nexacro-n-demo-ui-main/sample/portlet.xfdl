@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="840" onload="form_onload" ondrop="form_ondrop" ondragmove="form_ondragmove" onlbuttonup="form_onlbuttonup" ontimer="form_ontimer">
+    <Layouts>
+      <Layout height="840" width="920">
+        <Static id="Static01" taborder="0" text="Portlet" left="20" top="20" width="121" height="40" messageid="sample.portlet" fittocontents="width" cssclass="sta_WF_pageTitle"/>
+        <Div id="divPortBg" taborder="1" left="20" top="100" right="20" bottom="10">
+          <Layouts>
+            <Layout>
+              <Div id="divTile1" taborder="0" top="1" width="180" height="510" cssclass="div_WF_portBox" left="0">
+                <Layouts>
+                  <Layout>
+                    <Button id="btnTile" taborder="0" left="0" top="0" cssclass="btn_WF_portBg01" right="0" bottom="0" text="2021 Illuminating&#13;&#10;&#13;&#10;a bright and cheerful yellow sparkling with vivacity, a warming yellow shade imbued with solar power.&#13;&#10;" ondrag="fnComBtnOnDrag" tabstop="false" textAlign="center" verticalAlign="middle" wordWrap="english"/>
+                    <Button id="btnMove" taborder="1" cssclass="btn_WF_portMove" right="0" bottom="0" ondrag="fnComBtnOnDrag" height="20" width="20" background="url('imagerc::icon_WF_move.png') no-repeat center center"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="divTile2" taborder="1" text="Div01" top="1" cssclass="div_WF_portBox" left="190" height="250" width="249">
+                <Layouts>
+                  <Layout>
+                    <Button id="btnTile" taborder="0" cssclass="btn_WF_portBg02" ondrag="fnComBtnOnDrag" text="2021 Ultimate Gray&#13;&#10;&#13;&#10;emblematic of solid and dependable elements which are everlasting and provide a firm foundation." left="0" top="0" bottom="0" right="0" textAlign="center" verticalAlign="middle" wordWrap="english"/>
+                    <Button id="btnMove" taborder="1" cssclass="btn_WF_portMove" width="20" height="20" top="0" right="0" ondrag="fnComBtnOnDrag"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="divTile3" taborder="2" top="1" cssclass="div_WF_portBox" text="div_WF_portBox" left="449" height="250" width="252">
+                <Layouts>
+                  <Layout>
+                    <Button id="btnTile" taborder="0" text="2020 Classic Blue&#13;&#10;&#13;&#10;a timeless and calming color full of confidence, perfect to start the new decade." left="0" top="0" cssclass="btn_WF_portBg03" ondrag="fnComBtnOnDrag" onclick="divTile3_stMemo_onclick" bottom="0" right="0" textAlign="center" verticalAlign="middle" wordWrap="english"/>
+                    <Button id="btnMove" taborder="1" cssclass="btn_WF_portMove" width="20" height="20" top="0" right="0" ondrag="fnComBtnOnDrag"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="divTile4" taborder="3" left="711" top="1" cssclass="div_WF_portBox" height="250" right="0">
+                <Layouts>
+                  <Layout>
+                    <Button id="btnTile" taborder="0" cssclass="btn_WF_portBg04" text="2019 Living Coral&#13;&#10;&#13;&#10;an animating and life-affirming coral hue with a golden undertone that energizes and enlivens with a softer edge." ondrag="fnComBtnOnDrag" left="0" top="0" bottom="0" right="0" textAlign="center" verticalAlign="middle" wordWrap="english"/>
+                    <Button id="btnMove" taborder="1" cssclass="btn_WF_portMove" top="0" right="0" width="20" height="20" ondrag="fnComBtnOnDrag"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="divTile5" taborder="4" left="190" top="261" height="250" cssclass="div_WF_portBox" width="354">
+                <Layouts>
+                  <Layout>
+                    <Button id="btnTile" taborder="0" text="2018 Ultra Violet&#13;&#10;&#13;&#10;suggests the mysteries of the cosmos, the intrigue of what lies ahead, and the discoveries beyond where we are now." left="0" top="0" right="0" bottom="0" cssclass="btn_WF_portBg05" ondrag="fnComBtnOnDrag" textAlign="center" verticalAlign="middle" wordWrap="english"/>
+                    <Button id="btnMove" taborder="1" cssclass="btn_WF_portMove" height="20" width="20" right="0" bottom="0" ondrag="fnComBtnOnDrag"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="divTile6" taborder="5" left="554" top="261" height="250" cssclass="div_WF_portBox" right="0">
+                <Layouts>
+                  <Layout>
+                    <Button id="btnTile" taborder="0" text="2017 Greenery&#13;&#10;&#13;&#10;a grassy fresh, revitalizing shade that reflected new beginnings." left="0" top="0" right="0" bottom="0" cssclass="btn_WF_portBg06" ondrag="fnComBtnOnDrag" textAlign="center" verticalAlign="middle" wordWrap="english"/>
+                    <Button id="btnMove" taborder="1" cssclass="btn_WF_portMove" width="20" height="20" right="0" bottom="0" ondrag="fnComBtnOnDrag"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="divTile7" taborder="6" left="0" top="521" cssclass="div_WF_portBox" width="471" bottom="0">
+                <Layouts>
+                  <Layout>
+                    <Button id="btnTile" taborder="0" left="0" top="0" cssclass="btn_WF_portBg07" right="0" bottom="0" ondrag="fnComBtnOnDrag" text="2016 Rose Quartz&amp;Serenity&#13;&#10;&#13;&#10;balance between a warmer embracing rose tone and the cooler tranquil blue, reflecting connection and wellness as well as a soothing sense of order and peace." textAlign="center" verticalAlign="middle" wordWrap="english"/>
+                    <Button id="btnMove" taborder="1" cssclass="btn_WF_portMove" top="0" right="0" width="20" height="20" ondrag="fnComBtnOnDrag"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="divTile8" taborder="7" left="481" top="521" cssclass="div_WF_portBox" right="0" bottom="0">
+                <Layouts>
+                  <Layout>
+                    <Button id="btnTile" taborder="0" text="2015 Marsala&#13;&#10;&#13;&#10;this tasteful hue embodies the satisfying richness of a fulfilling meal while its grounding red-brown roots emanate a sophisticated, natural earthiness." left="0" top="0" right="0" bottom="0" cssclass="btn_WF_portBg08" ondrag="fnComBtnOnDrag" textAlign="center" verticalAlign="middle" wordWrap="english"/>
+                    <Button id="btnMove" taborder="1" cssclass="btn_WF_portMove" top="0" right="0" width="20" height="20" ondrag="fnComBtnOnDrag"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="divMove" taborder="2" left="1037" top="113" width="173" height="328" cssclass="div_WF_portBox2" visible="false">
+          <Layouts>
+            <Layout>
+              <Button id="btnTile" taborder="2" cssclass="btn_WF_portBg01" left="0" top="0" right="0" bottom="0" textAlign="center" verticalAlign="middle" wordWrap="english"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static02" taborder="3" text="Title" left="20" top="62" width="439" height="30" cssclass="sta_WF_compTitle02" messageid="comp.animation.circlemenu"/>
+        <Static id="Static00" taborder="4" text="PANTONE color of the year" top="62" width="200" height="30" right="20" cssclass="sta_WF_rightTitle"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[this.fvObjAni = false;
+this.fvObjDrag = false;
+this.fvTimerIdx = 0;
+this.fvTimerMax = 30;
+this.fvObjFrom;
+this.fvObjTo;
+
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.form_ondrop = function(obj:nexacro.Form,e:nexacro.DragEventInfo)
+{
+	if (this.fvObjAni == false) 
+	{
+		this.fvObjFrom = e.userdata;
+		this.fvObjTo = e.fromobject.parent.parent;
+
+		if (this.fvObjTo.name.indexOf("divTile") == -1) {
+			return;
+		}
+		
+		this.fvObjFrom.orgLeft = this.fvObjFrom.getOffsetLeft();
+		this.fvObjFrom.orgTop = this.fvObjFrom.getOffsetTop();
+		this.fvObjFrom.orgWidth = this.fvObjFrom.getOffsetWidth();
+		this.fvObjFrom.orgHeight = this.fvObjFrom.getOffsetHeight();
+		
+		this.fvObjTo.orgLeft = this.fvObjTo.getOffsetLeft();
+		this.fvObjTo.orgTop = this.fvObjTo.getOffsetTop();
+		this.fvObjTo.orgWidth = this.fvObjTo.getOffsetWidth();
+		this.fvObjTo.orgHeight = this.fvObjTo.getOffsetHeight();
+
+		this.fvObjAni = true;
+		this.setTimer(1, 10);
+	}	
+};
+
+this.form_ondragmove = function(obj:nexacro.Form,e:nexacro.DragEventInfo)
+{
+	this.divMove.move(e.clientx + 10, e.clienty + 10);
+};
+
+this.form_onlbuttonup = function(obj:nexacro.Form,e:nexacro.MouseEventInfo)
+{
+	if (this.fvObjDrag == true) {
+		this.fvObjDrag = false;
+		
+		this.fnRemoveDragObj();
+	}	
+};
+
+this.form_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
+{
+	if (e.timerid == 1) 
+	{
+		this.fvTimerIdx++;
+		
+		var nLeft1 = this.fnMoveAni(this.fvTimerIdx, this.fvObjFrom.orgLeft, this.fvObjTo.orgLeft - this.fvObjFrom.orgLeft, this.fvTimerMax);
+		var nTop1 = this.fnMoveAni(this.fvTimerIdx, this.fvObjFrom.orgTop, this.fvObjTo.orgTop - this.fvObjFrom.orgTop, this.fvTimerMax);
+		var nWidth1 = this.fnMoveAni(this.fvTimerIdx, this.fvObjFrom.orgWidth, this.fvObjTo.orgWidth - this.fvObjFrom.orgWidth, this.fvTimerMax);
+		var nHeight1 = this.fnMoveAni(this.fvTimerIdx, this.fvObjFrom.orgHeight, this.fvObjTo.orgHeight - this.fvObjFrom.orgHeight, this.fvTimerMax);
+
+		var nLeft2 = this.fnMoveAni(this.fvTimerIdx, this.fvObjTo.orgLeft, this.fvObjFrom.orgLeft - this.fvObjTo.orgLeft, this.fvTimerMax);
+		var nTop2 = this.fnMoveAni(this.fvTimerIdx, this.fvObjTo.orgTop, this.fvObjFrom.orgTop - this.fvObjTo.orgTop, this.fvTimerMax);
+		var nWidth2 = this.fnMoveAni(this.fvTimerIdx, this.fvObjTo.orgWidth, this.fvObjFrom.orgWidth - this.fvObjTo.orgWidth, this.fvTimerMax);
+		var nHeight2 = this.fnMoveAni(this.fvTimerIdx, this.fvObjTo.orgHeight, this.fvObjFrom.orgHeight - this.fvObjTo.orgHeight, this.fvTimerMax);
+
+		this.fvObjFrom.move(nLeft1, nTop1, nWidth1, nHeight1);
+		this.fvObjTo.move(nLeft2, nTop2, nWidth2, nHeight2);
+		
+	
+		if (this.fvTimerIdx == this.fvTimerMax) {
+			this.fvObjAni = false;
+			this.fvTimerIdx = 0;
+
+			this.killTimer(e.timerid);
+		}
+	}	
+};
+
+this.fnComBtnOnDrag = function(obj:nexacro.Button,e:nexacro.DragEventInfo)
+{
+	switch (obj.name)
+	{
+		case "btnMove" :
+		case "btnTile" :
+			this.fvObjDrag = true;
+			e.userdata = obj.parent.parent;
+			
+			this.fnMakeDragObj(obj.parent);
+			
+			return true;		
+			break;
+	}
+};
+
+this.fnMakeDragObj = function(obj)
+{
+	var nWidth = obj.getOffsetWidth();
+	var nHeight = obj.getOffsetHeight();
+	var sCssClass = obj.btnTile.cssclass;
+	var sMemo = obj.btnTile.text;
+	
+	this.divMove.form.btnTile.set_cssclass(sCssClass);
+	this.divMove.form.btnTile.set_text(sMemo);
+	
+	this.divMove.setOffsetWidth(nWidth);
+	this.divMove.setOffsetHeight(nHeight);
+	this.divMove.set_visible(true);
+};
+
+this.fnMoveAni = function(t, b, c, d)
+{
+	t /= d / 2;
+
+	if (t < 1) {
+		return c / 2 * t * t * t + b;
+	}
+	
+	t -= 2;
+	
+	return c / 2 * (t * t * t + 2) + b;
+};
+
+this.fnRemoveDragObj = function()
+{
+	this.divMove.set_visible(false);
+};]]></Script>
+  </Form>
+</FDL>

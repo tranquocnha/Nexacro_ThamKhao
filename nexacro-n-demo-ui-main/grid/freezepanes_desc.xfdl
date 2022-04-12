@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="130" onload="form_onload">
+    <Layouts>
+      <Layout height="130" width="920">
+        <Static id="Static00_00" taborder="0" text="틀 고정 기능은 그리드 컴포넌트에 표현되는 많은 데이터를 효과적으로 스크롤 할 수 있는 기능입니다.&#13;&#10;본 샘플과 같이 그리드 컨텍스트 메뉴로 표준화할 경우 그리드 사용편의성을 더욱 높일수 있습니다." left="20" top="57" height="50" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.freezepanes.desc" usedecorate="true" right="20"/>
+        <Static id="Static04" taborder="1" text="그리드 틀고정" left="20" top="15" width="340" height="30" cssclass="sta_WF_compTitle02" messageid="grid.freezepanes.title" fittocontents="width"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

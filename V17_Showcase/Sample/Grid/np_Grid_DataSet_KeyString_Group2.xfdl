@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_DataSet_KeyString_Group2" left="0" top="0" width="1024" height="768" titletext="DataSet KeyString_Group">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Static id="Static05" taborder="1" text="Processing total(uses more than two column) using keystring" cssclass="sta_WF_subtitP" left="30" top="18" width="800" height="40"/>
+        <Grid id="Grid00" taborder="2" binddataset="Dataset01" useinputpanel="false" useselcolor="false" left="30" top="78" width="800" height="370" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="104"/>
+                <Column size="220"/>
+                <Column size="229"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Group"/>
+                <Cell col="1" text="Department"/>
+                <Cell col="2" text="Name"/>
+                <Cell col="3" text="salary"/>
+              </Band>
+              <Band id="body" style="cellline:1 solid #808080ff ;cellbackground2:#ffffffff;">
+                <Cell style="align:left;" text="bind:Group" suppress="1"/>
+                <Cell col="1" style="align:left;background:EXPR(dataset.getRowLevel(rowidx)==2?'yellow':'white');background2:EXPR(dataset.getRowLevel(rowidx)==2?'yellow':'white');" text="bind:Department" expr="expr:dataset.getRowLevel(rowidx)==2?'subtotal ' + dataset.getColumn(rowidx-2,'Group'):Department" suppress="2"/>
+                <Cell col="2" style="align:left;background:EXPR(dataset.getRowLevel(rowidx)==1?'pink':dataset.getRowLevel(rowidx)==2?'yellow':'white');background2:EXPR(dataset.getRowLevel(rowidx)==1?'pink':dataset.getRowLevel(rowidx)==2?'yellow':'white');" text="bind:Name" expr="expr:dataset.getRowLevel(rowidx)==1?'subtotal ' + dataset.getColumn(rowidx-1,'Department'):Name"/>
+                <Cell col="3" style="background:EXPR(dataset.getRowLevel(rowidx)==1?'pink':dataset.getRowLevel(rowidx)==2?'yellow':'white');background2:EXPR(dataset.getRowLevel(rowidx)==1?'pink':dataset.getRowLevel(rowidx)==2?'yellow':'white');" text="bind:salary"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" keystring="G:+Group+Department">
+        <ColumnInfo>
+          <Column id="Group" type="STRING" size="256"/>
+          <Column id="Department" type="STRING" size="256"/>
+          <Column id="Name" type="STRING" size="256"/>
+          <Column id="salary" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Group">Technical Group</Col>
+            <Col id="Department">cs team</Col>
+            <Col id="Name">Tom</Col>
+            <Col id="salary">2000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">Technical Group</Col>
+            <Col id="Department">cs team</Col>
+            <Col id="Name">june</Col>
+            <Col id="salary">1500</Col>
+          </Row>
+          <Row>
+            <Col id="Group">Technical Group</Col>
+            <Col id="Department">cs team</Col>
+            <Col id="Name">sam</Col>
+            <Col id="salary">3000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">Technical Group</Col>
+            <Col id="Department">technical team</Col>
+            <Col id="Name">betty</Col>
+            <Col id="salary">2000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">Technical Group</Col>
+            <Col id="Department">technical team</Col>
+            <Col id="Name">anna</Col>
+            <Col id="salary">1500</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 1</Col>
+            <Col id="Name">leo</Col>
+            <Col id="salary">2000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 1</Col>
+            <Col id="Name">odry</Col>
+            <Col id="salary">1500</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 2</Col>
+            <Col id="Name">alieen</Col>
+            <Col id="salary">3000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 2</Col>
+            <Col id="Name">kim</Col>
+            <Col id="salary">1200</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 3</Col>
+            <Col id="Name">judy</Col>
+            <Col id="salary">1200</Col>
+          </Row>
+          <Row>
+            <Col id="Group">education</Col>
+            <Col id="Department">edu 1</Col>
+            <Col id="Name">cloy</Col>
+            <Col id="salary">2000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">education</Col>
+            <Col id="Department">edu 1</Col>
+            <Col id="Name">sujan</Col>
+            <Col id="salary">2500</Col>
+          </Row>
+          <Row>
+            <Col id="Group">education</Col>
+            <Col id="Department">edu 2</Col>
+            <Col id="Name">piter</Col>
+            <Col id="salary">3000</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

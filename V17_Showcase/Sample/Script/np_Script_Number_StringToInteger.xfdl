@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Number_StringToInteger" inheritanceid="" position="absolute" titletext="Script_Number_StringToInteger" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input" taborder="0" text="300" autoselect="true" autoskip="true" value="300" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <Static id="Static02" taborder="3" text="Converting input String type number to integer type" left="30" top="18" width="700" height="40" cssclass=" sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Number_StringToInteger
+ * Description : The number is entered as String type will be changed to integer type
+ */
+
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var nRtn = this.fn_parseIntZero(this.edt_input.value);
+	this.edt_output.set_value(nRtn);
+}
+
+/*
+ * Function Name : fn_parseIntZero
+ * Description   : String converting into  int.
+ * Parameter     : Input Value
+ * Return        : int value, in case of if no value is input return 0
+ * Example       : fn_parseIntZero("300")
+ */
+this.fn_parseIntZero = function(sValue)
+{
+    var nRtn;
+ 	if (sValue == null || sValue == "" || sValue == "undefined")
+ 	{
+		return 0;
+	}
+
+    var nRtn = parseInt(sValue);
+    
+    return nRtn;
+}
+]]></Script>
+  </Form>
+</FDL>

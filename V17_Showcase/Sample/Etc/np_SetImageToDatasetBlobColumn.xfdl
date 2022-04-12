@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="BlobSample" classname="BlobSample" left="0" top="0" width="760" height="550" titletext="Set the image to the Dataset's blob column">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Select image file" left="30" top="105" width="150" height="34" onclick="Button00_onclick"/>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="30" top="149" height="192" binddataset="Dataset00" autofittype="col" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="407"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="150"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Image"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="imagecontrol" text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <TextArea id="TextArea00" taborder="3" readonly="true" left="30" top="451" height="80" width="700" wordwrap="english"/>
+        <Static id="Static00" taborder="4" text="Dataset saveXML" cssclass="sta_WF_explain" left="30" top="411" width="591" height="30" style="font:bold 9 Dotum;"/>
+        <Static id="Static07" taborder="5" text="Attach the file and set to dataset's blob column&#13;&#10;" cssclass="sta_WF_explain" left="30" top="25" width="338" height="30" style="font:bold 9 Dotum;" wordwrap="english"/>
+        <Static id="Static01" taborder="6" text="This example reads image from my documents location.So image should be placed on my document location." wordwrap="english" cssclass="sta_WF_explain" left="30" top="65" width="770" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="BLOB" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <FileDialog id="FileDialog00" filterindex="0" defaultextension="false" onclose="FileDialog00_onclose" async="false"/>
+      <VirtualFile id="VirtualFile00" onsuccess="VirtualFile00_onsuccess"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if( system.navigatorname != "nexacro" ){
+		alert("지원되지 않습니다.");
+		return;
+	}	
+	var rtn = this.FileDialog00.open("File Open", FileDialog.LOAD);
+};
+
+this.FileDialog00_onclose = function(obj:FileDialog, e:nexacro.FileDialogEventInfo)
+{
+	if(e.virtualfiles.length > 0) {
+		var rtn = this.VirtualFile00.open(e.virtualfiles[0].fullpath, nexacro.VirtualFile.openBinary);
+		}
+};
+
+this.VirtualFile00_onsuccess = function(obj:VirtualFile, e:nexacro.VirtualFileEventInfo)
+{
+
+	switch (e.reason)
+	{
+		// open
+		case 1 :
+			this.VirtualFile00.read();
+			break;
+		
+		// close
+		case 2 :
+			break;
+		
+		// read
+		case 3 :
+			this.TextArea00.set_value(e.binarydata);
+			this.Dataset00.setColumn(0, "Column0", e.binarydata);
+			obj.getFileSize();
+			this.VirtualFile00.close();
+			break;
+		
+		// readLine
+		case 4 :
+			break;
+		
+		// seek
+		case 5 :
+			break;
+		
+		// write
+		case 6 :
+			this.VirtualFile00.close();
+			break;
+		
+		// remove
+		case 7 :
+			break;
+			
+		case 8 :	
+			break;
+		
+		// getFileSize
+		case 9 :
+			this.alert("e.filesize : " + e.filesize);
+			break;
+		
+		// isExist
+		case 10 :
+			if (e.fileisexist)
+			{
+				this.alert("File is exist.");
+			}
+			else
+			{
+				this.alert("File is not exist.");
+			}
+			break;
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

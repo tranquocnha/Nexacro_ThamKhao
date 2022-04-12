@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="MaskEdit_Basic" classname="MaskEdit_Basic_0" inheritanceid="" position="absolute" titletext="MaskEdit Basic" left="0" width="760" top="0" height="640">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Binding" position="absolute" left="30" width="283" top="14" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid00" taborder="1" position="absolute" binddataset="Dataset00" autofittype="col" left="30" width="200" top="69" height="150">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+                <Cell col="1" disptype="normal" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+                <Cell col="1" disptype="normal" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <MaskEdit id="MaskEdit00" taborder="2" position="absolute" type="string" onsetfocus="MaskEdit_onsetfocus" left="239" width="90" top="69" height="40" mask="@"/>
+        <MaskEdit id="MaskEdit01" taborder="3" position="absolute" mask="#" onsetfocus="MaskEdit_onsetfocus" left="238" width="90" top="119" height="40"/>
+        <Static id="Static02" text="(1) Character : " position="absolute" left="30" width="90" top="344" height="34"/>
+        <MaskEdit id="MaskEdit02" taborder="4" mask="AA-###" position="absolute" type="string" value="AB123" onsetfocus="MaskEdit_onsetfocus" left="130" width="200" top="344" height="34"/>
+        <MaskEdit id="MaskEdit03" taborder="5" mask="-12,345,678.9" position="absolute" value="456789123" onsetfocus="MaskEdit_onsetfocus" left="130" width="200" top="388" height="40"/>
+        <Button id="Button00" taborder="6" text="(1) View the value(Text)" position="absolute" onclick="Button00_onclick" left="30" width="180" top="553" height="40"/>
+        <Button id="Button01" taborder="7" text="(2) View the value(Value)" position="absolute" onclick="Button01_onclick" left="220" width="180" top="553" height="40"/>
+        <Static id="Static03" text="Masking" position="absolute" left="30" width="283" top="289" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static00" text="View values contains Mask Characters" position="absolute" left="30" width="520" top="498" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static01" taborder="8" text="(2) Number : " left="30" top="388" width="90" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">AA</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">BB</Col>
+            <Col id="Column1">22</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">CC</Col>
+            <Col id="Column1">333</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="plus" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="Dataset02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="plus" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="MaskEdit00" propid="value" datasetid="Dataset00" columnid="Column0"/>
+      <BindItem id="item1" compid="MaskEdit01" propid="value" datasetid="Dataset00" columnid="Column1"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var txt = this.MaskEdit02.text;
+	this.alert(txt);
+};
+
+this.Button01_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var val = this.MaskEdit02.value;
+	this.alert(val);
+};
+
+this.MaskEdit_onsetfocus = function (obj:MaskEdit, e:SetFocusEventInfo)
+{
+	this.Dataset01.addRow();
+	this.Dataset01.setColumn(0, "plus", obj.text);
+	this.Dataset02.addRow();
+	this.Dataset02.setColumn(0, "plus", obj.value);
+	
+};
+   ]]></Script>
+  </Form>
+</FDL>

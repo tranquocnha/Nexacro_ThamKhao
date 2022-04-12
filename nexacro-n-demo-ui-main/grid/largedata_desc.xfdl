@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="300" onload="form_onload">
+    <Layouts>
+      <Layout height="300" width="920">
+        <Static id="Static00" taborder="1" text="Large Data" left="20" top="15" width="79" height="30" cssclass="sta_WF_compTitle02" messageid="grid.largedata" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="A typical web page does not represent a lot of data in the grid at a time. There is a problem with memory or performance, so it will be paged.&#13;&#10;But from the point of view of business people, it's easy to load a lot of data on the web at once, just like Excel or C/S-based systems, so it's a feature that many customers require.&#13;&#10;Because the Nexacroplatform manages data through datasets and renders only as much data as is shown in the grid, thousands or tens of thousands of data can be viewed quickly." left="20" top="Static00:2" height="120" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.largedata.desc" right="20"/>
+        <Static id="Static05" taborder="2" text="Large data query" left="20" top="Static01:10" width="124" height="30" cssclass="sta_WF_compTitle02" messageid="grid.largedata.query" fittocontents="width"/>
+        <Static id="Static06" taborder="3" text="Under Search Criteria, select the number of data (10,000/50,000/100,000) and click the Inquiry button. At the end of the query, the data is rendered in the grid and displayed on the screen, separating the server/network interval and the rendering time." left="20" top="Static05:2" height="70" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.largedata.query.desc" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

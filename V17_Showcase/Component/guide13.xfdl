@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="guide5" classname="guide5" left="0" top="0" width="850" height="650" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="3" text="Component Name" left="0" top="0" width="125" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static06" taborder="4" text="Component View" left="124" top="0" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;" right="0"/>
+        <Static id="Static00" taborder="5" text="Edit" left="0" top="29" width="125" height="70" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static02" taborder="18" left="125" top="98" right="0" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static01" taborder="19" text="Maskedit" left="0" top="98" width="125" height="70" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Combo id="Combo00" taborder="21" innerdataset="Dataset00" codecolumn="Column0" datacolumn="Column0" cssclass="cmb_WF_P" left="164" top="190" width="150" height="20" class="cmb_WF_P"/>
+        <CheckBox id="CheckBox00" taborder="22" text="CheckBox00" cssclass="chk_WF_P" left="164" top="543" width="282" height="20" class="chk_WF_P"/>
+        <MaskEdit id="MaskEdit00" taborder="23" cssclass="mae_WF_P" left="164" top="124" width="150" height="20" class="mae_WF_P"/>
+        <Radio id="Radio00" taborder="24" rowcount="1" index="0" innerdataset="Dataset00" codecolumn="Column1" datacolumn="Column0" value="1" cssclass="rdo_WF_P" left="163" top="604" width="166" height="30" class="rdo_WF_P"/>
+        <Spin id="Spin00" taborder="25" value="0" cssclass="spn_WF_P" left="164" top="261" width="150" height="20" class="spn_WF_P"/>
+        <Calendar id="Calendar00" taborder="26" cssclass="cal_WF_P" left="164" top="482" width="150" height="20" class="cal_WF_P"/>
+        <Edit id="Edit00" taborder="27" cssclass="edt_WF_P" left="164" top="52" width="155" height="20" class="edt_WF_P"/>
+        <Static id="Static04" taborder="28" text="Combo" left="0" top="167" width="125" height="70" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static07" taborder="29" text="Spin" left="0" top="236" width="125" height="70" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static08" taborder="30" text="Textarea" left="0" top="305" width="125" height="160" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static09" taborder="31" text="Calendar" left="0" top="464" width="125" height="60" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static10" taborder="32" text="Checkbox" left="0" top="523" width="125" height="60" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static11" taborder="33" text="Checkbox" left="0" top="582" width="125" height="68" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static12" taborder="34" left="125" top="167" right="0" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static13" taborder="35" left="125" top="236" right="0" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static14" taborder="36" left="125" top="305" right="0" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static15" taborder="37" left="125" top="464" right="0" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static16" taborder="38" left="125" top="523" right="0" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static17" taborder="39" left="125" top="582" right="0" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static03" taborder="40" left="125" top="649" right="0" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <TextArea id="TextArea00" taborder="41" left="164" top="318" width="151" height="139" cssclass="txt_WF_P"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">Radio</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">Radio</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="DsList" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="context" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="idx">0</Col>
+            <Col id="context">Static</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1</Col>
+            <Col id="context">Edit</Col>
+          </Row>
+          <Row>
+            <Col id="idx">2</Col>
+            <Col id="context">MaskEdit</Col>
+          </Row>
+          <Row>
+            <Col id="idx">3</Col>
+            <Col id="context">TextArea</Col>
+          </Row>
+          <Row>
+            <Col id="idx">4</Col>
+            <Col id="context">Button</Col>
+          </Row>
+          <Row>
+            <Col id="idx">5</Col>
+            <Col id="context">ListBox</Col>
+          </Row>
+          <Row>
+            <Col id="idx">6</Col>
+            <Col id="context">Combo</Col>
+          </Row>
+          <Row>
+            <Col id="idx">7</Col>
+            <Col id="context">Sp</Col>
+          </Row>
+          <Row>
+            <Col id="idx">8</Col>
+            <Col id="context">Calendar</Col>
+          </Row>
+          <Row>
+            <Col id="idx">9</Col>
+            <Col id="context">Tab</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

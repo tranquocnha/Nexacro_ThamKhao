@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="common_child" inheritanceid="" titletext="ToolTipText" position="absolute" left="0" top="0" width="760" height="430" visible="true">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Grid Cell-specific expression ToolTipText" class="sta_WF_subtitle" position="absolute" left="30" top="18" width="550" height="40" cssclass="sta_WF_subtitP" verticalAlign="top"/>
+        <Grid id="Grid00" taborder="1" binddataset="ds_data" useinputpanel="false" autofittype="col" onheaddblclick="Grid00_onheaddblclick" left="30" top="78" width="526" height="300" style="cursor:auto;" onmousemove="Grid00_onmousemove">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Group"/>
+                <Cell col="1" text="Department"/>
+                <Cell col="2" text="Employee"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:group" suppress="1" tooltiptext="bind:group"/>
+                <Cell col="1" style="align:left;" text="bind:department" suppress="2" tooltiptext="bind:department"/>
+                <Cell col="2" style="align:left;" text="bind:employee" tooltiptext="bind:employee"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="group" type="STRING" size="256"/>
+          <Column type="STRING" size="255" id="department"/>
+          <Column type="STRING" size="256" id="employee"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Tom</Col>
+            <Col id="group">Technical Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Jany</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employee">Piter</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Superman</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Jack</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group1</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employee">Tony</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Sujan</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Mac</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employee">Ann</Col>
+          </Row>
+          <Row>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Bess</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Dana</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employee">Elin</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+ ]]></Script>
+  </Form>
+</FDL>

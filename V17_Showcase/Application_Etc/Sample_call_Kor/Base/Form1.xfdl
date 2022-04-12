@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Form1" classname="Form1" left="0" top="0" width="1024" height="768" titletext="Form1" style="background:lightblue;">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" left="2.15%" top="19" right="70.61%" height="31"/>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="23" top="52" height="50" binddataset="Dataset00" width="362">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="120"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" style="align:left middle;" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="2" text="팝업창 호출 (modeless)" left="22" top="270" height="37" width="179" onclick="Button00_onclick" style="padding:0 0 0 3;align:left middle;"/>
+        <Button id="Button01" taborder="3" text="팝업창 호출 (modal)" left="214" top="270" height="37" width="163" onclick="Button01_onclick" style="padding:0 0 0 3;align:left middle;"/>
+        <Edit id="Edit00" taborder="4" left="23" top="9" height="30" value="Form1 TEXT" width="183"/>
+        <Div id="Div00" taborder="5" text="Div00" left="21" top="120" height="126" style="border:1 solid #808080ff ;" width="359">
+          <Layouts>
+            <Layout>
+              <Tab id="Tab00" taborder="0" left="9" top="6" height="99" tabindex="0" scrollbars="autoboth" style="border:1 solid #808080ff ;" width="196">
+                <Tabpages>
+                  <Tabpage id="tabpage1" text="tabpage1">
+                    <Layouts>
+                      <Layout>
+                        <Edit id="Edit00" taborder="0" left="10" top="7" height="25" value="tabpage TEXT" width="107"/>
+                      </Layout>
+                    </Layouts>
+                  </Tabpage>
+                </Tabpages>
+              </Tab>
+              <Div id="Div00" taborder="1" text="Div00" left="213" top="36" height="69" style="border:1 solid #808080ff ;" width="128">
+                <Layouts>
+                  <Layout>
+                    <Edit id="Edit00" taborder="0" left="7" top="6" height="23" value="Div TEXT" width="109"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="Button05" taborder="6" text="글로벌 데이터셋 접근" onclick="Button05_onclick" left="214" top="355" height="37" width="164" style="padding:0 0 0 3;align:left middle;"/>
+        <Button id="Button06" taborder="7" text="글로벌 변수 접근" onclick="Button06_onclick" left="214" top="397" height="37" width="164" style="padding:0 0 0 3;align:left middle;"/>
+        <Button id="Button04" taborder="8" text="LeftFrame의 객체 접근" onclick="Button04_onclick" left="22" top="355" height="37" width="180" style="padding:0 0 0 3;align:left middle;"/>
+        <Button id="Button02" taborder="9" text="TopFrame의 객체 접근" onclick="Button02_onclick" left="22" top="397" height="37" width="180" style="padding:0 0 0 3;align:left middle;"/>
+        <Button id="Button03" taborder="10" text="BottomFrame의 객체 접근" onclick="Button03_onclick" left="22" top="440" height="37" width="180" style="padding:0 0 0 3;align:left middle;"/>
+        <Button id="Button07" taborder="11" text="다른폼의 객체 접근" onclick="Button07_onclick" left="214" top="440" height="37" width="164" style="padding:0 0 0 3;align:left middle;"/>
+        <Button id="Button08" taborder="12" text="팝업창 호출 (modalwindow)&#13;&#10;:html5 미지원" wordwrap="char" onclick="Button08_onclick" left="22" top="312" height="37" width="179" style="padding:0 0 0 3;align:left middle;"/>
+        <Button id="Button09" taborder="13" text="팝업창 호출(modalsync)&#13;&#10;:html5 미지원" onclick="Button09_onclick" left="214" top="312" height="37" width="163" style="padding:0 0 0 3;align:left middle;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">투비소프트</Col>
+            <Col id="Column1">서울시 강남구 삼성동</Col>
+            <Col id="Column2">1588-7895</Col>
+            <Col id="Column3">Nexacro</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">A</Col>
+            <Col id="Column1">B</Col>
+            <Col id="Column2">C</Col>
+            <Col id="Column3">D</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{                                                                               
+	application.open("modeless", "Base::Form1_Pop.xfdl", this.getOwnerFrame(), {mode:'modeless',ds:this.Dataset01}, "showtitlebar=true", 400, 200);
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var popWin = new ChildFrame;
+	popWin.init("Pop1",  0, 0, 400, 400, 0, 0, "Base::Form2_Pop.xfdl");
+	popWin.set_openalign("center middle"); //추가
+	
+    popWin.showModal(this.getOwnerFrame(), {mode:'modal',ds:this.Dataset01}, this, "fn_pop_callback");	
+}
+
+this.Button08_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if( system.navigatorname != "nexacro") {
+		alert("지원되지 않습니다.");
+		return;
+	}	
+	
+	//showModalWindow 호출 이전에 열려있는 화면은 모두 사용 불가능 상태가 됩니다.
+	var popWin = new ChildFrame;
+	popWin.init("Pop3",  0, 0, 400, 400, 0, 0, "Base::Form1_Pop.xfdl");
+	popWin.set_openalign("center middle"); //추가
+	var varRet = system.showModalWindow(popWin, "modeless2", this.getOwnerFrame(), {mode:'showModalWindow',ds:this.Dataset01}, this);	
+	alert("팝업창의 return 값 : " + varRet);
+}
+
+this.Button09_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if( system.navigatorname != "nexacro") {
+		alert("지원되지 않습니다.");
+		return;
+	}	
+	
+	var popWin = new ChildFrame;
+	popWin.init("Pop2",  0, 0, 400, 400, 0, 0, "Base::Form2_Pop.xfdl");
+	popWin.set_openalign("center middle"); //추가
+	var varRet = system.showModalSync(popWin, "modal2",  this.getOwnerFrame(), {mode:'showModalSync',ds:this.Dataset01}, this);
+	alert(varRet);
+	if(varRet){
+		alert("팝업창 종료 성공");
+	} else {
+		alert("팝업창 종료 실패");
+	}	
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("application.mainframe.VFrameSet0.TopFrame.form.Edit00.text : [" + application.mainframe.VFrameSet0.TopFrame.form.Edit00.text +"]");	
+}
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("application.mainframe.VFrameSet0.BottomFrame.form.Edit00.text : [" + application.mainframe.VFrameSet0.BottomFrame.form.Edit00.text +"]");
+}
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("application.mainframe.VFrameSet0.HFrameSet0.LeftFrame.form.Edit00.text : [" + application.mainframe.VFrameSet0.HFrameSet0.LeftFrame.form.Edit00.text +"]");
+	//alert(application.all[0].all[0].all[1].all[0].form.Edit00.value);
+	//alert(application.all["mainframe"].all["VFrameSet0"].all["HFrameSet0"].all["LeftFrame"].form.Edit00.value);
+}
+
+this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("application.gv_Ds.saveXML() :\n" + application.gv_Ds.saveXML());
+}
+
+this.Button06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("application.gv_var1 : [" + application.gv_var1 +"]");
+}
+
+this.Button07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("application.mainframe.VFrameSet0.HFrameSet0.WorkFrameSet.ChildFrame1.form.Edit00.value : [" + application.mainframe.VFrameSet0.HFrameSet0.WorkFrameSet.ChildFrame1.form.Edit00.value +"]");
+}
+
+this.fn_test = function(arg)
+{
+	alert("Func Call > " + arg);
+}
+
+this.fn_test1 = function(strVal, objDs)
+{
+	trace(strVal);
+	trace(objDs.saveXML());
+}
+
+this.fn_pop_callback = function(strID, Variant)
+{
+	if( Variant != undefined )
+	 alert("fn_pop_callback : " + Variant);
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

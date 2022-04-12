@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="arrangement_phone" width="730" height="47" titletext="New Form">
+    <Layouts>
+      <Layout height="47" mobileorientation="landscape" width="730">
+        <Edit id="Edit00_00" taborder="2" left="277" top="6" width="360" height="36"/>
+        <Combo id="cboNo1" taborder="1" top="6" width="144" height="36" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" index="0" text="Korea (82)" value="82" left="120" itemheight="36">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">82</Col>
+                <Col id="datacolumn">Korea (82)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">USA (1)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">7</Col>
+                <Col id="datacolumn">Russia (7)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">33</Col>
+                <Col id="datacolumn">France (33)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">34</Col>
+                <Col id="datacolumn">Spain (34)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">44</Col>
+                <Col id="datacolumn">Great Britain (44)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">49</Col>
+                <Col id="datacolumn">Germany (49)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">61</Col>
+                <Col id="datacolumn">Australia (61)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">63</Col>
+                <Col id="datacolumn">Philippines (63)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">64</Col>
+                <Col id="datacolumn">New Zealand (64)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">65</Col>
+                <Col id="datacolumn">Singapore (65)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">66</Col>
+                <Col id="datacolumn">Thailand (66)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">81</Col>
+                <Col id="datacolumn">Japan (81)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">84</Col>
+                <Col id="datacolumn">Vietnam (84)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">86</Col>
+                <Col id="datacolumn">China (86)</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">91</Col>
+                <Col id="datacolumn">India (91)</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Button id="btn_del" taborder="3" text="Delete" left="641" top="6" width="70" height="36" cssclass="btn_WF_basic02" onclick="Button02_01_onclick" visible="false"/>
+        <Static id="Static02_00" taborder="0" text="Phone Number" left="0" top="8" width="107" height="32" cssclass="sta_WF_labelTxt01"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+
+this.Button02_01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var pForm = this.parent.parent.parent.parent;
+	pForm["deleteContact"].call(pForm, this.parent.name);
+};
+]]></Script>
+  </Form>
+</FDL>

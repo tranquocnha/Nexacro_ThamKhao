@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="sample002" classname="sample002" left="0" top="0" width="1024" height="768" titletext="New Form" onload="sample002_onload">
+    <Layouts>
+      <Layout/>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[//전체 타일 갯수
+this.fv_PageCount = 6;
+
+//한 라인에 표현할 타일 갯수
+this.fv_LineCount = 2;
+
+//타일 사이즈
+this.fv_Width = 300;
+this.fv_Height = 200;
+
+//타일 간격
+this.fv_Gap = 10;
+
+//타일 순서 (ex) div_Goods0|div_Goods1|div_Goods2|div_Goods3|div_Goods4|)
+this.fv_ImgList = "";
+
+targetForm = null;
+
+this.sample002_onload = function(obj:nexacro.Form, e:nexacro.LoadEventInfo)
+{
+	targetForm = this;
+	
+	if(system.navigatorname!="nexacro")this.loadJQuery();
+	else  alert("Only Web Use");
+};
+ 
+ this.loadJQuery = function()
+{
+	// jquery를 로딩하고 로딩완료시 callback 실행
+    // jQuery가 이미 로드되어 있으면 그냥 callback() 실행
+    if (typeof window.jQuery != 'undefined') {
+
+        targetForm.loadCallback();
+    }else {
+
+        // <script> element를 하나 생성
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+
+        // jQuery 로딩 완료 후 callback() 실행
+        // IE
+        if (script.readyState) {
+				script.onreadystatechange = function(){
+                if (script.readyState=='loaded' || script.readyState=='complete') {
+                    script.onreadystatechange = null;
+                    targetForm.loadCallback();
+                }
+            }
+        }
+        // 기타 브라우저
+        else {
+            script.onload = function(){
+                targetForm.loadCallback();
+            }
+        }
+        // jQuery 로딩
+        script.src = './nexacro17lib/component/ExtAPI/jquery-1.10.2.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+}
+
+this.loadCallback = function()
+{
+	//타일 생성 함수 호출
+	this.fn_createImage();
+	
+	//타일 바둑판 형태로 위치 변경
+	this.fn_compAni_List();
+}
+
+//타일 생성 함수
+this.fn_createImage = function()
+{
+	var i;
+	var objDiv; 
+	
+	for(i=1;i<=this.fv_PageCount;i++)
+	{
+		//타일 생성
+		objDiv = new Div("div_Goods"+i, "absolute", 0, 0, this.fv_Width, this.fv_Height);
+		this.addChild(objDiv.name, objDiv);
+		objDiv.show();
+		objDiv.set_border("1 solid #808080");
+		objDiv.set_url("Sample_Etc::np_jQuery_animate_positionDiv.xfdl");
+		
+		//타일 클릭시 처리할 이벤트 연결
+		objDiv.addEventHandler("onclick", this.Div_onclick, this);
+		
+		//타일 순서 입력
+		this.fv_ImgList += objDiv.name+"|";
+	}
+};
+
+//타일 클릭시 이벤트
+this.Div_onclick = function(obj:nexacro.Div,  e:nexacro.ClickEventInfo)
+{
+	//타일 클릭시 화면 최대화/바둑판 배열 함수 실행
+	this.alert("div name...:" + obj.name);
+	this.divclick(obj);
+};
+
+//타일 클릭시 화면 최대화/바둑판 배열 함수
+this.divclick = function (obj)
+{
+	//this.alert("div name...:" + obj.name);
+	//현재 클릭된 타일이 Max상태일 경우 
+	if(obj.sizeType=="MAX")
+	{
+		//바둑판 형태로 위치 변경
+		this.fn_compAni_List();
+	}else
+	{	
+		//최대화 형태로 위치 변경
+		this.fn_compAni_Max(obj);
+	}
+};
+
+//바둑판 형태로 위치 변경하는 함수
+this.fn_compAni_List = function ()
+{
+	//타일순서 
+	var sImgList = this.fv_ImgList.substr(0, this.fv_ImgList.length-1);
+	
+	//타일 순서를 Array형태로 변환
+	var arrImgList = sImgList.split("|");
+	
+	//타일 위치 변수
+	var nTop = 10;
+	var nLeft = 30;
+	
+	var objDiv;
+	var i,j;
+	
+	//jQuery Animation Dration
+	var duration = 300;
+	
+	//현재 Form의 Component List 변수 선언
+	var tc = this.components;
+	
+	//전체 타일 갯수
+	var cnt = this.fv_PageCount;
+	
+	//jQuery Animation 을 이용한 크기 및 위치 변경
+	for(i=0;i<cnt;i++)
+	{
+		objDiv = tc[arrImgList[i]];
+		objDiv.sizeType = "NORMAL";
+		
+		$(this.jquerid(objDiv)).animate({"left" : nLeft}, {"duration":duration, "queue": false, "complete":this.fn_test1()})		
+		                             .animate({"top" : nTop}, {"duration":duration, "queue": false})
+		                             .animate({"width" : this.fv_Width}, {"duration":duration, "queue": false})
+		                             .animate({"height" : this.fv_Height}, {"duration":duration, "queue": false});
+		
+		nLeft = nLeft+this.fv_Width + this.fv_Gap;
+
+		if((i+1)%this.fv_LineCount==0)
+		{
+			nTop = nTop+this.fv_Height + this.fv_Gap;
+			nLeft = 30;
+			
+		}
+		
+	}
+};
+
+//최대화 형태로 위치 변경 함수
+this.fn_compAni_Max = function (obj)
+{
+	//타일순서 
+	var sImgList = this.fv_ImgList.substr(0, this.fv_ImgList.length-1);
+	
+	//타일 순서를 Array형태로 변환
+	var arrImgList = sImgList.split("|");
+	
+	//타일 위치 변수
+	var nTop = 10;
+	var nLeft = 30;
+	
+	var objDiv;
+	
+	//최대화 타일의 크기값
+	var nMaxWidth = 400;
+	var nMaxHeight = 300;
+	
+	var temp;
+	var temp1;
+	var temp2;
+	var i,j;
+	var nCount = 1;
+	
+	//jQuery Animation Dration
+	var duration = 300;
+	
+	//현재 선택된 타일가 MAX임을 표현하기 위한 User Property
+	obj.sizeType = "MAX";
+	
+	//jQuery Animation 을 이용한 크기 및 위치 변경(현재 선택된 타일을 최대화 처리)
+	$(this.jquerid(obj)).animate({"left" : 30}, {"duration":duration, "queue": false, "complete":this.fn_test(obj)})		
+						 .animate({"top" : 10}, {"duration":duration, "queue": false})
+						 .animate({"width" : nMaxWidth}, {"duration":duration, "queue": false})
+						 .animate({"height" : nMaxHeight}, {"duration":duration, "queue": false});
+	
+	nLeft = nLeft + nMaxWidth+this.fv_Gap;
+	var tc = this.components;
+	var cnt = this.fv_PageCount;
+	
+	//jQuery Animation 을 이용한 크기 및 위치 변경(현재 선택되지 않은 타일을 최소화 처리)
+	for(i=0;i<cnt;i++)
+	{
+		objDiv = tc[arrImgList[i]];
+		
+		if(objDiv.name==obj.name)continue;
+		
+		objDiv.sizeType = "MIN";
+		
+		$(this.jquerid(objDiv)).animate({"left" : nLeft}, {"duration":duration, "queue": false})		
+						 .animate({"top" : nTop+((100+this.fv_Gap)*(nCount-1))}, {"duration":duration, "queue": false})
+						 .animate({"width" : 200}, {"duration":duration, "queue": false})
+						 .animate({"height" : 100}, {"duration":duration, "queue": false});
+						 
+		nCount++;
+	}
+};
+
+//jQuery Animation 을 이용한 크기 및 위치 변경 후 
+//실제 해당 컴포넌트의 사이즈를 적용하기 위한 함수
+// 추가 설명
+// jQuery Animation은 CSS를 이용하여 크기나 위치가 변경된것 처럼 표현되지만
+// 실제 좌표값(left, top) 및 크기(width, height)가 변경된 것은 아니므로
+// 좌표값 및 크기를 설정해야 함
+this.fn_test = function (obj)
+{
+	var nTop = 10;
+	var nLeft = 30;
+	var objDiv;
+	var nMaxWidth = 400;
+	var nMaxHeight = 300;
+	var sImgList = this.fv_ImgList.substr(0, this.fv_ImgList.length-1);
+	var arrImgList = sImgList.split("|");
+	var temp;
+	var temp1;
+	var temp2;
+	var i,j;
+	var nCount = 1;
+	
+	obj.sizeType = "MAX";
+	obj.set_width(nMaxWidth);	                             
+	obj.set_height(nMaxHeight);	                             
+	
+	//this.alert(obj.name);
+		
+	nLeft = nLeft + nMaxWidth;
+	var tc = this.components;
+	var cnt = this.fv_PageCount;
+	for(i=0;i<cnt;i++)
+	{
+		objDiv = tc[arrImgList[i]];
+		
+		if(objDiv.name==obj.name)continue;
+		
+		objDiv.sizeType = "MIN";
+		objDiv.set_width(200);	                             
+		objDiv.set_height(100);	 	 
+		nCount++;
+	}
+};
+
+//jQuery Animation 을 이용한 크기 및 위치 변경 후 
+//실제 해당 컴포넌트의 사이즈를 적용하기 위한 함수
+// 추가 설명
+// jQuery Animation은 CSS를 이용하여 크기나 위치가 변경된것 처럼 표현되지만
+// 실제 좌표값(left, top) 및 크기(width, height)가 변경된 것은 아니므로
+// 좌표값 및 크기를 설정해야 함
+this.fn_test1 = function ()
+{	
+	var sImgList = this.fv_ImgList.substr(0, this.fv_ImgList.length-1);
+	var arrImgList = sImgList.split("|");
+	var nTop = 10;
+	var nLeft = 30;
+	var objDiv;
+	var i,j;
+	var duration = 300;
+	var tc = this.components;
+	var cnt = this.fv_PageCount;
+	
+	for(i=0;i<cnt;i++)
+	{
+		objDiv = tc[arrImgList[i]];
+		objDiv.sizeType = "NORMAL";
+		objDiv.set_width(this.fv_Width);	                             
+		objDiv.set_height(this.fv_Height);                            
+		nLeft = nLeft+this.fv_Width + this.fv_Gap;		
+		
+		if((i+1)%this.fv_LineCount==0)
+		{
+			nTop = nTop+this.fv_Height + this.fv_Gap;
+			nLeft = 30;
+		}
+		
+	}
+};
+
+//타일의 HTML 태그ID를 찾기 위한 함수
+this.jquerid = function(objID)
+{
+	var generateID = "";
+	var prtID = objID;	
+	var i = 0;
+	var objApp = nexacro.getApplication();
+	var mainFrm = objApp.mainframe;
+	while(prtID != mainFrm){
+		
+		if(prtID.toString() == "[object Form]") generateID = "form." + generateID;
+		else generateID = prtID.name + ((generateID != "")?".":"") + generateID;
+		i++;
+		prtID = prtID.parent;	
+	}		
+	var reGenerateID = nexacro.replaceAll(generateID, ".","\\.");
+	
+	/* QuickView에서는 return 시 "mainframe\\."을 없애야 합니다.*/  
+	//return "#mainframe\\."+a;
+	return "#mainframe\\." + reGenerateID;
+};]]></Script>
+  </Form>
+</FDL>

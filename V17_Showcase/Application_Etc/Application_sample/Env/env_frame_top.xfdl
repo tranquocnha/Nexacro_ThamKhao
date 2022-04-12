@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="nv_frame_top" classname="nv_frame_top" left="0" top="0" width="800" height="72" titletext="New Form" style="background:#efece9ff URL('theme://Images/bg_TF_menu.png') repeat-x;">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="Top" left="21" top="2" width="61" height="30" style="font:20 Dotum;"/>
+        <Button id="Button00" taborder="1" text="Main function call" left="86" top="3" width="122" height="24" onclick="Button00_onclick" style="background:transparent URL('img::btn_N.png') stretch 3,3;" onrbuttonup="Button_onrbuttonup"/>
+        <Button id="Button01" taborder="2" text="Main form name" onclick="Button01_onclick" left="222" top="3" width="122" height="24" style="background:transparent URL('img::btn_N.png') stretch 3,3;" onrbuttonup="Button_onrbuttonup"/>
+        <Static id="Static01" taborder="4" text="Verifying path by rifhg clicking mouse on the component." left="33" top="34" width="575" height="29"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.fn_top= function()
+{
+	alert('top alert');
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.mainframe.VFrameSet.HFrameSet.FrameSet.ChildFrame0.form.fn_main();
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert(application.mainframe.VFrameSet.HFrameSet.FrameSet.ChildFrame0.form.name);
+}
+/*
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+   application.exit();
+}
+*/
+
+this.Button_onrbuttonup = function(obj:Button, e:nexacro.MouseEventInfo)
+{
+	alert(application.get_url(obj,""));
+}
+]]></Script>
+  </Form>
+</FDL>

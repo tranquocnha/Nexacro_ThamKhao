@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="880" onload="form_onload">
+    <Layouts>
+      <Layout height="880" width="920">
+        <Static id="Static01" taborder="0" text="RESTful" left="20" top="20" width="114" height="40" cssclass="sta_WF_pageTitle" messageid="sample.restful" fittocontents="width"/>
+        <Button id="Button00" taborder="2" text="Send Request" left="780" top="418" width="120" height="40" cssclass="btn_WF_basic01" onclick="Button00_onclick" messageid="sample.restful.sendrequest"/>
+        <Static id="Static02" taborder="1" text="URL" left="30" top="70" width="79" height="40" cssclass="sta_WF_labelTxt01"/>
+        <Edit id="Edit00" taborder="3" left="144" top="70" height="40" value="https://services.odata.org/v4/TripPinServiceRW/People" text="https://services.odata.org/v4/TripPinServiceRW/People" width="756"/>
+        <Static id="Static03" taborder="4" text="Method" left="30" top="120" width="79" height="40" cssclass="sta_WF_labelTxt01"/>
+        <Radio id="Radio00" taborder="5" left="144" top="120" width="756" height="40" direction="vertical" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" index="1" text="POST" value="POST">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">GET</Col>
+                <Col id="datacolumn">GET</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">POST</Col>
+                <Col id="datacolumn">POST</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">OPTIONS</Col>
+                <Col id="datacolumn">OPTIONS</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">PUT</Col>
+                <Col id="datacolumn">PUT</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">DELETE</Col>
+                <Col id="datacolumn">DELETE</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">HEAD</Col>
+                <Col id="datacolumn">HEAD</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static04" taborder="6" text="Parameter" left="30" top="170" width="79" height="40" cssclass="sta_WF_labelTxt01"/>
+        <TextArea id="TextArea00" taborder="7" left="144" top="170" width="756" height="240" value="{&#10;    'UserName':'lewisblack',&#10;    'FirstName':'Lewis',&#10;    'LastName':'Black',&#10;    'Emails':[&#10;        'lewisblack@example.com'&#10;    ],&#10;    'AddressInfo':[&#10;        {&#10;            Address: '187 Suffolk Ln.',&#10;            City: {&#10;CountryRegion: 'United States',&#10;Name: 'Boise',&#10;Region: 'ID'&#10;            }&#10;        }&#10;    ],&#10;    'Gender': 'Male',&#10;    'Concurrency':635519729375200400&#10;}&#10;" wordWrap="char" scrollbartype="auto"/>
+        <Static id="Static05" taborder="8" text="Response" left="30" top="480" width="79" height="40" cssclass="sta_WF_labelTxt01"/>
+        <TextArea id="TextArea01" taborder="9" left="144" top="480" width="756" height="380" readonly="true" wordWrap="char"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var url = this.Edit00.value,
+		settings = {
+			"method": this.Radio00.value,
+			"param": this.TextArea00.value,
+			"callback": function(code, response) {
+				this.TextArea01.set_value(response);
+			}
+		};
+	this.sendRequest(url, settings);
+};
+
+this.sendRequest = function(url, settings) {
+    var createCORSRequest = function(method, url) {
+		var xhr = new XMLHttpRequest();
+		
+		if (xhr) {
+			xhr.open(method, url, true);
+		} else if (typeof XDomainRequest != "undefined") {
+			xhr = new XDomainRequest();
+			xhr.open(method, url);
+		} else {
+			xhr = null;
+		}
+		return xhr;
+	};
+
+    var pForm = this;
+	var method = settings["method"]?settings["method"]:"GET";
+    var xhr = createCORSRequest(method, url);
+    var sParam = JSON.stringify(settings["param"]);
+    var callback = settings["callback"];
+
+	try {
+        xhr.timeout = nexacro.getEnvironment().httptimeout * 1000; // time in milliseconds
+        xhr.ontimeout = function(e) {
+            if (typeof callback == "function") {
+                callback.call(pForm, -1, "Request Timeout");
+            } else if (typeof callback == "string") {
+                pForm[callback].call(pForm, -1, "Request Timeout");
+            }
+        };
+    } catch (e) {}
+	
+	xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            var response = this.responseText;
+
+            if (typeof callback == "function") {
+                callback.call(pForm, 0, response);
+            } else if (typeof callback == "string") {
+                pForm[callback].call(pForm, 0, response);
+            }
+        }
+	};
+
+	xhr.send(sParam);
+};]]></Script>
+  </Form>
+</FDL>

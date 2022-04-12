@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project version="1.3">
+  <EnvironmentDefinition url="environment.xml"/>
+  <TypeDefinition url="typedefinition.xml"/>
+  <AppVariables url="appvariables.xml"/>
+  <AppInfos>
+    <AppInfo url="Application.xadl"/>
+  </AppInfos>
+  <BootstrapCustomize url="bootstrap.xml"/>
+  <MigrationInfo targetpath="D:\DoAnNmart\nexacro-n-demo-ui-main\nexacro-n-demo-ui.xprj" outpath="C:\Users\anhvi\Documents\nexacro\17.1\projects\EduProjectN\nexacro-n-demo-ui.xprj" logpath="C:\Users\anhvi\Documents\nexacro\17.1\projects\EduProjectN\migrate\log\nexacro-n-demo-ui.log"/>
+</Project>

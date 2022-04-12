@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="comp_timer" classname="comp_timer" inheritanceid="" position="absolute" titletext="Form Timer" ontimer="comp_timer_ontimer" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Static id="Static_clock" style="background:black;color:white;align:center;" text="Clock" position="absolute" left="30" top="80" width="215" height="34"/>
+        <Button id="Button00" taborder="1" text="1) Timer start" onclick="Button00_onclick" position="absolute" left="30" top="136" width="150" height="40"/>
+        <Button id="Button01" taborder="2" text="2) Timer stop" onclick="Button01_onclick" position="absolute" left="200" top="136" width="150" height="40"/>
+        <Static id="Static05" text="Timer run ; setTimer(), timer stop; killTimer()" class="sta_WF_subtitP" position="absolute" left="30" top="18" width="600" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+/*******************************************************************************
+ ★ Explanation
+ Obtaining the current date and time from PC.
+ ★ parameter
+ ★ return
+ - Success = yyyyMMddhhmiss state the current date ( Example : "20121122223010" )
+ - Error = No
+ ******************************************************************************/
+this.TodayTime = function ()
+{
+	var strToday = "";
+	var objDate = new Date();
+	var sToday = objDate.getFullYear().toString();
+	sToday += this.Right("0" + (objDate.getMonth() + 1), 2);
+	sToday += this.Right("0" + objDate.getDate(), 2);
+	sToday += this.Right("0" + objDate.getHours(), 2);
+	sToday += this.Right("0" + objDate.getMinutes(), 2);
+	sToday += this.Right("0" + objDate.getSeconds(), 2);
+	// strToday += objDate.getMilliseconds();
+	return sToday;
+};
+ 
+
+
+
+/*******************************************************************************
+ ★ Explanation
+ Taking substring of n characters from right side of the string.
+ // 
+ ★ Parameter
+ 1. sOrg   : Original String( Example : "aaBBbbcc" )
+ 2. nSize  : output stirng size ( Example : 2 )
+ ★ return
+ - Success = substacting nSize String from the right side of the String ( Example : "cc" )
+ - error = ""
+ ★ Notes
+ in case size of sOrg is less than nSize, sOrg is Return. 
+ ( Example : sOrg="a", nSize=2 ==> return = "a" )
+ ******************************************************************************/
+this.Right = function (sOrg, nSize)
+{
+	if (this.IsNull(sOrg) || this.IsNull(nSize)) 
+	{
+		return "";
+	}
+
+	if (sOrg.length < nSize) 
+	{
+		return sOrg;
+	}
+	else 
+	{
+		return sOrg.substr(sOrg.length - nSize, nSize);
+	}
+};
+
+// //////////////////////////////////////////////////////////////////////////////
+// String & Number Start
+// //////////////////////////////////////////////////////////////////////////////
+/*******************************************************************************
+ ★ Explanation
+  Checking if the input value is null
+ ★ Parameter
+ 1. sValue : Checking the sting( Example : null or undefined or "" or "abc" )
+ ★ return
+ - if sValue is undefined, null, NaN, "", in case of Array.length = 0 return true
+ - otherwise return false
+ ******************************************************************************/
+this.IsNull = function (sValue)
+{
+	if (new String(sValue).valueOf() == "undefined") 
+	{
+		return true;
+	}
+	if (sValue == null) 
+	{
+		return true;
+	}
+	if (("x" + sValue == "xNaN") && (new String(sValue.length).valueOf() == "undefined")) 
+	{
+		return true;
+	}
+	if (sValue.length == 0) 
+	{
+		return true;
+	}
+	return false;
+};
+
+
+
+// Time processing function
+this.Clock = function ()
+{
+	var date_str = this.TodayTime();
+
+	var hh = date_str.substr(8,2);
+	var mi = date_str.substr(10,2);
+	var ss = date_str.substr(12,2);
+	return hh + " : " + mi + " : " + ss;
+};
+
+this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.setTimer(1, 1000); //Timer start
+};
+
+this.Button01_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.killTimer(1); //Timer stop
+};
+
+this.comp_timer_ontimer = function (obj:Form, e:TimerEventInfo)
+{
+	this.Static_clock.set_text(this.Clock()); //implementing Static Component using Time Display 
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

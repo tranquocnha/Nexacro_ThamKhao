@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="guide1" classname="guide1" left="0" top="0" width="1025" height="674" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="3" text="Edit" left="15" top="345" width="125" height="80" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Edit id="Edit00" taborder="5" value="enabled" left="154" top="382" width="150" height="20"/>
+        <Edit id="Edit01" taborder="6" value="disable" enable="false" left="320" top="382" width="150" height="20"/>
+        <Edit id="Edit02" taborder="7" value="readonly" readonly="true" left="492" top="382" width="150" height="20" cssclass="readonly"/>
+        <MaskEdit id="MaskEdit00" taborder="8" left="154" top="459" width="150" height="20" value="123,456"/>
+        <MaskEdit id="MaskEdit01" taborder="9" value="123,456" left="320" top="459" width="150" height="20" enable="false"/>
+        <MaskEdit id="MaskEdit02" taborder="10" value="123,456" enable="true" left="492" top="459" width="150" height="20" readonly="true" cssclass="readonly"/>
+        <Static id="Static05" taborder="16" text="Component Name" left="15" top="10" width="125" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static06" taborder="17" text="Component View" left="139" top="10" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;" right="15"/>
+        <Static id="Static01" taborder="18" text="MaskEdit" left="15" top="424" width="125" height="80" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static10" taborder="25" text="TextArea" left="15" top="503" width="125" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;" onclick="Static10_onclick" height="157"/>
+        <Static id="Static13" taborder="33" text="Static" left="15" top="39" width="125" height="307" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static15" taborder="35" text="XPLATFORM13" left="157" top="79" width="159" height="26"/>
+        <Static id="Static16" taborder="36" text="XPLATFORM13" left="319" top="79" width="159" height="26" enable="false"/>
+        <Static id="Static58" taborder="40" text="enabled" left="157" top="358" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static12" taborder="41" text="disabled" left="321" top="358" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static17" taborder="42" text="readonly" left="489" top="358" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static18" taborder="43" text="enabled" left="157" top="61" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static19" taborder="44" text="disabled" left="321" top="61" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static20" taborder="45" text="enabled" left="157" top="434" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static21" taborder="46" text="disabled" left="321" top="434" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static22" taborder="47" text="readonly" left="489" top="434" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static29" taborder="54" text="enabled" left="157" top="517" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static30" taborder="55" text="disabled" left="321" top="517" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static31" taborder="56" text="readonly" left="489" top="517" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <TextArea id="TextArea02" taborder="62" value="엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼" wordwrap="true" readonly="true" left="492" top="542" width="150" height="93" cssclass="readonly"/>
+        <TextArea id="TextArea01" taborder="63" value="엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼" wordwrap="true" enable="false" left="320" top="542" width="150" height="93"/>
+        <TextArea id="TextArea00" taborder="64" value="엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼" wordwrap="true" left="154" top="542" width="150" height="93"/>
+        <Static id="Static08" taborder="65" text="* usedecorate =&quot;&lt;b v='true'&gt;true&lt;/b&gt;&quot;" usedecorate="true" cssclass="sta_WF_Info_Orange" left="155" top="135" width="255" height="15" class="sta_WF_Info_Orange"/>
+        <Static id="Static32" taborder="66" text="fs 글자의 크기(fontsize)를 지정합니다.  ex)&lt;fs v='12'&gt;&lt;/fs&gt;&#13;&#10;fc 글자의 색상(fontcolor)를 지정합니다.  ex)&lt;fc v='red'&gt;&lt;/fc&gt;&lt;fc v='#FF00FF'&gt;&lt;/fc&gt;&#13;&#10;ff 글자의 종류(fontface)를 지정합니다.  ex)&lt;ff v='굴림'&gt;&lt;/ff&gt;&#13;&#10;b 굵은글씨를(bold)를 지정합니다. ex)&lt;b v='true'&gt;&lt;/b&gt;&#13;&#10;i 이텔릭체를 (italic)를 지정합니다.  ex)&lt;i v='true'&gt;&lt;/i&gt;&#13;&#10;u 언더라인을(underline)를 지정합니다.  ex)&lt;u v='true'&gt;&lt;/u&gt;&#13;&#10;s 취소선(strike)를 지정합니다.  ex)&lt;s v='true'&gt;&lt;/s&gt;" left="155" top="151" width="681" height="121" style="color:#e37a0cff;"/>
+        <Static id="Static34" taborder="67" left="153" top="122" right="16" height="1" style="border:1 dashed #b1c0cbff,0 none #808080,0 none #808080,0 none #808080;"/>
+        <Static id="Static35" taborder="68" left="153" top="273" right="16" height="1" style="border:1 dashed #b1c0cbff,0 none #808080,0 none #808080,0 none #808080;"/>
+        <Static id="Static36" taborder="69" text="디스크립션 아이콘입니다. 설명이 필요한 부분에 쓰여집니다." onclick="Static19_onclick" cssclass="sta_WF_Dsc" left="153" top="283" width="415" height="20" class="sta_WF_Dsc"/>
+        <Static id="Static37" taborder="70" text="강조에 쓰이는 디스크립션입니다." cssclass="sta_WF_DscP" left="153" top="310" width="415" height="20" class="sta_WF_DscP"/>
+        <Static id="Static38" taborder="71" text="* Static의 기본 높이를 20으로 지정" onclick="Static28_onclick" left="483" top="82" width="255" height="15" class="sta_WF_Info_Orange" cssclass="sta_WF_Info_Orange"/>
+        <Static id="Static39" taborder="72" text="* wordwrap을 both로 지정" cssclass="sta_WF_Info_Orange" left="651" top="640" width="207" height="15" class="sta_WF_Info_Orange"/>
+        <Static id="Static40" taborder="73" text="* mask = &quot;@@@,@@@&quot;" cssclass="sta_WF_Info_Orange" left="663" top="483" width="151" height="15" class="sta_WF_Info_Orange"/>
+        <Static id="Static02" taborder="74" left="140" top="345" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static03" taborder="75" left="140" top="424" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static04" taborder="76" left="140" top="503" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static07" taborder="77" left="140" top="659" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Edit id="Edit03" taborder="78" value="enabled" left="663" top="381" width="150" height="20" cssclass="edt_WF_P"/>
+        <MaskEdit id="MaskEdit03" taborder="79" value="123,456" left="663" top="458" width="150" height="20" cssclass="mae_WF_P"/>
+        <TextArea id="TextArea03" taborder="80" value="엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼 엑스플랫폼" wordwrap="true" left="663" top="541" width="150" height="93" cssclass="txt_WF_P"/>
+        <Static id="Static09" taborder="81" text="edt_WF_P" left="663" top="358" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static11" taborder="82" text="mae_WF_P" left="663" top="438" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static14" taborder="83" text="txt_WF_P" left="663" top="517" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ListDS" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" preload="true">
+        <ColumnInfo>
+          <Column id="No" type="STRING" size="256"/>
+          <Column id="context" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="No">0</Col>
+            <Col id="context">List01</Col>
+          </Row>
+          <Row>
+            <Col id="No">1</Col>
+            <Col id="context">List02</Col>
+          </Row>
+          <Row>
+            <Col id="No">2</Col>
+            <Col id="context">List03</Col>
+          </Row>
+          <Row>
+            <Col id="No">3</Col>
+            <Col id="context">List04</Col>
+          </Row>
+          <Row>
+            <Col id="No">4</Col>
+            <Col id="context">List05</Col>
+          </Row>
+          <Row>
+            <Col id="No">5</Col>
+            <Col id="context">List06</Col>
+          </Row>
+          <Row>
+            <Col id="No">6</Col>
+            <Col id="context">List07</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Static01_onclick = function(obj:Static,  e:TOBE.ClickEventInfo)
+{
+	
+}
+
+this.Static10_onclick = function(obj:Static,  e:TOBE.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

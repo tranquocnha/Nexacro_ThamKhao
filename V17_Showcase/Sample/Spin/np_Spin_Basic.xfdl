@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Spin_Basic" classname="Spin_Basic" inheritanceid="" position="absolute" titletext="Spin Basic" onload="Spin_Basic_onload" left="0" width="761" top="0" height="660">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Binding" position="absolute" left="30" width="300" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid00" taborder="2" position="absolute" binddataset="ds_data0" autofittype="col" left="30" width="150" top="73" height="186">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0" font="9pt &quot;Arial&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Spin id="Spin00" taborder="3" position="absolute" left="190" width="90" top="73" height="40"/>
+        <Spin id="Spin01" taborder="4" position="absolute" max="20" increment="3" value="0" left="370" width="120" top="73" height="40"/>
+        <Grid id="Grid01" taborder="5" autofittype="col" position="absolute" binddataset="ds_data1" selecttype="row" left="36" width="150" top="384" height="186">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0" font="9pt &quot;Arial&quot;"/>
+                <Cell col="1" disptype="normal" text="Column1" font="9pt &quot;Arial&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+                <Cell col="1" disptype="normal" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Spin id="Spin02" taborder="6" position="absolute" max="4" min="1" value="1" onspin="Spin02_onspin" left="196" width="90" top="384" height="40"/>
+        <Static id="Static03" text="min" position="absolute" style="color:black;align:right middle;" left="370" width="70" top="390" height="40" color="black" textAlign="right" verticalAlign="middle"/>
+        <Static id="Static06" text="max" position="absolute" style="color:black;align:right middle;" left="370" width="70" top="440" height="40" color="black" textAlign="right" verticalAlign="middle"/>
+        <Static id="Static08" text="increment" position="absolute" style="color:black;align:right middle;" left="370" width="70" top="490" height="40" onclick="Static08_onclick" color="black" textAlign="right" verticalAlign="middle"/>
+        <Spin id="Spin03" taborder="7" position="absolute" value="0" left="451" width="90" top="390" height="40"/>
+        <Spin id="Spin04" taborder="8" position="absolute" value="10" min="1" left="451" width="90" top="440" height="40"/>
+        <Spin id="Spin05" taborder="9" position="absolute" value="1" min="1" max="10" onspin="Spin05_onspin" left="451" width="90" top="490" height="40"/>
+        <Button id="Button00" taborder="10" text="setting" position="absolute" onclick="Button00_onclick" left="551" width="90" top="390" height="40"/>
+        <Spin id="Spin06" taborder="11" position="absolute" left="370" width="170" top="540" height="40" displaynulltext="setting result spin"/>
+        <Static id="Static01" text="Event(onspin)" position="absolute" left="36" width="300" top="329" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static04" text="min 0, max 20, increment 3" position="absolute" left="370" width="360" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static00" text="min, max, increment select" position="absolute" left="370" width="360" top="329" height="40" cssclass="sta_WF_subtitP"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data0" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_data1" firefirstcount="10" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">A</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">B</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">C</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">D</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Spin00" propid="value" datasetid="ds_data0" columnid="Column0"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	var row = this.Spin03.value;
+	var high = this.Spin04.value;
+	var add = this.Spin05.value;
+
+
+	if (row >= high) 
+	{
+		this.alert("Maximum value must be greater than minimum value.");
+		this.Spin04.set_value(0);
+		this.Spin04.setFocus();
+	}
+	else if (add > high - row) 
+	{
+		this.alert("Increament value is too high");
+		this.Spin05.set_value(0);
+		this.Spin05.setFocus();
+	}
+	else 
+	{
+		this.Static00.set_text(("min :" + row + ", max :" + high + ", increment :" + add));
+
+		this.Spin06.set_min(row);
+		this.Spin06.set_max(high);
+		this.Spin06.set_increment(add);
+		this.Spin06.set_value(row);
+	}
+};
+
+this.Spin05_onspin = function (obj:Spin, e:SpinEventInfo)
+{
+	if (e.postvalue >= 10) 
+	{
+		this.alert("Maximum increament can be up to 10");
+	}
+};
+
+this.Spin02_onspin = function(obj:Spin, e:nexacro.SpinEventInfo)
+{	
+	this.ds_data1.set_rowposition(e.postvalue);	
+};
+]]></Script>
+  </Form>
+</FDL>

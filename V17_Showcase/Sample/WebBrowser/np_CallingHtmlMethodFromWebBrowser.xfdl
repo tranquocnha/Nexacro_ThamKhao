@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Sample_Tip_callHtml" classname="np_Sample_Tip_callHtml" left="0" top="0" width="760" height="580" titletext="New Form" onload="np_Sample_Tip_callHtml_onload">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="WebBrowser00" left="30" top="254" taborder="0" onusernotify="WebBrowser00_onusernotify" bottom="5.00%" right="30"/>
+        <Edit id="Edit00" taborder="1" value="Hi~ nexacro platform!!" left="30" top="105" height="34" width="250"/>
+        <Button id="Button00" taborder="2" text="Call method" onclick="Button00_onclick" left="290" top="105" height="34" width="120"/>
+        <Static id="Static07" taborder="3" text="This is sample shows calling method of HTML file from WebBrowser" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" font=""/>
+        <Static id="Static00" taborder="4" text="Enter parameter for calling HTML's method" cssclass="sta_WF_explain" left="30" top="65" width="600" height="30" font=""/>
+        <Edit id="Edit01" taborder="5" left="530" top="207" width="240" height="34"/>
+        <Static id="Static01" taborder="6" text="WebBrowser's on user notify, executes when the button html is clicked" wordwrap="english" cssclass="sta_WF_explain" left="30" top="209" width="500" font="" height="30"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.WebBrowser00.callMethod("setContent", this.Edit00.value);
+	
+	// setContent is calling method of HTML file.
+	// Input values are the values entered from Edit component.
+}
+
+this.WebBrowser00_onusernotify = function(obj:WebBrowser, e:nexacro.WebTitleChangeEventInfo)
+{
+	if ( e.userdata == "click" )
+	{	
+		this.Edit01.set_value("Web Browser's onusernotify is called !!!!");
+	}
+}
+
+
+this.np_Sample_Tip_callHtml_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var objApp = nexacro.getApplication();
+	var testUrl = objApp.all["gv_SvcUrl"];
+	
+	this.WebBrowser00.set_url(testUrl + "CallMethod.html");
+	//this.WebBrowser00.set_url("http://172.10.13.132:8080/TEST/JSP/" + "CallMethod.html"); // 운영 시 해당 건을 주석, 위의 것을 사용
+}
+]]></Script>
+  </Form>
+</FDL>

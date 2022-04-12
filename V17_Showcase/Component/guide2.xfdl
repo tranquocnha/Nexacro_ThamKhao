@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="guide2" classname="guide2" left="0" top="0" width="1025" height="674" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="Combo" left="15" top="521" width="125" height="144" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static05" taborder="8" text="Component Name" left="15" top="15" width="125" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static06" taborder="9" text="Component View" left="139" top="15" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;" right="15"/>
+        <Combo id="Combo00" taborder="4" text="List07" left="155" top="557" width="150" height="20" innerdataset="@DsList" codecolumn="No" datacolumn="context" displayrowcount="5" index="6" value="6"/>
+        <Combo id="Combo01" taborder="16" innerdataset="@DsList" codecolumn="No" datacolumn="context" displayrowcount="10" left="320" top="557" width="150" height="20" enable="false" index="6" text="Combo"/>
+        <Combo id="Combo02" taborder="17" innerdataset="@DsList" codecolumn="No" datacolumn="context" displayrowcount="10" enable="true" left="492" top="557" width="150" height="20" readonly="true" cssclass="readonly" index="-1" text="Combo"/>
+        <Static id="Static58" taborder="23" text="enabled" left="157" top="534" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static13" taborder="24" text="disabled" left="320" top="534" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static12" taborder="30" text="ListBox" onclick="Static10_onclick" left="15" top="352" width="125" height="170" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <ListBox id="ListBox01" taborder="31" innerdataset="@DsList" codecolumn="No" datacolumn="context" enable="false" left="318" top="387" width="148" height="100"/>
+        <ListBox id="ListBox00" taborder="32" innerdataset="@DsList" codecolumn="No" datacolumn="context" left="155" top="387" width="148" height="100"/>
+        <Static id="Static10" taborder="33" text="enabled" left="157" top="362" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static11" taborder="34" text="disabled" left="321" top="362" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Button id="Button00" taborder="38" text="common" left="162" top="195" width="120" height="23"/>
+        <Button id="Button01" taborder="39" text="common" enable="false" left="329" top="195" width="120" height="23"/>
+        <Button id="Button02" taborder="40" text="module" cssclass="btn_module" left="162" top="251" width="120" height="23"/>
+        <Button id="Button03" taborder="41" text="module" cssclass="btn_module" enable="false" left="329" top="251" width="120" height="23"/>
+        <Static id="Static03" taborder="42" text="Spin" left="15" top="44" width="125" height="105" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static09" taborder="43" text="Button" left="15" top="148" width="125" height="205" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static23" taborder="45" text="enabled" left="157" top="71" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static24" taborder="46" text="disabled" left="321" top="71" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static25" taborder="47" text="readonly" left="489" top="71" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static26" taborder="48" text="enabled" left="165" top="161" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static27" taborder="49" text="disabled" left="329" top="161" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Spin id="Spin02" taborder="52" value="0" readonly="true" left="492" top="96" width="150" height="21" cssclass="readonly"/>
+        <Spin id="Spin01" taborder="53" value="0" enable="false" left="320" top="96" width="150" height="21"/>
+        <Spin id="Spin00" taborder="54" value="0" left="154" top="96" width="150" height="21"/>
+        <Static id="Static21" taborder="55" text="* 버튼사이즈는 기본 2자에서 13px씩 증가함" usedecorate="true" left="480" top="298" width="246" height="20" style="align:left top; " class="sta_WF_Info_Orange" cssclass="sta_WF_Info_Orange"/>
+        <Static id="Static72" taborder="56" text="type = dropdown (default)" left="159" top="595" width="150" height="15" style="color:#999999ff; font:Tahoma,8; "/>
+        <Combo id="Combo03" taborder="57" innerdataset="DsList" codecolumn="idx" datacolumn="context" displayrowcount="5" left="155" top="616" width="150" height="20"/>
+        <Combo id="Combo04" taborder="58" innerdataset="DsList" codecolumn="idx" datacolumn="context" type="search" displayrowcount="5" left="320" top="616" width="150" height="20"/>
+        <Combo id="Combo05" taborder="59" innerdataset="DsList" codecolumn="idx" datacolumn="context" type="filter" displayrowcount="5" left="492" top="616" width="150" height="20"/>
+        <Static id="Static73" taborder="60" text="type = search" left="320" top="595" width="150" height="15" style="color:#999999ff; font:Tahoma,8; "/>
+        <Static id="Static74" taborder="61" text="type = filter" left="492" top="595" width="150" height="15" style="color:#999999ff; font:Tahoma,8; "/>
+        <Static id="Static04" taborder="66" left="140" top="521" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static08" taborder="67" left="140" top="352" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static17" taborder="68" left="140" top="148" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Button id="Button04" taborder="69" text="in grid" cssclass="btn_singdata" left="162" top="303" width="120" height="20"/>
+        <Button id="Button05" taborder="70" text="in grid" cssclass="btn_singdata" left="328" top="303" width="120" height="20" enable="false"/>
+        <Static id="Static02" taborder="71" left="140" top="664" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Spin id="Spin03" taborder="72" value="0" readonly="false" cssclass="spn_WF_P" left="668" top="96" width="150" height="21"/>
+        <Combo id="Combo06" taborder="73" text="Combo" readonly="false" innerdataset="@DsList" codecolumn="No" datacolumn="context" index="6" displayrowcount="10" cssclass="cmb_WF_P" left="668" top="557" width="150" height="20"/>
+        <Static id="Static01" taborder="84" text="spn_WF_P" left="668" top="71" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static07" taborder="85" text="readonly" left="493" top="533" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static14" taborder="86" text="cmb_WF_P" left="668" top="533" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="DsList" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="context" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="idx">0</Col>
+            <Col id="context">Static</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1</Col>
+            <Col id="context">Edit</Col>
+          </Row>
+          <Row>
+            <Col id="idx">2</Col>
+            <Col id="context">MaskEdit</Col>
+          </Row>
+          <Row>
+            <Col id="idx">3</Col>
+            <Col id="context">TextArea</Col>
+          </Row>
+          <Row>
+            <Col id="idx">4</Col>
+            <Col id="context">Button</Col>
+          </Row>
+          <Row>
+            <Col id="idx">5</Col>
+            <Col id="context">ListBox</Col>
+          </Row>
+          <Row>
+            <Col id="idx">6</Col>
+            <Col id="context">Combo</Col>
+          </Row>
+          <Row>
+            <Col id="idx">7</Col>
+            <Col id="context">Sp</Col>
+          </Row>
+          <Row>
+            <Col id="idx">8</Col>
+            <Col id="context">Calendar</Col>
+          </Row>
+          <Row>
+            <Col id="idx">9</Col>
+            <Col id="context">Tab</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Radio" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">Radio1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">Radio2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

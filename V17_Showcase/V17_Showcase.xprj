@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project version="1.3">
+  <EnvironmentDefinition url="environment.xml"/>
+  <TypeDefinition url="typedefinition.xml"/>
+  <AppVariables url="appvariables.xml"/>
+  <AppInfos>
+    <AppInfo url="V17_Showcase.xadl"/>
+  </AppInfos>
+  <MigrationInfo targetpath="D:\DoAnNmart\V17_Showcase\V17_Showcase.xprj" outpath="C:\Users\anhvi\Documents\nexacro\17.1\projects\V17_Showcase\V17_Showcase.xprj" logpath="C:\Users\anhvi\Documents\nexacro\17.1\projects\V17_Showcase\migrate\log\V17_Showcase.log"/>
+</Project>

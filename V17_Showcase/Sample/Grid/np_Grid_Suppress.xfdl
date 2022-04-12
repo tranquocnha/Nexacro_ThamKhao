@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_Suppress" classname="Grid_ColRow_0" inheritanceid="" position="absolute" titletext="Suppress" left="0" width="760" top="0" height="830">
+    <Layouts>
+      <Layout>
+        <Static id="Static02" text="Before applying suppress" position="absolute" left="30" width="500" top="13" height="40" cssclass="sta_WF_subtitP" verticalAlign="top"/>
+        <Grid id="Grid00" taborder="1" binddataset="ds_suppress" autofittype="col" onheaddblclick="Grid00_onheaddblclick" position="absolute" style="cursor:auto;" left="30" width="526" top="63" height="160">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Group"/>
+                <Cell col="1" text="Department"/>
+                <Cell col="2" text="Employee"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:group"/>
+                <Cell col="1" style="align:left;" text="bind:department"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="2" binddataset="ds_suppress" useinputpanel="false" autofittype="col" onheaddblclick="Grid00_onheaddblclick" left="30" top="343" width="526" height="160" style="cursor:auto;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Group"/>
+                <Cell col="1" text="Department"/>
+                <Cell col="2" text="Employ"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:group" suppress="1" suppressalign="last"/>
+                <Cell col="1" style="align:left;" text="bind:department" suppress="2"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="3" text="After applying suppress" cssclass="sta_WF_subtitP" left="30" top="293" width="500" height="40" verticalAlign="top"/>
+        <Grid id="Grid02" taborder="4" binddataset="ds_suppress" useinputpanel="false" autofittype="col" onheaddblclick="Grid00_onheaddblclick" left="30" top="623" width="526" height="160" style="cursor:auto;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Group"/>
+                <Cell col="1" text="Department"/>
+                <Cell col="2" text="Employ"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:group" suppress="1" suppressalign="middle"/>
+                <Cell col="1" style="align:left;" text="bind:department" suppress="2" suppressalign="middle"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static01" taborder="5" text="After applying suppress align medium" cssclass="sta_WF_subtitP" left="30" top="573" width="500" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_suppress" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="group" type="STRING" size="256"/>
+          <Column type="STRING" size="255" id="department"/>
+          <Column type="STRING" size="256" id="employ"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Tom</Col>
+            <Col id="group">Technical Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Jany</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Piter</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Superman</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Jack</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group1</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Tony</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Sujan</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Mac</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Ann</Col>
+          </Row>
+          <Row>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Bess</Col>
+            <Col id="group">Sales Group</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Dana</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Elin</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[ ]]></Script>
+  </Form>
+</FDL>

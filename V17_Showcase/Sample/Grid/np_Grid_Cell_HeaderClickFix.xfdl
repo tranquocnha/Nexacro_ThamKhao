@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_Cell_HeaderClickFix" classname="GridSample" inheritanceid="" position="absolute" titletext="Grid_Cell_HeaderClickFix" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_output" taborder="1" binddataset="ds_data" useinputpanel="false" position="absolute" onheadclick="grd_output_onheadclick" left="30" top="73" width="600" height="250">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="59" band="left"/>
+                <Column size="79"/>
+                <Column size="0"/>
+                <Column size="61"/>
+                <Column size="59"/>
+                <Column size="0"/>
+                <Column size="80"/>
+                <Column size="0"/>
+                <Column size="80"/>
+                <Column size="0"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="COL0"/>
+                <Cell col="1" rowspan="2" text="COL1"/>
+                <Cell col="2"/>
+                <Cell col="3" colspan="3" text="COL2"/>
+                <Cell col="6" colspan="4" text="COL5"/>
+                <Cell col="10"/>
+                <Cell col="11"/>
+                <Cell col="12"/>
+                <Cell col="13"/>
+                <Cell col="14"/>
+                <Cell row="1" col="2" text="Include OO"/>
+                <Cell row="1" col="3" text="COL3"/>
+                <Cell row="1" col="4" text="COL4"/>
+                <Cell row="1" col="5"/>
+                <Cell row="1" col="6" text="COL6"/>
+                <Cell row="1" col="7"/>
+                <Cell row="1" col="8" text="COL7"/>
+                <Cell row="1" col="9"/>
+                <Cell row="1" col="10"/>
+                <Cell row="1" col="11"/>
+                <Cell row="1" col="12"/>
+                <Cell row="1" col="13"/>
+                <Cell row="1" col="14"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align: ;" text="bind:COL0" suppress="1"/>
+                <Cell col="1" style="align:left;color2: ;" suppress="2"/>
+                <Cell col="2" displaytype="number" style="align:right;background:expr((sort1==&quot;1&quot;)?&quot;#EFF8FF&quot;:(sort2==&quot;1&quot;)?&quot;#EFF8FF&quot;:&quot;#EFF8FF&quot;);background2:expr((sort1==&quot;1&quot;)?&quot;#EFF8FF&quot;:(sort2==&quot;1&quot;)?&quot;#EFF8FF&quot;:&quot;#EFF8FF&quot;);" text="bind:b1monordqty"/>
+                <Cell col="3" displaytype="number" style="align:right;background2: ;"/>
+                <Cell col="4" displaytype="number" style="align:right;background2: ;"/>
+                <Cell col="5" displaytype="number" style="align:right;background:expr((sort1==&quot;1&quot;)?&quot;#EFF8FF&quot;:(sort2==&quot;1&quot;)?&quot;#EFF8FF&quot;:&quot;#EFF8FF&quot;);background2:expr((sort1==&quot;1&quot;)?&quot;#EFF8FF&quot;:(sort2==&quot;1&quot;)?&quot;#EFF8FF&quot;:&quot;#EFF8FF&quot;);" text="bind:curordqty"/>
+                <Cell col="6" displaytype="number" style="align:right;background2: ;"/>
+                <Cell col="7" displaytype="number" style="align:right;background:expr((sort1==&quot;1&quot;)?&quot;#EFF8FF&quot;:(sort2==&quot;1&quot;)?&quot;#EFF8FF&quot;:&quot;#EFF8FF&quot;);background2:expr((sort1==&quot;1&quot;)?&quot;#EFF8FF&quot;:(sort2==&quot;1&quot;)?&quot;#EFF8FF&quot;:&quot;#EFF8FF&quot;);" text="bind:ord1"/>
+                <Cell col="8" displaytype="number" style="align:right;background2: ;"/>
+                <Cell col="9" displaytype="number" style="align:right;background:expr((sort1==&quot;1&quot;)?&quot;#EFF8FF&quot;:(sort2==&quot;1&quot;)?&quot;#EFF8FF&quot;:&quot;#EFF8FF&quot;);background2:expr((sort1==&quot;1&quot;)?&quot;#EFF8FF&quot;:(sort2==&quot;1&quot;)?&quot;#EFF8FF&quot;:&quot;#EFF8FF&quot;);" text="bind:ord2"/>
+                <Cell col="10"/>
+                <Cell col="11"/>
+                <Cell col="12"/>
+                <Cell col="13"/>
+                <Cell col="14"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="2" text="Fix the column when click on the merged header of Grid" cssclass="sta_WF_subtitP" left="30" top="18" width="750" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+          <Column id="COL2" type="STRING" size="256"/>
+          <Column id="COL3" type="STRING" size="256"/>
+          <Column id="COL4" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : Cell_HeaderClickFix
+ * Description : Fix the column when click on the merged header of Grid
+ */
+ 
+ /*  Header Click  */
+this.grd_output_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+    var iCnt=0;
+   // this.alert("inside the method  !");
+    for (var j = e.cell; j >= 0; j--) 
+    {
+        var iColCur = this.grd_output.getCellProperty("Head", j, "col");
+        var iCell = e.cell;
+
+        for (var i = iCell; i >= 0; i--) 
+        {
+            if (this.grd_output.getCellProperty("Head", i, "row") == 0 
+            && iColCur == this.grd_output.getCellProperty("Head", i, "col")) 
+            {
+             //this.alert("Hi ");
+                if (iCnt==0) 
+                {
+                    var iCol = this.grd_output.getCellProperty("Head", i, "col");
+                    var iSpan = this.grd_output.getCellProperty("Head", i, "colspan")-1;
+                    var iTotCol = iCol + iSpan;
+                    //this.alert(" this is alert ");
+                    for (var k = 0; k <= iTotCol; k++)
+                    {
+                        this.grd_output.setFormatColProperty(k, "band", "left");
+                        //this.alert("Hi 3333");
+                    }
+                }
+                iCnt++;
+            } 
+        }
+    } 
+};
+]]></Script>
+  </Form>
+</FDL>

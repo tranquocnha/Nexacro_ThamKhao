@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form2" classname="env_base2" left="0" top="0" width="760" height="600" titletext="form 2" style="background:aliceblue;">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Left function call" onclick="Button00_onclick" left="19" top="98" width="338" height="38" style="background:transparent URL('img::btn_N.png') stretch 3,3;" onrbuttonup="common_onrbuttonup"/>
+        <Button id="Button01" taborder="4" text="this.parent.name" onclick="Button01_onclick" left="19" top="145" width="338" height="38" style="background:transparent URL('img::btn_N.png') stretch 3,3;" onrbuttonup="common_onrbuttonup"/>
+        <Static id="Static04" taborder="5" text="Accessing form1 from application by script" left="19" top="56" width="515" height="42" style="color:blueviolet;font:bold 12 arial;"/>
+        <Button id="Button04" taborder="7" text="this.parent.parent.parent.parent.name" onclick="Button03_onclick" left="19" top="193" width="338" height="41" style="background:transparent URL('img::btn_N.png') stretch 3,3;" onrbuttonup="common_onrbuttonup"/>
+        <Button id="Button05" taborder="8" text="this.getOwnerFrame().name" onclick="Button05_onclick" left="19" top="245" width="338" height="41" style="background:transparent URL('img::btn_N.png') stretch 3,3;" onrbuttonup="common_onrbuttonup"/>
+        <Edit id="Edit00" taborder="9" value="Main form 2" left="19" top="12" width="338" height="36" onrbuttonup="common_onrbuttonup"/>
+        <Div id="Div00" taborder="10" left="163" top="303" width="341" height="87" style="background:burlywood;" text="Div00" onrbuttonup="common_onrbuttonup">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit00" taborder="0" left="20" top="18" width="147" height="41"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="Button02" taborder="11" text="form1 edit set" left="19" top="299" width="136" height="94" onclick="Button02_onclick" style="background:transparent URL('img::btn_N.png') stretch 3,3;" onrbuttonup="common_onrbuttonup"/>
+        <Button id="Button03" taborder="12" text="Button03" left="76.84%" top="39" right="14.34%" height="34" onclick="Button03_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	application.mainframe.VFrameSet.HFrameSet.ChildFrameLeft.form.fn_left();
+}
+
+this.Button02_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	application.mainframe.VFrameSet.HFrameSet.FrameSet.ChildFrame0.form.Div00.Edit00.set_value("가나다라마바사");
+}
+
+this.Button01_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	alert(this.parent.name);
+}
+
+
+
+this.Button05_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	alert(this.getOwnerFrame().name);
+}
+
+this.form2_onrbuttonup = function(obj:Form, e:TOBE.MouseEventInfo)
+{
+		alert(this.fn_path(obj));
+}
+
+this.common_onrbuttonup = function(obj, e:TOBE.MouseEventInfo)
+{
+	alert(application.get_url(obj,""));
+}
+
+this.Button03_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	alert(this.parent.parent.parent.parent.name);
+}
+
+]]></Script>
+  </Form>
+</FDL>

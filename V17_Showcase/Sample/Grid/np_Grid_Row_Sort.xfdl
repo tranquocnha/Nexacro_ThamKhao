@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Grid_Row_Sort" classname="case11" left="0" top="0" width="760" height="430" titletext="Grid_Row_Sort">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" width="425" height="300" binddataset="Dataset00" useselcolor="false" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="152"/>
+                <Column size="129"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Group"/>
+                <Cell col="1" text="Department"/>
+                <Cell col="2" text="Name"/>
+                <Cell col="3" text="salary"/>
+              </Band>
+              <Band id="body" style="cellbackground2:#ffffffff;">
+                <Cell text="bind:Group" suppress="1"/>
+                <Cell col="1" text="bind:Department" suppress="2"/>
+                <Cell col="2" text="bind:Name"/>
+                <Cell col="3" text="bind:salary"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="Group Ascending" left="465" top="78" width="250" height="40" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="2" text="Group Descending" left="465" top="128" width="250" height="40" onclick="Button01_onclick"/>
+        <Button id="Button02" taborder="3" text="Group,Department Ascending" left="465" top="178" width="250" height="40" onclick="Button02_onclick"/>
+        <Button id="Button03" taborder="4" text="Group,Department Descending" left="465" top="228" width="250" height="40" onclick="Button03_onclick"/>
+        <Button id="Button04" taborder="5" text="Group,Department,Name Ascending" left="465" top="278" width="250" height="40" onclick="Button04_onclick"/>
+        <Button id="Button05" taborder="6" text="Group,Department,Name Ascending" left="465" top="328" width="250" height="40" onclick="Button05_onclick"/>
+        <Static id="Static05" taborder="7" text="Handeling sorting using by keystring" cssclass="sta_WF_subtitP" left="30" top="18" width="600" height="40" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Group" type="STRING" size="256"/>
+          <Column id="Department" type="STRING" size="256"/>
+          <Column id="Name" type="STRING" size="256"/>
+          <Column id="salary" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Group">technical Group</Col>
+            <Col id="Department">cs team</Col>
+            <Col id="Name">tom</Col>
+            <Col id="salary">2000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">technical Group</Col>
+            <Col id="Department">cs team</Col>
+            <Col id="Name">june</Col>
+            <Col id="salary">1500</Col>
+          </Row>
+          <Row>
+            <Col id="Group">technical Group</Col>
+            <Col id="Department">cs team</Col>
+            <Col id="Name">sam</Col>
+            <Col id="salary">3000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">technical Group</Col>
+            <Col id="Department">technical team</Col>
+            <Col id="Name">betty</Col>
+            <Col id="salary">2000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">technical Group</Col>
+            <Col id="Department">technical team</Col>
+            <Col id="Name">anna</Col>
+            <Col id="salary">1500</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 2</Col>
+            <Col id="Name">leo</Col>
+            <Col id="salary">2000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 2</Col>
+            <Col id="Name">odry</Col>
+            <Col id="salary">1500</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 1</Col>
+            <Col id="Name">alieen</Col>
+            <Col id="salary">3000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 1</Col>
+            <Col id="Name">kim</Col>
+            <Col id="salary">1200</Col>
+          </Row>
+          <Row>
+            <Col id="Group">consulting</Col>
+            <Col id="Department">consulting 3</Col>
+            <Col id="Name">judy</Col>
+            <Col id="salary">1200</Col>
+          </Row>
+          <Row>
+            <Col id="Group">education</Col>
+            <Col id="Department">kor_edu 1</Col>
+            <Col id="Name">cloy</Col>
+            <Col id="salary">2000</Col>
+          </Row>
+          <Row>
+            <Col id="Group">education</Col>
+            <Col id="Department">kor_edu 1</Col>
+            <Col id="Name">sujan</Col>
+            <Col id="salary">2500</Col>
+          </Row>
+          <Row>
+            <Col id="Group">education</Col>
+            <Col id="Department">eng_edu 2</Col>
+            <Col id="Name">piter</Col>
+            <Col id="salary">3000</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:+Group");  //Group Ascending
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:-Group");  //Group Descending
+};
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:+Group+Department");  //Group,Department Ascending
+};
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:-Group-Department");  //Group,Department Descending
+};
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)  
+{
+	this.Dataset00.set_keystring("S:+Group+Department+Name");  //Group,Department,Name Ascending
+};
+
+this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:-Group-Department-Name");  //Group,Department,Name Descending
+} ;]]></Script>
+  </Form>
+</FDL>

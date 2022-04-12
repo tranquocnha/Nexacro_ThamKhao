@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="N149913" classname="N149913" inheritanceid="" position="absolute" titletext="Setting the minimum size of the colum while reducing column size " onload="N149913_onload" left="0" top="0" width="760" height="560">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" binddataset="Dataset00" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;Column0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;Column1&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;Column2&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;Column3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:Column0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:Column1&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:Column2&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;bind:Column3&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" cellsizingtype="col" autofittype="col" autosizebandtype="body" oncolresized="Grid00_oncolresized" position="absolute" left="30" width="310" top="151" height="200">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="1" binddataset="Dataset00" useinputpanel="false" cellsizingtype="col" autofittype="col" left="369" top="151" width="310" height="200">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="2" text="This sample shows setting minimum size of the Grid column while column size is reduced." cssclass="sta_WF_explain" left="30" top="13" width="700" height="30" style="font:bold 9 Dotum;"/>
+        <Static id="Static00" taborder="3" text="Minimum size is not not set" cssclass="sta_WF_explain" left="369" top="85" width="228" height="18" style="font:bold 9 Dotum;" wordwrap="english"/>
+        <Static id="Static01" taborder="4" text="Setting minimum Grid column size 15  while reducing column size" cssclass="sta_WF_explain" left="30" top="53" width="350" height="50" style="font:bold 9 Dotum;" wordWrap="english"/>
+        <TextArea id="TextArea00" taborder="5" left="30" top="431" height="60" width="649"/>
+        <Static id="Static02" taborder="6" text="Display e.formatindex / e.newvalue" cssclass="sta_WF_explain" left="30" top="391" width="300" height="30" style="font:bold 9 Dotum;"/>
+        <Static id="Static03" taborder="7" text="Grid_Left" left="30" top="123" width="75" height="18" style="font:bold 9 Dotum;" cssclass="sta_WF_explain"/>
+        <Static id="Static04" taborder="8" text="Grid_Right" left="369" top="123" width="86" height="18" style="font:bold 9 Dotum;" cssclass="sta_WF_explain"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">3</Col>
+            <Col id="Column3">4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[// While reducing column size, the column is not visible properly, 
+// So minimum column size is set so that column could be visible properly.
+this.Grid00_oncolresized = function(obj:Grid, e:nexacro.GridSizeChangedEventInfo)
+{
+
+	this.TextArea00.set_value(e.formatindex + " /  "+ e.newvalue);
+	// If column size is changed by mouse, below script is used to apply the changed size
+	this.Grid00.setFormatColProperty(e.formatindex,"size",e.newvalue);
+	
+	if( e.newvalue < 40 ){
+		this.Grid00.setFormatColProperty(e.formatindex,"size",25);
+		this.Grid00.formats = "<Formats>"+this.Grid00.getCurFormatString()+"</Formats>";
+		obj.setFocus();
+	}	
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

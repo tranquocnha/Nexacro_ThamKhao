@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="json" classname="test" inheritanceid="" position="absolute" titletext="json" left="0" top="0" width="760" height="430" onload="test_onload">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="16" top="80" width="648" height="306" binddataset="Dataset00" autofittype="col" cellsizingtype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Col size="80"/>
+                <Col size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row band="body" size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell col="0" disptype="normal" text="hkeyword"/>
+                <Cell col="1" disptype="normal" text="keyword"/>
+              </Band>
+              <Band id="body">
+                <Cell col="0" disptype="normal" text="bind:hkeyword"/>
+                <Cell col="1" disptype="normal" text="bind:keyword"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="4" text="Calling by JSON" cssclass="sta_WF_subtitP" left="15" top="13" width="283" height="18" right="" bottom=""/>
+        <Edit id="Edit00" taborder="5" left="15" top="46" width="300" height="30" ontextchanged="Edit00_ontextchanged"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="hkeyword" type="STRING" size="256"/>
+          <Column id="keyword" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="hkeyword">a</Col>
+            <Col id="keyword">1</Col>
+          </Row>
+          <Row>
+            <Col id="hkeyword">b</Col>
+            <Col id="keyword">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[
+this.fn_init_callback = function (sid, errcd, errmsg)
+{   
+	if (errcd == 0) {
+
+	}           
+}     
+  
+// Data.js 내의 TransactionItem._deserializeData 함수를 대체한다.
+_pTransactionItem._deserializeData = function (strRecvData, bPending) 
+{	    
+	if (!strRecvData)
+		return [-1, "Stream Data is null!"];
+
+	strRecvData = strRecvData.trim();
+	var fstr = strRecvData.substring(0, 3);
+	
+	if (fstr == "SSV") // SSV Type (HEX:53,53,56)
+	{ 
+		return this.__deserializeSSV(strRecvData);
+		
+	}
+	else if (fstr == "CSV") // CSV Type (HEX:43,53,56)
+	{ 
+		return this.__deserializeCSV(strRecvData);
+	}
+	else if (fstr == "PPX") // PPX Type : Runtime only
+	{ 
+		return this.__deserializeJSON(strRecvData);
+	} 
+	// JSON 처리를 위한 추가 코드
+	else if (fstr == "JSN") {
+	}
+	//<< JSON 처리를 위한 추가 코드
+	else // XML Type (HEX:3C,3F)
+	{   
+		//return this.__deserializeXML(strRecvData);
+		return this.__deserializeJSON(strRecvData);
+	}
+}
+
+// transaction 시 데이터를 받았을 때 JSON 처리
+_pTransactionItem.__deserializeJSON = function(strRecvData) 
+{
+	var code = 0;
+	var message = "SUCCESS";
+	
+	var outDatasets = this.outputDatasets;
+	if (outDatasets && outDatasets.length)
+	{
+		var revcJsonObj = JSON.parse(strRecvData);
+
+		if (!revcJsonObj)  
+		{
+			code = -1;
+			message = "Fail JSON.parse";
+		}
+		var outDataCnt = outDatasets.length;
+		for (var i = 0; i < outDataCnt; i++)
+		{
+			// this.context: access form object
+			var ds = this.context._getDatasetObject(outDatasets[i].lval);
+			if (ds) {
+				ds.clear();
+				this.context.createDatasetColInfo(ds);
+				this.context.addData(ds, revcJsonObj);
+			}
+		}
+	}
+	return [code, message];
+}   
+
+// dataset 초기화
+this.createDatasetColInfo = function(ds) 
+{
+	var nIndex = ds.addColumn( "hkeyword", "string", 255 );
+	nIndex = ds.addColumn( "keyword", "string", 255 );
+} 
+ 
+// data processing
+this.addData = function(ds, jsonObj) 
+{
+//revcJsonObj.result[1].items[0].hkeyword  
+
+	for (var i = 0 ; i < jsonObj.result.length; i++)
+	{
+		for (var j = 0 ; j < jsonObj.result[i].totalcount ; j++) 
+		{
+			jObj = jsonObj.result[i].items[j];
+			var rIdx = ds.addRow();
+			ds.setColumn(rIdx, "hkeyword", 	jObj.hkeyword);
+			ds.setColumn(rIdx, "keyword",  	jObj.keyword);
+		}
+	}	 
+}      
+
+this.Edit00_ontextchanged = function(obj:Edit,  e:nexacro.TextChangedEventInfo)
+{
+	var strInDS = "";
+	var strOutDS = "Dataset00=dsDetailMain";
+	var strParams = "";  
+	var strCallback = "fn_init_callback";
+	if(e.posttext.length == 0) 
+	{
+		this.Dataset00.clearData();  
+		return;
+	}        
+
+ 	this.transaction("load", "http://search.tobesoft.com/SearchEngine/tobe/ark/ark_nexacro_trans.jsp?convert=fw&target=&charset=utf-8&query=" + escape(encodeURI(e.posttext)) + "&datatype=json", strInDS, strOutDS, strParams, strCallback);	
+}    
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{  
+	this.Dataset00.updatecontrol = false;
+	this.Dataset00.deleteColumn("keyword");
+	this.Dataset00.updatecontrol = true;
+}
+]]></Script>
+  </Form>
+</FDL>

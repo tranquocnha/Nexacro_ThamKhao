@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_CheckYearMonth" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_CheckYearMonth" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="135" height="40"/>
+        <Static id="Static00" text="input" left="30" width="60" top="80" height="40" position="absolute"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="135" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="350" width="90" top="80" height="40" verticalAlign="middle" textAlign="center"/>
+        <MaskEdit id="msk_input" taborder="0" value="201301" type="string" mask="####/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="80" height="40"/>
+        <Static id="Static05" taborder="3" text="Date Validation" cssclass="sta_WF_subtitP" left="30" top="18" width="283" height="40"/>
+        <Button id="Button00" taborder="4" text="execute" left="350" top="135" width="90" height="40" verticalAlign="middle" textAlign="center" leftbase="" topbase="" bottombase="" rightbase="" widthbase="" heightbase=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_CheckYearMonth
+ * Description : Year month validation check
+ */
+ 
+/*  Button click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bRtn = this.fn_checkYearMonth(this.msk_input.value);	
+	this.edt_output.set_value(bRtn);
+}
+
+/*
+ * Function Name : fn_checkYearMonth
+ * Description   : Year months consistency check
+ * Parameter     : Year month
+ * Return        : suitable true, unsuitable false
+ * Example       : fn_checkYearMonth("201212");
+ */
+this.fn_checkYearMonth = function(sDate) 
+{
+    var nYear  = Number(sDate.toString().substr(0,4));
+    var nMonth = Number(sDate.toString().substr(4,2));
+
+    if ( nMonth > 12 || nMonth < 1)
+    {
+		return false;
+    }
+    
+    return true;
+}]]></Script>
+  </Form>
+</FDL>

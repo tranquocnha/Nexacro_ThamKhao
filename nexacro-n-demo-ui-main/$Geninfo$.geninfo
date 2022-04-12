@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <GenInfo version="1.1">
+    <Rule>
+      <ENV rule_version="1.05"/>
+      <ADL rule_version="1.14"/>
+      <FDL rule_version="1.04"/>
+      <XCSS rule_version="1.04"/>
+      <Script rule_version="1.02"/>
+    </Rule>
+    <Info project="D:\DoAnNmart\nexacro-n-demo-ui-main\" generated="C:\Users\anhvi\Documents\nexacro\17.1\outputs\nexacro-n-demo-ui\">
+      <File url="typedefinition.xml" checksum="20220404220439" errormsg=""/>
+      <File url="appvariables.xml" checksum="20211209142536" errormsg=""/>
+      <File url="environment.xml" checksum="20211209142536" errormsg=""/>
+      <File url="_resource_\_theme_\demo\theme.xcss" checksum="20211209142536" errormsg=""/>
+      <File url="Application.xadl" checksum="20220118132049" errormsg=""/>
+      <File url="_resource_\_xcss_\basic.xcss" checksum="20211209142536" errormsg=""/>
+      <File url="_resource_\_xcss_\demo_L.xcss" checksum="20211209142536" errormsg=""/>
+      <File url="_resource_\_xcss_\NxPivot.xcss" checksum="20211209142536" errormsg=""/>
+      <File url="_resource_\_xcss_\Chart.xcss" checksum="20211209142536" errormsg=""/>
+      <File url="_resource_\_xcss_\compositeModule.xcss" checksum="20211209142536" errormsg=""/>
+      <File url="_resource_\_xcss_\demo_D.xcss" checksum="20211209142536" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\framework\Framework.json" checksum="20220314100542" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\resources\Resource.json" checksum="20220314100542" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\CompBase.json" checksum="20220314100540" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\ComComp.json" checksum="20220314100540" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\Grid.json" checksum="20220314100540" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\ListView.json" checksum="20220314100544" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\Graphics.json" checksum="20220314100542" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\DeviceAPI.json" checksum="20220314100540" errormsg=""/>
+      <File url="_extlib_\util.json" checksum="20211209142536" errormsg=""/>
+      <File url="_extlib_\pivot.json" checksum="20211209142536" errormsg=""/>
+      <File url="_extlib_\Chart.json" checksum="20211209142536" errormsg=""/>
+      <File url="_extlib_\UbiReport4.json" checksum="20211209142536" errormsg=""/>
+      <File url="_extlib_\compositeModule.json" checksum="20211209142536" errormsg=""/>
+      <File url="frame\root.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="frame\leftmenu.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="frame\megamenu.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="frame\work.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="frame\top.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="frame\main.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="frame\main_rolling.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="frame\main_realosmu.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="frame\main_reference.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="grid\function.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="grid\function_desc.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="comp\chartPop.xfdl" checksum="20211209142536" errormsg=""/>
+      <File url="comp\binding.xfdl" checksum="20211209142536" errormsg=""/>
+    </Info>
+  </GenInfo>
+</root>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="floatbase" width="800" height="600">
+    <Layouts>
+      <Layout height="600" width="800">
+        <FloatChart id="FloatChart00" taborder="0" left="0" top="0" binddataset="ds_browser_lanking" categorycolumn="bind:Browser" right="0" bottom="10" rotateaxis="false" waterfall="true">
+          <Contents><![CDATA[{
+	"title": {
+		"id": "title",
+		"text": "Float - Waterfall",
+		"textfont": "20pt/normal '맑은 고딕'",
+		"padding": "0px 0px 5px"
+	},
+	"tooltip": {
+		"id": "tooltip",
+		"background": "#4b4b4b",
+		"linestyle": "0px none",
+		"textcolor": "#ffffff",
+		"textfont": "10pt/normal '맑은 고딕'",
+		"padding": "5px"
+	},
+	"board": {
+		"id": "board"
+	},
+	"categoryaxis": {
+		"id": "categoryaxis",
+		"labeltextcolor": "#6f6f6f",
+		"labeltextfont": "10pt '맑은 고딕'",
+		"axislinestyle": "1px solid #d0d0d0",
+		"boardlinestyle": "1px solid #d0d0d0",
+		"visible": "true"
+	},
+	"valueaxes": [
+		{
+			"id": "valueaxis0",
+			"labeltextcolor": "#6f6f6f",
+			"boardlinevisible": "true",
+			"boardlinestyle": "1px solid #d0d0d0",
+			"labeltextfont": "10pt '맑은 고딕'",
+			"axislinestyle": "1px solid #d0d0d0",
+			"autotickscale": "10",
+			"visible": "true"
+		}
+	],
+	"seriesset": [
+		{
+			"id": "series0",
+			"titletext": "series",
+			"linevisible": true,
+			"barsize": "50",
+			"itemtextvisible": "true",
+			"itemtextcolor": "#ffffff",
+			"itemtextfont": "bold 10pt '맑은 고딕'",
+			"valuecolumn": "bind:to",
+			"baropacity": "0.8",
+			"barvisible": "true",
+			"highlightbarvisible": "true"
+		}
+	]
+}]]></Contents>
+        </FloatChart>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_browser_lanking">
+        <ColumnInfo>
+          <Column id="Browser" type="STRING" size="256"/>
+          <Column id="to" type="FLOAT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Browser">Monday</Col>
+            <Col id="to">10</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Tuesday</Col>
+            <Col id="to">10</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Wednesday</Col>
+            <Col id="to">5</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Thusday</Col>
+            <Col id="to">-2</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Friday</Col>
+            <Col id="to">-5</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Saturday</Col>
+            <Col id="to">6</Col>
+          </Row>
+          <Row>
+            <Col id="Browser">Sunday</Col>
+            <Col id="to">-5</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

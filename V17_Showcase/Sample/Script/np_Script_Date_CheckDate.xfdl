@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_CheckDate" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_CheckDate" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <MaskEdit id="msk_input" taborder="0" value="20131231" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="78" height="40" textAlign="left"/>
+        <Static id="Static05" taborder="3" text="Input validation for dates" cssclass="sta_WF_subtitP" left="30" top="18" width="330" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_CheckDate
+ * Description : Check the validity date
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bRtn = this.fn_checkDate(this.msk_input.value);	
+	this.edt_output.set_value(bRtn);
+}
+
+/*
+ * Function Name : fn_checkDate
+ * Description   : Consistency Date Check
+ * Parameter     : Year Month Day
+ * Return        : suitable true, unsuitable false
+ * Example       : fn_checkDate("20121231");
+ */
+this.fn_checkDate = function(sDate) 
+{
+    var nYear  = Number(sDate.toString().substr(0,4));
+    var nMonth = Number(sDate.toString().substr(4,2));
+    var nDate  = Number(sDate.toString().substr(6,2));
+
+    if ( nMonth > 12 || nMonth < 1)
+    {
+		return false;
+    }
+    
+    switch (nMonth) 
+    {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            if (nDate > 31 || nDate < 1)
+            {
+                return false;
+            }
+            break;
+        case 4: 
+        case 6: 
+        case 9: 
+        case 11:  
+            if (nDate > 30 || nDate < 1)
+            {
+                return false;
+            }                               
+            break;
+        case 2:   
+            if (((nYear % 4 == 0) && (nYear % 100 != 0)) || (nYear % 400 == 0))
+            {
+                if (nDate > 29 || nDate < 1)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (nDate > 28 || nDate < 1)
+                {
+                    return false;
+                }
+            }                              
+            break;            
+        default:
+            break;
+    }    
+    return true;
+}]]></Script>
+  </Form>
+</FDL>

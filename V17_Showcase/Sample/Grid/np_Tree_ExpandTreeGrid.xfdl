@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="test" classname="test" left="0" top="0" width="760" height="700" titletext="Expand tree Grid">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="118" height="546" binddataset="Dataset00" autofittype="col" width="350" treeinitstatus="collapse,null">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="249"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="treeitemcontrol" edittype="tree" text="bind:Column0" treelevel="bind:Column1" textAlign="left"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="1" useinputpanel="false" left="400" top="118" height="546" binddataset="Dataset01" oncellclick="Grid01_oncellclick" autofittype="col" width="253">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+                <Cell col="1" disptype="normal" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+                <Cell col="1" disptype="normal" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="3" text="Tree Grid" cssclass="sta_WF_explain" left="30" top="78" width="200" height="30" style="align:left middle;font:bold 9 Dotum;"/>
+        <Static id="Static01" taborder="4" text="Normal Grid" cssclass="sta_WF_explain" left="400" top="78" width="200" height="30" style="align:left middle;font:bold 9 Dotum;"/>
+        <Static id="Static02" taborder="4" text="Expands tree Grid" onclick="Static02_onclick" cssclass="sta_WF_subtitP" left="30" top="18" width="300" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">9</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">12</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">13</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">14</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">9</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">12</Col>
+            <Col id="Column1">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">13</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">14</Col>
+            <Col id="Column1">3</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+/*
+// right Grid's cell is clicked. 
+// Find the parent row index on the Right Grid's cell
+// and setting Tree Grid as expand status, by calling setTreeStatus method.
+*/
+this.Grid01_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var path_Arr = this.findParentArr(this.Grid00, e.row);
+	
+	for(var i =  path_Arr.length  ; i > 0 ; i--) // Should be expanded in reverse.
+	{
+		this.Grid00.setTreeStatus(this.Grid00.getTreeRow(path_Arr[i]), true);
+	}
+	
+	this.Dataset00.set_rowposition(path_Arr[0]);
+	
+};
+
+
+
+
+
+// Returning Tree's parent into an array.
+// return arr[0] = The value idx passed as parameter
+// return arr[1~n] = Returning the path of the parents in reverse order.
+this.findParentArr = function (obj, idx)
+{
+	var arr = [];
+	arr[arr.length] = idx;
+	for(;;)
+	{	
+		var _p = obj.getTreeParentRow(arr[arr.length-1]);
+		if(_p < 0){return arr;}
+		arr[arr.length] = _p; 	
+	}
+};]]></Script>
+  </Form>
+</FDL>

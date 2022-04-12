@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="664" onload="form_onload">
+    <Layouts>
+      <Layout height="664" width="440">
+        <Static id="Static01" taborder="0" text="Bluetooth Low Energy" left="20" top="20" height="40" cssclass="sta_WF_compTitle02" messageid="grid.cell.display.type" fittocontents="width" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.Div00_Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid02.set_formatid(e.postvalue);
+};
+]]></Script>
+  </Form>
+</FDL>

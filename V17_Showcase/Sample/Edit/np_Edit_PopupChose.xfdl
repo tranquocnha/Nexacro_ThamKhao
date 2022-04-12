@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Edit_PopupChose" classname="popup_Select" left="0" top="0" width="760" height="430" titletext="Edit_PopupChose">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="4" left="30" top="73" width="615" height="34" text="Div00" style="border:1 solid #808080ff ;" border="0px none">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit01" taborder="0" left="324" top="0" width="270" height="34" enable="false"/>
+              <Button id="Button00" taborder="1" text="◎" onclick="Button00_onclick" left="280" top="0" width="34" height="34"/>
+              <Edit id="Edit00" taborder="2" left="0" top="0" width="270" height="34" onkeydown="Div00_Edit00_onkeydown" displaynulltext="Department Code / Department Name"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <PopupDiv id="PopupDiv01" text="PopupDiv01" left="15" top="159" width="338" height="203" visible="false" style="border:1 solid #808080ff ;" border="0px none">
+          <Layouts>
+            <Layout>
+              <Grid id="Grid00" taborder="0" useinputpanel="false" left="0" top="3" width="313" height="200" binddataset="ds_edit_popup" autofittype="col" oncelldblclick="PopupDiv01_Grid00_oncelldblclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="36" band="head"/>
+                      <Row size="36"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="Department Code"/>
+                      <Cell col="1" text="Department Name"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:code"/>
+                      <Cell col="1" text="bind:data"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Static id="Static05" taborder="7" text="Selecting Data using PopupDiv" cssclass="sta_WF_subtitP" left="30" top="18" width="500" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_edit_popup" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">7</Col>
+            <Col id="data">Technical Support</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="data">Human Resources</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="data">CS Team</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="data">Consulting Team 1</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="data">Consulting Team 2</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="data">Consulting Team 3</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="data">Sales</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.popup_div(obj);
+};
+
+this.Div00_Edit00_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13)
+	{ 
+		var data;
+		var code;
+		if(TOBE.isNumeric(obj.value))
+		{
+			data = this.ds_edit_popup.lookup("code ", obj.value,"data" );
+			code = this.ds_edit_popup.lookup("code ", obj.value,"code" );
+		}else{
+			data = this.ds_edit_popup.lookup("data ", obj.value,"data" );
+			code = this.ds_edit_popup.lookup("data ", obj.value,"code" );
+			
+		}
+		if(data == null){this.popup_div(this.Div00.Button00);}
+		
+		obj.set_value(code);
+		this.Div00.form.Edit01.set_value(data);
+		obj.setSelect();
+		
+	}
+};
+this.popup_div = function(obj)
+{
+// 	var nX = system.screenToClientX(this, system.clientToScreenX(obj,16)) - this.PopupDiv01.width/2;
+// 	var nY = system.screenToClientY(this, system.clientToScreenY(obj, 30));			
+// 	this.PopupDiv01.trackPopup(nX, nY, null, null, "popup_call_back");
+	
+	var objApp = nexacro.getApplication() ;
+	var nX = system.clientToScreenX(obj, 0) - system.clientToScreenX(objApp.mainframe, 0);
+	var nY = system.clientToScreenY(obj, parseInt(obj.height)) - system.clientToScreenY(objApp.mainframe, 0);
+	this.PopupDiv01.trackPopup(nX, nY, null, null, "popup_call_back");
+};
+this.PopupDiv01_Grid00_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var arr = [];
+	arr[0] = this.ds_edit_popup.getColumn(e.row,1);
+	arr[1] = this.ds_edit_popup.getColumn(e.row,0);
+	
+	this.PopupDiv01.closePopup(arr);
+}
+
+this.popup_call_back = function (strId,arr)
+{
+	this.Div00.form.Edit00.set_value(arr[1]);
+	this.Div00.form.Edit01.set_value(arr[0]);
+};
+
+   
+]]></Script>
+  </Form>
+</FDL>

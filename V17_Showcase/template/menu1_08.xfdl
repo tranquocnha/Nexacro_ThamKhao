@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="work" classname="work" left="0" top="0" width="1025" height="674" titletext="New Form" cssclass="WF_work">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="36" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="46"/>
+        <Static id="Static01" taborder="37" text="Inquiry date" cssclass="sta_WFSA_label" left="35" top="83" width="80" height="20"/>
+        <Combo id="Comb_year" taborder="38" value="2014" text="2014" innerdataset="year" codecolumn="Column0" datacolumn="Column0" index="0" onitemchanged="Comb_year_onitemchanged" left="123" top="83" width="70" height="20"/>
+        <Combo id="Comb_month" taborder="39" value="01" text="01" innerdataset="@month" codecolumn="Column0" datacolumn="Column0" index="0" onitemchanged="Comb_year_onitemchanged" left="194" top="83" width="50" height="20"/>
+        <Static id="Static02" taborder="40" text="Inquiry specification" cssclass="sta_WFSA_label" left="254" top="83" width="134" height="20"/>
+        <Combo id="Comb_year00" taborder="41" value="A" text="Employee number" innerdataset="@ds_gubun" codecolumn="CODE_ID" datacolumn="CODE_NM" index="0" onitemchanged="Comb_year_onitemchanged" left="397" top="83" width="250" height="20"/>
+        <Button id="Btn_search" taborder="42" cssclass="btn_WF_search" top="70" right="15" height="46" width="51"/>
+        <Button id="Button00" taborder="43" text="New" top="128" right="195" width="42" height="23"/>
+        <Button id="Button01" taborder="44" text="Modify" top="128" right="150" width="42" height="23"/>
+        <Button id="Button02" taborder="45" text="Delete" onclick="Button02_onclick" top="128" right="105" width="42" height="23"/>
+        <Button id="Button03" taborder="46" text="Reset" top="128" right="60" width="42" height="23"/>
+        <Button id="Button04" taborder="47" text="Save" cssclass="btn_module" top="128" right="15" width="42" height="23"/>
+        <Grid id="Grid00" taborder="48" binddataset="Dataset00" useinputpanel="false" autofittype="col" onkeydown="Grid00_onkeydown" onsetfocus="Grid00_onsetfocus" left="15" top="156" width="475" bottom="52">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="182"/>
+                <Column size="48"/>
+                <Column size="64"/>
+                <Column size="69"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Subject"/>
+                <Cell col="1" text="Hits"/>
+                <Cell col="2" text="Posted by"/>
+                <Cell col="3" style="accessibility:enable all 'Posted date last row' '' '' ;" text="Posting date"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" style="align:left;accessibility:EXPR(&quot;enable all '&quot; +Specification+ &quot; Link'&quot;);" text="bind:Specification"/>
+                <Cell col="1" edittype="normal" style="accessibility:EXPR(&quot;enable all '&quot; +Book+ &quot; Link'&quot;);" text="bind:Book"/>
+                <Cell col="2" edittype="normal" style="accessibility:EXPR(&quot;enable all '&quot; +Rating+ &quot; Link'&quot;);" text="bind:Rating"/>
+                <Cell col="3" edittype="normal" style="accessibility:EXPR(&quot;enable all '&quot; +Posting_date+ &quot; Link'&quot;);" text="bind:Posting_date"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static13" taborder="49" onclick="Static23_onclick" cssclass="sta_WFDA_B" left="599" top="218" right="15" height="32" class="sta_WFDA_B"/>
+        <Static id="Static15" taborder="50" onclick="Static23_onclick" cssclass="sta_WFDA_B" left="599" top="156" right="15" height="32" class="sta_WFDA_B"/>
+        <Static id="Static23" taborder="51" onclick="Static23_onclick" cssclass="sta_WFDA_B" left="599" top="187" right="15" height="32" class="sta_WFDA_B"/>
+        <Static id="Static22" taborder="52" text="Department" cssclass="sta_WFDA_labelB" left="500" top="187" width="100" height="32" class="sta_WFDA_labelB"/>
+        <Static id="Static20" taborder="53" text="Title" cssclass="sta_WFDA_labelB" left="500" top="156" width="100" height="32" class="sta_WFDA_labelB"/>
+        <Edit id="Static03" taborder="54" left="605" top="193" width="394" height="20" style="accessibility:enable all '@Static22' '';" class="sta_WF_brdTitle"/>
+        <Edit id="Static11" taborder="55" left="605" top="224" width="134" height="20" style="accessibility:enable all '@Static12' '';" class="sta_WF_brdTitle"/>
+        <Edit id="Static14" taborder="56" left="848" top="224" width="151" height="20" style="accessibility:enable all '@Static17' '';" class="sta_WF_brdFile"/>
+        <Edit id="Static16" taborder="57" onsetfocus="Static16_onsetfocus" left="605" top="162" width="394" height="20" style="accessibility:enable all '@Static20' '';" class="sta_WF_label01"/>
+        <Static id="Static12" taborder="58" text="Posted by" onclick="Static12_onclick" cssclass="sta_WFDA_labelB" left="500" top="218" width="100" height="32" class="sta_WFDA_labelB"/>
+        <Static id="Static37" taborder="59" text="2" left="510" top="155" right="12" height="1" class="sta_WFDA_orangeline"/>
+        <Static id="Static17" taborder="60" text="Posting date" cssclass="sta_WFDA_labelB" left="744" top="218" width="100" height="32" class="sta_WFDA_labelB"/>
+        <TextArea id="TextArea00" taborder="61" wordwrap="true" displaynulltext="KDB Daewoo card the first released coupon of  &quot;CMA coupon&quot;" onsetfocus="TextArea00_onsetfocus" oneditclick="TextArea00_oneditclick" left="499" top="260" right="15" bottom="10" class="ta_WF_brdRead"/>
+        <Static id="Static32" taborder="67" text="40" visible="false" left="427" top="116" width="50" height="40" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static04" taborder="68" text="5" visible="false" left="919" top="151" width="80" height="5" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static05" taborder="69" text="10" visible="false" left="490" top="129" width="10" height="50" style="background:blueviolet;opacity:50;"/>
+        <Static id="St_title" taborder="72" text="Bulletin board" cssclass="sta_WF_title" left="15" top="38" width="505" height="20"/>
+        <Static id="Static36" taborder="73" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="74" text="Home &gt; Business screen guide &gt; Grid Shuttle" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static38" taborder="76" text="10" visible="false" left="150" top="0" width="100" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static39" taborder="77" text="20" visible="false" left="118" top="22" width="100" height="20" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static40" taborder="78" text="10" visible="false" left="912" top="0" width="50" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static06" taborder="79" text="10" visible="false" left="335" top="716" width="34" height="10" style="background:blueviolet;opacity:50;"/>
+        <Button id="btn_end" taborder="80" cssclass="btn_pag_end" left="294" width="34" bottom="8" height="34"/>
+        <Button id="btn_next" taborder="81" onclick="btn_next_onclick" cssclass="btn_pag_next" left="261" width="34" bottom="8" height="34"/>
+        <Button id="btn_paging" taborder="82" text="1" cssclass="btn_paging" left="228" width="34" bottom="8" height="34"/>
+        <Button id="btn_prev" taborder="83" cssclass="btn_pag_prev" left="195" width="34" bottom="8" height="34"/>
+        <Button id="pre_first" taborder="84" cssclass="btn_pag_first" left="162" width="34" bottom="8" height="34"/>
+        <Static id="Static41" taborder="85" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="86" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="Static43" taborder="87" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static42" taborder="88" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Specification" type="STRING" size="256"/>
+          <Column id="Content" type="STRING" size="256"/>
+          <Column id="Book" type="STRING" size="256"/>
+          <Column id="Rating" type="STRING" size="256"/>
+          <Column id="Posting_date" type="STRING" size="256"/>
+          <Column id="Department" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Specification">KDB Daewoo retail currency bond  mediation service is launched</Col>
+            <Col id="Content">KDB Daewoo card the first released coupon of  "CMA coupon"</Col>
+            <Col id="Book">17</Col>
+            <Col id="Rating">Du Seok Park</Col>
+            <Col id="Posting_date">2013-04-04</Col>
+            <Col id="Department">Seoul</Col>
+          </Row>
+          <Row>
+            <Col id="Specification">KDB Daewoo retail currency bond  mediation service is launched</Col>
+            <Col id="Content"/>
+            <Col id="Book">17</Col>
+            <Col id="Posting_date">2013-04-06</Col>
+            <Col id="Rating">Du Seok Park</Col>
+            <Col id="Department">Daejon</Col>
+          </Row>
+          <Row>
+            <Col id="Specification">KDB Daewoo retail currency bond  mediation service is launched</Col>
+            <Col id="Content">Daewoo Securities plans to introduce a cash management account (CMA) credit card on June 1 in a business alliance with Shinhan Card and Hyundai Card. </Col>
+            <Col id="Posting_date">2013-04-10</Col>
+            <Col id="Rating">Du Seok Park</Col>
+            <Col id="Book">17</Col>
+            <Col id="Department">Daegu</Col>
+          </Row>
+          <Row>
+            <Col id="Specification">KDB Daewoo retail currency bond  mediation service is launched</Col>
+            <Col id="Content">1032</Col>
+            <Col id="Posting_date">2013-04-20</Col>
+            <Col id="Rating">Du Seok Park</Col>
+            <Col id="Book">17</Col>
+            <Col id="Department">Busan</Col>
+          </Row>
+          <Row>
+            <Col id="Specification">KDB Daewoo retail currency bond  mediation service is launched</Col>
+            <Col id="Content">Daewoo Securities plans to introduce a cash management account (CMA) credit card on June 1 in a business alliance with Shinhan Card and Hyundai Card.</Col>
+            <Col id="Posting_date">2013-06-05</Col>
+            <Col id="Rating">Du Seok Park</Col>
+            <Col id="Book">17</Col>
+            <Col id="Department">Ulsan</Col>
+          </Row>
+          <Row>
+            <Col id="Content">The CMA card, which offers a maximum of 2.8 percent annual interest, can be used as a credit card.</Col>
+            <Col id="Book">17</Col>
+            <Col id="Rating">Du Seok Park</Col>
+            <Col id="Specification">KDB Daewoo retail currency bond  mediation service is launched</Col>
+            <Col id="Posting_date">2013-04-04</Col>
+            <Col id="Department">Gyeongi-do</Col>
+          </Row>
+          <Row>
+            <Col id="Content">KDB Daewoo card the first released coupon of  "CMA coupon"</Col>
+            <Col id="Book">17</Col>
+            <Col id="Rating">Du Seok Park</Col>
+            <Col id="Specification">KDB Daewoo retail currency bond  mediation service is launched</Col>
+            <Col id="Posting_date">2013-04-30</Col>
+            <Col id="Department">Incheon</Col>
+          </Row>
+          <Row>
+            <Col id="Content">1032</Col>
+            <Col id="Book">17</Col>
+            <Col id="Rating">Du Seok Park</Col>
+            <Col id="Specification">KDB Daewoo retail currency bond  mediation service is launched</Col>
+            <Col id="Posting_date">2013-04-11</Col>
+            <Col id="Department">Jeju</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="year" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">2014</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2013</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2012</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2011</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2010</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2009</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2008</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2007</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2006</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2005</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2004</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="month" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">01</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">02</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">03</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">05</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">06</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">07</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">08</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">09</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">12</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_gubun" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE_ID" type="STRING" size="256"/>
+          <Column id="CODE_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE_ID">A</Col>
+            <Col id="CODE_NM">Employee number</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_ID">B</Col>
+            <Col id="CODE_NM">Name</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_ID">C</Col>
+            <Col id="CODE_NM">ID</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="Static03" propid="value" datasetid="Dataset00" columnid="부서"/>
+      <BindItem id="item2" compid="Static11" propid="value" datasetid="Dataset00" columnid="평가"/>
+      <BindItem id="item9" compid="Static14" propid="value" datasetid="Dataset00" columnid="해지후Dur"/>
+      <BindItem id="item0" compid="Static16" propid="value" datasetid="Dataset00" columnid="본부"/>
+      <BindItem id="item3" compid="TextArea00" propid="value" datasetid="Dataset00" columnid="내용"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+this.Comb_year_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	
+}
+
+this.btn_next_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Tab00_tabpage1_TAB3_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Static12_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

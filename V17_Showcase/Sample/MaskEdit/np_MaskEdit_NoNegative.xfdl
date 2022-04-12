@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="MaskEdit_NoNegative" inheritanceid="" position="absolute" titletext="NoNegative" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <MaskEdit id="msk_output" taborder="0" type="number" mask="+#,###" maskchar="_" style="align:right middle;" limitbymask="decimal" position="absolute" left="30" width="200" top="73" height="36"/>
+        <Static id="Static05" taborder="1" text="Processing input values in MaskEdit without -(Negative) values" cssclass="sta_WF_subtitP" left="30" top="18" width="850" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/*
+ * File Name   : MaskEdit_NoNegative
+ * Description : Processing input values in MaskEdit without -(Negative) values
+ */
+  ]]></Script>
+  </Form>
+</FDL>

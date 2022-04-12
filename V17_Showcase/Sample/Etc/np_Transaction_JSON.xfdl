@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="json" classname="test" inheritanceid="" position="absolute" titletext="json" left="0" top="0" width="760" height="430" onload="test_onload">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="30" top="73" width="250" height="306" binddataset="Dataset00" autofittype="col">
+          <Formats>
+            <Format id="default"/>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="3" text="Service Call" left="290" top="73" width="120" height="34" onclick="Button01_onclick"/>
+        <Static id="Static05" taborder="4" text="Calling by JSON" cssclass="sta_WF_subtitP" left="30" top="18" width="250" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[this.Button01_onclick = function(obj:nexacro.Button,  e:nexacro.ClickEventInfo)
+{
+	var strInDS = "";
+	var strOutDS = "Dataset00=dsDetailMain";
+	var strParams = "";
+	var strCallback = "fn_init_callback";
+  	this.transaction("load", "Svc::json.jsp", strInDS, strOutDS, strParams, strCallback);
+	//this.transaction("load", "Svc_org::json.jsp", strInDS, strOutDS, strParams, strCallback); // 위의 주소로 변경하면 됩니다.
+};
+  
+
+this.fn_init_callback = function (sid, errcd, errmsg)
+{   
+	if (errcd == 0) {
+		this.Grid00.createFormat();
+	}           
+	trace(this.Dataset00.saveXML());
+};   
+  
+// Data.js 내의 TransactionItem._deserializeData 함수를 대체한다.
+_pTransactionItem._deserializeData = function (strRecvData, bPending) 
+{	    
+	if (!strRecvData)
+		return [-1, "Stream Data is null!"];
+
+	strRecvData = strRecvData.trim();
+	var fstr = strRecvData.substring(0, 3);
+	
+	if (fstr == "SSV") // SSV Type (HEX:53,53,56)
+	{ 
+		return this.__deserializeSSV(strRecvData);
+		
+	}
+	else if (fstr == "CSV") // CSV Type (HEX:43,53,56)
+	{ 
+		return this.__deserializeCSV(strRecvData);
+	}
+	else if (fstr == "PPX") // PPX Type : Runtime only
+	{ 
+		return this.__deserializeJSON(strRecvData);
+	} 
+	// JSON 처리를 위한 추가 코드
+	else if (fstr == "JSN") {
+	}
+	//<< JSON 처리를 위한 추가 코드
+	else // XML Type (HEX:3C,3F)
+	{   
+		//return this.__deserializeXML(strRecvData);
+		return this.__deserializeJSON(strRecvData);
+	}
+};
+
+// transaction 시 데이터를 받았을 때 JSON 처리
+_pTransactionItem.__deserializeJSON = function(strRecvData) 
+{
+	var code = 0;
+	var message = "SUCCESS";
+	
+	var outDatasets = this.outputDatasets;
+	if (outDatasets && outDatasets.length)
+	{
+		var revcJsonObj = JSON.parse(strRecvData);
+		if (!revcJsonObj) 
+		{
+			code = -1;
+			message = "Fail JSON.parse";
+		}
+		var outDataCnt = outDatasets.length;
+		for (var i = 0; i < outDataCnt; i++)
+		{
+			// this.context: access form object
+			var ds = this.context._getDatasetObject(outDatasets[i].lval);
+			if (ds) {
+				ds.clear();
+				this.context.createDatasetColInfo(ds);
+				this.context.addData(ds, revcJsonObj);
+			}
+		}
+	}
+	return [code, message];
+};   
+
+// dataset 초기화
+this.createDatasetColInfo = function(ds) 
+{
+	var nIndex = ds.addColumn( "name", "string" );
+	nIndex = ds.addColumn( "surname", "string", 120 );
+};
+
+// data processing
+this.addData = function(ds, jsonObj) 
+{
+	for (var j = 0 ; j < jsonObj.length ; j++) 
+	{
+		jObj = jsonObj[j];
+		var rIdx = ds.addRow();
+		ds.setColumn(rIdx, "name", jObj.name);
+		ds.setColumn(rIdx, "surname", jObj.surname);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

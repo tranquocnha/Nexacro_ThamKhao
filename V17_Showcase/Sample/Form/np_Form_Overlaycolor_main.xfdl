@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="testaaaa" classname="testaaaa" left="0" top="0" width="760" height="430" titletext="Overy color main">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="popup" left="30" top="125" width="255" height="40" onclick="Button00_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static00" taborder="1" text="Background Color :" left="30" top="75" width="130" height="40" style="font:bold 12 arial;"/>
+        <Combo id="Combo00" taborder="2" text="default" left="165" top="75" width="120" height="40" innerdataset="@Dataset00" codecolumn="Column0" datacolumn="Column1" index="0" value="" onitemchanged="Combo00_onitemchanged"/>
+        <Static id="Static01" taborder="3" text="This is sample shows the location of popup while opening by track popup" wordwrap="english" cssclass="sta_WF_explain" left="30" top="25" width="500" height="30" style="font:bold 9 Dotum;" textAlign="left" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column1">default</Col>
+            <Col id="Column0"/>
+          </Row>
+          <Row>
+            <Col id="Column0">red</Col>
+            <Col id="Column1">red</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">blue</Col>
+            <Col id="Column1">blue</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">green</Col>
+            <Col id="Column1">green</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">transparent</Col>
+            <Col id="Column1">transparent</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	var newChild = new ChildFrame();
+    newChild.init("frmpop01",  0, 0, 300, 300, null, null, "Sample_Form::np_Form_Overlaycolor_child.xfdl");
+	newChild.set_overlaycolor(this.Combo00.value);
+	newChild.set_openalign("center middle");
+	newChild.set_autosize(true);
+	
+	newChild.showModal(this);
+};
+this.Combo00_onitemchanged = function(obj:nexacro.Combo,e:nexacro.ItemChangeEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

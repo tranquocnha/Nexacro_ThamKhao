@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="Authority" inheritanceid="" position="absolute" titletext="Group Management" onload="form_onload" onbeforeclose="form_onbeforeclose" left="0" width="1025" top="0" height="674" ontimer="form_ontimer">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_Group" taborder="4" binddataset="ds_Group" position="absolute" useinputpanel="false" autofittype="col" left="30" right="30" top="202" bottom="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="104"/>
+                <Column size="139"/>
+                <Column size="34"/>
+                <Column size="282"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.group.id" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" text="domain.group" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" text="domain.use" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" text="domain.group.desc" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" text="domain.reg.date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" text="domain.reg.id" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" text="domain.update.date" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" text="domain.update.id" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" edittype="expr:(dataset.getRowType(currow) == 2) ? 'normal' : 'none'" text="bind:GROUP_ID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" displaytype="normal" edittype="normal" text="bind:GROUP_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" displaytype="checkbox" edittype="checkbox" text="bind:USE_FG" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" edittype="textarea" style="align:left;" text="bind:GROUP_DESC" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" displaytype="date" edittype="none" text="bind:CREATE_DT" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" displaytype="normal" edittype="none" text="bind:CREATE_USER" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" displaytype="date" edittype="none" text="bind:UPDATE_DT" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" displaytype="normal" edittype="none" text="bind:UPDATE_USER" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="st_BG" position="absolute" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Static id="st_Title" text="domain.group.list" wordwrap="english" position="absolute" left="30" width="204" top="58" height="30" cssclass="sta_WF_title"/>
+        <Button id="btn_Insert" taborder="1" text="domain.add" onclick="btn_Insert_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:I;" right="240" width="100" top="158" height="34" cssclass="button_WF_white"/>
+        <Button id="btn_Delete" taborder="1" text="domain.delete" onclick="btn_Delete_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:D;" right="135" width="100" top="158" height="34" cssclass="button_WF_gray"/>
+        <Button id="btn_Save" taborder="1" text="domain.save" onclick="btn_Save_onclick" position="absolute" style="font:dotum,8, bold;" userdata="A:T;" right="30" width="100" top="158" height="34" cssclass="button_WF_blue"/>
+        <Static id="st_progress" taborder="5" text="location" cssclass="sta_WF_progress" left="30" top="18" width="808" height="30"/>
+        <Static id="Static00" taborder="11" cssclass="sta_WFSA_BG" left="30" top="98" right="30" height="50"/>
+        <Static id="st_searchCondition" position="absolute" left="45" width="160" top="106" height="34" text="domain.search.condition"/>
+        <Combo id="cmb_searchCondition" taborder="1" codecolumn="codecolumn" datacolumn="datacolumn" position="absolute" left="205" width="100" top="106" height="34" index="-1">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">domain.text</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">domain.code</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Edit id="edt_searchKeyword" taborder="1" onkeydown="edt_searchKeyword_onkeydown" position="absolute" left="310" width="200" top="106" height="34" background="#ffffff"/>
+        <Button id="btn_Search" taborder="1" onclick="btn_Search_onclick" position="absolute" width="70" top="106" height="34" cssclass="button_WF_white" text="Search" left="530"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_GroupValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="GROUP_ID" type="string" size="20"/>
+          <Column id="GROUP_NM" type="string" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="GROUP_ID">title:group.id,required:true</Col>
+            <Col id="GROUP_NM">title:group.name,required:true</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Group" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" cancolumnchange="ds_Group_cancolumnchange">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="GROUP_ID" type="string" size="10"/>
+          <Column id="GROUP_NM" type="string" size="20"/>
+          <Column id="GROUP_DESC" type="string" size="100"/>
+          <Column id="USE_FG" type="string" size="1"/>
+          <Column id="CREATE_USER" type="string" size="12"/>
+          <Column id="CREATE_DT" type="undefined" size="0"/>
+          <Column id="UPDATE_USER" type="string" size="12"/>
+          <Column id="UPDATE_DT" type="undefined" size="0"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="GROUP_ID">USER</Col>
+            <Col id="GROUP_NM">User</Col>
+            <Col id="GROUP_DESC">User Group</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">admin</Col>
+            <Col id="CREATE_DT">20140501203435000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20140501203435000</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="GROUP_ID">ADMIN</Col>
+            <Col id="GROUP_NM">Admin</Col>
+            <Col id="GROUP_DESC">Manager Group </Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">admin</Col>
+            <Col id="CREATE_DT">20140501203435000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20140501203435000</Col>
+          </Row>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="GROUP_ID">TEST</Col>
+            <Col id="GROUP_NM">Test</Col>
+            <Col id="GROUP_DESC">Test Group</Col>
+            <Col id="USE_FG">1</Col>
+            <Col id="CREATE_USER">admin</Col>
+            <Col id="CREATE_DT">20140501203435000</Col>
+            <Col id="UPDATE_USER">test</Col>
+            <Col id="UPDATE_DT">20140501203435000</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="PageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="PageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="PageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GroupKey" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Bind>
+      <BindItem id="item17" compid="cmb_searchCondition" propid="value" datasetid="ds_Search" columnid="SEARCH_CONDITION"/>
+      <BindItem id="item18" compid="edt_searchKeyword" propid="value" datasetid="ds_Search" columnid="SEARCH_KEYWORD"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01.  Work scope: Work group group registration managament
+ * 02. Group name   : GroupMgmt.xfdl
+ * 03. Group explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * Group variable declaration section 
+ ************************************************************************/
+/***********************************************************************
+ * Event processing specification
+ ************************************************************************/
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	//Common function processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Search processing
+	this.fn_Search();
+	this.cmb_searchCondition.set_text("");
+	this.cmb_searchCondition.set_text("Designation");
+	//this.cmb_searchCondition.text ="";
+	//this.cmb_searchCondition.text = "Designation";
+		
+};
+
+// Form beforeclose Event processing
+// Before closing the form, here is pop-up creation to ask if there is modified data, pop-up creating
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Group)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+};
+
+// Event processing on Search buttn click
+this.btn_Search_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Search();
+};
+
+
+// Event processing on group add button click
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+};
+
+// Event processing on delete button click
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Delete();
+};
+
+// Event processing on save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	if (!this.gfn_DsGetUpdated(this.ds_Group)) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+
+	var retValue = this.gfn_Confirm("msg.before.save");
+	if (retValue == false) 
+	{
+		return;
+	}
+
+	this.fn_Save();
+};
+
+// After input value and pressing enter key , this event occurred 
+this.edt_searchKeyword_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	if (e.keycode == 13) 
+	{
+		this.fn_Search();
+	}
+};
+
+// Event processing for changing the code group
+this.ds_Group_cancolumnchange = function (obj:Dataset, e:DSColChangeEventInfo)
+{
+	if (e.columnid == "GROUP_ID" && !this.lookupFunc("gfn_isNull").call(e.newvalue)) 
+	{
+		var bRet = this.fn_isExistCode(e.newvalue);
+		if (bRet == true) 
+		{
+			this.gfn_Alert("msg.err.cancolumnchange", "error");
+			return false;
+		}
+	}
+};
+
+/***********************************************************************
+ * User defined function specification
+ ************************************************************************/
+// Add
+this.fn_Insert = function ()
+{
+	var nRow = this.ds_Group.addRow();
+	this.ds_Group.setColumn(nRow, "CREATE_DT", this.lookupFunc("gfn_Today").call());
+	this.ds_Group.setColumn(nRow, "UPDATE_DT", this.lookupFunc("gfn_Today").call());
+	this.ds_Group.setColumn(nRow, "USE_FG", "1");
+};
+
+// Deleting group
+this.fn_Delete = function ()
+{
+	var nRow = this.ds_Group.rowposition;
+
+
+		this.ds_Group.deleteRow(nRow);
+	
+};
+
+// Group search
+this.fn_Search = function ()
+{
+	return;
+	if (this.gfn_DsGetUpdated(this.ds_Group)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.search");
+		if (retValue == false) 
+		{
+			return;
+		}
+	}
+
+	this.gfn_updateToDataset();
+
+	var sArgument = "";
+	var sSvcID = "getListGroup";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findGroupList'";
+
+	var sInDatasets = "querySet1=ds_Search";
+	var sOutDatasets = "ds_Group=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+};
+
+// Verification process for checking if the same group id is existing already
+this.fn_isExistCode = function (strGroupID)
+{
+	return;
+	var nRow = this.ds_Group.findRow("GROUP_ID", strGroupID);
+	if (nRow >= 0) 
+	{
+		return true;
+	}
+
+	var sArgument = "";
+	var sSvcID = "getCheckGroup";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "GROUP_ID=" + TOBE.wrapQuote(strGroupID) + " ";
+	sArgument += "querySet1='findGroup'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_GroupKey=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, false, false);
+
+	if (this.ds_GroupKey.getRowCount() > 0) 
+	{
+		return true;
+	}
+	return false;
+};
+
+// Save processing
+this.fn_Save = function ()
+{
+	return;
+	// After validation process , if there not exception than , save the all modified data of Grid  
+	if (this.gfn_DsCheckValid(this.ds_Group) == false) 
+	{
+		return;
+	}
+
+	var sArgument = "";
+	var sSvcID = "saveAll";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='createGroup,updatGroup,removeGroup'";
+
+	var sInDatasets = "querySet1=ds_Group:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+};
+
+// After processing gfnService callback processing
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAll":
+			this.gfn_Alert("msg.save.success");
+			this.fn_Search();
+			break;
+		case "getListGroup":
+			break;
+		default:
+			break;
+	}
+};
+
+this.Button00_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+
+};
+
+this.form_ontimer = function(obj:Form, e:TOBE.TimerEventInfo)
+{
+	if(e.timerid =555){
+		this.killTimer(e.timerid);
+		this.cmb_searchCondition.set_index(0);
+		alert(1);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

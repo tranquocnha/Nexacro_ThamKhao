@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_Cell_InputHanGul" left="0" top="0" width="1024" height="768" titletext="Grid_Cell_InputHanGul">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Grid id="grd_output" taborder="0" useinputpanel="false" style="focusborder:1 solid red ;" autoenter="select" class="grd_ExprBackground" binddataset="ds_data" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL0&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" ontextchange="grd_output_ontextchange" position="absolute" left="30" width="500" top="78" height="150" onkeydown="grd_output_onkeydown" oninput="grd_output_oninput" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="99"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL0"/>
+                <Cell col="1" text="COL1"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="text" edittype="text" text="bind:COL0" editdisplay="display" combodisplay="edit"/>
+                <Cell col="1" displaytype="text" edittype="text" text="bind:COL1" editdisplay="edit"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="1" text="Insert only Korean Characters in input item of Grid" cssclass="sta_WF_subtitP" left="30" top="18" width="700" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0"/>
+            <Col id="COL1">하나</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">가나</Col>
+            <Col id="COL1">둘</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">가나다</Col>
+            <Col id="COL1">셋</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.grd_output_oninput = function(obj:nexacro.Grid,e:nexacro.InputEventInfo)
+{
+	var edit =  obj.getEditText(); //obj.getShowEditor();
+	if(edit)
+	{
+		//trace(edit.value.replace(/[\ㄱ-ㅎㅏ-ㅣ가-힣]/g, ""));
+		//edit.set_value(edit.value.replace(/[^\ㄱ-ㅎㅏ-ㅣ가-힣]/g, ""));
+		obj.setEditValue(edit.replace(/[^\ㄱ-ㅎㅏ-ㅣ가-힣]/g, ""));
+	}
+};
+
+
+/*
+this.grd_output_ontextchange = function(obj:Grid, e:nexacro.GridEditTextChangeEventInfo)
+{ //this.alert("  Input text  ");
+	var objRegExp = new RegExp("[^ㄱ-힣 ]", "g");      
+	var objResult = objRegExp.exec( e.chartext );
+	if (objResult == null)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+*/]]></Script>
+  </Form>
+</FDL>

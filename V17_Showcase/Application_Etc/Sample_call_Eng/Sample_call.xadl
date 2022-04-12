@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="UserGrid" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="" themeid="style13.xtheme">
+    <Layout>
+      <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="false" showtitlebar="true" showstatusbar="true" left="0" top="0" width="1027" height="800" titletext="Main">
+        <VFrameSet id="VFrameSet0" separatesize="100,*,100">
+          <Frames>
+            <ChildFrame id="TopFrame" formurl="Base::Top.xfdl" dragmovetype="none" showtitlebar="false"/>
+            <HFrameSet id="HFrameSet0" separatesize="200,*">
+              <Frames>
+                <ChildFrame id="LeftFrame" formurl="Base::Left.xfdl" dragmovetype="none" showtitlebar="false"/>
+                <FrameSet id="WorkFrameSet" style="background:gray;">
+                  <Frames>
+                    <ChildFrame id="ChildFrame0" formurl="Base::Form1.xfdl" left="0" top="0" width="410" height="700" style="border:1 solid black ;"/>
+                    <ChildFrame id="ChildFrame1" left="410" top="0" width="420" height="700" formurl="Base::Form2.xfdl" style="border:1 solid black ;"/>
+                  </Frames>
+                </FrameSet>
+              </Frames>
+            </HFrameSet>
+            <ChildFrame id="BottomFrame" formurl="Base::Bottom.xfdl" dragmovetype="none" showtitlebar="false"/>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <ScreenInfo/>
+  </Application>
+</ADL>

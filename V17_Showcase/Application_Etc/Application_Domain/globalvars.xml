@@ -1,0 +1,1077 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GlobalVariables>
+  <Dataset id="gds_DomainText">
+    <ColumnInfo>
+      <Column id="ID" type="STRING" size="256"/>
+      <Column id="TEXT_K" type="STRING" size="256"/>
+      <Column id="TEXT" type="STRING" size="256"/>
+    </ColumnInfo>
+    <Rows>
+      <Row>
+        <Col id="ID">domain.session.timeout</Col>
+        <Col id="TEXT_K">세션이 종료되었습니다. 다시 로그인 해주십요.</Col>
+        <Col id="TEXT">Your session has expired. Please log in again.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.logout.confirm</Col>
+        <Col id="TEXT_K">로그아웃 하시겠습니까?</Col>
+        <Col id="TEXT">Would you like to log out?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.login</Col>
+        <Col id="TEXT_K">로그인</Col>
+        <Col id="TEXT">Login</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.id</Col>
+        <Col id="TEXT_K">아이디</Col>
+        <Col id="TEXT">ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.password</Col>
+        <Col id="TEXT_K">비밀번호</Col>
+        <Col id="TEXT">Password</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.seek.idpwd</Col>
+        <Col id="TEXT_K">아이디/비밀번호찾기</Col>
+        <Col id="TEXT">Finding ID/PW</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.save.id</Col>
+        <Col id="TEXT_K">아이디저장</Col>
+        <Col id="TEXT">Save ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.name</Col>
+        <Col id="TEXT_K">이름</Col>
+        <Col id="TEXT">Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.text</Col>
+        <Col id="TEXT_K">명칭</Col>
+        <Col id="TEXT">Alias</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.level</Col>
+        <Col id="TEXT_K">레벨</Col>
+        <Col id="TEXT">Level</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.level.top</Col>
+        <Col id="TEXT_K">최상위레벨</Col>
+        <Col id="TEXT">Top Level</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.level.same</Col>
+        <Col id="TEXT_K">동일레벨</Col>
+        <Col id="TEXT">Same Level</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.level.up</Col>
+        <Col id="TEXT_K">상위레벨</Col>
+        <Col id="TEXT">Up Level</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.level.down</Col>
+        <Col id="TEXT_K">하위레벨</Col>
+        <Col id="TEXT">Down Level</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.code</Col>
+        <Col id="TEXT_K">코드</Col>
+        <Col id="TEXT">Code</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.code.name</Col>
+        <Col id="TEXT_K">코드명</Col>
+        <Col id="TEXT">Code Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.code.list</Col>
+        <Col id="TEXT_K">코드목록</Col>
+        <Col id="TEXT">Code List</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.group</Col>
+        <Col id="TEXT_K">그룹</Col>
+        <Col id="TEXT">Code Group</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.group.id</Col>
+        <Col id="TEXT_K">그룹아이디</Col>
+        <Col id="TEXT">Group ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.group.list</Col>
+        <Col id="TEXT_K">그룹목록</Col>
+        <Col id="TEXT">Group List</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.group.desc</Col>
+        <Col id="TEXT_K">그룹설명</Col>
+        <Col id="TEXT">Group Explanation</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.movie.info</Col>
+        <Col id="TEXT_K">영화 상세 정보</Col>
+        <Col id="TEXT">Movie Detailed Information</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.community</Col>
+        <Col id="TEXT_K">커뮤니티</Col>
+        <Col id="TEXT">Community</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.community.id</Col>
+        <Col id="TEXT_K">커뮤니티ID</Col>
+        <Col id="TEXT">Community ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.codegroup</Col>
+        <Col id="TEXT_K">코드그룹</Col>
+        <Col id="TEXT">Code Group</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.codegroup.name</Col>
+        <Col id="TEXT_K">코드그룹명</Col>
+        <Col id="TEXT">Code Group Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.codegroup.list</Col>
+        <Col id="TEXT_K">코드그룹목록</Col>
+        <Col id="TEXT">Code Group List</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.desc</Col>
+        <Col id="TEXT_K">설명</Col>
+        <Col id="TEXT">Description</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.desc.detail</Col>
+        <Col id="TEXT_K">상세설명</Col>
+        <Col id="TEXT">Detailed Description</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.division</Col>
+        <Col id="TEXT_K">구분</Col>
+        <Col id="TEXT">Division</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.order</Col>
+        <Col id="TEXT_K">순서</Col>
+        <Col id="TEXT">Order</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.seq</Col>
+        <Col id="TEXT_K">정렬순서</Col>
+        <Col id="TEXT">Sort Order</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.use</Col>
+        <Col id="TEXT_K">사용</Col>
+        <Col id="TEXT">Use</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.use.yn</Col>
+        <Col id="TEXT_K">사용여부</Col>
+        <Col id="TEXT">Whther to use or not</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.authority</Col>
+        <Col id="TEXT_K">권한</Col>
+        <Col id="TEXT">Authority</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.update</Col>
+        <Col id="TEXT_K">수정</Col>
+        <Col id="TEXT">Update</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.update.date</Col>
+        <Col id="TEXT_K">수정일</Col>
+        <Col id="TEXT">Update Date</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.update.id</Col>
+        <Col id="TEXT_K">수정자</Col>
+        <Col id="TEXT">Update ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.reg</Col>
+        <Col id="TEXT_K">등록</Col>
+        <Col id="TEXT">Registration</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.reg.id</Col>
+        <Col id="TEXT_K">등록자</Col>
+        <Col id="TEXT">Registration ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.reg.date</Col>
+        <Col id="TEXT_K">등록일</Col>
+        <Col id="TEXT">Registration Date</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.print</Col>
+        <Col id="TEXT_K">인쇄</Col>
+        <Col id="TEXT">Print</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.contents</Col>
+        <Col id="TEXT_K">내용</Col>
+        <Col id="TEXT">Contents</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.korean</Col>
+        <Col id="TEXT_K">한글</Col>
+        <Col id="TEXT">Korean</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.english</Col>
+        <Col id="TEXT_K">영어</Col>
+        <Col id="TEXT">English</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.title</Col>
+        <Col id="TEXT_K">제목</Col>
+        <Col id="TEXT">Title</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.board.list</Col>
+        <Col id="TEXT_K">게시글 목록</Col>
+        <Col id="TEXT">List of Board</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.board.id</Col>
+        <Col id="TEXT_K">게시글 ID</Col>
+        <Col id="TEXT">ID of Board</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.category</Col>
+        <Col id="TEXT_K">카테고리</Col>
+        <Col id="TEXT">Category</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.category.id</Col>
+        <Col id="TEXT_K">카테고리ID</Col>
+        <Col id="TEXT">ID of Category</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.category.list</Col>
+        <Col id="TEXT_K">카테고리 목록</Col>
+        <Col id="TEXT">List of Category</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.add</Col>
+        <Col id="TEXT_K">추가</Col>
+        <Col id="TEXT">Add</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.delete</Col>
+        <Col id="TEXT_K">삭제</Col>
+        <Col id="TEXT">Delete</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.save</Col>
+        <Col id="TEXT_K">저장</Col>
+        <Col id="TEXT">Save</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.save.temp</Col>
+        <Col id="TEXT_K">임시저장</Col>
+        <Col id="TEXT">Saving Temporarily</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.select</Col>
+        <Col id="TEXT_K">선택</Col>
+        <Col id="TEXT">Select</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.select.cancel</Col>
+        <Col id="TEXT_K">선택취소</Col>
+        <Col id="TEXT">Cancel the Selection</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.cancel</Col>
+        <Col id="TEXT_K">취소</Col>
+        <Col id="TEXT">Cancel</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.add.level</Col>
+        <Col id="TEXT_K">동일레벨</Col>
+        <Col id="TEXT">Same Level</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.add.nexlevel</Col>
+        <Col id="TEXT_K">다음레벨</Col>
+        <Col id="TEXT">Next Level</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.search</Col>
+        <Col id="TEXT_K">검색</Col>
+        <Col id="TEXT">Search</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.search.condition</Col>
+        <Col id="TEXT_K">검색조건</Col>
+        <Col id="TEXT">Condition</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.info.basic</Col>
+        <Col id="TEXT_K">기본정보</Col>
+        <Col id="TEXT">Basic Information</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.info.additional</Col>
+        <Col id="TEXT_K">추가정보</Col>
+        <Col id="TEXT">Additional Information</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.category.desc</Col>
+        <Col id="TEXT_K">카테고리 설명</Col>
+        <Col id="TEXT">Category Description</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.category.name</Col>
+        <Col id="TEXT_K">카테고리 이름</Col>
+        <Col id="TEXT">Category Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.Rdo.item1</Col>
+        <Col id="TEXT_K">남자</Col>
+        <Col id="TEXT">Man</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.Rdo.item2</Col>
+        <Col id="TEXT_K">여자</Col>
+        <Col id="TEXT">Woman</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.user</Col>
+        <Col id="TEXT_K">사용자</Col>
+        <Col id="TEXT">User</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.user.list</Col>
+        <Col id="TEXT_K">사용자 목록</Col>
+        <Col id="TEXT">User List</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.user.group</Col>
+        <Col id="TEXT_K">사용자 그룹</Col>
+        <Col id="TEXT">User Group</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.user.detail</Col>
+        <Col id="TEXT_K">사용자 상세정보</Col>
+        <Col id="TEXT">Detail Information of User</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.user.name</Col>
+        <Col id="TEXT_K">이름</Col>
+        <Col id="TEXT">Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.user.id</Col>
+        <Col id="TEXT_K">아이디</Col>
+        <Col id="TEXT">ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.email</Col>
+        <Col id="TEXT_K">전자우편</Col>
+        <Col id="TEXT">Email</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.phone</Col>
+        <Col id="TEXT_K">전화</Col>
+        <Col id="TEXT">Phone</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.cellphone</Col>
+        <Col id="TEXT_K">휴대전화</Col>
+        <Col id="TEXT">Cellphone</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.enname</Col>
+        <Col id="TEXT_K">영문이름</Col>
+        <Col id="TEXT">English Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.phone.home</Col>
+        <Col id="TEXT_K">자택전화</Col>
+        <Col id="TEXT">Phone</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.addr</Col>
+        <Col id="TEXT_K">주소</Col>
+        <Col id="TEXT">Address</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.addr.phone</Col>
+        <Col id="TEXT_K">주소와 전화</Col>
+        <Col id="TEXT">Address and Phone</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.addr.detail</Col>
+        <Col id="TEXT_K">상세주소</Col>
+        <Col id="TEXT">Detail Address</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.addr.detail.office</Col>
+        <Col id="TEXT_K">회사상세주소</Col>
+        <Col id="TEXT">Detail Address of Company</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.zipcode</Col>
+        <Col id="TEXT_K">우편번호</Col>
+        <Col id="TEXT">Zip Code</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.zipcode.office</Col>
+        <Col id="TEXT_K">회사우편번호</Col>
+        <Col id="TEXT">Zip Code of Company</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.place</Col>
+        <Col id="TEXT_K">소속</Col>
+        <Col id="TEXT">Place</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.company</Col>
+        <Col id="TEXT_K">회사</Col>
+        <Col id="TEXT">Company</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.department</Col>
+        <Col id="TEXT_K">부서</Col>
+        <Col id="TEXT">Department</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.department.name</Col>
+        <Col id="TEXT_K">부서명</Col>
+        <Col id="TEXT">Department Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.position</Col>
+        <Col id="TEXT_K">직급</Col>
+        <Col id="TEXT">Position</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.assignment</Col>
+        <Col id="TEXT_K">담당업무</Col>
+        <Col id="TEXT">Assignment</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.addr.contact</Col>
+        <Col id="TEXT_K">연락처</Col>
+        <Col id="TEXT">Contact Number</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.fax</Col>
+        <Col id="TEXT_K">팩스번호</Col>
+        <Col id="TEXT">Fax Number</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.addr.office</Col>
+        <Col id="TEXT_K">회사주소</Col>
+        <Col id="TEXT">Office Address</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.category.move</Col>
+        <Col id="TEXT_K">카테고리 이동</Col>
+        <Col id="TEXT">Cetegory Move</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.community.name</Col>
+        <Col id="TEXT_K">커뮤니티 이름</Col>
+        <Col id="TEXT">Community Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.community.info</Col>
+        <Col id="TEXT_K">커뮤니티 정보</Col>
+        <Col id="TEXT">Community Information</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.community.desc</Col>
+        <Col id="TEXT_K">커뮤니티 설명</Col>
+        <Col id="TEXT">Community Description</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.community.list</Col>
+        <Col id="TEXT_K">커뮤니티 목록</Col>
+        <Col id="TEXT">Community List</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.schd.monthly</Col>
+        <Col id="TEXT_K">월간 일정</Col>
+        <Col id="TEXT">Monthly Schedule</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.calandar.move</Col>
+        <Col id="TEXT_K">날짜이동</Col>
+        <Col id="TEXT">Calendar Move</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.sunday</Col>
+        <Col id="TEXT_K">일요일</Col>
+        <Col id="TEXT">Sunday</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.monday</Col>
+        <Col id="TEXT_K">월요일</Col>
+        <Col id="TEXT">Monday</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.tuesday</Col>
+        <Col id="TEXT_K">화요일</Col>
+        <Col id="TEXT">Tuesday</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.wednesday</Col>
+        <Col id="TEXT_K">수요일</Col>
+        <Col id="TEXT">Wednesday</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.thursday</Col>
+        <Col id="TEXT_K">목요일</Col>
+        <Col id="TEXT">Thursday</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.friday</Col>
+        <Col id="TEXT_K">금요일</Col>
+        <Col id="TEXT">Friday</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.saturday</Col>
+        <Col id="TEXT_K">토요일</Col>
+        <Col id="TEXT">Saturday</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.schd.place</Col>
+        <Col id="TEXT_K">장소</Col>
+        <Col id="TEXT">Place</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.schd.weekly</Col>
+        <Col id="TEXT_K">주간 일정</Col>
+        <Col id="TEXT">Weekly Schedule</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.schd.detail.seek</Col>
+        <Col id="TEXT_K">일정 상세 조회</Col>
+        <Col id="TEXT">Detailed Schedule search</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.date</Col>
+        <Col id="TEXT_K">일시</Col>
+        <Col id="TEXT">Data</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.date.select</Col>
+        <Col id="TEXT_K">▶날짜선택</Col>
+        <Col id="TEXT">▶Date Selection</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.date.end</Col>
+        <Col id="TEXT_K">종료일</Col>
+        <Col id="TEXT">End Date</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.date.start</Col>
+        <Col id="TEXT_K">시작일</Col>
+        <Col id="TEXT">Start Date</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.movie.list</Col>
+        <Col id="TEXT_K">영화 목록</Col>
+        <Col id="TEXT">Movie List</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.movie.title</Col>
+        <Col id="TEXT_K">영화제목</Col>
+        <Col id="TEXT">Movie Title</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.now.playing</Col>
+        <Col id="TEXT_K">현재상영여부</Col>
+        <Col id="TEXT">if screening currently</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.cmbnow.playing</Col>
+        <Col id="TEXT_K">상영중</Col>
+        <Col id="TEXT">Screening</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.cmbnot.playing</Col>
+        <Col id="TEXT_K">미상영</Col>
+        <Col id="TEXT">Not Screening</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.director</Col>
+        <Col id="TEXT_K">감독</Col>
+        <Col id="TEXT">Director</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.genre</Col>
+        <Col id="TEXT_K">장르</Col>
+        <Col id="TEXT">Genres</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.actors</Col>
+        <Col id="TEXT_K">배우</Col>
+        <Col id="TEXT">Stars</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.runtime</Col>
+        <Col id="TEXT_K">상영시간</Col>
+        <Col id="TEXT">Runtime</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.releasedate</Col>
+        <Col id="TEXT_K">개봉일</Col>
+        <Col id="TEXT">Release Date</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.ticketprice</Col>
+        <Col id="TEXT_K">가격</Col>
+        <Col id="TEXT">Ticket Price</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.board.detail</Col>
+        <Col id="TEXT_K">게시글 상세 정보</Col>
+        <Col id="TEXT">Detailed Information of Board</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.noselectedrow</Col>
+        <Col id="TEXT_K">선택된 행이 없습니다.</Col>
+        <Col id="TEXT">There is not selected row</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popupmsg.err</Col>
+        <Col id="TEXT_K">오류</Col>
+        <Col id="TEXT">Error</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popupmsg.warn</Col>
+        <Col id="TEXT_K">경고</Col>
+        <Col id="TEXT">Warning</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popupmsg.cancle</Col>
+        <Col id="TEXT_K">취소</Col>
+        <Col id="TEXT">Cancle</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popupmsg.open</Col>
+        <Col id="TEXT_K">열기</Col>
+        <Col id="TEXT">Open</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popupmsg.confirm</Col>
+        <Col id="TEXT_K">확인</Col>
+        <Col id="TEXT">Confirm</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popupmsg.info</Col>
+        <Col id="TEXT_K">알림</Col>
+        <Col id="TEXT">Information</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popupmenu.find</Col>
+        <Col id="TEXT_K">검색</Col>
+        <Col id="TEXT">Search</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popupmenu.excel</Col>
+        <Col id="TEXT_K">엑셀 다운로드</Col>
+        <Col id="TEXT">Excel Download</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.searchdirection</Col>
+        <Col id="TEXT_K">검색 방향</Col>
+        <Col id="TEXT">Search Direction</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.close</Col>
+        <Col id="TEXT_K">닫기</Col>
+        <Col id="TEXT">Close</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.download</Col>
+        <Col id="TEXT_K">다운로드</Col>
+        <Col id="TEXT">Download</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.attachedfile</Col>
+        <Col id="TEXT_K">첨부 파일</Col>
+        <Col id="TEXT">Attached File</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.filesize</Col>
+        <Col id="TEXT_K">파일크기(Byte)</Col>
+        <Col id="TEXT">File Size</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.filename</Col>
+        <Col id="TEXT_K">파일명</Col>
+        <Col id="TEXT">File Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.volunteerwork</Col>
+        <Col id="TEXT_K">봉사활동 내역</Col>
+        <Col id="TEXT">Volunteer Activities</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.firsthalfvolunteer</Col>
+        <Col id="TEXT_K">상반기 봉사실적</Col>
+        <Col id="TEXT">First half Volunteer Performance</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.secondhalfvolunteer</Col>
+        <Col id="TEXT_K">하반기 봉사실적</Col>
+        <Col id="TEXT">Second half Volunteer performance</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popup.excelsave</Col>
+        <Col id="TEXT_K">파일을 저장 하시겠습니까?</Col>
+        <Col id="TEXT">Would you save a file?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.sum</Col>
+        <Col id="TEXT_K">계</Col>
+        <Col id="TEXT">Sum</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popup.filedownload</Col>
+        <Col id="TEXT_K">파일 다운로드</Col>
+        <Col id="TEXT">File Download</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.popup.fileupload</Col>
+        <Col id="TEXT_K">파일 업로드</Col>
+        <Col id="TEXT">File Upload</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu</Col>
+        <Col id="TEXT_K">메뉴</Col>
+        <Col id="TEXT">Menu</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.list</Col>
+        <Col id="TEXT_K">메뉴목록</Col>
+        <Col id="TEXT">Menu List</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.top</Col>
+        <Col id="TEXT_K">상위메뉴</Col>
+        <Col id="TEXT">Top Menu</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.id</Col>
+        <Col id="TEXT_K">메뉴아이디</Col>
+        <Col id="TEXT">Menu ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.name</Col>
+        <Col id="TEXT_K">메뉴명</Col>
+        <Col id="TEXT">Menu Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.url</Col>
+        <Col id="TEXT_K">메뉴경로</Col>
+        <Col id="TEXT">Menu URL</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.optp</Col>
+        <Col id="TEXT_K">메뉴오픈타입</Col>
+        <Col id="TEXT">Menu OpenType</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.args</Col>
+        <Col id="TEXT_K">메뉴파라메터</Col>
+        <Col id="TEXT">Menu Parameter</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.stat</Col>
+        <Col id="TEXT_K">메뉴상태</Col>
+        <Col id="TEXT">Menu Status</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.menu.desc</Col>
+        <Col id="TEXT_K">메뉴설명</Col>
+        <Col id="TEXT">Menu Description</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page</Col>
+        <Col id="TEXT_K">화면</Col>
+        <Col id="TEXT">Screen</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.list</Col>
+        <Col id="TEXT_K">화면목록</Col>
+        <Col id="TEXT">Screen List</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.top</Col>
+        <Col id="TEXT_K">상위화면</Col>
+        <Col id="TEXT">Top Screen</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.id</Col>
+        <Col id="TEXT_K">화면아이디</Col>
+        <Col id="TEXT">Screen ID</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.name</Col>
+        <Col id="TEXT_K">화면명</Col>
+        <Col id="TEXT">Screen Name</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.url</Col>
+        <Col id="TEXT_K">화면경로</Col>
+        <Col id="TEXT">Screen URL</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.type</Col>
+        <Col id="TEXT_K">화면타입</Col>
+        <Col id="TEXT">Screen Type</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.extp</Col>
+        <Col id="TEXT_K">화면연동</Col>
+        <Col id="TEXT">Screen Linkage</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.stat</Col>
+        <Col id="TEXT_K">화면상태</Col>
+        <Col id="TEXT">Screen Status</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.page.desc</Col>
+        <Col id="TEXT_K">화면설명</Col>
+        <Col id="TEXT">Screen Description</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.tabpage1</Col>
+        <Col id="TEXT_K">탭페이지명1</Col>
+        <Col id="TEXT">Tab_1</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.tabpage2</Col>
+        <Col id="TEXT_K">탭페이지명2</Col>
+        <Col id="TEXT">Tab_2</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.label1</Col>
+        <Col id="TEXT_K">테스트1</Col>
+        <Col id="TEXT">TEST_Label1</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.label2</Col>
+        <Col id="TEXT_K">테스트2</Col>
+        <Col id="TEXT">TEST_Label2</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.delete.child</Col>
+        <Col id="TEXT_K">하위의 코드들이 있으므로 삭제할 수 없습니다. 하위의 코드가 없을경우 삭제가능합니다.</Col>
+        <Col id="TEXT">This can not be deleted becase there are codings </Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.before.movepagewithoutsave</Col>
+        <Col id="TEXT_K">페이지를 이동하면 변경 내용이 사라질 수 있습니다. 계속 하시겠습니까?</Col>
+        <Col id="TEXT">If you move to another page, this page will disappear. Do you want to continue?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.cancolumnchange</Col>
+        <Col id="TEXT_K">동일한 값이 이미 존재해서 입력값이 취소되었습니다.</Col>
+        <Col id="TEXT">The input value already exists. Thus the input value was canceled.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.required</Col>
+        <Col id="TEXT_K">$1 : 필수 입력 항목입니다.</Col>
+        <Col id="TEXT">$1 : This is essential input item</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.minlength</Col>
+        <Col id="TEXT_K">$1 : 입력값의 길이는 $2 이상이어야 합니다.</Col>
+        <Col id="TEXT">$1 : Input value length must be over $2</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.maxlength</Col>
+        <Col id="TEXT_K">$1 : 입력값의 길이는 $2 이하이어야 합니다.</Col>
+        <Col id="TEXT">$1 : Input value length must be under $2</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.chknumber.f</Col>
+        <Col id="TEXT_K">$1 : 실수만 입력 가능합니다.</Col>
+        <Col id="TEXT">$1 : Real number is only available</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.chknumber.i</Col>
+        <Col id="TEXT_K">$1 : 정수만 입력 가능합니다.</Col>
+        <Col id="TEXT">$1 : Integer is only available</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.chknumber.n</Col>
+        <Col id="TEXT_K">$1 : 숫자만 입력 가능합니다.</Col>
+        <Col id="TEXT">$1 : Number is only available</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.fromnum</Col>
+        <Col id="TEXT_K">$1 : $2 이상의 숫자만 입력 가능합니다.</Col>
+        <Col id="TEXT">$1 : Number over $2 is only available</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.tonum</Col>
+        <Col id="TEXT_K">$1 : $2 이하의 숫자만 입력 가능합니다.</Col>
+        <Col id="TEXT">$1 : Number under $2 is only available</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.email</Col>
+        <Col id="TEXT_K">$1 : e-mail 주소가 잘못된 형태로 입력 되었습니다.</Col>
+        <Col id="TEXT">$1 : The format of the e-mail address is incorrect</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.url</Col>
+        <Col id="TEXT_K">$1 : 웹사이트 주소가 잘못 입력 되었습니다.</Col>
+        <Col id="TEXT">$1 : The Web address is wrong</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.phone</Col>
+        <Col id="TEXT_K">$1 : 전화번호가 잘못된 형태로 입력 되었습니다.</Col>
+        <Col id="TEXT">$1 : Input phone number is invalid format</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.date8</Col>
+        <Col id="TEXT_K">$1 : 날짜 정보가 잘못된 형태로 입력 되었습니다. \n\n입력 예) 20110618</Col>
+        <Col id="TEXT">$1 : The input date information is invalid format. \n\n  Example)20110618</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.date10</Col>
+        <Col id="TEXT_K">$1 : 날짜 정보가 잘못된 형태로 입력 되었습니다. \n\n입력 예) 2011-06-18</Col>
+        <Col id="TEXT">$1 : The input date information is invalid format. \n\n  Example)2011-06-18</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.validator.zipcode</Col>
+        <Col id="TEXT_K">$1 : 우편번호가 잘못된 형태로 입력 되었습니다.</Col>
+        <Col id="TEXT">$1 : Zip Code is invalid format.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.err.err</Col>
+        <Col id="TEXT_K">에러가 발생 했습니다.</Col>
+        <Col id="TEXT">Error occurred</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.child.exists</Col>
+        <Col id="TEXT_K">선택된 항목에 하위 항목이 존재해서 삭제할 수 없습니다.</Col>
+        <Col id="TEXT">There is sub-item. So the selected item can not be deleted.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.noselect</Col>
+        <Col id="TEXT_K">$1를[을] 선택해 주십시요.</Col>
+        <Col id="TEXT">Please select the $1</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.err.grid.noselect</Col>
+        <Col id="TEXT_K">선택된 항목이 없습니다.</Col>
+        <Col id="TEXT">There is not selected item.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.save.success</Col>
+        <Col id="TEXT_K">정상적으로 저장되었습니다.</Col>
+        <Col id="TEXT">Saved successfully</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.save.nodata</Col>
+        <Col id="TEXT_K">저장할 데이터가 없습니다.</Col>
+        <Col id="TEXT">There is no data to save</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.update.success</Col>
+        <Col id="TEXT_K">수정 되었습니다.</Col>
+        <Col id="TEXT">Updated</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.delete.success</Col>
+        <Col id="TEXT_K">삭제 되었습니다.</Col>
+        <Col id="TEXT">Deleted</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.search.nodata</Col>
+        <Col id="TEXT_K">지정된 조건에 해당하는 항목을 찾을 수 없습니다.</Col>
+        <Col id="TEXT">There is no data under the designated condition</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.menu.stat.make</Col>
+        <Col id="TEXT_K">선택된 메뉴는 지금 개발중입니다. 개발이 완료된 후에 사용하실 수 있습니다.</Col>
+        <Col id="TEXT">The selected menu is under development. You can use after development</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.before.save</Col>
+        <Col id="TEXT_K">변경된 내역을 저장 하시겠습니까?</Col>
+        <Col id="TEXT">Would you save the modified content?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.before.movepage</Col>
+        <Col id="TEXT_K">변경된 데이터가 있습니다. 저장 하시겠습니까?</Col>
+        <Col id="TEXT">There is modified data. Would you save modified data?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.before.search</Col>
+        <Col id="TEXT_K">검색을 진행하면 변경된 데이터가 사라집니다. 계속 진행 하시겠습니까?</Col>
+        <Col id="TEXT">If you continue to search, the modified data will disappear. Will you continue to work?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.before.moveropos</Col>
+        <Col id="TEXT_K">해당 로우의 위치를 이동하면 변경된 데이터가 사라집니다. 계속 진행 하시겠습니까?</Col>
+        <Col id="TEXT">If you move the current row position, the modified data will disappear. Will you continue to work?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.noselect.community</Col>
+        <Col id="TEXT_K">선택된 커뮤니티가 없습니다.</Col>
+        <Col id="TEXT">There is not selected community.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.noselect.categorycell</Col>
+        <Col id="TEXT_K">선택된 카테고리가 없습니다.</Col>
+        <Col id="TEXT">There is not selected category.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.noselect.date</Col>
+        <Col id="TEXT_K">선택된 날짜가 없습니다.</Col>
+        <Col id="TEXT">There is not selected date.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.toobigdata</Col>
+        <Col id="TEXT_K">첨부 파일의 용량은 최고 5MB까지 입니다.</Col>
+        <Col id="TEXT">The maximum size for attached file is 5MB.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.mdi.removeall</Col>
+        <Col id="TEXT_K">작업 중이던 모든 창이 닫힙니다. 계속 하시겠습니까?</Col>
+        <Col id="TEXT">All running windows will be closed. Would you continue to work?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.before.delete</Col>
+        <Col id="TEXT_K">정말로 삭제 하시겠습니까?</Col>
+        <Col id="TEXT">Are you sure you want to delete?</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.gt.maxdate</Col>
+        <Col id="TEXT_K">날짜의 입력 가능 범위를 벗어났습니다.</Col>
+        <Col id="TEXT">The entered date is not within a valid period.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">msg.startdate.greatthan.enddate</Col>
+        <Col id="TEXT_K">종료일이 시작일보다 빠르게 입력 되었습니다.</Col>
+        <Col id="TEXT">End date is before start date.</Col>
+      </Row>
+      <Row>
+        <Col id="ID">domain.file.add</Col>
+        <Col id="TEXT_K">파일추가</Col>
+        <Col id="TEXT">Add File</Col>
+      </Row>
+    </Rows>
+  </Dataset>
+</GlobalVariables>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="mobiledescription" width="480" height="600" background="#6954E1" onload="mobiledescription_onload">
+    <Layouts>
+      <Layout height="600" mobileorientation="landscape" width="480">
+        <Button id="btnClose" taborder="0" width="50" height="50" right="5" top="5" cssclass="btn_MWF_closeDesc" onclick="btnClose_onclick"/>
+        <Static id="stcTitle" taborder="1" text="" left="64" top="2" height="60" right="64" cssclass="sta_MWF_descTitle"/>
+        <Static id="Static01" taborder="2" left="0" top="60" right="0" background="#ffffff" text="" cssclass="sta_MWF_descBg" height="540"/>
+        <Div id="divDesc" taborder="3" left="30" top="100" right="30" height="470"/>
+        <ImageViewer id="imgPageLoading" taborder="4" left="0" top="60" image="url('imagerc::page_loading.gif')" right="0" background="transparent" border="0px none" bottom="0"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.mobiledescription_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	nexacro._OnceCallbackTimer.callonce(this, function() {
+		this.stcTitle.set_text(this.parent.menuName);
+		this.divDesc.set_url(this.parent.descUrl);
+	}, 10);
+};
+
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+
+this.descPageOnLoad = function(height)
+{
+	var screen_height = nexacro.getApplication().mainframe.height;
+	height = Math.max(screen_height, height);
+	this.divDesc.set_height(height + 130);
+	this.divDesc.form.resetScroll();
+	this.Static01.set_height(height + 200);
+	this.resetScroll();
+	this.imgPageLoading.set_visible(false);
+};]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Dataset_Sort_Sample" classname="np_Dataset_Sort_Sample" left="0" top="0" width="760" height="430" titletext="Apply sorting on dataset">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" width="242" height="330" binddataset="Dataset00" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="A"/>
+                <Cell col="1" text="B"/>
+                <Cell col="2" text="C"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:A" suppress="1"/>
+                <Cell col="1" text="bind:B"/>
+                <Cell col="2" text="bind:C"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="+ Acedning on A column" onclick="Button00_onclick" left="544" top="78" width="182" height="40" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button01" taborder="2" text="-Descending on A column" onclick="Button01_onclick" left="544" top="128" width="182" height="40" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Grid id="Grid01" taborder="3" useinputpanel="false" left="282" top="78" width="242" height="330" binddataset="dsKeyString" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="DsName"/>
+                <Cell col="1" disptype="normal" text="KeyString"/>
+                <Cell col="2" disptype="normal" text="KeyUpDown"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:DsName"/>
+                <Cell col="1" disptype="normal" text="bind:KeyString"/>
+                <Cell col="2" disptype="normal" text="bind:KeyUpDown"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="4" text="Descending on A" left="544" top="278" width="182" height="40" onclick="Button02_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button03" taborder="5" text="Ascending on C column" left="544" top="178" width="182" height="40" onclick="Button03_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button04" taborder="6" text="Descending on A column" left="544" top="228" width="182" height="40" onclick="Button04_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="Button05" taborder="7" text="Ascending on A column" left="544" top="328" width="182" height="40" onclick="Button05_onclick" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static02" taborder="8" text="This sample shows sorting implementation on the Dataset" onclick="Static00_onclick" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" keystring="G:A,S:C">
+        <ColumnInfo>
+          <Column id="A" type="STRING" size="256"/>
+          <Column id="B" type="STRING" size="256"/>
+          <Column id="C" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="A">CS팀</Col>
+            <Col id="B">10</Col>
+            <Col id="C">A</Col>
+          </Row>
+          <Row>
+            <Col id="A">CS팀</Col>
+            <Col id="B">20</Col>
+            <Col id="C">B</Col>
+          </Row>
+          <Row>
+            <Col id="A">CS팀</Col>
+            <Col id="B">30</Col>
+            <Col id="C">C</Col>
+          </Row>
+          <Row>
+            <Col id="A">기술지원팀</Col>
+            <Col id="B">10</Col>
+            <Col id="C">A</Col>
+          </Row>
+          <Row>
+            <Col id="A">기술지원팀</Col>
+            <Col id="B">20</Col>
+            <Col id="C">B</Col>
+          </Row>
+          <Row>
+            <Col id="A">기술지원팀</Col>
+            <Col id="B">30</Col>
+            <Col id="C">C</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsKeyString" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DsName" type="STRING" size="256"/>
+          <Column id="KeyString" type="STRING" size="256"/>
+          <Column id="KeyUpDown" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.gfn_SortKey = function(strDs, str, strUpDown)
+{
+	var strDS = strDs;
+	var str = str;
+	var strUpDown = strUpDown;	
+	
+	
+	var iCnt = this.dsKeyString.getRowCount();
+	this.dsKeyString.set_enableevent(false);  
+	for(var i=0;i<iCnt;i++)
+	{
+
+		if((this.dsKeyString.getColumn(i,"KeyString") == str) && (this.dsKeyString.getColumn(i,"DsName") == strDs))
+		{
+
+			this.dsKeyString.deleteRow(i);
+		}     
+	}
+		
+	var strKey="S:";
+    var irow = this.dsKeyString.insertRow(0);
+	this.dsKeyString.setColumn(irow,"DsName",strDs);
+	this.dsKeyString.setColumn(irow,"KeyString",str);
+	this.dsKeyString.setColumn(irow,"KeyUpDown",strUpDown);	
+   		
+  
+	iCnt = this.dsKeyString.getRowCount();
+	
+	for(var i=0;i<(iCnt);i++)   
+	{   
+		strKey += this.dsKeyString.getColumn(i,"KeyUpDown");
+		strKey += this.dsKeyString.getColumn(i,"KeyString");		
+	}	
+	this.dsKeyString.set_enableevent(true);   
+	return  strKey;   
+}; 
+   
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring(this.gfn_SortKey("this.Dataset00","A","+"));
+};
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{   
+	this.Dataset00.set_keystring(this.gfn_SortKey("this.Dataset00","A","-"));
+};
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:C-");
+};
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:C+");  
+};
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:A-");
+};
+
+this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.set_keystring("S:A+");
+};
+]]></Script>
+  </Form>
+</FDL>

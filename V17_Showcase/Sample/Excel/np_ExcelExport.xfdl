@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="ExcelExport" classname="excelExport_multi" left="0" top="0" width="760" height="430" titletext="ExcelExport">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="3" text="Excel Export" cssclass="sta_WF_subtitP" left="30" top="18" width="200" height="40"/>
+        <TextArea id="TextArea00" taborder="4" value=" " left="30" top="252" width="700" height="160"/>
+        <Grid id="gd_excel" taborder="5" binddataset="ds_excel" useinputpanel="false" left="30" top="128" width="700" height="114" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="68"/>
+                <Column size="184"/>
+                <Column size="80"/>
+                <Column size="97"/>
+                <Column size="101"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="dept_code"/>
+                <Cell col="1" text="dept_name"/>
+                <Cell col="2" text="employee"/>
+                <Cell col="3" text="telno"/>
+                <Cell col="4" text="address"/>
+                <Cell col="5" text="age"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:dept_code"/>
+                <Cell col="1" style="align:left;" text="bind:dept_name"/>
+                <Cell col="2" style="align:left;" text="bind:employee"/>
+                <Cell col="3" style="align:left;" text="bind:telno"/>
+                <Cell col="4" style="align:left;" text="bind:address"/>
+                <Cell col="5" text="bind:age"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="6" text="Export" onclick="Button00_onclick" left="640" top="78" width="90" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_excel" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="dept_code" type="STRING" size="256"/>
+          <Column id="dept_name" type="STRING" size="256"/>
+          <Column id="employee" type="STRING" size="256"/>
+          <Column id="telno" type="STRING" size="256"/>
+          <Column id="address" type="STRING" size="256"/>
+          <Column id="age" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="dept_code">100</Col>
+            <Col id="dept_name">Technical Support Group</Col>
+            <Col id="employee">Gil-Dong Hong</Col>
+            <Col id="telno">02-1234-1234</Col>
+            <Col id="address">Seoul Korea</Col>
+            <Col id="age">100</Col>
+          </Row>
+          <Row>
+            <Col id="dept_code">200</Col>
+            <Col id="dept_name">Technical Support Group</Col>
+            <Col id="employee">Sun-Sin Lee</Col>
+            <Col id="telno">02-1234-1234</Col>
+            <Col id="address">Seoul Korea</Col>
+            <Col id="age">200</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.url = "http://support.tobesoft.co.kr/nexacro-xeni/XExportImport";
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ExcelExportObject00 = new ExcelExportObject();
+			
+	
+	this.ExcelExportObject00.addEventHandler("onprogress", this.ExcelExportObject00_onprogress, this);
+	this.ExcelExportObject00.addEventHandler("onsuccess", this.ExcelExportObject00_onsuccess, this);	
+	this.ExcelExportObject00.addEventHandler("onerror", this.ExcelExportObject00_onerror, this);		
+	
+	var ret = this.ExcelExportObject00.addExportItem(nexacro.ExportItemTypes.GRID, this.gd_excel, "Sheet1!A1");
+
+	this.ExcelExportObject00.set_exportmessageprocess("%d [ %d / %d ]");
+	this.ExcelExportObject00.set_exportuitype("exportprogress");
+	this.ExcelExportObject00.set_exporteventtype("itemrecord");
+    this.ExcelExportObject00.set_exporttype(nexacro.ExportTypes.EXCEL2007);
+	   
+ 
+	this.ExcelExportObject00.set_exportfilename("ExcelExport_Sample");
+    this.ExcelExportObject00.set_exporturl(this.url);       
+    this.ExcelExportObject00.exportData();  	
+};     
+ 
+this.ExcelExportObject00_onsuccess = function(obj:ExportObject, e:nexacro.ExcelExportObject)
+{	 
+	this.TextArea00.set_value(this.TextArea00.value + "\n=========== onsuccess event start=================");
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.eventid : " + e.eventid 							);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.url: " +  e.url									);	
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.id 					:"+e.id 					);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromobject 			:"+e.fromobject 			);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromreferenceobject 	:"+e.fromreferenceobject 	);
+
+};
+
+this.ExcelExportObject00_onprogress = function(obj:ExportObject, e:nexacro.ExcelExportObject)
+{
+	this.TextArea00.set_value(this.TextArea00.value + "\n=========== onprogress event start================");
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.eventid 				:"+e.eventid 				);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.id 					:"+e.id 					);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromobject 			:"+e.fromobject 			);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromreferenceobject 	:"+e.fromreferenceobject 	);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.itemindex 			:"+e.itemindex 				);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.itemtype 			:"+e.itemtype 				);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.recordindex 			:"+e.recordindex  			);	
+};
+
+this.ExcelExportObject00_onerror = function(obj:ExportObject, e:nexacro.ExcelExportObject)
+{	
+	this.TextArea00.set_value(this.TextArea00.value + "\n=========== onerror event start===================");
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.eventid 				:"+e.eventid 				);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.id 					:"+e.id 					);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromobject 			:"+e.fromobject 			);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.fromreferenceobject 	:"+e.fromreferenceobject 	);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.errorcode 			:"+e.errorcode 				);
+	this.TextArea00.set_value(this.TextArea00.value + "\ne.errormsg 			:"+e.errormsg 				);	
+
+};
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <GenInfo version="1.1">
+    <Rule>
+      <ENV rule_version="1.05"/>
+      <ADL rule_version="1.14"/>
+      <FDL rule_version="1.04"/>
+      <XCSS rule_version="1.04"/>
+      <Script rule_version="1.02"/>
+    </Rule>
+    <Info project="D:\DoAnNmart\V17_Showcase\" generated="C:\Users\anhvi\Documents\nexacro\17.1\outputs\V17_Showcase\">
+      <File url="typedefinition.xml" checksum="20191015124720" errormsg=""/>
+      <File url="appvariables.xml" checksum="20191108161612" errormsg=""/>
+      <File url="environment.xml" checksum="20191014084952" errormsg=""/>
+      <File url="_resource_\_theme_\style17\theme.xcss" checksum="20191015093352" errormsg=""/>
+      <File url="V17_Showcase.xadl" checksum="20191107131710" errormsg=""/>
+      <File url="_resource_\_xcss_\GridExpr.xcss" checksum="20181221110202" errormsg=""/>
+      <File url="Frame\topFrame.xfdl" checksum="20191023082710" errormsg=""/>
+      <File url="Frame\leftFrame.xfdl" checksum="20191108152851" errormsg=""/>
+      <File url="Frame\tabFrame.xfdl" checksum="20191016113616" errormsg=""/>
+      <File url="Frame\mainPotal.xfdl" checksum="20191015133758" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\framework\Framework.json" checksum="20220314100542" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\resources\Resource.json" checksum="20220314100542" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\CompBase.json" checksum="20220314100540" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\ComComp.json" checksum="20220314100540" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\Grid.json" checksum="20220314100540" errormsg=""/>
+      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\DeviceAPI.json" checksum="20220314100540" errormsg=""/>
+      <File url="Sample\Grid\np_Grid_Format_Paging_onvscroll.xfdl" checksum="20190906111810" errormsg=""/>
+      <File url="Sample\Grid\np_Grid_Format_Paging_filter.xfdl" checksum="20220406112842" errormsg=""/>
+      <File url="Sample\Form\np_Form_ObjectEventList.xfdl" checksum="20190906093858" errormsg=""/>
+    </Info>
+  </GenInfo>
+</root>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Application_Cookie" classname="Application_Cookie" left="0" top="0" width="760" height="430" titletext="Application의  Cookie 접근하기">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="2" useinputpanel="false" left="30" top="62" width="700" height="338" binddataset="Dataset00" cellmovingtype="col">
+          <Formats>
+            <Format id="default"/>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="3" text="Button00" left="30" top="18" width="90" height="34" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var serviceURL = "Svc::csv.jsp";	
+	this.transaction("select",serviceURL,"","Dataset00=output","","fn_callback"); 
+
+}
+   
+
+this.fn_callback = function(serviceID, errCD, errMSG)
+{   
+
+	if(errCD < 0)     
+	{   
+		this.alert(serviceID + "==" + errCD + "==" + errMSG);  
+     
+	}else{          
+		this.Grid00.createFormat();
+	}      
+}   
+	    ]]></Script>
+  </Form>
+</FDL>

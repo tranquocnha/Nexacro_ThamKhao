@@ -1,0 +1,875 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="GridFilterPop" width="480" height="250" titletext="New Form" onload="GridFilterDiv_onload" background="transparent">
+    <Layouts>
+      <Layout>
+        <Button id="btn_filter" taborder="0" tabstop="false" onclick="btn_filter_onclick" left="500" top="7" width="20" height="16" cursor="hand" cssclass="GD_btnAdd_ft01" background="url('imagerc::grd_filter_combo.png') no-repeat center center #f3f7f7" visible="false"/>
+        <Grid id="grd_combo" taborder="1" binddataset="ds_combo" autoenter="select" autoupdatetype="itemselect" selecttype="cell" autofittype="col" left="0" top="0" right="24" bottom="10" onheadclick="grd_combo_onheadclick" border="4px solid #6954e1" background="#6954e1">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30" band="left"/>
+                <Column size="222"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="1"/>
+                <Cell col="1"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" text="bind:chk" edittype="checkbox" background="#ffffff"/>
+                <Cell col="1" text="bind:text" textAlign="left" verticalAlign="middle" calendardateformat="yyyy-MM-dd" displaytype="number" background="#ffffff"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_cancel" taborder="2" top="5" width="18" height="16" onclick="btn_cancel_onclick" background="url('imagerc::img_grd_reject.png') no-repeat left top" right="-60" visible="false"/>
+        <Combo id="cmb_operater" taborder="3" tabstop="false" innerdataset="@ds_codeOperater" codecolumn="cd" datacolumn="nm" top="10" height="26" text="" onitemchanged="cmb_operater_onitemchanged" itemheight="40" right="123" width="101" buttonsize="23" borderRadius="3px"/>
+        <Calendar id="cal_filter" taborder="4" tabstop="false" oncloseup="cal_filter_oncloseup" left="33" top="10" height="26" borderRadius="3px" dateformat="yyyy-MM-dd" right="227"/>
+        <Edit id="edt_filter" taborder="5" onsetfocus="edt_filter_onsetfocus" onkillfocus="edt_filter_onkillfocus" left="33" top="10" height="26" background="rgba(255,255,255,1)" border="1px solid rgba(211,211,211,1)" borderRadius="3px" displaynulltext="search" right="227" oninput="edt_filter_oninput"/>
+        <Button id="btn_apply" taborder="6" text="Apply" onclick="btn_apply_onclick" top="10" width="58" height="26" cssclass="btn_WF_basic01" right="62"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_codeOperater" firefirstcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="cd" type="STRING" size="256"/>
+          <Column id="nm" type="STRING" size="256"/>
+          <Column id="group" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="cd">none</Col>
+            <Col id="nm">None</Col>
+            <Col id="group">All</Col>
+          </Row>
+          <Row>
+            <Col id="cd">contains</Col>
+            <Col id="nm">Contains</Col>
+            <Col id="group">String</Col>
+          </Row>
+          <Row>
+            <Col id="cd">startWith</Col>
+            <Col id="nm">Start with</Col>
+            <Col id="group">String</Col>
+          </Row>
+          <Row>
+            <Col id="cd">endWith</Col>
+            <Col id="nm">End with</Col>
+            <Col id="group">String</Col>
+          </Row>
+          <Row>
+            <Col id="cd">equal</Col>
+            <Col id="nm">=</Col>
+            <Col id="group">All</Col>
+          </Row>
+          <Row>
+            <Col id="cd">notEqual</Col>
+            <Col id="nm">&lt;&gt;</Col>
+            <Col id="group">All</Col>
+          </Row>
+          <Row>
+            <Col id="cd">greaterThan</Col>
+            <Col id="nm">&gt;</Col>
+            <Col id="group">All</Col>
+          </Row>
+          <Row>
+            <Col id="cd">greaterThanOrEqual</Col>
+            <Col id="nm">&gt;=</Col>
+            <Col id="group">All</Col>
+          </Row>
+          <Row>
+            <Col id="cd">lessThan</Col>
+            <Col id="nm">&lt;</Col>
+            <Col id="group">All</Col>
+          </Row>
+          <Row>
+            <Col id="cd">lessThanOrEqual</Col>
+            <Col id="nm">&lt;=</Col>
+            <Col id="group">All</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo" firefirstcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="chk" type="INT" size="256"/>
+          <Column id="val" type="STRING" size="256"/>
+          <Column id="text" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/*
+ * Grid Filter Sample at XPLATFORM
+ *
+ * Copyright (c) 2014 EcoSystem of TOBESOFT
+ * Licensed Free under XPLATFORM.
+ */
+
+/**
+ * Form onload event handler - 로드시 초기 지정
+ * @param {Form} obj 대상 Form Component
+ * @param {LoadEventInfo} e LoadEventInfo
+ */
+this.GridFilterDiv_onload = function (obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	var imageSize = this.parent.parent.FILTER_ENABLE_IMAGE_SIZE;
+	
+	//콤포는 포함으로 기본설정
+	this.cmb_operater.set_index(1);
+
+	//this.btn_filter.resize(imageSize[0], imageSize[1]);
+	//this.btn_filter.set_border("0px none #ffffff");
+	//this.btn_filter.set_background("url('"+this.parent.parent.FILTER_ENABLE_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	//URL('imagerc::grd_filter_combo.png')
+	//this.FILTER_ENABLE_IMAGE_URL = "imagerc::grd_filter_combo.png";
+	//this.cmb_operater.set_border("0px none #ffffff");
+
+	//this.resizeComps(obj.getOffsetWidth(), obj.getOffsetHeight());
+	
+	//해당 컬럼의 distinct값을 그리드에 뿌려준다.
+	//this.setFilterType();
+};
+
+/**
+ * Form onsize event handler - 사이즈 변경 시 컴포넌트 위치조정
+ * @param {Form} obj 대상 Form Component
+ * @param {SizeEventInfo} e SizeEventInfo
+ */
+this.GridFilterDiv_onsize = function (obj:Form, e:nexacro.SizeEventInfo)
+{
+	this.resizeComps(e.cx, e.cy);
+};
+
+/**
+ * 컴포넌트 내용 초기화
+ */
+this.initValue = function ()
+{
+	this.edt_filter.set_value("");
+	this.btn_filter.set_border("0px none #ffffff");
+	this.btn_filter.set_background("url('"+this.parent.parent.FILTER_ENABLE_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	this.cmb_operater.set_index(-1);
+	this.cal_filter.set_value("");
+};
+
+/**
+ * 컴포넌트 위치 조정
+ * @param {number} formW Form Width
+ * @param {number} formH Form Height
+ */
+this.resizeComps = function (formW, formH)
+{
+	var l,t,w,h,gap = 2;
+	var imageSize = this.parent.parent.FILTER_ENABLE_IMAGE_SIZE;
+
+	l = gap;
+	t = gap;
+	w = formW - (gap * 2) - imageSize[0];
+	h = formH - (gap * 2);
+
+	this.edt_filter.move(l, t, w, h);
+	this.cal_filter.move(l, t, w, h);
+
+	l = l + w + gap;
+	t = Math.round((formH - imageSize[1]) / 2);
+
+	this.btn_filter.move(l, t);
+
+	l = this.btn_filter.getOffsetLeft();
+	t = this.btn_filter.getOffsetTop();
+	w = this.btn_filter.getOffsetWidth();
+	h = this.btn_filter.getOffsetBottom();
+
+	this.cmb_operater.move(l, t, w, h);
+};
+
+/**
+ * filter type 별 형태/데이터 지정
+ */
+this.setFilterType = function ()
+{
+	var grid = this.parent.grid;
+		
+	var type = this.parent.filterType;
+	var column = this.parent.filterColumn;
+	var bodyCellIndex = this.parent.bodyCellIndex;
+	var filterData = this.parent.filterData;
+	
+	this.edt_filter.set_visible(false);
+	this.cal_filter.set_visible(false);
+    //displaytype이 combo인경우에만,,필요
+	var dsName = grid.getCellProperty("body", bodyCellIndex, "combodataset");
+	var ds = this.gfn_Lookup(grid.parent, dsName);
+	var codeColumn = grid.getCellProperty("body", bodyCellIndex, "combocodecol");
+	var dataColumn = grid.getCellProperty("body", bodyCellIndex, "combodatacol");
+
+	this.ds_combo.set_enableevent(false);
+	this.ds_combo.deleteAll();
+
+	//데이터 distinct해서 넣기
+	var orginDataset = grid.getBindDataset();
+	var row = -1;
+	var defaultVal = nexacro.isEmpty(filterData) ? true : false;
+	for (var i = 0,len = orginDataset.rowcount; i < len; i++) 
+	{
+		var searchValue = orginDataset.getColumn(i, column);
+		row = this.ds_combo.findRow("val", searchValue);
+		
+		if(row < 0)
+		{
+			row = this.ds_combo.addRow();
+		}
+		
+		//this.ds_combo.setColumn(row, "chk", (defaultVal ? 0 : filterData[i]));
+		this.ds_combo.setColumn(row, "chk", (defaultVal ? 1 : filterData[i]));
+		this.ds_combo.setColumn(row, "text", orginDataset.getColumn(i, column));
+		this.ds_combo.setColumn(row, "val", orginDataset.getColumn(i, column));
+	}
+	
+	//datatype에 맞겠금 그리드 셀타입 변경하기
+	this.grd_combo.setCellProperty("body", 1,"displaytype", grid.getCellProperty("body",bodyCellIndex,"displaytype"));
+	this.grd_combo.setCellProperty("body", 1,"maskeditformat",grid.getCellProperty("body",bodyCellIndex,"maskeditformat"));
+	this.grd_combo.setCellProperty("body", 1,"maskedittype",grid.getCellProperty("body",bodyCellIndex,"maskedittype"));
+	this.grd_combo.setCellProperty("body", 1,"textAlign",grid.getCellProperty("body",bodyCellIndex,"textAlign"));
+	
+	/*
+	var row;
+	var defaultVal = nexacro.isEmpty(filterData) ? true : false;
+	for (var i = 0,len = ds.rowcount; i < len; i++) 
+	{
+		row = this.ds_combo.addRow();
+		this.ds_combo.setColumn(row, "chk", (defaultVal ? 0 : filterData[i]));
+		this.ds_combo.setColumn(row, "text", ds.getColumn(i, dataColumn));
+		this.ds_combo.setColumn(row, "val", ds.getColumn(i, codeColumn));
+	}
+	*/
+	
+	this.ds_combo.set_rowposition(-1);
+	this.ds_combo.set_enableevent(true);
+	if (type == "combocontrol") 
+	{
+		this.edt_filter.set_visible(false);
+		this.cal_filter.set_visible(false);
+
+		var dsName = grid.getCellProperty("body", bodyCellIndex, "combodataset");
+		var ds = this.gfn_Lookup(grid.parent, dsName);
+		var codeColumn = grid.getCellProperty("body", bodyCellIndex, "combocodecol");
+		var dataColumn = grid.getCellProperty("body", bodyCellIndex, "combodatacol");
+
+		this.ds_combo.set_enableevent(false);
+		this.ds_combo.deleteAll();
+
+		var row;
+		var defaultVal = nexacro.isEmpty(filterData) ? true : false;
+		for (var i = 0,len = ds.rowcount; i < len; i++) 
+		{
+			row = this.ds_combo.addRow();
+			this.ds_combo.setColumn(row, "chk", (defaultVal ? 0 : filterData[i]));
+			this.ds_combo.setColumn(row, "text", ds.getColumn(i, dataColumn));
+			this.ds_combo.setColumn(row, "val", ds.getColumn(i, codeColumn));
+		}
+		this.ds_combo.set_rowposition(-1);
+		this.ds_combo.set_enableevent(true);
+	}
+	else if (type == "date") 
+	{
+		this.edt_filter.set_visible(false);
+		this.cal_filter.set_visible(true);
+	}
+	else if (type == "number") 
+	{
+		this.edt_filter.set_visible(true);
+		this.cal_filter.set_visible(false);
+		this.edt_filter.set_inputtype("number");
+	}
+	else 
+	{
+		this.edt_filter.set_visible(true);
+		this.cal_filter.set_visible(false);
+		this.edt_filter.set_inputtype("normal");
+	}
+};
+
+
+/**
+ * onsetfocus Event Handler
+ * @param {Edit} obj Event가 발생한 Edit Component
+ * @param {SetFocusEventInfo} e SetFocusEventInfo
+ */
+this.edt_filter_onsetfocus = function (obj:Edit, e:nexacro.SetFocusEventInfo)
+{
+	obj.focusValue = obj.value;
+};
+
+/**
+ * onkillfocus Event Handler
+ * @param {Edit} obj Event가 발생한 Edit Component
+ * @param {KillFocusEventInfo} e KillFocusEventInfo
+ */
+this.edt_filter_onkillfocus = function (obj:Edit, e:nexacro.KillFocusEventInfo)
+{
+	if (obj.focusValue != obj.value) 
+	{
+		//this.applyFilter(this.cmb_operater.value, obj.value, obj.value);
+		this.applyCheck(this.cmb_operater.value, obj.value, obj.value);
+	}
+};
+
+/**
+ * onclick Event Handler
+ * @param {Button} obj Event가 발생한 Button Component
+ * @param {ClickEventInfo} e ClickEventInfo
+ */
+this.btn_filter_onclick = function (obj:Button, e:nexacro.ClickEventInfo)
+{
+	var grid = this.parent.grid;
+	var type = this.parent.filterType;
+
+	if (type == "normal") 
+	{
+		this.ds_codeOperater.filter("");
+		this.cmb_operater.dropdown();
+	}
+	else if (type == "number" || type == "date") 
+	{
+		this.ds_codeOperater.filter("group != 'String'");
+		this.cmb_operater.dropdown();
+	}
+	else if (type == "combocontrol") 
+	{
+		var imageSize = this.parent.parent.FILTER_ENABLE_IMAGE_SIZE;
+		var x = e.clientx + grid.getOffsetLeft() + 1050 - this.parent.posX;
+		var y = e.clienty + grid.getOffsetTop() + 165;
+
+		var z = parseInt(this.getOffsetWidth() + 1);
+		var nNum = nexacro.round(0.76 * z);
+
+		this.pdiv_combo.set_height(this.ds_combo.rowcount * 30 + 2);
+		this.pdiv_combo.set_width(z);
+		this.pdiv_combo.trackPopupByComponent(obj, -nNum, 30);
+	}
+};
+
+/**
+ * onitemclick Event Handler
+ * @param {Combo} obj Event가 발생한 Combo Component
+ * @param {ListBoxClickEventInfo} e ListBoxClickEventInfo
+ */
+this.cmb_operater_onitemchanged = function(obj:nexacro.Combo,e:nexacro.ItemChangeEventInfo)
+{
+	var value;
+	var type = this.parent.filterType;
+
+	if (type == "normal") 
+	{
+		value = this.edt_filter.value;
+	}
+	else if (type == "number") 
+	{
+		value = parseInt(this.edt_filter.value);
+	}
+	else if (type == "date") 
+	{
+		value = this.cal_filter.value;
+	}
+	this.applyCheck(e.postvalue, value, value);
+	//this.applyFilter(e.postvalue, value, value);
+};
+
+/**
+ * oncloseup Event Handler
+ * @param {Calendar} obj Event가 발생한 Calendar Component
+ * @param {CalendarCloseUpEventInfo} e CalendarCloseUpEventInfo
+ */
+this.cal_filter_oncloseup = function (obj:Calendar, e:nexacro.CalendarCloseUpEventInfo)
+{
+	if (e.prevalue != e.postvalue) 
+	{
+		//this.applyFilter(this.cmb_operater.value, e.postvalue, e.postvalue);
+		this.applyCheck(this.cmb_operater.value, e.postvalue, e.postvalue);
+	}
+};
+
+/**
+ * oncloseup Event Handler
+ * @param {PopupDiv} obj Event가 발생한 PopupDiv Component
+ * @param {EventInfo} e EventInfo
+ */
+this.pdiv_combo_oncloseup = function (obj:PopupDiv, e:nexacro.EventInfo)
+{
+	var value = [];
+	var cnt = this.ds_combo.rowcount;
+	var chk = 0;
+	var filterData = [];
+	for (var i = 0; i < cnt; i++) 
+	{
+		if (this.ds_combo.getColumn(i, "chk") == 1) 
+		{
+			chk += 1;
+			value.push(this.ds_combo.getColumn(i, "val"));
+		}
+		filterData.push(this.ds_combo.getColumn(i, "chk"));
+	}
+	if (chk == cnt) 
+	{
+		value = [];
+	}
+	this.applyCheck("equal", value, filterData);
+	//this.applyFilter("equal", value, filterData);
+};
+
+/**
+ * 필터 적용
+ * @param {string} operater 연산자
+ * @param {string} value 비교값
+ */
+this.applyFilter = function (operater, value, filterData)
+{
+	var grid = this.parent.grid;
+	var column = this.parent.filterColumn;
+	var headCellIndex = this.parent.headCellIndex;
+
+	var ds = this.gfn_Lookup(grid.parent, grid.binddataset);
+	var colType = ds.getColumnInfo(column).type;
+	var filterString = "";
+	var str = "";
+	
+	// filter string 생성
+	if (!nexacro.isEmpty(value)) 
+	{
+		//if (!this.gfn_IsArray(value)) 
+		if(Object.prototype.toString.call( value ) != '[object Array]')
+		{
+			value = [value];
+		}
+		
+		var val;
+		for (var i = 0,len = value.length; i < len; i++) 
+		{
+			val = value[i];
+			if (!nexacro.isEmpty(operater)) 
+			{
+				if (!nexacro.isEmpty(filterString)) 
+				{
+					filterString += " || ";
+				}
+				filterString += column;
+
+				switch (operater) 
+				{
+					case 'equal':
+						str = "==" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'notEqual':
+						str = "!=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'greaterThan':
+						str = ">" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'greaterThanOrEqual':
+						str = ">=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'lessThan':
+						str = "<" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'lessThanOrEqual':
+						str = "<=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'startWith':
+						str = ".toString().substr(0, " + val.length + ") == '" + val + "'";
+						break;
+					case 'endWith':
+						str = ".toString().substr(" + column + ".toString().length-" + val.length + ") == '" + val + "'";
+						break;
+					case 'contains':
+						str = ".toString().search('" + val + "') > -1";
+						break;
+				}
+
+				filterString += str;
+			}
+		}
+	}
+
+	trace(filterString);
+	// 필터 표시 이미지 변경
+	if (nexacro.isEmpty(filterString)) 
+	{
+		//해당 그리의 expand img를 변경..
+		grid.setCellProperty( "head", headCellIndex, "expandimage", this.parent.parent.FILTER_ENABLE_IMAGE_URL );
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_ENABLE_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	else 
+	{
+		filterString = "(" + filterString + ")";
+		grid.setCellProperty( "head", headCellIndex, "expandimage", this.parent.parent.FILTER_APPLY_IMAGE_URL );
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_APPLY_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	
+	// 필터 실행
+	this.parent.parent.executeFilter(grid, headCellIndex, filterString, filterData);
+};
+
+
+
+/**
+ * 필터 적용 - 팝업그리드에 입력 데이터에 체크박스
+ * @param {string} operater 연산자
+ * @param {string} value 비교값
+ */
+this.applyCheck = function (operater, value, filterData)
+{
+	var grid = this.parent.grid;
+	var column = this.parent.filterColumn;
+	var headCellIndex = this.parent.headCellIndex;
+
+	var ds = this.gfn_Lookup(grid.parent, grid.binddataset);
+	var colType = ds.getColumnInfo(column).type;
+	var filterString = "";
+	var str = "";
+	
+	gird = this.grd_combo;
+	ds = this.ds_combo;
+	var val = value;
+	
+	//search값이 없으면 필터해제
+	if(nexacro.isEmpty(value)) return;
+	// filter string 생성
+	
+	//if (!this.gfn_IsArray(value)) 
+	if(Object.prototype.toString.call( value ) != '[object Array]')
+	{
+		value = [value];
+	}	
+		
+	//필터에 해당하는 데이터에 체크박스 표시
+	for(var i = 0 ; i < ds.rowcount ; i++)
+	{
+		switch (operater) 
+		{
+			case 'equal':
+				if( ds.getColumn(i, "val") == val ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = "==" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+				break;
+			case 'notEqual':
+				if(ds.getColumn(i, "val") != val ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = "!=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+				break;
+			case 'greaterThan':
+				if(ds.getColumn(i, "val") > val ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = ">" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+				break;
+			case 'greaterThanOrEqual':
+				if(ds.getColumn(i, "val") >= val ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = ">=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+				break;
+			case 'lessThan':
+				if(ds.getColumn(i, "val") < val ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = "<" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+				break;
+			case 'lessThanOrEqual':
+				if(ds.getColumn(i, "val") <= val ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = "<=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+				break;
+			case 'startWith':
+				if( String(ds.getColumn(i, "val")).substr(0, val.length) == val ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = ".toString().substr(0, " + val.length + ") == '" + val + "'";
+				break;
+			case 'endWith':
+				var cellValue = String(ds.getColumn(i, "val"));
+				if(cellValue.substr(cellValue.length - val.length) == val ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = ".toString().substr(" + column + ".toString().length-" + val.length + ") == '" + val + "'";
+				break;
+			case 'contains':
+				if(String(ds.getColumn(i, "val")).indexOf(val) > -1 ) ds.setColumn(i, "chk", "1");
+				else ds.setColumn(i, "chk", "0"); 
+				//str = ".toString().search('" + val + "') > -1";
+				break;
+		}
+
+		
+	}
+	
+	
+	return;
+	// filter string 생성
+	if (!nexacro.isEmpty(value)) 
+	{
+		//if (!this.gfn_IsArray(value)) 
+		if(Object.prototype.toString.call( value ) != '[object Array]')
+		{
+			value = [value];
+		}
+		
+		var val;
+		for (var i = 0,len = value.length; i < len; i++) 
+		{
+			val = value[i];
+			if (!nexacro.isEmpty(operater)) 
+			{
+				if (!nexacro.isEmpty(filterString)) 
+				{
+					filterString += " || ";
+				}
+				filterString += column;
+
+				switch (operater) 
+				{
+					case 'equal':
+						str = "==" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'notEqual':
+						str = "!=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'greaterThan':
+						str = ">" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'greaterThanOrEqual':
+						str = ">=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'lessThan':
+						str = "<" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'lessThanOrEqual':
+						str = "<=" + (colType == "STRING" ? nexacro.wrapQuote(val) : val);
+						break;
+					case 'startWith':
+						str = ".toString().substr(0, " + val.length + ") == '" + val + "'";
+						break;
+					case 'endWith':
+						str = ".toString().substr(" + column + ".toString().length-" + val.length + ") == '" + val + "'";
+						break;
+					case 'contains':
+						str = ".toString().search('" + val + "') > -1";
+						break;
+				}
+
+				filterString += str;
+			}
+		}
+	}
+
+	// 필터 표시 이미지 변경
+	if (nexacro.isEmpty(filterString)) 
+	{
+		//해당 그리의 expand img를 변경..
+		grid.setCellProperty( "head", headCellIndex, "expandimage", this.parent.parent.FILTER_ENABLE_IMAGE_URL );
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_ENABLE_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	else 
+	{
+		filterString = "(" + filterString + ")";
+		grid.setCellProperty( "head", headCellIndex, "expandimage", this.parent.parent.FILTER_APPLY_IMAGE_URL );
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_APPLY_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	
+	// 필터 실행
+	this.parent.parent.executeFilter(grid, headCellIndex, filterString, filterData);
+};
+
+
+
+/**
+ * 주어진 대상을 포함한 상위 범위로 지정된 이름에 최초로 일치하는 component, object 반환
+ * @public
+ * @param {xpComp} p 찾을 대상
+ * @param {string} name 찾을 대상 이름
+ * @return {xpComp} 검색된 component, object
+ * @example
+ *
+ * // this = Form
+ * // Form 에 Button11 존재
+ * trace(Base.XPComp.lookup(this, "Button11"));	// output : [object Button]
+ *
+ * // Button12 는 Div01 에 존재하지 않으나 Div01 의 상위 컴포넌트인 Form 에 존재
+ * trace(Base.XPComp.lookup(Div01, "Button11"));	// output : [object Button]
+ *
+ * @memberOf Base.XPComp
+ */
+this.gfn_Lookup = function (p, name)
+{
+	var o;
+	while (p) 
+	{
+		o = p.components;
+		if (o && o[name]) 
+		{
+			return o[name];
+		}
+
+		o = p.objects;
+		if (o && o[name]) 
+		{
+			return o[name];
+		}
+
+		p = p.parent;
+	}
+	return null;
+};
+
+//닫기
+this.btn_apply_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var value = this.edt_filter.value;
+	var filterData = value;
+	//'||'로 죄다 엮어서 필터 테스트 하기
+	var grid = this.parent.grid;
+	var column = this.parent.filterColumn;
+	var headCellIndex = this.parent.headCellIndex;
+
+	var ds = this.gfn_Lookup(grid.parent, grid.binddataset);
+	var colType = ds.getColumnInfo(column).type;
+	var filterString = "";
+	var str = "";
+	
+	
+	// grd_combo에 선택된 값들 다 '||'로 엮어버리기
+	var cnt = this.ds_combo.rowcount; 
+	for(var i = 0 ; i < cnt ; i++)
+	{
+		if(nexacro.isEmpty(this.ds_combo.getColumn(i, "chk")) || this.ds_combo.getColumn(i, "chk")=="0") continue;
+		if (!nexacro.isEmpty(filterString)) 
+		{
+			filterString += " || ";
+		}
+		filterString += column;
+		filterString += "==";
+		filterString += nexacro.wrapQuote(this.ds_combo.getColumn(i, "val"));
+	}
+
+	// 필터 표시 이미지 변경
+	if (nexacro.isEmpty(filterString)) 
+	{
+		//해당 그리의 expand img를 변경..
+		grid.setCellProperty( "head", headCellIndex, "expandimage", this.parent.parent.FILTER_ENABLE_IMAGE_URL );
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_ENABLE_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	else 
+	{
+		filterString = "(" + filterString + ")";
+		grid.setCellProperty( "head", headCellIndex, "expandimage", this.parent.parent.FILTER_APPLY_IMAGE_URL );
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_APPLY_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	
+	// 필터 표시 이미지 변경
+	if (nexacro.isEmpty(filterString)) 
+	{
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_ENABLE_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	else 
+	{
+		filterString = "(" + filterString + ")";
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_APPLY_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	
+	//전체선택 또는 전체해재일 경우에는 필터지우기
+	if( this.ds_combo.rowcount == this.ds_combo.getCaseCount("chk==1") ||
+	    this.ds_combo.rowcount == this.ds_combo.getCaseCount("chk!=1"))
+	{
+		//필터지우기
+		filterString == "";
+		grid.setCellProperty( "head", headCellIndex, "expandimage", this.parent.parent.FILTER_ENABLE_IMAGE_URL );
+		this.btn_filter.set_background("url('"+this.parent.parent.FILTER_ENABLE_IMAGE_URL+"') no-repeat center center #f3f7f7");
+	}
+	
+	
+	// 부모화면 필터 실행
+	this.parent.parent.executeFilter(grid, headCellIndex, filterString, filterData);
+	this.parent.closePopup();
+	return;
+	
+	var value;
+	var type = this.parent.filterType;
+
+	if (type == "number") 
+	{
+		value = parseInt(this.edt_filter.value);
+	}
+	else if (type == "date") 
+	{
+		value = this.cal_filter.value;
+	}
+	else
+	{
+		value = this.edt_filter.value;
+	}
+	this.applyCheck("contains", value, value);
+	//this.applyFilter("contains", value, value);
+	this.parent.closePopup();
+};
+
+
+
+//전체선택 및 해제
+this.grd_combo_onheadclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	//체크박스 아니면 return;
+	if(e.cell != 0) return;
+	
+	var objGrid = obj;
+	var objDs = obj.getBindDataset();
+	
+	var headValue = objGrid.getCellProperty("Head", e.cell, "text");
+	//전체선택
+	if(headValue == true || headValue == "1")
+	{		
+		objDs.set_enableevent(false);
+		objDs.set_updatecontrol(false);
+		objGrid.set_enableevent(false);
+		objGrid.set_enableredraw(false);
+		for (var i = 0; i <= objDs.rowcount; i++)
+		{
+			objDs.setColumn(i, "chk", "0");
+		}
+		objGrid.setCellProperty("Head", 0, "text", "0");
+		objGrid.set_enableevent(true);
+		objGrid.set_enableredraw(true);
+		objDs.set_enableevent(true);
+		objDs.set_updatecontrol(true);
+	}
+	else
+	{
+		objDs.set_enableevent(false);
+		objDs.set_updatecontrol(false);
+		objGrid.set_enableevent(false);
+		objGrid.set_enableredraw(false);
+		for (var i = 0; i <= objDs.rowcount; i++)
+		{
+			objDs.setColumn(i, "chk", "1");
+		}
+		objGrid.setCellProperty("Head", 0, "text", "1");
+		objGrid.set_enableevent(true);
+		objGrid.set_enableredraw(true);
+		objDs.set_enableevent(true);
+		objDs.set_updatecontrol(true);
+	}
+};
+
+
+//취소,, 적용하지 않고 닫기
+this.btn_cancel_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//화면 변경사항 적용하지 않음...
+	this.parent.closePopup();
+};
+
+this.edt_filter_oninput = function(obj:nexacro.Edit,e:nexacro.InputEventInfo)
+{
+	this.applyCheck(this.cmb_operater.value, obj.value, obj.value);
+};
+]]></Script>
+  </Form>
+</FDL>

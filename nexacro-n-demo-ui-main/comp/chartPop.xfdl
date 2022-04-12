@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="chartPop" width="480" height="600" background="#6954E1" onload="chartPop_onload">
+    <Layouts>
+      <Layout height="600" mobileorientation="landscape" width="480">
+        <Button id="btnClose" taborder="0" width="50" height="50" right="5" top="5" cssclass="btn_MWF_closeDesc" onclick="btnClose_onclick"/>
+        <Static id="stcTitle" taborder="1" text="" left="64" top="2" height="60" right="64" cssclass="sta_MWF_descTitle"/>
+        <Static id="Static01" taborder="2" left="0" top="60" right="0" background="#ffffff" text="" cssclass="sta_MWF_descBg" bottom="0"/>
+        <ImageViewer id="imgPageLoading" taborder="3" left="0" top="60" image="url('imagerc::page_loading.gif')" right="0" background="transparent" border="0px none" bottom="0"/>
+        <Static id="Static01_00" taborder="4" left="20" top="76" height="60" cssclass="sta_WF_box01" right="20"/>
+        <Static id="Static02" taborder="5" text="Chart Type" left="39" top="86" width="79" height="40" cssclass="sta_WF_labelTxt01" fittocontents="width" messageid="comp.chart.charttype"/>
+        <Combo id="cmbType" taborder="6" left="Static02:20" top="86" width="280" height="40" onitemchanged="cmbType_onitemchanged" codecolumn="code" datacolumn="data" itemheight="36" innerdataset="dsList"/>
+        <Div id="divChart" taborder="7" left="20" top="160" right="20" bottom="20" async="false"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.chartPop_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	nexacro._OnceCallbackTimer.callonce(this, function() {
+		var sType = this.parent.chartType,
+			list = this.parent.list;
+		
+		this.stcTitle.set_text(sType + " Chart");
+		
+		for (var i=0, len=list.length; i < len; i++) {
+			var r = this.dsList.addRow();
+			this.dsList.setColumn(r, "code", list[i].url);
+			this.dsList.setColumn(r, "data", list[i].name);
+		}
+		
+		this.cmbType.set_index(0);
+		
+		var url = this.dsList.getColumn(0, "code");
+		this.fn_changeUrl(url);
+	}, 10);
+};
+
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+
+this.cmbType_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.fn_changeUrl(e.postvalue);
+};
+
+this.fn_changeUrl = function(sUrl)
+{
+	this.imgPageLoading.set_visible(true);
+	this.divChart.set_url(sUrl);
+	this.imgPageLoading.set_visible(false);
+};
+]]></Script>
+    <Objects>
+      <Dataset id="dsList">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

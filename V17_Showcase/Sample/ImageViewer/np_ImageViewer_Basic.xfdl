@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="np_ImageViewer_Basic" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Static id="Static05" text="Basic - stretch" class="sta_WF_subtitle" position="absolute" left="30" top="15" width="300" height="40" cssclass="sta_WF_subtitP"/>
+        <ImageViewer id="ImageViewer00" taborder="0" text="" left="30" top="95" width="270" height="150" image="URL(&quot;Image::right_icon_bg02.gif&quot;)"/>
+        <ImageViewer id="ImageViewer01" taborder="0" text="" left="330" top="95" width="270" height="150" image="URL(&quot;Image::right_icon_bg02.gif&quot;)" stretch="fit"/>
+        <ImageViewer id="ImageViewer02" taborder="0" text="" left="630" top="95" width="270" height="150" image="URL(&quot;Image::right_icon_bg02.gif&quot;)" stretch="fixaspectratio"/>
+        <Static id="Static00" text="none" class="sta_WF_subtitle" position="absolute" left="30" top="70" width="150" height="15" cssclass="sta_WF_explain"/>
+        <Static id="Static01" text="fit" class="sta_WF_subtitle" position="absolute" left="330" top="70" width="150" height="15" cssclass="sta_WF_explain"/>
+        <Static id="Static02" text="fixaspectratio" class="sta_WF_subtitle" position="absolute" left="630" top="70" width="150" height="15" cssclass="sta_WF_explain"/>
+        <ImageViewer id="ImageViewer03" taborder="0" text="" left="30" top="395" width="270" height="150" image="URL(&quot;Image::right_icon_bg02.gif&quot;)"/>
+        <Static id="Static03" text="Basic - image" class="sta_WF_subtitle" position="absolute" left="30" top="315" width="300" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static04" text="Local" class="sta_WF_subtitle" position="absolute" left="30" top="370" width="159" height="15" cssclass="sta_WF_explain"/>
+        <ImageViewer id="ImageViewer04" taborder="0" text="" left="330" top="395" width="270" height="150" image="URL(&quot;http://www.tobesoft.co.kr/images/main/right_icon_bg02.gif&quot;)"/>
+        <Static id="Static06" text="Web" class="sta_WF_subtitle" position="absolute" left="330" top="370" width="159" height="15" cssclass="sta_WF_explain"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

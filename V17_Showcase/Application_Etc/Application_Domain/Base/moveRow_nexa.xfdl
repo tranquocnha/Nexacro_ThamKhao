@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="moveRow" classname="moveRow" left="0" top="0" width="1024" height="768" titletext="New Form" ontimer="moveRow_ontimer">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="88" top="76" width="359" height="556" binddataset="Dataset00" useselcolor="true" ondrag="Grid00_ondrag" ondrop="Grid00_ondrop" ondragmove="Grid00_ondragmove" onmousemove="Grid00_onmousemove" selecttype="multirow" onlbuttonup="Grid00_onlbuttonup">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="135"/>
+                <Column size="80"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="32"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2"/>
+              </Band>
+              <Band id="body" style="selectbackground: ;">
+                <Cell style="line: ;" text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="1" binddataset="Temp00" useinputpanel="false" selecttype="multirow" onlbuttonup="Grid00_onlbuttonup" onmousemove="Grid00_onmousemove" ondrag="Grid00_ondrag" ondragmove="Grid00_ondragmove" ondrop="Grid00_ondrop" left="500" top="98" width="217" height="380">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="135"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1 one</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2 two</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3 three</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4 four</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5 five</Col>
+            <Col id="Column1"/>
+          </Row>
+          <Row>
+            <Col id="Column0">6 six</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7 seven</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8 eight</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">9 nine</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10 ten</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Temp00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.sRow;
+this.eRow;
+this.arr; 
+this.cnt = 0;
+this.arr_1;
+
+this.Grid00_ondrag = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+	this.sRow=e.row;	
+	this.arr= this.Grid00.getSelectedRows();
+	for(var i =0; i<this.Dataset00.getRowCount(); i++){
+		if(this.arr[i] !=null){
+			this.Dataset00.setColumn(this.arr[i],"Column2",1);
+		}
+	}
+	return true;
+}
+
+this.Grid00_ondrop = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+	var cY = parseInt((e.canvasY-24)%32);
+	
+	if(cY>=0 && cY<16 ){
+		this.eRow = e.row;
+	}else{
+		this.eRow = e.row+1;
+	}  
+
+//Temp로 옮김
+
+	for(var i=0; i<this.Dataset00.getRowCount(); i++){
+		if(this.arr[i] != this.i){
+	
+			this.cnt =this.cnt+1;
+	
+			var row = this.Temp00.addRow();
+			
+			this.Temp00.setColumn(row,"Column0",this.Dataset00.getColumn(this.arr[i],"Column0"));
+			this.Temp00.setColumn(row,"Column1",this.Dataset00.getColumn(this.arr[i],"Column1"));	
+		
+		}
+	}
+
+	//temp의 값을 원본에 다시 복사
+
+	for(var i = this.eRow; i<parseInt(this.eRow+this.cnt); i++){
+		var row = this.Dataset00.insertRow(i);
+		this.Dataset00.copyRow(row,this.Temp00,i-this.eRow);
+	}
+
+	
+		//temp로 이동 된 row 삭제
+	
+	for(var i=this.Dataset00.getRowCount(); i>=0;i--){
+		if(this.Dataset00.getColumn(i,"Column2")==1){
+			this.Dataset00.deleteRow(i);
+		}
+	}
+	
+	
+	this.Temp00.clearData();
+	this.cnt=0;
+//	this.arr="";
+	this.Grid00.setCellProperty("body",0,"line","");
+}
+this.Grid00_ondragmove = function(obj:Grid, e:nexacro.GridDragEventInfo)
+{
+
+	
+	for(var i=0;i<e.row; i++){
+		this.Dataset00.setColumn(i,"Column1","N");
+	}
+		this.Dataset00.setColumn(e.row,"Column1","Y");
+	for(var i=e.row+1; i<this.Dataset00.getRowCount(); i++){
+		this.Dataset00.setColumn(i,"Column1","N");
+	}
+		
+	var cY = parseInt((e.canvasY-24)%32);
+
+	if(cY>=0 && cY<16 ){
+		this.Grid00.setCellProperty("body",0,"line","EXPR(getColumn(currow+1,'Column1')=='Y'?'1px solid #b1b5b9ff, 1px solid white , 2px solid red, 1px solid #b1b5b9ff':'')");
+	}else{
+		this.Grid00.setCellProperty("body",0,"line","EXPR(getColumn(currow,'Column1')=='Y'?'1px solid #b1b5b9ff , 1px solid white , 2px solid red, 1px solid #b1b5b9ff ':'')");
+	}	
+	
+	
+}
+
+]]></Script>
+  </Form>
+</FDL>

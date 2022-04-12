@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="820" onload="form_onload">
+    <Layouts>
+      <Layout height="820" width="440">
+        <Static id="Static00" taborder="1" text="Kakaotalk Share" left="20" top="14" height="40" cssclass="sta_WF_pageTitle" width="186" messageid="sample.kakaotalk" fittocontents="width"/>
+        <ListView id="ListView00" taborder="1" left="20" top="70" right="20" binddataset="dsList" height="728" oncellclick="ListView00_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Band id="body" width="100%" height="121">
+                <Cell id="Cell01" left="5" top="5" width="120" text="bind:thumbnail" bottom="5" displaytype="imagecontrol" imagestretch="fixaspectratio" border="0px none"/>
+                <Cell id="Cell03" left="135" top="5" height="35" text="bind:title" right="5" border="0px none" wordWrap="char" color="#333333" font="14px 700 &quot;Noto Sans KR Regular&quot;"/>
+                <Cell id="Cell05" left="135" top="45" text="bind:contents" right="5" verticalAlign="top" wordWrap="char" border="0px none" bottom="30"/>
+                <Cell id="Cell07" left="135" top="92" width="103" height="24" text="bind:dt" calendardateformat="yyyy.MM.dd." border="0px none" color="#0079c2" textAlign="left"/>
+                <Cell id="Cell00" left="310" top="82" right="3" bottom="5" displaytype="imagecontrol" border="0px none" text="url('imagerc::kakaolink_btn_medium.png')" imagestretch="fixaspectratio" padding="0px"/>
+              </Band>
+            </Format>
+          </Formats>
+        </ListView>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsList">
+        <ColumnInfo>
+          <Column id="thumbnail" type="STRING" size="256"/>
+          <Column id="title" type="STRING" size="256"/>
+          <Column id="contents" type="STRING" size="256"/>
+          <Column id="dt" type="DATE" size="256"/>
+          <Column id="url" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="title">즐기는 사람을 이길 수 있을까?</Col>
+            <Col id="contents">“천재는 노력하는 사람을 이길 수 없고 노력하는 사람은 즐기는 사람을 이길...</Col>
+            <Col id="dt">20200521</Col>
+            <Col id="thumbnail">http://tobetong.com/wp-content/uploads/2020/05/2006_10.png</Col>
+            <Col id="url">http://tobetong.com/?p=10891</Col>
+          </Row>
+          <Row>
+            <Col id="thumbnail">http://tobetong.com/wp-content/uploads/2020/02/2003_16.png</Col>
+            <Col id="title">비즈니스 프로세스 효율 개선과 혁신-Easy UI</Col>
+            <Col id="contents">&lt;Client side MVC와 Template로 구현하는 Low-code/No-code&gt; “어플리케이션 개발...</Col>
+            <Col id="dt">20200228</Col>
+            <Col id="url">http://tobetong.com/?p=10635</Col>
+          </Row>
+          <Row>
+            <Col id="thumbnail">http://tobetong.com/wp-content/uploads/2019/11/1912_04.png</Col>
+            <Col id="title">초연결시대 대응 전략도구 넥사크로플랫폼</Col>
+            <Col id="contents">현재 기술의 핵심 ‘초 연결’ 이다. 기존 ‘연결’을 넘어 초월적 연결이 가능한...</Col>
+            <Col id="dt">20191129</Col>
+            <Col id="url">http://tobetong.com/?p=10121</Col>
+          </Row>
+          <Row>
+            <Col id="thumbnail">http://tobetong.com/wp-content/uploads/2019/09/1909_05.png</Col>
+            <Col id="title">웹 분석을 통한 UI·UX 개선</Col>
+            <Col id="contents">웹 분석이란 이전 웹 로그분석(고객의 로그 정보를 수집하고 모니터링하는 행위)에서...</Col>
+            <Col id="dt">20190918</Col>
+            <Col id="url">http://tobetong.com/?p=10018</Col>
+          </Row>
+          <Row>
+            <Col id="thumbnail">http://tobetong.com/wp-content/uploads/2019/06/1906_50.png</Col>
+            <Col id="title">사용자 경험 시대. 애플리케이션 위상과 역할</Col>
+            <Col id="contents">HTML5와 웹 표준이 애플리케이션 분야를 휩쓸고 지나갔다. 아마도 앞으로 한동안...</Col>
+            <Col id="dt">20190624</Col>
+            <Col id="url">http://tobetong.com/?p=9947</Col>
+          </Row>
+          <Row>
+            <Col id="thumbnail">http://tobetong.com/wp-content/uploads/2019/03/1903_62.png</Col>
+            <Col id="title">웹은 최고의 업무환경인가?</Col>
+            <Col id="contents">얼마 전 웹(World Wide Web)이 30주년을 맞았다. 연구소의 자료를 관리하고 공유하기...</Col>
+            <Col id="dt">20190318</Col>
+            <Col id="url">http://tobetong.com/?p=9697</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	loadScript("//developers.kakao.com/sdk/js/kakao.min.js", function (url) {
+		trace("'" + url + "' is loaded.");
+		
+		// 사용할 앱의 JavaScript 키를 설정해 주세요.
+		Kakao.init('6412fbeadd5f9c67255c9f8f6793824a');
+	});
+};
+
+this.ListView00_oncellclick = function(obj:nexacro.ListView,e:nexacro.ListViewClickEventInfo)
+{
+	var thumbnail = this.dsList.getColumn(e.row, "thumbnail"),
+		title = this.dsList.getColumn(e.row, "title"),
+		contents = this.dsList.getColumn(e.row, "contents"),
+		url = this.dsList.getColumn(e.row, "url");
+	
+	Kakao.Link.sendDefault({
+		objectType: 'feed',
+		content: {
+			title: title,
+			description: contents,
+			imageUrl: thumbnail,
+			link: {
+				mobileWebUrl: url,
+				webUrl: url
+			}
+		},
+		success: function(response) {
+			trace(response);
+		},
+		fail: function(error) {
+			trace(error);
+			alert(error);
+		},
+	});
+};
+]]></Script>
+  </Form>
+</FDL>

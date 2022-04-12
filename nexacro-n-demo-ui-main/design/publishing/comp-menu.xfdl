@@ -1,0 +1,1567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="760" onload="form_onload" ontimer="form_ontimer">
+    <Layouts>
+      <Layout height="760" width="920">
+        <Static id="stcBg" taborder="5" left="0" top="10" bottom="-10" right="0" onclick="fnComStcOnClick" text=""/>
+        <Static id="Static03" taborder="0" text="Menu Component" left="20" top="72" width="300" height="30" messageid="menu.component" cssclass="sta_WF_compTitle02"/>
+        <Menu id="Menu00" taborder="1" left="20" top="112" height="40" right="20" innerdataset="dsMenu" captioncolumn="caption" idcolumn="id" levelcolumn="level" popupitemheight="40"/>
+        <Static id="Static03_00" taborder="2" text="MegaMenu" left="20" top="186" width="300" height="30" messageid="mega.menu" cssclass="sta_WF_compTitle02"/>
+        <Button id="btnMenu01" taborder="3" left="20" top="226" width="120" cssclass="btn_WF_callMenu" onclick="fnComBtnOnClick" height="40" text="메뉴 호출"/>
+        <Static id="Static01" taborder="4" text="Menu" left="20" top="20" width="121" height="40" messageid="comp.menu" fittocontents="width" cssclass="sta_WF_pageTitle"/>
+        <Div id="Div00" taborder="6" left="20" top="291" width="880" height="379" background="#F5F7FC" border="1px solid #A598EF">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" left="0" top="45" height="40" right="0" background="#A598EF"/>
+              <Static id="Static01" taborder="1" text="Middle Menu" left="100" top="45" width="135" height="40" cssclass="sta_WF_compMenu01"/>
+              <Static id="Static02" taborder="2" text="Middle Menu" left="Static01:0" top="45" width="135" height="40" cssclass="sta_WF_compMenu01"/>
+              <Static id="Static03" taborder="3" text="Middle Menu" left="Static02:0" top="45" width="135" height="40" cssclass="sta_WF_compMenu01"/>
+              <Static id="Static04" taborder="4" text="Middle Menu" left="Static03:0" top="45" width="135" height="40" cssclass="sta_WF_compMenu01"/>
+              <Static id="Static05" taborder="5" text="Middle Menu" left="Static04:0" top="45" width="135" height="40" cssclass="sta_WF_compMenu01"/>
+              <Static id="Static06" taborder="6" text="Small Menu1" left="100" top="103" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static07" taborder="7" text="Small Menu2" left="100" top="143" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static08" taborder="8" text="Small Menu3" left="100" top="183" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static09" taborder="9" text="Small Menu4" left="100" top="223" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static10" taborder="10" text="Small Menu5" left="100" top="263" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static11" taborder="11" text="Small Menu6" left="100" top="303" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static06_00" taborder="12" text="Small Menu1" left="235" top="103" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static07_00" taborder="13" text="Small Menu2" left="235" top="143" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static08_00" taborder="14" text="Small Menu3" left="235" top="183" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static09_00" taborder="15" text="Small Menu4" left="235" top="223" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static10_00" taborder="16" text="Small Menu5" left="235" top="263" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static11_00" taborder="17" text="Small Menu6" left="235" top="303" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static06_01" taborder="18" text="Small Menu1" left="370" top="103" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static07_01" taborder="19" text="Small Menu2" left="370" top="143" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static08_01" taborder="20" text="Small Menu3" left="370" top="183" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static09_01" taborder="21" text="Small Menu4" left="370" top="223" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static10_01" taborder="22" text="Small Menu5" left="370" top="263" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static11_01" taborder="23" text="Small Menu6" left="370" top="303" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static06_02" taborder="24" text="Small Menu1" left="505" top="103" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static07_02" taborder="25" text="Small Menu2" left="505" top="143" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static08_02" taborder="26" text="Small Menu3" left="505" top="183" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static09_02" taborder="27" text="Small Menu4" left="505" top="223" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static10_02" taborder="28" text="Small Menu5" left="505" top="263" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static11_02" taborder="29" text="Small Menu6" left="505" top="303" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static06_03" taborder="30" text="Small Menu1" left="640" top="103" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static07_03" taborder="31" text="Small Menu2" left="640" top="143" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static08_03" taborder="32" text="Small Menu3" left="640" top="183" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static09_03" taborder="33" text="Small Menu4" left="640" top="223" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static10_03" taborder="34" text="Small Menu5" left="640" top="263" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+              <Static id="Static11_03" taborder="35" text="Small Menu6" left="640" top="303" width="135" height="30" cssclass="sta_WF_compMenu02"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsMenu">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="caption" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="status" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">010000</Col>
+            <Col id="caption">Big Menu1</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">010100</Col>
+            <Col id="caption">Middle Menu1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">010101</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">010102</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">010200</Col>
+            <Col id="caption">Middle Menu2</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">010201</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">010202</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">010203</Col>
+            <Col id="caption">Small Menu3</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">020000</Col>
+            <Col id="caption">Big Menu2</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">020100</Col>
+            <Col id="caption">Middle Menu1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">020101</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">020102</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">020200</Col>
+            <Col id="caption">Middle Menu2</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">020201</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">020202</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">020203</Col>
+            <Col id="caption">Small Menu3</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">030000</Col>
+            <Col id="caption">Big Menu3</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">030100</Col>
+            <Col id="caption">Middle Menu1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">030101</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">030102</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">030200</Col>
+            <Col id="caption">Middle Menu2</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">030201</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">030202</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">030203</Col>
+            <Col id="caption">Small Menu3</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">040000</Col>
+            <Col id="caption">Big Menu4</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">040100</Col>
+            <Col id="caption">Middle Menu1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">040101</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">040102</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">040200</Col>
+            <Col id="caption">Middle Menu2</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">040201</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">040202</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">040203</Col>
+            <Col id="caption">Small Menu3</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">050000</Col>
+            <Col id="caption">Big Menu5</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">050100</Col>
+            <Col id="caption">Middle Menu1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">050101</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">050102</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">050200</Col>
+            <Col id="caption">Middle Menu2</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">050201</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">050202</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">050203</Col>
+            <Col id="caption">Small Menu3</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">060000</Col>
+            <Col id="caption">Big Menu6</Col>
+            <Col id="level">0</Col>
+          </Row>
+          <Row>
+            <Col id="id">060100</Col>
+            <Col id="caption">Middle Menu1</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">060101</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">060102</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">060200</Col>
+            <Col id="caption">Middle Menu2</Col>
+            <Col id="level">1</Col>
+          </Row>
+          <Row>
+            <Col id="id">060201</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">060202</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">2</Col>
+          </Row>
+          <Row>
+            <Col id="id">060203</Col>
+            <Col id="caption">Small Menu3</Col>
+            <Col id="level">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsMegaMenu">
+        <ColumnInfo>
+          <Column id="MENU_CD" type="STRING" size="8"/>
+          <Column id="UP_MENU_CD" type="STRING" size="8"/>
+          <Column id="MENU_NM" type="STRING" size="50"/>
+          <Column id="MENU_LVL" type="BIGDECIMAL" size="22"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_CD">010000</Col>
+            <Col id="MENU_LVL">0</Col>
+            <Col id="UP_MENU_CD">0</Col>
+            <Col id="MENU_NM">Big Menu1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010100</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Middle Menu1</Col>
+            <Col id="MENU_LVL">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010101</Col>
+            <Col id="UP_MENU_CD">010100</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010102</Col>
+            <Col id="UP_MENU_CD">010100</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010103</Col>
+            <Col id="UP_MENU_CD">010100</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010200</Col>
+            <Col id="MENU_NM">Middle Menu2</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010201</Col>
+            <Col id="UP_MENU_CD">010200</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010300</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Middle Menu3</Col>
+            <Col id="MENU_LVL">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010301</Col>
+            <Col id="UP_MENU_CD">010300</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010302</Col>
+            <Col id="UP_MENU_CD">010300</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010303</Col>
+            <Col id="UP_MENU_CD">010300</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010304</Col>
+            <Col id="UP_MENU_CD">010300</Col>
+            <Col id="MENU_NM">Small Menu4</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010400</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Middle Menu4</Col>
+            <Col id="MENU_LVL">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010401</Col>
+            <Col id="UP_MENU_CD">010400</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010402</Col>
+            <Col id="UP_MENU_CD">010400</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010500</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Middle Menu5</Col>
+            <Col id="MENU_LVL">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010501</Col>
+            <Col id="UP_MENU_CD">010500</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010502</Col>
+            <Col id="UP_MENU_CD">010500</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010503</Col>
+            <Col id="UP_MENU_CD">010500</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010504</Col>
+            <Col id="UP_MENU_CD">010500</Col>
+            <Col id="MENU_NM">Small Menu4</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010505</Col>
+            <Col id="UP_MENU_CD">010500</Col>
+            <Col id="MENU_NM">Small Menu5</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010506</Col>
+            <Col id="UP_MENU_CD">010500</Col>
+            <Col id="MENU_NM">Small Menu6</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010507</Col>
+            <Col id="UP_MENU_CD">010500</Col>
+            <Col id="MENU_NM">Small Menu7</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010600</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Middle Menu6</Col>
+            <Col id="MENU_LVL">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010601</Col>
+            <Col id="UP_MENU_CD">010600</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010602</Col>
+            <Col id="UP_MENU_CD">010600</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">011000</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Middle Menu7</Col>
+            <Col id="MENU_LVL">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">011001</Col>
+            <Col id="UP_MENU_CD">011000</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">011002</Col>
+            <Col id="UP_MENU_CD">011000</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">011003</Col>
+            <Col id="UP_MENU_CD">011000</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">011004</Col>
+            <Col id="UP_MENU_CD">011000</Col>
+            <Col id="MENU_NM">Small Menu4</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">011005</Col>
+            <Col id="UP_MENU_CD">011000</Col>
+            <Col id="MENU_NM">Small Menu5</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">011006</Col>
+            <Col id="UP_MENU_CD">011000</Col>
+            <Col id="MENU_NM">Small Menu6</Col>
+            <Col id="MENU_LVL">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsSubMenu">
+        <ColumnInfo>
+          <Column id="MENU_CD" type="STRING" size="8"/>
+          <Column id="UP_MENU_CD" type="STRING" size="8"/>
+          <Column id="MENU_NM" type="STRING" size="50"/>
+          <Column id="MENU_LVL" type="BIGDECIMAL" size="22"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsGridMenu">
+        <ColumnInfo>
+          <Column id="MENU_CD" type="STRING" size="8"/>
+          <Column id="UP_MENU_CD" type="STRING" size="8"/>
+          <Column id="MENU_NM" type="STRING" size="50"/>
+          <Column id="MENU_LVL" type="BIGDECIMAL" size="22"/>
+          <Column id="PGM_PATH" type="STRING" size="200"/>
+          <Column id="PGM_ID" type="STRING" size="200"/>
+          <Column id="SORT" type="BIGDECIMAL" size="22"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_CD">010100</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Big Menu1</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010200</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Big Menu2</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010300</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Big Menu3</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020100</Col>
+            <Col id="UP_MENU_CD">020000</Col>
+            <Col id="MENU_NM">Big Menu4</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020200</Col>
+            <Col id="UP_MENU_CD">020000</Col>
+            <Col id="MENU_NM">Big Menu5</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020300</Col>
+            <Col id="UP_MENU_CD">020000</Col>
+            <Col id="MENU_NM">Big Menu6</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030100</Col>
+            <Col id="UP_MENU_CD">030000</Col>
+            <Col id="MENU_NM">Big Menu7</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030200</Col>
+            <Col id="UP_MENU_CD">030000</Col>
+            <Col id="MENU_NM">Big Menu8</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040100</Col>
+            <Col id="UP_MENU_CD">040000</Col>
+            <Col id="MENU_NM">Big Menu9</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040200</Col>
+            <Col id="UP_MENU_CD">040000</Col>
+            <Col id="MENU_NM">Big Menu10</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090100</Col>
+            <Col id="UP_MENU_CD">090000</Col>
+            <Col id="MENU_NM">Big Menu11</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090200</Col>
+            <Col id="UP_MENU_CD">090000</Col>
+            <Col id="MENU_NM">Big Menu12</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+            <Col id="PGM_PATH"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsGridMenu2">
+        <ColumnInfo>
+          <Column id="MENU_CD" type="STRING" size="8"/>
+          <Column id="UP_MENU_CD" type="STRING" size="8"/>
+          <Column id="MENU_NM" type="STRING" size="50"/>
+          <Column id="MENU_LVL" type="BIGDECIMAL" size="22"/>
+          <Column id="PGM_PATH" type="STRING" size="200"/>
+          <Column id="PGM_ID" type="STRING" size="200"/>
+          <Column id="SORT" type="BIGDECIMAL" size="22"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_CD">010100</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010200</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010300</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020100</Col>
+            <Col id="UP_MENU_CD">020000</Col>
+            <Col id="MENU_NM">Small Menu4</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsMenu1">
+        <ColumnInfo>
+          <Column id="MENU_CD" type="STRING" size="8"/>
+          <Column id="UP_MENU_CD" type="STRING" size="8"/>
+          <Column id="MENU_NM" type="STRING" size="50"/>
+          <Column id="MENU_LVL" type="BIGDECIMAL" size="22"/>
+          <Column id="PGM_PATH" type="STRING" size="200"/>
+          <Column id="PGM_ID" type="STRING" size="200"/>
+          <Column id="SORT" type="BIGDECIMAL" size="22"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_CD">010000</Col>
+            <Col id="UP_MENU_CD">0</Col>
+            <Col id="MENU_NM">메뉴1</Col>
+            <Col id="MENU_LVL">0</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010100</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Big Menu1</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010101</Col>
+            <Col id="UP_MENU_CD">010100</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010102</Col>
+            <Col id="UP_MENU_CD">010100</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010200</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Big Menu2</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010201</Col>
+            <Col id="UP_MENU_CD">010200</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010202</Col>
+            <Col id="UP_MENU_CD">010200</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010203</Col>
+            <Col id="UP_MENU_CD">010200</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">3</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010300</Col>
+            <Col id="UP_MENU_CD">010000</Col>
+            <Col id="MENU_NM">Big Menu3</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010301</Col>
+            <Col id="UP_MENU_CD">010300</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010302</Col>
+            <Col id="UP_MENU_CD">010300</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">010303</Col>
+            <Col id="UP_MENU_CD">010300</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">3</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020000</Col>
+            <Col id="MENU_NM">메뉴2</Col>
+            <Col id="MENU_LVL">0</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="SORT">1</Col>
+            <Col id="UP_MENU_CD">0</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020100</Col>
+            <Col id="UP_MENU_CD">020000</Col>
+            <Col id="MENU_NM">Big Menu4</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020101</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020102</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="PGM_PATH"/>
+            <Col id="PGM_ID"/>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020103</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">3</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020104</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu4</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">4</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020105</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu5</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">5</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020106</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu6</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">6</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020107</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu7</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">7</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020108</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu8</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">8</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020109</Col>
+            <Col id="UP_MENU_CD">020100</Col>
+            <Col id="MENU_NM">Small Menu9</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">9</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020200</Col>
+            <Col id="UP_MENU_CD">020000</Col>
+            <Col id="MENU_NM">Big Menu5</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020201</Col>
+            <Col id="UP_MENU_CD">020200</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020202</Col>
+            <Col id="UP_MENU_CD">020200</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020203</Col>
+            <Col id="UP_MENU_CD">020200</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">3</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020204</Col>
+            <Col id="UP_MENU_CD">020200</Col>
+            <Col id="MENU_NM">Small Menu4</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">4</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020205</Col>
+            <Col id="UP_MENU_CD">020200</Col>
+            <Col id="MENU_NM">Small Menu5</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">5</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020206</Col>
+            <Col id="UP_MENU_CD">020200</Col>
+            <Col id="MENU_NM">Small Menu6</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">6</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020300</Col>
+            <Col id="UP_MENU_CD">020000</Col>
+            <Col id="MENU_NM">Big Menu6</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020301</Col>
+            <Col id="UP_MENU_CD">020300</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020302</Col>
+            <Col id="UP_MENU_CD">020300</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">020303</Col>
+            <Col id="UP_MENU_CD">020300</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">3</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030000</Col>
+            <Col id="UP_MENU_CD">0</Col>
+            <Col id="MENU_NM">메뉴3</Col>
+            <Col id="MENU_LVL">0</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030100</Col>
+            <Col id="UP_MENU_CD">030000</Col>
+            <Col id="MENU_NM">Big Menu7</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030101</Col>
+            <Col id="UP_MENU_CD">030100</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030102</Col>
+            <Col id="UP_MENU_CD">030100</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030103</Col>
+            <Col id="UP_MENU_CD">030100</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">3</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030104</Col>
+            <Col id="UP_MENU_CD">030100</Col>
+            <Col id="MENU_NM">Small Menu4</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">4</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030105</Col>
+            <Col id="UP_MENU_CD">030100</Col>
+            <Col id="MENU_NM">Small Menu5</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">5</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030200</Col>
+            <Col id="UP_MENU_CD">030000</Col>
+            <Col id="MENU_NM">Big Menu8</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030201</Col>
+            <Col id="UP_MENU_CD">030200</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030202</Col>
+            <Col id="UP_MENU_CD">030200</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">030203</Col>
+            <Col id="UP_MENU_CD">030200</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">3</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040000</Col>
+            <Col id="UP_MENU_CD">0</Col>
+            <Col id="MENU_NM">메뉴4</Col>
+            <Col id="MENU_LVL">0</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040100</Col>
+            <Col id="UP_MENU_CD">040000</Col>
+            <Col id="MENU_NM">Big Menu9</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040101</Col>
+            <Col id="UP_MENU_CD">040100</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040200</Col>
+            <Col id="UP_MENU_CD">040000</Col>
+            <Col id="MENU_NM">Big Menu10</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040201</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="UP_MENU_CD">040200</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040202</Col>
+            <Col id="UP_MENU_CD">040200</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">2</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">040203</Col>
+            <Col id="UP_MENU_CD">040200</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">3</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090000</Col>
+            <Col id="UP_MENU_CD">0</Col>
+            <Col id="MENU_NM">메뉴5</Col>
+            <Col id="MENU_LVL">0</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090100</Col>
+            <Col id="UP_MENU_CD">090000</Col>
+            <Col id="MENU_NM">Big Menu11</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090101</Col>
+            <Col id="UP_MENU_CD">090100</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">1</Col>
+            <Col id="PGM_PATH">work</Col>
+            <Col id="PGM_ID">poc01.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090102</Col>
+            <Col id="UP_MENU_CD">090100</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="SORT">2</Col>
+            <Col id="PGM_PATH">work</Col>
+            <Col id="PGM_ID">poc02.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090103</Col>
+            <Col id="UP_MENU_CD">090100</Col>
+            <Col id="SORT">3</Col>
+            <Col id="MENU_NM">Small Menu3</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="PGM_PATH">work</Col>
+            <Col id="PGM_ID">poc03.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090200</Col>
+            <Col id="UP_MENU_CD">090000</Col>
+            <Col id="MENU_NM">Big Menu12</Col>
+            <Col id="MENU_LVL">1</Col>
+            <Col id="SORT">1</Col>
+            <Col id="PGM_PATH"/>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090201</Col>
+            <Col id="UP_MENU_CD">090200</Col>
+            <Col id="SORT">1</Col>
+            <Col id="MENU_NM">Small Menu1</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="PGM_PATH">work</Col>
+            <Col id="PGM_ID">sample01.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_CD">090202</Col>
+            <Col id="UP_MENU_CD">090200</Col>
+            <Col id="SORT">2</Col>
+            <Col id="MENU_NM">Small Menu2</Col>
+            <Col id="MENU_LVL">2</Col>
+            <Col id="PGM_PATH">work</Col>
+            <Col id="PGM_ID">sample02.xfdl</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsButtonIdx">
+        <ColumnInfo>
+          <Column id="Idx" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Idx">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsHideMenu">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="upid" type="STRING" size="256"/>
+          <Column id="caption" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="status" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">010101</Col>
+            <Col id="upid">010000</Col>
+            <Col id="caption">Small Menu1</Col>
+            <Col id="level">1</Col>
+            <Col id="status">[Undefined]</Col>
+          </Row>
+          <Row>
+            <Col id="id">010102</Col>
+            <Col id="upid">010000</Col>
+            <Col id="caption">Small Menu2</Col>
+            <Col id="level">1</Col>
+            <Col id="status">[Undefined]</Col>
+          </Row>
+          <Row>
+            <Col id="id">010201</Col>
+            <Col id="upid">010000</Col>
+            <Col id="caption">Small Menu3</Col>
+            <Col id="level">1</Col>
+            <Col id="status">[Undefined]</Col>
+          </Row>
+          <Row>
+            <Col id="id">010202</Col>
+            <Col id="upid">010000</Col>
+            <Col id="caption">Small Menu4</Col>
+            <Col id="level">1</Col>
+            <Col id="status">[Undefined]</Col>
+          </Row>
+          <Row>
+            <Col id="id">010203</Col>
+            <Col id="upid">010000</Col>
+            <Col id="caption">Small Menu5</Col>
+            <Col id="level">1</Col>
+            <Col id="status">[Undefined]</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.fvMegaFlag = false; // MegaMenu 닫기 위한 Flag 값
+this.fvMegaHeight;
+
+this.fvTimerIdx = 0;
+this.fvTimerMax = 20;
+this.fvPageHeight = 122;
+this.fvRow;
+
+this.objTarget;
+this.objTarget_befor = "";
+
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	this.langCode = nexacro.getApplication().langCode;
+	
+	this.fnSetAccordionMenu();
+};
+
+this.form_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
+{
+	switch (e.timerid)
+	{
+		case 1 :
+			var objTile;
+			var nValue = this.fvPageHeight - this.fnMoveAni(this.fvTimerIdx, 0, this.fvPageHeight, this.fvTimerMax);
+			var nTop;
+			
+			this.fvTimerIdx++;
+			
+			for (i = 0; i < this.divMenu.form.components.length; i++)
+			{
+				objTile = this.divMenu.form.components[i];
+				
+				nTop = nexacro.toNumber(objTile.orgTop)
+				
+				if (objTile.orgTop > this.objTarget_befor.orgTop) {
+					nTop = nTop + nValue;
+				}
+			
+				objTile.setOffsetTop(nTop);
+			}
+			
+			this.divMenu.form.grdHideMenu.setOffsetHeight(nValue);
+			
+			if (this.fvTimerIdx == this.fvTimerMax) {
+				var nTop = this.objTarget.getOffsetBottom();
+				
+				this.divMenu.form.grdHideMenu.move(5, nTop, null, 0, 5, null);
+				
+				this.fvTimerIdx = 0;
+							
+				this.killTimer(1);
+				this.setTimer(2, 10);
+			}		
+			break;
+			
+		case 2 :
+			var objTile;
+			var nValue = this.fnMoveAni(this.fvTimerIdx, 0, this.fvPageHeight, this.fvTimerMax);
+			var nTop;
+			
+			this.fvTimerIdx++;
+			
+			for (i = 0; i < this.divMenu.form.components.length; i++)
+			{
+				objTile = this.divMenu.form.components[i];
+				
+				nTop = nexacro.toNumber(objTile.orgTop)
+				
+				if (objTile.orgTop > this.objTarget.orgTop) {
+					nTop = nTop + nValue;
+					objTile.setOffsetTop(nTop);
+				}
+			}
+			
+			this.divMenu.form.grdHideMenu.setOffsetHeight(nValue + 2);
+			
+			if (this.fvTimerIdx == this.fvTimerMax) {
+				this.fvTimerIdx = 0;
+				
+				this.objTarget_befor = this.objTarget;
+				
+				this.killTimer(2);
+			}
+			break;
+	}
+};
+
+this.fnComBtnOnClick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	switch (obj.name)
+	{
+		case "btnMenu01" : // 메뉴 호출
+			var sFlag;
+			
+			if (this.fvMegaFlag == false) {
+				this.fvMegaFlag = true;
+				sFlag = "+";
+				
+				this.fnCreateMenu("010000", this.divMegaMenu.getOffsetWidth());
+				
+				obj.set_text("메뉴 닫기");
+			} else {
+				this.fvMegaFlag = false;
+				this.divMegaMenu.set_visible(false);
+				sFlag = "-";
+				
+				this.divMegaMenu.set_height(5);
+				
+				obj.set_text("메뉴 호출");
+			}
+			
+			this.resetScroll();
+			
+			// Form Size가 변경되었을 때 프레임에 적용
+			this.fnSetFrameSize(sFlag);			
+			break;
+			
+		default :
+			this.dsButtonIdx.setColumn(0, "Idx", obj.name.substr(obj.name.length - 1));
+			
+			this.objTarget = obj;
+			
+			var nTop = this.objTarget.getOffsetBottom();
+			
+			if (this.objTarget_befor != "") {
+				this.setTimer(1, 10);
+			} else {
+				this.divMenu.form.grdHideMenu.move(5, nTop, null, 0, 5, null);
+				this.setTimer(2, 10);
+			}			
+			break;
+	}
+};
+
+this.fnComStcOnClick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	switch (obj.name)
+	{
+		case "stcBg" :
+			this.divMenu1.set_visible(false);
+			
+			obj.sendToBack();
+			break;
+	}
+};
+
+this.fnMegaMenuStcOnClick = function(obj:nexacro.Static,e:nexacro.ClickEventInfo)
+{
+	this.fvMegaFlag = false;
+	
+	this.btnMenu01.set_text("메뉴 호출");
+	
+	alert(obj.text + " 호출!");
+	
+	this.divMegaMenu.set_visible(false);
+	
+	this.divMegaMenu.set_height(5);
+	
+	this.resetScroll();	
+	
+	sFlag = "-";
+	
+	// Form Size가 변경되었을 때 프레임에 적용
+	this.fnSetFrameSize(sFlag);
+};
+
+this.fnComGrdOnCellClick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	switch (obj.name)
+	{
+		case "grdAutoMenuSub" :
+			this.divMenu1.set_visible(false);
+			this.stcBg.sendToBack();			
+			break;
+	}
+};
+
+this.fnComGrdOnMouseEnter = function(obj:nexacro.Grid,e:nexacro.MouseEventInfo)
+{
+	switch (obj.name)
+	{
+		case "grdAutoMenu" :
+			this.fnActionAutoMenu(obj, e.row);
+			break;
+	}	
+}
+
+this.fnComGrdOnMouseMove = function(obj:nexacro.Grid,e:nexacro.GridMouseEventInfo)
+{
+	switch (obj.name)
+	{
+		case "grdAutoMenu" :
+			this.fnActionAutoMenu(obj, e.row);
+			break;
+	}	
+};
+
+this.fnSetFrameSize = function(sFlag)
+{
+	var p = this.parent.parent;
+	var nFormHeight;
+	
+	if (sFlag == "+") {
+		nFormHeight = this.height + this.fvMegaHeight;
+	} else if (sFlag == "-") {
+		nFormHeight = this.height - this.fvMegaHeight;
+	}
+	
+	p["mainPageOnLoad"].call(p, nFormHeight);	
+};
+
+// MegaMenu 생성
+this.fnCreateMenu = function(sMENU_CD, nMegaMenuWidth)
+{
+	var i, j;
+	var nLeft = 0;
+	var nTop = 0;
+	var nWidth = 100;
+	var nHeight = 16;
+	var nSubLeft = 10;
+	var nSubTop = 10;
+	var nMaxHeight = 0;
+	
+	var objPadding = {"x" : 10, "y" : 10};
+	var objStatic;
+	
+	var objComps = this.divMegaMenu.form.components;
+	var nLength;
+	var nCount;
+	var nSubCount;
+	
+	var sMenuCd;
+	var sMenuNm;
+	var sMenuLvl;
+	
+	this.dsMegaMenu.set_enableevent(false);
+	this.dsSubMenu.set_enableevent(false);
+	this.dsMegaMenu.filter('MENU_CD.toString().substr(0,2)=="' + sMENU_CD.substr(0, 2) + '"&&MENU_LVL!="0"');
+	this.dsSubMenu.copyData(this.dsMegaMenu, true);
+	this.dsMegaMenu.filter("");
+	
+	nLength = objComps.length;
+	
+	for (i = nLength - 1; i >= 0; i--)
+	{
+		this.divMegaMenu.removeChild(objComps[i].name);
+	}
+	
+	this.dsSubMenu.filter("MENU_LVL==1");
+	nCount = this.dsSubMenu.rowcount;
+	nLeft = nLeft + objPadding.x;
+	nTop = nTop + objPadding.y;
+	
+	for (i = 0; i < nCount; i++)
+	{
+		sMenuCd = this.dsSubMenu.getColumn(i, "MENU_CD");
+		sMenuNm = this.dsSubMenu.getColumn(i, "MENU_NM");
+				
+		objStatic = new Static("st" + sMenuCd, nLeft, nTop, nWidth, nHeight, null, null);
+		this.divMegaMenu.addChild(objStatic.name, objStatic);
+		objStatic.show();
+		objStatic.set_text(sMenuNm);
+		objStatic.set_font('normal bold 10pt/normal "Arial"');
+		
+		this.dsSubMenu.filter("UP_MENU_CD=='" + sMenuCd + "'");
+		nSubCount = this.dsSubMenu.rowcount;
+		
+		nSubLeft = nLeft + objPadding.x;
+		nSubTop = nTop + nHeight + objPadding.y;
+		
+		for (j = 0; j < nSubCount; j++)
+		{
+			sMenuCd = this.dsSubMenu.getColumn(j, "MENU_CD");
+			sMenuNm = this.dsSubMenu.getColumn(j, "MENU_NM");
+						
+			objStatic = new Static("st" + sMenuCd, nSubLeft, nSubTop, nWidth - (nLeft - nSubLeft) - objPadding.x, nHeight, null, null);
+			this.divMegaMenu.addChild(objStatic.name, objStatic);
+			objStatic.show();
+			objStatic.set_text(this.dsSubMenu.getColumn(j, "MENU_NM"));
+			objStatic.menuId = this.dsSubMenu.getColumn(j, "MENU_CD");
+			objStatic.addEventHandler("onclick", this.fnMegaMenuStcOnClick, this);
+			
+			nSubTop = nSubTop + nHeight + objPadding.y;
+		}
+		
+		if (nSubTop > nMaxHeight) nMaxHeight = nSubTop;
+				
+		nLeft = nLeft + nWidth + objPadding.x;
+		
+		if (nLeft + nWidth + objPadding.x > nMegaMenuWidth) {
+			nLeft = objPadding.x;
+			nTop = nMaxHeight + objPadding.y;
+		}
+		
+		this.dsSubMenu.filter("MENU_LVL==1");
+	}
+	
+	this.divMegaMenu.setOffsetWidth(nMegaMenuWidth);
+	this.divMegaMenu.setOffsetHeight(nMaxHeight + 10);
+	
+	this.fvMegaHeight = nMaxHeight + 10;
+	
+	this.dsSubMenu.set_enableevent(true);
+	this.dsMegaMenu.set_enableevent(true);
+	
+	this.divMegaMenu.set_visible(true);
+	this.divMegaMenu.bringToFront();
+};
+
+this.fnActionAutoMenu = function(objGrd, nRow)
+{
+	if (this.fvRow != nRow)
+	{
+		if (nRow < 0) {
+			this.divMenu1.set_visible(false);
+			return;
+		}
+
+		var nRowHeight = nexacro.toNumber(this.divMenu1.form.grdAutoMenuSub.getRealRowSize(0));
+		var nLeft = objGrd.getOffsetLeft() + objGrd.getOffsetWidth();
+		var nTop = objGrd.getOffsetTop() + (nRow * nRowHeight);
+		
+		this.fvRow = nRow;
+		this.divMenu1.set_visible(true);
+		this.divMenu1.move(nLeft - 34, nTop);
+		
+		sMENU_CD = this.dsGridMenu.getColumn(this.fvRow, "MENU_CD");
+		
+		this.dsMenu1.filter("UP_MENU_CD=='" + sMENU_CD + "'");
+		this.dsGridMenu2.copyData(this.dsMenu1, true);
+		this.dsMenu1.filter("");
+		
+		this.divMenu1.resize(this.divMenu1.getOffsetWidth(), this.divMenu1.form.grdAutoMenuSub.getRealRowFullSize());
+		
+		this.stcBg.bringToFront();
+		this.grdAutoMenu.bringToFront();
+		this.divMenu1.bringToFront();
+	}	
+};
+
+this.fnSetAccordionMenu = function()
+{
+	var i;
+	var objBtn;
+	var nTop = 0;
+	var sMenuNm;
+	
+	this.dsMenu.filter("level==0");
+	
+	for (i = 0; i < this.dsMenu.rowcount; i++)
+	{
+		sMenuNm = this.dsMenu.getColumn(i, "caption");
+		
+		objBtn = new Button("btnMenu" + i, 0, nTop, null, 40, 0, null);
+		this.divMenu.addChild(objBtn.name, objBtn);
+		
+		objBtn.show();
+		
+		objBtn.set_cssclass("btn_WF_basic02");
+		objBtn.set_text(sMenuNm);
+		objBtn.orgTop = nTop;
+		
+		objBtn.addEventHandler("onclick", this.fnComBtnOnClick, this);
+		nTop = objBtn.getOffsetBottom() + 2;
+	}
+	
+	this.dsMenu.filter("");
+	this.divMenu.form.btnMenu0.click();
+};
+
+this.fnMoveAni = function(t, b, c, d) 
+{
+	t /= d / 2;
+	if (t < 1) return c / 2 * t * t * t + b;
+	t -= 2;
+	
+	return c / 2 * (t * t * t + 2) + b;
+};]]></Script>
+  </Form>
+</FDL>

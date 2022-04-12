@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="work" classname="work" left="0" top="0" width="1025" height="674" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" cssclass="sta_WFSA_BG" left="30" top="98" right="15" height="50"/>
+        <Static id="Static01" taborder="1" text="Search :" left="45" top="105" width="50" height="34"/>
+        <Combo id="Comb_year" taborder="2" value="2014" text="2014" innerdataset="year" codecolumn="Column0" datacolumn="Column0" index="0" onitemchanged="Comb_year_onitemchanged" left="99" top="106" width="80" height="34"/>
+        <Combo id="Comb_month" taborder="3" value="01" text="01" innerdataset="@month" codecolumn="Column0" datacolumn="Column0" index="0" onitemchanged="Comb_year_onitemchanged" left="184" top="106" width="80" height="34"/>
+        <Static id="Static02" taborder="4" text="Division :" left="294" top="105" width="60" height="34"/>
+        <Combo id="Comb_year00" taborder="5" innerdataset="@ds_gubun" codecolumn="CODE_ID" datacolumn="CODE_NM" index="-1" onitemchanged="Comb_year_onitemchanged" left="357" top="106" width="120" height="34" text="Employee number"/>
+        <Edit id="ect_condition" taborder="6" onsetfocus="ect_condition_onsetfocus" left="482" top="106" width="200" height="34" background="#ffffff"/>
+        <Button id="Btn_search" taborder="7" cssclass="button_WF_white" top="106" height="34" width="70" text="Search" left="702"/>
+        <Grid id="grd_list" taborder="8" binddataset="ds_user" useinputpanel="false" autofittype="col" left="30" top="158" right="15" bottom="324">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="79"/>
+                <Column size="80"/>
+                <Column size="74"/>
+                <Column size="118"/>
+                <Column size="80"/>
+                <Column size="98"/>
+                <Column size="99"/>
+                <Column size="101"/>
+                <Column size="105"/>
+                <Column size="103"/>
+                <Column size="89"/>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" style="accessibility: ;" text="Division" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" colspan="5" text="Basic Information" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" colspan="4" text="Contact" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="10" rowspan="2" text="Approval" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="11" rowspan="2" style="accessibility:enable all 'Remark last column' '';" text="Remarks" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="1" text="Employ no" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="2" text="Sex" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="3" text="Name" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="4" text="ID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="5" text="Date of joined" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="6" text="E-Mail" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="7" text="Phone" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="8" text="Cellphone" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell row="1" col="9" text="Fax" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" style="accessibility:EXPR(&quot;enable all '&quot;+USER_NM+&quot;'     &quot;);" text="bind:CHK" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="1" edittype="readonly" text="bind:SAWON_ID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="2" displaytype="combo" edittype="combo" text="bind:SEX_GUBUN" combodataset="ds_sex" combocodecol="CODE_ID" combodatacol="CODE_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="3" edittype="normal" style="align:left;" text="bind:USER_ENG_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="4" edittype="normal" text="bind:USER_ID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="5" displaytype="date" edittype="date" text="bind:JOIN_DATE" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="6" edittype="normal" style="align:left;" text="bind:MAIL_ID" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="7" edittype="normal" style="align:left;" text="bind:TEL_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="8" edittype="normal" style="align:left;" text="bind:CEL_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="9" edittype="normal" style="align:left;" text="bind:FAX_NO" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="10" displaytype="combo" edittype="combo" text="bind:APPRO_YN" combodataset="ds_appro" combocodecol="CODE_ID" combodatacol="CODE_NM" font="14px/normal &quot;맑은 고딕&quot;"/>
+                <Cell col="11" edittype="textarea" text="bind:BIGO" font="14px/normal &quot;맑은 고딕&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static03" taborder="9" text="Detail Information" cssclass="sta_WF_subtit" left="30" width="127" height="18" bottom="286"/>
+        <Static id="Static04" taborder="10" text="Name" cssclass="sta_WFDA_labelB" left="30" width="125" height="40" bottom="236"/>
+        <Static id="Static05" taborder="11" cssclass="sta_WFDA_B" left="153" width="206" height="40" bottom="236"/>
+        <Static id="Static07" taborder="13" text="ID" cssclass="sta_WFDA_labelB" left="30" width="125" height="40" bottom="197"/>
+        <Static id="Static08" taborder="14" cssclass="sta_WFDA_B" left="153" width="206" height="40" bottom="158"/>
+        <Static id="Static09" taborder="15" text="Phone" cssclass="sta_WFDA_labelB" left="30" width="125" height="40" bottom="158"/>
+        <Static id="Static14" taborder="16" cssclass="sta_WFDA_B" left="482" width="206" height="40" bottom="236"/>
+        <Static id="Static15" taborder="17" cssclass="sta_WFDA_B" left="482" width="206" height="40" bottom="197"/>
+        <Static id="Static16" taborder="18" text="Date of joined" cssclass="sta_WFDA_labelB" left="358" width="125" height="40" bottom="197"/>
+        <Static id="Static17" taborder="19" cssclass="sta_WFDA_B" left="482" width="206" height="40" bottom="158"/>
+        <Static id="Static18" taborder="20" text="Cellphone" cssclass="sta_WFDA_labelB" left="358" width="125" height="40" bottom="158"/>
+        <Static id="Static21" taborder="21" cssclass="sta_WFDA_B" left="811" height="40" right="15" bottom="236"/>
+        <Static id="Static22" taborder="22" cssclass="sta_WFDA_B" left="811" height="40" right="15" bottom="197"/>
+        <Static id="Static24" taborder="23" cssclass="sta_WFDA_B" left="811" height="40" right="15" bottom="158"/>
+        <Static id="Static25" taborder="24" text="Fax" cssclass="sta_WFDA_labelB" left="687" width="125" height="40" bottom="158"/>
+        <Static id="Static28" taborder="25" text="Sex" cssclass="sta_WFDA_labelB" left="687" width="125" height="40" bottom="236"/>
+        <Static id="Static29" taborder="26" text="Approval" cssclass="sta_WFDA_labelB" left="687" width="125" height="40" bottom="197"/>
+        <Edit id="Edit00" taborder="27" left="159" width="194" height="28" bottom="242"/>
+        <Edit id="Edit02" taborder="28" left="159" width="194" height="28" bottom="164"/>
+        <Edit id="Edit05" taborder="29" left="488" width="194" height="28" bottom="164"/>
+        <Edit id="Edit06" taborder="30" left="488" width="194" height="28" bottom="242"/>
+        <Edit id="Edit08" taborder="31" left="816" width="194" height="28" bottom="164"/>
+        <Combo id="Combo00" taborder="32" innerdataset="@ds_sex" codecolumn="CODE_ID" datacolumn="CODE_NM" left="816" width="100" height="28" bottom="242"/>
+        <Radio id="Radio00" taborder="33" columncount="2" rowcount="0" innerdataset="ds_appro" codecolumn="CODE_ID" datacolumn="CODE_NM" onsetfocus="Div_detail_Radio00_onsetfocus" onitemchanged="Div_detail_Radio00_onitemchanged" left="816" width="119" height="20" bottom="206"/>
+        <Calendar id="Calendar00" taborder="34" left="488" width="194" height="28" bottom="203"/>
+        <Static id="St_title" taborder="35" text="UI Standard(single case handling)" cssclass="sta_WF_subtit" left="30" top="58" width="505" height="30"/>
+        <Static id="st_progress" taborder="36" text="location &gt; UI Standard(single case handling)" cssclass="sta_WF_progress" left="30" top="18" width="808" height="30"/>
+        <Static id="Static23" taborder="37" cssclass="sta_WFDA_labelB" left="358" bottom="236" width="125" height="40" text="E-Mail"/>
+        <Static id="Static12" taborder="38" cssclass="sta_WFDA_B" left="154" right="15" bottom="30" height="129"/>
+        <Static id="Static13" taborder="39" text="Remarks" cssclass="sta_WFDA_labelB" left="30" bottom="30" width="125" height="129"/>
+        <TextArea id="TextArea00" taborder="40" left="159" right="20" bottom="36" height="117"/>
+        <Static id="Static06" taborder="12" cssclass="sta_WFDA_B" left="153" width="206" height="40" bottom="197" visible="true"/>
+        <Edit id="Edit01" taborder="41" left="159" width="194" height="28" bottom="203" visible="true"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="year" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">2014</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2013</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2012</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2011</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2010</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2009</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2008</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2007</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2006</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2005</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2004</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="month" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">01</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">02</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">03</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">05</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">06</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">07</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">08</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">09</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">12</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_gubun" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE_ID" type="STRING" size="256"/>
+          <Column id="CODE_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE_ID">A</Col>
+            <Col id="CODE_NM">Employ no</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_ID">B</Col>
+            <Col id="CODE_NM">Name</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_ID">C</Col>
+            <Col id="CODE_NM">ID</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_user" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="SAWON_ID" type="STRING" size="256"/>
+          <Column id="SEX_GUBUN" type="STRING" size="256"/>
+          <Column id="USER_NM" type="STRING" size="256"/>
+          <Column id="USER_ENG_NM" type="STRING" size="256"/>
+          <Column id="USER_ID" type="STRING" size="256"/>
+          <Column id="JOIN_DATE" type="STRING" size="256"/>
+          <Column id="MAIL_ID" type="STRING" size="256"/>
+          <Column id="TEL_NO" type="STRING" size="256"/>
+          <Column id="CEL_NO" type="STRING" size="256"/>
+          <Column id="FAX_NO" type="STRING" size="256"/>
+          <Column id="APPRO_YN" type="STRING" size="256"/>
+          <Column id="BIGO" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CHK">0</Col>
+            <Col id="SAWON_ID">0503021</Col>
+            <Col id="SEX_GUBUN">M</Col>
+            <Col id="USER_NM">Tome</Col>
+            <Col id="USER_ENG_NM">Tome</Col>
+            <Col id="USER_ID">A0503021</Col>
+            <Col id="JOIN_DATE">20050302</Col>
+            <Col id="MAIL_ID">hongkil@tobesoft.com</Col>
+            <Col id="TEL_NO">02-2140-7700</Col>
+            <Col id="CEL_NO">010-2140-7700</Col>
+            <Col id="FAX_NO">02-2140-7788</Col>
+            <Col id="APPRO_YN">Y</Col>
+            <Col id="BIGO">Remarks</Col>
+          </Row>
+          <Row>
+            <Col id="CHK">0</Col>
+            <Col id="SAWON_ID">0503022</Col>
+            <Col id="SEX_GUBUN">M</Col>
+            <Col id="USER_NM">Bess</Col>
+            <Col id="USER_ENG_NM">Bess</Col>
+            <Col id="USER_ID">A0503022</Col>
+            <Col id="JOIN_DATE">20050302</Col>
+            <Col id="MAIL_ID">leesun@tobesoft.com</Col>
+            <Col id="TEL_NO">02-2140-7701</Col>
+            <Col id="CEL_NO">010-2140-7701</Col>
+            <Col id="FAX_NO">02-2140-7788</Col>
+            <Col id="APPRO_YN">Y</Col>
+            <Col id="BIGO"/>
+          </Row>
+          <Row>
+            <Col id="CHK">0</Col>
+            <Col id="SAWON_ID">0503031</Col>
+            <Col id="SEX_GUBUN">F</Col>
+            <Col id="USER_NM">Tony</Col>
+            <Col id="USER_ENG_NM">Tony</Col>
+            <Col id="USER_ID">A0503031</Col>
+            <Col id="JOIN_DATE">20050303</Col>
+            <Col id="MAIL_ID">ryukwan@tobesoft.com</Col>
+            <Col id="TEL_NO">02-2140-7702</Col>
+            <Col id="CEL_NO">010-2140-7702</Col>
+            <Col id="FAX_NO">02-2140-7788</Col>
+            <Col id="APPRO_YN">Y</Col>
+            <Col id="BIGO">Remarks</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sex" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE_ID" type="STRING" size="256"/>
+          <Column id="CODE_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE_ID">M</Col>
+            <Col id="CODE_NM">Man </Col>
+          </Row>
+          <Row>
+            <Col id="CODE_ID">F</Col>
+            <Col id="CODE_NM">Female</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_appro" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE_ID" type="STRING" size="256"/>
+          <Column id="CODE_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE_ID">Y</Col>
+            <Col id="CODE_NM">Y</Col>
+          </Row>
+          <Row>
+            <Col id="CODE_ID">N</Col>
+            <Col id="CODE_NM">N</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item10" compid="Radio00" propid="value" datasetid="ds_user" columnid="APPRO_YN"/>
+      <BindItem id="item0" compid="Edit06" propid="value" datasetid="ds_user" columnid="MAIL_ID"/>
+      <BindItem id="item1" compid="Edit00" propid="value" datasetid="ds_user" columnid="USER_NM"/>
+      <BindItem id="item2" compid="Combo00" propid="value" datasetid="ds_user" columnid="SEX_GUBUN"/>
+      <BindItem id="item4" compid="Static15" propid="text" datasetid="ds_user" columnid="JOIN_DATE"/>
+      <BindItem id="item5" compid="Radio00" propid="index" datasetid="ds_user" columnid="APPRO_YN"/>
+      <BindItem id="item6" compid="Edit02" propid="value" datasetid="ds_user" columnid="TEL_NO"/>
+      <BindItem id="item7" compid="Static17" propid="text" datasetid="ds_user" columnid="CEL_NO"/>
+      <BindItem id="item8" compid="Edit08" propid="value" datasetid="ds_user" columnid="FAX_NO"/>
+      <BindItem id="item9" compid="TextArea00" propid="value" datasetid="ds_user" columnid="BIGO"/>
+      <BindItem id="item3" compid="Edit01" propid="value" datasetid="ds_user" columnid="USER_ID"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+this.Comb_year_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	
+};
+
+this.btn_next_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

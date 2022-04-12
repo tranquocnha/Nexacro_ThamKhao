@@ -1,0 +1,897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE001" inheritanceid="" position="absolute" titletext="GRID TAB" onbeforeclose="form_onbeforeclose" onload="form_onload" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="st_BG" position="absolute" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Static id="st_Title" text="domain.user.list" position="absolute" wordwrap="english" left="15" width="204" top="38" height="22" cssclass="sta_WF_title"/>
+        <Button id="btn_Delete" taborder="2" text="domain.delete" position="absolute" onclick="btn_Delete_onclick" userdata="A:D;" right="60" width="42" top="128" height="23" cssclass="btn_WF_crud"/>
+        <Button id="btn_Save" taborder="3" text="domain.save" position="absolute" onclick="btn_Save_onclick" userdata="A:T;" right="15" width="42" top="128" height="23" cssclass="btn_module"/>
+        <Grid id="grd_GrdUser" taborder="1" binddataset="ds_GrdUser" autoenter="select" useinputpanel="false" selecttype="multirow" cellsizingtype="col" autofittype="col" nodatatext="There is no inquiry data." onrbuttonup="divGrd_grdCategory_onrbuttonup" position="absolute" style="align:center middle;font:dotum,9;" fillareatype="none" userdata="A=U" left="15" right="15" top="156" bottom="219" onheadclick="grd_GrdUser_onheadclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="36"/>
+                <Column size="85"/>
+                <Column size="96"/>
+                <Column size="128"/>
+                <Column size="134"/>
+                <Column size="252"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox" text="0"/>
+                <Cell col="1" text="domain.user.id"/>
+                <Cell col="2" text="domain.user.name"/>
+                <Cell col="3" text="domain.phone"/>
+                <Cell col="4" text="domain.cellphone"/>
+                <Cell col="5" text="domain.email"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:_chk"/>
+                <Cell col="1" style="align:left;" text="bind:USER_ID"/>
+                <Cell col="2" style="align:left;" text="bind:USER_NAME"/>
+                <Cell col="3" style="align:left;" text="bind:PHONE"/>
+                <Cell col="4" style="align:left;" text="bind:CELL_PHONE"/>
+                <Cell col="5" style="align:left;" text="bind:EMAIL"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Tab id="tb_UserDetail" taborder="1" tabindex="0" scrollbars="autoboth" position="absolute" userdata="A:U;" left="15" right="-15" bottom="10" height="194">
+          <Tabpages>
+            <Tabpage id="tbp_BasicInfo" text="domain.info.basic" scrollbars="none">
+              <Layouts>
+                <Layout>
+                  <Static id="sta_WFDA_Label03" position="absolute" left="609" top="40" height="32" cssclass="sta_WFDA_B" right="30"/>
+                  <Static id="sta_WFDA_Label04" position="absolute" left="609" top="71" height="32" cssclass="sta_WFDA_B" right="30"/>
+                  <Static id="sta_WFDA_Label05" position="absolute" left="609" top="102" height="32" cssclass="sta_WFDA_B" right="30"/>
+                  <Static id="sta_WFDA_Label06" position="absolute" left="609" top="133" height="32" cssclass="sta_WFDA_B" right="30"/>
+                  <Static id="sta_WFDA_Label01" position="absolute" left="107" width="385" top="102" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="sta_WFDA_Label02" position="absolute" left="107" width="385" top="133" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="stUserName" text="domain.user.name" position="absolute" left="0" width="108" top="71" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="sta_WFDA_Label00" position="absolute" left="107" width="385" top="71" height="32" cssclass="sta_WFDA_B"/>
+                  <Static id="stUserId" text="domain.user.id" position="absolute" left="0" width="108" top="40" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtUserName" taborder="1" position="absolute" left="113" width="373" top="77" height="20" cssclass="input_point"/>
+                  <Static id="stPassword" text="domain.password" position="absolute" left="0" width="108" top="102" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtPassword" taborder="1" password="true" position="absolute" left="113" width="373" top="108" height="20" cssclass="input_point"/>
+                  <Static id="stEnName" text="domain.enname" position="absolute" left="0" width="108" top="133" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtEnName" taborder="1" position="absolute" left="113" width="373" top="139" height="20"/>
+                  <Static id="stHomeNumber" text="domain.phone.home" position="absolute" left="502" width="108" top="102" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtHomeNumber" taborder="1" position="absolute" left="615" width="375" top="108" height="20"/>
+                  <Static id="stCellPhone" text="domain.cellphone" position="absolute" left="502" width="108" top="133" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtCellPhone" taborder="1" position="absolute" left="615" width="375" top="139" height="20"/>
+                  <Edit id="edtDetailAddr" taborder="1" position="absolute" left="615" width="375" top="77" height="20"/>
+                  <Static id="stDetailAddr" text="domain.addr.detail" position="absolute" left="502" width="108" top="71" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stZipCode" text="domain.zipcode" position="absolute" left="502" width="108" top="40" height="32" cssclass="sta_WFDA_labelB"/>
+                  <MaskEdit id="mskEdtZipCode" taborder="1" type="string" mask="###-###" position="absolute" style="align:left middle;" left="615" width="69" top="46" height="20"/>
+                  <Static id="st_Title" text="domain.user" wordwrap="english" position="absolute" left="0" width="204" top="16" height="20" cssclass="sta_WF_subtit"/>
+                  <Static id="sta_WFDA_Label07" position="absolute" left="107" width="385" top="40" height="32" cssclass="sta_WFDA_B"/>
+                  <Edit id="edtUserId" taborder="1" readonly="false" position="absolute" left="113" width="373" top="46" height="20" cssclass="input_point"/>
+                  <Static id="st_Title00" text="domain.addr.phone" wordwrap="english" position="absolute" left="502" width="204" top="16" height="20" cssclass="sta_WF_subtit"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tbp_AdditionalInfo" text="domain.info.additional">
+              <Layouts>
+                <Layout>
+                  <Static id="sta_WFDA_Label08" taborder="2" cssclass="sta_WFDA_B" left="107" top="133" width="385" height="32"/>
+                  <Static id="sta_WFDA_Label09" taborder="3" cssclass="sta_WFDA_B" left="107" top="102" width="385" height="32"/>
+                  <Static id="sta_WFDA_Label10" taborder="4" cssclass="sta_WFDA_B" left="107" top="71" width="385" height="32"/>
+                  <Static id="sta_WFDA_Label11" taborder="5" cssclass="sta_WFDA_B" left="107" top="40" width="385" height="32"/>
+                  <Static id="sta_WFDA_Label12" taborder="6" cssclass="sta_WFDA_B" left="609" top="41" right="30" height="32"/>
+                  <Static id="sta_WFDA_Label13" taborder="7" cssclass="sta_WFDA_B" left="609" top="72" right="30" height="32"/>
+                  <Static id="sta_WFDA_Label14" taborder="8" cssclass="sta_WFDA_B" left="609" top="103" right="30" height="32"/>
+                  <Static id="sta_WFDA_Label15" taborder="9" cssclass="sta_WFDA_B" left="609" top="134" right="30" height="32"/>
+                  <Static id="stUserName" text="domain.department" position="absolute" left="0" width="108" top="71" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stUserId" text="domain.company" position="absolute" left="0" width="108" top="40" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stPassword" text="domain.position" position="absolute" left="0" width="108" top="102" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stEnName" text="domain.assignment" position="absolute" left="0" width="108" top="133" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stHomeNumber" text="domain.fax" position="absolute" left="502" width="108" top="103" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stCellPhone" text="domain.email" position="absolute" left="502" width="108" top="134" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stDetailAddr" text="domain.addr.detail.office" position="absolute" left="502" width="108" top="72" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Static id="stZipCode" text="domain.zipcode.office" position="absolute" left="502" width="108" top="41" height="32" cssclass="sta_WFDA_labelB"/>
+                  <Edit id="edtCompany" taborder="1" readonly="true" position="absolute" left="113" width="234" top="46" height="20" cssclass="readonly"/>
+                  <Edit id="edtPosition" taborder="1" position="absolute" left="113" width="234" top="108" height="20" cssclass="input_point"/>
+                  <Edit id="edtAssignment" taborder="1" position="absolute" left="113" width="234" top="139" height="20"/>
+                  <MaskEdit id="mskEdtCompZipCode" taborder="1" type="string" mask="###-###" position="absolute" style="align:left middle;" left="615" width="61" top="47" height="20"/>
+                  <Edit id="edtOfficeDetailAddr" taborder="1" position="absolute" left="615" width="237" top="78" height="20"/>
+                  <Edit id="edtFax" taborder="1" position="absolute" left="615" width="237" top="109" height="20"/>
+                  <Edit id="edtEmail" taborder="1" position="absolute" left="615" width="237" top="140" height="20"/>
+                  <Combo id="cmbDept" taborder="1" innerdataset="@ds_CboDept" codecolumn="DEPT_ID" datacolumn="DEPT_NAME" position="absolute" displayrowcount="-1" left="113" width="234" top="77" height="20" cssclass="input_point"/>
+                  <Static id="st_Title00" text="domain.addr.office" wordwrap="english" position="absolute" left="502" width="204" top="17" height="20" cssclass="sta_WF_subtit"/>
+                  <Static id="st_Title01" text="domain.place" wordwrap="english" position="absolute" left="0" width="204" top="16" height="20" cssclass="sta_WF_subtit"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Button id="btn_Insert" taborder="1" text="domain.add" position="absolute" onclick="btn_Insert_onclick" userdata="A:I;" right="105" width="42" top="128" height="23" cssclass="btn_WF_crud"/>
+        <Static id="Static42" taborder="4" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="5" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="6" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="7" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="8" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static32" taborder="9" text="40" visible="false" left="427" top="116" width="50" height="40" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static44" taborder="10" text="10" visible="false" left="-15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="Static00" taborder="11" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="46"/>
+        <Button id="btn_Search" taborder="1" position="absolute" onclick="btn_Search_onclick" defaultbutton="true" right="15" width="51" top="70" height="46" cssclass="btn_WF_search"/>
+        <Static id="st_searchCondition" text="domain.search.condition" position="absolute" left="35" width="122" top="83" height="20" cssclass="sta_WFSA_label"/>
+        <Combo id="cmb_searchCondition" taborder="1" value="0" codecolumn="codecolumn" datacolumn="datacolumn" index="0" position="absolute" left="184" width="114" top="83" height="20">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">domain.name</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">domain.user.id</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Edit id="edt_searchKeyword" taborder="1" position="absolute" onkeydown="edt_searchKeyword_onkeydown" left="300" width="134" top="83" height="20"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdBoard" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageCount" type="INT" size="30" value="0"/>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="0"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="0"/>
+          <ConstColumn id="totalCount" type="INT" size="30" value="0"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="CONTENTS" type="STRING" size="256"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="DATE" size="8"/>
+          <Column id="POST_ID" type="STRING" size="256"/>
+          <Column id="COMMUNITY_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_GrdBoardValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="CONTENTS" type="STRING" size="256"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="DATE" size="8"/>
+          <Column id="POST_ID" type="STRING" size="256"/>
+          <Column id="COMMUNITY_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TITLE">title:title,required:true,maxlength:150</Col>
+            <Col id="CONTENTS">title:contents,maxlength:360</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CboCommunity" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COMMUNITY_ID" type="STRING" size="256"/>
+          <Column id="COMMUNITY_NAME" type="STRING" size="256"/>
+          <Column id="COMMUNITY_DESC" type="STRING" size="256"/>
+          <Column id="CATEGORY_ID" type="STRING" size="256"/>
+          <Column id="REG_ID" type="STRING" size="256"/>
+          <Column id="RED_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_GrdUser" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="USER_ID" type="string" size="16"/>
+          <Column id="USER_NAME" type="string" size="20"/>
+          <Column id="EN_NAME" type="string" size="20"/>
+          <Column id="COMP_PHONE" type="string" size="20"/>
+          <Column id="PHONE" type="string" size="20"/>
+          <Column id="CELL_PHONE" type="string" size="20"/>
+          <Column id="COMPANY" type="string" size="60"/>
+          <Column id="JOB_POSITION" type="string" size="60"/>
+          <Column id="ASSIGNMENT" type="string" size="60"/>
+          <Column id="OFFICER_YN" type="string" size="1"/>
+          <Column id="FAX" type="string" size="20"/>
+          <Column id="ZIP_CODE" type="string" size="10"/>
+          <Column id="ADDRESS" type="string" size="300"/>
+          <Column id="COMP_ZIP_CODE" type="string" size="10"/>
+          <Column id="COMP_ADDRESS" type="string" size="300"/>
+          <Column id="EMAIL" type="string" size="30"/>
+          <Column id="DEPT_ID" type="string" size="16"/>
+          <Column id="PASSWORD" type="string" size="16"/>
+          <Column id="USERID" type="string" size="32"/>
+          <Column id="_chk" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="USER_ID">chulsoo</Col>
+            <Col id="USER_NAME">Chulsoo  Kim</Col>
+            <Col id="EN_NAME">Chulsoo  Kim</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Team Manager </Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">Y</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">432221</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">chulsoo1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0008</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">dongnam</Col>
+            <Col id="USER_NAME">Dongnam Yoon</Col>
+            <Col id="EN_NAME">Dongnam Yoon</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager </Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">432221</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">dongnam1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">dongwoo</Col>
+            <Col id="USER_NAME">Lee Dongwoo</Col>
+            <Col id="EN_NAME">Lee Dongwoo</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager </Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">445370</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">dongwoo.lee1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">hong80</Col>
+            <Col id="USER_NAME">Hong Gildong</Col>
+            <Col id="EN_NAME">Hong Gildong</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">463810</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">gildong@naver.com</Col>
+            <Col id="DEPT_ID">DEPT-0007</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">jihyun</Col>
+            <Col id="USER_NAME">Lee Jihyun</Col>
+            <Col id="EN_NAME">Lee Jihyun</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">330814</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">jihyun.lee1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0011</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">js.park</Col>
+            <Col id="USER_NAME">Jaesu Park</Col>
+            <Col id="EN_NAME">Jaesu Park</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">445330</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">js.park1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0011</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kyungho</Col>
+            <Col id="USER_NAME">Kyungho Kim</Col>
+            <Col id="EN_NAME">Kyungho Kim</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">702260</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">kyungho.kim1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kyungjiin</Col>
+            <Col id="USER_NAME">Kyungjiin Lee</Col>
+            <Col id="EN_NAME">Kyungjiin Lee</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">435040</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">kyungjiin.lee1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">sooni</Col>
+            <Col id="USER_NAME">Sooni Kim</Col>
+            <Col id="EN_NAME">Sooni Kim</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">Y</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">sooni1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0010</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">soungsoo</Col>
+            <Col id="USER_NAME">Sungsoo Kim</Col>
+            <Col id="EN_NAME">Sungsoo Kim</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Engineer</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-455-4553</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">506253</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">soungsoo.kim1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0004</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yongmi</Col>
+            <Col id="USER_NAME">Youngmi Lee</Col>
+            <Col id="EN_NAME">Youngmi Lee</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Engineer</Col>
+            <Col id="ASSIGNMENT">Sales 1 Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">yongmi1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0009</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yuli</Col>
+            <Col id="USER_NAME">Yuli Lee</Col>
+            <Col id="EN_NAME">Yuli Lee</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Engineer</Col>
+            <Col id="ASSIGNMENT">Sales 1 Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2140-1234</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">330300</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">yuli.lee1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CboDept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="DEPT_ID" type="string" size="16"/>
+          <Column id="DEPT_NAME" type="string" size="60"/>
+          <Column id="DEPT_DESC" type="string" size="300"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="DEPT_NAME">Sales group</Col>
+            <Col id="DEPT_DESC">This is sales group.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0002</Col>
+            <Col id="DEPT_NAME">Developer group</Col>
+            <Col id="DEPT_DESC">This is developer group.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="DEPT_NAME">RnD Group</Col>
+            <Col id="DEPT_DESC">This is RnD group.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0004</Col>
+            <Col id="DEPT_NAME">General affairs group</Col>
+            <Col id="DEPT_DESC">This is general affairs group.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0005</Col>
+            <Col id="DEPT_NAME">HR Group</Col>
+            <Col id="DEPT_DESC">This is HR group.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0006</Col>
+            <Col id="DEPT_NAME">Education group</Col>
+            <Col id="DEPT_DESC">This is education group.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0007</Col>
+            <Col id="DEPT_NAME">Domestic sales team 1</Col>
+            <Col id="DEPT_DESC">This is domestic sales team 1.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0008</Col>
+            <Col id="DEPT_NAME">Domestic sales team 2</Col>
+            <Col id="DEPT_DESC">This is domestic sales team 2.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0009</Col>
+            <Col id="DEPT_NAME">Overseas sales</Col>
+            <Col id="DEPT_DESC">This is overseas sales team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0010</Col>
+            <Col id="DEPT_NAME">Design development team</Col>
+            <Col id="DEPT_DESC">This is design development team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0011</Col>
+            <Col id="DEPT_NAME">Product development team</Col>
+            <Col id="DEPT_DESC">This is product development team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0012</Col>
+            <Col id="DEPT_NAME">RnD1 team</Col>
+            <Col id="DEPT_DESC">This is RnD1 team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0013</Col>
+            <Col id="DEPT_NAME">RnD2 team</Col>
+            <Col id="DEPT_DESC">This is RnD2 team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0014</Col>
+            <Col id="DEPT_NAME">RnD3 team</Col>
+            <Col id="DEPT_DESC">This is RnD3 team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0015</Col>
+            <Col id="DEPT_NAME">RnD4 team</Col>
+            <Col id="DEPT_DESC">This is RnD4 team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0016</Col>
+            <Col id="DEPT_NAME">Business management team</Col>
+            <Col id="DEPT_DESC">This is business management team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0017</Col>
+            <Col id="DEPT_NAME">Support team</Col>
+            <Col id="DEPT_DESC">This is support team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0018</Col>
+            <Col id="DEPT_NAME">Purchase team</Col>
+            <Col id="DEPT_DESC">This is purchase team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0019</Col>
+            <Col id="DEPT_NAME">HR team</Col>
+            <Col id="DEPT_DESC">This is HR team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0020</Col>
+            <Col id="DEPT_NAME">HR planning team</Col>
+            <Col id="DEPT_DESC">This is HR planning team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0021</Col>
+            <Col id="DEPT_NAME">Talent development team</Col>
+            <Col id="DEPT_DESC">This is talent development team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0022</Col>
+            <Col id="DEPT_NAME">Partner team</Col>
+            <Col id="DEPT_DESC">This is partner team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0023</Col>
+            <Col id="DEPT_NAME">Internal training team</Col>
+            <Col id="DEPT_DESC">This is internal training team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0024</Col>
+            <Col id="DEPT_NAME">External training team</Col>
+            <Col id="DEPT_DESC">This is external training team.</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0025</Col>
+            <Col id="DEPT_NAME">Education team</Col>
+            <Col id="DEPT_DESC">This is education team.</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item17" compid="cmb_searchCondition" propid="value" datasetid="ds_Search" columnid="SEARCH_CONDITION"/>
+      <BindItem id="item18" compid="edt_searchKeyword" propid="value" datasetid="ds_Search" columnid="SEARCH_KEYWORD"/>
+      <BindItem id="item5" compid="tb_UserDetail.tbp_BasicInfo.edtUserId" propid="value" datasetid="ds_GrdUser" columnid="USER_ID"/>
+      <BindItem id="item0" compid="tb_UserDetail.tbp_BasicInfo.edtUserName" propid="value" datasetid="ds_GrdUser" columnid="USER_NAME"/>
+      <BindItem id="item1" compid="tb_UserDetail.tbp_BasicInfo.edtPassword" propid="value" datasetid="ds_GrdUser" columnid="PASSWORD"/>
+      <BindItem id="item2" compid="tb_UserDetail.tbp_BasicInfo.edtEnName" propid="value" datasetid="ds_GrdUser" columnid="EN_NAME"/>
+      <BindItem id="item3" compid="tb_UserDetail.tbp_BasicInfo.mskEdtZipCode" propid="value" datasetid="ds_GrdUser" columnid="ZIP_CODE"/>
+      <BindItem id="item4" compid="tb_UserDetail.tbp_BasicInfo.edtDetailAddr" propid="value" datasetid="ds_GrdUser" columnid="ADDRESS"/>
+      <BindItem id="item6" compid="tb_UserDetail.tbp_BasicInfo.edtHomeNumber" propid="value" datasetid="ds_GrdUser" columnid="PHONE"/>
+      <BindItem id="item7" compid="tb_UserDetail.tbp_BasicInfo.edtCellPhone" propid="value" datasetid="ds_GrdUser" columnid="CELL_PHONE"/>
+      <BindItem id="item16" compid="tb_UserDetail.tbp_AdditionalInfo.edtCompany" propid="value" datasetid="ds_GrdUser" columnid="COMPANY"/>
+      <BindItem id="item8" compid="tb_UserDetail.tbp_AdditionalInfo.edtPosition" propid="value" datasetid="ds_GrdUser" columnid="JOB_POSITION"/>
+      <BindItem id="item9" compid="tb_UserDetail.tbp_AdditionalInfo.edtAssignment" propid="value" datasetid="ds_GrdUser" columnid="ASSIGNMENT"/>
+      <BindItem id="item10" compid="tb_UserDetail.tbp_AdditionalInfo.mskEdtCompZipCode" propid="value" datasetid="ds_GrdUser" columnid="COMP_ZIP_CODE"/>
+      <BindItem id="item11" compid="tb_UserDetail.tbp_AdditionalInfo.edtFax" propid="value" datasetid="ds_GrdUser" columnid="FAX"/>
+      <BindItem id="item12" compid="tb_UserDetail.tbp_AdditionalInfo.edtEmail" propid="value" datasetid="ds_GrdUser" columnid="EMAIL"/>
+      <BindItem id="item13" compid="tb_UserDetail.tbp_AdditionalInfo.edtOfficeDetailAddr" propid="value" datasetid="ds_GrdUser" columnid="COMP_ADDRESS"/>
+      <BindItem id="item14" compid="tb_UserDetail.tbp_AdditionalInfo.cmbDept" propid="value" datasetid="ds_GrdUser" columnid="DEPT_ID"/>
+      <BindItem id="item15" compid="tb_UserDetail.tbp_AdditionalInfo.tb_UserDetail.tbp_BasicInfo.edtUserName" propid="value" datasetid="ds_GrdUser" columnid="USER_NAME"/>
+      <BindItem id="item19" compid="tb_UserDetail.tbp_AdditionalInfo.tb_UserDetail.tbp_BasicInfo.edtPassword" propid="value" datasetid="ds_GrdUser" columnid="PASSWORD"/>
+      <BindItem id="item20" compid="tb_UserDetail.tbp_AdditionalInfo.tb_UserDetail.tbp_BasicInfo.edtEnName" propid="value" datasetid="ds_GrdUser" columnid="EN_NAME"/>
+      <BindItem id="item21" compid="tb_UserDetail.tbp_AdditionalInfo.tb_UserDetail.tbp_BasicInfo.edtHomeNumber" propid="value" datasetid="ds_GrdUser" columnid="PHONE"/>
+      <BindItem id="item22" compid="tb_UserDetail.tbp_AdditionalInfo.tb_UserDetail.tbp_BasicInfo.edtCellPhone" propid="value" datasetid="ds_GrdUser" columnid="CELL_PHONE"/>
+      <BindItem id="item23" compid="tb_UserDetail.tbp_AdditionalInfo.tb_UserDetail.tbp_BasicInfo.edtDetailAddr" propid="value" datasetid="ds_GrdUser" columnid="ADDRESS"/>
+      <BindItem id="item24" compid="tb_UserDetail.tbp_AdditionalInfo.tb_UserDetail.tbp_BasicInfo.mskEdtZipCode" propid="value" datasetid="ds_GrdUser" columnid="ZIP_CODE"/>
+      <BindItem id="item25" compid="tb_UserDetail.tbp_AdditionalInfo.tb_UserDetail.tbp_BasicInfo.edtUserId" propid="value" datasetid="ds_GrdUser" columnid="USER_ID"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work Screen template 4
+ * 02. Screen name   : TEMPLATE004.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by   content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * Screen display variable section
+ ************************************************************************/
+/***********************************************************************
+ * Event process specification
+ ************************************************************************/
+// Initializing on Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality processin on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Grid, Combo Box Data receive (transaction)
+	this.fn_getComboDept();
+	
+	
+	// Search processing (transaction)
+	this.fn_Search(1);
+}
+
+this.fn_getComboDept = function()
+{
+	return;
+	var sArgument     = "";
+	var sSvcID        = "getListDept";
+	var sController   = "svcurl::xpController.do";
+		sArgument        += "service='xpService'" + " ";
+		sArgument        += "method='getList'" + " ";
+		sArgument        += "querySetCount='1'" + " ";
+		sArgument        += "querySet1='findXPDeptList'"; 
+	
+	var sInDatasets   = "querySet1=ds_Search";
+	var sOutDatasets  = "ds_CboDept=querySet1";
+	var sCallbackFunc = "fn_callback";
+		return;
+		this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+
+}
+
+this.fn_Search = function(nPage)
+{
+	return;
+	if(this.gfn_DsGetUpdated(this.ds_GrdUser)){
+		var retValue = this.gfn_Confirm("msg.before.search");
+		if(retValue == false) return;
+	}
+	
+	var sArgument     = "";
+	var sSvcID        = "getListUser";
+	var sController   = "svcurl::xpController.do";
+		sArgument        += "service='xpService'" + " ";
+		sArgument        += "method='getList'" + " ";
+		sArgument        += "querySetCount='1'" + " ";
+		sArgument        += "querySet1='findXPUserList'"; 
+	
+	var sInDatasets   = "querySet1=ds_Search";
+	var sOutDatasets  = "ds_GrdUser=querySet1";
+	var sCallbackFunc = "fn_callback";
+		
+		return;
+		this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+
+}
+
+
+// Form beforeclose Event processing
+// Before closing the form, here is pop-up creation to ask if there is modified data, pop-up creating
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_GrdUser)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+}
+
+// Event processing on Search button click
+this.btn_Search_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Search(1);
+}
+
+// Event processing on Add button click
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+}
+
+this.fn_Insert = function()
+{
+	var nRow = this.ds_GrdUser.addRow();
+	this.ds_GrdUser.setColumn(nRow, "REG_DATE", this.gfn_Today());
+	//divBoardForm.cmbCommunityId.index = 0;
+}
+
+
+this.btn_Delete_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	this.fn_Delete();
+}
+
+this.fn_Delete = function()
+{
+	var nRow = this.ds_GrdUser.rowposition;
+	
+	//GetSelect method support X (Help me in that.)
+	//if(!this.ds_GrdUser.getSelect(nRow))
+	//{
+	//	gfn_Alert("err.grid.noselect");
+	//}
+	var rtVal = this.gfn_Confirm("msg.before.delete");
+	if(rtVal == true)
+	{
+		this.ds_GrdUser.deleteRow(nRow);
+	} 
+}
+
+this.btn_Save_onclick = function(obj:Button,  e:TOBE.ClickEventInfo)
+{
+	return;
+	if(this.gfn_DsGetUpdated(this.ds_GrdUser) == false){
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+	
+	var retValue = this.gfn_Confirm("msg.before.save");
+	if(retValue == false) return;
+	
+	this.alert("Service is not connected.");
+	//fn_Save();
+}
+
+this.fn_Save = function()
+{	
+	return;
+	// After validation process , if there not exception than , save the all modified data of Grid
+	if(this.gfn_DsCheckValid(ds_GrdUser) == false) return;
+	
+	var sArgument     = "";
+	var sSvcID        = "saveAllUser";
+	var sController   = "svcurl::xpController.do";
+		sArgument     += "service='xpService'";
+		sArgument     += " " + "method='saveAll'";
+		sArgument     += " " + "querySetCount='1'";
+		sArgument     += " " + "USER_ID=" + wrapQuote(gv_UserId);
+		sArgument     += " " + "querySet1='createXPUser,updateXPUser,removeXPUser'"; 
+	
+	var sInDatasets   = "querySet1=ds_GrdUser:U";
+	var sOutDatasets  = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+//******************************Grid HEAD Event start*********************************//
+this.grd_GrdUser_onheadclick = function(obj:Grid, e:TOBE.GridClickEventInfo)
+{
+
+		this.fn_GridChk(obj, e);
+		
+}
+
+
+this.fn_GridChk = function(obj:Grid, e:TOBE.GridClickEventInfo)
+{
+	if(obj.readonly == true) return;	
+		var strVal;
+		var strChkCol;
+		var dsObj;
+		
+		var dsbind = obj.binddataset;
+		var dsObj = this.all[dsbind];
+		
+		strChkCol = this.Null_Value(obj.getCellProperty("body", e.col, "text"), "");
+		strChkCol = strChkCol.replace("bind:", "");
+		
+		var strType = obj.getCellProperty("head", e.cell, "displaytype");
+		if(strType != "checkbox") return;
+		
+		// Head Setting
+		strVal = obj.getCellProperty("head", e.cell, "text");
+		if (this.IsNull_Check(strVal)) strVal = "0";
+		
+		if (strVal == "0") {
+			obj.setCellProperty("head", e.cell, "text", '1');
+			strVal = "1";
+		} else {
+			obj.setCellProperty("head", e.cell, "text", '0');
+			strVal = "0";
+		}
+		
+		// Body setting
+		dsObj.enableevent = false;
+		
+		for(var i=0 ; i< dsObj.rowcount ; i++){
+			dsObj.setColumn(i, strChkCol, strVal);
+		}
+		dsObj.enableevent = true;
+}
+
+
+this.Null_Value = function(Val, newVal)
+{
+	if (this.IsNull_Check(Val)) return newVal;
+	return Val;
+}
+
+
+this.IsNull_Check = function (sValue)
+{
+	if (new String(sValue).valueOf() == "undefined") 
+	{
+		return true;
+	}
+	if (sValue == null) 
+	{
+		return true;
+	}
+	if (("x" + sValue == "xNaN") && (new String(sValue.length).valueOf() == "undefined")) 
+	{
+		return true;
+	}
+	if (sValue.length == 0) 
+	{
+		return true;
+	}
+	return false;
+}
+]]></Script>
+  </Form>
+</FDL>

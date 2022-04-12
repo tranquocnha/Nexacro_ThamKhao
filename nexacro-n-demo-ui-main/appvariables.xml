@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppVariables version="2.0">
+  <Datasets>
+    <Dataset id="gdsAllMenu">
+      <ColumnInfo>
+        <Column id="id" type="STRING" size="256"/>
+        <Column id="caption_en" type="STRING" size="256"/>
+        <Column id="caption_ko" type="STRING" size="256"/>
+        <Column id="level" type="STRING" size="256"/>
+        <Column id="upid" type="STRING" size="256"/>
+        <Column id="desktop" type="STRING" size="256"/>
+        <Column id="mobile" type="STRING" size="256"/>
+        <Column id="wre" type="STRING" size="256"/>
+        <Column id="nre" type="STRING" size="256"/>
+        <Column id="url" type="STRING" size="256"/>
+      </ColumnInfo>
+      <Rows>
+        <Row>
+          <Col id="id">010000</Col>
+          <Col id="caption_en">Grid</Col>
+          <Col id="level">0</Col>
+          <Col id="upid">0</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">그리드</Col>
+        </Row>
+        <Row>
+          <Col id="id">010100</Col>
+          <Col id="caption_en">Basic Function</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="url">grid::function.xfdl</Col>
+          <Col id="caption_ko">기본 기능</Col>
+        </Row>
+        <Row>
+          <Col id="id">010200</Col>
+          <Col id="caption_en">Renderer</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="url">grid::renderer.xfdl</Col>
+          <Col id="caption_ko">다양한 표현</Col>
+        </Row>
+        <Row>
+          <Col id="id">010201</Col>
+          <Col id="caption_en">Copy &amp; Paste</Col>
+          <Col id="caption_ko">복사 &amp; 붙여넣기</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="wre">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="url">grid::copypaste.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010202</Col>
+          <Col id="caption_en">Freeze Panes</Col>
+          <Col id="caption_ko">틀 고정</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="wre">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="url">grid::freezepanes.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010203</Col>
+          <Col id="caption_en">Smart Scroll</Col>
+          <Col id="caption_ko">스마트 스크롤</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="wre">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="url">grid::smartscroll.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010300</Col>
+          <Col id="caption_en">Pagination</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">페이징</Col>
+          <Col id="url">grid::pagination.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010400</Col>
+          <Col id="caption_en">Export &amp; Import</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">내려받기 &amp; 가져오기</Col>
+          <Col id="url">grid::export.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010500</Col>
+          <Col id="caption_en">Personalization</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">개인화</Col>
+          <Col id="url">grid::personalization.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010600</Col>
+          <Col id="caption_en">Large Data</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">대용량 데이터</Col>
+          <Col id="url">grid::largedata.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010700</Col>
+          <Col id="caption_en">Pivot</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">피벗</Col>
+          <Col id="url">grid::pivot.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010800</Col>
+          <Col id="caption_en">Drag &amp; Drop</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">드래그 &amp; 드롭</Col>
+          <Col id="url">grid::dragndrop.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">010900</Col>
+          <Col id="caption_en">Dynamic Grid</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">동적 그리드</Col>
+          <Col id="url">grid::dynamic.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">011000</Col>
+          <Col id="caption_en">Quantum Grid</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">010000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">퀀텀 그리드</Col>
+          <Col id="url">grid::quantum.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020000</Col>
+          <Col id="caption_en">Components</Col>
+          <Col id="level">0</Col>
+          <Col id="upid">0</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">컴포넌트</Col>
+        </Row>
+        <Row>
+          <Col id="id">020100</Col>
+          <Col id="caption_en">Basic Components</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">기본 컴포넌트</Col>
+          <Col id="url">comp::components.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020200</Col>
+          <Col id="caption_en">Dynamic Generate</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">컴포넌트 동적 생성</Col>
+          <Col id="url">comp::generate.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020300</Col>
+          <Col id="caption_en">Arrangement</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">Arrangement</Col>
+          <Col id="url">comp::arrangement.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020400</Col>
+          <Col id="caption_en">Fit to Contents</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">Fit to Contents</Col>
+          <Col id="url">comp::fittocontents.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020500</Col>
+          <Col id="caption_en">File Transfer</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">파일 전송</Col>
+          <Col id="url">comp::filetransfer.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020600</Col>
+          <Col id="caption_en">Two-way Data binding</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">양방향 바인딩</Col>
+          <Col id="url">comp::binding.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020700</Col>
+          <Col id="caption_en">Menu</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">다양한 메뉴 표현</Col>
+          <Col id="url">comp::menu.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020800</Col>
+          <Col id="caption_en">List View</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">리스트뷰</Col>
+          <Col id="url">comp::listview.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">020900</Col>
+          <Col id="caption_en">Animation</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">애니메이션</Col>
+          <Col id="url">comp::animation.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">021000</Col>
+          <Col id="caption_en">Chart</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">차트</Col>
+          <Col id="url">comp::chart.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">021100</Col>
+          <Col id="caption_en">Graphics</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">그래픽스</Col>
+          <Col id="url">comp::graphics.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">021200</Col>
+          <Col id="caption_en">Google Map</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">020000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">구글 지도</Col>
+          <Col id="url">comp::googlemap.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">030000</Col>
+          <Col id="caption_en">Device</Col>
+          <Col id="level">0</Col>
+          <Col id="upid">0</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">0</Col>
+          <Col id="caption_ko">디바이스</Col>
+        </Row>
+        <Row>
+          <Col id="id">030100</Col>
+          <Col id="caption_en">Camera</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">030000</Col>
+          <Col id="desktop">0</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">0</Col>
+          <Col id="caption_ko">카메라</Col>
+          <Col id="url">device::camera.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">030200</Col>
+          <Col id="caption_en">Bluetooth Low Energy</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">030000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">0</Col>
+          <Col id="caption_ko">블루투스 Low Energy</Col>
+          <Col id="url">device::bluetooth.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">030300</Col>
+          <Col id="caption_en">Contacts</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">030000</Col>
+          <Col id="desktop">0</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">0</Col>
+          <Col id="caption_ko">연락처</Col>
+          <Col id="url">device::contacts.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">030400</Col>
+          <Col id="caption_en">Lite Database</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">030000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">0</Col>
+          <Col id="caption_ko">로컬 데이터베이스</Col>
+          <Col id="url">device::database.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">030500</Col>
+          <Col id="caption_en">File Read &amp; Write</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">030000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">0</Col>
+          <Col id="caption_ko">파일 읽기 &amp; 쓰기</Col>
+          <Col id="url">device::file.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">030600</Col>
+          <Col id="caption_en">Voice Recognition</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">030000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">0</Col>
+          <Col id="caption_ko">음성 인식</Col>
+          <Col id="url">device::voice.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">040000</Col>
+          <Col id="caption_en">Utility</Col>
+          <Col id="level">0</Col>
+          <Col id="upid">0</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">유용한 기능</Col>
+        </Row>
+        <Row>
+          <Col id="id">040100</Col>
+          <Col id="caption_en">Pop-up</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">040000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">다양한 팝업 표현</Col>
+          <Col id="url">sample::popup.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">040200</Col>
+          <Col id="caption_en">Widget</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">040000</Col>
+          <Col id="desktop">0</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">위젯</Col>
+          <Col id="url">sample::widget.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">040300</Col>
+          <Col id="caption_en">Drag &amp; Drop</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">040000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">드래그 &amp; 드롭</Col>
+          <Col id="url">sample::portlet.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">040400</Col>
+          <Col id="caption_en">Web Widget</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">040000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">웹 위젯</Col>
+          <Col id="url">sample::personalization.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">040800</Col>
+          <Col id="caption_en">Hot Key</Col>
+          <Col id="caption_ko">단축키</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">040000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="wre">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="url">sample::hotkey.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">040500</Col>
+          <Col id="caption_en">Kakaotalk Share</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">040000</Col>
+          <Col id="desktop">0</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">카카오톡 공유하기</Col>
+          <Col id="url">sample::kakaotalk.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">040600</Col>
+          <Col id="caption_en">RESTFul</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">040000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">RESTFul</Col>
+          <Col id="url">sample::restful.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">040700</Col>
+          <Col id="caption_en">Reference</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">040000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">참조</Col>
+          <Col id="url">sample::reference.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">050000</Col>
+          <Col id="caption_en">Extension</Col>
+          <Col id="level">0</Col>
+          <Col id="upid">0</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">연동/확장</Col>
+        </Row>
+        <Row>
+          <Col id="id">050100</Col>
+          <Col id="caption_en">Chart</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">050000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">차트</Col>
+          <Col id="url">external::chart.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">050200</Col>
+          <Col id="caption_en">Chart &amp; Grid</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">050000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">차트 &amp; 그리드</Col>
+          <Col id="url">external::chartngrid.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">050300</Col>
+          <Col id="caption_en">Report</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">050000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">0</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">레포트</Col>
+          <Col id="url">external::report.xfdl</Col>
+        </Row>
+        <Row>
+          <Col id="id">050400</Col>
+          <Col id="caption_en">PDF Viewer</Col>
+          <Col id="level">1</Col>
+          <Col id="upid">050000</Col>
+          <Col id="desktop">1</Col>
+          <Col id="mobile">1</Col>
+          <Col id="nre">1</Col>
+          <Col id="wre">1</Col>
+          <Col id="caption_ko">PDF 뷰어</Col>
+          <Col id="url">external::pdfviewer.xfdl</Col>
+        </Row>
+      </Rows>
+    </Dataset>
+    <Dataset id="gdsMenu">
+      <ColumnInfo>
+        <Column id="id" type="STRING" size="256"/>
+        <Column id="caption" type="STRING" size="256"/>
+        <Column id="level" type="STRING" size="256"/>
+        <Column id="upid" type="STRING" size="256"/>
+        <Column id="url" type="STRING" size="256"/>
+      </ColumnInfo>
+    </Dataset>
+  </Datasets>
+  <Variables>
+    <Variable id="langCode" initval="en"/>
+    <Variable id="themeMode" initval="L"/>
+    <Variable id="messages"/>
+    <Variable id="webRootUrl"/>
+  </Variables>
+  <DataObjects/>
+</AppVariables>

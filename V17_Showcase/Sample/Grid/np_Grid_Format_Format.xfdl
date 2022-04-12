@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Comp_Grid_Format_Format" classname="Script_String_HalfToFull" inheritanceid="" position="absolute" titletext="Comp_Grid_Format_Format" left="0" top="0" width="800" height="600">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_output0" taborder="1" position="absolute" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;COL3&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;COL4&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;COL5&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:COL1&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:COL2&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:COL3&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;bind:COL4&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;bind:COL5&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" autofittype="col" left="350" top="120" width="437" height="196">
+          <Formats>
+            <Format id="default"/>
+          </Formats>
+        </Grid>
+        <Button id="btn_execute0" taborder="1" text="execute" onclick="btn_execute0_onclick" position="absolute" left="245" width="90" top="120" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="80" height="30"/>
+        <Combo id="cob_input" taborder="1" innerdataset="@ds_combo" codecolumn="COL0" datacolumn="COL0" position="absolute" onitemchanged="cob_input_onitemchanged" left="30" top="120" width="200" height="40"/>
+        <Static id="Static08" text="output" position="absolute" left="350" width="60" top="80" height="30"/>
+        <Grid id="grd_input" taborder="1" useinputpanel="false" autofittype="col" position="absolute" binddataset="ds_column" cellclickbound="cell" left="30" top="330" width="200" height="196">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="36"/>
+                <Column size="69"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="CHK"/>
+                <Cell col="1" text="COL1"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHK"/>
+                <Cell col="1" text="bind:COL_LIST"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_output1" taborder="1" useinputpanel="false" autofittype="col" position="absolute" left="350" top="330" width="437" height="196">
+          <Formats>
+            <Format id="default"/>
+          </Formats>
+        </Grid>
+        <Button id="btn_execute1" taborder="1" text="execute" onclick="btn_execute1_onclick" position="absolute" left="245" width="90" top="330" height="40"/>
+        <Static id="Static01" taborder="8" text="Format" cssclass="sta_WF_subtitP" left="30" top="18" width="200" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data0" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+          <Column id="COL2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">Please Look After Mon</Col>
+            <Col id="COL1">Kyung-Sook SHIN</Col>
+            <Col id="COL2">Random House</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Steve Jobs hardback</Col>
+            <Col id="COL1">lsaacson Walter</Col>
+            <Col id="COL2">Simon &amp; Schuster</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Help</Col>
+            <Col id="COL1">Kathryn Stockett</Col>
+            <Col id="COL2">Penguin Group</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Game of Thrones Boxed Set</Col>
+            <Col id="COL1">George R.R. Martin</Col>
+            <Col id="COL2">Random House</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">THE GIVER</Col>
+            <Col id="COL1">Lois Lowry</Col>
+            <Col id="COL2">LAUREL LEAF BOOKS</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Hunger Games</Col>
+            <Col id="COL1">Suzanne Collins</Col>
+            <Col id="COL2">Scholastic</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">TALES OF A FOURTH GRADE NOTHING</Col>
+            <Col id="COL2">PUFFIN BOOKS</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Twilight Saga</Col>
+            <Col id="COL1">Stephenie Meyer</Col>
+            <Col id="COL2">Little Brown</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Eat, Pray, Love</Col>
+            <Col id="COL1">GILBERT, Elizabeth</Col>
+            <Col id="COL2">Penguin USA</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Harry Potter and the Deathly Hallows</Col>
+            <Col id="COL1">J. K. Rowling</Col>
+            <Col id="COL2">Arthur A. Levine Books</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">No Talking</Col>
+            <Col id="COL1">Mark Elliot</Col>
+            <Col id="COL2">Simon &amp; Schuster</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Wednesday Wars</Col>
+            <Col id="COL1">Gary D. Schmidt</Col>
+            <Col id="COL2">Houghton Mifflin</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Kite Runner</Col>
+            <Col id="COL1">Khaled Hosseini</Col>
+            <Col id="COL2">Penguin USA</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Charlie and the Chocolate Factory</Col>
+            <Col id="COL2">Penguin USA</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Dead Poet's Society</Col>
+            <Col id="COL2">Hyperion</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">High School Musical</Col>
+            <Col id="COL1">N.B. Grace</Col>
+            <Col id="COL2">Disney Pr</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">PRIDE AND PRE JUDICE</Col>
+            <Col id="COL1">AUSTEN</Col>
+            <Col id="COL2">PENGUIN</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">WHEN MY NAME WAS KEOKO</Col>
+            <Col id="COL1">Park</Col>
+            <Col id="COL2">DELL</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Notebook</Col>
+            <Col id="COL1">Nicholas Sparks</Col>
+            <Col id="COL2">Warner Books</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Old Man and the Sea</Col>
+            <Col id="COL1">Ernest Hemingway</Col>
+            <Col id="COL2">Scribner</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_data1" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+          <Column id="COL2" type="STRING" size="256"/>
+          <Column id="COL3" type="DATE" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">Please Look After Mon</Col>
+            <Col id="COL1">Kyung-Sook SHIN</Col>
+            <Col id="COL2">Random House</Col>
+            <Col id="COL3">20120103</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Steve Jobs hardback</Col>
+            <Col id="COL1">lsaacson Walter</Col>
+            <Col id="COL2">Simon &amp; Schuster</Col>
+            <Col id="COL3">20111121</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Help</Col>
+            <Col id="COL1">Kathryn Stockett</Col>
+            <Col id="COL2">Penguin Group</Col>
+            <Col id="COL3">20110601</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Game of Thrones Boxed Set</Col>
+            <Col id="COL1">George R.R. Martin</Col>
+            <Col id="COL2">Random House</Col>
+            <Col id="COL3">20110322</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">THE GIVER</Col>
+            <Col id="COL1">Lois Lowry</Col>
+            <Col id="COL2">LAUREL LEAF BOOKS</Col>
+            <Col id="COL3">20110301</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Hunger Games</Col>
+            <Col id="COL1">Suzanne Collins</Col>
+            <Col id="COL2">Scholastic</Col>
+            <Col id="COL3">20100701</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">TALES OF A FOURTH GRADE NOTHING</Col>
+            <Col id="COL2">PUFFIN BOOKS</Col>
+            <Col id="COL3">20100125</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Twilight Saga</Col>
+            <Col id="COL1">Stephenie Meyer</Col>
+            <Col id="COL2">Little Brown</Col>
+            <Col id="COL3">20090511</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Eat, Pray, Love</Col>
+            <Col id="COL1">GILBERT, Elizabeth</Col>
+            <Col id="COL2">Penguin USA</Col>
+            <Col id="COL3">20071115</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Harry Potter and the Deathly Hallows</Col>
+            <Col id="COL1">J. K. Rowling</Col>
+            <Col id="COL2">Arthur A. Levine Books</Col>
+            <Col id="COL3">20090701</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">No Talking</Col>
+            <Col id="COL1">Mark Elliot</Col>
+            <Col id="COL2">Simon &amp; Schuster</Col>
+            <Col id="COL3">20090623</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Wednesday Wars</Col>
+            <Col id="COL1">Gary D. Schmidt</Col>
+            <Col id="COL2">Houghton Mifflin</Col>
+            <Col id="COL3">20090518</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Kite Runner</Col>
+            <Col id="COL1">Khaled Hosseini</Col>
+            <Col id="COL2">Penguin USA</Col>
+            <Col id="COL3">20071030</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Charlie and the Chocolate Factory</Col>
+            <Col id="COL2">Penguin USA</Col>
+            <Col id="COL3">20070816</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Dead Poet's Society</Col>
+            <Col id="COL2">Hyperion</Col>
+            <Col id="COL3">20060821</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">High School Musical</Col>
+            <Col id="COL1">N.B. Grace</Col>
+            <Col id="COL2">Disney Pr</Col>
+            <Col id="COL3">20060601</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">PRIDE AND PRE JUDICE</Col>
+            <Col id="COL1">AUSTEN</Col>
+            <Col id="COL2">PENGUIN</Col>
+            <Col id="COL3">20051011</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">WHEN MY NAME WAS KEOKO</Col>
+            <Col id="COL1">Park</Col>
+            <Col id="COL2">DELL</Col>
+            <Col id="COL3">20040306</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Notebook</Col>
+            <Col id="COL1">Nicholas Sparks</Col>
+            <Col id="COL2">Warner Books</Col>
+            <Col id="COL3">20040101</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Old Man and the Sea</Col>
+            <Col id="COL1">Ernest Hemingway</Col>
+            <Col id="COL2">Scribner</Col>
+            <Col id="COL3">19950505</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_data2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COL0" type="STRING" size="256"/>
+          <Column id="COL1" type="STRING" size="256"/>
+          <Column id="COL2" type="STRING" size="256"/>
+          <Column id="COL3" type="DATE" size="256"/>
+          <Column id="COL4" type="FLOAT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">Please Look After Mon</Col>
+            <Col id="COL1">Kyung-Sook SHIN</Col>
+            <Col id="COL2">Random House</Col>
+            <Col id="COL3">20120103</Col>
+            <Col id="COL4">10400</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Steve Jobs hardback</Col>
+            <Col id="COL1">lsaacson Walter</Col>
+            <Col id="COL2">Simon &amp; Schuster</Col>
+            <Col id="COL3">20111121</Col>
+            <Col id="COL4">50000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Help</Col>
+            <Col id="COL1">Kathryn Stockett</Col>
+            <Col id="COL2">Penguin Group</Col>
+            <Col id="COL3">20110601</Col>
+            <Col id="COL4">10400</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Game of Thrones Boxed Set</Col>
+            <Col id="COL1">George R.R. Martin</Col>
+            <Col id="COL2">Random House</Col>
+            <Col id="COL3">20110322</Col>
+            <Col id="COL4">47000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">THE GIVER</Col>
+            <Col id="COL1">Lois Lowry</Col>
+            <Col id="COL2">LAUREL LEAF BOOKS</Col>
+            <Col id="COL3">20110301</Col>
+            <Col id="COL4">8000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Hunger Games</Col>
+            <Col id="COL1">Suzanne Collins</Col>
+            <Col id="COL2">Scholastic</Col>
+            <Col id="COL3">20100701</Col>
+            <Col id="COL4">13000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">TALES OF A FOURTH GRADE NOTHING</Col>
+            <Col id="COL2">PUFFIN BOOKS</Col>
+            <Col id="COL3">20100125</Col>
+            <Col id="COL4">7200</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Twilight Saga</Col>
+            <Col id="COL1">Stephenie Meyer</Col>
+            <Col id="COL2">Little Brown</Col>
+            <Col id="COL3">20090511</Col>
+            <Col id="COL4">62000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Eat, Pray, Love</Col>
+            <Col id="COL1">GILBERT, Elizabeth</Col>
+            <Col id="COL2">Penguin USA</Col>
+            <Col id="COL3">20071115</Col>
+            <Col id="COL4">88000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Harry Potter and the Deathly Hallows</Col>
+            <Col id="COL1">J. K. Rowling</Col>
+            <Col id="COL2">Arthur A. Levine Books</Col>
+            <Col id="COL3">20090701</Col>
+            <Col id="COL4">28600</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">No Talking</Col>
+            <Col id="COL1">Mark Elliot</Col>
+            <Col id="COL2">Simon &amp; Schuster</Col>
+            <Col id="COL3">20090623</Col>
+            <Col id="COL4">9340</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Wednesday Wars</Col>
+            <Col id="COL1">Gary D. Schmidt</Col>
+            <Col id="COL2">Houghton Mifflin</Col>
+            <Col id="COL3">20090518</Col>
+            <Col id="COL4">10900</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Kite Runner</Col>
+            <Col id="COL1">Khaled Hosseini</Col>
+            <Col id="COL2">Penguin USA</Col>
+            <Col id="COL3">20071030</Col>
+            <Col id="COL4">88000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Charlie and the Chocolate Factory</Col>
+            <Col id="COL2">Penguin USA</Col>
+            <Col id="COL3">20070816</Col>
+            <Col id="COL4">77000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Dead Poet's Society</Col>
+            <Col id="COL2">Hyperion</Col>
+            <Col id="COL3">20060821</Col>
+            <Col id="COL4">8400</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">High School Musical</Col>
+            <Col id="COL1">N.B. Grace</Col>
+            <Col id="COL2">Disney Pr</Col>
+            <Col id="COL3">20060601</Col>
+            <Col id="COL4">5010</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">PRIDE AND PRE JUDICE</Col>
+            <Col id="COL1">AUSTEN</Col>
+            <Col id="COL2">PENGUIN</Col>
+            <Col id="COL3">20051011</Col>
+            <Col id="COL4">12400</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">WHEN MY NAME WAS KEOKO</Col>
+            <Col id="COL1">Park</Col>
+            <Col id="COL2">DELL</Col>
+            <Col id="COL3">20040306</Col>
+            <Col id="COL4">8060</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">The Notebook</Col>
+            <Col id="COL1">Nicholas Sparks</Col>
+            <Col id="COL2">Warner Books</Col>
+            <Col id="COL3">20040101</Col>
+            <Col id="COL4">9000</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">Old Man and the Sea</Col>
+            <Col id="COL1">Ernest Hemingway</Col>
+            <Col id="COL2">Scribner</Col>
+            <Col id="COL3">19950505</Col>
+            <Col id="COL4">14000</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="COL0"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL0">ds_data0</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">ds_data1</Col>
+          </Row>
+          <Row>
+            <Col id="COL0">ds_data2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_column" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="INT" size="256" id="CHK"/>
+          <Column id="COL_LIST" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : np_Grid_Format_Format
+ * Discription : Grid의 formats 속성을 이용하여 모양바꾸기
+ */
+
+this.btn_execute0_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.grd_output0.set_binddataset(this.cob_input.value);
+	this.grd_output0.createFormat();
+}
+
+/*
+ * Function Name : fn_multiSort
+ * Description   : 멀티소트 팝업창 오픈
+ * Parameter     : 그리드 object
+ * Return        : 
+ * Example       : fn_multiSort(obj);
+ */
+  
+// dataset의 컬럼정보를 생성
+this.cob_input_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+    this.ds_column.clearData();
+	var objDs = this.all[this.cob_input.value];
+	for (var i = 0; i < objDs.getColCount() ; i++)
+	{
+		this.ds_column.addRow();
+		this.ds_column.setColumn(i, "CHK", 1);
+		this.ds_column.setColumn(i, "COL_LIST", objDs.getColID(i));
+	}	
+}
+
+this.btn_execute1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_format();
+}
+
+/*
+ * Function Name : fn_format
+ * Description   : 선택된 컬럼에 따라 그리드 컬럼 생성
+ * Parameter     : 
+ * Return        : 
+ * Example       : fn_format();
+ */
+this.fn_format = function()
+{
+    var sFormat     = "";
+    var sFormatCol  = "";
+    var sFormatHead = "";
+    var sFormatBody = "";
+    var sFormatRow  = "";
+    var nColNum     = 0;
+	var sColID      = "";
+	
+	// Format 만들기
+	sFormatCol  = "		<Columns> \r\n";
+	sFormatHead = "		<Band id=\"head\"> \r\n";
+	sFormatBody = "		<Band id=\"body\"> \r\n";
+
+	for (var i = 0; i < this.ds_column.getRowCount(); i++)
+	{
+		if (this.ds_column.getColumn(i, "CHK") == 1)
+		{
+			sColID = this.ds_column.getColumn(i, "COL_LIST");
+			sFormatCol  += "	<Column size=\"70\" /> \r\n";
+			sFormatHead += "	<Cell col=\""+nColNum+"\" text=\""+sColID+"\"/> \r\n";
+			sFormatBody += "	<Cell col=\""+nColNum+"\" text=\"bind:"+sColID+"\"/> \r\n";
+			nColNum++;
+		}
+	}
+	sFormatCol  += "		</Columns> \r\n";
+	sFormatHead += "		</Band> \r\n";
+	sFormatBody += "		</Band> \r\n";
+	
+	sFormatRows  = "  <Rows> \r\n";
+	sFormatRows += "<Row size=\"24\" band=\"head\" /> \r\n";
+    sFormatRows += "<Row size=\"24\" /> \r\n";
+	sFormatRows += "</Rows> \r\n";
+	
+	sFormat =  "<Formats> \r\n";
+	sFormat += "	<Format id=\"default\"> \r\n";	
+	sFormat += sFormatCol;
+	sFormat += sFormatRows;
+	sFormat += sFormatHead;
+	sFormat += sFormatBody;
+	sFormat += "	</Format> \r\n";
+	sFormat += "</Formats>";
+	this.grd_output1.set_binddataset(this.cob_input.value);
+	this.grd_output1.set_formats(sFormat);
+}
+]]></Script>
+  </Form>
+</FDL>

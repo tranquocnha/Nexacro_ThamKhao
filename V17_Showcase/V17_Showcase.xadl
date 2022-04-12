@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="2.0">
+  <Application id="V17_Showcase" screenid="desktop_D" onload="Application_onload" enginesetupkey="{DFC74642-2DFB-455B-879D-A097E4B97C9E}" engineurl="http://support.tobesoft.co.kr/Next_JSP/V17/deploy_17/install/cab/nexacro16_SetupEngine.exe" engineversion="16,0,0,41" licenseurl="./nexacro17_client_license.xml">
+    <Layout>
+      <MainFrame id="mainframe" title="maintitle" resizable="true" showtitlebar="true" showstatusbar="false" position1="absolute 0 0 800 800" width="1350" height="888">
+        <VFrameSet id="VFrameSet" separatesize="60,*,0">
+          <Frames>
+            <ChildFrame id="TopFrame" formurl="Frame::topFrame.xfdl" showtitlebar="false" dragmovetype="none"/>
+            <HFrameSet id="HFrameSet" visible="true" separatesize="260,*">
+              <Frames>
+                <ChildFrame id="leftFrame" showtitlebar="false" dragmovetype="none" formurl="Frame::leftFrame.xfdl"/>
+                <VFrameSet id="VFrameSet1" separatesize="0,*">
+                  <Frames>
+                    <ChildFrame id="MdiTabFrame" formurl="Frame::tabFrame.xfdl" showtitlebar="false" dragmovetype="none"/>
+                    <FrameSet id="WorkFrame" openstatus="normal" background="#f9f9f9">
+                      <Frames>
+                        <ChildFrame id="MainForm" formurl="Frame::mainPotal.xfdl" showtitlebar="false" dragmovetype="none" resizable="false" openstatus="maximize" visible="true" onactivate="mainframe_VFrameSet_HFrameSet_VFrameSet1_WorkFrame_MainForm_onactivate"/>
+                      </Frames>
+                    </FrameSet>
+                  </Frames>
+                </VFrameSet>
+              </Frames>
+            </HFrameSet>
+            <ChildFrame id="commFrame" formurl="Frame::mainPotal.xfdl" showtitlebar="false" openstatus="normal" dragmovetype="none"/>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <Style url="xcssrc::GridExpr.xcss"/>
+  </Application>
+  <Script type="xscript5.1"><![CDATA[/**********************************************************************************
+ 각 프레임에 해당되는 객체 참조 변수
+ **********************************************************************************/
+gv_vFrameSet   = "";     
+gv_vFrameSet1  = "";
+gv_topFrame    = "";
+gv_workForm    = "";
+gv_workFrame   = "";
+gv_hFrameSet   = "";
+gv_leftFrame   = "";
+gv_mdiTabFrame = "";
+gv_openMenuId  = "";
+gds_temp       = "";
+gds_menu       = ""; 
+gds_openMenu   = "";
+
+/**********************************************************************************
+ *  공통  변수, 객체, 상수를 정의
+ **********************************************************************************/
+/* 상수 */
+this.gv_TxtPrefix = "$";
+this.gv_MsgTitle = "알림";
+            
+/* 메뉴정보 칼럼 변수*/
+/*
+ (index 0 ~ 3에 권한속성을 설정 자리순서대로 insert|update|delete|print 순으로 설정한 걸 가정(각 자리 "1":가능, "0": 불가능)
+ */
+this.gv_MenuIdCol = "MENU_ID"; //아이디
+this.gv_MenuNameCol = "MENU_NAME"; //명칭
+this.gv_MenuLvlCol = "MENU_LEVEL"; //레벨ㄴ
+this.gv_MenuGIdCol = "MENU_GRP"; //메뉴그룹
+this.gv_MenuStatCol = "MENU_STAT"; //메뉴상태 ('VIEW':표시, 'HIDE':미표시, 'MAKE':개발중)
+this.gv_MenuUrlCol = "PAGE_URL"; //페이지경로
+this.gv_MenuTypeCol = "PAGE_EXTP"; //페이지실행타입 'FORM': XPLATFORM 폼, 'LINK': 웹페이지, 'EXEC': 외부모듈 실행
+this.gv_MenuOPTPCol = "MENU_OPTP"; //메뉴오픈타입 (팝업, 메인)
+this.gv_MenuAuthCol = "MENU_AUTH"; //메뉴에 대한 권한
+this.gv_MenuArgCol = "MENU_ARGS"; //메뉴파라메터
+
+/* 열린메뉴정보 칼럼 변수*/
+this.gv_WinIdCol = "WIN_ID"; //윈도우(프레임)아이디(열린 메뉴의 윈도우 아이디)
+this.gv_TitleCol = "TITLE"; //타이틀
+this.gv_DescUrl = "Desc_Url"; //Description Url
+this.gv_DescUrl_ko = "Desc_Url_ko"; // //Description Url
+
+this.gv_FormUrl = "";
+this.gv_SubMenuIdCol = "SUB_ID"; //서브 메뉴 아이디
+
+this.gv_openStatus = "maximize"; //새로운 프레임이 열려지는 상태
+this.gv_openOnlyOne = true; //동일한 메뉴를 하나 이상 오픈가능 여부(true:하나만 오픈, false:하나이상 오픈)
+this.gv_openMaxFrame = 10; //열리는 프레임 최대 갯수
+
+/* 사용자정보 칼럼 변수*/
+this.gv_UserIdCol = "USER_ID"; //아이디
+this.gv_UserNameCol = "USER_NAME"; //이름
+
+/* 도메인정보 칼럼 변수*/
+this.gv_DomainIdCol = "ID"; //도메인 아이디
+this.gv_DomainTextCol = "TEXT"; //Text
+
+/* 파일관련 정보 변수*/
+this.gv_FileBaseUrl = "http://localhost/Upload/";
+this.gv_FileUploadSize = 4096000;
+this.gv_FileDownloadSize = 1048576;
+
+/* 프레임 구성에 따라 WORK FRAME 페이지를 달리한다.*/
+/* "RUNMDI": Runtime MDI  "RUNSDI": Runtime SDI "HTMLSDI": HTML5 SDI, "HTMLMDI": HTML5 MDI,  "EMBEDMDI" Embeded MDI, "EMBEDSDI" Embeded SDI*/
+//this.gv_runMode = "HTMLMDI";
+this.gv_runMode = "HTMLMDI";
+this.gv_WorkFramePage = undefined;
+
+/* 공통처리에 사용할 컨트롤의 기능 플래그 설정 속성*/
+this.gv_FlagProp = "userdata";
+
+/* 공통처리에 사용할 기능플래그명 상수*/
+this.gv_ActionFlag = "A";
+this.gv_ResizeFlag = "R";
+this.gv_OriginPFlag = "ORP";
+
+/* 공통처리에 사용할 컨트롤들의 기능 플래그(권한처리 시 사용)*/
+this.gv_insertAct = "I"; //데이터 추가
+this.gv_updateAct = "U"; //데이터 수정
+this.gv_deleteAct = "D"; //데이터 삭제
+this.gv_commitAct = "T"; //데이터 저장 (서버에 저장처리)
+this.gv_outputAct = "P"; //데이터 프린트 또는 PC(파일)로 저장
+
+/*언어 설정 정보 공통처리를 위한 변수*/
+this.gv_locale = "EN";
+
+gv_frameWidth  = "1264";   //화면 넓이
+gv_frameHeight = "844";   //화면 높이
+gv_leftFrameWidth = "180"; //레프트 넓이
+gv_initWidth  = "1264";
+gv_initHeight  = "788";
+
+var objApp = nexacro.getApplication() ;
+
+this.Application_onload = function(obj:nexacro.Application,e:nexacro.LoadEventInfo)
+{
+	 //frame
+    gv_vFrameSet  		= objApp.mainframe.VFrameSet;
+    gv_vFrameSet1 		= objApp.mainframe.VFrameSet.HFrameSet.VFrameSet1;
+	gv_topFrame   		= objApp.mainframe.VFrameSet.TopFrame;
+	gv_hFrameSet  		= objApp.mainframe.VFrameSet.HFrameSet;
+	gv_leftFrame  		= objApp.mainframe.VFrameSet.HFrameSet.leftFrame;
+	gv_mdiTabFrame  	= objApp.mainframe.VFrameSet.HFrameSet.VFrameSet1.MdiTabFrame;
+	gv_workFrame  		= objApp.mainframe.VFrameSet.HFrameSet.VFrameSet1.WorkFrame;
+	gv_MainForm  		= objApp.mainframe.VFrameSet.HFrameSet.VFrameSet1.WorkFrame.MainForm;
+};]]></Script>
+</ADL>

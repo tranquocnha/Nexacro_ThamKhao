@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="main_rolling" width="1263" height="700" titletext="New Form" stepitemgap="7" stepitemsize="15">
+    <Layouts>
+      <Layout height="700" width="1263" stepcount="4">
+        <Static id="Static00" taborder="0" text="Grid Component" left="40" top="130" width="410" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height"/>
+        <Static id="Static01" taborder="1" text="The text about Grid Component function for information.&#13;&#10;Description text area is here" left="45" top="213" width="465" height="60" fittocontents="height" cssclass="sta_WF_mainvisualTxt"/>
+        <Button id="Button00" taborder="2" text="Read More" left="45" top="280" width="150" height="50" cssclass="sta_WF_mainBtn01"/>
+        <Button id="Button00_00" taborder="6" text="Read More" top="290" width="150" height="50" cssclass="sta_WF_mainBtn01" positionstep="1" right="338"/>
+        <ImageViewer id="ImageViewer00" taborder="3" top="90" width="700" height="480" right="30" image="url('imagerc::Main/img_WF_main01.gif')" cssclass="img_WF_mainvisualImg"/>
+        <Static id="Static00_00" taborder="4" text="Grid Component" top="130" width="410" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height" positionstep="1" right="83"/>
+        <Static id="Static01_00" taborder="5" text="The text about Grid Component function for information.&#13;&#10;Description text area is here." top="213" width="465" height="60" fittocontents="height" cssclass="sta_WF_mainvisualTxt" positionstep="1" right="23"/>
+        <Static id="Static01_02" taborder="13" text="The text about Grid Component function for information.&#13;&#10;Description text area is here." top="213" width="465" height="60" fittocontents="height" cssclass="sta_WF_mainvisualTxt" positionstep="3" right="63"/>
+        <ImageViewer id="ImageViewer00_00" taborder="7" top="90" width="700" height="480" image="url('imagerc::Main/img_WF_main02.gif')" cssclass="img_WF_mainvisualImg" positionstep="1" left="30"/>
+        <Static id="Static00_01" taborder="8" text="Grid Component" left="55" top="130" width="410" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height" positionstep="2"/>
+        <Static id="Static01_01" taborder="9" text="The text about Grid Component function for information.&#13;&#10;Description text area is here." left="60" top="213" width="465" height="60" fittocontents="height" cssclass="sta_WF_mainvisualTxt" positionstep="2"/>
+        <Button id="Button00_01" taborder="10" text="Read More" left="60" top="290" width="150" height="50" cssclass="sta_WF_mainBtn01" positionstep="2"/>
+        <ImageViewer id="ImageViewer00_01" taborder="11" top="90" width="700" height="480" right="30" image="url('imagerc::Main/img_WF_main03.gif')" cssclass="img_WF_mainvisualImg" positionstep="2"/>
+        <Static id="Static00_02" taborder="12" text="Grid Component" top="130" width="410" height="70" cssclass="sta_WF_mainvisualTitle" fittocontents="height" positionstep="3" right="123"/>
+        <Button id="Button00_02" taborder="14" text="Read More" left="735" top="290" width="150" height="50" cssclass="sta_WF_mainBtn01" positionstep="3"/>
+        <ImageViewer id="ImageViewer00_02" taborder="15" top="90" width="700" height="480" image="url('imagerc::Main/img_WF_main04.gif')" cssclass="img_WF_mainvisualImg" positionstep="3" left="30"/>
+      </Layout>
+      <Layout name="Layout0" width="480" height="700" mobileorientation="landscape" stepcount="4">
+        <Static id="Static00_02" positionstep="1" top="30" height="70" left="30" right="30"/>
+        <ImageViewer id="ImageViewer00_00" positionstep="1" left="30" top="230" height="430" right="30" stretch="fixaspectratio"/>
+        <ImageViewer id="ImageViewer00" top="Button00_00:10" height="430" left="30" text="" stretch="fixaspectratio" right="30"/>
+        <ImageViewer id="ImageViewer00_02" positionstep="3" left="30" top="230" height="430" text="" right="30" stretch="fixaspectratio"/>
+        <ImageViewer id="ImageViewer00_01" positionstep="2" top="230" height="430" right="30" left="30" stretch="fixaspectratio"/>
+        <Button id="Button00_01" positionstep="2" left="30" top="170" width="150" height="50"/>
+        <Button id="Button00_00" positionstep="0" top="170" width="150" height="50" left="30"/>
+        <Button id="Button00" left="30" top="170" width="150" height="50" positionstep="1"/>
+        <Static id="Static01_02" positionstep="0" top="100" width="420" height="60" text="The text about Grid Component function for information.&#13;&#10;Description text area is here." left="30"/>
+        <Static id="Static01_01" positionstep="2" left="30" top="100" height="60" right="30" text="The text about Grid Component function for information.&#13;&#10;Description text area is here."/>
+        <Static id="Static01_00" positionstep="1" top="100" height="60" left="30" right="30"/>
+        <Static id="Static01" left="30" top="100" height="60" positionstep="3" right="30"/>
+        <Static id="Static00_01" positionstep="3" left="30" top="30" height="70" right="30"/>
+        <Static id="Static00_00" positionstep="0" top="30" height="70" left="30" right="30"/>
+        <Static id="Static00" left="30" top="30" height="70" positionstep="2" right="30"/>
+        <Button id="Button00_02" left="30" top="170" width="150" height="50"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_rdo">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="data">test1</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="data">test2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

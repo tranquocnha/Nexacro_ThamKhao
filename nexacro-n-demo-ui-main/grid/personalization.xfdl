@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="540" onload="form_onload">
+    <Layouts>
+      <Layout height="540" width="920">
+        <Static id="Static01" taborder="0" text="Personalization" left="20" top="20" width="177" height="40" cssclass="sta_WF_pageTitle" messageid="grid.personalization" fittocontents="width"/>
+        <Grid id="Grid00" taborder="1" left="20" top="79" height="370" binddataset="ds_grid" right="20" cellmovingtype="col" cellsizingtype="both" extendsizetype="row" onrbuttondown="Grid00_onrbuttondown">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="50"/>
+                <Column size="100"/>
+                <Column size="190"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="200"/>
+                <Column size="60"/>
+              </Columns>
+              <Rows>
+                <Row size="46" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="#" border="0px none,1px solid lightgray,0px none,0px none"/>
+                <Cell col="1" text="Name" messageid="name" border="0px none,1px solid lightgray,0px none,0px none"/>
+                <Cell col="2" text="Address" messageid="address" border="0px none,1px solid lightgray,0px none,0px none"/>
+                <Cell col="3" text="Amount" border="0px none,1px solid lightgray,0px none,0px none"/>
+                <Cell col="4" text="Date" border="0px none,1px solid lightgray,0px none,0px none"/>
+                <Cell col="5" text="Company" messageid="company" border="0px none,1px solid lightgray,0px none,0px none"/>
+                <Cell col="6" text="OK" border="0px none,1px solid lightgray,0px none,0px none"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:id" border="0px none,1px solid #e2e2e3,0px none,0px none"/>
+                <Cell col="1" text="bind:name" border="0px none,1px solid #e2e2e3,0px none,0px none"/>
+                <Cell col="2" text="bind:address" textAlign="left" border="0px none,1px solid #e2e2e3,0px none,0px none"/>
+                <Cell col="3" text="bind:amount" cssclass="grd_txtR" displaytype="currency" border="0px none,1px solid #e2e2e3,0px none,0px none"/>
+                <Cell col="4" text="bind:date" border="0px none,1px solid #e2e2e3,0px none,0px none"/>
+                <Cell col="5" text="bind:company" border="0px none,1px solid #e2e2e3,0px none,0px none"/>
+                <Cell col="6" text="bind:ok" displaytype="imagecontrol" border="0px none,1px solid #e2e2e3,0px none,0px none"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="3" text="Save" top="469" width="120" height="40" cssclass="btn_WF_basic01" messageid="grid.personalization.save" right="20" onclick="Button01_onclick"/>
+        <Button id="Button00" taborder="2" text="Set Default" top="469" width="120" height="40" cssclass="btn_WF_basic02" messageid="grid.personalization.default" right="Button01:3" onclick="Button00_onclick"/>
+        <PopupMenu id="PopupMenu00" left="266" top="10" width="129" height="80" innerdataset="ds_contextmenu" captioncolumn="caption" idcolumn="id" levelcolumn="level" onmenuclick="PopupMenu00_onmenuclick" enablecolumn="enable" itemheight="40" navigationbuttonsize="40"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid">
+        <ColumnInfo>
+          <Column id="chk" type="STRING" size="256"/>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+          <Column id="address" type="STRING" size="256"/>
+          <Column id="amount" type="INT" size="256"/>
+          <Column id="date" type="STRING" size="256"/>
+          <Column id="company" type="STRING" size="256"/>
+          <Column id="ok" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">1</Col>
+            <Col id="name">Parry</Col>
+            <Col id="address">73 Bowman Parkway</Col>
+            <Col id="amount">11235</Col>
+            <Col id="date">2020-08-01</Col>
+            <Col id="company">Ratke and Sons</Col>
+            <Col id="chk">0</Col>
+            <Col id="ok">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">2</Col>
+            <Col id="name">Aland</Col>
+            <Col id="address">971 Melrose Hill</Col>
+            <Col id="amount">15698</Col>
+            <Col id="date">2020-08-01</Col>
+            <Col id="company">Littel and Sons</Col>
+            <Col id="chk">0</Col>
+            <Col id="ok">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">3</Col>
+            <Col id="name">Baxy</Col>
+            <Col id="address">685 Sutherland Court</Col>
+            <Col id="amount">15756</Col>
+            <Col id="date">2020-08-02</Col>
+            <Col id="company">Pfeffer-Becker</Col>
+            <Col id="chk">0</Col>
+            <Col id="ok">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">4</Col>
+            <Col id="name">Lyndsey</Col>
+            <Col id="address">8888 Daystar Avenue</Col>
+            <Col id="amount">15756</Col>
+            <Col id="date">2020-08-02</Col>
+            <Col id="company">Marquardt LLC</Col>
+            <Col id="chk">0</Col>
+            <Col id="ok">imagerc::img_grd_reject.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">5</Col>
+            <Col id="name">Jennifer</Col>
+            <Col id="address">5872 American Ash Alley</Col>
+            <Col id="amount">23317</Col>
+            <Col id="date">2020-08-03</Col>
+            <Col id="company">Nader Group</Col>
+            <Col id="chk">0</Col>
+            <Col id="ok">imagerc::img_grd_approval.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">6</Col>
+            <Col id="name">Fawnia</Col>
+            <Col id="address">531 1st Plaza</Col>
+            <Col id="amount">15756</Col>
+            <Col id="date">2020-08-03</Col>
+            <Col id="company">Huels and Sons</Col>
+            <Col id="chk">0</Col>
+            <Col id="ok">imagerc::img_grd_reject.png</Col>
+          </Row>
+          <Row>
+            <Col id="id">7</Col>
+            <Col id="name">Walsh</Col>
+            <Col id="address">03970 Kinsman Hill</Col>
+            <Col id="amount">23317</Col>
+            <Col id="date">2020-08-04</Col>
+            <Col id="company">Hartmann-Reinger</Col>
+            <Col id="chk">0</Col>
+            <Col id="ok">imagerc::img_grd_approval.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_contextmenu">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="caption" type="STRING" size="256"/>
+          <Column id="enable" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">hideColumn</Col>
+            <Col id="level">0</Col>
+            <Col id="caption">Hide Column</Col>
+            <Col id="enable">true</Col>
+          </Row>
+          <Row>
+            <Col id="id">showColumn</Col>
+            <Col id="level">0</Col>
+            <Col id="caption">Show Column</Col>
+            <Col id="enable">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+	
+	this.fv_originFormats = this.Grid00.getFormatString();
+	this.fv_originRowSizeList = this.Grid00._rowSizeList.slice();
+	
+	var grid_format = nexacro.getPrivateProfile("grid.personalization.format"),
+		grid_rowsize = nexacro.getPrivateProfile("grid.personalization.rowsize"),
+		grid_hidingInfo = nexacro.getPrivateProfile("grid.personalization.hidinginfo");
+	
+	if (grid_format) {
+		this.Grid00.set_formats(grid_format);
+	}
+	
+	if (grid_rowsize) {
+		var rowSize = grid_rowsize.split(",");
+		for (var i=0,len=rowSize.length; i<len; i++) {
+			this.Grid00.setRealRowSize(i, Number(rowSize[i]));
+		}
+	}
+	
+	if (grid_hidingInfo) {
+		this.Grid00.setHidingInfos(grid_hidingInfo);
+	}
+};
+
+this.Grid00_onrbuttondown = function(obj:nexacro.Grid,e:nexacro.GridMouseEventInfo)
+{
+	// head band
+	if (e.row == -1 && e.cell > -1) {
+		var ds = this.ds_contextmenu;
+		
+		for (var i = ds.rowcount - 1; i > -1; i--) {
+			if (ds.getColumn(i, "level") == 1) {
+				ds.deleteRow(i);
+			}
+		}
+		
+		var hide = "false", show = "false",
+			hidingInfos = obj._hidingInfos,
+			hideColumnRowIndex = ds.findRow("id", "hideColumn"),
+			showColumnRowIndex = ds.findRow("id", "showColumn");
+
+		if (hidingInfos.length > 0) {
+			show = "true";
+
+			// 숨긴 칼럼 정보 재구성
+			var rowPos = ds.findRow("id", "showColumn");
+			rowPos = ds.insertRow(rowPos + 1);
+			ds.setColumn(rowPos, "id", "showColumn_all");
+			ds.setColumn(rowPos, "level", "1");
+			ds.setColumn(rowPos, "caption", "Show All Column");
+			ds.setColumn(rowPos, "enable", "true");
+
+			for (var i = 0, len = hidingInfos.length; i < len; i++) {
+				rowPos = ds.insertRow(rowPos + 1);
+				ds.setColumn(rowPos, "id", "showColumn_" + i);
+				ds.setColumn(rowPos, "level", "1");
+				ds.setColumn(rowPos, "caption", hidingInfos[i].text);
+				ds.setColumn(rowPos, "enable", "true");
+			}
+		}
+
+		if (e.cell > -1 && obj.getBodyCellIndex(e.cell) > -1) {
+			hide = "true";
+		} else {
+			hide = "false";
+		}
+
+		ds.setColumn(hideColumnRowIndex, "enable", hide);
+		ds.setColumn(showColumnRowIndex, "enable", show);
+		
+		var x = e.clientx, y = e.clienty, pmnu = this.PopupMenu00;
+		
+		// 대상 그리드와 셀 정보를 추가
+		pmnu.grid = obj;
+		pmnu.healColIndex = e.col;
+		pmnu.headCellIndex = e.cell;
+		pmnu.trackPopupByComponent(obj, x, y);
+	}
+};
+
+this.PopupMenu00_onmenuclick = function(obj:nexacro.PopupMenu,e:nexacro.MenuClickEventInfo)
+{
+	var col = obj.healColIndex,
+		cell = obj.headCellIndex,
+		grid = obj.grid;
+	
+	switch(e.id) {
+	case "hideColumn":
+		this.Grid00.hideGridColumn(col, cell);
+		break;
+	default:
+		if (e.id.substr(0, 11) == "showColumn_") {
+			// 칼럼 숨기기 취소
+			var showIndex = e.id.substr(11);
+			if (showIndex == "all") {
+				this.Grid00.showGridColumnAll();
+			} else {
+				showIndex = parseInt(showIndex);
+				this.Grid00.showGridColumnByIndex([showIndex]);
+			}
+		}
+	}
+};
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.Grid00.set_enableredraw(false);
+	this.Grid00.set_formats(this.fv_originFormats);
+	for (var i=0,len=this.fv_originRowSizeList.length; i<len; i++) {
+		this.Grid00.setRealRowSize(i, Number(this.fv_originRowSizeList[i]));
+	}
+	this.Grid00.set_enableredraw(true);
+	
+	nexacro.setPrivateProfile("grid.personalization.format", "");
+	nexacro.setPrivateProfile("grid.personalization.rowsize", "");
+	nexacro.setPrivateProfile("grid.personalization.hidinginfo", "");
+	
+	alert("Initialized.");
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var formatString = this.Grid00.getCurFormatString(),
+		rowSizeList = this.Grid00._rowSizeList.toString(),
+		hidingInfos = this.Grid00.getHidingInfos();
+		
+	nexacro.setPrivateProfile("grid.personalization.format", formatString);
+	nexacro.setPrivateProfile("grid.personalization.rowsize", rowSizeList);
+	nexacro.setPrivateProfile("grid.personalization.hidinginfo", hidingInfos);
+	
+	alert("Changes saved.");
+};
+]]></Script>
+  </Form>
+</FDL>

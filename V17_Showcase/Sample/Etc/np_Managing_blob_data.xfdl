@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_blob" classname="test1" left="0" top="0" width="760" height="500" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="109" height="300" binddataset="Dataset00" autofittype="col" autoenter="none" oncelldblclick="Grid00_oncelldblclick" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="200" band="left"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="130"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="name"/>
+                <Cell col="1" text="photo"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="text" text="bind:PIC_NAME"/>
+                <Cell col="1" displaytype="imagecontrol" edittype="none" text="bind:PIC_IMG"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btnSearch" taborder="6" text="Search" onclick="btnSearch_onclick" left="30" top="65" height="34" width="90" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="btnDelete" taborder="9" text="Delete" left="330" top="65" height="34" onclick="btnDelete_onclick" width="90" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="btnAdd" taborder="10" text="Add photo" onclick="btnAdd_onclick" left="130" top="65" height="34" width="90" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Button id="btnUpdate" taborder="11" text="Update" onclick="btnUpdate_onclick" left="230" top="65" height="34" width="90" style="background:URL('theme://Images/btn_WF_common_N.png') stretch 5,5;"/>
+        <Static id="Static02" taborder="12" text="This sample is used to retrive, modifiy,delete update the blob data" cssclass="sta_WF_explain" left="30" top="25" width="600" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PIC_NAME" type="STRING" size="256"/>
+          <Column id="PIC_IMG" type="BLOB" size="256"/>
+          <Column id="PIC_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <FileDialog id="FileDialog00" filterindex="0" defaultextension="false" onclose="FileDialog00_onclose" async="false"/>
+      <VirtualFile id="VirtualFile00" onsuccess="VirtualFile00_onsuccess"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.btnSearch_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{ //search
+	var strSvcId 		= "search";
+	var objApp = nexacro.getApplication();
+	var strURL 	= objApp.gv_SvcUrl + "np_select_blob.jsp";
+	var strIntputDs = ""
+	var strOutputDs = "Dataset00=out_ds";
+	var strParam = ""
+	var strFnCallback 	= "fn_callback";
+	this.transaction(strSvcId,strURL,strIntputDs,strOutputDs,strParam,strFnCallback);
+};
+
+var temprow;
+this.btnAdd_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	temprow = null;
+	var rtn = this.FileDialog00.open("File Open", FileDialog.LOAD, "\\Images\\");
+};
+
+this.Grid00_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell ==1){
+		temprow = e.row;
+		var rtn = this.FileDialog00.open("File Open", FileDialog.LOAD, "\\Images\\");
+	}
+};
+
+this.FileDialog00_onclose = function(obj:FileDialog, e:nexacro.FileDialogEventInfo)
+{
+	var rtn = this.VirtualFile00.open(e.virtualfiles[0].fullpath, nexacro.VirtualFile.openBinary);
+};
+
+this.VirtualFile00_onsuccess = function(obj:VirtualFile, e:nexacro.VirtualFileEventInfo)
+{
+	switch (e.reason)
+	{ 	
+		// open
+		case 1 :
+			this.VirtualFile00.read();
+			break;
+		
+		// close
+		case 2 :
+			break;
+		
+		// read
+		case 3 :	
+			var objDate = new Date();
+            var nTime = objDate.getTime();
+
+			if(temprow == null){
+				var nRow= this.Dataset00.addRow();
+				this.Dataset00.setColumn(nRow, "PIC_IMG", e.binarydata);
+				this.Dataset00.setColumn(nRow, "PIC_NAME", this.VirtualFile00.filename);
+				this.Dataset00.setColumn(nRow, "PIC_ID", nTime);
+			} else {
+				this.Dataset00.setColumn(temprow, "PIC_IMG", e.binarydata);
+				this.Dataset00.setColumn(temprow, "PIC_NAME",  this.VirtualFile00.filename);
+			}
+			obj.getFileSize();
+			this.VirtualFile00.close();
+			break;
+		
+		// readLine
+		case 4 :
+			break;
+		
+		// seek
+		case 5 :
+			break;
+		
+		// write
+		case 6 :
+			this.VirtualFile00.close();
+			break;
+		
+		// remove
+		case 7 :
+			break;
+		
+		// getFileList
+		case 8 :		
+			break;
+		
+		// getFileSize
+		case 9 :
+			break;
+		
+		// isExist
+		case 10 :
+			if (e.fileisexist)
+			{
+				//trace("File is exist.");
+			}
+			else
+			{
+				//trace("File is not exist.");
+			}
+			break;
+	}
+};
+
+this.btnUpdate_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//update
+	var strSvcID = "save";
+	var objApp = nexacro.getApplication();
+	var strURL = objApp.gv_SvcUrl + "np_save_blob.jsp";
+	var strIntputDs = "in_ds=Dataset00:U";
+	var strOutputDs = "";
+	var strParam = "sVal1=1";
+	var strFnCallback = "fn_callback";
+
+	this.transaction(strSvcID, strURL, strIntputDs, strOutputDs, strParam, strFnCallback);
+};
+
+this.fn_callback = function(trID, nErrCD, sErrMSG)
+{
+	if(trID == "search")
+	{
+		if (nErrCD < 0)
+		{
+			this.alert("search : Fail!!!:"+sErrMSG);
+		}
+		else
+		{
+			this.alert("search : Success");
+		}
+	}
+	else if(trID == "save")
+	{
+		if(nErrCD < 0)
+		{
+			this.alert("save : Fail!!!"+sErrMSG);
+		}
+		else
+		{
+			this.alert("save : Success");
+			
+		}
+	}
+};
+
+this.btnDelete_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Dataset00.deleteRow(this.Dataset00.rowposition);	
+};
+
+]]></Script>
+  </Form>
+</FDL>

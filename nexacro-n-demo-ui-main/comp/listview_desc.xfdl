@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="1023" onload="form_onload">
+    <Layouts>
+      <Layout height="1023" width="920">
+        <Static id="Static00" taborder="1" text="ListView" left="20" top="15" width="79" height="30" cssclass="sta_WF_compTitle02" messageid="comp.listview" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="A component that represents data in unstructured format.&#13;&#10;It is used to place content on a small screen, such as mobile, or to collect information about each content." left="20" top="Static00:2" height="40" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.listview1.desc" right="20"/>
+        <Static id="Static05" taborder="2" text="You can express different formats." left="20" top="Static01:10" width="250" height="30" cssclass="sta_WF_compTitle02" messageid="comp.listview.menutype1" fittocontents="width"/>
+        <Static id="Static01_00" taborder="3" text="You can configure multiple formats to configure screens by size, such as Large, Medium, Small, or Device (PC, Tablet, Mobile)." left="20" top="Static05:2" height="20" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="comp.listview2.desc" right="20"/>
+        <Static id="Static03" taborder="4" left="20" top="Static01_00:10" width="880" height="398" text="" background="url('imagerc::img_listview.png') no-repeat center center"/>
+        <Static id="Static05_00" taborder="5" text="Supports detailed structure." left="20" top="Static03:10" width="250" height="30" cssclass="sta_WF_compTitle02" messageid="comp.listview.menutype2" fittocontents="width"/>
+        <Static id="Static03_00" taborder="6" left="20" top="Static05_00:10" width="880" height="398" text="" background="url('imagerc::img_listview2.png') no-repeat center center"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

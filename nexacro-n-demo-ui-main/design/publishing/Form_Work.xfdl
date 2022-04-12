@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Work" width="1000" height="570" titletext="Form_Work" background="#F5F7FC" scrollbarsize="0">
+    <Layouts>
+      <Layout width="1000" height="570" screenid="Desktop_screen">
+        <Div id="Div00" taborder="0" text="Div00" top="0" left="0" bottom="0" url="design::publishing/Menu1_01_Function.xfdl" width="1000"/>
+      </Layout>
+      <Layout name="Phone_screen" width="480" height="768" screenid="Phone_screen,Mobile_screen"/>
+    </Layouts>
+  </Form>
+</FDL>

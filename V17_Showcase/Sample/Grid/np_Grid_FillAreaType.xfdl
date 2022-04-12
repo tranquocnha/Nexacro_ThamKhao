@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_FillArea" left="0" top="0" width="1024" height="650" titletext="FillAreaType">
+    <Layouts>
+      <Layout height="650" width="1024">
+        <Static id="Static02" text="fillareatype : none" position="absolute" left="30" width="360" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid00" taborder="1" binddataset="ds_data" autofittype="col" position="absolute" style="cursor:auto;" left="30" width="320" top="78" height="200" fillareatype="none">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="55"/>
+                <Column size="73"/>
+                <Column size="87"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="seq"/>
+                <Cell col="2" text="employ"/>
+                <Cell col="3" text="ConstColumn"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1" text="bind:seq"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+                <Cell col="3" text="bind:ConstColumn0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="3" text="fillareatype : datarow" cssclass="sta_WF_subtitP" left="748" top="18" width="360" height="40"/>
+        <Static id="Static01" taborder="5" text="fillareatype : controlrow" cssclass="sta_WF_subtitP" left="30" top="320" width="360" height="40"/>
+        <Static id="Static03" taborder="7" text="fillareatype : linerow" cssclass="sta_WF_subtitP" left="389" top="18" width="360" height="40"/>
+        <Grid id="Grid01" taborder="8" binddataset="ds_data" useinputpanel="false" left="389" top="78" width="320" height="200" style="cursor:auto;" fillareatype="allrow" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="55"/>
+                <Column size="73"/>
+                <Column size="87"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="seq"/>
+                <Cell col="2" text="employ"/>
+                <Cell col="3" text="ConstColumn"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1" text="bind:seq"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+                <Cell col="3" text="bind:ConstColumn0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid02" taborder="9" binddataset="ds_data" useinputpanel="false" left="748" top="78" width="320" height="200" style="cursor:auto;" fillareatype="datarow" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="55"/>
+                <Column size="73"/>
+                <Column size="87"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="seq"/>
+                <Cell col="2" text="employ"/>
+                <Cell col="3" text="ConstColumn"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1" text="bind:seq"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+                <Cell col="3" text="bind:ConstColumn0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid03" taborder="10" binddataset="ds_data" useinputpanel="false" left="30" top="380" width="320" height="200" style="cursor:auto;" fillareatype="controlrow" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="55"/>
+                <Column size="73"/>
+                <Column size="87"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="seq"/>
+                <Cell col="2" text="employ"/>
+                <Cell col="3" text="ConstColumn"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1" text="bind:seq"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+                <Cell col="3" text="bind:ConstColumn0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static04" taborder="11" text="fillareatype : allrow" cssclass="sta_WF_subtitP" left="389" top="320" width="360" height="40"/>
+        <Grid id="Grid04" taborder="12" binddataset="ds_data" useinputpanel="false" fillareatype="allrow" left="389" top="380" width="320" height="200" style="cursor:auto;" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="55"/>
+                <Column size="73"/>
+                <Column size="87"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="seq"/>
+                <Cell col="2" text="employ"/>
+                <Cell col="3" text="ConstColumn"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1" text="bind:seq"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+                <Cell col="3" text="bind:ConstColumn0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <ConstColumn id="ConstColumn0" type="STRING" size="30" value="count : 3"/>
+          <Column id="seq" type="INT" size="256"/>
+          <Column type="STRING" size="256" id="employ"/>
+          <Column id="chk" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="employ">Tom</Col>
+            <Col id="seq">1</Col>
+            <Col id="chk">1</Col>
+          </Row>
+          <Row>
+            <Col id="employ">Superman</Col>
+            <Col id="seq">2</Col>
+            <Col id="chk">0</Col>
+          </Row>
+          <Row>
+            <Col id="employ">Dana</Col>
+            <Col id="seq">3</Col>
+            <Col id="chk">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Sample_grid_radio" left="0" top="0" width="760" height="550" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid02" taborder="4" binddataset="Dataset00" useinputpanel="false" selecttype="cell" left="30" top="355" height="150" style="accessibility:enable all 'Grid' '' '' ;" oncellclick="Grid00_oncellclick" width="500" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="250" band="left"/>
+                <Column size="250" band="left"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column Value"/>
+                <Cell col="1" displaytype="normal" edittype="none" style="controlaccessibility:enable all 'Select All' '' '' ;" text="Radio Type"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column1"/>
+                <Cell col="1" displaytype="image" edittype="none" style="backgroundimage:EXPR(Column1 == 1?'Image::Radio_button_on.png':'Image::Radio_button_off.png');"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static02" taborder="5" left="30" top="315" height="30" width="724" text="Implementing radio button using cell.displaytype= image" cssclass="sta_WF_explain"/>
+        <Static id="Static01" taborder="6" text="Displaying checkbox" left="30" top="75" width="724" height="30" cssclass="sta_WF_explain"/>
+        <Grid id="Grid01" taborder="9" binddataset="Dataset00" useinputpanel="false" onlbuttonup="Grid01_onlbuttonup" left="30" top="115" height="150" autofittype="col" width="500">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="250"/>
+                <Column size="250"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column Value"/>
+                <Cell col="1" text="Checkbox"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" displaytype="checkbox" edittype="checkbox" text="bind:Column0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="10" text="This is sample shows radio button on the Grid" cssclass="sta_WF_explain" left="30" top="25" width="499" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">0</Col>
+            <Col id="Column1">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Grid00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+
+	if (e.cell == 1)
+	{
+		this.Dataset00.set_enableevent(false);
+		for(var i=0; i<this.Dataset00.rowcount; i++)
+		{
+			if (e.row == i)
+			{
+				this.Dataset00.setColumn(e.row,"Column1","1");
+			}else{
+				this.Dataset00.setColumn(i,"Column1","0");
+			}	
+		}
+		this.Dataset00.set_enableevent(true);
+	}
+	
+}
+
+
+
+]]></Script>
+  </Form>
+</FDL>

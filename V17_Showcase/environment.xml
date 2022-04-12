@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ENV version="2.1">
+  <Environment themeid="theme::style17" filesecurelevel="all" networksecurelevel="all">
+    <ScreenDefinition>
+      <Screen id="desktop_D" type="desktop" screenwidth="" sizeorientation="" formlayoutwidth="1024" formlayoutheight="768" scrollbarsize="10"/>
+    </ScreenDefinition>
+    <Variables/>
+    <Cookies/>
+    <httpheader/>
+  </Environment>
+</ENV>

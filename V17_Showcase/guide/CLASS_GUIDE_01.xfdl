@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="CLASS_GUIDE_01" classname="CLASS_GUIDE_01" inheritanceid="" position="absolute" titletext="Point,Error,Readonly" left="0" width="765" top="0" height="540">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="340" width="213" top="50" height="60"/>
+        <Static id="Static01" text="Component Name" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="0" height="26"/>
+        <Static id="Static02" text="Component View" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="636" top="0" height="26"/>
+        <Static id="Static10" text="Important&#13;&#10;class : input_point" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="25" height="154"/>
+        <Static id="Static11" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="212" top="50" height="60"/>
+        <Edit id="Edit00" taborder="1" position="absolute" value="nexacro platform" left="180" width="110" top="61" height="20" cssclass="input_point"/>
+        <Static id="Static00" text="Edit" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="212" top="25" height="26"/>
+        <Static id="Static04" text="TextArea" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="552" width="213" top="25" height="26"/>
+        <Static id="Static03" text="MaskEdit" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="340" width="213" top="25" height="26"/>
+        <Static id="Static06" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="552" width="213" top="50" height="60"/>
+        <MaskEdit id="MaskEdit00" taborder="2" position="absolute" value="123456789" mask="," left="392" width="110" top="61" height="20" cssclass="input_point"/>
+        <TextArea id="TextArea00" taborder="3" position="absolute" value="nexacro platform" left="573" width="170" top="61" height="40" cssclass="input_point"/>
+        <Static id="Static07" text="Spin" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="212" top="109" height="26"/>
+        <Static id="Static08" text="Combo" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="340" width="213" top="109" height="26"/>
+        <Static id="Static09" text="Calendar" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="552" width="213" top="109" height="26"/>
+        <Static id="Static12" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="212" top="134" height="45"/>
+        <Static id="Static13" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="340" width="213" top="134" height="45"/>
+        <Static id="Static14" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="552" width="213" top="134" height="45"/>
+        <Spin id="Spin00" taborder="4" position="absolute" value="5" max="20" left="180" width="110" top="147" height="20" cssclass="input_point"/>
+        <Combo id="Combo00" taborder="5" text="Combo00" position="absolute" innerdataset="@DsList" codecolumn="idx" datacolumn="context" index="6" value="6" left="392" width="110" top="147" height="20" cssclass="input_point"/>
+        <Static id="Static15" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="340" width="213" top="203" height="60"/>
+        <Static id="Static16" text="Error&#13;&#10;class : input_err" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="0" width="130" top="178" height="198"/>
+        <Static id="Static17" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="212" top="203" height="60"/>
+        <Edit id="Edit01" taborder="7" value="nexacro platform" text="nexacro platform" position="absolute" left="180" width="110" top="214" height="20" cssclass="input_err"/>
+        <Static id="Static18" text="Edit" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="212" top="178" height="26"/>
+        <Static id="Static19" text="TextArea" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="552" width="213" top="178" height="26"/>
+        <Static id="Static20" text="MaskEdit" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="340" width="213" top="178" height="26"/>
+        <Static id="Static21" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="552" width="213" top="203" height="60"/>
+        <MaskEdit id="MaskEdit01" taborder="8" value="123456789" text="123,456,789" mask="," position="absolute" left="392" width="110" top="214" height="20" cssclass="input_err"/>
+        <TextArea id="TextArea01" taborder="9" value="nexacro platform" text="nexacro platform" position="absolute" left="573" width="170" top="214" height="40" cssclass="input_err"/>
+        <Static id="Static22" text="Spin" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="212" top="262" height="26"/>
+        <Static id="Static23" text="Combo" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="340" width="213" top="262" height="26"/>
+        <Static id="Static24" text="Calendar" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="552" width="213" top="262" height="26"/>
+        <Static id="Static25" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="212" top="287" height="45"/>
+        <Static id="Static26" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="340" width="213" top="287" height="45"/>
+        <Static id="Static27" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="552" width="213" top="287" height="45"/>
+        <Spin id="Spin01" taborder="10" position="absolute" value="5" max="20" left="180" width="110" top="300" height="20" cssclass="input_err"/>
+        <Combo id="Combo01" taborder="11" position="absolute" innerdataset="@DsList" codecolumn="idx" datacolumn="context" index="6" value="6" left="392" width="110" top="300" height="20" cssclass="input_err"/>
+        <Calendar id="Calendar01" taborder="12" position="absolute" value="20110601" dateformat="yyyy-MM-dd" left="603" width="110" top="300" height="20" cssclass="input_err"/>
+        <Static id="Static28" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="340" width="213" top="400" height="60"/>
+        <Static id="Static29" text="Readonly&#13;&#10;&lt;b v='false'&gt;Attribute Selector&lt;/b&gt;" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " usedecorate="true" left="0" width="130" top="375" height="154"/>
+        <Static id="Static30" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="212" top="400" height="60"/>
+        <Edit id="Edit02" taborder="13" value="nexacro platform" text="nexacro platform" position="absolute" readonly="true" left="180" width="110" top="411" height="20" cssclass="readonly"/>
+        <Static id="Static31" text="Edit" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="212" top="375" height="26"/>
+        <Static id="Static32" text="TextArea" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="552" width="213" top="375" height="26"/>
+        <Static id="Static33" text="MaskEdit" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="340" width="213" top="375" height="26"/>
+        <Static id="Static34" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="552" width="213" top="400" height="60"/>
+        <MaskEdit id="MaskEdit02" taborder="14" value="123456789" text="123,456,789" mask="," position="absolute" readonly="true" left="392" width="110" top="411" height="20" cssclass="readonly"/>
+        <TextArea id="TextArea02" taborder="15" value="nexacro platform" text="nexacro platform" position="absolute" readonly="true" left="573" width="170" top="411" height="40" cssclass="readonly"/>
+        <Static id="Static35" text="Spin" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="129" width="212" top="459" height="26"/>
+        <Static id="Static36" text="Combo" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="340" width="213" top="459" height="26"/>
+        <Static id="Static37" text="Calendar" position="absolute" style="background:#edeee6ff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " left="552" width="213" top="459" height="26"/>
+        <Static id="Static38" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="212" top="484" height="45"/>
+        <Static id="Static39" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="340" width="213" top="484" height="45"/>
+        <Static id="Static40" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="552" width="213" top="484" height="45"/>
+        <Spin id="Spin02" taborder="16" position="absolute" value="20" readonly="true" left="180" width="110" top="497" height="20" cssclass="readonly"/>
+        <Combo id="Combo02" taborder="17" position="absolute" readonly="true" innerdataset="@DsList" codecolumn="idx" datacolumn="context" index="6" value="6" left="392" width="110" top="497" height="20" cssclass="readonly"/>
+        <Calendar id="Calendar02" taborder="18" position="absolute" readonly="true" value="20110601" dateformat="yyyy-MM-dd" left="603" width="110" top="497" height="20" cssclass="readonly"/>
+        <Static id="Static41" position="absolute" style="background:#ffffffff; border:1 solid #c6c6c5ff ; align:center middle; font:Tahoma,9,bold antialias; " text="" left="129" width="636" top="331" height="45"/>
+        <Calendar id="Calendar00" taborder="19" value="20110601" dateformat="yyyy-MM-dd" left="603" top="147" width="110" height="20" cssclass="input_point"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="DsList" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="context" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="idx">0</Col>
+            <Col id="context">Static</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1</Col>
+            <Col id="context">Edit</Col>
+          </Row>
+          <Row>
+            <Col id="idx">2</Col>
+            <Col id="context">MaskEdit</Col>
+          </Row>
+          <Row>
+            <Col id="idx">3</Col>
+            <Col id="context">TextArea</Col>
+          </Row>
+          <Row>
+            <Col id="idx">4</Col>
+            <Col id="context">Button</Col>
+          </Row>
+          <Row>
+            <Col id="idx">5</Col>
+            <Col id="context">ListBox</Col>
+          </Row>
+          <Row>
+            <Col id="idx">6</Col>
+            <Col id="context">Combo</Col>
+          </Row>
+          <Row>
+            <Col id="idx">7</Col>
+            <Col id="context">Sp</Col>
+          </Row>
+          <Row>
+            <Col id="idx">8</Col>
+            <Col id="context">Calendar</Col>
+          </Row>
+          <Row>
+            <Col id="idx">9</Col>
+            <Col id="context">Tab</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

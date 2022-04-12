@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="QuickCode_Temp" width="1000" height="700" titletext="New Form">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="1000">
+        <Static id="Static06" taborder="0" text="View" left="10" top="10" width="250" height="30" cssclass="sta_WF_Subtitle"/>
+        <Static id="Static04" taborder="1" text="FreeFormView" left="10" top="40" width="260" height="30" cssclass="sta_WF_TypeTitle"/>
+        <View id="View00" taborder="2" text="View00" viewdataset="viewdataset" left="10" top="74" width="980" height="226"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_String_LpadRpad" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_String_LpadRpad" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_input1" taborder="1" autoselect="true" autoskip="true" value="10" inputtype="number" position="absolute" left="90" width="250" top="128" height="40"/>
+        <Static id="Static00" text="input0" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input0" taborder="0" autoselect="true" autoskip="true" value="nexacro platform" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Button id="btn_execute" taborder="3" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="228" height="40"/>
+        <Edit id="edt_input2" taborder="2" autoselect="true" autoskip="true" value="*" position="absolute" left="90" width="250" top="178" height="40"/>
+        <Static id="Static01" text="output0" position="absolute" left="30" width="60" top="288" height="40"/>
+        <Static id="Static09" text="input2" position="absolute" left="30" width="60" top="178" height="40"/>
+        <Static id="Static08" text="input1" position="absolute" left="30" width="60" top="128" height="40"/>
+        <Edit id="edt_output0" taborder="4" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="288" height="40"/>
+        <Static id="Static11" text="output1" position="absolute" left="30" width="60" top="338" height="40"/>
+        <Edit id="edt_output1" taborder="5" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="338" height="40"/>
+        <Static id="Static05" taborder="6" text="Filling other characters to specified length in the String" cssclass="sta_WF_subtitP" left="30" top="18" width="720" height="40"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_String_LpadRpad
+ * Description : Filling other characters to specified length in the String
+ */
+
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn0 = this.fn_lpad(this.edt_input0.value, this.edt_input1.value, this.edt_input2.value);
+	var sRtn1 = this.fn_rpad(this.edt_input0.value, this.edt_input1.value, this.edt_input2.value);
+	this.edt_output0.set_value(sRtn0);
+	this.edt_output1.set_value(sRtn1);
+}
+
+/*
+ * Function Name : fn_lpad
+ * Description   : Filling other characters to specified length in the String on the left side.
+ * Parameter     : Source String, Specified Length, Filling Character
+ * Return        : String
+ * Example       : fn_lpad("XPLATFORM", 10, "*");
+ */
+this.fn_lpad = function(sString, nSize, sPadChar)
+{
+    var sRtn = "";
+	if (sPadChar != null)
+	{
+		sRtn = sString.padLeft(nSize, sPadChar);
+	}
+	else if (sPadChar == null)
+	{
+		sRtn = sString.padLeft(nSize, " ");
+	}
+
+    return sRtn;
+}
+
+/*
+ * Function Name : fn_rpad
+ * Description   : Filling other characters to specified length in the String on the right side..
+ * Parameter     : Source String, Specified Length, Filling Character
+ * Return        : String
+ * Example       : fn_rpad("XPLATFORM", 10, "*");
+ */
+this.fn_rpad = function(sString, nSize, sPadChar)
+{
+    var sRtn = "";
+	if (sPadChar != null)
+	{
+		sRtn = sString.padRight(nSize, sPadChar);
+	}
+	else if (sPadChar == null)
+	{
+		sRtn = sString.padRight(nSize, " ");
+	}
+
+    return sRtn;    
+}
+]]></Script>
+  </Form>
+</FDL>

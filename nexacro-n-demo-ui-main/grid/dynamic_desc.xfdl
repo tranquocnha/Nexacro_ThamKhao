@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="920" height="380" onload="form_onload">
+    <Layouts>
+      <Layout height="380" width="920">
+        <Static id="Static04" taborder="1" text="Add Row/Column" left="20" top="15" width="160" height="30" cssclass="sta_WF_compTitle02" messageid="grid.dynamic.add" fittocontents="width"/>
+        <Static id="Static00_00" taborder="0" text="The ondrag and ondrop events provided by the Nexacroplatform components allow users to organize the UI in a convenient way, such as dynamically creating columns in the grid or moving data.&#13;&#10;&#13;&#10;Drag a column from the list of columns on the left and drop it over the grid. Columns are dynamically generated in order and data can be viewed.&#13;&#10;For multitasking at the bottom, select the check box before the column you want to add, drag and drop it on the grid. Press the reset button to delete all additional column information." left="20" top="Static04:2" height="73" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.dynamic.add.desc" usedecorate="true" right="20"/>
+        <Static id="Static04_00" taborder="2" text="Row merge" left="20" top="Static00_00:10" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.dynamic.merge" fittocontents="width"/>
+        <Static id="Static00_00_00" taborder="3" text="Select the cell area by dragging and dropping in the grid, and right-click to merge the columns." left="20" top="Static04_00:2" height="73" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.dynamic.merge.desc" usedecorate="true" right="20"/>
+        <Static id="Static04_00_00" taborder="4" text="Cell Design" left="20" top="Static00_00_00:10" width="120" height="30" cssclass="sta_WF_compTitle02" messageid="grid.dynamic.design" fittocontents="width"/>
+        <Static id="Static00_00_00_00" taborder="5" text="The ondrag and ondrop events provided by the Nexacroplatform components allow users to organize the UI in a convenient way, such as dynamically creating columns in the grid or moving data.&#13;&#10;&#13;&#10;Drag a column from the list of columns on the left and drop it over the grid. Columns are dynamically generated in order and data can be viewed.&#13;&#10;For multitasking at the bottom, select the check box before the column you want to add, drag and drop it on the grid. Press the reset button to delete all additional column information." left="20" top="Static04_00_00:2" height="73" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="grid.dynamic.design.desc" usedecorate="true" right="20"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+]]></Script>
+  </Form>
+</FDL>

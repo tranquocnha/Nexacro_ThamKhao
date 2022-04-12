@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="QuickCode_Pop_DeptSearch" width="300" height="400">
+    <Layouts>
+      <Layout height="400" width="300">
+        <Static id="Static00" taborder="0" text="Department Search" left="10" top="10" width="193" height="30" cssclass="sta_WF_FrmTitle"/>
+        <View id="view_dept" taborder="1" viewdataset="viewdataset" left="10" top="50" right="10" bottom="60" cssclass="View_WF_Area">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_list" left="0" top="0" right="0" bottom="0" binddataset="viewdataset" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="100" band="body"/>
+                      <Column size="150" band="body"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="32" band="head"/>
+                      <Row size="32" band="body"/>
+                      <Row size="0" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell id="cell_DEPT_CD" col="0" row="0" text="Dept Code"/>
+                      <Cell id="cell_DEPT_NAME" col="1" row="0" text="Dept Name"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell id="cell_DEPT_CD" col="0" row="0" text="bind:DEPT_CD" displaytype="normal" edittype="none"/>
+                      <Cell id="cell_DEPT_NAME" col="1" row="0" text="bind:DEPT_NAME" displaytype="normal" edittype="none"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell id="cell_DEPT_CD" col="0" row="0" text=""/>
+                      <Cell id="cell_DEPT_NAME" col="1" row="0" text=""/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+          <Objects>
+            <Dataset id="viewdataset">
+              <ColumnInfo>
+                <Column id="DEPT_CD" type="STRING" size="80"/>
+                <Column id="DEPT_NAME" type="STRING" size="80"/>
+              </ColumnInfo>
+              <Rows>
+                <Row/>
+              </Rows>
+            </Dataset>
+          </Objects>
+          <ModelInfo modelserviceid="Model" serviceid="" modelid="Model_Dept" filepath="Model_Edu\Model_Edu.xmodel">
+            <Fields>
+              <Field id="DEPT_CD" description="" displaytype="normal" edittype="none" fieldwidth="100" cssclass="" summprop="none"/>
+              <Field id="DEPT_NAME" description="" displaytype="normal" edittype="none" fieldwidth="150" cssclass="" summprop="none"/>
+            </Fields>
+            <Components>
+              <Component id="grd_list" fields="DEPT_CD,DEPT_NAME"/>
+            </Components>
+          </ModelInfo>
+          <ViewTemplateInfo filepath="EduGridViewTemplate.xviewgen">
+            <Attribute id="headbandsize" value="32"/>
+            <Attribute id="bodybandsize" value="32"/>
+            <Attribute id="summbandsize" value="0"/>
+          </ViewTemplateInfo>
+        </View>
+        <View id="view_btn" taborder="2" text="View00" viewdataset="viewdataset" left="10" right="10" bottom="10" height="40" cssclass="View_WF_Area">
+          <Layouts>
+            <Layout>
+              <Button id="btn_ok" left="56.5" top="4" width="80" height="30" text="OK" cssclass="btn_WF_POP_OK" onclick="view_btn_btn_ok_onclick"/>
+              <Button id="btn_cancel" left="141.5" top="4" width="80" height="30" text="Cancel" onclick="view_btn_btn_cancel_onclick"/>
+            </Layout>
+          </Layouts>
+          <ModelInfo modelserviceid="Model" serviceid="" modelid="Model_Button_Popup" filepath="Model_Common\Model_Button.xmodel">
+            <Fields>
+              <Field id="OK" description="" fieldwidth="80px" fieldheight="30px" cssclass="btn_WF_POP_OK"/>
+              <Field id="CANCEL" description="" fieldwidth="80px" fieldheight="30px" cssclass=""/>
+            </Fields>
+            <Components>
+              <Component id="btn_ok" fields="OK"/>
+              <Component id="btn_cancel" fields="CANCEL"/>
+            </Components>
+          </ModelInfo>
+          <ViewTemplateInfo filepath="EduButtonViewTemplate.xviewgen">
+            <Attribute id="direction" value="horizontal"/>
+            <Attribute id="halign" value="center"/>
+            <Attribute id="valign" value="middle"/>
+          </ViewTemplateInfo>
+        </View>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <TranAction id="TranAction_DeptSearch" serviceid="svcDeptCode" serviceurl="SvcURL::select_dept_code.jsp" async="true" outputdatasets="view_dept.form.viewdataset=out_dept" targetview="QuickCode_Pop_DeptSearch (Form)">
+        <Contents/>
+      </TranAction>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.view_btn_btn_ok_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var nRow = this.view_dept.form.viewdataset.rowposition;
+	var sRtn  = this.view_dept.form.viewdataset.getColumn(nRow, "DEPT_CD") + "|";
+	    sRtn += this.view_dept.form.viewdataset.getColumn(nRow, "DEPT_NAME");	
+	this.close(sRtn);
+};
+
+
+this.view_btn_btn_cancel_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};]]></Script>
+    <Trigger>
+      <TriggerItem id="item1" triggertype="Form Init" triggerview="QuickCode_Pop_DeptSearch" triggerobj="QuickCode_Pop_DeptSearch" targetaction="TranAction_DeptSearch" condition=""/>
+    </Trigger>
+  </Form>
+</FDL>

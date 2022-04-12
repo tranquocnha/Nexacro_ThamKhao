@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="np_Grid_ColRow_SumMid" left="0" top="0" width="1024" height="768" titletext="Row Column Total">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Static id="Static02" text="Row,column total" class="sta_WF_subtitle" position="absolute" left="30" top="18" width="500" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid01" taborder="6" useinputpanel="false" left="30" top="78" width="700" height="316" binddataset="ds_data" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="124"/>
+                <Column size="147"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="116"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="group"/>
+                <Cell col="1" text="department"/>
+                <Cell col="2" text="employ"/>
+                <Cell col="3" text="pay"/>
+                <Cell col="4" text="tax"/>
+                <Cell col="5" text="amount"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:group" suppress="1"/>
+                <Cell col="1" style="align:left;" text="bind:department" suppress="2"/>
+                <Cell col="2" style="align:left;" text="bind:employ"/>
+                <Cell col="3" displaytype="number" style="align:right;" text="bind:pay"/>
+                <Cell col="4" displaytype="number" style="align:right;" text="bind:tax"/>
+                <Cell col="5" displaytype="number" style="align:right;" text="expr:pay - tax"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="3" text="total"/>
+                <Cell col="3" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;pay&quot;)"/>
+                <Cell col="4" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;tax&quot;)"/>
+                <Cell col="5" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;pay&quot;) - dataset.getSum(&quot;tax&quot;)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dstSubsum" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="col1"/>
+          <Column type="STRING" size="256" id="col2"/>
+          <Column type="STRING" size="255" id="col3"/>
+          <Column type="INT" size="255" id="col4"/>
+          <Column id="col5" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">맛있을라면</Col>
+            <Col id="col4">1</Col>
+            <Col id="col5">2</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">심양라면</Col>
+            <Col id="col4">2</Col>
+            <Col id="col5">1</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">센라면</Col>
+            <Col id="col4">3</Col>
+            <Col id="col5">3</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">언성탕면</Col>
+            <Col id="col4">4</Col>
+            <Col id="col5">7</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">투깨더</Col>
+            <Col id="col4">5</Col>
+            <Col id="col5">5</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">바바빅</Col>
+            <Col id="col4">6</Col>
+            <Col id="col5">4</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">메롱바</Col>
+            <Col id="col4">7</Col>
+            <Col id="col5">6</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">스크롤바</Col>
+            <Col id="col4">8</Col>
+            <Col id="col5">8</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_data" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column id="group" type="STRING" size="256"/>
+          <Column type="STRING" size="255" id="department"/>
+          <Column type="STRING" size="256" id="employ"/>
+          <Column id="pay" type="INT" size="256"/>
+          <Column id="tax" type="INT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Tom</Col>
+            <Col id="group">Technical Group</Col>
+            <Col id="pay">1000000</Col>
+            <Col id="tax">10000</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Jany</Col>
+            <Col id="pay">2000000</Col>
+            <Col id="tax">20000</Col>
+          </Row>
+          <Row>
+            <Col id="group">Technical Group</Col>
+            <Col id="department">Customer Support Team</Col>
+            <Col id="employ">Piter</Col>
+            <Col id="pay">1000000</Col>
+            <Col id="tax">10000</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Superman</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="pay">1000000</Col>
+            <Col id="tax">10000</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Jack</Col>
+            <Col id="pay">1000000</Col>
+            <Col id="tax">10000</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group1</Col>
+            <Col id="department">Sales 1 Team</Col>
+            <Col id="employ">Tony</Col>
+            <Col id="pay">2000000</Col>
+            <Col id="tax">20000</Col>
+          </Row>
+          <Row>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Sujan</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="pay">3000000</Col>
+            <Col id="tax">30000</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Mac</Col>
+            <Col id="pay">3000000</Col>
+            <Col id="tax">30000</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Sales 2 Team</Col>
+            <Col id="employ">Ann</Col>
+            <Col id="pay">3000000</Col>
+            <Col id="tax">30000</Col>
+          </Row>
+          <Row>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Bess</Col>
+            <Col id="group">Sales Group</Col>
+            <Col id="pay">3000000</Col>
+            <Col id="tax">30000</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Dana</Col>
+            <Col id="pay">3000000</Col>
+            <Col id="tax">30000</Col>
+          </Row>
+          <Row>
+            <Col id="group">Sales Group</Col>
+            <Col id="department">Pre-Sales Team</Col>
+            <Col id="employ">Elin</Col>
+            <Col id="pay">1000000</Col>
+            <Col id="tax">10000</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

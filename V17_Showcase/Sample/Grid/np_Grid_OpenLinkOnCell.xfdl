@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="N246091" classname="N246091" left="0" top="0" width="760" height="430" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="118" height="186" binddataset="Dataset00" oncellclick="Grid00_oncellclick" autofittype="col" width="500">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="none" style="font:9 arial; :mouseover {font:underline 9 arial;}" text="bind:Column0"/>
+                <Cell col="1" displaytype="decoratetext" edittype="none" text="bind:Column1"/>
+                <Cell col="2" edittype="none" text="bind:Column2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="1" text="Opening link on Grid cell" cssclass="sta_WF_subtitP" left="30" top="18" width="400" height="40" style="font:bold 9 Dotum;"/>
+        <Static id="Static00" taborder="2" text="In this sample, opening link on Grid cell using system.execBrowser" cssclass="sta_WF_explain" left="30" top="78" width="500" height="30" style="font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Url" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">a</Col>
+            <Col id="Column1">&lt;u v='true'&gt;http://www.naver.com&lt;/u&gt;</Col>
+            <Col id="Column2">dd</Col>
+            <Col id="Url">Y</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">b</Col>
+            <Col id="Column1">vv</Col>
+            <Col id="Column2">dd</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">c</Col>
+            <Col id="Column1">cc</Col>
+            <Col id="Column2">dd</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">d</Col>
+            <Col id="Column1">dd</Col>
+            <Col id="Column2">dd</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Grid00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if( e.cell == 1 ){
+		if( this.Dataset00.getColumn(e.row, "Url") == "Y")		
+			system.execBrowser("http://www.naver.com");
+	}	
+};
+]]></Script>
+  </Form>
+</FDL>

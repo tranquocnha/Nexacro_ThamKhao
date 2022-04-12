@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="sample_taBPAGE" classname="sample_taBPAGE" left="0" top="0" width="760" height="430" titletext="TextArea중간에 문자 삽입방법">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="^.^" left="30" top="233" height="40" onclick="Button00_onclick" width="90"/>
+        <TextArea id="TextArea00" taborder="2" left="30" top="73" height="150" scrollbars="fixedvert" value="NEXACRO PLATFORM" width="380"/>
+        <Button id="Button01" taborder="3" text="ㅋㅋ" top="233" height="40" onclick="Button01_onclick" width="90" left="130"/>
+        <Static id="Static05" taborder="4" text="TextArea중간에 문자 삽입방법" cssclass="sta_WF_subtitP" left="30" top="18" width="403" height="40" class="sta_WF_subtitle"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_setValue(obj, e);
+}     
+
+this.fn_setValue = function(obj, e)
+{
+ 	this.TextArea00.setFocus();
+	var nCaretPos = this.TextArea00.getCaretPos();
+trace(nCaretPos + "==="  + this.TextArea00  + "===" + this.TextArea00.text);	
+	var sTmp = "";
+	var orgData = this.TextArea00.text;   
+    	     
+	if(nCaretPos >=0)   
+	{    
+		var sFirst = orgData.substr(0,nCaretPos);   
+		var sEnd =  orgData.substr(nCaretPos,orgData.length);
+		this.TextArea00.set_value(sFirst + obj.text + sEnd);   
+		this.TextArea00.setCaretPos((sFirst + obj.text).length);  
+	}
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{  
+	this.fn_setValue(obj, e);
+}
+      
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.TextArea00.setFocus();
+	this.TextArea00.setCaretPos(3);     
+	trace(this.TextArea00.getCaretPos());  
+	
+}
+]]></Script>
+  </Form>
+</FDL>

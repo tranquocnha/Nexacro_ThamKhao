@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="MdiFrame" width="862" height="35" titletext="New Form" cssclass="sta_MF_bg" onload="MdiFrame_onload" scrollbartype="none">
+    <Layouts>
+      <Layout height="35" mobileorientation="landscape" width="862">
+        <Static id="Static00" taborder="7" left="0" top="0" height="100%" cssclass="sta_MDI_AreaBg" right="0"/>
+        <Tab id="tab_mdi" taborder="6" tabindex="0" left="35" onchanged="tab_mdi_onchanged" onextrabuttonclick="tab_mdi_onextrabuttonclick" showextrabutton="true" top="0" cssclass="tab_MDI_Tab" right="113" height="34" onlbuttondown="tab_mdi_onlbuttondown">
+          <Tabpages>
+            <Tabpage id="Tabpage5" text="Tabpage5"/>
+          </Tabpages>
+        </Tab>
+        <Button id="btn_home" taborder="0" left="0" top="0" width="35" height="35" cssclass="btn_MDI_Home" onclick="btn_home_onclick"/>
+        <Button id="btn_closeAll" taborder="1" top="8" width="19" height="19" cssclass="btn_MDI_AllX" right="4" onclick="fn_arrange" text=""/>
+        <Button id="btn_vertical" taborder="2" top="8" width="19" height="19" cssclass="btn_MDI_Horz" right="24" onclick="fn_arrange"/>
+        <Button id="btn_horizontal" taborder="3" top="8" width="19" height="19" cssclass="btn_MDI_Verti" right="44" onclick="fn_arrange"/>
+        <Button id="btn_cascade" taborder="4" top="8" width="19" height="19" cssclass="btn_MDI_Min" right="64" onclick="fn_arrange"/>
+        <Button id="btn_maximize" taborder="5" top="8" width="19" height="19" cssclass="btn_MDI_Max" right="84" onclick="fn_arrange"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.MdiFrame_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	//기본 tabpage delete
+	this.tab_mdi.removeTabpage(0);	
+};
+
+// 탭 추가
+this.fn_addTab = function(oParam)
+{
+	this.tab_mdi.insertTabpage(oParam.FORM_ID, -1, "", oParam.MENU_NM);
+
+	//열린 화면 정보 갱신
+	this.fn_setOpenForm(oParam);	
+}
+
+//화면정보 global ds에 set
+this.fn_setOpenForm = function(oParam)
+{
+	var objDs = nexacro.getApplication().gds_openForm;
+	if(oParam.FORM_TYPE == "ADD")
+	{
+		var nRow = objDs.addRow();
+		objDs.setColumn(nRow, "FORM_ID"  , oParam.FORM_ID);
+		objDs.setColumn(nRow, "MENU_ID"  , oParam.MENU_ID);
+		objDs.setColumn(nRow, "MENU_NAME", oParam.MENU_NM);
+		objDs.setColumn(nRow, "FORM_URL" , oParam.FORM_URL);
+	}
+	else if(oParam.FORM_TYPE == "DEL")
+	{
+		var nRow = objDs.findRow("FORM_ID", oParam.FORM_ID);
+		objDs.deleteRow(nRow);
+	}
+	else if(oParam.FORM_TYPE == "ALL")
+	{
+		objDs.clearData();
+	}
+}
+
+this.tab_mdi_onchanged = function(obj:nexacro.Tab,e:nexacro.TabIndexChangeEventInfo)
+{
+	var sFormID = obj.tabpages[e.postindex].name;	
+	nexacro.getApplication().av_WorkFrame[sFormID].form.setFocus();
+	
+};
+
+this.tab_mdi_onextrabuttonclick = function(obj:nexacro.Tab,e:nexacro.TabMouseEventInfo)
+{
+	var sFormID = obj.tabpages[e.index].name;	
+	obj.removeTabpage(e.index);
+	
+	nexacro.getApplication().av_WorkFrame[sFormID].form.close();
+
+	this.fn_setOpenForm({FORM_ID:sFormID, FORM_TYPE:"DEL" });
+	
+};
+
+this.fn_tabControl = function(sFormID, sType)
+{
+	var nCnt = this.tab_mdi.getTabpageCount();	
+	for(var i=0; i<nCnt; i++)
+	{	
+		if(this.tab_mdi.tabpages[i].name == sFormID)
+		{
+			if(sType == "SELECT"){
+				this.tab_mdi.set_tabindex(i); 
+			}
+			else if(sType == "DELETE"){
+				this.tab_mdi.removeTabpage(i); 
+				this.fn_setOpenForm({FORM_ID:sFormID, FORM_TYPE:"DEL" });
+
+			}
+			return;
+		}
+	}
+}
+
+this.fn_arrange = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+    var strType = obj.name.replace("btn_", "");    
+	var arrObj = nexacro.getApplication().av_WorkFrame.all;
+	switch(strType)
+	{
+		case "maximize" :
+			for(var i=0; i<arrObj.length; i++) 
+			{
+				nexacro.getApplication().av_WorkFrame.frames[i].set_openstatus("maximize");						
+				//nexacro.getApplication().av_WorkFrame.frames[i].set_showtitlebar(false);						
+				nexacro.getApplication().av_WorkFrame.frames[i].set_border("0px none");						
+			}
+		break;
+		case "closeAll" :
+ 			for(var i=arrObj.length-1; i>=0; i--) 
+			{
+				trace(arrObj[i].form.name);
+				if(arrObj[i].form.name == "MainForm")	continue;
+// 				arrObj[i].form.destroy();
+ 				arrObj[i].form.close();
+ 				this.tab_mdi.removeTabpage(i);
+			}
+			this.fn_setOpenForm({FORM_TYPE: "ALL"});
+			
+		break;
+	    default :
+			for(var i=0; i<arrObj.length; i++) 
+			{
+				nexacro.getApplication().av_WorkFrame.frames[i].set_openstatus("normal");						
+				nexacro.getApplication().av_WorkFrame.frames[i].set_showtitlebar(true);						
+				nexacro.getApplication().av_WorkFrame.frames[i].set_border("1px solid #B4B4B4");						
+
+			} 		
+			nexacro.getApplication().av_WorkFrame.arrange(strType);
+	    break;
+	}
+	
+};
+
+this.fv_homeClick = false;
+this.btn_home_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	nexacro.getApplication().av_WorkFrame["MainForm"].form.setFocus();
+	this.fv_homeClick = true;
+	
+};
+
+//화면이 열린 상태에서 홈 버튼 이동 후 다시 화면 탭을 선택시
+//tab의 onchanged 이벤트가 발생하지 않아 해당 화면이 보이지 않음
+//홈 버튼이 클릭된 flag 값과 tabindex를 비교하여 동일한 탭일때 화면을 보여주기 위한 스크립트
+this.tab_mdi_onlbuttondown = function(obj:nexacro.Tab,e:nexacro.MouseEventInfo)
+{	
+	var nGetIdx = this.tab_mdi.getIndex(e.canvasx, e.canvasy);	//마우스로 탭페이지를 선택했을때의 index
+	var nTabIdx = this.tab_mdi.tabindex;	//현재 선택되어 있는 탭 index
+
+	if(this.fv_homeClick == true && nGetIdx == nTabIdx){
+		var sFormID = obj.tabpages[nGetIdx].name;	
+		nexacro.getApplication().av_WorkFrame[sFormID].form.setFocus();
+		this.fv_homeClick = false;
+	}
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

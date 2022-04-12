@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="TabPage_Position" classname="TabPage_Position_0" inheritanceid="" position="absolute" titletext="TabPage_Position" left="0" width="760" top="0" height="530">
+    <Layouts>
+      <Layout>
+        <Static id="Static02" text="Tab Position" position="absolute" left="322" width="200" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static03" text="Tab Type" position="absolute" left="30" width="200" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Radio id="Radio01" taborder="1" columncount="0" rowcount="0" innerdataset="@Dataset01" codecolumn="Column0" datacolumn="Column0" value="Single" direction="vertical" onitemchanged="Radio01_onitemchanged" position="absolute" index="0" left="30" width="145" top="73" height="29"/>
+        <Radio id="Radio00" taborder="1" columncount="0" rowcount="0" index="0" innerdataset="@Dataset00" codecolumn="Column0" datacolumn="Column0" value="top" direction="vertical" onitemchanged="Radio00_onitemchanged" position="absolute" left="320" width="281" top="73" height="23"/>
+        <Tab id="Tab00" taborder="2" tabindex="0" left="30" top="116" width="700" height="300">
+          <Tabpages>
+            <Tabpage id="Tabpage1" text="Tabpage1">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage2" text="Tabpage2">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage3" text="Tabpage3">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage4" text="Tabpage4">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage5" text="Tabpage5">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage6" text="Tabpage6">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage7" text="Tabpage7">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage8" text="Tabpage8">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage9" text="Tabpage9">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage10" text="Tabpage10">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage11" text="Tabpage11">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage12" text="Tabpage12">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">top</Col>
+            <Col id="Column1"/>
+          </Row>
+          <Row>
+            <Col id="Column0">left</Col>
+            <Col id="Column1"/>
+          </Row>
+          <Row>
+            <Col id="Column0">right</Col>
+            <Col id="Column1"/>
+          </Row>
+          <Row>
+            <Col id="Column0">bottom</Col>
+            <Col id="Column1"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">Single</Col>
+            <Col id="Column1"/>
+          </Row>
+          <Row>
+            <Col id="Column0">Multi</Col>
+            <Col id="Column1"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Radio00_onitemchanged = function (obj:Radio, e:ItemChangeEventInfo)
+{
+//2013.11.25.최희연.border 가 바로 적용되지 않는 문제 : TOPS 34093(RP_34283) 으로 등록함.
+	this.Tab00.set_tabposition(e.postvalue);
+};
+
+this.Radio01_onitemchanged = function (obj:Radio, e:ItemChangeEventInfo)
+{
+	if (obj.value == 'Single') 
+	{
+		this.Tab00.set_multiline(false);
+	}
+	else 
+	{
+		this.Tab00.set_multiline(true);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>

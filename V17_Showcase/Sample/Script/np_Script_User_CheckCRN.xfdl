@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_User_CheckCRN" inheritanceid="" position="absolute" titletext="Script_User_CheckCRN" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input" taborder="0" value="1234567890123" autoselect="true" autoskip="true" maxlength="13" inputtype="number" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <Static id="Static05" taborder="3" text="Checking Business Registration Number" cssclass="sta_WF_subtitP" left="30" top="18" width="520" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_User_CheckCRN
+ * Description : Checking Business Registration Number
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bRtn = this.fn_checkCRN(this.edt_input.value);
+	//alert(bRtn);
+	this.edt_output.set_value(bRtn);
+};
+
+/*
+ * Function Name : fn_checkCRN
+ * Description   : Checking Business Registration Number
+ * Parameter     : Business Registration Number
+ * Return        : If Verifying Company Business Registration number format is success return true, if return false
+ * Example       : fn_checkCRN("1234567890123");
+ */
+this.fn_checkCRN = function(sComp)
+{
+	var arrChk = [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2];
+	var Sum = 0; 
+	
+	for (var i = 0; i < 12; i++) 
+	{
+		Sum += arrChk[i] * sComp.charAt(i);
+    }
+
+	Sum = Sum % 10;
+	Sum = 10 - Sum; 
+
+	if (Sum > 9 )
+	{ 
+		Sum = 0;
+    }
+	if (Sum == sComp.substring(12, 13)) 
+	{
+		return true;
+	}
+
+	return false
+};
+
+]]></Script>
+  </Form>
+</FDL>

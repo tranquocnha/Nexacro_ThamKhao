@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="guide3" classname="guide3" left="0" top="0" width="1025" height="674" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="3" text="Component Name" left="15" top="15" width="125" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static06" taborder="4" text="Component View" left="139" top="15" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;" right="15"/>
+        <Static id="Static12" taborder="5" text="Calendar" onclick="Static10_onclick" left="15" top="260" width="125" height="235" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static10" taborder="6" text="enabled" left="157" top="285" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static11" taborder="7" text="disabled" left="321" top="285" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Calendar id="Calendar01" taborder="10" value="20131225" dateformat="yyyy-MM-dd" left="320" top="305" width="110" height="20" style="buttonsize:22;" enable="false"/>
+        <Calendar id="Calendar02" taborder="11" value="20131225" dateformat="yyyy-MM-dd" left="151" top="370" width="110" height="20" style="buttonsize:22;" type="spin"/>
+        <Calendar id="Calendar03" taborder="12" left="151" top="305" width="115" height="22" value="20140113" dateformat="yyyy-MM-dd"/>
+        <Calendar id="Calendar04" taborder="13" value="20110620" type="monthonly" dateformat="yyyy-MM-dd" left="611" top="296" height="175" width="212" oneditclick="Calendar04_oneditclick"/>
+        <Calendar id="Calendar00" taborder="14" value="20131225" type="spin" dateformat="yyyy-MM-dd" left="320" top="370" width="110" height="20" style="buttonsize:22;" enable="false"/>
+        <Static id="Static02" taborder="27" text="CheckBox" left="15" top="153" width="125" height="108" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <CheckBox id="CheckBox00" taborder="29" text="CheckBox 1" left="162" top="179" width="130" height="25"/>
+        <CheckBox id="CheckBox01" taborder="30" text="CheckBox 2" value="true" left="162" top="202" width="130" height="25"/>
+        <CheckBox id="CheckBox02" taborder="31" text="CheckBox 1" enable="false" left="319" top="179" width="130" height="25"/>
+        <CheckBox id="CheckBox03" taborder="32" text="CheckBox 2" value="true" enable="false" left="319" top="202" width="130" height="25"/>
+        <Static id="Static17" taborder="33" text="enabled" left="157" top="158" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static18" taborder="34" text="disabled" left="321" top="158" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static01" taborder="37" text="ProgressBar" onclick="Static10_onclick" left="15" top="494" width="125" height="170" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static15" taborder="38" text="enabled" left="153" top="523" width="120" height="13" style="color:#999999ff;font:Tahoma,8;"/>
+        <Static id="Static16" taborder="39" text="disabled" left="398" top="523" width="120" height="13" style="color:#999999ff;font:Tahoma,8;"/>
+        <Button id="Btn01" text="Progress Test" onclick="Btn01_onclick" left="527" top="599" width="110" height="20" cssclass="btn_singdata"/>
+        <ProgressBar id="ProgressBar00" max="100" min="0" pos="65" onclick="ProgressBar00_onclick" left="153" top="549" width="200" height="15" step="2"/>
+        <ProgressBar id="ProgressBar02" max="100" min="0" pos="65" left="398" top="549" width="200" height="15" onclick="ProgressBar02_onclick" enable="false"/>
+        <ProgressBar id="Pbr01" text="11" expr="expr: Progress_text()" max="100" min="0" blocksize="1" onsetfocus="Pbr01_onsetfocus" left="153" top="602" width="368" height="15"/>
+        <Static id="Static00" taborder="47" left="140" top="260" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static04" taborder="48" left="140" top="494" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static23" taborder="51" text="HTML5 &amp; Hybrid 버전에서의 사용성이 떨어집니다" onclick="Static17_onclick" left="153" top="632" width="289" height="20" class="sta_WF_DscP" style="font:9 dotum;"/>
+        <Static id="Static09" taborder="52" left="140" top="663" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static08" taborder="53" left="140" top="663" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static03" taborder="54" text="Radio" left="15" top="44" width="125" height="110" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Radio id="Radio00" taborder="55" index="0" innerdataset="ds_Radio" codecolumn="Column0" datacolumn="Column1" value="1" left="154" top="91" width="149" height="45"/>
+        <Radio id="Radio01" taborder="56" index="0" innerdataset="ds_Radio" codecolumn="Column0" datacolumn="Column1" value="1" enable="false" left="320" top="91" width="149" height="45"/>
+        <Static id="Static07" taborder="57" text="enabled" left="157" top="64" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static13" taborder="58" text="disabled" left="321" top="64" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static28" taborder="59" text="* Appearance columncount = &quot;2&quot;" cssclass="sta_WF_Info_Orange" left="647" top="47" width="216" height="30"/>
+        <Static id="Static14" taborder="60" left="140" top="153" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Calendar id="Calendar05" taborder="61" value="20131225" type="spin" dateformat="yyyy-MM-dd" left="447" top="369" width="110" height="20" style="buttonsize:22;" cssclass="input_readonly"/>
+        <Calendar id="Calendar06" taborder="62" value="20140113" dateformat="yyyy-MM-dd" left="447" top="304" width="115" height="22" cssclass="readonly" readonly="true"/>
+        <Static id="Static19" taborder="63" text="readonly" left="447" top="285" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static20" taborder="64" text="readonly" left="569" top="534" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <CheckBox id="CheckBox04" taborder="65" text="CheckBox 1" cssclass="chk_WF_P" left="573" top="179" width="130" height="25"/>
+        <CheckBox id="CheckBox05" taborder="66" text="CheckBox 2" value="true" cssclass="chk_WF_P" left="573" top="202" width="130" height="25"/>
+        <Radio id="Radio02" taborder="67" index="0" innerdataset="ds_Radio" codecolumn="Column0" datacolumn="Column1" value="1" cssclass="rdo_WF_P" left="573" top="91" width="149" height="45"/>
+        <Calendar id="Calendar07" taborder="71" value="20140113" dateformat="yyyy-MM-dd" cssclass="cal_WF_P" left="151" top="433" width="115" height="22"/>
+        <Static id="Static21" taborder="72" text="rdo_WF_P" left="578" top="64" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static22" taborder="73" text="rdo_WF_P" left="578" top="158" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Static id="Static24" taborder="74" text="cal_WF_P" left="157" top="412" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <CheckBox id="CheckBox06" taborder="76" text="CheckBox 2" value="true" cssclass="readonly" left="439" top="202" width="125" height="25" readonly="true"/>
+        <CheckBox id="CheckBox07" taborder="77" text="CheckBox 1" cssclass="readonly" left="439" top="179" width="125" height="25" readonly="true"/>
+        <Static id="Static25" taborder="78" text="readonly" left="444" top="158" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+        <Radio id="Radio04" taborder="79" index="0" innerdataset="ds_Radio" codecolumn="Column0" datacolumn="Column1" value="1" cssclass="readonly" left="439" top="91" width="125" height="45" readonly="true"/>
+        <Static id="Static26" taborder="80" text="readonly" left="444" top="64" width="120" height="20" style="color:black;font:8 Tahoma;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Radio" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">Radio1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">Radio2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[function Btn01_onclick(obj:Button,  e:ClickEventInfo)
+{
+	
+	var i, j;
+	Pbr01.pos = 0;
+	for( i = 0 ; i < 100 ; i+=2 )
+	{
+		Pbr01.stepIt();
+		this.updateWindow();		
+		sleep(10);
+		Pbr01.text = i ;
+		
+		Progress_text(i);
+}
+	
+}
+// 
+// function Edit00_ontextchanged(obj:Edit,  e:TextChangedEventInfo)
+// {1
+// 	alert("sdf" );
+// }
+// 
+// function Edit00_ontextchange(obj:Edit,  e:TextChangeEventInfo)
+// {
+// 	alert("sd11111111111111f" );
+// }
+// 
+
+
+function Progress_text(value)
+{
+trace(value) ; 
+	 return value;
+
+}
+
+function ProgressBar00_onclick(obj:ProgressBar,  e:ClickEventInfo)
+{
+	
+}
+
+this.Calendar04_oneditclick = function(obj:Calendar,  e:TOBE.EditClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

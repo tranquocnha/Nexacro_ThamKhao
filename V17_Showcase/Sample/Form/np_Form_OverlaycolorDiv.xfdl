@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="overlaycolor_1" classname="overlaycolor_test1" left="0" top="0" width="300" height="200" titletext="overlaycolor" style="background:silver;">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Close" left="50" top="80" width="200" height="40" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close('close');
+}
+]]></Script>
+  </Form>
+</FDL>

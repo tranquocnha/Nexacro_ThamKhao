@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="grid_dynamic" width="920" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="920">
+        <Grid id="Grid00" taborder="0" left="17" top="16" width="383" height="168" cssclass="grd_WF_dynamic" binddataset="ds_sample" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="46"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="label"/>
+                <Cell col="1" text="contents1"/>
+                <Cell col="2" text="contents2"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:label" cssclass="grd_dynamicLabel"/>
+                <Cell col="1" text="bind:contents1" displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="2" text="bind:contents2" edittype="combo" displaytype="combocontrol"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="1" text="ㅇ 그리드 클래스 : grd_WF_dynamic&#13;&#10;ㅇ 라벨(항목)부분 cell class :  grd_dynamicLabel&#13;&#10;ㅇ cell combo에서 드롭 시 나오는 리스트 높이 조정&#13;&#10;- comboitemheight : 44px" left="20" top="198" width="376" height="110" background="lightcyan" verticalAlign="top" padding="10px" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sample">
+        <ColumnInfo>
+          <Column id="label" type="STRING" size="256"/>
+          <Column id="contents1" type="STRING" size="256"/>
+          <Column id="contents2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="contents1"/>
+            <Col id="contents2">test</Col>
+            <Col id="label">label</Col>
+          </Row>
+          <Row>
+            <Col id="contents2">test</Col>
+            <Col id="contents1"/>
+            <Col id="label">label</Col>
+          </Row>
+          <Row>
+            <Col id="contents2">test</Col>
+            <Col id="contents1"/>
+            <Col id="label">label</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

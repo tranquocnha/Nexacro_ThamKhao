@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Top" classname="Top" left="0" top="0" width="1024" height="100" titletext="New Form" style="background:#0080ffff;">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="[TopFrame]" left="0.68%" top="7" right="73.54%" height="47" style="font:25 Dotum;"/>
+        <Edit id="Edit00" taborder="1" left="11" top="60" height="25" value="This is TopFrame." width="186" oneditclick="Edit00_oneditclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Edit00_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

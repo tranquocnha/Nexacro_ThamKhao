@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE014" inheritanceid="" position="absolute" titletext="GRID TOTAL SUM" onload="form_onload" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_Board" taborder="5" binddataset="ds_GrdUser" useinputpanel="false" onheadclick="divGrd_grdBoard_onheadclick" position="absolute" onrbuttonup="grdBoard_onrbuttonup" autofittype="col" left="15" right="15" top="70" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="131"/>
+                <Column size="263"/>
+                <Column size="87"/>
+                <Column size="101"/>
+                <Column size="134"/>
+                <Column size="140"/>
+                <Column size="86"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.company"/>
+                <Cell col="1" text="domain.department"/>
+                <Cell col="2" text="domain.user.name"/>
+                <Cell col="3" text="domain.position"/>
+                <Cell col="4" text="domain.firsthalfvolunteer"/>
+                <Cell col="5" text="domain.secondhalfvolunteer"/>
+                <Cell col="6" text="domain.sum"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COMPANY" suppress="1"/>
+                <Cell col="1" displaytype="combo" text="bind:DEPT_ID" suppress="2" combodataset="ds_CboDept" combocodecol="DEPT_ID" combodatacol="DEPT_NAME"/>
+                <Cell col="2" text="bind:USER_NAME"/>
+                <Cell col="3" text="bind:JOB_POSITION"/>
+                <Cell col="4" style="align:right;" text="bind:FIRST_HALF_VOLUNTEER_WORK"/>
+                <Cell col="5" style="align:right;" text="bind:SECOND_HALF_VOLUNTEER_WORK"/>
+                <Cell col="6" style="align:right;padding:0 1 0 0;" expr="expr:parseInt(FIRST_HALF_VOLUNTEER_WORK) + parseInt(SECOND_HALF_VOLUNTEER_WORK)"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="4">
+                  <Cell/>
+                  <Cell col="1" text="Total"/>
+                  <Cell col="2"/>
+                  <Cell col="3"/>
+                </Cell>
+                <Cell col="4" style="align:right;" text="expr:dataset.getSum(&quot;FIRST_HALF_VOLUNTEER_WORK&quot;)"/>
+                <Cell col="5" style="align:right;" text="expr:dataset.getSum(&quot;SECOND_HALF_VOLUNTEER_WORK&quot;)"/>
+                <Cell col="6" style="align:right;padding:0 1 0 0;" text="expr:dataset.getSum(&quot;FIRST_HALF_VOLUNTEER_WORK&quot;) + dataset.getSum(&quot;SECOND_HALF_VOLUNTEER_WORK&quot;)"/>
+                <Cell row="1" colspan="4">
+                  <Cell/>
+                  <Cell col="1" text="Average"/>
+                  <Cell col="2"/>
+                  <Cell col="3"/>
+                </Cell>
+                <Cell row="1" col="4" style="align:right;" text="expr:nexacro.round(dataset.getSum(&quot;FIRST_HALF_VOLUNTEER_WORK&quot;) / dataset.rowcount, 1)"/>
+                <Cell row="1" col="5" style="align:right;" text="expr:nexacro.round(dataset.getSum(&quot;SECOND_HALF_VOLUNTEER_WORK&quot;) / dataset.rowcount, 1)"/>
+                <Cell row="1" col="6" style="align:right;padding:0 1 0 0;" text="expr:nexacro.round((dataset.getSum(&quot;FIRST_HALF_VOLUNTEER_WORK&quot;) + dataset.getSum(&quot;SECOND_HALF_VOLUNTEER_WORK&quot;)) / dataset.rowcount, 1)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="st_Title" text="domain.volunteerwork" position="absolute" left="15" width="219" top="38" height="22" cssclass="sta_WF_title"/>
+        <Static id="Static42" taborder="6" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="st_progress" taborder="7" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+        <Static id="Static41" taborder="8" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="9" text="15" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static43" taborder="10" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static32" taborder="11" text="50" visible="false" left="427" top="117" width="50" height="50" style="background:blueviolet;opacity:50;"/>
+        <Static id="Static44" taborder="12" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SVC_ID" type="STRING" size="100"/>
+          <Column id="QUERY_LIST" type="STRING" size="256"/>
+          <Column id="SERVICE" type="STRING" size="100"/>
+          <Column id="IN_DATASET_LIST" type="STRING" size="256"/>
+          <Column id="OUT_DATASET_LIST" type="STRING" size="256"/>
+          <Column id="CONTROLLER" type="STRING" size="512"/>
+          <Column id="CALLBACK" type="STRING" size="100"/>
+          <Column id="SYNC_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SVC_ID">getListUser</Col>
+            <Col id="QUERY_LIST">querySet1=findXPUserWorkingYear</Col>
+            <Col id="OUT_DATASET_LIST">ds_GrdUser=querySet1</Col>
+            <Col id="SERVICE"/>
+            <Col id="IN_DATASET_LIST"/>
+            <Col id="CONTROLLER"/>
+            <Col id="CALLBACK"/>
+            <Col id="SYNC_YN"/>
+          </Row>
+          <Row>
+            <Col id="SVC_ID">getListDept</Col>
+            <Col id="QUERY_LIST">querySet1=findXPDeptList</Col>
+            <Col id="SERVICE"/>
+            <Col id="IN_DATASET_LIST">querySet1=dsSearch</Col>
+            <Col id="OUT_DATASET_LIST">dsCboDept=querySet1</Col>
+            <Col id="CONTROLLER"/>
+            <Col id="CALLBACK"/>
+            <Col id="SYNC_YN"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdUser" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="USER_ID" type="string" size="16"/>
+          <Column id="USER_NAME" type="string" size="20"/>
+          <Column id="COMPANY" type="string" size="60"/>
+          <Column id="JOB_POSITION" type="string" size="60"/>
+          <Column id="DEPT_ID" type="string" size="16"/>
+          <Column id="FIRST_HALF_VOLUNTEER_WORK" type="INT" size="5"/>
+          <Column id="SECOND_HALF_VOLUNTEER_WORK" type="INT" size="5"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="USER_ID">dongwoo</Col>
+            <Col id="USER_NAME">Chulsoo  Kim</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">0</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">10</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yuli</Col>
+            <Col id="USER_NAME">Dongnam Yoon</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Team Manager</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">2</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">10</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kyungjiin</Col>
+            <Col id="USER_NAME">Lee Dongwoo</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">20</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">4</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kyungho</Col>
+            <Col id="USER_NAME">Hong Gildong</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">10</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">10</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">test</Col>
+            <Col id="USER_NAME">Lee Jihyun</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">3</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">9</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kkw</Col>
+            <Col id="USER_NAME">Jaesu Park</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">12</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">10</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">dongnam</Col>
+            <Col id="USER_NAME">Kyungho Kim</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">0</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">0</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">soungsoo</Col>
+            <Col id="USER_NAME">Kyungjiin Lee</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="DEPT_ID">DEPT-0004</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">4</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">6</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">hong80</Col>
+            <Col id="USER_NAME">Sooni Kim</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">7</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">3</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">chulsoo</Col>
+            <Col id="USER_NAME">Sungsoo Kim</Col>
+            <Col id="COMPANY">NEXAWEB</Col>
+            <Col id="JOB_POSITION">Division Manager</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">5</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">10</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yongmi</Col>
+            <Col id="USER_NAME">Youngmi Lee</Col>
+            <Col id="COMPANY">NEXAWEB</Col>
+            <Col id="JOB_POSITION">Team Manager</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">0</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">12</Col>
+          </Row>
+          <Row>
+            <Col id="USER_ID">sooni</Col>
+            <Col id="USER_NAME">Yuli Lee</Col>
+            <Col id="COMPANY">NEXAWEB</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="FIRST_HALF_VOLUNTEER_WORK">8</Col>
+            <Col id="SECOND_HALF_VOLUNTEER_WORK">20</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CboDept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="string" size="256"/>
+          <Column id="DEPT_ID" type="string" size="16"/>
+          <Column id="DEPT_NAME" type="string" size="60"/>
+          <Column id="DEPT_DESC" type="string" size="300"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="DEPT_NAME">Sales 1 Team</Col>
+            <Col id="DEPT_DESC"/>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0002</Col>
+            <Col id="DEPT_NAME">Sales 2 Team</Col>
+            <Col id="DEPT_DESC"/>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="DEPT_NAME">Customer Support Team</Col>
+            <Col id="DEPT_DESC"/>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0004</Col>
+            <Col id="DEPT_NAME">Consulting 1 Team</Col>
+            <Col id="DEPT_DESC"/>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0005</Col>
+            <Col id="DEPT_NAME">Consulting 2 Team</Col>
+            <Col id="DEPT_DESC"/>
+          </Row>
+          <Row>
+            <Col id="DEPT_ID">DEPT-0006</Col>
+            <Col id="DEPT_NAME">Design Team</Col>
+            <Col id="DEPT_DESC"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_GrdUser_bac" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="USER_ID" type="string" size="16"/>
+          <Column id="USER_NAME" type="string" size="20"/>
+          <Column id="EN_NAME" type="string" size="20"/>
+          <Column id="COMP_PHONE" type="string" size="20"/>
+          <Column id="PHONE" type="string" size="20"/>
+          <Column id="CELL_PHONE" type="string" size="20"/>
+          <Column id="COMPANY" type="string" size="60"/>
+          <Column id="JOB_POSITION" type="string" size="60"/>
+          <Column id="ASSIGNMENT" type="string" size="60"/>
+          <Column id="OFFICER_YN" type="string" size="1"/>
+          <Column id="FAX" type="string" size="20"/>
+          <Column id="ZIP_CODE" type="string" size="10"/>
+          <Column id="ADDRESS" type="string" size="300"/>
+          <Column id="COMP_ZIP_CODE" type="string" size="10"/>
+          <Column id="COMP_ADDRESS" type="string" size="300"/>
+          <Column id="EMAIL" type="string" size="30"/>
+          <Column id="DEPT_ID" type="string" size="16"/>
+          <Column id="PASSWORD" type="string" size="16"/>
+          <Column id="USERID" type="string" size="32"/>
+          <Column id="_chk" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="USER_ID">chulsoo</Col>
+            <Col id="USER_NAME">Chulsoo  Kim</Col>
+            <Col id="EN_NAME">Chulsoo  Kim</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Team Manager </Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">Y</Col>
+            <Col id="FAX">02-533-5353</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">432221</Col>
+            <Col id="COMP_ADDRESS">Guri-si Gyeongi-do</Col>
+            <Col id="EMAIL">chulsoo1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0008</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">dongnam</Col>
+            <Col id="USER_NAME">Dongnam Yoon</Col>
+            <Col id="EN_NAME">Dongnam Yoon</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager </Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-533-5353</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">432221</Col>
+            <Col id="COMP_ADDRESS">Bupyeong gu Incheon-si</Col>
+            <Col id="EMAIL">dongnam1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0003</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">dongwoo</Col>
+            <Col id="USER_NAME">Lee Dongwoo</Col>
+            <Col id="EN_NAME">Lee Dongwoo</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager </Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-2145-2145</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">445370</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">dongwoo.lee1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">hong80</Col>
+            <Col id="USER_NAME">Hong Gildong</Col>
+            <Col id="EN_NAME">Hong Gildong</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-6481-0091</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">463810</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">gildong@naver.com</Col>
+            <Col id="DEPT_ID">DEPT-0007</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">jihyun</Col>
+            <Col id="USER_NAME">Lee Jihyun</Col>
+            <Col id="EN_NAME">Lee Jihyun</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="ASSIGNMENT">CS Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">041-122-5294</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">330814</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">jihyun.lee1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0011</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">js.park</Col>
+            <Col id="USER_NAME">Jaesu Park</Col>
+            <Col id="EN_NAME">Jaesu Park</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Senior Manager</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">041-522-5294</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">445330</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">js.park1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0011</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kyungho</Col>
+            <Col id="USER_NAME">Kyungho Kim</Col>
+            <Col id="EN_NAME">Kyungho Kim</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">053-744-6426</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">702260</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">kyungho.kim1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">kyungjiin</Col>
+            <Col id="USER_NAME">Kyungjiin Lee</Col>
+            <Col id="EN_NAME">Kyungjiin Lee</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-455-4553</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">435040</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">kyungjiin.lee1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">sooni</Col>
+            <Col id="USER_NAME">Sooni Kim</Col>
+            <Col id="EN_NAME">Sooni Kim</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Division Manager</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">Y</Col>
+            <Col id="FAX">02-533-5353</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">sooni1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0010</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">soungsoo</Col>
+            <Col id="USER_NAME">Sungsoo Kim</Col>
+            <Col id="EN_NAME">Sungsoo Kim</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Engineer</Col>
+            <Col id="ASSIGNMENT">Server Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">031-455-4553</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">506253</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">soungsoo.kim1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0004</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yongmi</Col>
+            <Col id="USER_NAME">Youngmi Lee</Col>
+            <Col id="EN_NAME">Youngmi Lee</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Engineer</Col>
+            <Col id="ASSIGNMENT">Sales 1 Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">02-533-2222</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">432222</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">yongmi1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0009</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+          <Row>
+            <Col id="USER_ID">yuli</Col>
+            <Col id="USER_NAME">Yuli Lee</Col>
+            <Col id="EN_NAME">Yuli Lee</Col>
+            <Col id="COMP_PHONE">02-2140-1231</Col>
+            <Col id="PHONE">02-3440-1234</Col>
+            <Col id="CELL_PHONE">010-1234-1234</Col>
+            <Col id="COMPANY">TOBESOFT</Col>
+            <Col id="JOB_POSITION">Engineer</Col>
+            <Col id="ASSIGNMENT">Sales 1 Team</Col>
+            <Col id="OFFICER_YN">N</Col>
+            <Col id="FAX">041-529-5294</Col>
+            <Col id="ZIP_CODE">135874</Col>
+            <Col id="ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="COMP_ZIP_CODE">330300</Col>
+            <Col id="COMP_ADDRESS">5F INTOPS Building, 108-7 Samsung-Dong, Gangnam-Gu Seoul Korea</Col>
+            <Col id="EMAIL">yuli.lee1@tobesoft.com</Col>
+            <Col id="DEPT_ID">DEPT-0001</Col>
+            <Col id="PASSWORD">test123</Col>
+            <Col id="USERID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work screen template 14
+ * 02. Screen name   : TEMPLATE014.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by   Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * Screen display variable section
+ ************************************************************************/
+this.objFocusedGrd = undefined;
+
+/***********************************************************************
+ * Event process specification
+ ************************************************************************/
+// Initialize on Form onload
+// Form onload event
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common function processing Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Data receive
+	this.fn_getComboData();
+}
+
+this.fn_getComboData = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListDept";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findXPDeptList'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_CboDept=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_Search = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "getListUser";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'" + " ";
+	sArgument += "method='getList'" + " ";
+	sArgument += "querySetCount='1'" + " ";
+	sArgument += "querySet1='findXPUserWorkingYear'";
+
+	var sInDatasets = "";
+	var sOutDatasets = "ds_GrdUser=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// After processing gfnService process callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode == -1) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "getListDept":
+			this.fn_Search();
+			break;
+		case "getListUser":
+			break;
+		default:
+			break;
+	}
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

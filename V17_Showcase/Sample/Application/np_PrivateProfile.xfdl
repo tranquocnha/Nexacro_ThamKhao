@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PrivateProfile" classname="Application_Cookie" left="0" top="0" width="760" height="430" titletext="PrivateProfile">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="setPrivateProfile" onclick="Button00_onclick" left="30" top="138" height="40" enable="true" width="270"/>
+        <Button id="Button01" taborder="1" text="getPrivateProfile" onclick="Button01_onclick" left="30" top="188" height="40" enable="true" width="270"/>
+        <Static id="Static07" taborder="5" text="Personalizing" cssclass="sta_WF_subtitP" left="30" top="18" height="40" width="180"/>
+        <Edit id="Edit00" taborder="6" left="30" top="78" height="40" value="nexacro platform" width="270"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bSucc;
+	bSucc =nexacro.setPrivateProfile("Data", this.Edit00.value);
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strValue;
+	strValue = nexacro.getPrivateProfile("Data");
+	alert(strValue);	
+}   
+  ]]></Script>
+  </Form>
+</FDL>

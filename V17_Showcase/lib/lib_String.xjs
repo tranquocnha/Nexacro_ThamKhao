@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script type="xscript5.0"><![CDATA[/*
+ ===============================================================================
+ == String관련 공통함수들은 여기에 작성한다.
+ ===============================================================================
+ ● gfn_isNull     : 입력값이 null에 해당하는 경우 모두를 한번에 체크한다.
+ ● gfn_isEmpty    : 입력값이 Null이거나 빈값인지 체크한다.
+ ● gfn_ToString   : 입력값을 String으로 변경한다.
+ ● gfn_Right      : 문자열의 오른쪽부분을 지정한 길이만큼 Return 한다.
+ ● gfn_Left       : 문자열의 왼쪽부분을 지정한 길이만큼 Return 한다.
+ ● gfn_Nvl        : 입력값이 존재하는지를 판단하여
+ 존재하는 경우 입력값을 그대로 반환, 그렇지 않으면
+ 두 번째 파라미터를 반환하는 함수
+ ● gfn_Replace    : 입력된 문자열의 일부분을 다른 문자열로 치환하는 함수
+ ● gfn_NumFormat  : 입력된 실수를 문자열 표현법으로 표현하는 함수
+ ● gfn_getFormat  : 문자 포맷 형식 변환 ( 해당 문자는 포맷에서 @ 사용)
+ ● gfn_SetComma   : 숫자에 ","를 집어넣기
+ ● gfn_stripBlank : 문자열 중 "=" 좌우의 빈공백을 제거하는 함수
+ ● gfn_Split2     : 입력된 문자열을 strDelimiter1과 strDelimiter2로 2 번 Parsing 한 2차원 배열을 Return
+ ● gfn_findArray  : 1차원 배열에서 입력된 문자열이 있는 index를 반환
+ ● gfn_findArray2 : 2차원 배열에서 입력된 문자열이 있는 index를 반환
+ */
+
+/*******************************************************************************
+ * Function Name: gfn_isNull
+ * Description  : 입력값이 null에 해당하는 경우 모두를 한번에 체크한다.
+ * Arguments    : Val : 체크할 문자열( 예 : null 또는 undefined 또는 "" 또는 "abc" )
+ * Return       : Boolean,  Val이 undefined, null, NaN, "", Array.length = 0인 경우 = true
+ 이외의 경우 = false
+ ******************************************************************************/
+this.gfn_isNull = function (Val)
+{
+	if (new String(Val).valueOf() == "undefined") 
+	{
+		return true;
+	}
+	if (Val == null) 
+	{
+		return true;
+	}
+	if (("x" + Val == "xNaN") && (new String(Val.length).valueOf() == "undefined")) 
+	{
+		return true;
+	}
+	if (Val.length == 0) 
+	{
+		return true;
+	}
+
+	return false;
+}
+
+/*******************************************************************************
+ * Function Name: gfn_isEmpty
+ * Description  : 입력값이 Null이거나 빈값인지 체크한다.
+ * Arguments    : sValue
+ * Return       : true / false
+ *******************************************************************************/
+this.gfn_isEmpty = function (Val)
+{
+	return this.gfn_isNull(Val);
+}
+
+
+/*******************************************************************************
+ * Function Name: gfn_ToString
+ * Description  : 입력값을 String으로 변경한다.
+ * Arguments    : Val
+ * Return       : String
+ *******************************************************************************/
+this.gfn_ToString = function (Val)
+{
+	if (this.gfn_isNull(Val)) 
+	{
+		return new String();
+	}
+	return new String(Val);
+}
+
+/*******************************************************************************
+ * Function Name	: gfn_Length
+ * Description		: 입력값 형태에 따라서 길이 또는 범위를 구하는 함수
+ * Parameter		: 객체, 문자열, 배열
+ * Return 			: Type에 따라 구해진 길이 또는 범위
+ *******************************************************************************/
+this.gfn_Length = function (Val)
+{
+	return this.gfn_ToString(Val).length;
+}
+
+/**********************************************************************************
+ * Function Name: gfn_Right
+ * Description  : 문자열의 오른쪽부분을 지정한 길이만큼 Return 한다.
+ * Arguments    : Val   (오른부분을 얻어올 원본 문자열)
+ *                nSize (얻어올 크기. [Default Value = 0])
+ * Return       : String
+ **********************************************************************************/
+this.gfn_Right = function (Val, nSize)
+{
+	var nStart = this.gfn_ToString(Val).length;
+	var nEnd = Number(nStart) - Number(nSize);
+	var rtnVal = Val.substring(nStart, nEnd);
+
+	return rtnVal;
+}
+
+/**********************************************************************************
+ * Function Name: gfn_Left
+ * Description  : 문자열의 왼쪽부분을 지정한 길이만큼 Return 한다.
+ * Arguments    : Val (외쪽부분을 얻어올 원본 문자열)
+ *                     nSize (얻어올 크기. [Default Value = 0])
+ * return       : String, 오른쪽 부분이 얻어진 문자열.
+ **********************************************************************************/
+this.gfn_Left = function (Val, nSize)
+{
+	return this.gfn_ToString(Val).substr(0, nSize);
+}
+
+/**********************************************************************************
+ * Function Name: gfn_Nvl
+ * Description  : 입력값이 존재하는지를 판단하여
+ *				  존재하는 경우 입력값을 그대로 반환, 그렇지 않으면
+ *				  두 번째 파라미터를 반환하는 함수
+ * Arguments    : Val(입력값)
+ newVal이 Null일 경우 대체할 값)
+ * return       : Null을 대치한 값
+ **********************************************************************************/
+this.gfn_Nvl = function (Val, newVal)
+{
+	if (this.gfn_isNull(Val)) 
+	{
+		return newVal;
+	}
+	return Val;
+}
+
+
+/**********************************************************************************
+ * Function Name: gfn_Replace()
+ * Description  : 입력된 문자열의 일부분을 다른 문자열로 치환하는 함수
+ * Arguments    : strString 원본 문자열.
+ *               strOld    원본 문자열에서 찾을 문자열.
+ *               strNew    새로 바꿀 문자열.
+ * return       : 대체된 문자열
+ **********************************************************************************/
+this.gfn_Replace = function (Val, strOld, strNew)
+{
+   //trace("=== gfn_Replace ===");
+	Val = this.gfn_ToString(Val);
+	Val = Val.split(eval("/" + strOld + "/g")).join(strNew);
+	// Val = Val.split(strOld).join(strNew);
+	return Val;
+}
+
+/********************************************************************************
+ * Function Name: gfn_IndexOf
+ * Description  : 전체 문자열 중 특정 문자열이 포함된 위치를 반납
+ *				  ex) gfn_IndexOf("abc", "b")
+ * Arguments	: Val(원본 문자열)
+ *				  strOld(검사할 문자열)
+ *				  index(시작순서)
+ * Return 		: 문자열이 포함된 위치의 index값
+ ********************************************************************************/
+this.gfn_IndexOf = function (Val, strOld, index)
+{
+	if (this.gfn_isNull(index)) 
+	{
+		index = 0;
+	}
+	return this.gfn_ToString(Val).indexOf(strOld, index);
+}
+
+/******************************************************************************
+ * Function Name: gfn_NumFormat(dNumber);
+ * Description  : 입력된 실수를 문자열 표현법으로 표현하는 함수
+ * Arguments    : dNumber    문자열로 출력할 실수
+ *                nDetail    출력시 소숫점 이하의 자릿수(Default : 0)
+ * return       : 문자열로 바뀐 실수
+ *                출력되는 실수는 정수부분에 3자리마다 ',' 가 삽입됩니다.
+ * gfn_NumFormat(12345.66)
+ ******************************************************************************/
+this.gfn_NumFormat = function (dNumber, nDetail)
+{
+	var strVal = "" + dNumber;
+	var rtnStr;
+	var arrStr;
+
+	if (this.gfn_isNull(nDetail) == false) 
+	{
+		strVal = TOBE.toNumber(dNumber).round(nDetail);
+	}
+	return this.gfn_SetComma(strVal);
+}
+
+/******************************************************************************
+ * Function Name: gfn_getFormat
+ * Description  : 문자 포맷 형식 변환 ( 해당 문자는 포맷에서 @ 사용)
+ * Arguments    : Val: 문자열,
+ *                strMask: 문자열 포맷, (@:문자, 포맷스트링("-", ",", ".")등
+ * return       : 포맷된 문자
+ ******************************************************************************/
+this.gfn_getFormat = function (Val, strMask)
+{
+	var strRetVal = "";
+	var sUnit;
+
+	if (this.gfn_isNull(Val)) 
+	{
+		return "";
+	}
+
+	Val = this.gfn_ToString(Val);
+
+	for (var i = 0; i < strMask.length; i++) 
+	{
+		sUnit = strMask.substr(i, 1);
+
+		if (sUnit == "@") 
+		{
+			strRetVal += Val.substr(0, 1);
+			Val = Val.substr(1);
+		}
+		else 
+		{
+			strRetVal += sUnit;
+		}
+	}
+	return strRetVal;
+}
+
+/**********************************************************************************
+ * Function Name: gfn_SetComma
+ * Description  : 숫자에 ","를 집어넣기
+ * Arguments    : sNum ( 문자열 )
+ * return       : 포맷된 문자
+ **********************************************************************************/
+this.gfn_SetComma = function (sNum)
+{
+	sNum = this.gfn_Replace(sNum, ",", "");
+
+	var ppos,sDigit,nEnd,nStart = 0,sRet = "";
+
+	if (sNum.charAt(0) == "+" || sNum.charAt(0) == "-") 
+	{
+		sRet += sNum.charAt(0);
+		nStart = 1;
+	}
+
+	ppos = sNum.indexOf(".", nStart);
+	if (ppos < 0) 
+	{
+		nEnd = sNum.length;
+	}
+	else 
+	{
+		nEnd = ppos;
+	}
+
+	sDigit = sNum.substr(nStart, nEnd - nStart);
+	for (this.lookupSetter("pos", "set_pos").set(0); this.lookup("pos") < sDigit.length; this.lookupSetter("pos", "set_pos").postInc()) 
+	{
+		if (this.lookup("pos") != 0 && (sDigit.length - this.lookup("pos")) % 3 == 0) 
+		{
+			sRet += ",";
+		}
+		sRet += sDigit.charAt(this.lookup("pos"));
+	}
+	sRet += sNum.substr(nEnd);
+
+	return sRet;
+}
+
+/******************************************************************************
+ * Function Name: gfn_Split2
+ * Description  : 입력된 문자열을 strDelimiter1과 strDelimiter2로 2 번 Parsing 한 2차원 배열을 Return
+ * argument     : Val     : Parsing 할 원본 문자열,
+ strDelimiter1 : 첫번째로 잘라낼 구분 문자열,
+ strDelimiter2 : 두번째로 잘라낼 구분 문자열
+ * return       : 2 번 Parsing 된 2 차원 배열
+ ******************************************************************************/
+this.gfn_Split2 = function (Val, strDelimiter1, strDelimiter2)
+{
+	var split2Arr = new Array();
+
+	Val = this.gfn_ToString(Val);
+
+	var splitArr = Val.split(strDelimiter1);
+	for (var i = 0; i < splitArr.length; i++) 
+	{
+		split2Arr.getSetter(i).set(splitArr[i].split(strDelimiter2));
+	}
+	return split2Arr;
+}
+
+/******************************************************************************
+ * Function Name: gfn_findArray
+ * Description  : 1차원 배열에서 입력된 문자열이 있는 index를 반환
+ * argument     : ArrObj        : 1차원 배열
+ strKey        : 검색할 문자열
+ * return       : 찾은 배열 index
+ ******************************************************************************/
+this.gfn_findArray = function (ArrObj, strKey)
+{
+	for (var i = 0; i = ArrObj.length; i++) 
+	{
+		if (strKey == ArrObj[i]) 
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+/******************************************************************************
+ * Function Name: gfn_findArray2
+ * Description  : 2차원 배열에서 입력된 문자열이 있는 index를 반환
+ * argument     : Arr2Obj       : 2차원 배열
+ strKey        : 검색할 문자열
+ index         : 검색할 차원
+ * return       : 찾은 배열 index
+ ******************************************************************************/
+this.gfn_findArray2 = function (Arr2Obj, strKey, index)
+{
+	for (var i = 0; i < Arr2Obj.length; i++) 
+	{
+		if (strKey == Arr2Obj[i][index]) 
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+]]></Script>

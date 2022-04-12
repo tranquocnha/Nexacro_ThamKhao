@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_StringToDate" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_StringToDate" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <MaskEdit id="msk_input" taborder="0" value="20121231" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static05" taborder="3" text="Convert Character to Date" cssclass="sta_WF_subtitP" left="30" top="18" width="340" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_StringToDate
+ * Description : Converting String to date
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var dRtn = this.fn_stringToDate(this.msk_input.value);	
+	this.edt_output.set_value(dRtn);
+}
+
+/*
+ * Function Name : fn_stringToDate
+ * Description   : Convert String date as a Date object
+ * Parameter     : Date
+ * Return        : Date Object
+ * Example       : fn_stringToDate("20121231");
+ */
+this.fn_stringToDate = function(sDate) 
+{
+    var nYear  = parseInt(sDate.substr(0, 4));
+    var nMonth = parseInt(sDate.substr(4, 2)) - 1;
+    var nDate  = parseInt(sDate.substr(6, 2));
+
+	return new Date(nYear, nMonth, nDate);
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="root" width="480" height="940" onload="root_onload" onsize="root_onsize" onkeydown="root_onkeydown" onvscroll="root_onvscroll" onlayoutchanged="root_onlayoutchanged">
+    <Layouts>
+      <Layout height="940" width="480">
+        <Static id="Static04" taborder="10" left="0" top="1960" height="400" right="0" background="#59618E" visible="false"/>
+        <Static id="Static03" taborder="9" left="0" top="780" height="1180" right="0" background="#FBFBFE" visible="false"/>
+        <Static id="Static01" taborder="7" left="0" top="80" background="#F5F7FC" right="0" bottom="140" visible="false"/>
+        <Static id="Static02" taborder="6" left="0" top="0" height="80" right="0" visible="false"/>
+        <Div id="divTop" taborder="0" left="0" top="0" height="64" background="#ffffff" right="0" formscrolltype="none" border="0px none"/>
+        <Div id="divLeftMenu" taborder="1" left="0" top="0" width="0" height="1250" visible="false" url="frame::leftmenu.xfdl"/>
+        <Div id="divWork" taborder="2" left="0" top="64" right="0" async="false" height="800" background="#F5F7FC" text=""/>
+        <Static id="Static00" taborder="5" left="0" height="140" background="#2D345C" right="0" top="divWork:0" visible="false"/>
+        <Div id="divFooter" taborder="3" left="0" height="140" right="0" top="divWork:0"/>
+        <Div id="divMegaMenu" taborder="4" left="1280" top="0" width="1280" height="740" visible="false" boxShadow="5px 5px 5px RGBA(155,155,155,0.45)" border="1px solid #eeeeee" background="#ffffff"/>
+        <Div id="divFloating" taborder="8" left="divWork:-60" top="751" width="50" height="160">
+          <Layouts>
+            <Layout>
+              <Button id="btnContact" taborder="0" left="0" top="0" width="50" height="50" cssclass="btn_WF_contact" onclick="divFloating_btnContact_onclick" tooltipmessageid="go.to.ask" visible="false"/>
+              <Button id="btnToTop" taborder="1" left="0" top="110" width="50" height="50" cssclass="btn_WF_toTop" onclick="divFloating_btnToTop_onclick" tooltipmessageid="scroll.to.top"/>
+              <Button id="btnDesc" taborder="2" width="50" right="0" visible="false" height="50" top="55" onclick="divFloating_btnDesc_onclick" cssclass="btn_WF_descM"/>
+              <Button id="btnSource" taborder="3" top="55" width="50" height="50" cssclass="btn_WF_source" visible="false" right="0" onclick="divFloating_btnSource_onclick" tooltipmessageid="source.download"/>
+            </Layout>
+            <Layout name="large">
+              <Button id="btnDesc" visible="false"/>
+              <Button id="btnContact" visible="true"/>
+              <Button id="btnSource" visible="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+      <Layout name="large" width="1263" height="940" mobileorientation="portrait">
+        <Div id="divWork" left="divLeftMenu:0" top="80" height="720" width="990"/>
+        <Div id="divLeftMenu" visible="true" width="273" left="0" top="80" height="720"/>
+        <Div id="divTop" visible="true" height="80" left="0" top="0" width="1263" border="0px none,0px none,1px solid #8d8d8d"/>
+        <Static id="Static02" border="0px none,0px none,1px solid #8D8D8D" visible="true"/>
+        <Div id="divFooter" left="0" top="divWork:0" width="1263" height="140"/>
+        <Div id="divFloating" left="divWork:-60" top="750" width="50" height="161"/>
+        <Static id="Static00" visible="true"/>
+        <Static id="Static01" visible="true"/>
+        <Static id="Static04" top="1930" left="0" height="400" right="0"/>
+        <Static id="Static03" height="1150" left="0" top="780" right="0"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.root_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.moveToCenter(obj.width, obj.height);
+	this.moveToFloatingButton(0);
+	
+	nexacro._OnceCallbackTimer.callonce(this, function() {
+		this.divTop.set_url("frame::top.xfdl");
+		this.divMegaMenu.set_url("frame::megamenu.xfdl");
+		this.divWork.set_url("frame::work.xfdl");
+		this.divFooter.set_url("frame::footer.xfdl");
+		
+		nexacro.applyI18n(this.divFloating.form);
+	}, 10);
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		// History 기능 사용을 위해 초기화 (application 실행 시 한번만 호출)
+		// 첫번째 인자는 뒤로가기, 앞으로가기가 실행됬을때 호출될 함수
+		// 두번째 인자는 함수내에서 this 로 사용할 scope
+		MyHistory.init(this.onChangeHistory, this);
+	}
+};
+
+this.root_onsize = function(obj:nexacro.Form,e:nexacro.SizeEventInfo)
+{
+	this.moveToCenter(e.cx, e.cy);
+	this.moveToFloatingButton(this.vscrollbar.pos);
+};
+
+this.root_onkeydown = function(obj:nexacro.Form,e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 27 && this.divMegaMenu.visible) {
+		this.divMegaMenu.set_visible(false);
+	}
+};
+
+this.root_onvscroll = function(obj:nexacro.Form,e:nexacro.ScrollEventInfo)
+{
+	this.moveToFloatingButton(e.pos);
+};
+
+// 브라우저의 뒤로가기, 앞으로가기 실행시 호출됨
+this.onChangeHistory = function(hash)
+{
+	if (nexacro.isEmpty(hash) || hash == "main") {
+		// 메인화면
+		this.openMain();
+	} else {
+		// hash id 를 확인하여 필요한 처리를 진행한다.
+		this.openMenu(hash);
+	}
+};
+
+this.moveToCenter = function(width, height)
+{
+	var x = 0;
+	
+	if (width > 1280) {
+		x = (width - 1280) / 2;
+		this.divFloating.set_left("divWork:0");
+	} else {
+		this.divFloating.set_left("divWork:-60");
+	}
+	
+	this.divTop.set_left(x);
+	this.divMegaMenu.set_left(x);
+	this.divLeftMenu.set_left(x);
+	this.divFooter.set_left(x);
+	
+	this.resetScroll();
+};
+
+this.moveToFloatingButton = function(pos)
+{
+	var height = nexacro.getApplication().mainframe.height,
+		y = height - 180 + pos;
+	this.divFloating.set_top(y);
+};
+
+this.showMegaMenu = function()
+{
+	this.divMegaMenu.set_visible(true);
+};
+
+this.hideMegaMenu = function()
+{
+	this.divMegaMenu.set_visible(false);
+};
+
+this.showSubMenu = function(menuId, menuNm)
+{
+	var form = this.divLeftMenu.form;
+	form["showSubMenu"].call(form, menuId, menuNm);
+	
+	if (this.divWork.url == "frame::main.xfdl") {
+		var app = nexacro.getApplication(),
+			firstMenuId = app.gdsMenu.lookupNF("upid", menuId, "id");
+		
+		this.openMenu(firstMenuId);
+	}
+};
+
+this.showMenuPage = function(menuId, menuUrl)
+{
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		// hash를 변경하여 History 에 등록 (현재 hash 와 같을 경우 History 가 생기지 않는다.)
+		MyHistory.setLocationHash(menuId, "");
+	}
+	
+	var workForm = this.divWork.form;
+	workForm["loadMenuPage"].call(workForm, menuId, menuUrl);
+};
+
+this.menuPageOnLoad = function(height)
+{
+	height = height<720?720:height;
+	this.Static01.set_height(height);
+	this.divLeftMenu.set_height(height);
+	this.divWork.set_height(height);
+	this.resetScroll();
+};
+
+this.divFloating_btnContact_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var url = "http://www.nexacro.com/util/QnaForm.do";
+	if (nexacro.getApplication().langCode == "ko") {
+		url = "http://www.tobesoft.co.kr/util/QnaForm.do";
+	}
+	
+	system.execDefaultBrowser(url);
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		gtag('event', 'Button Click', {
+			'event_category': "Link",
+			'event_label': 'Go to Ask',
+			'value': url
+		});
+	}
+};
+
+this.divFloating_btnToTop_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.vscrollbar.set_pos(0);
+};
+
+this.divFloating_btnDesc_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var form = this.divWork.form;
+	form["showDescription"].call(form);
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		gtag('event', 'Button Click', {
+			'event_category': "Description",
+			'event_label': 'Description',
+			'value': form.menuInfo.menuName
+		});
+	}
+};
+
+this.setDescVisible = function(flag)
+{
+	this.divFloating.form.btnDesc.set_visible(flag);
+};
+
+this.root_onlayoutchanged = function(obj:nexacro.Form,e:nexacro.LayoutChangeEventInfo)
+{
+	trace(e.oldlayout + " → " + e.newlayout);
+	var workForm = this.divWork.form,
+		menuInfo = workForm.menuInfo;
+	
+	//TODO: 모바일 미지원 메뉴일 경우 메인화면으로 이동 처리
+	if (menuInfo) {
+		if (menuInfo.menuId == "main") {
+			// background style
+			this.Static01.set_visible(false);
+			this.Static03.set_visible(true);
+			this.Static04.set_visible(true);
+			
+			if (e.newlayout == "default") {
+				this.divTop.form["setMainTitle"].call(this.divTop.form);
+				this.setDescVisible(false);
+			} else {
+				this.divLeftMenu.set_width(0);
+				this.divWork.set_width(1263);
+			}
+			
+			this.menuPageOnLoad(3350);
+			this.resetScroll();
+		} else {
+			workForm["loadMenuPage"].call(workForm, menuInfo.menuId, menuInfo.menuUrl);
+		}
+	}
+	
+	if (system.navigatorname.indexOf("nexacro") == -1) {
+		gtag('event', 'Layout Changed', {
+			'event_category': "MLM",
+			'event_label': 'MLM',
+			'value': e.oldlayout + " → " + e.newlayout
+		});
+	}
+};
+
+this.divFloating_btnSource_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.FileDownTransfer00.download(nexacro.getApplication().webRootUrl+"nexacro-demo-ui-main.zip");
+};
+]]></Script>
+    <Objects>
+      <FileDownTransfer id="FileDownTransfer00"/>
+    </Objects>
+  </Form>
+</FDL>

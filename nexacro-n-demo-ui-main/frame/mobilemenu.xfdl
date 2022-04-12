@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="mobilemenu" width="480" height="717" onload="mobilemenu_onload">
+    <Layouts>
+      <Layout height="717" mobileorientation="landscape" width="480">
+        <Button id="btnHome" taborder="0" left="2" top="2" width="60" height="60" cssclass="btn_MLF_homeBtn" onclick="btnHome_onclick"/>
+        <Button id="btnClose" taborder="1" width="60" height="60" right="2" top="2" cssclass="btn_MLF_closeMenu" onclick="btnClose_onclick"/>
+        <Button id="btnLanguage" taborder="2" left="62" top="2" width="35" height="60" cssclass="btn_TF_function03_M" onclick="btnLanguage_onclick"/>
+        <Button id="btnTheme" taborder="3" left="97" top="2" width="35" height="60" cssclass="btn_TF_function02_M" onclick="btnTheme_onclick" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.selectedMenu = "";
+
+this.mobilemenu_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.createMenuButton();
+};
+
+this.createMenuButton = function()
+{
+	var app = nexacro.getApplication(),
+		isNRE = system.navigatorname.indexOf("nexacro")==-1?false:true,
+		filterExpr = "mobile=='1'";
+	
+	filterExpr += isNRE?"&&nre=='1'":"&&wre=='1'";
+	
+	app.gdsAllMenu.filter(filterExpr);
+	this.dsMenu.clearData();
+	
+	for (var i=0,len=app.gdsAllMenu.rowcount; i<len; i++) {
+		var r = this.dsMenu.addRow();
+		this.dsMenu.copyRow(r, app.gdsAllMenu, i, "id=id,caption=caption_"+app.langCode+",level=level,upid=upid,url=url");
+	}
+	
+	app.gdsAllMenu.filter("");
+	this.dsMenu.applyChange();
+	
+	var left=0, mainTop=66, subTop=0, mainHeight=60, subHeight=50, right=0, gap=0;
+	
+	for (var i = 0, len = this.dsMenu.rowcount; i < len; i++) {
+		var id = this.dsMenu.getColumn(i, "id"),
+			caption = this.dsMenu.getColumn(i, "caption"),
+			level = this.dsMenu.getColumn(i, "level"),
+			upid = this.dsMenu.getColumn(i, "upid");
+		
+		if (level == 0) {
+			var objId = "btnMenu_"+id,
+				menuTitle = new Button(objId, left, mainTop, null, mainHeight, right, null),
+				cssclass = "";
+			
+			switch(id) {
+			case "010000":
+				cssclass = "btn_MLF_Lmenu01";
+				break;
+			case "020000":
+				cssclass = "btn_MLF_Lmenu02";
+				break;
+			case "030000":
+				cssclass = "btn_MLF_Lmenu03";
+				break;
+			case "040000":
+				cssclass = "btn_MLF_Lmenu04";
+				break;
+			case "050000":
+				cssclass = "btn_MLF_Lmenu05";
+				break;
+			}
+			
+			menuTitle.set_cssclass(cssclass);
+			menuTitle.set_text(caption);
+			menuTitle.menuId = id;
+			menuTitle.addEventHandler("onclick", this.menuTitle_onclick, this);
+			this.addChild(objId, menuTitle);
+			menuTitle.show();
+			
+			mainTop = objId + ":0";
+			objId = "divSubMenu_"+id;
+			var container = new Div(objId, left, mainTop, null, 0, right, null);
+			container.set_cssclass("div_MLF_subMenu");
+			this.addChild(objId, container);
+			container.show();
+			
+			mainTop = objId + ":0";
+		} else {
+			var objId = "btnMenu_"+id,
+				button = new Button(objId, left, subTop, null, subHeight, right, null);
+			
+			button.set_cssclass("brn_MLF_subMenu");
+			button.set_text(caption);
+			button.menuId = id;
+			button.addEventHandler("onclick", this.menuButton_onclick, this);
+			this.components["divSubMenu_"+upid].addChild(objId, button);
+			button.show();
+			
+			subTop = objId + ":0";
+		}
+	}
+};
+
+this.menuTitle_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var cssclasses = obj.cssclass.split(","),
+		container = this.components["divSubMenu_"+obj.menuId];
+	
+	// expanded
+	if (cssclasses.length > 1 && cssclasses[1] == "btn_MLF_LmenuS") {
+		container.set_height(0);
+		obj.set_cssclass(cssclasses[0]);
+		this.selectedMenu = "";
+	}
+	// collapsed
+	else {
+		if (this.selectedMenu)	this.components[this.selectedMenu].click();
+		
+		container.set_height(container.form.components.length * 50 + 2);
+		obj.set_cssclass(cssclasses[0] + ",btn_MLF_LmenuS");
+		this.selectedMenu = obj.name;
+	}
+	
+	this.resetScroll();
+};
+
+this.menuButton_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close(obj.menuId);
+};
+
+this.btnHome_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.openMain();
+	this.close();
+};
+
+this.btnLanguage_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var app = nexacro.getApplication(),
+		langCode = app.langCode=="en"?"ko":"en";
+	
+	app["changeLanguage"].call(app, langCode);
+	this.reload();
+};
+
+this.btnTheme_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var app = nexacro.getApplication(),
+		themeMode = app.themeMode=="L"?"D":"L";
+	
+	app.themeMode = themeMode;
+	
+	nexacro.loadStyle("xcssrc::demo_"+themeMode+".xcss");
+	trace("[테마 변경] xcssrc::demo_"+themeMode+".xcss");
+};
+
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close();
+};
+]]></Script>
+    <Objects>
+      <Dataset id="dsMenu">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="caption" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="upid" type="STRING" size="256"/>
+          <Column id="url" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

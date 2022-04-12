@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="TEMPLATE001" inheritanceid="" position="absolute" titletext="GRID BASIC" onbeforeclose="form_onbeforeclose" onload="form_onload" left="0" width="1025" top="0" height="674">
+    <Layouts>
+      <Layout>
+        <Static id="st_BG" position="absolute" left="0" right="0" top="0" height="40" cssclass="sta_WF_SearchBox"/>
+        <Static id="st_Title" text="domain.category.list" position="absolute" left="15" width="204" top="38" height="22" cssclass="sta_WF_title"/>
+        <Button id="btn_Insert" taborder="1" text="domain.add" position="absolute" style="font:dotum,8, bold;" onclick="btn_Insert_onclick" userdata="A:I;" right="105" width="42" top="128" height="23" cssclass="btn_WF_crud"/>
+        <Button id="btn_Delete" taborder="2" text="domain.delete" position="absolute" style="font:dotum,8, bold;" onclick="btn_Delete_onclick" userdata="A:D;" right="60" width="42" top="128" height="23" cssclass="btn_WF_crud"/>
+        <Button id="btn_Save" taborder="3" text="domain.save" position="absolute" style="font:dotum,8, bold;" onclick="btn_Save_onclick" userdata="A:T;" right="15" width="42" top="128" height="23" cssclass="btn_module"/>
+        <Grid id="grd_Category" taborder="1" binddataset="ds_Category" autoenter="select" useinputpanel="false" selecttype="multirow" cellsizingtype="col" autofittype="col" nodatatext="There is no inquiry data." onrbuttonup="divGrd_grdCategory_onrbuttonup" onheadclick="divGrd_grdCategory_onheadclick" position="absolute" style="align:center middle;font:dotum,9;" fillareatype="none" userdata="A:U;" left="15" right="15" top="156" bottom="10">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="147"/>
+                <Column size="434"/>
+                <Column size="164"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="domain.name"/>
+                <Cell col="1" text="domain.desc"/>
+                <Cell col="2" text="domain.reg.date"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="text" style="align:left;" text="bind:CATEGORY_NAME"/>
+                <Cell col="1" edittype="text" style="align:left;" text="bind:CATEGORY_DESC"/>
+                <Cell col="2" displaytype="date" edittype="none" style="align:center;" text="bind:REG_DATE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static41" taborder="4" text="15" visible="false" left="0" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static44" taborder="5" text="10" visible="false" left="15" top="664" width="995" height="10" style="background:blueviolet;align:center middle;opacity:50;"/>
+        <Static id="Static43" taborder="6" text="15" visible="false" left="1010" top="0" width="15" height="674" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static42" taborder="7" text="10" visible="false" left="15" top="0" width="995" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="8" text="10" visible="false" left="11" top="55" width="1027" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static00" taborder="9" cssclass="sta_WFSA_BG" left="15" top="70" right="15" height="46"/>
+        <Static id="Static32" taborder="10" text="40" visible="false" left="427" top="116" width="50" height="40" style="background:blueviolet;opacity:50;"/>
+        <Static id="st_searchCondition" text="domain.search.condition" position="absolute" left="35" width="92" top="83" height="20" cssclass="sta_WFSA_label"/>
+        <Combo id="cmb_searchCondition" taborder="1" value="0" codecolumn="codecolumn" datacolumn="datacolumn" index="0" position="absolute" left="138" width="114" top="83" height="20">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">domain.category.name</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">domain.category.desc</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Edit id="edt_searchKeyword" taborder="1" position="absolute" onkeydown="edt_searchKeyword_onkeydown" left="254" width="134" top="83" height="20"/>
+        <Button id="btn_Search" taborder="1" position="absolute" onclick="btn_Search_onclick" defaultbutton="true" right="15" width="51" top="70" height="46" cssclass="btn_WF_search"/>
+        <Static id="st_progress" taborder="11" text="location" cssclass="sta_WF_progress" left="15" top="2" width="808" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="pageIndex" type="INT" size="30" value="1"/>
+          <ConstColumn id="pageSize" type="INT" size="30" value="5"/>
+          <ConstColumn id="pageUnit" type="INT" size="30" value="5"/>
+          <Column id="SEARCH_CONDITION" type="STRING" size="100"/>
+          <Column id="SEARCH_KEYWORD" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SEARCH_KEYWORD"/>
+            <Col id="SEARCH_CONDITION">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Category" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CATEGORY_NAME" type="string" size="150"/>
+          <Column id="CATEGORY_DESC" type="string" size="300"/>
+          <Column id="CATEGORY_ID" type="string" size="256"/>
+          <Column id="REG_ID" type="string" size="256"/>
+          <Column id="REG_DATE" type="DATE" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CATEGORY_NAME">Martin Luther</Col>
+            <Col id="CATEGORY_DESC">Even if I knew that tomorrow the world would go to pieces, I would still plant my apple tree.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Nido Qubein</Col>
+            <Col id="CATEGORY_DESC">Your present circumstances don't determine where you can go; they merely determine where you start.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_DESC">Life isn’t about getting and having, it’s about giving and being.</Col>
+            <Col id="CATEGORY_NAME">Kevin Kruse</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Napoleon Hill</Col>
+            <Col id="CATEGORY_DESC">Whatever the mind of man can conceive and believe, it can achieve.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Michael Jordan</Col>
+            <Col id="CATEGORY_DESC">I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Sholom Aleichem</Col>
+            <Col id="CATEGORY_DESC">Life is a dream for the wise, a game for the fool, a comedy for the rich, a tragedy for the poor.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Bruce Lee</Col>
+            <Col id="CATEGORY_DESC">A wise man can learn more from a foolish question than a fool can learn from a wise answer.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Moliere</Col>
+            <Col id="CATEGORY_DESC">A wise man is superior to any insults which can be put upon him, and the best reply to unseemly behavior is patience and moderation.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Shel Silverstein</Col>
+            <Col id="CATEGORY_DESC">Tell me I'm clever, Tell me I'm kind, Tell me I'm talented, Tell me I'm cute, Tell me I'm sensitive, Graceful and wise, Tell me I'm perfect - But tell me the truth.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">George Bernard Shaw</Col>
+            <Col id="CATEGORY_DESC">We are made wise not by the recollection of our past, but by the responsibility for our future.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Aesop</Col>
+            <Col id="CATEGORY_DESC">Better be wise by the misfortunes of others than by your own.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Plato</Col>
+            <Col id="CATEGORY_DESC">Wise men speak because they have something to say; Fools because they have to say something.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Khalil Gibran</Col>
+            <Col id="CATEGORY_DESC">The teacher who is indeed wise does not bid you to enter the house of his wisdom but rather leads you to the threshold of your mind.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Winston Churchill</Col>
+            <Col id="CATEGORY_DESC">It is always wise to look ahead, but difficult to look further than you can see.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Buddha</Col>
+            <Col id="CATEGORY_DESC">To be idle is a short road to death and to be diligent is a way of life; foolish people are idle, wise people are diligent.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Edward G. Bulwer-Lytton</Col>
+            <Col id="CATEGORY_DESC">A fool flatters himself, a wise man flatters the fool.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Edgar Allan Poe</Col>
+            <Col id="CATEGORY_DESC">I have no faith in human perfectability. I think that human exertion will have no appreciable effect upon humanity. Man is now only more active - not more happy - nor more wise, than he was 6000 years ago.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Benjamin Franklin</Col>
+            <Col id="CATEGORY_DESC">Life's Tragedy is that we get old to soon and wise too late.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Charles Stanley</Col>
+            <Col id="CATEGORY_DESC">In our friendships we have to be wise that we choose godly people to be our friends. Somebody might say, well does that mean that you should never have a lost person as your friend? No, I wouldn't say that. But you can't have the same intimacy with a lost person that you can with a godly person in whom the Holy Spirit is living.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Joan Rivers</Col>
+            <Col id="CATEGORY_DESC">Don't follow any advice, no matter how good, until you feel as deeply in your spirit as you think in your mind that the counsel is wise.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">George Washington Carver</Col>
+            <Col id="CATEGORY_DESC">When you can do the common things in life in an uncommon way, you will command the attention of the world.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Frank Lloyd Wright</Col>
+            <Col id="CATEGORY_DESC">If you foolishly ignore beauty, then you will soon find yourself without it.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">William Congreve</Col>
+            <Col id="CATEGORY_DESC">Music has charms to soothe a savage beast.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Thomas Phaer</Col>
+            <Col id="CATEGORY_DESC">The eyes are the windows of the soul.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Eleanor Roosevelt</Col>
+            <Col id="CATEGORY_DESC">The future belongs to those who believe in the beauty of their dreams.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Mencius</Col>
+            <Col id="CATEGORY_DESC">Friendship is one mind in two bodies.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Aesop</Col>
+            <Col id="CATEGORY_DESC">Misfortune tests the sincerity of friends.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Ben Franklin</Col>
+            <Col id="CATEGORY_DESC">The wise man learns more from his enemies than the fool does from his friends.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">George Carlin</Col>
+            <Col id="CATEGORY_DESC">Trying to be happy by accumulating possessions is like trying to satisfy hunger by taping sandwiches all over your body.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">Louise Smith</Col>
+            <Col id="CATEGORY_DESC">You can’t reach for anything new if your hands are still full of yesterday’s junk.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+          <Row>
+            <Col id="CATEGORY_NAME">George Carlin</Col>
+            <Col id="CATEGORY_DESC">"Governments don’t want well informed, well-educated people capable of critical thinking. That is against their interests.</Col>
+            <Col id="CATEGORY_ID">CATEGORY-0003</Col>
+            <Col id="REG_ID">admin</Col>
+            <Col id="REG_DATE">2014-05-01</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CategoryValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CATEGORY_ID" type="STRING" size="256"/>
+          <Column id="CATEGORY_DESC" type="STRING" size="256"/>
+          <Column id="CATEGORY_NAME" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CATEGORY_ID"/>
+            <Col id="CATEGORY_DESC">title:desc,minlength:1,maxlength:300</Col>
+            <Col id="CATEGORY_NAME">title:name,required:true,maxlength:150</Col>
+            <Col id="REG_DATE"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="cmb_searchCondition" propid="value" datasetid="ds_Search" columnid="SEARCH_CONDITION"/>
+      <BindItem id="item1" compid="edt_searchKeyword" propid="value" datasetid="ds_Search" columnid="SEARCH_KEYWORD"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************
+ * 01. Work scope : Work Screen template
+ * 02. Screen name   : TEMPLATE001.xfdl
+ * 03. Screen explanation :
+ * 04. Creation date   :
+ * 05. Created by   :
+ * 06. Revision history :
+ ***********************************************************************
+ *     Modification date     Modified by  Content
+ ***********************************************************************
+ *
+ ***********************************************************************
+ */
+
+/***********************************************************************
+ * Script Include
+ ************************************************************************/
+include "lib::lib_Form.xjs"
+/***********************************************************************
+ * Screen display variable section
+ ************************************************************************/
+/***********************************************************************
+ * Event process specification
+ ************************************************************************/
+this.fn_close = function( obj:Form,e:CloseEventInfo){
+	alert("close..........................");
+}
+ 
+// Initializing on Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality processing on Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Search processing
+	this.fn_Search(1);
+}
+
+// Form beforeclose Event processing
+// Before closing the form, here is pop-up creation to ask if there is modified data, pop-up creating
+this.form_onbeforeclose = function (obj:Form, e:CloseEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Category)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.movepage");
+		if (retValue == false) 
+		{
+			return true;
+		}
+
+		this.fn_Save();
+		return false;
+	}
+}
+
+// Event processing on Search button click
+this.btn_Search_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Search(1);
+}
+
+// Event processing on Add button click
+this.btn_Insert_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Insert();
+}
+
+// Event processing on Delete button click
+this.btn_Delete_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.fn_Delete();
+}
+
+// Event processing on Save button click
+this.btn_Save_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	if (this.gfn_DsGetUpdated(this.ds_Category) == false) 
+	{
+		this.gfn_Alert("msg.save.nodata");
+		return;
+	}
+	this.fn_Save();
+}
+
+this.edt_searchKeyword_onkeydown = function (obj:Edit, e:KeyEventInfo)
+{
+	if (e.keycode == 13) 
+	{
+		this.fn_Search(1);
+	}
+}
+
+// Sorting on Grid Head click
+this.divGrd_grdCategory_onheadclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	this.gfn_GridSort(obj, e);
+}
+
+/***********************************************************************
+ * User defined function processing
+ ************************************************************************/
+this.fn_Search = function (nPage)
+{
+	return;
+	if (this.gfn_DsGetUpdated(this.ds_Category)) 
+	{
+		var retValue = this.gfn_Confirm("msg.before.search");
+		if (retValue == false) 
+		{
+			return;
+		}
+	}
+
+	var sArgument = "";
+	var sSvcID = "getPagingListCategory";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='getList'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='findXPCategoryList'";
+
+	var sInDatasets = "querySet1=ds_Search";
+	var sOutDatasets = "ds_Category=querySet1";
+	var sCallbackFunc = "fn_callback";
+
+	this.ds_Search.setConstColumn("pageIndex", nPage);
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_Insert = function ()
+{
+	var nRow = this.ds_Category.addRow();
+	this.ds_Category.setColumn(nRow, "REG_DATE", this.gfn_Today());
+}
+
+this.fn_Delete = function ()
+{
+	var nRow = this.ds_Category.rowposition;
+	//if (!this.ds_Category.getSelect(nRow)) 
+	if (!this.grd_Category.getSelectedRows(nRow))
+	{
+		this.gfn_Alert("err.grid.noselect");
+	}
+	else 
+	{
+		var rtVal = this.gfn_Confirm("msg.before.delete");
+		if (rtVal == true) 
+		{
+			//this.ds_Category.deleteSelectedRows();
+			this.ds_Category.deleteRow(nRow);
+		}
+	}
+}
+
+this.fn_Save = function ()
+{
+	return;
+	// After validation process , if there not exception than , save the all modified data of Grid
+	if (this.gfn_DsCheckValid(this.ds_Category) == false) 
+	{
+		return;
+	}
+
+	var sArgument = "";
+	var sSvcID = "saveAllCategory";
+	var sController = "svcurl::xpController.do";
+	sArgument += "service='xpService'";
+	sArgument += " " + "method='saveAll'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='createXPCategory,updateXPCategory,removeXPCategory'";
+
+	var sInDatasets = "querySet1=ds_Category:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// Processing callback processing gfnService
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode < 0) 
+	{
+		return this.gfn_Alert(strErrorMsg, "error");
+	}
+
+	switch (strServiceId) 
+	{
+		case "saveAllCategory":
+			this.gfn_Alert("msg.save.success");
+			this.fn_Search(1);
+			break;
+		case "getPagingListCategory":
+			break;
+		default:
+			break;
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

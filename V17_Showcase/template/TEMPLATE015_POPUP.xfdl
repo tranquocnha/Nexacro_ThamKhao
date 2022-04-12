@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="form" classname="EXAMPLE001_POPUP" inheritanceid="" position="absolute" titletext="New Form" style="background:#f2f2efff;" onload="form_onload" left="0" width="353" top="0" height="235">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" taborder="3" text="title" cssclass="sta_POP_bg" left="0" top="0" width="382" height="328"/>
+        <Button id="Button01" taborder="4" cssclass="btn_POP_close" left="351" top="10" width="17" height="17" tooltiptext="Close"/>
+        <Static id="Static05" taborder="5" text="11" visible="false" left="366" top="-5" width="11" height="45" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static06" taborder="6" text="10" visible="false" left="324" top="2" width="46" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static07" taborder="7" text="15" visible="false" left="361" top="42" width="15" height="230" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static08" taborder="8" text="15" visible="false" left="14" top="373" width="328" height="10" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Static id="Static09" taborder="9" text="15" visible="false" left="2" top="401" width="374" height="15" style="background:blueviolet;align:center middle;font:bold 9 Dotum;opacity:50;"/>
+        <Button id="btSaveTemp" taborder="1" text="domain.save" onclick="btSaveTemp_onclick" position="absolute" left="143" width="46" top="313" height="23"/>
+        <Button id="btCancel" taborder="2" text="domain.cancel" onclick="btCancel_onclick" position="absolute" left="192" width="46" top="313" height="23"/>
+        <Div id="divMovieForm" taborder="0" text="divMovieForm" position="absolute" left="17" width="353" top="50" height="297">
+          <Layouts>
+            <Layout>
+              <Static id="stTitle" text="domain.title" position="absolute" left="0" width="85" top="1" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stDirector" text="domain.director" position="absolute" left="0" width="85" top="32" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stActors" text="domain.actors" position="absolute" left="0" width="85" top="94" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stReleaseDate" text="domain.releasedate" position="absolute" left="0" width="85" top="156" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stGenre" text="domain.genre" position="absolute" left="0" width="85" top="63" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stRuntime" text="domain.runtime" position="absolute" left="0" width="85" top="125" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stTicketPrice" text="domain.ticketprice" position="absolute" left="0" width="85" top="187" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="stNowPlaying" text="domain.nowplaying" position="absolute" left="0" width="85" top="218" height="32" cssclass="sta_WFDA_labelB"/>
+              <Static id="Static00" position="absolute" text="" left="84" width="260" top="1" height="32" cssclass="sta_WFDA_B"/>
+              <Edit id="edtTitle" taborder="8" position="absolute" left="90" width="248" top="7" height="20"/>
+              <Static id="Static01" position="absolute" text="" left="84" width="260" top="32" height="32" cssclass="sta_WFDA_B"/>
+              <Edit id="edtDIrector" taborder="9" position="absolute" left="90" width="248" top="38" height="20"/>
+              <Static id="Static02" position="absolute" text="" left="84" width="260" top="63" height="32" cssclass="sta_WFDA_B"/>
+              <Combo id="cmbGenreId" taborder="10" innerdataset="@dsGenre" codecolumn="GENRE_ID" datacolumn="NAME" position="absolute" left="90" width="248" top="69" height="20"/>
+              <Static id="Static03" position="absolute" text="" left="84" width="260" top="94" height="32" cssclass="sta_WFDA_B"/>
+              <Edit id="edtActors" taborder="11" position="absolute" left="90" width="248" top="100" height="20"/>
+              <Static id="Static04" position="absolute" text="" left="84" width="260" top="125" height="32" cssclass="sta_WFDA_B"/>
+              <MaskEdit id="mskRuntime" taborder="12" position="absolute" left="90" width="248" top="131" height="20"/>
+              <Static id="Static05" position="absolute" text="" left="84" width="260" top="156" height="32" cssclass="sta_WFDA_B"/>
+              <Calendar id="calReleaseDate" taborder="13" dateformat="yyyy-MM-dd" position="absolute" style="align:left middle; " left="90" width="248" top="162" height="20"/>
+              <Static id="Static06" position="absolute" text="" left="84" width="260" top="187" height="32" cssclass="sta_WFDA_B"/>
+              <MaskEdit id="mskTicketPrice" taborder="14" mask="," position="absolute" left="90" width="248" top="193" height="20"/>
+              <Static id="Static07" position="absolute" text="" left="84" width="268" top="218" height="32" cssclass="sta_WFDA_B"/>
+              <CheckBox id="chkNowPlaying" taborder="15" text="domain.cmbnowplaying" value="Y" truevalue="Y" falsevalue="N" position="absolute" left="90" width="248" top="223" height="22"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsMovie" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="STRING" size="1"/>
+          <Column id="MOVIE_ID" type="STRING" size="8"/>
+          <Column id="TITLE" type="STRING" size="50"/>
+          <Column id="DIRECTOR" type="STRING" size="50"/>
+          <Column id="GENRE_ID" type="STRING" size="5"/>
+          <Column id="ACTORS" type="STRING" size="100"/>
+          <Column id="RUNTIME" type="INT" size="3"/>
+          <Column id="RELEASE_DATE" type="DATE" size="256"/>
+          <Column id="TICKET_PRICE" type="INT" size="6"/>
+          <Column id="NOW_PLAYING" type="STRING" size="1"/>
+          <Column id="POSTER_FILE" type="STRING" size="1000"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SVC_ID" type="STRING" size="100"/>
+          <Column id="QUERY_LIST" type="STRING" size="256"/>
+          <Column id="SERVICE" type="STRING" size="100"/>
+          <Column id="IN_DATASET_LIST" type="STRING" size="256"/>
+          <Column id="OUT_DATASET_LIST" type="STRING" size="256"/>
+          <Column id="CONTROLLER" type="STRING" size="512"/>
+          <Column id="CALLBACK" type="STRING" size="100"/>
+          <Column id="SYNC_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SVC_ID">create</Col>
+            <Col id="QUERY_LIST"/>
+            <Col id="SERVICE">xplatformMovieService.create</Col>
+            <Col id="IN_DATASET_LIST">dsMovie=dsMovie:U</Col>
+            <Col id="OUT_DATASET_LIST"/>
+            <Col id="CONTROLLER">xpQueryMovie.do</Col>
+            <Col id="SYNC_YN"/>
+            <Col id="CALLBACK"/>
+          </Row>
+          <Row>
+            <Col id="SVC_ID">get</Col>
+            <Col id="QUERY_LIST"/>
+            <Col id="SERVICE">xplatformMovieService.get</Col>
+            <Col id="IN_DATASET_LIST">dsMovie=dsMovie</Col>
+            <Col id="OUT_DATASET_LIST"/>
+            <Col id="CONTROLLER">xpQueryMovie.do</Col>
+            <Col id="CALLBACK"/>
+            <Col id="SYNC_YN"/>
+          </Row>
+          <Row>
+            <Col id="SVC_ID">update</Col>
+            <Col id="SERVICE">xplatformMovieService.update</Col>
+            <Col id="IN_DATASET_LIST">dsMovie=dsMovie:U</Col>
+            <Col id="CONTROLLER">xpQueryMovie.do</Col>
+            <Col id="QUERY_LIST"/>
+            <Col id="OUT_DATASET_LIST"/>
+            <Col id="CALLBACK"/>
+            <Col id="SYNC_YN"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsGenre" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="GENRE_ID" type="STRING" size="5"/>
+          <Column id="NAME" type="STRING" size="50"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsMovieValid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="_chk" type="STRING" size="1"/>
+          <Column id="MOVIE_ID" type="STRING" size="8"/>
+          <Column id="TITLE" type="STRING" size="50"/>
+          <Column id="DIRECTOR" type="STRING" size="50"/>
+          <Column id="GENRE_ID" type="STRING" size="5"/>
+          <Column id="ACTORS" type="STRING" size="100"/>
+          <Column id="RUNTIME" type="STRING" size="3"/>
+          <Column id="RELEASE_DATE" type="STRING" size="256"/>
+          <Column id="TICKET_PRICE" type="STRING" size="6"/>
+          <Column id="NOW_PLAYING" type="STRING" size="1"/>
+          <Column id="POSTER_FILE" type="STRING" size="1000"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="_chk"/>
+            <Col id="MOVIE_ID"/>
+            <Col id="TITLE">title:movietitle,required:true,maxlength:50</Col>
+            <Col id="DIRECTOR">title:director,required:true,maxlength:50</Col>
+            <Col id="GENRE_ID"/>
+            <Col id="ACTORS">title:actors,required:true,maxlength:100</Col>
+            <Col id="POSTER_FILE"/>
+            <Col id="NOW_PLAYING"/>
+            <Col id="TICKET_PRICE">title:ticketprice,maxlength:4,minlength:3</Col>
+            <Col id="RELEASE_DATE"/>
+            <Col id="RUNTIME">title:runtime,minlength:2,maxlength:3</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divMovieForm.edtTitle" propid="value" datasetid="dsMovie" columnid="TITLE"/>
+      <BindItem id="item1" compid="divMovieForm.edtDIrector" propid="value" datasetid="dsMovie" columnid="DIRECTOR"/>
+      <BindItem id="item2" compid="divMovieForm.cmbGenreId" propid="value" datasetid="dsMovie" columnid="GENRE_ID"/>
+      <BindItem id="item3" compid="divMovieForm.edtActors" propid="value" datasetid="dsMovie" columnid="ACTORS"/>
+      <BindItem id="item4" compid="divMovieForm.mskRuntime" propid="value" datasetid="dsMovie" columnid="RUNTIME"/>
+      <BindItem id="item5" compid="divMovieForm.calReleaseDate" propid="value" datasetid="dsMovie" columnid="RELEASE_DATE"/>
+      <BindItem id="item6" compid="divMovieForm.mskTicketPrice" propid="value" datasetid="dsMovie" columnid="TICKET_PRICE"/>
+      <BindItem id="item7" compid="divMovieForm.chkNowPlaying" propid="value" datasetid="dsMovie" columnid="NOW_PLAYING"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::lib_Form.xjs"
+
+// Event processing on Form onload
+this.form_onload = function (obj:Form, e:LoadEventInfo)
+{
+	// Common functionality processing on  Form Load
+	this.gfn_FormOnLoad(obj);
+
+	// Setting parameter after receiving from parent screen
+	this.dsMovie.clearData();
+	this.dsMovie.addRow();
+	this.dsGenre.copyData(this.lookup("dsArgGenre"));
+
+	if (this.gfn_isNull(this.lookup("dsArgMovie"))) 
+	{
+		this.dsMovie.setColumn(0, "RELEASE_DATE", this.gfnToday());
+		this.dsMovie.setColumn(0, "NOW_PLAYING", "Y");
+	}
+	else 
+	{
+		this.dsMovie.copyRow(0, this.lookup("dsArgMovie"), this.lookup("dsArgMovie").rowposition);
+		// gfnService("get");
+		this.fn_Get();
+	}
+
+	this.divMovieForm.cmbGenreId.set_index(0);
+}
+
+this.fn_Get = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "update";
+	var sController = "svcurl::xpQueryMovie.do";
+	sArgument += "service='xplatformMovieService'";
+	sArgument += " " + "method='get'";
+	sArgument += " " + "querySetCount='1'";
+
+	var sInDatasets = "dsMovie=dsMovie";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_Create = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "create";
+	var sController = "svcurl::xpQueryMovie.do";
+	sArgument += "service='xplatformMovieService'";
+	sArgument += " " + "method='create'";
+	sArgument += " " + "querySetCount='1'";
+
+
+	var sInDatasets = "dsMovie=dsMovie:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+this.fn_Update = function ()
+{
+	return;
+	var sArgument = "";
+	var sSvcID = "update";
+	var sController = "svcurl::xpQueryMovie.do";
+	sArgument += "service='xplatformMovieService'";
+	sArgument += " " + "method='update'";
+	sArgument += " " + "querySetCount='1'";
+	sArgument += " " + "querySet1='removeXPSchedule'";
+
+	var sInDatasets = "dsMovie=dsMovie:U";
+	var sOutDatasets = "";
+	var sCallbackFunc = "fn_callback";
+
+	this.gfn_Transaction(sSvcID, sController, sInDatasets, sOutDatasets, sArgument, sCallbackFunc);
+}
+
+// Event on Save button click
+this.btSaveTemp_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	// After validation save the modified data
+	if (this.gfn_DsCheckValid(this.dsMovie)) 
+	{
+		if (this.gfn_isNull(this.dsMovie.getColumn(0, "MOVIE_ID"))) 
+		{
+			// gfnService("create");
+			this.fn_Create();
+		}
+		else 
+		{
+			// gfnService("update");
+			this.fn_Update();
+		}
+	}
+}
+
+// Event on Cancel button click
+this.btCancel_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.close("N");
+}
+
+// After executing gfnService process callback
+this.fn_callback = function (strServiceId, strErrorCode, strErrorMsg)
+{
+	if (strErrorCode == -1) 
+	{
+		this.gfn_Alert(strErrorMsg, "ERR");
+	}
+	else 
+	{
+		if (strServiceId == "create" || strServiceId == "update") 
+		{
+			this.gfn_Alert("msg.save.success");
+			this.close("Y");
+		}
+		else 
+		{
+			this.divMovieForm.edtTitle.set_enable(false);
+		}
+	}
+}
+
+]]></Script>
+  </Form>
+</FDL>

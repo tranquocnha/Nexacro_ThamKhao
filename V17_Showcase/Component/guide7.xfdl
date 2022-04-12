@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="guide5" classname="guide5" left="0" top="0" width="1025" height="674" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="3" text="Component Name" left="15" top="15" width="125" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="Static06" taborder="4" text="Component View" left="139" top="15" height="30" style="background:#9dadbfff;border:1 solid #cfd7dfff ;color:#ffffffff;align:center middle;font:bold 9 Dotum;" right="15"/>
+        <Static id="Static12" taborder="7" text="Tab" onclick="Static10_onclick" left="15" top="44" width="125" height="621" style="background:#ebeff2ff;border:1 solid #ced5dfff ;color:#667f92ff;align:center middle;font:bold 9 Dotum;"/>
+        <Button id="TAB2" taborder="8" text="고객사별 매출현황" cssclass="btn_WFDA_tab" left="290" top="92" width="140" height="31"/>
+        <Button id="TAB3" taborder="9" text="영업대표별 매출현황" onclick="Tab00_tabpage1_TAB3_onclick" cssclass="btn_WFDA_tab" left="429" top="92" width="140" height="31"/>
+        <Button id="TAB4" taborder="10" text="부서별 매출현황" cssclass="btn_WFDA_tab" left="568" top="92" width="140" height="31"/>
+        <Button id="TAB00" taborder="11" text="사원정보" wordwrap="true" cssclass="btn_WFDA_tab" left="151" top="92" width="140" height="31"/>
+        <Static id="Static03" taborder="12" cssclass="sta_WFDA_tabLine" left="151" top="115" width="700" height="9"/>
+        <Static id="Static08" taborder="13" left="140" top="664" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Tab id="Tab01" left="155" top="198" width="700" height="84" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="사원정보"/>
+            <Tabpage id="tabpage2" text="고객사별 매출현황"/>
+            <Tabpage id="tabpage3" text="영업대표별 매출현황"/>
+            <Tabpage id="tabpage4" text="부서별 매출현황"/>
+          </Tabpages>
+        </Tab>
+        <Static id="Static00" taborder="14" text="multiline = &quot;true&quot;" usedecorate="true" left="155" top="486" width="171" height="15" style="font:Tahoma,8;" class="sta_WF_Info_Orange"/>
+        <Tab id="Tab02" taborder="15" left="155" top="512" width="347" height="255" tabindex="0" multiline="true" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="Tap page 01"/>
+            <Tabpage id="tabpage2" text="Tap page 02"/>
+            <Tabpage id="tabpage3" text="Tap page 03"/>
+            <Tabpage id="tabpage4" text="Tap page 04"/>
+            <Tabpage id="tabpage5" text="Tap page 05"/>
+            <Tabpage id="tabpage6" text="Tap page 06"/>
+            <Tabpage id="tabpage7" text="Tap page 07"/>
+            <Tabpage id="tabpage8" text="Tap page 08"/>
+          </Tabpages>
+        </Tab>
+        <Static id="Static01" taborder="16" text="TAb 형태" usedecorate="true" left="155" top="174" width="179" height="15" style="font:Tahoma,8;" class="sta_WF_Info_Orange"/>
+        <Static id="Static02" taborder="17" text="Button 형태 (push 가능)" usedecorate="true" left="158" top="62" width="179" height="15" style="font:Tahoma,8;" class="sta_WF_Info_Orange"/>
+        <Static id="Static04" taborder="18" text="multiline = &quot;true&quot;" usedecorate="true" left="519" top="486" width="270" height="15" style="font:Tahoma,8;" class="sta_WF_Info_Orange"/>
+        <Tab id="Tab03" left="519" top="511" width="332" height="255" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="Tap page 01"/>
+            <Tabpage id="tabpage2" text="Tap page 02"/>
+            <Tabpage id="tabpage3" text="Tap page 03"/>
+            <Tabpage id="tabpage4" text="Tap page 04"/>
+          </Tabpages>
+        </Tab>
+        <Static id="Static15" taborder="19" text="tabjustify = &quot;true&quot;" usedecorate="true" left="155" top="326" width="179" height="15" style="font:Tahoma,8;" class="sta_WF_Info_Orange"/>
+        <Tab id="Tab05" left="155" top="352" width="696" height="95" tabindex="0" tabjustify="true" scrollbars="autoboth" style="showextrabutton:true;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="Tap page 01"/>
+            <Tabpage id="tabpage2" text="Tap page 02"/>
+            <Tabpage id="tabpage3" text="Tap page 03"/>
+            <Tabpage id="tabpage4" text="Tap page 04"/>
+          </Tabpages>
+        </Tab>
+        <Static id="Static07" taborder="20" left="140" top="158" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static09" taborder="21" left="140" top="310" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+        <Static id="Static10" taborder="22" left="140" top="463" right="15" height="1" style="border:1 solid #ced5dfff,0 none #808080ff,0 none #808080ff,0 none #808080ff;"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

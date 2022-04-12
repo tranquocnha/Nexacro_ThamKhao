@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModelInfo version="1.1">
+  <Models>
+    <Model id="Model_Emp" name="Model_Emp" iotype="" description="">
+      <Field required="true" id="EMPL_ID" label="Emp ID" fieldtype="FreeText" datatype="STRING" datasize="10"/>
+      <Field required="true" id="FULL_NAME" label="Name" fieldtype="FreeText" datatype="STRING" datasize="50"/>
+      <Field required="false" id="DEPT_CD" label="Department" fieldtype="FreeText" datatype="STRING" datasize="10"/>
+      <Field required="false" id="POS_CD" label="Position" fieldtype="FreeText" datatype="STRING" datasize="10"/>
+      <Field required="false" id="HIRE_DATE" label="Hire Date" fieldtype="FreeText" datatype="DATE" datasize="10"/>
+      <Field required="false" id="SALARY" label="Annual Salary" fieldtype="FreeText" datatype="INT" datasize="10"/>
+      <Field required="false" id="GENDER" label="Gender" fieldtype="FreeText" datatype="STRING" datasize="10"/>
+      <Field required="false" id="MARRIED" label="Married" fieldtype="FreeText" datatype="STRING" datasize="10"/>
+      <Field required="false" id="MEMO" label="Memo" fieldtype="FreeText" datatype="STRING" datasize="10"/>
+    </Model>
+    <Model id="Model_Dept" name="Model_Dept" description="">
+      <Field required="false" id="DEPT_CD" label="Dept Code" fieldtype="FreeText" datatype="STRING" datasize="80"/>
+      <Field required="false" id="DEPT_NAME" label="Dept Name" fieldtype="FreeText" datatype="STRING" datasize="80"/>
+    </Model>
+  </Models>
+</ModelInfo>

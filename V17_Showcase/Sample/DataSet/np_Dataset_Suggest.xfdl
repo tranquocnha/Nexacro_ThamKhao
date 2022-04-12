@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Dataset_Suggest" classname="np_Dataset_Suggest" left="0" top="0" width="760" height="450" titletext="Suggest" onload="np_Dataset_Suggest_onload">
+    <Layouts>
+      <Layout>
+        <Edit id="Edit00" taborder="0" left="376" top="78" width="240" height="40" ontextchanged="Edit00_ontextchanged" inputtype="number,english" oninput="Edit00_oninput" onkeyup="Edit00_onkeyup"/>
+        <ListBox id="ListBox00" taborder="1" left="376" top="117" width="240" height="319" innerdataset="@dsFind" codecolumn="pseudocode" datacolumn="text" visible="false" onitemclick="ListBox00_onitemclick" onkeydown="ListBox00_onkeydown" index="-1" value="null"/>
+        <Grid id="Grid00" taborder="2" useinputpanel="false" left="30" top="78" width="326" height="358" binddataset="dsFind" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="135"/>
+                <Column size="140"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="pseudocode"/>
+                <Cell col="1" text="text"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:pseudocode"/>
+                <Cell col="1" text="bind:text"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static02" taborder="3" text="This sample shows filtering on Dataset, Write English(upper,lower case) or Korean character to display the result" onclick="Static02_onclick" cssclass="sta_WF_explain" left="30" top="25" width="785" height="21" wordwrap="english" verticalAlign="top"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsFind" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="pseudocode" type="STRING" size="256"/>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="text" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="text">김재범</Col>
+            <Col id="code">1</Col>
+          </Row>
+          <Row>
+            <Col id="text">이제혁</Col>
+            <Col id="code">2</Col>
+          </Row>
+          <Row>
+            <Col id="text">김혜경</Col>
+            <Col id="code">3</Col>
+          </Row>
+          <Row>
+            <Col id="text">칸살림</Col>
+            <Col id="code">4</Col>
+          </Row>
+          <Row>
+            <Col id="text">정민희</Col>
+            <Col id="code">5</Col>
+          </Row>
+          <Row>
+            <Col id="text">정광용</Col>
+            <Col id="code">6</Col>
+          </Row>
+          <Row>
+            <Col id="text">백승헌</Col>
+            <Col id="code">7</Col>
+          </Row>
+          <Row>
+            <Col id="text">이희정</Col>
+            <Col id="code">8</Col>
+          </Row>
+          <Row>
+            <Col id="text">마정원</Col>
+            <Col id="code">9</Col>
+          </Row>
+          <Row>
+            <Col id="text">윤혜영</Col>
+            <Col id="code">10</Col>
+          </Row>
+          <Row>
+            <Col id="text">조재일</Col>
+            <Col id="code">11</Col>
+          </Row>
+          <Row>
+            <Col id="text">이용한</Col>
+            <Col id="code">12</Col>
+          </Row>
+          <Row>
+            <Col id="text">조청호</Col>
+            <Col id="code">13</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+var arrFirst = [12593,12594,12596,12599,12600,12601,12609,12610,12611,12613,12614,12615,12616,12617,12618,12619,12620,12621,12622];
+var arrSecond = [12623,12624,12625,12626,12627,12628,12629,12630,12631,12632,12633,12634,12635,12636,12637,12638,12639,12640,12641,12642,12643];
+var arrThird = [0,12593,12594,12595,12596,12597,12598,12599,12601,12602,12603,12604,12605,12606,12607,12608,12609,12610,12612,12613,12614,12615,12616,12618,12619,12620,12621,12622];
+
+this.GetSpliceTextK = function(strInput)
+{
+	var i;
+	var strOut = "";
+	for(i=0;i<strInput.length;i++)
+	{
+		var nCode = strInput.charCodeAt(i);
+		if(nCode>=44032 && nCode <= 55203)
+		{
+			var nFirst = Math.floor((nCode - 44032) / 588);
+			strOut += String.fromCharCode(arrFirst[nFirst]);
+			var nSecond = Math.floor(((nCode - 44032) % 588) / 28) ;
+			strOut += String.fromCharCode(arrSecond[nSecond]);
+			var nThird = Math.floor((nCode - 44032) % 28) ;
+			if(nThird > 0)
+				strOut += String.fromCharCode(arrThird[nThird]);
+		}  
+		else
+			strOut += String.fromCharCode(nCode);
+	}
+	return strOut;  
+};
+
+
+var arrFirstE = ["r","R","s","e","E","f","a","q","Q","t","T","d","w","W","c","z","x","v","g"];
+var arrSecondE = ["k","o","i","O","j","p","u","P","h","hk","ho","hl","y","n","nj","np","nl","b","m","ml","l"];
+var arrThirdE = ["","r","R","rt","s","sw","sg","e","f","fr","fa","fq","ft","fx","fv","fg","a","q","qt","t","T","d","w","c","z","x","v","g"];
+var arrAllE = ["r","R","rt","s","sw","sg","e","E","f","fr","fa","fq","ft","fx","fv","fg","a","q","Q","qt","t","T","d","w","W","c","z","x","v","g","k","o","i","O","j","p","u","P","h","hk","ho","hl","y","n","nj","np","nl","b","m","ml","l"];
+
+this.GetSpliceTextE = function(strInput)
+{
+	var i;
+	var strOutE = "";
+	for(i=0;i<strInput.length;i++)
+	{
+		var nCode = strInput.charCodeAt(i);
+		if(nCode>=44032 && nCode <= 55203)
+		{
+			var nFirst = Math.floor((nCode - 44032) / 588);
+			strOutE += arrFirstE[nFirst];
+			var nSecond = Math.floor(((nCode - 44032) % 588) / 28) ;
+			strOutE += arrSecondE[nSecond];
+			var nThird = Math.floor((nCode - 44032) % 28) ;
+			if(nThird > 0)
+				strOutE += arrThirdE[nThird];
+		}
+		else if(nCode>=12593 && nCode <= 12643)
+		{
+			strOutE += arrAllE[nCode-12593];
+		}
+		else
+		{
+			strOutE += String.fromCharCode(nCode);
+		}
+	}
+	return strOutE;
+};
+
+this.Edit00_oninput = function(obj:nexacro.Edit,e:nexacro.InputEventInfo)
+{
+
+	var text = obj.value;
+	if(!this.gf_IsEmpty(text))
+	{
+		if(text.length > 0)
+		{
+			var isUpperCase = this.fn_findUpperCase(text);
+			if(isUpperCase) text = text.toLowerCase();
+			var etext = this.GetSpliceTextE(text);
+			this.dsFind.filter("pseudocode.toString().indexOf('"+etext+"') == 0");
+			this.ListBox00.set_visible(true);
+		}
+		else
+		{
+			//this.dsFind.filter("pseudocode == 0");
+			this.dsFind.filter("");
+			this.ListBox00.set_visible(false);
+		}
+	}
+};
+
+
+this.np_Dataset_Suggest_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var count = this.dsFind.getRowCount();
+	var i;
+	for(i=0;i<count;i++)
+	{
+		var text = this.dsFind.getColumn(i,"text");
+		var code = this.GetSpliceTextE(text);
+		this.dsFind.setColumn(i,"pseudocode",code);
+	}
+};
+
+this.ListBox00_onitemclick = function(obj:ListBox, e:nexacro.ListBoxClickEventInfo)
+{
+	this.Edit00.set_value(e.itemtext);   
+	this.ListBox00.set_visible(false);
+};
+
+this.ListBox00_onkeydown = function(obj:ListBox, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13)
+	{
+		this.Edit00.set_value(this.ListBox00.text);   
+		this.ListBox00.set_visible(false);
+	}
+};
+
+
+this.Edit00_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==40 || e.keycode == 38)
+	{
+		this.ListBox00.setFocus();
+		this.ListBox00.set_index(0);		
+	}
+};
+
+this.fn_findUpperCase = function(strText)
+{
+	var alphabetsArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+	for(var i = 0; i < alphabetsArray.length; i++)
+	{
+		if(strText == alphabetsArray[i]) return true;
+	}
+	return false;
+};
+
+this.gf_IsEmpty = function(inVal)
+{	
+	if (new String(inVal).valueOf() == "undefined") return true;
+    if (inVal == null) return true;
+    
+    var v_ChkStr = new String(inVal);
+
+    if (v_ChkStr == null) return true;
+    if (v_ChkStr.toString().length == 0 ) return true;
+    return false;
+};
+]]></Script>
+  </Form>
+</FDL>

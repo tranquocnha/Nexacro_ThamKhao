@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XFONT version="1.0"><![CDATA[@font-face {
+   font-family: 'Noto Sans KR Regular';
+   font-style: normal;
+   font-weight: 400;
+  src: url(./_resource_/_font_/NotoSansKR-Regular.eot);
+  src: url(./_resource_/_font_/NotoSansKR-Regular.eot?#iefix) format('embedded-opentype'),
+       url(./_resource_/_font_/NotoSansKR-Regular.woff2) format('woff2'),
+       url(./_resource_/_font_/NotoSansKR-Regular.woff) format('woff'),
+       url(./_resource_/_font_/NotoSansKR-Regular.otf) format('opentype');
+ }
+@font-face {
+  font-family: 'Noto Sans KR Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url(./_resource_/_font_/NotoSansKR-Medium.eot);
+  src: url(./_resource_/_font_/NotoSansKR-Medium.eot?#iefix) format('embedded-opentype'),
+       url(./_resource_/_font_/NotoSansKR-Medium.woff2) format('woff2'),
+       url(./_resource_/_font_/NotoSansKR-Medium.woff) format('woff'),
+       url(./_resource_/_font_/NotoSansKR-Medium.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans KR Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url(./_resource_/_font_/NotoSansKR-Bold.eot);
+  src: url(./_resource_/_font_/NotoSansKR-Bold.eot?#iefix) format('embedded-opentype'),
+       url(./_resource_/_font_/NotoSansKR-Bold.woff2) format('woff2'),
+       url(./_resource_/_font_/NotoSansKR-Bold.woff) format('woff'),
+       url(./_resource_/_font_/NotoSansKR-Bold.otf) format('opentype');
+}]]></XFONT>

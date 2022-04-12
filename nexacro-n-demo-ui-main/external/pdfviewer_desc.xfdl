@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="250" onload="form_onload">
+    <Layouts>
+      <Layout height="250" width="440">
+        <Static id="Static00" taborder="1" text="PDF Viewer" left="20" top="19" width="150" height="30" cssclass="sta_WF_compTitle02" messageid="external.pdfviewer" fittocontents="width"/>
+        <Static id="Static01" taborder="0" text="PDF.js or pdf.js is a JavaScript library that renders Portable Document Format (PDF) files using the web standards-compliance HTML5 Canvas.(URL: &lt;l v='https://mozilla.github.io/pdf.js/'&gt;https://mozilla.github.io/pdf.js/&lt;/l&gt;)&#13;&#10;&#13;&#10;The WebBrowser component of the Nexacro Platform makes it easy to link." left="20" top="Static00:2" height="140" cssclass="sta_WF_txt15px" wordWrap="english" fittocontents="height" messageid="external.pdfviewer.desc" right="20" usedecorate="true"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};]]></Script>
+  </Form>
+</FDL>

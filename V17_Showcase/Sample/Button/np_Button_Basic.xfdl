@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Button_Basic" classname="Button_Basic" inheritanceid="" position="absolute" titletext="Button Basic" onload="Button_Basic_onload" left="0" width="760" top="0" height="430">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" text="Binding" position="absolute" left="30" width="250" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid01" taborder="1" binddataset="Dataset00" autofittype="col" position="absolute" left="30" width="220" top="68" height="150">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="Column0"/>
+                <Cell col="1" disptype="normal" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:Column0"/>
+                <Cell col="1" disptype="normal" text="bind:Column1"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="3" text="Button01" position="absolute" onclick="Button01_onclick" left="30" width="120" top="383" height="40" borderRadius="6px" border="3px solid blue"/>
+        <Button id="Button03" taborder="5" position="absolute" style="background:transparent URL('theme://Images\btn_RF_quick01_O.png') stretch 3,3;border:3 solid #656a70ff ;bordertype:round 3 3 ;" left="381" width="65" top="371" height="55" background="URL(&quot;theme://Images\alt_question.png&quot;) no-repeat center center" border="0px solid" onclick="Button03_onclick"/>
+        <Button id="Button04" taborder="6" text="onclick" position="absolute" onclick="Button04_onclick" left="390" width="150" top="68" height="40"/>
+        <Button id="Button05" taborder="7" text="ondbclick" position="absolute" ondblclick="Button05_ondblclick" left="548" width="150" top="68" height="40"/>
+        <Button id="Button06" taborder="8" text="onlbuttondown" position="absolute" onlbuttondown="Button06_onlbuttondown" left="390" width="150" top="118" height="40"/>
+        <Button id="Button07" taborder="9" text="onlbuttonup" position="absolute" onlbuttonup="Button07_onlbuttonup" left="548" width="150" top="118" height="40"/>
+        <Button id="Button08" taborder="10" text="onrbuttondown" position="absolute" onrbuttondown="Button08_onrbuttondown" left="390" width="150" top="168" height="40"/>
+        <Button id="Button09" taborder="11" text="onrbuttonup" position="absolute" onrbuttonup="Button09_onrbuttonup" left="548" width="150" top="168" height="40"/>
+        <Button id="Button10" taborder="12" text="onsize" position="absolute" onclick="Button10_onclick" onsize="Button10_onsize" left="390" width="150" top="218" height="40"/>
+        <Static id="Static01" text="Event" position="absolute" left="390" width="250" top="18" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static02" text="FlatStyle Button" position="absolute" left="30" width="250" top="328" height="40" cssclass="sta_WF_subtitP"/>
+        <Static id="Static00" text="picture Button" position="absolute" left="390" width="250" top="328" height="40" cssclass="sta_WF_subtitP"/>
+        <Button id="Button00" taborder="14" text="Button00" left="260" top="68" width="90" height="40"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Button00" propid="text" datasetid="Dataset00" columnid="Column1"/>
+    </Bind>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">A</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">B</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">C</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.Button04_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	this.alert("click");
+};
+
+this.Button05_ondblclick = function (obj:Button, e:MouseEventInfo)
+{
+	this.alert("dbclick");
+};
+
+this.Button06_onlbuttondown = function (obj:Button, e:MouseEventInfo)
+{
+	this.alert("onlbuttondown");
+};
+
+this.Button07_onlbuttonup = function (obj:Button, e:MouseEventInfo)
+{
+	this.alert("onlbuttonup");
+};
+
+this.Button08_onrbuttondown = function (obj:Button, e:MouseEventInfo)
+{
+	this.alert("onrbuttondown");
+};
+
+this.Button09_onrbuttonup = function (obj:Button, e:MouseEventInfo)
+{
+	this.alert("onrbuttonup");
+};
+
+this.Button10_onsize = function (obj:Button, e:SizeEventInfo)
+{
+	this.alert("onsize");
+};
+
+this.Button10_onclick = function (obj:Button, e:ClickEventInfo)
+{
+	if (this.Button10.getOffsetWidth() == 308) 
+	{
+		this.Button10.set_width(143);
+	}
+	else 
+	{
+		this.Button10.set_width(308);
+	}
+};
+
+this.Button_Basic_onload = function (obj:Form, e:LoadEventInfo)
+{
+
+};
+
+this.Button03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.alert("click");
+};
+]]></Script>
+  </Form>
+</FDL>

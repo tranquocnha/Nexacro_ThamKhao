@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="CrossDomain" classname="form01" left="0" top="0" width="760" height="430" titletext="CrossDomain" onload="form01_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="14" cssclass="sta_WFSA_BG" left="16" top="39" height="40" class="" style="background:@gradation;border:1 solid gray ;bordertype:round 4 4 ;gradation:linear 0,50 #ffffffff 0,100 #f0f0f0ff;" right="15"/>
+        <Static id="Static02" taborder="6" text="Communication Type:" left="355" top="48" width="111" height="20" font="8pt &quot;맑은 고딕&quot;" right="" bottom=""/>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="16" top="113" binddataset="ds_data" right="16" bottom="13" cellsizingtype="col" autosizingtype="none">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="248"/>
+                <Column size="153"/>
+                <Column size="151"/>
+                <Column size="174"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Seq"/>
+                <Cell col="1" text="Address"/>
+                <Cell col="2" text="Company Name"/>
+                <Cell col="3" text="HomePage"/>
+                <Cell col="4" text="Technical Support HomePage"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:SEQ"/>
+                <Cell col="1" style="align:left;" text="bind:ADDRESS"/>
+                <Cell col="2" style="align:left;" text="bind:NAME"/>
+                <Cell col="3" style="align:left;" text="bind:HOMEPAGE"/>
+                <Cell col="4" style="align:left;" text="bind:TECHHOMEPAGE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="Inquiry" top="47" width="53" height="22" onclick="Button00_onclick" right="18"/>
+        <Static id="Static01" taborder="4" text="The number of queries:" left="408" top="87" width="152" height="22"/>
+        <Combo id="comType" taborder="5" left="469" top="48" width="101" height="20" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" onitemchanged="comType_onitemchanged" right="" bottom="">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">XML</Col>
+                <Col id="datacolumn">XML</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">SSV</Col>
+                <Col id="datacolumn">SSV</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">CSV</Col>
+                <Col id="datacolumn">CSV</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">ZLIB</Col>
+                <Col id="datacolumn">ZLIB</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="Static03" taborder="8" text="Required Time (Seconds) :" left="185" top="87" width="178" height="22"/>
+        <Radio id="rdCount" taborder="10" columncount="3" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="30000" left="131" top="48" width="208" height="20" font="7pt &quot;맑은 고딕&quot;" right="" bottom="">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">30000</Col>
+                <Col id="datacolumn">30,000</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">50000</Col>
+                <Col id="datacolumn">50,000</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">100000</Col>
+                <Col id="datacolumn">100,000</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static00" taborder="11" text="Number of query :" left="25" top="48" width="107" height="20"/>
+        <Static id="Static07" taborder="17" text="Data Inquiry" left="17" top="13" width="164" height="18" style="font:bold 9 Dotum;" cssclass="sta_WF_subtitP" right="" bottom=""/>
+        <MaskEdit id="mk_cnt" taborder="18" left="565" top="87" width="82" height="22" style="background:transparent;border:0 none #808080ff ;color:#cc5200ff;align:left middle;font:bold antialias 9 arial;" value="0" mask="#,###" enable="false"/>
+        <MaskEdit id="mk_time" taborder="21" value="0" enable="false" left="346" top="87" width="82" height="22" style="background:transparent;border:0 none #808080ff ;color:#cc5200ff;align:left middle;font:bold antialias 9 arial;"/>
+        <CheckBox id="ckCompress" taborder="22" text="Compressed" left="587" top="48" width="91" height="20" enableevent="false" font="9pt &quot;맑은 고딕&quot;" right="" bottom=""/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SEQ" type="STRING" size="256"/>
+          <Column id="ADDRESS" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="HOMEPAGE" type="STRING" size="256"/>
+          <Column id="TECHHOMEPAGE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[var sStartTime;
+var serviceURL = "http://www.xplatform.co.kr:8080/Next_JSP/nexacro/Service/Service_Default.jsp";	
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_data.clearData();  
+	  
+	var objDate = new Date();  
+	sStartTime = objDate.getTime();  
+	        
+	this.mk_time.set_value(0);  
+	this.mk_cnt.set_value(0);  
+	 //+ this.rdCount.value + 
+	var arg = "row_cnt=" + this.rdCount.value + " type=" + this.comType.value +  " compress=" + this.ckCompress.value;	
+	
+	if(	this.comType.value == 'CSV')
+	{
+		serviceURL = "http://www.xplatform.co.kr:8080/Next_JSP/nexacro/Service/Service_CSV.jsp?row_cnt=" + this.rdCount.value;	
+	}	else {      
+		serviceURL = "http://www.xplatform.co.kr:8080/Next_JSP/nexacro/Service/Service_Default.jsp";
+	}    
+	var arg2 = "url=" + serviceURL + "&zip=" + this.ckCompress.value;
+	this.transaction("select","http://localhost:8080/Test_02/nexacro/Service/url.jsp?" + arg2,"","ds_data=output",arg,"fn_callback"); 
+}      
+       
+this.fn_callback = function(serviceID, errCD, errMSG)
+{   
+	if(errCD < 0)       
+	{   
+		this.alert(serviceID + "==" + errCD + "==" + errMSG);  
+       
+	}else{          
+		var objDate = new Date();
+		
+		this.mk_time.set_value(Math.floor((objDate.getTime()-sStartTime)/1000,1) );
+		this.mk_cnt.set_value(this.ds_data.rowcount);
+	}     
+}   
+
+this.form01_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+  this.comType.set_value("XML");
+  this.ckCompress.set_value(false);       
+  this.ckCompress.set_enable(false);	
+}
+  
+
+this.comType_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.ckCompress.set_value(false);    
+	this.ckCompress.set_enable(false);		
+	if(e.postvalue == 'SSV')
+	{
+			this.ckCompress.set_enable(true);	  
+	} else if(e.postvalue == 'CSV')
+	{
+		this.ckCompress.set_value(true);    
+		this.ckCompress.set_enable(false);		
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

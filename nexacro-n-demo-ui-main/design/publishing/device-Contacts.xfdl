@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="form" width="440" height="664" onload="form_onload">
+    <Layouts>
+      <Layout height="664" width="440">
+        <Edit id="Edit00" taborder="0" left="20" top="20" height="42" right="20" onchanged="Edit00_onchanged" text="Search" cssclass="edit_MWF_contactSearch" displaynulltext="Search"/>
+        <ListView id="ListView00" taborder="1" left="20" top="70" binddataset="ds_ListviewContact" height="574" cssclass="lstv_MWF_contact" right="20">
+          <Formats>
+            <Format id="default">
+              <Band id="body" width="100%" height="70">
+                <Cell id="Cell01" left="5" top="5" width="60" height="60" text="bind:Profile" cssclass="lstvContact_profile" displaytype="imagecontrol"/>
+                <Cell id="Cell03" left="70" top="13" width="180" height="20" text="bind:Name" cssclass="lstvContact_txt01"/>
+                <Cell id="Cell05" left="70" width="180" height="20" text="bind:Organization" bottom="17" cssclass="lstvContact_txt02"/>
+                <Cell id="Cell00" top="10" width="50" height="50" right="10" cssclass="lstvContact_btn01" edittype="button"/>
+              </Band>
+              <Band id="detail" width="100%" height="150">
+                <Cell id="Cell09" left="50" top="50" width="80" height="80" text="bind:iconCall" color="#111111" edittype="button" cssclass="lstvContact_img01"/>
+                <Cell id="Cell11" top="50" height="80" text="bind:iconSMS" color="#111111" edittype="button" cssclass="lstvContact_img02" width="80" left="39.80%"/>
+                <Cell id="Cell13" top="50" width="80" height="80" text="bind:iconInfo" color="#111111" edittype="button" cssclass="lstvContact_img03" right="51"/>
+                <Cell id="Cell07" top="15" height="24" text="bind:PhoneNum" right="0" left="0" cssclass="lstvContact_txt03"/>
+              </Band>
+            </Format>
+          </Formats>
+        </ListView>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_ListviewContact">
+        <ColumnInfo>
+          <Column id="Profile" type="STRING" size="256"/>
+          <Column id="Name" type="STRING" size="256"/>
+          <Column id="Organization" type="STRING" size="256"/>
+          <Column id="PhoneNum" type="STRING" size="256"/>
+          <Column id="iconCall" type="STRING" size="256"/>
+          <Column id="iconSMS" type="STRING" size="256"/>
+          <Column id="iconInfo" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Name">David Slater</Col>
+            <Col id="Organization">NBC Universal. Inc.</Col>
+            <Col id="PhoneNum">+82-10-1234-5678</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile01.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Jane Smith</Col>
+            <Col id="Organization">emirates Airlines</Col>
+            <Col id="PhoneNum">+82-10-3456-7890</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile02.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Veronica Smithers</Col>
+            <Col id="Organization">Valencia Marketing </Col>
+            <Col id="PhoneNum">+82-10-5678-1234</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile03.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">James Snyder</Col>
+            <Col id="Organization">Dominion</Col>
+            <Col id="PhoneNum">+82-10-9876-5432</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile04.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Serena Sotherby</Col>
+            <Col id="Organization">Coral Sands Resort</Col>
+            <Col id="PhoneNum">+82-10-6789-0123</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile05.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Jane Stevens</Col>
+            <Col id="Organization">Regency Group</Col>
+            <Col id="PhoneNum">+82-10-5432-1098</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile06.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Matthew Evan</Col>
+            <Col id="Organization">Hermes</Col>
+            <Col id="PhoneNum">+82-10-4567-8901</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile07.png</Col>
+          </Row>
+          <Row>
+            <Col id="Name">Kate </Col>
+            <Col id="Organization">Hertz</Col>
+            <Col id="PhoneNum">+82-10-8910-2345</Col>
+            <Col id="iconCall">Call</Col>
+            <Col id="iconSMS">SMS</Col>
+            <Col id="iconInfo">Info</Col>
+            <Col id="Profile">imagerc::img_MWF_lstvProfile08.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnLoad();
+};
+
+this.Div00_Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid02.set_formatid(e.postvalue);
+};
+
+this.Edit00_onchanged = function(obj:nexacro.Edit,e:nexacro.ChangeEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

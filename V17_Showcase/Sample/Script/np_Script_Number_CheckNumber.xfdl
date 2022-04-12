@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Number_CheckNumber" inheritanceid="" position="absolute" titletext="Script_Number_CheckNumber" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="188" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="78" height="40"/>
+        <Edit id="edt_input" taborder="0" value="-1234.56" text="XPLATFORM" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="78" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="188" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="128" height="40"/>
+        <Static id="Static05" taborder="3" text="Check the format of input String whether number or not" cssclass="sta_WF_subtitP" left="30" top="18" width="740" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Number_CheckNumber
+ * Description : Numeric format check
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bRtn = this.fn_checkNumber(this.edt_input.value);	
+	this.edt_output.set_value(bRtn);
+}
+
+/*
+ * Function Name : fn_checkNumber
+ * Description   : Check whether the correct numeric format strings
+ * Parameter     : Input String to check the status for number
+ * Return        : If the correct number format return true, If not in correct number format return false
+ * Example       : fn_checkNumber("-1234.56");
+ */
+this.fn_checkNumber = function(sNum)
+{
+	var sChar;
+	var nCnt = 0;
+	var bRtn;
+	
+    for (var i = 0; i < sNum.length; i++) 
+    {
+        sChar = sNum.charAt(i);
+
+        if (i == 0 && (sChar == "+" || sChar == "-" )) 
+        {
+            bRtn = true;
+        } 
+        else if (sChar >= "0" && sChar <= "9") 
+        {
+            bRtn = true;
+        } 
+        else if (sChar == ".") 
+        {
+            nCnt++;
+            if (nCnt > 1)	
+            {
+                bRtn = false;
+                break;
+            }
+        } 
+        else 
+        {
+            bRtn = false;
+            break;
+        }
+    }
+	
+    return bRtn;
+}
+]]></Script>
+  </Form>
+</FDL>

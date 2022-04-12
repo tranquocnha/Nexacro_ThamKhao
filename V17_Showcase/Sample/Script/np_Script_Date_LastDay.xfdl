@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="Script_Date_LastDay" classname="Script_String_Quote" inheritanceid="" position="absolute" titletext="Script_Date_LastDay" left="0" top="0" width="760" height="430">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_output" taborder="2" autoselect="true" autoskip="true" position="absolute" left="90" width="250" top="190" height="40"/>
+        <Static id="Static00" text="input" position="absolute" left="30" width="60" top="80" height="40"/>
+        <Static id="Static01" text="output" position="absolute" left="30" width="60" top="190" height="40"/>
+        <Button id="btn_execute" taborder="1" text="execute" onclick="btn_execute_onclick" position="absolute" left="250" width="90" top="130" height="40"/>
+        <MaskEdit id="msk_input0" taborder="0" value="20121201" type="string" mask="####/##/##" maskchar=" " autoselect="true" autoskip="true" style="align:left middle; " position="absolute" left="90" width="250" top="80" height="40"/>
+        <Static id="Static05" taborder="3" text="Calculate the last day from the inserted time" cssclass="sta_WF_subtitP" left="30" top="18" width="580" height="40"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[/*
+ * File Name   : Script_Date_LastDay
+ * Description : Searching last day in the current month
+ */
+ 
+/*  Button Click  */
+this.btn_execute_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sRtn = this.fn_lastDay(this.msk_input0.value);	
+	this.edt_output.set_value(sRtn);
+};
+
+/*
+ * Function Name : fn_lastDay
+ * Description   : Creating last day in current month
+ * Parameter     : Date
+ * Return        : yyyyMMdd
+ * Example       : fn_lastDay("20121231");
+ */
+this.fn_lastDay = function(sDate) 
+{
+    var dDate = "";
+    sDate = sDate.trim();
+    
+	if (sDate == null || sDate == "" || sDate == "undefined")  
+	{
+        // Taking date after one month from today and calculating  today's date
+	    dDate = (new Date()).addMonth(1);
+	    dDate = (new Date(dDate)).addDate((new Date(dDate)).getDate()*-1);
+    }
+    else 
+    {
+        // picking next month's first day from the input date
+	    dDate = new Date(parseInt(sDate.substr(0,4)), parseInt(sDate.substr(4,2)), 1);
+	    dDate = dDate.addDate(-1);	
+    }
+
+    var sRtn =  (new Date(dDate)).getFullYear()
+             + ((new Date(dDate)).getMonth()+1).toString().padLeft(2, "0")
+             + ((new Date(dDate)).getDate()).toString().padLeft(2, "0");  
+   
+	return sRtn;
+};
+]]></Script>
+  </Form>
+</FDL>

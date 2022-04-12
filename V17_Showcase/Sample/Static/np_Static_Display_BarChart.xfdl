@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="BarChart" classname="BarChart" left="0" top="0" width="760" height="550" titletext="Display bar chart using Static componets" onload="BarChart_onload" ontimer="BarChart_ontimer">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="0" text="Vertical chart" cssclass="sta_WF_explain" left="30" top="316" width="175" height="18" style="font:bold 9 Dotum;"/>
+        <Static id="Static00" taborder="1" text="Horizontal chart" cssclass="sta_WF_explain" left="30" top="53" width="175" height="18" style="font:bold 9 Dotum;"/>
+        <Div id="divChart2" taborder="2" left="30" top="349" width="600" height="151" style="background:transparent;" text="">
+          <Layouts>
+            <Layout>
+              <Static id="stLine01" taborder="70" left="9.97%" top="126" width="441" height="23" border="1 solid #808080" textAlign="center" verticalAlign="middle"/>
+              <Static id="stLine02" taborder="71" left="9.97%" top="104" width="441" height="23" border="1 solid #808080" textAlign="center" verticalAlign="middle"/>
+              <Static id="stLine00" taborder="72" left="9.97%" top="82" width="441" height="23" border="1 solid #808080" textAlign="center" verticalAlign="middle"/>
+              <Static id="stLine03" taborder="73" left="9.97%" top="60" width="441" height="23" border="1 solid #808080" textAlign="center" verticalAlign="middle"/>
+              <Static id="stLine04" taborder="74" left="9.97%" top="38" width="441" height="23" border="1 solid #808080"/>
+              <Static id="stValue00" taborder="75" left="10.12%" top="131" height="10" width="100" textAlign="center" verticalAlign="middle" background="#f5b651"/>
+              <Static id="stValue01" taborder="76" left="10.12%" top="109" height="10" style="background:#0000ffff;align:center middle" width="100" textAlign="center" verticalAlign="middle" background="#0000ff"/>
+              <Static id="stValue02" taborder="77" left="10.12%" top="87" height="10" style="background:crimson;align:center middle" width="100" textAlign="center" verticalAlign="middle" background="crimson"/>
+              <Static id="stValue10" taborder="78" left="183" top="131" height="10" style="background:#f5b651ff;align:center middle" width="100" textAlign="center" verticalAlign="middle" background="#f5b651"/>
+              <Static id="stValue11" taborder="79" left="183" top="109" height="10" width="100" background="#0000ff" textAlign="center" verticalAlign="middle"/>
+              <Static id="stValue12" taborder="80" left="183" top="87" height="10" width="100" textAlign="center" verticalAlign="middle" background="crimson"/>
+              <Static id="stValue20" taborder="81" left="51.17%" top="131" height="10" width="100" textAlign="center" verticalAlign="middle" background="#f5b651"/>
+              <Static id="stValue21" taborder="82" left="51.17%" top="109" height="10" width="100" textAlign="center" verticalAlign="middle" background="#0000ff"/>
+              <Static id="stValue22" taborder="83" left="51.17%" top="87" height="10" width="100" textAlign="center" verticalAlign="middle" background="crimson"/>
+              <Static id="stValue30" taborder="84" left="71.74%" top="131" height="10" width="100" textAlign="center" verticalAlign="middle" background="#f5b651"/>
+              <Static id="stValue31" taborder="85" left="71.74%" top="109" height="10" width="100" textAlign="center" verticalAlign="middle" background="#0000ff"/>
+              <Static id="stValue32" taborder="86" left="71.74%" top="87" height="10" width="100" textAlign="center" verticalAlign="middle" background="crimson"/>
+              <Static id="Static03" taborder="87" text="kiwi" left="429" top="11" width="100" height="28" textAlign="center" verticalAlign="middle"/>
+              <Static id="Static02" taborder="88" text="grape" left="305" top="11" width="100" height="28" textAlign="center" verticalAlign="middle"/>
+              <Static id="Static00" taborder="89" text="apple" left="60" top="11" width="100" height="28" textAlign="center" verticalAlign="middle"/>
+              <Static id="Static01" taborder="90" text="banana" left="183" top="11" width="100" height="28" textAlign="center" verticalAlign="middle"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="3" text="This is sample displays animated bar chart using timer functionality" cssclass="sta_WF_explain" left="30" top="13" width="611" height="20" font=""/>
+        <Div id="divChart1" taborder="4" left="30" top="86" height="160" width="600">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="72" text="item1" left="0" top="8" width="56" height="24" textAlign="center" verticalAlign="middle" font="9pt Dotum"/>
+              <Static id="Static02" taborder="73" text="item2" left="0" top="32" width="56" height="24" textAlign="center" verticalAlign="middle" font="9pt Dotum"/>
+              <Static id="Static03" taborder="74" text="item3" left="0" top="56" width="56" height="24" textAlign="center" verticalAlign="middle" font="9pt Dotum"/>
+              <Static id="Static04" taborder="75" text="item4" left="0" top="80" width="56" height="24" textAlign="center" verticalAlign="middle" font="9pt Dotum"/>
+              <Static id="Static05" taborder="76" text="item5" left="0" top="104" width="56" height="24" textAlign="center" verticalAlign="middle" font="9pt Dotum"/>
+              <Static id="Static06" taborder="77" text="item6" left="0" top="128" width="56" height="24" textAlign="center" verticalAlign="middle" font="9pt Dotum"/>
+              <Static id="stLine1" taborder="78" left="64" top="3" width="56" height="124" border="1 solid #808080"/>
+              <Static id="stLine2" taborder="79" left="119" top="3" width="56" height="124" border="1 solid #808080"/>
+              <Static id="stLine3" taborder="80" left="174" top="3" width="56" height="124" border="1 solid #808080"/>
+              <Static id="stLine4" taborder="81" left="229" top="3" width="56" height="124" border="1 solid #808080"/>
+              <Static id="stLine5" taborder="82" left="284" top="3" width="56" height="124" border="1 solid #808080"/>
+              <Static id="stLine6" taborder="83" left="339" top="3" width="56" height="124" border="1 solid #808080"/>
+              <Static id="stLine7" taborder="84" left="394" top="3" width="56" height="124" border="1 solid #808080"/>
+              <Static id="stBar01" taborder="85" left="64" top="10" width="54" height="20" background="#C45E62"/>
+              <Static id="stBar02" taborder="86" left="64" top="34" width="120" height="20" background="#a13f40"/>
+              <Static id="stBar03" taborder="87" left="64" top="58" width="240" height="20" background="#e8a5a6"/>
+              <Static id="stBar04" taborder="88" left="64" top="82" width="357" height="20" background="#f28c38"/>
+              <Static id="stBar05" taborder="89" left="64" top="106" width="220" height="20" background="#f5b651"/>
+              <Static id="stBar06" taborder="90" left="64" top="130" width="120" height="20" background="#de643c"/>
+              <Static id="stValue01" taborder="91" text="12" left="24.25%" top="10" width="24" height="20" background="#dddddd" padding="1px 4px"/>
+              <Static id="stValue04" taborder="92" text="22" left="65.22%" top="82" width="24" height="20" background="#dddddd" padding="1px 4px"/>
+              <Static id="stValue02" taborder="93" text="22" left="36.96%" top="34" width="24" height="20" background="#dddddd" padding="1px 4px"/>
+              <Static id="stValue03" taborder="94" text="22" left="47.16%" top="58" width="24" height="20" background="#dddddd" padding="1px 4px"/>
+              <Static id="stValue05" taborder="95" text="22" left="56.86%" top="106" width="24" height="20" background="#dddddd" padding="1px 4px"/>
+              <Static id="stValue06" taborder="96" text="22" left="36.96%" top="130" width="24" height="20" background="#dddddd" padding="1px 4px"/>
+              <Static id="stLine00" taborder="97" left="449" top="3" width="56" height="124" border="1 solid #808080"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_Chart01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Lable" type="STRING" size="256"/>
+          <Column id="Value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Lable">item1</Col>
+            <Col id="Value">12</Col>
+          </Row>
+          <Row>
+            <Col id="Lable">item2</Col>
+            <Col id="Value">22</Col>
+          </Row>
+          <Row>
+            <Col id="Lable">item3</Col>
+            <Col id="Value">43</Col>
+          </Row>
+          <Row>
+            <Col id="Lable">item4</Col>
+            <Col id="Value">65</Col>
+          </Row>
+          <Row>
+            <Col id="Lable">item5</Col>
+            <Col id="Value">39</Col>
+          </Row>
+          <Row>
+            <Col id="Lable">item6</Col>
+            <Col id="Value">25</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Chart02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Lable" type="STRING" size="256"/>
+          <Column id="Value0" type="STRING" size="256"/>
+          <Column id="Value1" type="STRING" size="256"/>
+          <Column id="Value2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Lable">apple</Col>
+            <Col id="Value0">12</Col>
+            <Col id="Value1">12</Col>
+            <Col id="Value2">8</Col>
+          </Row>
+          <Row>
+            <Col id="Lable">banana</Col>
+            <Col id="Value0">5</Col>
+            <Col id="Value1">3</Col>
+            <Col id="Value2">6</Col>
+          </Row>
+          <Row>
+            <Col id="Lable">grape</Col>
+            <Col id="Value0">7</Col>
+            <Col id="Value1">7</Col>
+            <Col id="Value2">5</Col>
+          </Row>
+          <Row>
+            <Col id="Lable">kiwi</Col>
+            <Col id="Value0">12</Col>
+            <Col id="Value1">15</Col>
+            <Col id="Value2">10</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.nTimerIdx = 0;
+this.nTimerMax = 20;
+
+this.BarChart_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.setTimer(1, 50);
+};
+
+this.BarChart_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+	if(e.timerid==1)
+	{
+		this.nTimerIdx++;
+		
+		this.fn_Chart01();
+		this.fn_Chart02();		
+
+		if(this.nTimerIdx==this.nTimerMax)
+		{
+			this.nTimerIdx = 0;
+			this.killTimer(1);
+		}
+	}
+};
+
+this.fn_Chart01 = function ()
+{
+	var i;
+	var nLeft;
+	var nTop;
+	var nWidth;
+	var nHeight;
+	var objBar;
+	var objValue;
+	var nValue;
+	
+	for(i=0;i<this.ds_Chart01.rowcount;i++)
+	{
+		objBar = this.divChart1.form.components["stBar0"+(i+1)];	
+		objValue = this.divChart1.form.components["stValue0"+(i+1)];
+
+		nValue = nexacro.round(this.ds_Chart01.getColumn(i, "Value")*5.4);
+		objValue.set_text(this.ds_Chart01.getColumn(i, "Value"));
+
+		nLeft = objBar.left;
+		nTop = objBar.top;
+		nWidth = this.fn_move(this.nTimerIdx, 0, nValue, this.nTimerMax);
+		nHeight = objBar.height;
+
+		objBar.move(nLeft, nTop, nWidth, nHeight);
+		objValue.move(objBar.getOffsetRight()+ 4, objValue.top);	
+	}
+};
+
+this.fn_Chart02 = function()
+{
+	var i, j;
+	var nLeft;
+	var nTop;
+	var nWidth;
+	var nHeight;
+	var objValue;
+	var nValue;
+	var nGap = this.divChart2.height/50;//50
+
+	for(i=0;i<this.ds_Chart02.rowcount;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			objValue = this.divChart2.form.components["stValue"+(i)+(j)];
+			
+			nValue = nexacro.round(this.ds_Chart02.getColumn(i, "Value"+(j))*nGap);
+			nLeft = objValue.left;
+			nWidth = objValue.width;
+			nHeight = this.fn_move(this.nTimerIdx, 0, nValue, this.nTimerMax);
+
+			if(j==0)
+			{
+				nTop = this.divChart2.height - nHeight;
+			}else
+			{
+				nTop = nTop - nHeight;
+			}
+			objValue.move(nLeft, nTop, nWidth, nHeight);
+		}
+	}
+};
+
+this.fn_move = function(t, b, c, d)
+{
+	t /= d/2;
+	if (t < 1) return Math.round(c/2*t*t + b);
+	t--;
+	return Math.round(-c/2 * (t*(t-2) - 1) + b);
+};
+]]></Script>
+  </Form>
+</FDL>

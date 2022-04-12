@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Exe2_Sample_Detail" width="450" height="220" titletext="Exe2_Sample_Detail" onload="Form_onload" border="1px solid #9c9c9c">
+    <Layouts>
+      <Layout height="220" width="450" stepcount="0">
+        <ImageViewer id="ImageViewer00" taborder="0" left="10" top="10" width="168" height="188" image="URL(&quot;imagerc::img_emp20.png&quot;)" stretch="fixaspectratio"/>
+        <Static id="Static04" taborder="1" text="Name" left="195" top="10" width="80" height="30"/>
+        <Static id="Static05" taborder="2" text="Dept" left="195" top="50" width="80" height="30"/>
+        <Static id="Static06" taborder="3" text="Position" left="195" top="90" width="80" height="30"/>
+        <Static id="Static07" taborder="4" text="Phone No" left="195" top="130" width="80" height="30"/>
+        <Static id="Static08" taborder="5" text="E Mail" left="195" top="170" width="80" height="30"/>
+        <Edit id="edt_name" taborder="6" left="277" top="10" width="150" height="30" border="0px none" readonly="true"/>
+        <Combo id="cmb_dept" taborder="7" text="Combo00" left="277" top="50" width="150" height="30" innerdataset="ds_dept" codecolumn="DEPT_CODE" datacolumn="DEPT_NAME" buttonsize="0 0" border="0px none" readonly="true"/>
+        <Combo id="cmb_pos" taborder="8" text="Combo00" left="277" top="90" width="150" height="30" innerdataset="ds_pos" codecolumn="POS_CODE" datacolumn="POS_NAME" buttonsize="0 0" border="0px none" readonly="true"/>
+        <Edit id="edt_mail" taborder="9" left="277" top="170" width="150" height="30" border="0px none" readonly="true"/>
+        <Edit id="edt_phone" taborder="10" left="277" top="130" width="150" height="30" border="0px none" readonly="true"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dept">
+        <ColumnInfo>
+          <Column id="DEPT_CODE" type="STRING" size="32"/>
+          <Column id="DEPT_NAME" type="STRING" size="32"/>
+          <Column id="CORP_CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="DEPT_CODE">KR10</Col>
+            <Col id="DEPT_NAME">Education(KR)</Col>
+            <Col id="CORP_CODE">KR</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CODE">KR20</Col>
+            <Col id="DEPT_NAME">Marketing(KR)</Col>
+            <Col id="CORP_CODE">KR</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CODE">KR30</Col>
+            <Col id="DEPT_NAME">Sales(KR)</Col>
+            <Col id="CORP_CODE">KR</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CODE">JP10</Col>
+            <Col id="DEPT_NAME">Education(JP)</Col>
+            <Col id="CORP_CODE">JP</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CODE">JP20</Col>
+            <Col id="DEPT_NAME">Sales(JP)</Col>
+            <Col id="CORP_CODE">JP</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CODE">CN10</Col>
+            <Col id="DEPT_NAME">Education(CN)</Col>
+            <Col id="CORP_CODE">CN</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT_CODE">CN20</Col>
+            <Col id="DEPT_NAME">Marketing(CN)</Col>
+            <Col id="CORP_CODE">CN</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_pop" keystring="a"/>
+      <Dataset id="ds_pos">
+        <ColumnInfo>
+          <Column id="POS_CODE" type="string" size="32"/>
+          <Column id="POS_NAME" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="POS_CODE">10</Col>
+            <Col id="POS_NAME">Manager</Col>
+          </Row>
+          <Row>
+            <Col id="POS_CODE">20</Col>
+            <Col id="POS_NAME">Staff</Col>
+          </Row>
+          <Row>
+            <Col id="POS_CODE">30</Col>
+            <Col id="POS_NAME">Intern</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.Form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	var objDs = this.parent.param1;
+    var nRow  = this.parent.parma2;    
+    this.ds_pop.copyData(objDs);
+    this.ds_pop.set_rowposition(nRow);	
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="ImageViewer00" propid="image" datasetid="ds_pop" columnid="IMG_URL"/>
+      <BindItem id="item1" compid="edt_name" propid="value" datasetid="ds_pop" columnid="FULL_NAME"/>
+      <BindItem id="item2" compid="cmb_dept" propid="value" datasetid="ds_pop" columnid="DEPT_CODE"/>
+      <BindItem id="item3" compid="cmb_pos" propid="value" datasetid="ds_pop" columnid="POS_CODE"/>
+      <BindItem id="item4" compid="edt_mail" propid="value" datasetid="ds_pop" columnid="E_MAIL"/>
+      <BindItem id="item5" compid="edt_phone" propid="value" datasetid="ds_pop" columnid="PHONE_NO"/>
+    </Bind>
+  </Form>
+</FDL>

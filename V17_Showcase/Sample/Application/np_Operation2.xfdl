@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="np_Operation" classname="np_Operation" left="0" top="0" width="760" height="430" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="30" top="78" height="150" binddataset="Dataset00" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column0"/>
+                <Cell col="3" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column0"/>
+                <Cell col="3" text="bind:Column1"/>
+              </Band>
+              <Band id="summary">
+                <Cell text="expr:dataset.getAvg(&quot;Column0&quot;)"/>
+                <Cell col="1" text="expr:dataset.getAvg(&quot;Column1&quot;)"/>
+                <Cell col="2" text="expr:dataset.getAvg(nexacro.toNumber(&quot;Column0&quot;,0,0,0))"/>
+                <Cell col="3" text="expr:dataset.getAvg(nexacro.toNumber(&quot;Column0&quot;,0,0,0))"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static07" taborder="1" text="Infinity" cssclass="sta_WF_subtitP" left="30" top="18" width="289" height="40"/>
+        <Grid id="Grid01" taborder="2" binddataset="Dataset01" useinputpanel="false" left="30" top="248" height="150" width="700">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="36" band="head"/>
+                <Row size="36"/>
+                <Row size="36" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column0"/>
+                <Cell col="3" text="Column1"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column0"/>
+                <Cell col="3" text="bind:Column1"/>
+              </Band>
+              <Band id="summary">
+                <Cell text="expr:dataset.getAvg(&quot;Column0&quot;)"/>
+                <Cell col="1" text="expr:dataset.getAvg(&quot;Column1&quot;)"/>
+                <Cell col="2" text="expr:dataset.getAvg(nexacro.toNumber(&quot;Column0&quot;,0,0,0))"/>
+                <Cell col="3" text="expr:dataset.getAvg(nexacro.toNumber(&quot;Column1&quot;,0,0,0))"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="Column0" type="INT" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column2">1</Col>
+            <Col id="Column0"/>
+          </Row>
+          <Row>
+            <Col id="Column2">2</Col>
+            <Col id="Column0"/>
+          </Row>
+          <Row>
+            <Col id="Column2">3</Col>
+            <Col id="Column0"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01">
+        <ColumnInfo>
+          <Column id="Column0" type="INT" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>

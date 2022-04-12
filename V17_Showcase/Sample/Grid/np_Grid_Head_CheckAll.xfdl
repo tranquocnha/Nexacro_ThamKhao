@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Grid_Head_CheckAll" left="0" top="0" width="1024" height="768" titletext="Grid_Head CheckAll">
+    <Layouts>
+      <Layout height="768" width="1024">
+        <Static id="Static02" text="Setting on/off on Grid Head's cell using checkbox" class="sta_WF_subtitle" position="absolute" titletext="Grid전체선택/해제" left="30" top="18" width="700" height="40" cssclass="sta_WF_subtitP"/>
+        <Grid id="Grid00" taborder="1" binddataset="Dataset00" onheadclick="Grid00_onheadclick" position="absolute" left="30" top="78" width="300" height="366" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" expr="0"/>
+                <Cell col="1" displaytype="normal" text="TEST_VAL"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:CHECKED"/>
+                <Cell col="1" displaytype="normal" text="bind:TEST_VAL"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="2" binddataset="Dataset00" onheadclick="Grid00_onheadclick" position="absolute" left="340" top="78" width="300" height="366" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="36"/>
+              </Rows>
+              <Band id="head">
+                <Cell disptype="normal" text="CHECKED"/>
+                <Cell col="1" disptype="normal" text="TEST_VAL"/>
+              </Band>
+              <Band id="body">
+                <Cell disptype="normal" text="bind:CHECKED"/>
+                <Cell col="1" disptype="normal" text="bind:TEST_VAL"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHECKED" size="256" type="INT"/>
+          <Column id="TEST_VAL" size="256" type="STRING"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">1</Col>
+          </Row>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">2</Col>
+          </Row>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">3</Col>
+          </Row>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">4</Col>
+          </Row>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">5</Col>
+          </Row>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">6</Col>
+          </Row>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">7</Col>
+          </Row>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">9</Col>
+          </Row>
+          <Row>
+            <Col id="CHECKED">0</Col>
+            <Col id="TEST_VAL">10</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.Grid00_onheadclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	if (e.cell == 0) 
+	{
+		this.gf_SetGridCheckAll(obj, e);
+	}
+};
+
+/*********************************************************************************************
+ ** function name        : gf_SetGridCheckAll()
+ ** function description : This function is used to set the "Checked" column values 1 and 0 while selecting or deselecting the checkbox. 
+    When we are selecting or deselecting the head checkbox. All values will be selected/deselected.
+ ** argument             : obj : Grid Object
+ **                        e   : GridClickEventInfo;
+ ** return Type          :
+ ** return description   :
+ *********************************************************************************************/
+this.gv_IsGridCheckAll = 0;
+this.gf_SetGridCheckAll = function (obj:Grid, e:GridClickEventInfo){
+	var dsObj = eval("this." +obj.binddataset);
+	var v_Colid = obj.getCellProperty("body", e.cell, "text").split("bind:").join("");
+	this.gv_IsGridCheckAll = (this.gv_IsGridCheckAll ? 0 : 1);
+	dsObj.set_enableevent(false);
+	for (var i = 0; i < dsObj.getRowCount(); i++) 
+	{
+		dsObj.setColumn(i, v_Colid, this.gv_IsGridCheckAll);
+	}
+	obj.setCellProperty("Head", 0, "expr", this.gv_IsGridCheckAll);
+	dsObj.set_enableevent(true);
+};
+]]></Script>
+  </Form>
+</FDL>
